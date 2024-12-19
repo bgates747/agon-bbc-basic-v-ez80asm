@@ -193,7 +193,8 @@ FUNTBL:         DW	DECODE		;Line number
                 DW	SUM		;SUM	
 ;
 FUNTBL_END:     EQU	$	
-TCMD:           EQU	FUNTOK+(FUNTBL_END-FUNTBL)/2	
+; TCMD:           EQU	FUNTOK+(FUNTBL_END-FUNTBL)/2	
+TCMD:           EQU	FUNTBL_END-FUNTBL/2+FUNTOK
 ;
 CR:             EQU	0DH	
 LF:             EQU	0AH	
@@ -764,7 +765,7 @@ SYNERR:         JP	SYNTAX		; 'Syntax error'
 ;
 ; END (function)
 ;
-;ENDFUN:         LD	HL,(FREE)	
+ENDFUN:         LD	HL,(FREE)	
                 JP	COUNT1	
 ;
 ; REPORT$
