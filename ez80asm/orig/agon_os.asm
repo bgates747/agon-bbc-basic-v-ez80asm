@@ -11,11 +11,14 @@
 ; 12/12/2024:	Added OSRDCH, OSBYTE_81 and fixed *EDIT
 
 			.ASSUME	ADL = 0
+			.ORG 0x0000
 				
 			INCLUDE	"equs.inc"
 			INCLUDE "macros.inc"
 			INCLUDE "mos_api.inc"	; In MOS/src
-		
+
+			include "agon_os.inc"
+
 ;			SEGMENT CODE
 			
 ;			XDEF	OSWORD
@@ -638,11 +641,14 @@ EXT_HANDLER_2:		INC	DE			; Skip to the file extension # byte
 ; 	- 0: BBC (tokenised BBC BASIC for Z80 format)
 ; 	- 1: Human readable plain text
 ;
-EXT_LOOKUP:		DB	'.BBC', 0, 0		; First entry is the default extension
-			DB	'.TXT', 0, 1
-			DB	'.ASC', 0, 1
-			DB	'.BAS', 0, 1
+EXT_LOOKUP:		DB	".BBC", 0, 0		; First entry is the default extension
+			DB	".TXT", 0, 1
+			DB	".ASC", 0, 1
+			DB	".BAS", 0, 1
 			DB	0			; End of table
+
+SOUND_:			RET ; TEMPORARY
+
 ; OSWORD
 ;
 OSWORD:			CP	07H			; SOUND
@@ -900,11 +906,11 @@ UPPRC:  		AND     7FH
 ; Each command has bit 7 of the last character set, and is followed by the address of the handler
 ; These must be in alphabetical order
 ;		
-COMDS:  		DB	'BY','E'+80h		; BYE
+COMDS:  		DB	"BY","E"+80h		; BYE
 			DW	BYE
-			DB	'EDI','T'+80h		; EDIT
+			DB	"EDI","T"+80h		; EDIT
 			DW	STAR_EDIT
-			DB	'F','X'+80h		; FX
+			DB	"F","X"+80h		; FX
 			DW	STAR_FX
 ;			DB	'VERSIO','N'+80h	; VERSION
 ;			DW	STAR_VERSION
@@ -977,4 +983,3 @@ WAIT_VBLANK:		PUSH 	IX			; Wait for VBLANK interrupt
 			POP	IX
 			RET    
 			
-			include "agon_os.inc"
