@@ -763,7 +763,7 @@ SYNERR:         JP	SYNTAX		; 'Syntax error'
 ;
 ; END (function)
 ;
-ENDFUN:         LD	HL,(FREE)	
+;ENDFUN:         LD	HL,(FREE)	
                 JP	COUNT1	
 ;
 ; REPORT$
@@ -2590,4 +2590,5 @@ MOD161:         CCF
                 ADC	HL,HL	
                 JR	MOD160	
 ;
-                END	
+;                END	
+    include "eval.inc"

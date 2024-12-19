@@ -753,7 +753,8 @@ TINTFN:
 SYS:            	
                 XOR	A	
                 CALL	EXTERR	
-                DB	'Sorry'	
+                DB	"Sorry"	
                 DB	0	
 ;
-                END	
+;                END	
+    include "acorn.inc"

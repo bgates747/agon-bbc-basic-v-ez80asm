@@ -94,3 +94,4 @@ LISTON:         DS	1		;LISTO & OPT FLAG
 INCREM:         DS	1		;AUTO INCREMENT	
 ;
 USER:           END	
+    include "data.inc"

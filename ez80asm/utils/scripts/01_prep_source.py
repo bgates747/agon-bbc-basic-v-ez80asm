@@ -8,6 +8,7 @@ input_folder = 'ez80asm/orig'
 patterns = [
     r'^\s*SEGMENT CODE',
     r'^\s*SEGMENT DATA',
+    r'^\s*END',
     r'^\s*XDEF',
     r'^\s*XREF'
 ]

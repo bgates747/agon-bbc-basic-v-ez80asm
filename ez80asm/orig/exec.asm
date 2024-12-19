@@ -323,12 +323,12 @@ XEQ1:           CALL	NXT
 ;
 ;END
 ;
-ENDIM:          PUSH	IY	
+;ENDIM:          PUSH	IY	
                 POP	HL	
                 LD	BC,(PAGE_)	
                 SBC	HL,BC		;IMMEDIATE MODE ?	
                 JP	C,CLOOP	
-END:            LD	E,0	
+;END:            LD	E,0	
                 CALL	OSSHUT		;CLOSE ALL FILES	
                 JP	WARM		;"Ready"	
 ;
@@ -1367,7 +1367,7 @@ LOCAL4:         LD	(IX+0),1	;FLAG LOCAL ARRAY
 ;
 ;ENDPROC
 ;
-ENDPRO:         POP	BC	
+;ENDPRO:         POP	BC	
                 LD	HL,PROCHK	;PROC MARKER	
                 XOR	A	
                 SBC	HL,BC	
@@ -1378,7 +1378,7 @@ ENDPRO:         POP	BC
                 LD	A,13	
                 JP	ERROR_		;"No PROC"	
 ;
-ENDPR1:         POP	IY	
+;ENDPR1:         POP	IY	
 XEQGO6:         JP	XEQ	
 ;
 ;INPUT #channel,var,var...
@@ -1770,7 +1770,7 @@ XEQGO5:         JP	XEQ
 ;
 ; ENDWHILE
 ;
-ENDWHI:         POP	BC		;Marker	
+;ENDWHI:         POP	BC		;Marker	
                 POP	DE		;Saved text pointer	
                 PUSH	DE	
                 PUSH	BC	
@@ -1784,7 +1784,7 @@ ENDWHI:         POP	BC		;Marker
                 LD	A,46	
                 JR	ERROR5		;"Not in a WHILE loop"	
 ;
-ENDWH1:         PUSH	IY	
+;ENDWH1:         PUSH	IY	
                 LD	IY,0	
                 ADD	IY,DE	
                 CALL	EXPRI	
@@ -3292,4 +3292,5 @@ FREES2:         POP	DE
                 POP	AF	
                 RET	
 ;
-                END	
+;                END	
+    include "exec.inc"

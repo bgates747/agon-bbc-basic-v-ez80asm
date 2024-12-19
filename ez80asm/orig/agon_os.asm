@@ -975,4 +975,6 @@ WAIT_VBLANK:		PUSH 	IX			; Wait for VBLANK interrupt
 $$:			CP.LIL 	A, (IX + sysvar_time + 0)
 			JR	Z, $B
 			POP	IX
-			RET
+			RET    
+			
+			include "agon_os.inc"

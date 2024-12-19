@@ -2252,4 +2252,5 @@ ABS2:           EX	AF,AF'
                 LD	HL,0	
                 RET	
 ;
-                END	
+;                END	
+    include "math.inc"

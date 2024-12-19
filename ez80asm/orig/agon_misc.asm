@@ -226,4 +226,6 @@ CSTR_CAT_1:		LD	A, (DE)			; Copy the second string onto the end of the first str
 			RET	Z			; And return
 			INC	HL
 			INC	DE
-			JR	CSTR_CAT_1		; Loop until finished						
+			JR	CSTR_CAT_1		; Loop until finished						    
+			
+			include "agon_misc.inc"

@@ -173,4 +173,6 @@ COLOUR_2:		CALL	COMMA
 			VDU	(VDU_BUFFER+1)		; R
 			VDU	(VDU_BUFFER+2)		; G
 			VDU	(VDU_BUFFER+3)		; B
-			JP	XEQ
+			JP	XEQ    
+			
+			include "agon_graphics.inc"

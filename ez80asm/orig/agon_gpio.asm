@@ -107,4 +107,6 @@ GPIOB_M9:		SET_GPIO PB_DR,   B
 			SET_GPIO PB_DDR,  B
 			SET_GPIO PB_ALT1, B
 			SET_GPIO PB_ALT2, B
-			RET	
+			RET	    
+			
+			include "agon_gpio.inc"

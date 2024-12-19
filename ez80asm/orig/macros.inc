@@ -10,7 +10,7 @@
 EXREG:			MACRO	rp1, rp2
 			PUSH 	rp1 
 			POP	rp2
-			ENDMACRO 
+;			ENDMACRO 
 	
 ADD8U_DE:		MACRO 	reg
 			ADD	A, E 
@@ -18,7 +18,7 @@ ADD8U_DE:		MACRO 	reg
 			ADC	A, D
 			SUB	E
 			LD	D, A 
-			ENDMACRO 
+;			ENDMACRO 
 
 ADD8U_HL:		MACRO 	reg
 			ADD	A, L 
@@ -26,18 +26,18 @@ ADD8U_HL:		MACRO 	reg
 			ADC	A, H
 			SUB	L
 			LD	H, A 
-			ENDMACRO 
+;			ENDMACRO 
 
 VDU:			MACRO	VAL
 			LD	A, VAL
 			CALL	OSWRCH
-			ENDMACRO
+;			ENDMACRO
 
 SET_GPIO:		MACRO	REG, VAL
 			IN0	A,(REG)
 			OR	VAL
 			OUT0	(REG),A
-			ENDMACRO
+;			ENDMACRO
 				
 RES_GPIO:		MACRO	REG, VAL
 			PUSH	BC
@@ -48,5 +48,5 @@ RES_GPIO:		MACRO	REG, VAL
 			AND	C
 			OUT0	(REG),A
 			POP	BC
-			ENDMACRO
+;			ENDMACRO
 			
