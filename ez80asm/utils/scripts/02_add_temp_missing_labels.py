@@ -116,4 +116,4 @@ def assemble_and_handle_errors(src_dir, src_asm_file):
         os.chdir(original_dir)
 
 # Example usage:
-assemble_and_handle_errors("ez80asm/orig", "asmb.asm")
+assemble_and_handle_errors("ez80asm/orig", "data.asm")

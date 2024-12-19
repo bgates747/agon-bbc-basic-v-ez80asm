@@ -3,8 +3,8 @@
 ;
                 .ASSUME ADL = 0	
 	.ORG 0x0000
-                DEFINE LORAM, SPACE = ROM	
-                SEGMENT LORAM	
+;                DEFINE LORAM, SPACE = ROM	
+;                SEGMENT LORAM	
 ;
 ;                XDEF	FLAGS	
 ;                XDEF	OSWRCHPT	
@@ -94,5 +94,5 @@ ERR:            DS	1		;ERROR NUMBER
 LISTON:         DS	1		;LISTO & OPT FLAG	
 INCREM:         DS	1		;AUTO INCREMENT	
 ;
-USER:           END	
+USER:           ; END	
     include "data.inc"
