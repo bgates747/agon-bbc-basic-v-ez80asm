@@ -8,7 +8,7 @@
 ; Modinfo:
 ; 14/12/2024:	Fix for *BYE command
 
-			SEGMENT __VECTORS
+;			SEGMENT __VECTORS
 			
 ;			XREF	START
 ;			XREF	ACCS
