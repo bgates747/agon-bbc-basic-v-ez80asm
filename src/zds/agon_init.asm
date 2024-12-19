@@ -121,11 +121,11 @@ _main:			LD	HL, ACCS		; Clear the ACCS
 ;							
 _autoload:		LD.LIL	HL, (IX+3)		; HLU: Address of filename
 			LD	DE, ACCS		;  DE: Destination address
-$$:			LD.LIL	A, (HL)			; Fetch the filename byte
+@@:			LD.LIL	A, (HL)			; Fetch the filename byte
 			LD	(DE), A			; 
 			INC.LIL	HL			; Increase the source pointer
 			INC	E			; We only need to increase E as ACCS is on a page boundary
-			JR	NZ, $B			; Loop until we hit a 0 byte
+			JR	NZ, @B			; Loop until we hit a 0 byte
 			DEC	E
 			LD	A, CR
 			LD	(DE), A			; Replace the 0 byte with a CR for BBC BASIC
@@ -185,7 +185,7 @@ _parse_params_1:	PUSH		BC			; Stack ARGC
 ; -  C: Length of token (in characters)
 ;
 _get_token:		LD		C, 0			; Initialise length
-$$:			LD.LIL		A, (HL)			; Get the character from the parameter string
+@@:			LD.LIL		A, (HL)			; Get the character from the parameter string
 			OR		A			; Exit if 0 (end of parameter string in MOS)
 			RET 		Z
 			CP		13			; Exit if CR (end of parameter string in BBC BASIC)
@@ -194,7 +194,7 @@ $$:			LD.LIL		A, (HL)			; Get the character from the parameter string
 			RET		Z
 			INC.LIL		HL			; Advance to next character
 			INC 		C			; Increment length
-			JR		$B
+			JR		@B
 	
 ; Skip spaces in the parameter string
 ; Parameters:
