@@ -4,7 +4,7 @@ PB_DDR: EQU 9Bh
 
         MACRO RES_GPIO REG, VAL
         PUSH    BC
-        LD      A, VAL
+        LD      A, VAL*2
         CPL
         LD      C, A
         IN0     A, (REG)
@@ -13,4 +13,4 @@ PB_DDR: EQU 9Bh
         POP     BC
         ENDMACRO
 
-        RES_GPIO PB_DDR,B
+        RES_GPIO PB_DDR,C

@@ -6,35 +6,12 @@ def strip_ansi_escape_sequences(line):
     """
     Removes ANSI escape sequences from a string.
     """
-    # Modified the regex to properly match ANSI sequences such as '\x1b[31m'
     return re.sub(r'\x1b\[[0-9;]*[A-Za-z]', '', line)
-
-def fix_invalid_literal(src_asm_file, line_number):
-    """
-    Fixes invalid literals in the source assembly file by replacing single-quoted
-    strings with double-quoted strings on the specified line number.
-
-    Args:
-        src_asm_file (str): Path to the source assembly file.
-        line_number (int): The line number to modify.
-    """
-    with open(src_asm_file, "r") as f:
-        lines = f.readlines()
-
-    # Find and replace invalid literal format
-    if 0 <= line_number - 1 < len(lines):
-        line = lines[line_number - 1]
-        modified_line = re.sub(r"'(.*?)'", r'"\1"', line)
-        lines[line_number - 1] = modified_line
-        print(f"Fixed line {line_number}: {line.strip()} -> {modified_line.strip()}")
-
-    with open(src_asm_file, "w") as f:
-        f.writelines(lines)
 
 def assemble_and_handle_errors(src_dir, src_asm_file):
     """
     Assembles a given assembly file and handles errors by creating .inc files
-    to define unknown identifiers with default values.
+    to define unknown identifiers or labels with default values.
 
     Args:
         src_dir (str): Directory containing the source files.
@@ -77,12 +54,12 @@ def assemble_and_handle_errors(src_dir, src_asm_file):
                     unknown_definitions.append(f"{unknown_identifier}: EQU 0x0000\n")
                     print(f"Captured unknown identifier: {unknown_identifier}")
                 
-                # Handle "Invalid literal format"
-                match_invalid = re.search(r'File "(.+?)" line (\d+) - Invalid literal format', clean_line)
-                if match_invalid:
-                    file_path, line_number = match_invalid.groups()
-                    print(f"Invalid literal format at {file_path}, line {line_number}")
-                    fix_invalid_literal(src_asm_file, int(line_number))
+                # Handle "Unknown label, invalid number"
+                match_label = re.search(r"Unknown label, invalid number '(.+?)'", clean_line)
+                if match_label:
+                    label = match_label.group(1)
+                    unknown_definitions.append(f"{label}: EQU 0x0000\n")
+                    print(f"Captured unknown label: {label}")
 
         # Print assembler output
         print(output.stdout)

@@ -1,0 +1,19 @@
+PC     Output      Line
+040000             0001          ASSUME ADL = 0
+040000             0002  
+040000             0003  PB_DDR: EQU 9Bh
+040000             0004  
+040000             0005          MACRO RES_GPIO REG, VAL
+040000             0006          PUSH    BC
+040000             0007          LD      A, VAL*2
+040000             0008          CPL
+040000             0009          LD      C, A
+040000             0010          IN0     A, (REG)
+040000             0011          AND     C
+040000             0012          OUT0    (REG), A
+040000             0013          POP     BC
+040000             0014          ENDMACRO
+040000             0015  
+040000             0016          RES_GPIO PB_DDR,C
+040000 C5          0001M         PUSH    BC
+040001 3E 00       0002M         LD      A, VAL*2
