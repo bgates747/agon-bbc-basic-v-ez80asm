@@ -120,7 +120,7 @@ POINT_:			PUSH	IX			; Get the system vars in IX
 ;
 ; Return the data as a 1 byte index
 ;
-			LD.LIL	A, (IX+(sysvar_scrpixelIndex))
+			LD.LIL	A, (IX+sysvar_scrpixelIndex)
 			POP	IX	
 			RET
 

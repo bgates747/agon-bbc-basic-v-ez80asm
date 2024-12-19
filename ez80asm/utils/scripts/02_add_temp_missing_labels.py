@@ -46,18 +46,18 @@ def assemble_and_handle_errors(src_dir, src_asm_file):
             for line in error_lines:
                 clean_line = strip_ansi_escape_sequences(line.strip())  # Clean escape codes
                 print(f"DEBUG CLEAN LINE: {repr(clean_line)}")  # Debug cleaned line
-                
+
                 # Handle "Unknown identifier"
                 match_unknown = re.search(r"Unknown identifier '(.+?)'", clean_line)
                 if match_unknown:
                     unknown_identifier = match_unknown.group(1)
                     unknown_definitions.append(f"{unknown_identifier}: EQU 0x0000\n")
                     print(f"Captured unknown identifier: {unknown_identifier}")
-                
+
                 # Handle "Unknown label, invalid number"
                 match_label = re.search(r"Unknown label, invalid number '(.+?)'", clean_line)
                 if match_label:
-                    label = match_label.group(1)
+                    label = match_label.group(1).strip("()")  # Remove parentheses
                     unknown_definitions.append(f"{label}: EQU 0x0000\n")
                     print(f"Captured unknown label: {label}")
 
@@ -76,4 +76,4 @@ def assemble_and_handle_errors(src_dir, src_asm_file):
         os.chdir(original_dir)
 
 # Example usage:
-assemble_and_handle_errors("ez80asm/orig", "agon_gpio.asm")
+assemble_and_handle_errors("ez80asm/orig", "agon_graphics.asm")
