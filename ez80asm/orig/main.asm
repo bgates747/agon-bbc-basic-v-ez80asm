@@ -189,10 +189,10 @@ PURGE:          LD	(HL),A		;CLEAR SCRATCHPAD
                 CALL	NEWIT	
                 JP	NZ,CHAIN0	;AUTO-RUN	
                 CALL	TELL	
-VERMSG:         DB	'BBC BASIC (Z80) Version 5.00  '	
+VERMSG:         DB	"BBC BASIC (Z80) Version 5.00  "	
                 DB	CR	
                 DB	LF	
-NOTICE:         DB	'(C) Copyright R.T.Russell 2024'	
+NOTICE:         DB	"(C) Copyright R.T.Russell 2024"	
                 DB	CR	
                 DB	LF	
                 DB	0	
@@ -327,336 +327,336 @@ CLOOP2:         JP	CLOOP
 ; BY A DELIMITER.
 ;
 KEYWDS:         DB	80H	
-                DB	'AND'	
+                DB	"AND"	
                 DB	94H	
-                DB	'ABS'	
+                DB	"ABS"	
                 DB	95H	
-                DB	'ACS'	
+                DB	"ACS"	
                 DB	96H	
-                DB	'ADVAL'	
+                DB	"ADVAL"	
                 DB	97H	
-                DB	'ASC'	
+                DB	"ASC"	
                 DB	98H	
-                DB	'ASN'	
+                DB	"ASN"	
                 DB	99H	
-                DB	'ATN'	
+                DB	"ATN"	
                 DB	9AH	
-                DB	'BGET '	
+                DB	"BGET "	
                 DB	0D5H	
-                DB	'BPUT '	
+                DB	"BPUT "	
                 DB	0FH	
-                DB	'BY '		; v5	
+                DB	"BY "		; v5	
                 DB	0FBH	
-                DB	'COLOUR'	
+                DB	"COLOUR"	
                 DB	0FBH	
-                DB	'COLOR'	
+                DB	"COLOR"	
                 DB	0D6H	
-                DB	'CALL'	
+                DB	"CALL"	
                 DB	0C8H	
-                DB	'CASE'		; v5	
+                DB	"CASE"		; v5	
                 DB	0D7H	
-                DB	'CHAIN'	
+                DB	"CHAIN"	
                 DB	0BDH	
-                DB	'CHR$'	
+                DB	"CHR$"	
                 DB	0D8H	
-                DB	'CLEAR '	
+                DB	"CLEAR "	
                 DB	0D9H	
-                DB	'CLOSE '	
+                DB	"CLOSE "	
                 DB	0DAH	
-                DB	'CLG '	
+                DB	"CLG "	
                 DB	0DBH	
-                DB	'CLS '	
+                DB	"CLS "	
                 DB	9BH	
-                DB	'COS'	
+                DB	"COS"	
                 DB	9CH	
-                DB	'COUNT '	
+                DB	"COUNT "	
                 DB	01H	
-                DB	'CIRCLE'	; v5	
+                DB	"CIRCLE"	; v5	
                 DB	0DCH	
-                DB	'DATA'	
+                DB	"DATA"	
                 DB	9DH	
-                DB	'DEG'	
+                DB	"DEG"	
                 DB	0DDH	
-                DB	'DEF'	
+                DB	"DEF"	
                 DB	81H	
-                DB	'DIV'	
+                DB	"DIV"	
                 DB	0DEH	
-                DB	'DIM'	
+                DB	"DIM"	
                 DB	0DFH	
-                DB	'DRAW'	
+                DB	"DRAW"	
                 DB	0E1H	
-                DB	'ENDPROC '	
+                DB	"ENDPROC "	
                 DB	0CEH	
-                DB	'ENDWHILE '	; v5	
+                DB	"ENDWHILE "	; v5	
                 DB	0CBH	
-                DB	'ENDCASE '	; v5	
+                DB	"ENDCASE "	; v5	
                 DB	0CDH	
-                DB	'ENDIF '	; v5	
+                DB	"ENDIF "	; v5	
                 DB	0E0H	
-                DB	'END '	
+                DB	"END "	
                 DB	0E2H	
-                DB	'ENVELOPE'	
+                DB	"ENVELOPE"	
                 DB	8BH	
-                DB	'ELSE'	
+                DB	"ELSE"	
                 DB	0A0H	
-                DB	'EVAL'	
+                DB	"EVAL"	
                 DB	9EH	
-                DB	'ERL '	
+                DB	"ERL "	
                 DB	85H	
-                DB	'ERROR'	
+                DB	"ERROR"	
                 DB	0C5H	
-                DB	'EOF '	
+                DB	"EOF "	
                 DB	82H	
-                DB	'EOR'	
+                DB	"EOR"	
                 DB	9FH	
-                DB	'ERR '	
+                DB	"ERR "	
                 DB	10H	
-                DB	'EXIT '		; v5	
+                DB	"EXIT "		; v5	
                 DB	0A1H	
-                DB	'EXP'	
+                DB	"EXP"	
                 DB	0A2H	
-                DB	'EXT '	
+                DB	"EXT "	
                 DB	02H	
-                DB	'ELLIPSE'	; v5	
+                DB	"ELLIPSE"	; v5	
                 DB	0E3H	
-                DB	'FOR'	
+                DB	"FOR"	
                 DB	0A3H	
-                DB	'FALSE '	
+                DB	"FALSE "	
                 DB	03H	
-                DB	'FILL'		; v5	
+                DB	"FILL"		; v5	
                 DB	0A4H	
-                DB	'FN'	
+                DB	"FN"	
                 DB	0E5H	
-                DB	'GOTO'	
+                DB	"GOTO"	
                 DB	0BEH	
-                DB	'GET$'	
+                DB	"GET$"	
                 DB	0A5H	
-                DB	'GET'	
+                DB	"GET"	
                 DB	0E4H	
-                DB	'GOSUB'	
+                DB	"GOSUB"	
                 DB	0E6H	
-                DB	'GCOL'	
+                DB	"GCOL"	
                 DB	93H	
-                DB	'HIMEM '	
+                DB	"HIMEM "	
                 DB	0E8H	
-                DB	'INPUT'	
+                DB	"INPUT"	
                 DB	0E7H	
-                DB	'IF'	
+                DB	"IF"	
                 DB	0BFH	
-                DB	'INKEY$'	
+                DB	"INKEY$"	
                 DB	0A6H	
-                DB	'INKEY'	
+                DB	"INKEY"	
                 DB	0A8H	
-                DB	'INT'	
+                DB	"INT"	
                 DB	0A7H	
-                DB	'INSTR('	
+                DB	"INSTR("	
                 DB	0CH	
-                DB	'INSTALL'	; v5	
+                DB	"INSTALL"	; v5	
                 DB	86H	
-                DB	'LINE'	
+                DB	"LINE"	
                 DB	92H	
-                DB	'LOMEM '	
+                DB	"LOMEM "	
                 DB	0EAH	
-                DB	'LOCAL'	
+                DB	"LOCAL"	
                 DB	0C0H	
-                DB	'LEFT$('	
+                DB	"LEFT$("	
                 DB	0A9H	
-                DB	'LEN'	
+                DB	"LEN"	
                 DB	0E9H	
-                DB	'LET'	
+                DB	"LET"	
                 DB	0ABH	
-                DB	'LOG'	
+                DB	"LOG"	
                 DB	0AAH	
-                DB	'LN'	
+                DB	"LN"	
                 DB	0C1H	
-                DB	'MID$('	
+                DB	"MID$("	
                 DB	0EBH	
-                DB	'MODE'	
+                DB	"MODE"	
                 DB	83H	
-                DB	'MOD'	
+                DB	"MOD"	
                 DB	0ECH	
-                DB	'MOVE'	
+                DB	"MOVE"	
                 DB	04H	
-                DB	'MOUSE'		; v5	
+                DB	"MOUSE"		; v5	
                 DB	0EDH	
-                DB	'NEXT'	
+                DB	"NEXT"	
                 DB	0ACH	
-                DB	'NOT'	
+                DB	"NOT"	
                 DB	0EEH	
-                DB	'ON'	
+                DB	"ON"	
                 DB	87H	
-                DB	'OFF '	
+                DB	"OFF "	
                 DB	0CAH	
-                DB	'OF '		; v5	
+                DB	"OF "		; v5	
                 DB	05H	
-                DB	'ORIGIN'	; v5	
+                DB	"ORIGIN"	; v5	
                 DB	84H	
-                DB	'OR'	
+                DB	"OR"	
                 DB	8EH	
-                DB	'OPENIN'	
+                DB	"OPENIN"	
                 DB	0AEH	
-                DB	'OPENOUT'	
+                DB	"OPENOUT"	
                 DB	0ADH	
-                DB	'OPENUP'	
+                DB	"OPENUP"	
                 DB	0FFH	
-                DB	'OSCLI'	
+                DB	"OSCLI"	
                 DB	0CCH	
-                DB	'OTHERWISE'	; v5	
+                DB	"OTHERWISE"	; v5	
                 DB	0F1H	
-                DB	'PRINT'	
+                DB	"PRINT"	
                 DB	90H	
-                DB	'PAGE '	
+                DB	"PAGE "	
                 DB	8FH	
-                DB	'PTR '	
+                DB	"PTR "	
                 DB	0AFH	
-                DB	'PI '	
+                DB	"PI "	
                 DB	0F0H	
-                DB	'PLOT'	
+                DB	"PLOT"	
                 DB	0B0H	
-                DB	'POINT('	
+                DB	"POINT("	
                 DB	0F2H	
-                DB	'PROC'	
+                DB	"PROC"	
                 DB	0B1H	
-                DB	'POS '	
+                DB	"POS "	
                 DB	0EH	
-                DB	'PUT'		; Token changed	
+                DB	"PUT"		; Token changed	
                 DB	06H	
-                DB	'QUIT '		; v5	
+                DB	"QUIT "		; v5	
                 DB	0F8H	
-                DB	'RETURN '	
+                DB	"RETURN "	
                 DB	0F5H	
-                DB	'REPEAT'	
+                DB	"REPEAT"	
                 DB	0F6H	
-                DB	'REPORT '	
+                DB	"REPORT "	
                 DB	0F3H	
-                DB	'READ'	
+                DB	"READ"	
                 DB	0F4H	
-                DB	'REM'	
+                DB	"REM"	
                 DB	0F9H	
-                DB	'RUN '	
+                DB	"RUN "	
                 DB	0B2H	
-                DB	'RAD'	
+                DB	"RAD"	
                 DB	0F7H	
-                DB	'RESTORE'	
+                DB	"RESTORE"	
                 DB	0C2H	
-                DB	'RIGHT$('	
+                DB	"RIGHT$("	
                 DB	0B3H	
-                DB	'RND '	
+                DB	"RND "	
                 DB	07H	
-                DB	'RECTANGLE'	; v5	
+                DB	"RECTANGLE"	; v5	
                 DB	88H	
-                DB	'STEP'	
+                DB	"STEP"	
                 DB	0B4H	
-                DB	'SGN'	
+                DB	"SGN"	
                 DB	0B5H	
-                DB	'SIN'	
+                DB	"SIN"	
                 DB	0B6H	
-                DB	'SQR'	
+                DB	"SQR"	
                 DB	89H	
-                DB	'SPC'	
+                DB	"SPC"	
                 DB	0C3H	
-                DB	'STR$'	
+                DB	"STR$"	
                 DB	0C4H	
-                DB	'STRING$('	
+                DB	"STRING$("	
                 DB	0D4H	
-                DB	'SOUND'	
+                DB	"SOUND"	
                 DB	0FAH	
-                DB	'STOP '	
+                DB	"STOP "	
                 DB	0C6H	
-                DB	'SUM'		; v5	
+                DB	"SUM"		; v5	
                 DB	08H	
-                DB	'SWAP'		; v5	
+                DB	"SWAP"		; v5	
                 DB	09H	
-                DB	'SYS'		; v5	
+                DB	"SYS"		; v5	
                 DB	0B7H	
-                DB	'TAN'	
+                DB	"TAN"	
                 DB	8AH	
-                DB	'TAB('	
+                DB	"TAB("	
                 DB	8CH	
-                DB	'THEN'	
+                DB	"THEN"	
                 DB	91H	
-                DB	'TIME '	
+                DB	"TIME "	
                 DB	0AH	
-                DB	'TINT'	
+                DB	"TINT"	
                 DB	0B8H	
-                DB	'TO'	
+                DB	"TO"	
                 DB	0FCH	
-                DB	'TRACE'	
+                DB	"TRACE"	
                 DB	0B9H	
-                DB	'TRUE '	
+                DB	"TRUE "	
                 DB	0FDH	
-                DB	'UNTIL'	
+                DB	"UNTIL"	
                 DB	0BAH	
-                DB	'USR'	
+                DB	"USR"	
                 DB	0EFH	
-                DB	'VDU'	
+                DB	"VDU"	
                 DB	0BBH	
-                DB	'VAL'	
+                DB	"VAL"	
                 DB	0BCH	
-                DB	'VPOS '	
+                DB	"VPOS "	
                 DB	0C7H	
-                DB	'WHILE'		; v5	
+                DB	"WHILE"		; v5	
                 DB	0C9H	
-                DB	'WHEN'		; v5	
+                DB	"WHEN"		; v5	
                 DB	0BH	
-                DB	'WAIT '		; v5	
+                DB	"WAIT "		; v5	
                 DB	0FEH	
-                DB	'WIDTH'	
+                DB	"WIDTH"	
 ;'LEFT' TOKENS:
                 DB	0CFH	
-                DB	'PTR'	
+                DB	"PTR"	
                 DB	0D1H	
-                DB	'TIME'	
+                DB	"TIME"	
                 DB	0D3H	
-                DB	'HIMEM'	
+                DB	"HIMEM"	
                 DB	0D2H	
-                DB	'LOMEM'	
+                DB	"LOMEM"	
                 DB	0D0H	
-                DB	'PAGE'	
+                DB	"PAGE"	
 ;
                 DB	11H	
-                DB	'Missing '	
+                DB	"Missing "	
                 DB	12H	
-                DB	'No such '	
+                DB	"No such "	
                 DB	13H	
-                DB	'Bad '	
+                DB	"Bad "	
                 DB	14H	
-                DB	' range'	
+                DB	" range"	
                 DB	15H	
-                DB	'variable'	
+                DB	"variable"	
                 DB	16H	
-                DB	'Out of'	
+                DB	"Out of"	
                 DB	17H	
-                DB	'No '	
+                DB	"No "	
                 DB	18H	
-                DB	' space'	
+                DB	" space"	
                 DB	19H	
-                DB	'Not in a '	
+                DB	"Not in a "	
                 DB	1AH	
-                DB	' loop'	
+                DB	" loop"	
                 DB	1BH	
-                DB	' not '	
+                DB	" not "	
 KEYWDL:         EQU	$-KEYWDS	
                 DW	-1	
 ;
 ;LIST OF IMMEDIATE MODE COMMANDS:
 ;
 COMNDS:         DB	80H	
-                DB	'AUTO'	
+                DB	"AUTO"	
                 DB	81H	
-                DB	'DELETE'	
+                DB	"DELETE"	
                 DB	82H	
-                DB	'LIST'	
+                DB	"LIST"	
                 DB	83H	
-                DB	'LOAD'	
+                DB	"LOAD"	
                 DB	84H	
-                DB	'NEW '	
+                DB	"NEW "	
                 DB	85H	
-                DB	'OLD '	
+                DB	"OLD "	
                 DB	86H	
-                DB	'RENUMBER'	
+                DB	"RENUMBER"	
                 DB	87H	
-                DB	'SAVE'	
+                DB	"SAVE"	
                 DW	-1	
 ;
 ;IMMEDIATE MODE COMMANDS:
@@ -673,19 +673,19 @@ CMDTAB:         DW	AUTO
 ;ERROR MESSAGES:
 ;
 ERRWDS:         DB	17H	
-                DB	'room'	
+                DB	"room"	
                 DB	0	
                 DB	16H	
                 DB	14H	
                 DW	0	
-                DB	'Multiple label'	
+                DB	"Multiple label"	
                 DB	0	
-                DB	'Mistake'	
+                DB	"Mistake"	
                 DB	0	
                 DB	11H	
                 DB	','	
                 DB	0	
-                DB	'Type mismatch'	
+                DB	"Type mismatch"	
                 DB	0	
                 DB	19H	
                 DB	TFN	
@@ -701,36 +701,36 @@ ERRWDS:         DB	17H
                 DB	0	
                 DB	19H	
                 DB	TFN	
-                DB	' or '	
+                DB	" or "	
                 DB	TPROC	
                 DB	0	
                 DB	19H	
                 DB	TPROC	
                 DB	0	
                 DB	13H	
-                DB	'use of array'	
+                DB	"use of array"	
                 DB	0	
                 DB	13H	
-                DB	'subscript'	
+                DB	"subscript"	
                 DB	0	
-                DB	'Syntax error'	
+                DB	"Syntax error"	
                 DB	0	
-                DB	'Escape'	
+                DB	"Escape"	
                 DB	0	
-                DB	'Division by zero'	
+                DB	"Division by zero"	
                 DB	0	
-                DB	'String too long'	
+                DB	"String too long"	
                 DB	0	
-                DB	'Number too big'	
+                DB	"Number too big"	
                 DB	0	
-                DB	'-ve root'	
+                DB	"-ve root"	
                 DB	0	
-                DB	'Log'	
+                DB	"Log"	
                 DB	14H	
                 DB	0	
-                DB	'Accuracy lost'	
+                DB	"Accuracy lost"	
                 DB	0	
-                DB	'Exponent'	
+                DB	"Exponent"	
                 DB	14H	
                 DW	0	
                 DB	12H	
@@ -740,7 +740,7 @@ ERRWDS:         DB	17H
                 DB	')'	
                 DB	0	
                 DB	13H	
-                DB	'hex or binary'	
+                DB	"hex or binary"	
                 DB	0	
                 DB	12H	
                 DB	TFN	
@@ -748,10 +748,10 @@ ERRWDS:         DB	17H
                 DB	TPROC	
                 DB	0	
                 DB	13H	
-                DB	'call'	
+                DB	"call"	
                 DB	0	
                 DB	13H	
-                DB	'arguments'	
+                DB	"arguments"	
                 DB	0	
                 DB	19H	
                 DB	TFOR	
@@ -772,13 +772,13 @@ ERRWDS:         DB	17H
                 DB	TGOSUB	
                 DB	0	
                 DB	TON	
-                DB	' syntax'	
+                DB	" syntax"	
                 DB	0	
                 DB	TON	
                 DB	14H	
                 DB	0	
                 DB	12H	
-                DB	'line'	
+                DB	"line"	
                 DB	0	
                 DB	16H	
                 DB	' '	
@@ -803,7 +803,7 @@ ERRWDS:         DB	17H
                 DB	0	
                 DB	TOF		;48 OF not last	
                 DB	1BH	
-                DB	'last'	
+                DB	"last"	
                 DB	0	
                 DB	11H		;49 Missing ENDIF	
                 DB	TENDIF	
@@ -1090,7 +1090,7 @@ RENUM4:         LD	E,(HL)		;CROSS-REFERENCE TABLE
                 EX	DE,HL	
                 JR	Z,RENUM5	;FOUND	
                 CALL	TELL	
-                DB	'Failed at '	
+                DB	"Failed at "	
                 DB	0	
                 EXX	
                 PUSH	HL	
@@ -1123,7 +1123,7 @@ AUTO:           CALL	PAIR
 ;
 BAD:            CALL	TELL		;"Bad program'	
                 DB	13H	
-                DB	'program'	
+                DB	"program"	
                 DB	CR	
                 DB	LF	
                 DB	0	
@@ -1356,7 +1356,8 @@ CLEAR:          PUSH	HL
                 LD	(LOMEM),HL	
                 LD	(FREE),HL	
                 LD	HL,DYNVAR	
-                LD	B,2*(54+2)	
+                ; LD	B,2*(54+2)	
+                LD	B,54+2*2
 CLEAR1:         LD	(HL),0	
                 INC	HL	
                 DJNZ	CLEAR1	
@@ -1584,7 +1585,7 @@ SAYLN:          LD	A,H
                 OR	L	
                 RET	Z	
                 CALL	TELL	
-                DB	' at line '	
+                DB	" at line "	
                 DB	0	
 PBCDL:          LD	C,0	
                 JR	PBCD0	
@@ -2003,7 +2004,7 @@ PAIR1:          CALL	TERMQ
                 OR	C	
                 RET	NZ	
                 CALL	EXTERR	
-                DB	'Silly'	
+                DB	"Silly"	
                 DB	0	
 ;
 ;DLPAIR - GET PAIR OF LINE NUMBERS FOR DELETE/LIST.
