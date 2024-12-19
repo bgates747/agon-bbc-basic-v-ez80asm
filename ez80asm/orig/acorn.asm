@@ -2,77 +2,77 @@
 ;Automatically created from original source on 2024-12-15 15:29:12
 ;
                 .ASSUME ADL = 0	
-                SEGMENT CODE	
+;                SEGMENT CODE	
 ;
 ;PATCH FOR BBC BASIC TO CP/M 2.2 & 3.0
 ;* ACORN COMPUTERS Z80 TUBE VERSION  *
 ;(C) COPYRIGHT R.T.RUSSELL, 02-01-1984
 ;VERSION 5.0, 12-07-2024
 ;
-                XREF	OSWRCH	
-                XREF	OSWORD	
-                XREF	OSBYTE	
+;                XREF	OSWRCH	
+;                XREF	OSWORD	
+;                XREF	OSBYTE	
 ;
 ESC:            EQU	1BH	
 TBY:            EQU	0FH	
 TTO:            EQU	0B8H	
 TFILL:          EQU	03H	
 ;
-                XREF	ITEMI	
-                XREF	EXPRI	
-                XREF	COMMA	
-                XREF	TERMQ	
-                XREF	BRAKET	
-                XREF	EXTERR	
-                XREF	STOREN	
-                XREF	TRAP	
-                XREF	VAR_	
-                XREF	NXT	
-                XREF	XEQ	
+;                XREF	ITEMI	
+;                XREF	EXPRI	
+;                XREF	COMMA	
+;                XREF	TERMQ	
+;                XREF	BRAKET	
+;                XREF	EXTERR	
+;                XREF	STOREN	
+;                XREF	TRAP	
+;                XREF	VAR_	
+;                XREF	NXT	
+;                XREF	XEQ	
 ;
-                XREF	ACCS	
-                XREF	COUNT	
-                XREF	WIDTH	
-                XREF	SCRAP	
+;                XREF	ACCS	
+;                XREF	COUNT	
+;                XREF	WIDTH	
+;                XREF	SCRAP	
 ;
-                XDEF	OSCALL	
-                XDEF	CLRSCN	
-                XDEF	PUTCSR	
-                XDEF	GETCSR	
-                XDEF	PUTIME	
-                XDEF	GETIME	
-                XDEF	OSKEY	
+;                XDEF	OSCALL	
+;                XDEF	CLRSCN	
+;                XDEF	PUTCSR	
+;                XDEF	GETCSR	
+;                XDEF	PUTIME	
+;                XDEF	GETIME	
+;                XDEF	OSKEY	
 ;
-                XDEF	CLG	
-                XDEF	MOVE	
-                XDEF	DRAW	
-                XDEF	PLOT	
-                XDEF	MODE	
-                XDEF	COLOUR	
-                XDEF	GCOL	
-                XDEF	ADVAL	
-                XDEF	SOUND	
-                XDEF	ENVEL	
-                XDEF	POINT	
+;                XDEF	CLG	
+;                XDEF	MOVE	
+;                XDEF	DRAW	
+;                XDEF	PLOT	
+;                XDEF	MODE	
+;                XDEF	COLOUR	
+;                XDEF	GCOL	
+;                XDEF	ADVAL	
+;                XDEF	SOUND	
+;                XDEF	ENVEL	
+;                XDEF	POINT	
 ;
-                XDEF	CIRCLE	
-                XDEF	ELLIPS	
-                XDEF	FILL	
-                XDEF	MOUSE	
-                XDEF	ORIGIN	
-                XDEF	RECTAN	
-                XDEF	LINE	
-                XDEF	TINT	
-                XDEF	WAIT	
-                XDEF	SYS	
-                XDEF	CSRON	
-                XDEF	CSROFF	
+;                XDEF	CIRCLE	
+;                XDEF	ELLIPS	
+;                XDEF	FILL	
+;                XDEF	MOUSE	
+;                XDEF	ORIGIN	
+;                XDEF	RECTAN	
+;                XDEF	LINE	
+;                XDEF	TINT	
+;                XDEF	WAIT	
+;                XDEF	SYS	
+;                XDEF	CSRON	
+;                XDEF	CSROFF	
 ;
-                XDEF	PUTIMS	
-                XDEF	GETIMS	
-                XDEF	TINTFN	
-                XDEF	MODEFN	
-                XDEF	WIDFN	
+;                XDEF	PUTIMS	
+;                XDEF	GETIMS	
+;                XDEF	TINTFN	
+;                XDEF	MODEFN	
+;                XDEF	WIDFN	
 ;
 ;GETIME	- Read elapsed-time clock.
 ;  	  Outputs:  DEHL = elapsed time (centiseconds)

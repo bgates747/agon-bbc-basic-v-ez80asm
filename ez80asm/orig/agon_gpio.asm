@@ -11,11 +11,11 @@
 
 			.ASSUME	ADL = 0
 
-			SEGMENT CODE
+;			SEGMENT CODE
 				
-			XDEF	GPIOB_SETMODE
+;			XDEF	GPIOB_SETMODE
 				
-			XREF	SWITCH_A
+;			XREF	SWITCH_A
 
 ;  A: Mode
 ;  B: Pins

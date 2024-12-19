@@ -13,13 +13,13 @@
 			INCLUDE "macros.inc"
 			INCLUDE "mos_api.inc"	; In MOS/src
 		
-			SEGMENT CODE
+;			SEGMENT CODE
 			
-			XDEF	SOUND_
+;			XDEF	SOUND_
 			
-			XREF	OSWRCH
-			XREF	VDU_BUFFER
-			XREF	LTRAP
+;			XREF	OSWRCH
+;			XREF	VDU_BUFFER
+;			XREF	LTRAP
 
 ; SOUND channel,volume,pitch,duration
 ; Parameters:

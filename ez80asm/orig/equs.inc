@@ -7,8 +7,8 @@
 ; Modinfo:
 ; 05/12/2024:	Removed Stack_Top
 
-			XREF		STAVAR
-			XREF		ACCS
+;			XREF		STAVAR
+;			XREF		ACCS
 			
 RAM_Top:		EQU		0FF00h
 	

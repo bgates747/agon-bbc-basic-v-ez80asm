@@ -2,7 +2,7 @@
 ;Automatically created from original source on 2024-12-15 15:29:12
 ;
                 .ASSUME ADL = 0	
-                SEGMENT CODE	
+;                SEGMENT CODE	
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;Z80 CPU ASSEMBLER MODULE - "ASMB"
@@ -14,23 +14,23 @@
 ;
 ;VERSION 5.0, 14-05-2024
 ;
-                XDEF	ASSEM	
+;                XDEF	ASSEM	
 ;
-                XREF	TABIT	
-                XREF	CRLF	
-                XREF	OUT	
-                XREF	VAR_	
-                XREF	ZERO	
-                XREF	STOREN	
-                XREF	ERROR_	
-                XREF	EXPRI	
-                XREF	EXPRS	
+;                XREF	TABIT	
+;                XREF	CRLF	
+;                XREF	OUT	
+;                XREF	VAR_	
+;                XREF	ZERO	
+;                XREF	STOREN	
+;                XREF	ERROR_	
+;                XREF	EXPRI	
+;                XREF	EXPRS	
 ;
-                XREF	LISTON	
-                XREF	COUNT	
-                XREF	ACCS	
-                XREF	OC	
-                XREF	PC	
+;                XREF	LISTON	
+;                XREF	COUNT	
+;                XREF	ACCS	
+;                XREF	OC	
+;                XREF	PC	
 ;
 CR:             EQU	0DH	
 TAND:           EQU	80H	

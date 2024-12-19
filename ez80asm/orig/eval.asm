@@ -2,10 +2,10 @@
 ;Automatically created from original source on 2024-12-15 15:29:12
 ;
                 .ASSUME ADL = 0	
-                SEGMENT CODE	
+;                SEGMENT CODE	
 ;
-                XDEF	COUNT0	
-                XDEF	COUNT1	
+;                XDEF	COUNT0	
+;                XDEF	COUNT1	
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;EVALUATE EXPRESSION MODULE - "EVAL"
@@ -32,91 +32,91 @@
 ;NORMAL REGISTER ALLOCATION: MANTISSA - HLH'L'
 ;                            EXPONENT - C
 ;
-                XDEF	EXPR	
-                XDEF	EXPRN	
-                XDEF	EXPRI	
-                XDEF	EXPRS	
-                XDEF	ITEMI	
-                XDEF	CONS	
-                XDEF	LOADS	
-                XDEF	VAL0	
-                XDEF	SFIX	
-                XDEF	STR	
-                XDEF	HEXSTR	
-                XDEF	LOAD4	
-                XDEF	LOADN	
-                XDEF	DLOAD5	
-                XDEF	TEST	
-                XDEF	ZERO	
-                XDEF	COMMA	
-                XDEF	BRAKET	
-                XDEF	DECODE	
-                XDEF	PUSHS	
-                XDEF	POPS	
-                XDEF	SEARCH	
-                XDEF	SCP	
-                XDEF	LETARR	
+;                XDEF	EXPR	
+;                XDEF	EXPRN	
+;                XDEF	EXPRI	
+;                XDEF	EXPRS	
+;                XDEF	ITEMI	
+;                XDEF	CONS	
+;                XDEF	LOADS	
+;                XDEF	VAL0	
+;                XDEF	SFIX	
+;                XDEF	STR	
+;                XDEF	HEXSTR	
+;                XDEF	LOAD4	
+;                XDEF	LOADN	
+;                XDEF	DLOAD5	
+;                XDEF	TEST	
+;                XDEF	ZERO	
+;                XDEF	COMMA	
+;                XDEF	BRAKET	
+;                XDEF	DECODE	
+;                XDEF	PUSHS	
+;                XDEF	POPS	
+;                XDEF	SEARCH	
+;                XDEF	SCP	
+;                XDEF	LETARR	
 ;
-                XREF	MUL16	
-                XREF	ERROR_	
-                XREF	SYNTAX	
-                XREF	CHANEL	
-                XREF	CHNL	
-                XREF	STOREN	
-                XREF	STORE4	
-                XREF	STORE5	
-                XREF	STACCS	
-                XREF	CHECK	
-                XREF	USR	
-                XREF	VAR_	
-                XREF	FN	
-                XREF	XEQ	
-                XREF	NXT	
-                XREF	X14OR5	
-                XREF	MODIFY	
-                XREF	MODIFS	
-                XREF	TERMQ	
+;                XREF	MUL16	
+;                XREF	ERROR_	
+;                XREF	SYNTAX	
+;                XREF	CHANEL	
+;                XREF	CHNL	
+;                XREF	STOREN	
+;                XREF	STORE4	
+;                XREF	STORE5	
+;                XREF	STACCS	
+;                XREF	CHECK	
+;                XREF	USR	
+;                XREF	VAR_	
+;                XREF	FN	
+;                XREF	XEQ	
+;                XREF	NXT	
+;                XREF	X14OR5	
+;                XREF	MODIFY	
+;                XREF	MODIFS	
+;                XREF	TERMQ	
 ;
-                XREF	GETVAR	
-                XREF	LEXAN2	
-                XREF	RANGE	
-                XREF	GETTOP	
+;                XREF	GETVAR	
+;                XREF	LEXAN2	
+;                XREF	RANGE	
+;                XREF	GETTOP	
 ;
-                XREF	STAVAR	
-                XREF	PAGE_	
-                XREF	LOMEM	
-                XREF	HIMEM	
-                XREF	RANDOM	
-                XREF	COUNT	
-                XREF	LISTON	
-                XREF	PC	
-                XREF	ERL	
-                XREF	ERR	
-                XREF	ACCS	
-                XREF	ERRTXT	
-                XREF	KEYWDS	
-                XREF	KEYWDL	
-                XREF	FREE	
-                XREF	BUFFER	
+;                XREF	STAVAR	
+;                XREF	PAGE_	
+;                XREF	LOMEM	
+;                XREF	HIMEM	
+;                XREF	RANDOM	
+;                XREF	COUNT	
+;                XREF	LISTON	
+;                XREF	PC	
+;                XREF	ERL	
+;                XREF	ERR	
+;                XREF	ACCS	
+;                XREF	ERRTXT	
+;                XREF	KEYWDS	
+;                XREF	KEYWDL	
+;                XREF	FREE	
+;                XREF	BUFFER	
 ;
-                XREF	OSRDCH	
-                XREF	OSOPEN	
-                XREF	OSBGET	
-                XREF	OSSTAT	
-                XREF	GETCSR	
-                XREF	GETIME	
-                XREF	GETIMS	
-                XREF	GETEXT	
-                XREF	GETPTR	
-                XREF	OSKEY	
+;                XREF	OSRDCH	
+;                XREF	OSOPEN	
+;                XREF	OSBGET	
+;                XREF	OSSTAT	
+;                XREF	GETCSR	
+;                XREF	GETIME	
+;                XREF	GETIMS	
+;                XREF	GETEXT	
+;                XREF	GETPTR	
+;                XREF	OSKEY	
 ;
-                XREF	POINT	
-                XREF	ADVAL	
-                XREF	TINTFN	
-                XREF	MODEFN	
-                XREF	WIDFN	
+;                XREF	POINT	
+;                XREF	ADVAL	
+;                XREF	TINTFN	
+;                XREF	MODEFN	
+;                XREF	WIDFN	
 ;
-                XREF	FPP	
+;                XREF	FPP	
 ;
 FUNTOK:         EQU	8DH		;1st FUNCTION TOKEN	
 TMOD:           EQU	83H	

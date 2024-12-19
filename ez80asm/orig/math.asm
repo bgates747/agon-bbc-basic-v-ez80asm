@@ -2,7 +2,7 @@
 ;Automatically created from original source on 2024-12-15 15:29:12
 ;
                 .ASSUME ADL = 0	
-                SEGMENT CODE	
+;                SEGMENT CODE	
 ;
 ;Z80 FLOATING POINT PACKAGE
 ;(C) COPYRIGHT  R.T.RUSSELL  1986-2024
@@ -35,9 +35,9 @@ LOGRNG:         EQU	22		;Log range
 ACLOST:         EQU	23		;Accuracy lost	
 EXPRNG:         EQU	24		;Exp range	
 ;
-                XDEF	FPP	
-                XREF	STORE5	
-                XREF	DLOAD5	
+;                XDEF	FPP	
+;                XREF	STORE5	
+;                XREF	DLOAD5	
 ;
 ;Call entry and despatch code:
 ;

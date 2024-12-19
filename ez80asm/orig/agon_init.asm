@@ -10,9 +10,9 @@
 
 			SEGMENT __VECTORS
 			
-			XREF	START
-			XREF	ACCS
-			XREF	TELL
+;			XREF	START
+;			XREF	ACCS
+;			XREF	TELL
 		
 			.ASSUME	ADL = 0
 				
