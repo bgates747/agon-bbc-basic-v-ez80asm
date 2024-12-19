@@ -260,7 +260,7 @@ def populate_final_table(db_path, final_table_name):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    # Execute the query to retrieve data from `bbcbasic24` and `bbcbasic24ez` joined through `matched_indices`
+    # Execute the query to retrieve data from `bbcbasic24` and `bbcbasicvez` joined through `matched_indices`
     cursor.execute("""
         SELECT t1.idx1, t1.address1, t1.opcode1, t1.instruction1, t1.matching1,
                t2.idx2, t2.address2, t2.opcode2, t2.instruction2, t2.matching2
@@ -273,7 +273,7 @@ def populate_final_table(db_path, final_table_name):
         LEFT JOIN (
             SELECT t2.idx AS idx2, t2.address AS address2, t2.opcode AS opcode2, 
                    t2.instruction AS instruction2, t2.matching AS matching2 
-            FROM bbcbasic24ez AS t2
+            FROM bbcbasicvez AS t2
         ) AS t2 ON t3.right_idx = t2.idx2
         ORDER BY t1.idx1
     """)
@@ -410,7 +410,7 @@ def export_query_to_csv(db_path, output_csv_path):
         SELECT t1.idx, t1.idx1, t1.idx2, t1.address1, t1.address2, t1.opcode1, t1.opcode2,
         t1.instruction1, t1.instruction2, t1.matching1, t2.src_file, t2.srccode
         FROM final_table AS t1
-        LEFT JOIN bbcbasic24ez_lst AS t2 ON t1.address2 = LOWER(t2.address)
+        LEFT JOIN bbcbasicvez_lst AS t2 ON t1.address2 = LOWER(t2.address)
         ORDER BY t1.idx
     """
     
@@ -456,15 +456,15 @@ if __name__ == "__main__":
     tgt_bin_dir = 'utils/bin'
     dif_dir = 'utils/dif'
 
-    list_filename_in = 'utils/dif/bbcbasic24ez.lst'
-    list_filename_out = 'utils/dif/bbcbasic24ez_expanded.lst'
+    list_filename_in = 'utils/dif/bbcbasicvez.lst'
+    list_filename_out = 'utils/dif/bbcbasicvez_expanded.lst'
     if True: expand_lines(list_filename_in, list_filename_out)
 
-    table_name = 'bbcbasic24ez_lst'
+    table_name = 'bbcbasicvez_lst'
     # Import the .lst file into the SQLite table
     if True: import_fixed_width_to_db(db_path, list_filename_out, table_name)
 
-    src_base_filename = 'bbcbasic24ez'
+    src_base_filename = 'bbcbasicvez'
     src_filepath = f'{source_dir}/{src_base_filename}.asm'
 
     left_hand_filepath = f'{dif_dir}/bbcbasic24.dis.asm'

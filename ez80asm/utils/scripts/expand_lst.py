@@ -93,7 +93,7 @@ def expand_multibyte_lines(input_filename, lookup_filename, final_output_filenam
         os.remove(temp_filename)
 
 if __name__ == "__main__":
-    input_filename = 'utils/dif/bbcbasic24ez.lst'
-    lookup_filename = 'utils/dif/bbcbasic24ez.inc'
-    final_output_filename = 'utils/dif/bbcbasic24ez_final.inc'
+    input_filename = 'utils/dif/bbcbasicvez.lst'
+    lookup_filename = 'utils/dif/bbcbasicvez.inc'
+    final_output_filename = 'utils/dif/bbcbasicvez_final.inc'
     expand_multibyte_lines(input_filename, lookup_filename, final_output_filename)

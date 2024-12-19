@@ -45,7 +45,7 @@ if __name__ == '__main__':
     emulator_dir = '~/Agon/emulator/sdcard/bin'
 
     # Output filename
-    src_base_filename = 'bbcbasic24ez'
+    src_base_filename = 'bbcbasicvez'
     src_filepath = f'{source_dir}/{src_base_filename}.asm'
     symb_filepath = f'{source_dir}/{src_base_filename}.symbols'
 
