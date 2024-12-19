@@ -60,9 +60,11 @@ ERROR_:         LD	SP,IY		;Restore SP from IY
 ;
 ;Perform operation or function:
 ;
-OP:             CP	(RTABLE-DTABLE)/2	
+; OP:             CP	(RTABLE-DTABLE)/2	
+OP:             CP	RTABLE-DTABLE/2	
                 JR	NC,BAD	
-                CP	(FTABLE-DTABLE)/2	
+                ; CP	(FTABLE-DTABLE)/2	
+                CP	FTABLE-DTABLE/2	
                 JR	NC,DISPAT	
                 EX	AF,AF'	
                 LD	A,B	
@@ -1725,7 +1727,8 @@ FLOAT:          BIT	7,H
 ;    Destroys: A,C,H,L,H',L',F
 ;
 FLOATA:         EX	AF,AF'	
-                ADD	A,(RTABLE-DTABLE)/2	
+                ; ADD	A,(RTABLE-DTABLE)/2	
+                ADD	A,RTABLE-DTABLE/2	
                 EX	AF,AF'	
 FLOAT2:         CALL	SWAP	
                 CALL	SFLOAT	
