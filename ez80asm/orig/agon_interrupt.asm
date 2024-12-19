@@ -7,6 +7,7 @@
 ; Modinfo:
 
 			.ASSUME	ADL = 0
+	.ORG 0x0000
 				
 			INCLUDE	"macros.inc"
 			INCLUDE	"equs.inc"
@@ -120,5 +121,4 @@ VBLANK_HANDLER_MB:	LD		A, 0				; This is self-modified by VBLANK_INIT
 ;
 VBLANK_HANDLER_JP:	JP		0				; This is self-modified by VBLANK_INIT
 
-			.ASSUME	ADL = 0
 				    include "agon_interrupt.inc"

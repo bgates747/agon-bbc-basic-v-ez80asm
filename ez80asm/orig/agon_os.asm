@@ -11,6 +11,7 @@
 ; 12/12/2024:	Added OSRDCH, OSBYTE_81 and fixed *EDIT
 
 			.ASSUME	ADL = 0
+	.ORG 0x0000
 			.ORG 0x0000
 				
 			INCLUDE	"equs.inc"

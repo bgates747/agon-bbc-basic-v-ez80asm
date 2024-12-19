@@ -2,6 +2,7 @@
 ;Automatically created from original source on 2024-12-15 15:29:12
 ;
                 .ASSUME ADL = 0	
+	.ORG 0x0000
 ;                SEGMENT CODE	
 ;
 ;                XDEF	COUNT0	

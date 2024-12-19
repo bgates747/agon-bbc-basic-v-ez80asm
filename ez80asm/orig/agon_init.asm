@@ -15,6 +15,7 @@
 ;			XREF	TELL
 		
 			.ASSUME	ADL = 0
+	.ORG 0x0000
 				
 			INCLUDE	"equs.inc"
 			

@@ -10,6 +10,7 @@
 			INCLUDE	"equs.inc"
 
 			.ASSUME	ADL = 0
+	.ORG 0x0000
 
 ;			SEGMENT CODE
 				
