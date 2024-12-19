@@ -49,13 +49,13 @@ build/
 .#*
 
 # Automatically generated source files
-acorn.asm
-asmb.asm
-data.asm 
-eval.asm
-exec.asm
-main.asm
-math.asm 
+# acorn.asm
+# asmb.asm
+# data.asm 
+# eval.asm
+# exec.asm
+# main.asm
+# math.asm 
 
 # ZDS build files
 Debug/
