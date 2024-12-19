@@ -12,7 +12,7 @@
         POP     rp2
         ENDMACRO 
 
-        MACRO ADD8U_DE reg
+        MACRO ADD8U_DE ; reg
         ADD     A, E 
         LD      E, A 
         ADC     A, D
@@ -20,7 +20,7 @@
         LD      D, A 
         ENDMACRO 
 
-        MACRO ADD8U_HL reg
+        MACRO ADD8U_HL ; reg
         ADD     A, L 
         LD      L, A 
         ADC     A, H
