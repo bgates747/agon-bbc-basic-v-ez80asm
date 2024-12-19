@@ -23,7 +23,11 @@ def fix_invalid_literal(src_asm_file, line_number):
     # Find and replace invalid literal format
     if 0 <= line_number - 1 < len(lines):
         line = lines[line_number - 1]
-        modified_line = re.sub(r"'(.*?)'", r'"\1"', line)
+        # Special handling for triple single quotes
+        if "'''" in line:
+            modified_line = line.replace("'''", '"\'"')
+        else:
+            modified_line = re.sub(r"'(.*?)'", r'"\1"', line)
         lines[line_number - 1] = modified_line
         print(f"Fixed line {line_number}: {line.strip()} -> {modified_line.strip()}")
 
@@ -112,4 +116,4 @@ def assemble_and_handle_errors(src_dir, src_asm_file):
         os.chdir(original_dir)
 
 # Example usage:
-assemble_and_handle_errors("ez80asm/orig", "agon_sound.asm")
+assemble_and_handle_errors("ez80asm/orig", "asmb.asm")
