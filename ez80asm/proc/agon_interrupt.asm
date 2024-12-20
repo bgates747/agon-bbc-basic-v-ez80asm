@@ -120,5 +120,3 @@ VBLANK_HANDLER_MB:	LD		A, 0				; This is self-modified by VBLANK_INIT
 ; Finally jump to the MOS interrupt
 ;
 VBLANK_HANDLER_JP:	JP		0				; This is self-modified by VBLANK_INIT
-
-;				    include "agon_interrupt.inc"

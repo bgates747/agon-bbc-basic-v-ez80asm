@@ -2963,7 +2963,8 @@ FORMAT:         CP	TTAB
                 JR	Z,DOTAB	
                 CP	TSPC	
                 JR	Z,DOSPC	
-                CP	'''	
+                ; CP	'''	
+                CP	39	; apostrophe
                 RET	NZ	
                 CALL	CRLF	
                 XOR	A	
@@ -3297,4 +3298,3 @@ FREES2:         POP	DE
                 RET	
 ;
 ;                END	
-;    include "exec.inc"
