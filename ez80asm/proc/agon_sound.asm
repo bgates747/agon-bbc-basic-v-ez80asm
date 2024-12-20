@@ -98,6 +98,18 @@ SOUND0:			RES.LIL	3, (IX+sysvar_vpd_pflags)
 			POP	IX
 			RET 
 
+; FROM agon_os.asm
+; SOUND channel,volume,pitch,duration
+; Parameters:
+; - HL: Pointer to data
+;   - 0,1: Channel
+;   - 2,3: Volume 0 (off) to 15 (full volume)
+;   - 4,5: Pitch 0 - 255
+;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
+;
+OSWORD_07:		EQU	SOUND_
+; end from agon_os.asm
+
 ; Frequency Lookup Table
 ; Set up to replicate the BBC Micro audio frequencies
 ;

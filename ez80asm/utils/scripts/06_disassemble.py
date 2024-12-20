@@ -9,9 +9,20 @@ def expand_lines(list_filename_in, list_filename_out):
     """Read input lines, expand multibyte lines, and write to the output file."""
     with open(list_filename_in, 'r') as infile, open(list_filename_out, 'w') as outfile:
         lines = infile.readlines()
+
+        # Preserve lines with byte codes or source file indicators
+        lines = [
+            line for line in lines
+            if line[7:19].strip() or line[26:].strip().startswith("; --- Begin")
+        ]
+
         current_address = None  # Tracks the current address
 
         for line in lines:
+            if line[26:].strip().startswith("; --- Begin"):  # Preserve source file comment lines
+                outfile.write(line)
+                continue
+
             # Splitting the line based on fixed-width columns
             col1 = line[:7].strip()      # Address (7 chars)
             col2 = line[7:19].strip()    # Byte code (12 chars)
@@ -29,26 +40,21 @@ def expand_lines(list_filename_in, list_filename_out):
                 except ValueError:
                     current_address = None
 
-            # Expand byte code if present
-            if col2:
-                bytes_list = col2.split()
+            # Handle lines with byte codes
+            bytes_list = col2.split()
 
-                # Write the first byte with source line details
-                if current_address is not None:
-                    outfile.write(f"{current_address:06X} {bytes_list[0]:<3} {col3} {col4}\n")
-                    for byte in bytes_list[1:]:
-                        current_address += 1
-                        outfile.write(f"{current_address:06X} {byte:<3}\n")
-                else:
-                    outfile.write(f"{' ' * 7} {bytes_list[0]:<3} {col3} {col4}\n")
-                    for byte in bytes_list[1:]:
-                        outfile.write(f"{' ' * 7} {byte:<3}\n")
-            else:
-                # Handle lines without byte code
-                if col3 or col4:
-                    outfile.write(f"{' ' * 7} {' ' * 2} {col3} {col4}\n")
-                else:
-                    outfile.write(f"{' ' * 7}\n")
+            if bytes_list:
+                # Write each byte with its corresponding address
+                for byte in bytes_list:
+                    if current_address is not None:
+                        outfile.write(f"{current_address:06X} {byte:<3} {col3} {col4}\n")
+                        current_address += 1  # Increment address for each byte
+                        col3 = ""
+                        col4 = ""  # Clear line details after first byte
+                    else:
+                        outfile.write(f"{' ' * 7} {byte:<3} {col3} {col4}\n")
+                        col3 = ""
+                        col4 = ""  # Clear line details after first byte
 
 def make_dis_table(db_path, dif_filepath, table_name):
     """
@@ -225,8 +231,6 @@ def import_fixed_width_to_db(db_path, lst_filepath, table_name):
             """, (address, bytecode, linenum, srccode, current_file))
 
     conn.commit()
-    # # Update the address field to the equivalent of right(address, 4)
-    # cursor.execute(f"UPDATE {table_name} SET address = substr(address, -4, 4)")
     conn.commit()
     conn.close()
     print(f"Data imported into table '{table_name}' from {lst_filepath}")
@@ -257,7 +261,6 @@ def create_final_table(db_path, final_table_name):
     conn.commit()
     conn.close()
     print(f"Table '{final_table_name}' created.")
-import sqlite3
 
 def populate_final_table(db_path, final_table_name):
     """Populate the final table with query results without additional gap-filling logic."""
@@ -273,7 +276,7 @@ def populate_final_table(db_path, final_table_name):
                    t1.instruction AS instruction1, t1.matching AS matching1 
             FROM bbcbasicv AS t1
         ) AS t1
-        JOIN matched_indices AS t3 ON t1.idx1 = t3.left_idx
+        LEFT JOIN matched_indices AS t3 ON t1.idx1 = t3.left_idx
         LEFT JOIN (
             SELECT t2.idx AS idx2, t2.address AS address2, t2.opcode AS opcode2, 
                    t2.instruction AS instruction2, t2.matching AS matching2 

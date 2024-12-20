@@ -611,6 +611,1813 @@ _set_aix24:		PUSH.LIL	IX			; Stick IX onto SPL
 argv_ptrs:		BLKP	argv_ptrs_max, 0		; Storage for the argv array pointers
 ; --- End agon_init.asm ---
 
+; --- Begin agon_graphics.asm ---
+;
+; Title:	BBC Basic for AGON - Graphics stuff
+; Author:	Dean Belfield
+; Created:	04/12/2024
+; Last Updated:	11/12/2024
+;
+; Modinfo:
+; 11/12/2024:	Modified POINT_ to work with OSWORD
+			
+			.ASSUME	ADL = 0
+;	.ORG 0x0000
+				
+			; INCLUDE	"equs.inc"
+			; INCLUDE "macros.inc"
+			; INCLUDE "mos_api.inc"	; In MOS/src
+		
+;			SEGMENT CODE
+				
+;			XDEF	MODE_
+;			XDEF	COLOUR_
+;			XDEF	POINT_
+;			XDEF	GETSCHR
+;			XDEF	GETSCHR_1
+			
+;			XREF	ACCS
+;			XREF	OSWRCH
+;			XREF	ASC_TO_NUMBER
+;			XREF	EXTERR
+;			XREF	EXPRI
+;			XREF	COMMA
+;			XREF	XEQ
+;			XREF	NXT
+;			XREF	BRAKET
+;			XREF	CRTONULL
+;			XREF	NULLTOCR
+;			XREF	CRLF
+;			XREF	EXPR_W2
+;			XREF	INKEY1
+			
+; MODE n: Set video mode
+;
+MODE_:			PUSH	IX			; Get the system vars in IX
+			MOSCALL	mos_sysvars		; Reset the semaphore
+			RES.LIL	4, (IX+sysvar_vpd_pflags)
+			CALL    EXPRI
+			EXX
+			VDU	16H			; Mode change
+			VDU	L
+			MOSCALL	mos_sysvars		
+@@:			BIT.LIL	4, (IX+sysvar_vpd_pflags)
+			JR	Z, @B			; Wait for the result			
+			POP	IX
+			JP	XEQ
+			
+; GET(x,y): Get the ASCII code of a character on screen
+;
+GETSCHR:		INC	IY
+			CALL    EXPRI      		; Get X coordinate
+			EXX
+			PUSH	HL			; Stack X
+			CALL	COMMA		
+			CALL	EXPRI			; Get Y coordinate
+			EXX 
+			CALL	BRAKET			; Closing bracket	
+			POP	DE			; Pop X back into DE
+			CALL	GETSCHR_1
+;			JP	INKEY1
+	        	LD	DE,ACCS	
+	                LD	(DE),A	
+	                LD	A,80H	
+        	        RET	NC	
+	                INC	E	
+                	RET	
+;
+; Fetch a character from the screen
+; - DE: X coordinate
+; - HL: Y coordinate
+; Returns
+; - A: The character or FFh if no match
+; - F: C if match, otherwise NC
+;
+GETSCHR_1:		PUSH	IX			; Get the system vars in IX
+			MOSCALL	mos_sysvars		; Reset the semaphore
+			RES.LIL	1, (IX+sysvar_vpd_pflags)
+			VDU	23
+			VDU	0
+			VDU	vdp_scrchar
+			VDU	E 
+			VDU	D 
+			VDU	L 
+			VDU	H 
+@@:			BIT.LIL	1, (IX+sysvar_vpd_pflags)
+			JR	Z, @B			; Wait for the result
+			LD.LIL	A, (IX+sysvar_scrchar)	; Fetch the result in A
+			OR	A			; Check for 00h
+			SCF				; C = character map
+			JR	NZ, @F			; We have a character, so skip next bit
+			XOR	A			; Clear carry
+@@:			POP	IX			
+			RET 
+
+; POINT(x,y): Get the pixel colour of a point on screen
+; Parameters:
+; - DE: X-coordinate
+; - HL: Y-coordinate
+; Returns:
+; -  A: Pixel colour
+;
+POINT_:			PUSH	IX			; Get the system vars in IX
+			MOSCALL	mos_sysvars		; Reset the semaphore
+			RES.LIL	2, (IX+sysvar_vpd_pflags)
+			VDU	23
+			VDU	0
+			VDU	vdp_scrpixel
+			VDU	E
+			VDU	D
+			VDU	L
+			VDU	H
+@@:			BIT.LIL	2, (IX+sysvar_vpd_pflags)
+			JR	Z, @B			; Wait for the result
+;
+; Return the data as a 1 byte index
+;
+			LD.LIL	A, (IX+sysvar_scrpixelIndex)
+			POP	IX	
+			RET
+
+; COLOUR colour
+; COLOUR L,P
+; COLOUR L,R,G,B
+;
+COLOUR_:		CALL	EXPRI			; The colour / mode
+			EXX
+			LD	A, L 
+			LD	(VDU_BUFFER+0), A	; Store first parameter
+			CALL	NXT			; Are there any more parameters?
+			CP	','
+			JR	Z, COLOUR_1		; Yes, so we're doing a palette change next
+;
+			VDU	11h			; Just set the colour
+			VDU	(VDU_BUFFER+0)
+			JP	XEQ			
+;
+COLOUR_1:		CALL	COMMA
+			CALL	EXPRI			; Parse R (OR P)
+			EXX
+			LD	A, L
+			LD	(VDU_BUFFER+1), A
+			CALL	NXT			; Are there any more parameters?
+			CP	','
+			JR	Z, COLOUR_2		; Yes, so we're doing COLOUR L,R,G,B
+;
+			VDU	13h			; VDU:COLOUR
+			VDU	(VDU_BUFFER+0)		; Logical Colour
+			VDU	(VDU_BUFFER+1)		; Palette Colour
+			VDU	0			; RGB set to 0
+			VDU	0
+			VDU	0
+			JP	XEQ
+;
+COLOUR_2:		CALL	COMMA
+			CALL	EXPRI			; Parse G
+			EXX
+			LD	A, L
+			LD	(VDU_BUFFER+2), A
+			CALL	COMMA
+			CALL	EXPRI			; Parse B
+			EXX
+			LD	A, L
+			LD	(VDU_BUFFER+3), A							
+			VDU	13h			; VDU:COLOUR
+			VDU	(VDU_BUFFER+0)		; Logical Colour
+			VDU	FFh			; Physical Colour (-1 for RGB mode)
+			VDU	(VDU_BUFFER+1)		; R
+			VDU	(VDU_BUFFER+2)		; G
+			VDU	(VDU_BUFFER+3)		; B
+			JP	XEQ    
+; --- End agon_graphics.asm ---
+
+; --- Begin agon_gpio.asm ---
+;
+; Title:	BBC Basic for AGON - GPIO functions
+; Author:	Dean Belfield
+; Created:	04/12/2024
+; Last Updated:	04/12/2024
+;
+; Modinfo:
+
+			; INCLUDE	"macros.inc"
+			; INCLUDE	"equs.inc"
+
+			.ASSUME	ADL = 0
+;	.ORG 0x0000
+
+;			SEGMENT CODE
+				
+;			XDEF	GPIOB_SETMODE
+				
+;			XREF	SWITCH_A
+
+;  A: Mode
+;  B: Pins
+;  				
+GPIOB_SETMODE:		CALL	SWITCH_A
+			DW	GPIOB_M0	; Output
+			DW	GPIOB_M1	; Input
+			DW	GPIOB_M2	; Open Drain IO
+			DW	GPIOB_M3	; Open Source IO
+			DW	GPIOB_M4	; Interrupt, Dual Edge
+			DW	GPIOB_M5	; Alt Function
+			DW	GPIOB_M6	; Interrupt, Active Low
+			DW	GPIOB_M7	; Interrupt, Active High
+			DW	GPIOB_M8	; Interrupt, Falling Edge
+			DW	GPIOB_M9	; Interrupt, Rising Edge
+
+; Output
+;
+GPIOB_M0:		RES_GPIO PB_DDR,  B
+			RES_GPIO PB_ALT1, B
+			RES_GPIO PB_ALT2, B
+			RET
+
+; Input
+;
+GPIOB_M1:		SET_GPIO PB_DDR,  B
+			RES_GPIO PB_ALT1, B
+			RES_GPIO PB_ALT2, B
+			RET
+
+; Open Drain IO
+;
+GPIOB_M2:		RES_GPIO PB_DDR,  B
+			SET_GPIO PB_ALT1, B
+			RES_GPIO PB_ALT2, B
+			RET
+
+; Open Source IO
+;
+GPIOB_M3:		SET_GPIO PB_DDR,  B
+			SET_GPIO PB_ALT1, B
+			RES_GPIO PB_ALT2, B
+			RET
+
+; Interrupt, Dual Edge
+;
+GPIOB_M4:		SET_GPIO PB_DR,   B
+			RES_GPIO PB_DDR,  B
+			RES_GPIO PB_ALT1, B
+			RES_GPIO PB_ALT2, B
+			RET
+
+; Alt Function
+;
+GPIOB_M5:		SET_GPIO PB_DDR,  B
+			RES_GPIO PB_ALT1, B
+			SET_GPIO PB_ALT2, B
+			RET
+
+; Interrupt, Active Low
+;
+GPIOB_M6:		RES_GPIO PB_DR,   B
+			RES_GPIO PB_DDR,  B
+			SET_GPIO PB_ALT1, B
+			SET_GPIO PB_ALT2, B
+			RET
+
+
+; Interrupt, Active High
+;
+GPIOB_M7:		SET_GPIO PB_DR,   B
+			RES_GPIO PB_DDR,  B
+			SET_GPIO PB_ALT1, B
+			SET_GPIO PB_ALT2, B
+			RET
+
+
+; Interrupt, Falling Edge
+;
+GPIOB_M8:		RES_GPIO PB_DR,   B
+			SET_GPIO PB_DDR,  B
+			SET_GPIO PB_ALT1, B
+			SET_GPIO PB_ALT2, B
+			RET
+	
+; Interrupt, Rising Edge
+;
+GPIOB_M9:		SET_GPIO PB_DR,   B
+			SET_GPIO PB_DDR,  B
+			SET_GPIO PB_ALT1, B
+			SET_GPIO PB_ALT2, B
+			RET	    
+; --- End agon_gpio.asm ---
+
+; --- Begin agon_interrupt.asm ---
+;
+; Title:	BBC Basic for AGON - Interrupts
+; Author:	Dean Belfield
+; Created:	04/12/2024
+; Last Updated:	04/12/2024
+;
+; Modinfo:
+
+			.ASSUME	ADL = 0
+;	.ORG 0x0000
+				
+			; INCLUDE	"macros.inc"
+			; INCLUDE	"equs.inc"
+			; INCLUDE "mos_api.inc"	; In MOS/src
+
+;			SEGMENT CODE
+				
+;			XDEF	VBLANK_INIT
+;			XDEF	VBLANK_STOP
+;			XDEF	VBLANK_HANDLER	
+
+;			XREF	ESCSET	
+;			XREF	KEYDOWN		; In ram.asm
+;			XREF	KEYASCII 	; In ram.asm
+;			XREF	KEYCOUNT	; In ram.asm
+
+; Hook into the MOS VBLANK interrupt
+;
+VBLANK_INIT:		DI
+
+			LD		A, MB 				; Get a 24-bit pointer to
+			LD		HL, VBLANK_HANDLER		; this interrupt handler routine who's
+			CALL		SET_AHL16 			; address is a 16-bit pointer in BBC BASIC's segment
+
+			LD		E, 32h				; Set up the VBlank Interrupt Vector
+			MOSCALL		mos_setintvector
+
+			PUSH.LIL	HL				; HLU: Pointer to the MOS interrupt vector
+			POP.LIL		DE 				; DEU: Pointer to the MOS interrupt vector
+			
+			LD		HL, VBLANK_HANDLER_JP + 1	; Pointer to the JP address in this segment
+			LD		A, MB	 			; Get the segment BBC BASIC is running in
+			LD		(VBLANK_HANDLER_MB + 1), A 	; Store in the interrupt handler
+			CALL		SET_AHL16 			; Convert pointer to an absolute 24-bit address
+			LD.LIL		(HL), DE			; Self-modify the code
+			EI	
+			RET
+
+; Unhook the custom VBLANK interrupt
+;
+VBLANK_STOP:		DI
+			LD		HL, VBLANK_HANDLER_JP + 1	; Pointer to the JP address in this segment
+			LD		A, (VBLANK_HANDLER_MB + 1)	; The stored MB of the segment BBC BASIC is running in
+			PUSH		AF 				; Stack the MB for later
+			CALL		SET_AHL16			; Convert pointer to an absolute 24-bit address
+			LD.LIL		DE, (HL)			; DEU: Address of MOS interrupt vector
+			PUSH.LIL	DE				; Transfer to HL
+			POP.LIL		HL
+			LD		E, 32h
+			MOSCALL		mos_setintvector		; Restore the MOS interrupt vector
+			POP		AF 				; Restore MB to this segment
+			LD		MB, A 
+			EI
+			RET 
+
+; Set the MSB of HL (U) to A
+;
+SET_AHL16:		PUSH.LIL	HL
+			LD.LIL		HL, 2
+			ADD.LIL		HL, SP
+			LD.LIL		(HL), A
+			POP.LIL		HL
+			RET 
+
+; A safe LIS call to ESCSET
+; 
+DO_KEYBOARD:		MOSCALL		mos_sysvars			; Get the system variables
+			LD		HL, KEYCOUNT 			; Check whether the keycount has changed
+			LD.LIL		A, (IX + sysvar_vkeycount)	; by comparing the MOS copy
+			CP 		(HL)				; with our local copy
+			JR		NZ, DO_KEYBOARD_1		; Yes it has, so jump to the next bit
+;
+DO_KEYBOARD_0:		XOR		A 				; Clear the keyboard values 
+			LD		(KEYASCII), A
+			LD		(KEYDOWN), A 
+			RET.LIL 					; And return
+;
+DO_KEYBOARD_1:		LD		(HL), A 			; Store the updated local copy of keycount 
+			LD.LIL		A, (IX + sysvar_vkeydown)	; Fetch key down value (1 = key down, 0 = key up)
+			OR		A 
+			JR		Z, DO_KEYBOARD_0		; If it is key up, then clear the keyboard values
+;			
+			LD		(KEYDOWN), A 			; Store the keydown value
+			LD.LIL		A, (IX + sysvar_keyascii)	; Fetch key ASCII value
+			LD		(KEYASCII), A 			; Store locally
+			CP		1Bh				; Is it escape?
+			CALL		Z, ESCSET			; Yes, so set the escape flags
+			RET.LIS						; Return to the interrupt handler
+
+;
+; Interrupts in mixed mode always run in ADL mode
+;
+			.ASSUME	ADL = 1
+
+VBLANK_HANDLER:		DI 
+			PUSH		AF 
+			PUSH		HL
+			PUSH		IX
+			LD		A, MB
+			PUSH		AF 
+VBLANK_HANDLER_MB:	LD		A, 0				; This is self-modified by VBLANK_INIT
+			LD		MB, A
+			CALL.LIS	DO_KEYBOARD
+			POP		AF
+			LD		MB, A
+			POP		IX 
+			POP		HL
+			POP		AF 
+;
+; Finally jump to the MOS interrupt
+;
+VBLANK_HANDLER_JP:	JP		0				; This is self-modified by VBLANK_INIT
+; --- End agon_interrupt.asm ---
+
+; --- Begin agon_misc.asm ---
+;
+; Title:	BBC Basic for AGON - Miscellaneous helper functions
+; Author:	Dean Belfield
+; Created:	04/12/2024
+; Last Updated:	04/12/2024
+;
+; Modinfo:
+
+			; INCLUDE	"equs.inc"
+			; INCLUDE	"macros.inc"
+
+			.ASSUME	ADL = 0
+;	.ORG 0x0000
+
+;			SEGMENT CODE
+				
+;			XDEF	ASC_TO_NUMBER
+;			XDEF	SWITCH_A
+;			XDEF	NULLTOCR
+;			XDEF	CRTONULL
+;			XDEF	CSTR_FNAME
+;			XDEF	CSTR_LINE
+;			XDEF	CSTR_FINDCH
+;			XDEF	CSTR_ENDSWITH
+;			XDEF	CSTR_CAT
+				
+;			XREF	OSWRCH
+;			XREF	KEYWDS
+;			XREF	KEYWDL
+
+; Read a number and convert to binary
+; If prefixed with &, will read as hex, otherwise decimal
+;   Inputs: HL: Pointer in string buffer
+;  Outputs: HL: Updated text pointer
+;           DE: Value
+;            A: Terminator (spaces skipped)
+; Destroys: A,D,E,H,L,F
+;
+ASC_TO_NUMBER:		PUSH	BC			; Preserve BC
+			LD	DE, 0			; Initialise DE
+			CALL	SKIPSPmisc			; Skip whitespace
+			LD	A, (HL)			; Read first character
+			CP	'&'			; Is it prefixed with '&' (HEX number)?
+			JR	NZ, ASC_TO_NUMBER3	; Jump to decimal parser if not
+			INC	HL			; Otherwise fall through to ASC_TO_HEX
+;
+ASC_TO_NUMBER1:		LD	A, (HL)			; Fetch the character
+			CALL    UPPRCmisc			; Convert to uppercase  
+			SUB	'0'			; Normalise to 0
+			JR 	C, ASC_TO_NUMBER4	; Return if < ASCII '0'
+			CP 	10			; Check if >= 10
+			JR 	C,ASC_TO_NUMBER2	; No, so skip next bit
+			SUB 	7			; Adjust ASCII A-F to nibble
+			CP 	16			; Check for > F
+			JR 	NC, ASC_TO_NUMBER4	; Return if out of range
+ASC_TO_NUMBER2:		EX 	DE, HL 			; Shift DE left 4 times
+			ADD	HL, HL	
+			ADD	HL, HL	
+			ADD	HL, HL	
+			ADD	HL, HL	
+			EX	DE, HL	
+			OR      E			; OR the new digit in to the least significant nibble
+			LD      E, A
+			INC     HL			; Onto the next character
+			JR      ASC_TO_NUMBER1		; And loop
+;
+ASC_TO_NUMBER3:		LD	A, (HL)
+			SUB	'0'			; Normalise to 0
+			JR	C, ASC_TO_NUMBER4	; Return if < ASCII '0'
+			CP	10			; Check if >= 10
+			JR	NC, ASC_TO_NUMBER4	; Return if >= 10
+			EX 	DE, HL 			; Stick DE in HL
+			LD	B, H 			; And copy HL into BC
+			LD	C, L	
+			ADD	HL, HL 			; x 2 
+			ADD	HL, HL 			; x 4
+			ADD	HL, BC 			; x 5
+			ADD	HL, HL 			; x 10
+			EX	DE, HL
+			ADD8U_DE 			; Add A to DE (macro)
+			INC	HL
+			JR	ASC_TO_NUMBER3
+ASC_TO_NUMBER4:		POP	BC 			; Fall through to SKIPSP here
+
+; Skip a space
+; HL: Pointer in string buffer
+; 
+SKIPSPmisc:			LD      A, (HL)
+			CP      ' '
+			RET     NZ
+			INC     HL
+			JR      SKIPSPmisc
+
+; Skip a string
+; HL: Pointer in string buffer
+;
+SKIPNOTSP:		LD	A, (HL)
+			CP	' '
+			RET	Z 
+			INC	HL 
+			JR	SKIPNOTSP
+
+; Convert a character to upper case
+;  A: Character to convert
+;
+UPPRCmisc:  		AND     7FH
+			CP      '`'
+			RET     C
+			AND     5FH			; Convert to upper case
+			RET			
+
+; Switch on A - lookup table immediately after call
+;  A: Index into lookup table
+;
+SWITCH_A:		EX	(SP), HL		; Swap HL with the contents of the top of the stack
+			ADD	A, A			; Multiply A by two
+			ADD8U_HL 			; Add to HL (macro)
+			LD	A, (HL)			; follow the call. Fetch an address from the
+			INC	HL 			; table.
+			LD	H, (HL)
+			LD	L, A
+			EX	(SP), HL		; Swap this new address back, restores HL
+			RET				; Return program control to this new address
+
+; Convert the buffer to a null terminated string and back
+; HL: Buffer address
+;			
+NULLTOCR:		PUSH 	BC
+			LD	B, 0
+			LD	C, CR 
+			JR	CRTONULL0
+;			
+CRTONULL:		PUSH	BC
+			LD	B, CR
+			LD	C, 0	
+;			
+CRTONULL0:		PUSH	HL
+CRTONULL1:		LD	A, (HL)
+			CP 	B 
+			JR	Z, CRTONULL2
+			INC	HL 
+			JR	CRTONULL1
+CRTONULL2:		LD	(HL), C
+			POP 	HL 
+			POP	BC
+			RET
+			
+; Copy a filename to DE and zero terminate it
+; HL: Source
+; DE: Destination (ACCS)
+;
+CSTR_FNAME:		LD	A, (HL)			; Get source
+			CP	32			; Is it space
+			JR	Z, @F	
+			CP	CR			; Or is it CR
+			JR	Z, @F
+			LD	(DE), A			; No, so store
+			INC	HL			; Increment
+			INC	DE			
+			JR	CSTR_FNAME		; And loop
+@@:			XOR	A			; Zero terminate the target string
+			LD	(DE), A
+			INC	DE			; And point to next free address
+			RET
+			
+; Copy a CR terminated line to DE and zero terminate it
+; HL: Source
+; DE: Destination (ACCS)
+;
+CSTR_LINE:		LD	A, (HL)			; Get source
+			CP	CR			; Is it CR
+			JR	Z, @F
+			LD	(DE), A			; No, so store
+			INC	HL			; Increment
+			INC	DE			
+			JR	CSTR_LINE		; And loop
+@@:			XOR	A			; Zero terminate the target string
+			LD	(DE), A
+			INC	DE			; And point to next free address
+			RET
+			
+; Find the first occurrence of a character (case sensitive)
+; HL: Source
+;  C: Character to find
+; Returns:
+; HL: Pointer to character, or end of string marker
+;
+CSTR_FINDCH:		LD	A, (HL)			; Get source
+			CP	C			; Is it our character?
+			RET	Z			; Yes, so exit
+			OR	A			; Is it the end of string?
+			RET	Z			; Yes, so exit
+			INC	HL
+			JR	CSTR_FINDCH
+			
+; Check whether a string ends with another string (case insensitive)
+; HL: Source
+; DE: The substring we want to test with
+; Returns:
+;  F: Z if HL ends with DE, otherwise NZ
+;
+CSTR_ENDSWITH:		LD	A, (HL)			; Get the source string byte
+			CALL	UPPRCmisc			; Convert to upper case
+			LD	C, A
+			LD	A, (DE)			; Get the substring byte
+			CP	C
+			RET	NZ			; Return NZ if at any point the strings don't match
+			OR	C			; Check whether both bytes are zero
+			RET	Z			; If so, return, as we have reached the end of both strings
+			INC	HL
+			INC	DE
+			JR	CSTR_ENDSWITH		; And loop
+			
+; Concatenate a string onto the end of another string
+; HL: Source
+; DE: Second string
+;
+CSTR_CAT:		LD	A, (HL)			; Loop until we find the end of the first string
+			OR	A
+			JR	Z, CSTR_CAT_1
+			INC	HL
+			JR	CSTR_CAT
+;
+CSTR_CAT_1:		LD	A, (DE)			; Copy the second string onto the end of the first string
+			LD	(HL), A
+			OR	A			; Check for end of string
+			RET	Z			; And return
+			INC	HL
+			INC	DE
+			JR	CSTR_CAT_1		; Loop until finished						    
+; --- End agon_misc.asm ---
+
+; --- Begin agon_os.asm ---
+;
+; Title:	BBC Basic for AGON - MOS stuff
+; Author:	Dean Belfield
+; Created:	04/12/2024
+; Last Updated:	12/12/2024
+;
+; Modinfo:
+; 08/12/2024:	Added OSCLI and file I/O
+; 11/12/2024:	Added ESC key handling
+; 		Added OSWORD
+; 12/12/2024:	Added OSRDCH, OSBYTE_81 and fixed *EDIT
+
+			.ASSUME	ADL = 0
+;			.ORG 0x0000
+				
+			; INCLUDE	"equs.inc"
+			; INCLUDE "macros.inc"
+			; INCLUDE "mos_api.inc"	; In MOS/src
+
+;			SEGMENT CODE
+			
+;			XDEF	OSWORD
+;			XDEF	OSBYTE
+;			XDEF	OSINIT
+;			XDEF	OSOPEN
+;			XDEF	OSSHUT
+;			XDEF	OSLOAD
+;			XDEF	OSSAVE
+;			XDEF	OSLINE
+;			XDEF	OSSTAT
+;			XDEF	OSWRCH
+;			XDEF	OSRDCH
+;			XDEF	OSBGET
+;			XDEF	OSBPUT
+;			XDEF	OSCLI
+;			XDEF	PROMPT
+;			XDEF	GETPTR
+;			XDEF	PUTPTR
+;			XDEF	GETEXT
+;			XDEF	TRAP
+;			XDEF	LTRAP
+;			XDEF	BYE
+;			XDEF	RESET
+;			XDEF	ESCSET
+			
+;			XREF	EXTERR
+;			XREF	VBLANK_INIT
+;			XREF	VBLANK_STOP
+;			XREF	USER
+;			XREF	COUNT
+;			XREF	COUNT0
+;			XREF	COUNT1
+;			XREF	GETCSR 
+;			XREF	GETSCHR_1
+;			XREF	NULLTOCR
+;			XREF	CRLF
+;			XREF	FLAGS
+;			XREF	OSWRCHPT
+;			XREF	OSWRCHCH
+;			XREF	OSWRCHFH
+;			XREF	KEYASCII
+;			XREF	KEYDOWN
+;			XREF	LISTON 
+;			XREF	PAGE_
+;			XREF	CSTR_FNAME
+;			XREF	CSTR_FINDCH
+;			XREF	CSTR_CAT 
+;			XREF	CSTR_ENDSWITH
+;			XREF	CSTR_LINE 
+;			XREF	NEWIT
+;			XREF	BAD
+;			XREF	CLEAN
+;			XREF	LINNUM
+;			XREF	BUFFER
+;			XREF	NXT
+;			XREF	ERROR_
+;			XREF	XEQ
+;			XREF	LEXAN2
+;			XREF	GETTOP
+;			XREF	FINDL
+;			XREF	DEL
+;			XREF	LISTIT
+;			XREF	ESCAPE
+;			XREF	ASC_TO_NUMBER
+;			XREF	CLOOP
+;			XREF	SCRAP
+;			XREF	POINT_
+;			XREF	SOUND_
+
+;OSINIT - Initialise RAM mapping etc.
+;If BASIC is entered by BBCBASIC FILENAME then file
+;FILENAME.BBC is automatically CHAINed.
+;   Outputs: DE = initial value of HIMEM (top of RAM)
+;            HL = initial value of PAGE (user program)
+;            Z-flag reset indicates AUTO-RUN.
+;  Destroys: A,D,E,H,L,F
+;
+OSINIT:			CALL	VBLANK_INIT
+			XOR	A
+			LD	(FLAGS), A		; Clear flags and set F = Z
+			LD 	HL, USER
+			LD	DE, RAM_Top
+			LD	E, A			; Page boundary
+			RET	
+
+; PROMPT: output the input prompt
+;
+PROMPT: 		LD	A,'>'			; Falls through to OSWRCH
+
+; OSWRCH: Write a character out to the ESP32 VDU handler via the MOS
+; Parameters:
+; - A: Character to write
+;
+OSWRCH:			PUSH	HL
+			LD	HL, LISTON		; Fetch the LISTON variable
+			BIT	3, (HL)			; Check whether we are in *EDIT mode
+			JR	NZ, OSWRCH_BUFFER	; Yes, so just output to buffer
+;
+			LD	HL, (OSWRCHCH)		; L: Channel #
+			DEC	L			; If it is 1
+			JR	Z, OSWRCH_FILE		; Then we are outputting to a file
+;
+			POP	HL			; Otherwise
+			RST.LIS	10h			; Output the character to MOS
+			RET
+;	
+OSWRCH_BUFFER:		LD	HL, (OSWRCHPT)		; Fetch the pointer buffer
+			CP	0AH			; Just ignore this
+			JR	Z, OSWRCH_BUFFER2
+			CP	0DH			; Is it the end of line?
+			JR	NZ, OSWRCH_BUFFER1	; No, so carry on
+			XOR	A			; Turn it into a NUL character
+OSWRCH_BUFFER1:		LD	(HL), A			; Echo the character into the buffer
+			INC	HL			; Increment pointer
+			LD	(OSWRCHPT), HL		; Write pointer back
+OSWRCH_BUFFER2:		POP	HL			
+			RET
+;
+OSWRCH_FILE:		PUSH	DE
+			LD	E, H			; Filehandle to E
+			CALL	OSBPUT			; Write the byte out
+			POP	DE
+			POP	HL
+			RET
+
+; OSRDCH
+;
+OSRDCH:			MOSCALL	mos_getkey		; Read keyboard
+			CP	1Bh
+			JR	Z, LTRAP1 
+			RET
+
+; OSLINE: Invoke the line editor
+;
+OSLINE:			LD 	E, 1			; Default is to clear the buffer
+
+; Entry point to line editor that does not clear the buffer
+; Parameters:
+; - HL: addresses destination buffer (on page boundary)
+; Returns:
+; -  A: 0
+; NB: Buffer filled, terminated by CR
+; 
+OSLINE1:		PUSH	IY			
+			PUSH	HL			; Buffer address
+			LD	BC, 256			; Buffer length
+			MOSCALL	mos_editline		; Call the MOS line editor
+			POP	HL			; Pop the address
+			POP	IY
+			PUSH	AF			; Stack the return value (key pressed)
+			CALL	NULLTOCR		; Turn the 0 character to a CR
+			CALL	CRLF			; Display CRLF
+			POP	AF
+			CP	1Bh 			; Check if ESC terminated the input
+			JP	Z, LTRAP1 		; Yes, so do the ESC thing
+			LD	A, (FLAGS)		; Otherwise
+			RES	7, A 			; Clear the escape flag
+			LD	(FLAGS), A 
+			CALL	WAIT_VBLANK 		; Wait a frame 
+ 			XOR	A			; Return A = 0
+			LD	(KEYDOWN), A 
+			LD	(KEYASCII), A
+			RET		
+
+;
+; ESCSET
+; Set the escape flag (bit 7 of FLAGS = 1) if escape is enabled (bit 6 of FLAGS = 0)
+;
+ESCSET: 		PUSH    HL
+        		LD      HL,FLAGS		; Pointer to FLAGS
+        		BIT     6,(HL)			; If bit 6 is set, then
+        		JR      NZ,ESCDIS		; escape is disabled, so skip
+        		SET     7,(HL)			; Set bit 7, the escape flag
+ESCDIS: 		POP     HL
+        		RET	
+
+;
+; ESCTEST
+; Test for ESC key
+;
+ESCTEST:		CALL	READKEY			; Read the keyboard
+			RET	NZ			; Skip if no key is pressed				
+			CP	1BH			; If ESC pressed then
+			JR	Z,ESCSET		; jump to the escape set routine
+			RET
+
+; Read the keyboard
+; Returns:
+; - A: ASCII of the pressed key
+; - F: Z if the key is pressed, otherwise NZ
+;
+READKEY:		LD	A, (KEYDOWN)		; Get key down
+			DEC	A 			; Set Z flag if keydown is 1
+			LD	A, (KEYASCII)		; Get key ASCII value
+			RET 
+;
+; TRAP
+; This is called whenever BASIC needs to check for ESC
+;
+TRAP:			CALL	ESCTEST			; Read keyboard, test for ESC, set FLAGS
+;
+LTRAP:			LD	A,(FLAGS)		; Get FLAGS
+			OR	A			; This checks for bit 7; if it is not set then the result will
+			RET	P			; be positive (bit 7 is the sign bit in Z80), so return
+LTRAP1:			LD	HL,FLAGS 		; Escape is pressed at this point, so
+			RES	7,(HL)			; Clear the escape pressed flag and
+			JP	ESCAPE			; Jump to the ESCAPE error routine in exec.asm
+
+; RESET
+;
+RESET:			RET				; Yes this is fine
+
+; OSOPEN
+; HL: Pointer to path
+;  F: C Z
+;     x x OPENIN
+; 	  OPENOUT
+;     x	  OPENUP
+; Returns:
+;  A: Filehandle, 0 if cannot open
+;
+OSOPEN:			LD	C, fa_read
+			JR	Z, @F
+			LD	C, fa_write | fa_open_append
+			JR	C, @F
+			LD	C, fa_write | fa_create_always
+@@:			MOSCALL	mos_fopen			
+			RET
+
+;OSSHUT - Close disk file(s).
+; E = file channel
+;  If E=0 all files are closed (except SPOOL)
+; Destroys: A,B,C,D,E,H,L,F
+;
+OSSHUT:			PUSH	BC
+			LD	C, E
+			MOSCALL	mos_fclose
+			POP	BC
+			RET
+	
+; OSBGET - Read a byte from a random disk file.
+;  E = file channel
+; Returns
+;  A = byte read
+;  Carry set if LAST BYTE of file
+; Destroys: A,B,C,F
+;
+OSBGET:			PUSH	BC
+			LD	C, E
+			MOSCALL	mos_fgetc
+			POP	BC
+			RET
+	
+; OSBPUT - Write a byte to a random disk file.
+;  E = file channel
+;  A = byte to write
+; Destroys: A,B,C,F
+;	
+OSBPUT:			PUSH	BC
+			LD	C, E
+			LD	B, A
+			MOSCALL	mos_fputc
+			POP	BC
+			RET
+
+; OSSTAT - Read file status
+;  E = file channel
+; Returns
+;  F: Z flag set - EOF
+;  A: If Z then A = 0
+; Destroys: A,D,E,H,L,F
+;
+OSSTAT:			PUSH	BC
+			LD	C, E
+			MOSCALL	mos_feof
+			POP	BC
+			CP	1
+			RET
+	
+; GETPTR - Return file pointer.
+;    E = file channel
+; Returns:
+; DEHL = pointer (0-&7FFFFF)
+; Destroys: A,B,C,D,E,H,L,F
+;
+GETPTR:			PUSH		IY
+			LD		C, E 
+			MOSCALL		mos_getfil 	; HLU: Pointer to FIL structure
+			PUSH.LIL	HL
+			POP.LIL		IY		; IYU: Pointer to FIL structure
+			LD.LIL		L, (IY + FIL.fptr + 0)
+			LD.LIL		H, (IY + FIL.fptr + 1)
+			LD.LIL		E, (IY + FIL.fptr + 2)
+			LD.LIL		D, (IY + FIL.fptr + 3)
+			POP		IY
+			RET
+
+; PUTPTR - Update file pointer.
+;    A = file channel
+; DEHL = new pointer (0-&7FFFFF)
+; Destroys: A,B,C,D,E,H,L,F
+;
+PUTPTR:			PUSH		IY 			
+			LD		C, A  		; C: Filehandle
+			PUSH.LIL	HL 		
+			LD.LIL		HL, 2
+			ADD.LIL		HL, SP
+			LD.LIL		(HL), E 	; 3rd byte of DWORD set to E
+			POP.LIL		HL
+			LD		E, D  		; 4th byte passed as E
+			MOSCALL		mos_flseek
+			POP		IY 
+			RET
+	
+; GETEXT - Find file size.
+;    E = file channel
+; Returns:
+; DEHL = file size (0-&800000)
+; Destroys: A,B,C,D,E,H,L,F
+;
+GETEXT:			PUSH		IY 
+			LD		C, E 
+			MOSCALL		mos_getfil 	; HLU: Pointer to FIL structure
+			PUSH.LIL	HL
+			POP.LIL		IY		; IYU: Pointer to FIL structure
+			LD.LIL		L, (IY + FIL.obj.objsize + 0)
+			LD.LIL		H, (IY + FIL.obj.objsize + 1)
+			LD.LIL		E, (IY + FIL.obj.objsize + 2)
+			LD.LIL		D, (IY + FIL.obj.objsize + 3)			
+			POP		IY 
+			RET	
+
+;OSLOAD - Load an area of memory from a file.
+;   Inputs: HL addresses filename (CR terminated)
+;           DE = address at which to load
+;           BC = maximum allowed size (bytes)
+;  Outputs: Carry reset indicates no room for file.
+; Destroys: A,B,C,D,E,H,L,F
+;
+OSLOAD:			PUSH	BC			; Stack the size
+			PUSH	DE			; Stack the load address
+			LD	DE, ACCS		; Buffer address for filename
+			CALL	CSTR_FNAME		; Fetch filename from MOS into buffer
+			LD	HL, ACCS		; HL: Filename
+			CALL	EXT_DEFAULT		; Tack on the extension .BBC if not specified
+			CALL	EXT_HANDLER		; Get the default handler
+			POP	DE			; Restore the load address
+			POP	BC			; Restore the size
+			OR	A
+			JP 	Z, OSLOAD_BBC
+;
+; Load the file in as a text file
+;
+OSLOAD_TXT:		XOR	A			; Set file attributes to read
+			CALL	OSOPEN			; Open the file			
+			LD 	E, A 			; The filehandle
+			OR	A
+			LD	A, 4			; File not found error
+			JP	Z, OSERROR		; Jump to error handler
+			CALL	NEWIT			; Call NEW to clear the program space
+;
+OSLOAD_TXT1:		LD	HL, ACCS 		; Where the input is going to be stored
+;
+; First skip any whitespace (indents) at the beginning of the input
+;
+@@:			CALL	OSBGET			; Read the byte into A
+			JR	C, OSLOAD_TXT3		; Is it EOF?
+			CP	LF 			; Is it LF?
+			JR	Z, OSLOAD_TXT3 		; Yes, so skip to the next line
+			CP	21h			; Is it less than or equal to ASCII space?
+			JR	C, @B 			; Yes, so keep looping
+			LD	(HL), A 		; Store the first character
+			INC	L
+;
+; Now read the rest of the line in
+;
+OSLOAD_TXT2:		CALL	OSBGET			; Read the byte into A
+			JR	C, OSLOAD_TXT4		; Is it EOF?
+			CP	20h			; Skip if not an ASCII character
+			JR	C, @F
+			LD	(HL), A 		; Store in the input buffer			
+			INC	L			; Increment the buffer pointer
+			JP	Z, BAD			; If the buffer is full (wrapped to 0) then jump to Bad Program error
+@@:			CP	LF			; Check for LF
+			JR	NZ, OSLOAD_TXT2		; If not, then loop to read the rest of the characters in
+;
+; Finally, handle EOL/EOF
+;
+OSLOAD_TXT3:		LD	(HL), CR		; Store a CR for BBC BASIC
+			LD	A, L			; Check for minimum line length
+			CP	2			; If it is 2 characters or less (including CR)
+			JR	C, @F			; Then don't bother entering it
+			PUSH	DE			; Preserve the filehandle
+			CALL	OSEDIT			; Enter the line in memory
+			CALL	C,CLEAN			; If a new line has been entered, then call CLEAN to set TOP and write &FFFF end of program marker
+			POP	DE
+@@:			CALL	OSSTAT			; End of file?
+			JR	NZ, OSLOAD_TXT1		; No, so loop
+			CALL	OSSHUT			; Close the file
+			SCF				; Flag to BASIC that we're good
+			RET
+;
+; Special case for BASIC programs with no blank line at the end
+;
+OSLOAD_TXT4:		CP	20h			; Skip if not an ASCII character
+			JR	C, @F
+			LD	(HL), A			; Store the character
+			INC	L
+			JP	Z, BAD
+@@:			JR	OSLOAD_TXT3
+;
+; This bit enters the line into memory
+; Also called from OSLOAD_TXT
+; Returns:
+; F: C if a new line has been entered (CLEAN will need to be called)
+;
+OSEDIT:			XOR	A			; Entry point after *EDIT
+			LD      (COUNT),A
+			LD      IY,ACCS
+			CALL    LINNUM			; HL: The line number from the input buffer
+			CALL    NXT			; Skip spaces
+			LD      A,H			; HL: The line number will be 0 for immediate mode or when auto line numbering is used
+			OR      L
+			JR      Z,LNZERO        	; Skip if there is no line number in the input buffer
+;
+; This bit does the lexical analysis and tokenisation
+;
+LNZERO:			LD	DE,BUFFER	
+                	LD	C,1			; LEFT MODE	
+                	PUSH	HL	
+                	CALL	LEXAN2			; LEXICAL ANALYSIS	
+                	POP	HL	
+                	LD	(DE),A			; TERMINATOR	
+                	XOR	A	
+                	LD	B,A	
+                	LD	C,E			; BC=LINE LENGTH	
+                	INC	DE	
+                	LD	(DE),A			; ZERO NEXT	
+                	LD	A,H	
+                	OR	L	
+                	LD	IY,BUFFER		; FOR XEQ	
+                	JP	Z,XEQ			; DIRECT MODE	
+                	PUSH	BC	
+                	CALL	FINDL	
+                	CALL	Z,DEL	
+                	POP	BC	
+                	LD	A,C	
+                	OR	A	
+                	RET	Z
+                	ADD	A,4	
+                	LD	C,A			; LENGTH INCLUSIVE	
+                	PUSH	DE			; LINE NUMBER	
+                	PUSH	BC			; SAVE LINE LENGTH	
+                	EX	DE,HL	
+                	PUSH	BC	
+                	CALL	GETTOP	
+                	POP	BC	
+                	PUSH	HL	
+                	ADD	HL,BC	
+                	PUSH	HL	
+                	INC	H	
+                	XOR	A	
+                	SBC	HL,SP	
+                	POP	HL	
+                	JP	NC,ERROR_		; "No room"	
+                	EX	(SP),HL	
+                	PUSH	HL	
+                	INC	HL	
+                	OR	A	
+                	SBC	HL,DE	
+                	LD	B,H			; BC=AMOUNT TO MOVE	
+                	LD	C,L	
+                	POP	HL	
+                	POP	DE	
+                	JR	Z,ATENDos	
+                	LDDR				; MAKE SPACE	
+ATENDos:          	POP	BC			; LINE LENGTH	
+                	POP	DE			; LINE NUMBER	
+                	INC	HL	
+                	LD	(HL),C			; STORE LENGTH	
+                	INC	HL	
+                	LD	(HL),E			; STORE LINE NUMBER	
+                	INC	HL	
+                	LD	(HL),D	
+                	INC	HL	
+                	LD	DE,BUFFER	
+                	EX	DE,HL	
+                	DEC	C	
+                	DEC	C	
+                	DEC	C	
+                	LDIR				; ADD LINE
+			SCF
+			RET	
+;
+; Load the file in as a tokenised binary blob
+;
+OSLOAD_BBC:		MOSCALL	mos_load		; Call LOAD in MOS
+			RET	NC			; If load returns with carry reset - NO ROOM
+			OR	A			; If there is no error (A=0)
+			SCF				; Need to set carry indicating there was room
+			RET	Z			; Return
+;
+OSERROR:		PUSH	AF			; Handle the MOS error
+			LD	HL, ACCS		; Address of the buffer
+			LD	BC, 256			; Length of the buffer
+			LD	E, A			; The error code
+			MOSCALL	mos_getError		; Copy the error message into the buffer
+			POP	AF			
+			PUSH	HL			; Stack the address of the error (now in ACCS)		
+			ADD	A, 127			; Add 127 to the error code (MOS errors start at 128, and are trappable)
+			JP	EXTERR			; Trigger an external error
+
+;OSSAVE - Save an area of memory to a file.
+;   Inputs: HL addresses filename (term CR)
+;           DE = start address of data to save
+;           BC = length of data to save (bytes)
+; Destroys: A,B,C,D,E,H,L,F
+;
+OSSAVE:			PUSH	BC			; Stack the size
+			PUSH	DE			; Stack the save address
+			LD	DE, ACCS		; Buffer address for filename
+			CALL	CSTR_FNAME		; Fetch filename from MOS into buffer
+			LD	HL, ACCS		; HL: Filename
+			CALL	EXT_DEFAULT		; Tack on the extension .BBC if not specified
+			CALL	EXT_HANDLER		; Get the default handler
+			POP	DE			; Restore the save address
+			POP	BC			; Restore the size
+			OR	A			; Is the extension .BBC
+			JR	Z, OSSAVE_BBC		; Yes, so use that
+;
+; Save the file out as a text file
+;
+OSSAVE_TXT:		LD 	A, (OSWRCHCH)		; Stack the current channel
+			PUSH	AF
+			XOR	A
+			INC	A			; Make sure C is clear, A is 1, for OPENOUT
+			LD	(OSWRCHCH), A
+			CALL	OSOPEN			; Open the file
+			LD	(OSWRCHFH), A		; Store the file handle for OSWRCH
+			LD	IX, LISTON		; Required for LISTIT
+			LD	HL, (PAGE_)		; Get start of program area
+			EXX
+			LD	BC, 0			; Set the initial indent counters
+			EXX			
+OSSAVE_TXT1:		LD	A, (HL)			; Check for end of program marker
+			OR	A		
+			JR	Z, OSSAVE_TXT2
+			INC	HL			; Skip the length byte
+			LD	E, (HL)			; Get the line number
+			INC	HL
+			LD	D, (HL)
+			INC	HL
+			CALL	LISTIT			; List the line
+			JR	OSSAVE_TXT1
+OSSAVE_TXT2:		LD	A, (OSWRCHFH)		; Get the file handle
+			LD	E, A
+			CALL	OSSHUT			; Close it
+			POP	AF			; Restore the channel
+			LD	(OSWRCHCH), A		
+			RET
+;
+; Save the file out as a tokenised binary blob
+;
+OSSAVE_BBC:		MOSCALL	mos_save		; Call SAVE in MOS
+			OR	A			; If there is no error (A=0)
+			RET	Z			; Just return
+			JR	OSERROR			; Trip an error
+
+; Check if an extension is specified in the filename
+; Add a default if not specified
+; HL: Filename (CSTR format)
+;
+EXT_DEFAULT:		PUSH	HL			; Stack the filename pointer	
+			LD	C, '.'			; Search for dot (marks start of extension)
+			CALL	CSTR_FINDCH
+			OR	A			; Check for end of string marker
+			JR	NZ, @F			; No, so skip as we have an extension at this point			
+			LD	DE, EXT_LOOKUP		; Get the first (default extension)
+			CALL	CSTR_CAT		; Concat it to string pointed to by HL
+@@:			POP	HL			; Restore the filename pointer
+			RET
+			
+; Check if an extension is valid and, if so, provide a pointer to a handler
+; HL: Filename (CSTR format)
+; Returns:
+;  A: Filename extension type (0=BBC tokenised, 1=ASCII untokenised)
+;
+EXT_HANDLER:		PUSH	HL			; Stack the filename pointer
+			LD	C, '.'			; Find the '.'
+			CALL	CSTR_FINDCH
+			LD	DE, EXT_LOOKUP		; The lookup table
+;
+EXT_HANDLER_1:		PUSH	HL			; Stack the pointer to the extension
+			CALL	CSTR_ENDSWITH		; Check whether the string ends with the entry in the lookup
+			POP	HL			; Restore the pointer to the extension
+			JR	Z, EXT_HANDLER_2	; We have a match!
+;
+@@:			LD	A, (DE)			; Skip to the end of the entry in the lookup
+			INC	DE
+			OR	A
+			JR	NZ, @B
+			INC	DE			; Skip the file extension # byte
+;
+			LD	A, (DE)			; Are we at the end of the table?
+			OR	A
+			JR	NZ, EXT_HANDLER_1	; No, so loop
+;			
+			LD      A,204			; Throw a "Bad name" error
+        		CALL    EXTERR
+        		DB    	"Bad name", 0
+;
+EXT_HANDLER_2:		INC	DE			; Skip to the file extension # byte
+			LD	A, (DE)		
+			POP	HL			; Restore the filename pointer
+			RET
+
+; Extension lookup table
+; CSTR, TYPE
+; 	- 0: BBC (tokenised BBC BASIC for Z80 format)
+; 	- 1: Human readable plain text
+;
+EXT_LOOKUP:		DB	".BBC", 0, 0		; First entry is the default extension
+			DB	".TXT", 0, 1
+			DB	".ASC", 0, 1
+			DB	".BAS", 0, 1
+			DB	0			; End of table
+
+; OSWORD
+;
+OSWORD:			CP	07H			; SOUND
+			; JR	Z, OSWORD_07
+			JP	Z, OSWORD_07 ; JR WAS TOO LARGE
+			CP	08H			; ENVELOPE
+			JR	Z, OSWORD_08
+			CP	09H			; POINT
+			JR	Z, OSWORD_09
+			JP	HUH			; Anything else trips an error
+
+; moved to agon_sound.asm
+; ; SOUND channel,volume,pitch,duration
+; ; Parameters:
+; ; - HL: Pointer to data
+; ;   - 0,1: Channel
+; ;   - 2,3: Volume 0 (off) to 15 (full volume)
+; ;   - 4,5: Pitch 0 - 255
+; ;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
+; ;
+; OSWORD_07:		EQU	SOUND_
+; end moved to agon_sound.asm
+
+; OSWORD 0x09: POINT
+; Parameters:
+; - HL: Address of data
+;   - 0,1: X coordinate
+;   - 2,3: Y coordinate
+;
+OSWORD_09:		LD	DE,(SCRAP+0)
+			LD	HL,(SCRAP+2)
+			CALL	POINT_
+			LD	(SCRAP+4),A
+OSWORD_08:		RET				; Envelope not currently implemented
+
+;
+; OSBYTE
+; Parameters:
+; - A: FX #
+; - L: First parameter
+; - H: Second parameter
+;
+OSBYTE:			CP	0BH			; Keyboard auto-repeat delay
+			JR	Z, OSBYTE_0B
+			CP	0CH			; Keyboard auto-repeat rate
+			JR	Z, OSBYTE_0C
+			CP	13H			; Wait for vblank
+			JR	Z, OSBYTE_13		
+			CP	76H			; Set keyboard LED
+			JR	Z, OSBYTE_76
+			CP	81H			; Read the keyboard
+			JP	Z, OSBYTE_81
+			CP	86H			; Get cursor coordinates
+			JP	Z, OSBYTE_86
+			CP	87H			; Fetch current mode and character under cursor
+			JP	Z, OSBYTE_87
+			CP	A0H			; Fetch system variable
+			JP	Z, OSBYTE_A0		
+;
+; Anything else trips an error
+;
+HUH:    		LD      A,254			; Bad command error
+        		CALL    EXTERR
+        		DB    	"Bad command"
+        		DEFB    0				
+
+; OSBYTE 0x0B (FX 11,n): Keyboard auto-repeat delay
+; Parameters:
+; - HL: Repeat delay
+;
+OSBYTE_0B:		VDU	23
+			VDU	0
+			VDU	vdp_keystate
+			VDU	L
+			VDU	H 
+			VDU	0
+			VDU 	0
+			VDU	255
+			RET 
+
+; OSBYTE 0x0C (FX 12,n): Keyboard auto-repeat rate
+; Parameters:
+; - HL: Repeat rate
+;
+OSBYTE_0C:		VDU	23
+			VDU	0
+			VDU	vdp_keystate
+			VDU	0
+			VDU 	0
+			VDU	L
+			VDU	H 
+			VDU	255
+			RET 
+
+; OSBYTE 0x13 (FX 19): Wait for vertical blank interrupt
+;
+OSBYTE_13:		CALL	WAIT_VBLANK
+			LD	L, 0			; Returns 0
+			JP	COUNT0
+;
+; OSBYTE 0x76 (FX 118,n): Set Keyboard LED
+; Parameters:
+; - L: LED (Bit 0: Scroll Lock, Bit 1: Caps Lock, Bit 2: Num Lock)
+;
+OSBYTE_76:		VDU	23
+			VDU	0
+			VDU	vdp_keystate
+			VDU	0
+			VDU 	0
+			VDU	0
+			VDU	0 
+			VDU	L
+			RET 
+
+; OSBYTE 0x81: Read the keyboard
+; Parameters:
+; - HL = Time to wait (centiseconds)
+; Returns:
+; - F: Carry reset indicates time-out
+; - A: If carry set, A = character typed
+; Destroys: A,D,E,H,L,F
+;
+OSBYTE_81:		CALL	READKEY			; Read the keyboard 
+			JR	Z, @F 			; Skip if we have a key
+			LD	A, H 			; Check loop counter
+			OR 	L
+			RET 	Z 			; Return, we've not got a key at this point
+			CALL	WAIT_VBLANK 		; Wait a frame
+			DEC 	HL			; Decrement
+			JR	OSBYTE_81		; And loop
+;
+@@:			LD	HL, KEYDOWN		; We have a key, so 
+			LD	(HL), 0			; clear the keydown flag
+			CP	1BH			; If we are not pressing ESC, 
+			SCF 				; then flag we've got a character
+			RET	NZ
+			JP	ESCSET			; Handle ESC
+
+; OSBYTE 0x86: Fetch cursor coordinates
+; Returns:
+; - DE: X Coordinate (POS)
+; - HL: Y Coordinate (VPOS)
+;
+OSBYTE_86:		PUSH	IX			; Get the system vars in IX
+			MOSCALL	mos_sysvars		; Reset the semaphore
+			RES.LIL	0, (IX+sysvar_vpd_pflags)
+			VDU	23
+			VDU	0
+			VDU	vdp_cursor
+@@:			BIT.LIL	0, (IX+sysvar_vpd_pflags)
+			JR	Z, @B			; Wait for the result
+			LD 	D, 0
+			LD	H, D
+			LD.LIL	E, (IX + sysvar_cursorX)
+			LD.LIL	L, (IX + sysvar_cursorY)			
+			POP	IX			
+			RET	
+
+; OSBYTE 0x87: Fetch current mode and character under cursor
+;
+OSBYTE_87:		PUSH	IX
+			CALL	GETCSR			; Get the current screen position
+			CALL	GETSCHR_1		; Read character from screen
+			LD	L, A 
+			MOSCALL	mos_sysvars
+			LD.LIL	H, (IX+sysvar_scrMode)	; H: Screen mode
+			POP	IX
+			JP	COUNT1
+			
+; OSBYTE 0xA0: Fetch system variable
+; Parameters:
+; - L: The system variable to fetch
+;
+OSBYTE_A0:		PUSH	IX
+			MOSCALL	mos_sysvars		; Fetch pointer to system variables
+			LD.LIL	BC, 0			
+			LD	C, L			; BCU = L
+			ADD.LIL	IX, BC			; Add to IX
+			LD.LIL	L, (IX + 0)		; Fetch the return value
+			POP	IX
+			JP 	COUNT0
+
+; OSCLI
+;
+;
+;OSCLI - Process a MOS command
+;
+OSCLI: 			CALL    SKIPSP
+			CP      CR
+			RET     Z
+			CP      '|'
+			RET     Z
+			EX      DE,HL
+			LD      HL,COMDS
+OSCLI0:			LD      A,(DE)
+			CALL    UPPRC
+			CP      (HL)
+			JR      Z,OSCLI2
+			JR      C,OSCLI6
+OSCLI1:			BIT     7,(HL)
+			INC     HL
+			JR      Z,OSCLI1
+			INC     HL
+			INC     HL
+			JR      OSCLI0
+;
+OSCLI2:			PUSH    DE
+OSCLI3:			INC     DE
+			INC     HL
+			LD      A,(DE)
+			CALL    UPPRC
+			CP      '.'			; ABBREVIATED?
+			JR      Z,OSCLI4
+			XOR     (HL)
+			JR      Z,OSCLI3
+			CP      80H
+			JR      Z,OSCLI4
+			POP     DE
+			JR      OSCLI1
+;
+OSCLI4:			POP     AF
+		        INC     DE
+OSCLI5:			BIT     7,(HL)
+			INC     HL
+			JR      Z,OSCLI5
+			LD      A,(HL)
+			INC     HL
+			LD      H,(HL)
+			LD      L,A
+			PUSH    HL
+			EX      DE,HL
+			JP      SKIPSP
+;
+OSCLI6:			EX	DE, HL			; HL: Buffer for command
+			LD	DE, ACCS		; Buffer for command string is ACCS (the string accumulator)
+			PUSH	DE			; Store buffer address
+			CALL	CSTR_LINE		; Fetch the line
+			POP	HL			; HL: Pointer to command string in ACCS
+			PUSH	IY
+			MOSCALL	mos_oscli		; Returns OSCLI error in A
+			POP	IY
+			OR	A			; 0 means MOS returned OK
+			RET	Z			; So don't do anything
+			JP 	OSERROR			; Otherwise it's a MOS error
+
+SKIPSP:			LD      A,(HL)			
+        		CP      ' '
+        		RET     NZ
+        		INC     HL
+        		JR      SKIPSP	
+
+UPPRC:  		AND     7FH
+			CP      '`'
+			RET     C
+			AND     5FH			; CONVERT TO UPPER CASE
+			RET	
+
+; Each command has bit 7 of the last character set, and is followed by the address of the handler
+; These must be in alphabetical order
+;		
+COMDS:  		DB	"BY","E"+80h		; BYE
+			DW	BYE
+			DB	"EDI","T"+80h		; EDIT
+			DW	STAR_EDIT
+			DB	"F","X"+80h		; FX
+			DW	STAR_FX
+;			DB	'VERSIO','N'+80h	; VERSION
+;			DW	STAR_VERSION
+			DB	FFh			
+
+; *BYE
+;
+BYE:			CALL	VBLANK_STOP		; Restore MOS interrupts
+			POP.LIL	IX 			; The return address to init
+			LD	HL, 0			; The return code
+			JP	(IX)
+
+; *EDIT linenum
+;
+STAR_EDIT:		CALL	ASC_TO_NUMBER		; DE: Line number to edit
+			EX	DE, HL			; HL: Line number
+			CALL	FINDL			; HL: Address in RAM of tokenised line			
+			LD	A, 41			; F:NZ If the line is not found
+			JP	NZ, ERROR_		; Do error 41: No such line in that case
+;
+; Use LISTIT to output the line to the ACCS buffer
+;
+			INC	HL			; Skip the length byte
+			LD	E, (HL)			; Fetch the line number
+			INC	HL
+			LD	D, (HL)
+			INC	HL
+			LD	IX, ACCS		; Pointer to where the copy is to be stored
+			LD	(OSWRCHPT), IX
+			LD	IX, LISTON		; Pointer to LISTON variable in RAM
+			LD	A, (IX)			; Store that variable
+			PUSH	AF
+			LD	(IX), 09h		; Set to echo to buffer
+			CALL	LISTIT
+			POP	AF
+			LD	(IX), A			; Restore the original LISTON variable			
+			LD	HL, ACCS		; HL: ACCS
+			LD	E, L			;  E: 0 - Don't clear the buffer; ACCS is on a page boundary so L is 0
+			CALL	OSLINE1			; Invoke the editor
+			CALL	OSEDIT
+			CALL    C,CLEAN			; Set TOP, write out &FFFF end of program marker
+			JP      CLOOP			; Jump back to immediate mode
+
+; OSCLI FX n
+;
+STAR_FX:		CALL	ASC_TO_NUMBER
+			LD	C, E			; C: Save FX #
+			CALL	ASC_TO_NUMBER
+			LD	A, D  			; Is first parameter > 255?
+			OR 	A 			
+			JR	Z, STAR_FX1		; Yes, so skip next bit 
+			EX	DE, HL 			; Parameter is 16-bit
+			JR	STAR_FX2 
+;
+STAR_FX1:		LD	B, E 			; B: Save First parameter
+			CALL	ASC_TO_NUMBER		; Fetch second parameter
+			LD	L, B 			; L: First parameter
+			LD	H, E 			; H: Second parameter
+;
+STAR_FX2:		LD	A, C 			; A: FX #
+			JP	OSBYTE	
+
+; Helper Functions
+;
+WAIT_VBLANK:		PUSH 	IX			; Wait for VBLANK interrupt
+			MOSCALL	mos_sysvars		; Fetch pointer to system variables
+			LD.LIL	A, (IX + sysvar_time + 0)
+@@:			CP.LIL 	A, (IX + sysvar_time + 0)
+			JR	Z, @B
+			POP	IX
+			RET    
+			; --- End agon_os.asm ---
+
+; --- Begin agon_sound.asm ---
+;
+; Title:	BBC Basic for AGON - Audio stuff
+; Author:	Dean Belfield
+; Created:	04/12/2024
+; Last Updated:	11/12/2024
+;
+; Modinfo:
+; 11/12/2024:	Modified SOUND_ to work with OSWORD
+			
+			.ASSUME	ADL = 0
+;	.ORG 0x0000
+				
+			; INCLUDE	"equs.inc"
+			; INCLUDE "macros.inc"
+			; INCLUDE "mos_api.inc"	; In MOS/src
+		
+;			SEGMENT CODE
+			
+;			XDEF	SOUND_
+			
+;			XREF	OSWRCH
+;			XREF	VDU_BUFFER
+;			XREF	LTRAP
+
+; SOUND channel,volume,pitch,duration
+; Parameters:
+; - HL: Pointer to data
+;   - 0,1: Channel
+;   - 2,3: Volume 0 (off) to 15 (full volume)
+;   - 4,5: Pitch 0 - 255
+;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
+;
+SOUND_:			LD	A, (HL)			; Channel
+			LD	(VDU_BUFFER+0), A 
+			XOR	A			; Waveform
+			LD	(VDU_BUFFER+1), A
+			INC	HL
+			INC	HL
+; 
+; Calculate the volume
+; 
+			LD	C, (HL)			; Volume
+			LD	B, 6			; C already contains the volume
+			MLT	BC			; Multiply by 6 (0-15 scales to 0-90)
+			LD	A, C
+			LD	(VDU_BUFFER+2), A
+			INC	HL
+			INC	HL
+;
+; And the frequency
+;
+			PUSH	HL
+			LD	L, (HL) 
+			LD	H, 0
+			LD	DE, SOUND_FREQ_LOOKUP
+			ADD	HL, HL
+			ADD	HL, DE
+			LD	A, (HL)
+			LD	(VDU_BUFFER+3), A
+			INC	HL
+			LD	A, (HL)
+			LD	(VDU_BUFFER+4), A
+			POP	HL
+			INC	HL
+			INC	HL
+;
+; And now the duration - multiply it by 50 to convert from 1/20ths of seconds to milliseconds
+;
+			LD	C, (HL)
+			LD	B, 50			; C contains the duration, so MLT by 50
+			MLT	BC
+			LD	(VDU_BUFFER+5), BC
+;
+			PUSH	IX			; Get the system vars in IX
+			MOSCALL	mos_sysvars		; Reset the semaphore
+SOUND0:			RES.LIL	3, (IX+sysvar_vpd_pflags)
+;
+			VDU	23			; Send the sound command
+			VDU	0
+			VDU	vdp_audio
+			VDU	(VDU_BUFFER+0)		; 0: Channel
+			VDU	(VDU_BUFFER+1)		; 1: Waveform (0)
+			VDU	(VDU_BUFFER+2)		; 2: Volume (0-100)
+			VDU	(VDU_BUFFER+3)		; 3: Frequency L
+			VDU	(VDU_BUFFER+4)		; 4: Frequency H
+			VDU	(VDU_BUFFER+5)		; 5: Duration L
+			VDU	(VDU_BUFFER+6)		; 6: Duration H
+;
+; Wait for acknowledgement
+;
+@@:			BIT.LIL	3, (IX+sysvar_vpd_pflags)
+			JR	Z, @B			; Wait for the result
+			CALL	LTRAP			; Check for ESC
+			LD.LIL	A, (IX+sysvar_audioSuccess)
+			AND	A			; Check if VDP has queued the note
+			JR	Z, SOUND0		; No, so loop back and send again
+;
+			POP	IX
+			RET 
+
+; FROM agon_os.asm
+; SOUND channel,volume,pitch,duration
+; Parameters:
+; - HL: Pointer to data
+;   - 0,1: Channel
+;   - 2,3: Volume 0 (off) to 15 (full volume)
+;   - 4,5: Pitch 0 - 255
+;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
+;
+OSWORD_07:		EQU	SOUND_
+; end from agon_os.asm
+
+; Frequency Lookup Table
+; Set up to replicate the BBC Micro audio frequencies
+;
+; Split over 5 complete octaves, with 53 being middle C
+; * C4: 262hz
+; + A4: 440hz
+;
+;	2	3	4	5	6	7	8
+;
+; B	1	49	97	145	193	241	
+; A#	0	45	93	141	189	237	
+; A		41	89+	137	185	233	
+; G#		37	85	133	181	229	
+; G		33	81	129	177	225	
+; F#		29	77	125	173	221	
+; F		25	73	121	169	217	
+; E		21	69	117	165	213	
+; D#		17	65	113	161	209	
+; D		13	61	109	157	205	253
+; C#		9	57	105	153	201	249
+; C		5	53*	101	149	197	245
+;
+SOUND_FREQ_LOOKUP:	DW	 117,  118,  120,  122,  123,  131,  133,  135
+			DW	 137,  139,  141,  143,  145,  147,  149,  151
+			DW	 153,  156,  158,  160,  162,  165,  167,  170
+			DW	 172,  175,  177,  180,  182,  185,  188,  190
+			DW	 193,  196,  199,  202,  205,  208,  211,  214
+			DW	 217,  220,  223,  226,  230,  233,  236,  240
+			DW	 243,  247,  251,  254,  258,  262,  265,  269
+			DW	 273,  277,  281,  285,  289,  294,  298,  302
+			DW	 307,  311,  316,  320,  325,  330,  334,  339
+			DW	 344,  349,  354,  359,  365,  370,  375,  381
+			DW	 386,  392,  398,  403,  409,  415,  421,  427
+			DW	 434,  440,  446,  453,  459,  466,  473,  480
+			DW	 487,  494,  501,  508,  516,  523,  531,  539
+			DW	 546,  554,  562,  571,  579,  587,  596,  605
+			DW	 613,  622,  631,  641,  650,  659,  669,  679
+			DW	 689,  699,  709,  719,  729,  740,  751,  762
+			DW	 773,  784,  795,  807,  819,  831,  843,  855
+			DW	 867,  880,  893,  906,  919,  932,  946,  960
+			DW	 974,  988, 1002, 1017, 1032, 1047, 1062, 1078
+			DW	1093, 1109, 1125, 1142, 1158, 1175, 1192, 1210
+			DW	1227, 1245, 1263, 1282, 1300, 1319, 1338, 1358
+			DW	1378, 1398, 1418, 1439, 1459, 1481, 1502, 1524
+			DW	1546, 1569, 1592, 1615, 1638, 1662, 1686, 1711
+			DW	1736, 1761, 1786, 1812, 1839, 1866, 1893, 1920
+			DW	1948, 1976, 2005, 2034, 2064, 2093, 2123, 2154
+			DW	2186, 2217, 2250, 2282, 2316, 2349, 2383, 2418
+			DW	2453, 2489, 2525, 2562, 2599, 2637, 2675, 2714
+			DW	2754, 2794, 2834, 2876, 2918, 2960, 3003, 3047
+			DW	3091, 3136, 3182, 3228, 3275, 3322, 3371, 3420
+			DW	3470, 3520, 3571, 3623, 3676, 3729, 3784, 3839
+			DW	3894, 3951, 4009, 4067, 4126, 4186, 4247, 4309
+			DW	4371, 4435, 4499, 4565, 4631, 4699, 4767, 4836	
+; --- End agon_sound.asm ---
+
 ; --- Begin acorn.asm ---
 ;
 ;Automatically created from original source on 2024-12-15 15:29:12
@@ -2390,1799 +4197,6 @@ LDOPS:          DB	'I'
 ;
 FIN:            ; END	
 ; --- End asmb.asm ---
-
-; --- Begin agon_gpio.asm ---
-;
-; Title:	BBC Basic for AGON - GPIO functions
-; Author:	Dean Belfield
-; Created:	04/12/2024
-; Last Updated:	04/12/2024
-;
-; Modinfo:
-
-			; INCLUDE	"macros.inc"
-			; INCLUDE	"equs.inc"
-
-			.ASSUME	ADL = 0
-;	.ORG 0x0000
-
-;			SEGMENT CODE
-				
-;			XDEF	GPIOB_SETMODE
-				
-;			XREF	SWITCH_A
-
-;  A: Mode
-;  B: Pins
-;  				
-GPIOB_SETMODE:		CALL	SWITCH_A
-			DW	GPIOB_M0	; Output
-			DW	GPIOB_M1	; Input
-			DW	GPIOB_M2	; Open Drain IO
-			DW	GPIOB_M3	; Open Source IO
-			DW	GPIOB_M4	; Interrupt, Dual Edge
-			DW	GPIOB_M5	; Alt Function
-			DW	GPIOB_M6	; Interrupt, Active Low
-			DW	GPIOB_M7	; Interrupt, Active High
-			DW	GPIOB_M8	; Interrupt, Falling Edge
-			DW	GPIOB_M9	; Interrupt, Rising Edge
-
-; Output
-;
-GPIOB_M0:		RES_GPIO PB_DDR,  B
-			RES_GPIO PB_ALT1, B
-			RES_GPIO PB_ALT2, B
-			RET
-
-; Input
-;
-GPIOB_M1:		SET_GPIO PB_DDR,  B
-			RES_GPIO PB_ALT1, B
-			RES_GPIO PB_ALT2, B
-			RET
-
-; Open Drain IO
-;
-GPIOB_M2:		RES_GPIO PB_DDR,  B
-			SET_GPIO PB_ALT1, B
-			RES_GPIO PB_ALT2, B
-			RET
-
-; Open Source IO
-;
-GPIOB_M3:		SET_GPIO PB_DDR,  B
-			SET_GPIO PB_ALT1, B
-			RES_GPIO PB_ALT2, B
-			RET
-
-; Interrupt, Dual Edge
-;
-GPIOB_M4:		SET_GPIO PB_DR,   B
-			RES_GPIO PB_DDR,  B
-			RES_GPIO PB_ALT1, B
-			RES_GPIO PB_ALT2, B
-			RET
-
-; Alt Function
-;
-GPIOB_M5:		SET_GPIO PB_DDR,  B
-			RES_GPIO PB_ALT1, B
-			SET_GPIO PB_ALT2, B
-			RET
-
-; Interrupt, Active Low
-;
-GPIOB_M6:		RES_GPIO PB_DR,   B
-			RES_GPIO PB_DDR,  B
-			SET_GPIO PB_ALT1, B
-			SET_GPIO PB_ALT2, B
-			RET
-
-
-; Interrupt, Active High
-;
-GPIOB_M7:		SET_GPIO PB_DR,   B
-			RES_GPIO PB_DDR,  B
-			SET_GPIO PB_ALT1, B
-			SET_GPIO PB_ALT2, B
-			RET
-
-
-; Interrupt, Falling Edge
-;
-GPIOB_M8:		RES_GPIO PB_DR,   B
-			SET_GPIO PB_DDR,  B
-			SET_GPIO PB_ALT1, B
-			SET_GPIO PB_ALT2, B
-			RET
-	
-; Interrupt, Rising Edge
-;
-GPIOB_M9:		SET_GPIO PB_DR,   B
-			SET_GPIO PB_DDR,  B
-			SET_GPIO PB_ALT1, B
-			SET_GPIO PB_ALT2, B
-			RET	    
-; --- End agon_gpio.asm ---
-
-; --- Begin agon_graphics.asm ---
-;
-; Title:	BBC Basic for AGON - Graphics stuff
-; Author:	Dean Belfield
-; Created:	04/12/2024
-; Last Updated:	11/12/2024
-;
-; Modinfo:
-; 11/12/2024:	Modified POINT_ to work with OSWORD
-			
-			.ASSUME	ADL = 0
-;	.ORG 0x0000
-				
-			; INCLUDE	"equs.inc"
-			; INCLUDE "macros.inc"
-			; INCLUDE "mos_api.inc"	; In MOS/src
-		
-;			SEGMENT CODE
-				
-;			XDEF	MODE_
-;			XDEF	COLOUR_
-;			XDEF	POINT_
-;			XDEF	GETSCHR
-;			XDEF	GETSCHR_1
-			
-;			XREF	ACCS
-;			XREF	OSWRCH
-;			XREF	ASC_TO_NUMBER
-;			XREF	EXTERR
-;			XREF	EXPRI
-;			XREF	COMMA
-;			XREF	XEQ
-;			XREF	NXT
-;			XREF	BRAKET
-;			XREF	CRTONULL
-;			XREF	NULLTOCR
-;			XREF	CRLF
-;			XREF	EXPR_W2
-;			XREF	INKEY1
-			
-; MODE n: Set video mode
-;
-MODE_:			PUSH	IX			; Get the system vars in IX
-			MOSCALL	mos_sysvars		; Reset the semaphore
-			RES.LIL	4, (IX+sysvar_vpd_pflags)
-			CALL    EXPRI
-			EXX
-			VDU	16H			; Mode change
-			VDU	L
-			MOSCALL	mos_sysvars		
-@@:			BIT.LIL	4, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result			
-			POP	IX
-			JP	XEQ
-			
-; GET(x,y): Get the ASCII code of a character on screen
-;
-GETSCHR:		INC	IY
-			CALL    EXPRI      		; Get X coordinate
-			EXX
-			PUSH	HL			; Stack X
-			CALL	COMMA		
-			CALL	EXPRI			; Get Y coordinate
-			EXX 
-			CALL	BRAKET			; Closing bracket	
-			POP	DE			; Pop X back into DE
-			CALL	GETSCHR_1
-;			JP	INKEY1
-	        	LD	DE,ACCS	
-	                LD	(DE),A	
-	                LD	A,80H	
-        	        RET	NC	
-	                INC	E	
-                	RET	
-;
-; Fetch a character from the screen
-; - DE: X coordinate
-; - HL: Y coordinate
-; Returns
-; - A: The character or FFh if no match
-; - F: C if match, otherwise NC
-;
-GETSCHR_1:		PUSH	IX			; Get the system vars in IX
-			MOSCALL	mos_sysvars		; Reset the semaphore
-			RES.LIL	1, (IX+sysvar_vpd_pflags)
-			VDU	23
-			VDU	0
-			VDU	vdp_scrchar
-			VDU	E 
-			VDU	D 
-			VDU	L 
-			VDU	H 
-@@:			BIT.LIL	1, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
-			LD.LIL	A, (IX+sysvar_scrchar)	; Fetch the result in A
-			OR	A			; Check for 00h
-			SCF				; C = character map
-			JR	NZ, @F			; We have a character, so skip next bit
-			XOR	A			; Clear carry
-@@:			POP	IX			
-			RET 
-
-; POINT(x,y): Get the pixel colour of a point on screen
-; Parameters:
-; - DE: X-coordinate
-; - HL: Y-coordinate
-; Returns:
-; -  A: Pixel colour
-;
-POINT_:			PUSH	IX			; Get the system vars in IX
-			MOSCALL	mos_sysvars		; Reset the semaphore
-			RES.LIL	2, (IX+sysvar_vpd_pflags)
-			VDU	23
-			VDU	0
-			VDU	vdp_scrpixel
-			VDU	E
-			VDU	D
-			VDU	L
-			VDU	H
-@@:			BIT.LIL	2, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
-;
-; Return the data as a 1 byte index
-;
-			LD.LIL	A, (IX+sysvar_scrpixelIndex)
-			POP	IX	
-			RET
-
-; COLOUR colour
-; COLOUR L,P
-; COLOUR L,R,G,B
-;
-COLOUR_:		CALL	EXPRI			; The colour / mode
-			EXX
-			LD	A, L 
-			LD	(VDU_BUFFER+0), A	; Store first parameter
-			CALL	NXT			; Are there any more parameters?
-			CP	','
-			JR	Z, COLOUR_1		; Yes, so we're doing a palette change next
-;
-			VDU	11h			; Just set the colour
-			VDU	(VDU_BUFFER+0)
-			JP	XEQ			
-;
-COLOUR_1:		CALL	COMMA
-			CALL	EXPRI			; Parse R (OR P)
-			EXX
-			LD	A, L
-			LD	(VDU_BUFFER+1), A
-			CALL	NXT			; Are there any more parameters?
-			CP	','
-			JR	Z, COLOUR_2		; Yes, so we're doing COLOUR L,R,G,B
-;
-			VDU	13h			; VDU:COLOUR
-			VDU	(VDU_BUFFER+0)		; Logical Colour
-			VDU	(VDU_BUFFER+1)		; Palette Colour
-			VDU	0			; RGB set to 0
-			VDU	0
-			VDU	0
-			JP	XEQ
-;
-COLOUR_2:		CALL	COMMA
-			CALL	EXPRI			; Parse G
-			EXX
-			LD	A, L
-			LD	(VDU_BUFFER+2), A
-			CALL	COMMA
-			CALL	EXPRI			; Parse B
-			EXX
-			LD	A, L
-			LD	(VDU_BUFFER+3), A							
-			VDU	13h			; VDU:COLOUR
-			VDU	(VDU_BUFFER+0)		; Logical Colour
-			VDU	FFh			; Physical Colour (-1 for RGB mode)
-			VDU	(VDU_BUFFER+1)		; R
-			VDU	(VDU_BUFFER+2)		; G
-			VDU	(VDU_BUFFER+3)		; B
-			JP	XEQ    
-; --- End agon_graphics.asm ---
-
-; --- Begin agon_interrupt.asm ---
-;
-; Title:	BBC Basic for AGON - Interrupts
-; Author:	Dean Belfield
-; Created:	04/12/2024
-; Last Updated:	04/12/2024
-;
-; Modinfo:
-
-			.ASSUME	ADL = 0
-;	.ORG 0x0000
-				
-			; INCLUDE	"macros.inc"
-			; INCLUDE	"equs.inc"
-			; INCLUDE "mos_api.inc"	; In MOS/src
-
-;			SEGMENT CODE
-				
-;			XDEF	VBLANK_INIT
-;			XDEF	VBLANK_STOP
-;			XDEF	VBLANK_HANDLER	
-
-;			XREF	ESCSET	
-;			XREF	KEYDOWN		; In ram.asm
-;			XREF	KEYASCII 	; In ram.asm
-;			XREF	KEYCOUNT	; In ram.asm
-
-; Hook into the MOS VBLANK interrupt
-;
-VBLANK_INIT:		DI
-
-			LD		A, MB 				; Get a 24-bit pointer to
-			LD		HL, VBLANK_HANDLER		; this interrupt handler routine who's
-			CALL		SET_AHL16 			; address is a 16-bit pointer in BBC BASIC's segment
-
-			LD		E, 32h				; Set up the VBlank Interrupt Vector
-			MOSCALL		mos_setintvector
-
-			PUSH.LIL	HL				; HLU: Pointer to the MOS interrupt vector
-			POP.LIL		DE 				; DEU: Pointer to the MOS interrupt vector
-			
-			LD		HL, VBLANK_HANDLER_JP + 1	; Pointer to the JP address in this segment
-			LD		A, MB	 			; Get the segment BBC BASIC is running in
-			LD		(VBLANK_HANDLER_MB + 1), A 	; Store in the interrupt handler
-			CALL		SET_AHL16 			; Convert pointer to an absolute 24-bit address
-			LD.LIL		(HL), DE			; Self-modify the code
-			EI	
-			RET
-
-; Unhook the custom VBLANK interrupt
-;
-VBLANK_STOP:		DI
-			LD		HL, VBLANK_HANDLER_JP + 1	; Pointer to the JP address in this segment
-			LD		A, (VBLANK_HANDLER_MB + 1)	; The stored MB of the segment BBC BASIC is running in
-			PUSH		AF 				; Stack the MB for later
-			CALL		SET_AHL16			; Convert pointer to an absolute 24-bit address
-			LD.LIL		DE, (HL)			; DEU: Address of MOS interrupt vector
-			PUSH.LIL	DE				; Transfer to HL
-			POP.LIL		HL
-			LD		E, 32h
-			MOSCALL		mos_setintvector		; Restore the MOS interrupt vector
-			POP		AF 				; Restore MB to this segment
-			LD		MB, A 
-			EI
-			RET 
-
-; Set the MSB of HL (U) to A
-;
-SET_AHL16:		PUSH.LIL	HL
-			LD.LIL		HL, 2
-			ADD.LIL		HL, SP
-			LD.LIL		(HL), A
-			POP.LIL		HL
-			RET 
-
-; A safe LIS call to ESCSET
-; 
-DO_KEYBOARD:		MOSCALL		mos_sysvars			; Get the system variables
-			LD		HL, KEYCOUNT 			; Check whether the keycount has changed
-			LD.LIL		A, (IX + sysvar_vkeycount)	; by comparing the MOS copy
-			CP 		(HL)				; with our local copy
-			JR		NZ, DO_KEYBOARD_1		; Yes it has, so jump to the next bit
-;
-DO_KEYBOARD_0:		XOR		A 				; Clear the keyboard values 
-			LD		(KEYASCII), A
-			LD		(KEYDOWN), A 
-			RET.LIL 					; And return
-;
-DO_KEYBOARD_1:		LD		(HL), A 			; Store the updated local copy of keycount 
-			LD.LIL		A, (IX + sysvar_vkeydown)	; Fetch key down value (1 = key down, 0 = key up)
-			OR		A 
-			JR		Z, DO_KEYBOARD_0		; If it is key up, then clear the keyboard values
-;			
-			LD		(KEYDOWN), A 			; Store the keydown value
-			LD.LIL		A, (IX + sysvar_keyascii)	; Fetch key ASCII value
-			LD		(KEYASCII), A 			; Store locally
-			CP		1Bh				; Is it escape?
-			CALL		Z, ESCSET			; Yes, so set the escape flags
-			RET.LIS						; Return to the interrupt handler
-
-;
-; Interrupts in mixed mode always run in ADL mode
-;
-			.ASSUME	ADL = 1
-
-VBLANK_HANDLER:		DI 
-			PUSH		AF 
-			PUSH		HL
-			PUSH		IX
-			LD		A, MB
-			PUSH		AF 
-VBLANK_HANDLER_MB:	LD		A, 0				; This is self-modified by VBLANK_INIT
-			LD		MB, A
-			CALL.LIS	DO_KEYBOARD
-			POP		AF
-			LD		MB, A
-			POP		IX 
-			POP		HL
-			POP		AF 
-;
-; Finally jump to the MOS interrupt
-;
-VBLANK_HANDLER_JP:	JP		0				; This is self-modified by VBLANK_INIT
-; --- End agon_interrupt.asm ---
-
-; --- Begin agon_misc.asm ---
-;
-; Title:	BBC Basic for AGON - Miscellaneous helper functions
-; Author:	Dean Belfield
-; Created:	04/12/2024
-; Last Updated:	04/12/2024
-;
-; Modinfo:
-
-			; INCLUDE	"equs.inc"
-			; INCLUDE	"macros.inc"
-
-			.ASSUME	ADL = 0
-;	.ORG 0x0000
-
-;			SEGMENT CODE
-				
-;			XDEF	ASC_TO_NUMBER
-;			XDEF	SWITCH_A
-;			XDEF	NULLTOCR
-;			XDEF	CRTONULL
-;			XDEF	CSTR_FNAME
-;			XDEF	CSTR_LINE
-;			XDEF	CSTR_FINDCH
-;			XDEF	CSTR_ENDSWITH
-;			XDEF	CSTR_CAT
-				
-;			XREF	OSWRCH
-;			XREF	KEYWDS
-;			XREF	KEYWDL
-
-; Read a number and convert to binary
-; If prefixed with &, will read as hex, otherwise decimal
-;   Inputs: HL: Pointer in string buffer
-;  Outputs: HL: Updated text pointer
-;           DE: Value
-;            A: Terminator (spaces skipped)
-; Destroys: A,D,E,H,L,F
-;
-ASC_TO_NUMBER:		PUSH	BC			; Preserve BC
-			LD	DE, 0			; Initialise DE
-			CALL	SKIPSPmisc			; Skip whitespace
-			LD	A, (HL)			; Read first character
-			CP	'&'			; Is it prefixed with '&' (HEX number)?
-			JR	NZ, ASC_TO_NUMBER3	; Jump to decimal parser if not
-			INC	HL			; Otherwise fall through to ASC_TO_HEX
-;
-ASC_TO_NUMBER1:		LD	A, (HL)			; Fetch the character
-			CALL    UPPRCmisc			; Convert to uppercase  
-			SUB	'0'			; Normalise to 0
-			JR 	C, ASC_TO_NUMBER4	; Return if < ASCII '0'
-			CP 	10			; Check if >= 10
-			JR 	C,ASC_TO_NUMBER2	; No, so skip next bit
-			SUB 	7			; Adjust ASCII A-F to nibble
-			CP 	16			; Check for > F
-			JR 	NC, ASC_TO_NUMBER4	; Return if out of range
-ASC_TO_NUMBER2:		EX 	DE, HL 			; Shift DE left 4 times
-			ADD	HL, HL	
-			ADD	HL, HL	
-			ADD	HL, HL	
-			ADD	HL, HL	
-			EX	DE, HL	
-			OR      E			; OR the new digit in to the least significant nibble
-			LD      E, A
-			INC     HL			; Onto the next character
-			JR      ASC_TO_NUMBER1		; And loop
-;
-ASC_TO_NUMBER3:		LD	A, (HL)
-			SUB	'0'			; Normalise to 0
-			JR	C, ASC_TO_NUMBER4	; Return if < ASCII '0'
-			CP	10			; Check if >= 10
-			JR	NC, ASC_TO_NUMBER4	; Return if >= 10
-			EX 	DE, HL 			; Stick DE in HL
-			LD	B, H 			; And copy HL into BC
-			LD	C, L	
-			ADD	HL, HL 			; x 2 
-			ADD	HL, HL 			; x 4
-			ADD	HL, BC 			; x 5
-			ADD	HL, HL 			; x 10
-			EX	DE, HL
-			ADD8U_DE 			; Add A to DE (macro)
-			INC	HL
-			JR	ASC_TO_NUMBER3
-ASC_TO_NUMBER4:		POP	BC 			; Fall through to SKIPSP here
-
-; Skip a space
-; HL: Pointer in string buffer
-; 
-SKIPSPmisc:			LD      A, (HL)
-			CP      ' '
-			RET     NZ
-			INC     HL
-			JR      SKIPSPmisc
-
-; Skip a string
-; HL: Pointer in string buffer
-;
-SKIPNOTSP:		LD	A, (HL)
-			CP	' '
-			RET	Z 
-			INC	HL 
-			JR	SKIPNOTSP
-
-; Convert a character to upper case
-;  A: Character to convert
-;
-UPPRCmisc:  		AND     7FH
-			CP      '`'
-			RET     C
-			AND     5FH			; Convert to upper case
-			RET			
-
-; Switch on A - lookup table immediately after call
-;  A: Index into lookup table
-;
-SWITCH_A:		EX	(SP), HL		; Swap HL with the contents of the top of the stack
-			ADD	A, A			; Multiply A by two
-			ADD8U_HL 			; Add to HL (macro)
-			LD	A, (HL)			; follow the call. Fetch an address from the
-			INC	HL 			; table.
-			LD	H, (HL)
-			LD	L, A
-			EX	(SP), HL		; Swap this new address back, restores HL
-			RET				; Return program control to this new address
-
-; Convert the buffer to a null terminated string and back
-; HL: Buffer address
-;			
-NULLTOCR:		PUSH 	BC
-			LD	B, 0
-			LD	C, CR 
-			JR	CRTONULL0
-;			
-CRTONULL:		PUSH	BC
-			LD	B, CR
-			LD	C, 0	
-;			
-CRTONULL0:		PUSH	HL
-CRTONULL1:		LD	A, (HL)
-			CP 	B 
-			JR	Z, CRTONULL2
-			INC	HL 
-			JR	CRTONULL1
-CRTONULL2:		LD	(HL), C
-			POP 	HL 
-			POP	BC
-			RET
-			
-; Copy a filename to DE and zero terminate it
-; HL: Source
-; DE: Destination (ACCS)
-;
-CSTR_FNAME:		LD	A, (HL)			; Get source
-			CP	32			; Is it space
-			JR	Z, @F	
-			CP	CR			; Or is it CR
-			JR	Z, @F
-			LD	(DE), A			; No, so store
-			INC	HL			; Increment
-			INC	DE			
-			JR	CSTR_FNAME		; And loop
-@@:			XOR	A			; Zero terminate the target string
-			LD	(DE), A
-			INC	DE			; And point to next free address
-			RET
-			
-; Copy a CR terminated line to DE and zero terminate it
-; HL: Source
-; DE: Destination (ACCS)
-;
-CSTR_LINE:		LD	A, (HL)			; Get source
-			CP	CR			; Is it CR
-			JR	Z, @F
-			LD	(DE), A			; No, so store
-			INC	HL			; Increment
-			INC	DE			
-			JR	CSTR_LINE		; And loop
-@@:			XOR	A			; Zero terminate the target string
-			LD	(DE), A
-			INC	DE			; And point to next free address
-			RET
-			
-; Find the first occurrence of a character (case sensitive)
-; HL: Source
-;  C: Character to find
-; Returns:
-; HL: Pointer to character, or end of string marker
-;
-CSTR_FINDCH:		LD	A, (HL)			; Get source
-			CP	C			; Is it our character?
-			RET	Z			; Yes, so exit
-			OR	A			; Is it the end of string?
-			RET	Z			; Yes, so exit
-			INC	HL
-			JR	CSTR_FINDCH
-			
-; Check whether a string ends with another string (case insensitive)
-; HL: Source
-; DE: The substring we want to test with
-; Returns:
-;  F: Z if HL ends with DE, otherwise NZ
-;
-CSTR_ENDSWITH:		LD	A, (HL)			; Get the source string byte
-			CALL	UPPRCmisc			; Convert to upper case
-			LD	C, A
-			LD	A, (DE)			; Get the substring byte
-			CP	C
-			RET	NZ			; Return NZ if at any point the strings don't match
-			OR	C			; Check whether both bytes are zero
-			RET	Z			; If so, return, as we have reached the end of both strings
-			INC	HL
-			INC	DE
-			JR	CSTR_ENDSWITH		; And loop
-			
-; Concatenate a string onto the end of another string
-; HL: Source
-; DE: Second string
-;
-CSTR_CAT:		LD	A, (HL)			; Loop until we find the end of the first string
-			OR	A
-			JR	Z, CSTR_CAT_1
-			INC	HL
-			JR	CSTR_CAT
-;
-CSTR_CAT_1:		LD	A, (DE)			; Copy the second string onto the end of the first string
-			LD	(HL), A
-			OR	A			; Check for end of string
-			RET	Z			; And return
-			INC	HL
-			INC	DE
-			JR	CSTR_CAT_1		; Loop until finished						    
-; --- End agon_misc.asm ---
-
-; --- Begin agon_sound.asm ---
-;
-; Title:	BBC Basic for AGON - Audio stuff
-; Author:	Dean Belfield
-; Created:	04/12/2024
-; Last Updated:	11/12/2024
-;
-; Modinfo:
-; 11/12/2024:	Modified SOUND_ to work with OSWORD
-			
-			.ASSUME	ADL = 0
-;	.ORG 0x0000
-				
-			; INCLUDE	"equs.inc"
-			; INCLUDE "macros.inc"
-			; INCLUDE "mos_api.inc"	; In MOS/src
-		
-;			SEGMENT CODE
-			
-;			XDEF	SOUND_
-			
-;			XREF	OSWRCH
-;			XREF	VDU_BUFFER
-;			XREF	LTRAP
-
-; SOUND channel,volume,pitch,duration
-; Parameters:
-; - HL: Pointer to data
-;   - 0,1: Channel
-;   - 2,3: Volume 0 (off) to 15 (full volume)
-;   - 4,5: Pitch 0 - 255
-;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
-;
-SOUND_:			LD	A, (HL)			; Channel
-			LD	(VDU_BUFFER+0), A 
-			XOR	A			; Waveform
-			LD	(VDU_BUFFER+1), A
-			INC	HL
-			INC	HL
-; 
-; Calculate the volume
-; 
-			LD	C, (HL)			; Volume
-			LD	B, 6			; C already contains the volume
-			MLT	BC			; Multiply by 6 (0-15 scales to 0-90)
-			LD	A, C
-			LD	(VDU_BUFFER+2), A
-			INC	HL
-			INC	HL
-;
-; And the frequency
-;
-			PUSH	HL
-			LD	L, (HL) 
-			LD	H, 0
-			LD	DE, SOUND_FREQ_LOOKUP
-			ADD	HL, HL
-			ADD	HL, DE
-			LD	A, (HL)
-			LD	(VDU_BUFFER+3), A
-			INC	HL
-			LD	A, (HL)
-			LD	(VDU_BUFFER+4), A
-			POP	HL
-			INC	HL
-			INC	HL
-;
-; And now the duration - multiply it by 50 to convert from 1/20ths of seconds to milliseconds
-;
-			LD	C, (HL)
-			LD	B, 50			; C contains the duration, so MLT by 50
-			MLT	BC
-			LD	(VDU_BUFFER+5), BC
-;
-			PUSH	IX			; Get the system vars in IX
-			MOSCALL	mos_sysvars		; Reset the semaphore
-SOUND0:			RES.LIL	3, (IX+sysvar_vpd_pflags)
-;
-			VDU	23			; Send the sound command
-			VDU	0
-			VDU	vdp_audio
-			VDU	(VDU_BUFFER+0)		; 0: Channel
-			VDU	(VDU_BUFFER+1)		; 1: Waveform (0)
-			VDU	(VDU_BUFFER+2)		; 2: Volume (0-100)
-			VDU	(VDU_BUFFER+3)		; 3: Frequency L
-			VDU	(VDU_BUFFER+4)		; 4: Frequency H
-			VDU	(VDU_BUFFER+5)		; 5: Duration L
-			VDU	(VDU_BUFFER+6)		; 6: Duration H
-;
-; Wait for acknowledgement
-;
-@@:			BIT.LIL	3, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
-			CALL	LTRAP			; Check for ESC
-			LD.LIL	A, (IX+sysvar_audioSuccess)
-			AND	A			; Check if VDP has queued the note
-			JR	Z, SOUND0		; No, so loop back and send again
-;
-			POP	IX
-			RET 
-
-; Frequency Lookup Table
-; Set up to replicate the BBC Micro audio frequencies
-;
-; Split over 5 complete octaves, with 53 being middle C
-; * C4: 262hz
-; + A4: 440hz
-;
-;	2	3	4	5	6	7	8
-;
-; B	1	49	97	145	193	241	
-; A#	0	45	93	141	189	237	
-; A		41	89+	137	185	233	
-; G#		37	85	133	181	229	
-; G		33	81	129	177	225	
-; F#		29	77	125	173	221	
-; F		25	73	121	169	217	
-; E		21	69	117	165	213	
-; D#		17	65	113	161	209	
-; D		13	61	109	157	205	253
-; C#		9	57	105	153	201	249
-; C		5	53*	101	149	197	245
-;
-SOUND_FREQ_LOOKUP:	DW	 117,  118,  120,  122,  123,  131,  133,  135
-			DW	 137,  139,  141,  143,  145,  147,  149,  151
-			DW	 153,  156,  158,  160,  162,  165,  167,  170
-			DW	 172,  175,  177,  180,  182,  185,  188,  190
-			DW	 193,  196,  199,  202,  205,  208,  211,  214
-			DW	 217,  220,  223,  226,  230,  233,  236,  240
-			DW	 243,  247,  251,  254,  258,  262,  265,  269
-			DW	 273,  277,  281,  285,  289,  294,  298,  302
-			DW	 307,  311,  316,  320,  325,  330,  334,  339
-			DW	 344,  349,  354,  359,  365,  370,  375,  381
-			DW	 386,  392,  398,  403,  409,  415,  421,  427
-			DW	 434,  440,  446,  453,  459,  466,  473,  480
-			DW	 487,  494,  501,  508,  516,  523,  531,  539
-			DW	 546,  554,  562,  571,  579,  587,  596,  605
-			DW	 613,  622,  631,  641,  650,  659,  669,  679
-			DW	 689,  699,  709,  719,  729,  740,  751,  762
-			DW	 773,  784,  795,  807,  819,  831,  843,  855
-			DW	 867,  880,  893,  906,  919,  932,  946,  960
-			DW	 974,  988, 1002, 1017, 1032, 1047, 1062, 1078
-			DW	1093, 1109, 1125, 1142, 1158, 1175, 1192, 1210
-			DW	1227, 1245, 1263, 1282, 1300, 1319, 1338, 1358
-			DW	1378, 1398, 1418, 1439, 1459, 1481, 1502, 1524
-			DW	1546, 1569, 1592, 1615, 1638, 1662, 1686, 1711
-			DW	1736, 1761, 1786, 1812, 1839, 1866, 1893, 1920
-			DW	1948, 1976, 2005, 2034, 2064, 2093, 2123, 2154
-			DW	2186, 2217, 2250, 2282, 2316, 2349, 2383, 2418
-			DW	2453, 2489, 2525, 2562, 2599, 2637, 2675, 2714
-			DW	2754, 2794, 2834, 2876, 2918, 2960, 3003, 3047
-			DW	3091, 3136, 3182, 3228, 3275, 3322, 3371, 3420
-			DW	3470, 3520, 3571, 3623, 3676, 3729, 3784, 3839
-			DW	3894, 3951, 4009, 4067, 4126, 4186, 4247, 4309
-			DW	4371, 4435, 4499, 4565, 4631, 4699, 4767, 4836	
-; --- End agon_sound.asm ---
-
-; --- Begin agon_os.asm ---
-;
-; Title:	BBC Basic for AGON - MOS stuff
-; Author:	Dean Belfield
-; Created:	04/12/2024
-; Last Updated:	12/12/2024
-;
-; Modinfo:
-; 08/12/2024:	Added OSCLI and file I/O
-; 11/12/2024:	Added ESC key handling
-; 		Added OSWORD
-; 12/12/2024:	Added OSRDCH, OSBYTE_81 and fixed *EDIT
-
-			.ASSUME	ADL = 0
-;			.ORG 0x0000
-				
-			; INCLUDE	"equs.inc"
-			; INCLUDE "macros.inc"
-			; INCLUDE "mos_api.inc"	; In MOS/src
-
-;			SEGMENT CODE
-			
-;			XDEF	OSWORD
-;			XDEF	OSBYTE
-;			XDEF	OSINIT
-;			XDEF	OSOPEN
-;			XDEF	OSSHUT
-;			XDEF	OSLOAD
-;			XDEF	OSSAVE
-;			XDEF	OSLINE
-;			XDEF	OSSTAT
-;			XDEF	OSWRCH
-;			XDEF	OSRDCH
-;			XDEF	OSBGET
-;			XDEF	OSBPUT
-;			XDEF	OSCLI
-;			XDEF	PROMPT
-;			XDEF	GETPTR
-;			XDEF	PUTPTR
-;			XDEF	GETEXT
-;			XDEF	TRAP
-;			XDEF	LTRAP
-;			XDEF	BYE
-;			XDEF	RESET
-;			XDEF	ESCSET
-			
-;			XREF	EXTERR
-;			XREF	VBLANK_INIT
-;			XREF	VBLANK_STOP
-;			XREF	USER
-;			XREF	COUNT
-;			XREF	COUNT0
-;			XREF	COUNT1
-;			XREF	GETCSR 
-;			XREF	GETSCHR_1
-;			XREF	NULLTOCR
-;			XREF	CRLF
-;			XREF	FLAGS
-;			XREF	OSWRCHPT
-;			XREF	OSWRCHCH
-;			XREF	OSWRCHFH
-;			XREF	KEYASCII
-;			XREF	KEYDOWN
-;			XREF	LISTON 
-;			XREF	PAGE_
-;			XREF	CSTR_FNAME
-;			XREF	CSTR_FINDCH
-;			XREF	CSTR_CAT 
-;			XREF	CSTR_ENDSWITH
-;			XREF	CSTR_LINE 
-;			XREF	NEWIT
-;			XREF	BAD
-;			XREF	CLEAN
-;			XREF	LINNUM
-;			XREF	BUFFER
-;			XREF	NXT
-;			XREF	ERROR_
-;			XREF	XEQ
-;			XREF	LEXAN2
-;			XREF	GETTOP
-;			XREF	FINDL
-;			XREF	DEL
-;			XREF	LISTIT
-;			XREF	ESCAPE
-;			XREF	ASC_TO_NUMBER
-;			XREF	CLOOP
-;			XREF	SCRAP
-;			XREF	POINT_
-;			XREF	SOUND_
-
-;OSINIT - Initialise RAM mapping etc.
-;If BASIC is entered by BBCBASIC FILENAME then file
-;FILENAME.BBC is automatically CHAINed.
-;   Outputs: DE = initial value of HIMEM (top of RAM)
-;            HL = initial value of PAGE (user program)
-;            Z-flag reset indicates AUTO-RUN.
-;  Destroys: A,D,E,H,L,F
-;
-OSINIT:			CALL	VBLANK_INIT
-			XOR	A
-			LD	(FLAGS), A		; Clear flags and set F = Z
-			LD 	HL, USER
-			LD	DE, RAM_Top
-			LD	E, A			; Page boundary
-			RET	
-
-; PROMPT: output the input prompt
-;
-PROMPT: 		LD	A,'>'			; Falls through to OSWRCH
-
-; OSWRCH: Write a character out to the ESP32 VDU handler via the MOS
-; Parameters:
-; - A: Character to write
-;
-OSWRCH:			PUSH	HL
-			LD	HL, LISTON		; Fetch the LISTON variable
-			BIT	3, (HL)			; Check whether we are in *EDIT mode
-			JR	NZ, OSWRCH_BUFFER	; Yes, so just output to buffer
-;
-			LD	HL, (OSWRCHCH)		; L: Channel #
-			DEC	L			; If it is 1
-			JR	Z, OSWRCH_FILE		; Then we are outputting to a file
-;
-			POP	HL			; Otherwise
-			RST.LIS	10h			; Output the character to MOS
-			RET
-;	
-OSWRCH_BUFFER:		LD	HL, (OSWRCHPT)		; Fetch the pointer buffer
-			CP	0AH			; Just ignore this
-			JR	Z, OSWRCH_BUFFER2
-			CP	0DH			; Is it the end of line?
-			JR	NZ, OSWRCH_BUFFER1	; No, so carry on
-			XOR	A			; Turn it into a NUL character
-OSWRCH_BUFFER1:		LD	(HL), A			; Echo the character into the buffer
-			INC	HL			; Increment pointer
-			LD	(OSWRCHPT), HL		; Write pointer back
-OSWRCH_BUFFER2:		POP	HL			
-			RET
-;
-OSWRCH_FILE:		PUSH	DE
-			LD	E, H			; Filehandle to E
-			CALL	OSBPUT			; Write the byte out
-			POP	DE
-			POP	HL
-			RET
-
-; OSRDCH
-;
-OSRDCH:			MOSCALL	mos_getkey		; Read keyboard
-			CP	1Bh
-			JR	Z, LTRAP1 
-			RET
-
-; OSLINE: Invoke the line editor
-;
-OSLINE:			LD 	E, 1			; Default is to clear the buffer
-
-; Entry point to line editor that does not clear the buffer
-; Parameters:
-; - HL: addresses destination buffer (on page boundary)
-; Returns:
-; -  A: 0
-; NB: Buffer filled, terminated by CR
-; 
-OSLINE1:		PUSH	IY			
-			PUSH	HL			; Buffer address
-			LD	BC, 256			; Buffer length
-			MOSCALL	mos_editline		; Call the MOS line editor
-			POP	HL			; Pop the address
-			POP	IY
-			PUSH	AF			; Stack the return value (key pressed)
-			CALL	NULLTOCR		; Turn the 0 character to a CR
-			CALL	CRLF			; Display CRLF
-			POP	AF
-			CP	1Bh 			; Check if ESC terminated the input
-			JP	Z, LTRAP1 		; Yes, so do the ESC thing
-			LD	A, (FLAGS)		; Otherwise
-			RES	7, A 			; Clear the escape flag
-			LD	(FLAGS), A 
-			CALL	WAIT_VBLANK 		; Wait a frame 
- 			XOR	A			; Return A = 0
-			LD	(KEYDOWN), A 
-			LD	(KEYASCII), A
-			RET		
-
-;
-; ESCSET
-; Set the escape flag (bit 7 of FLAGS = 1) if escape is enabled (bit 6 of FLAGS = 0)
-;
-ESCSET: 		PUSH    HL
-        		LD      HL,FLAGS		; Pointer to FLAGS
-        		BIT     6,(HL)			; If bit 6 is set, then
-        		JR      NZ,ESCDIS		; escape is disabled, so skip
-        		SET     7,(HL)			; Set bit 7, the escape flag
-ESCDIS: 		POP     HL
-        		RET	
-
-;
-; ESCTEST
-; Test for ESC key
-;
-ESCTEST:		CALL	READKEY			; Read the keyboard
-			RET	NZ			; Skip if no key is pressed				
-			CP	1BH			; If ESC pressed then
-			JR	Z,ESCSET		; jump to the escape set routine
-			RET
-
-; Read the keyboard
-; Returns:
-; - A: ASCII of the pressed key
-; - F: Z if the key is pressed, otherwise NZ
-;
-READKEY:		LD	A, (KEYDOWN)		; Get key down
-			DEC	A 			; Set Z flag if keydown is 1
-			LD	A, (KEYASCII)		; Get key ASCII value
-			RET 
-;
-; TRAP
-; This is called whenever BASIC needs to check for ESC
-;
-TRAP:			CALL	ESCTEST			; Read keyboard, test for ESC, set FLAGS
-;
-LTRAP:			LD	A,(FLAGS)		; Get FLAGS
-			OR	A			; This checks for bit 7; if it is not set then the result will
-			RET	P			; be positive (bit 7 is the sign bit in Z80), so return
-LTRAP1:			LD	HL,FLAGS 		; Escape is pressed at this point, so
-			RES	7,(HL)			; Clear the escape pressed flag and
-			JP	ESCAPE			; Jump to the ESCAPE error routine in exec.asm
-
-; RESET
-;
-RESET:			RET				; Yes this is fine
-
-; OSOPEN
-; HL: Pointer to path
-;  F: C Z
-;     x x OPENIN
-; 	  OPENOUT
-;     x	  OPENUP
-; Returns:
-;  A: Filehandle, 0 if cannot open
-;
-OSOPEN:			LD	C, fa_read
-			JR	Z, @F
-			LD	C, fa_write | fa_open_append
-			JR	C, @F
-			LD	C, fa_write | fa_create_always
-@@:			MOSCALL	mos_fopen			
-			RET
-
-;OSSHUT - Close disk file(s).
-; E = file channel
-;  If E=0 all files are closed (except SPOOL)
-; Destroys: A,B,C,D,E,H,L,F
-;
-OSSHUT:			PUSH	BC
-			LD	C, E
-			MOSCALL	mos_fclose
-			POP	BC
-			RET
-	
-; OSBGET - Read a byte from a random disk file.
-;  E = file channel
-; Returns
-;  A = byte read
-;  Carry set if LAST BYTE of file
-; Destroys: A,B,C,F
-;
-OSBGET:			PUSH	BC
-			LD	C, E
-			MOSCALL	mos_fgetc
-			POP	BC
-			RET
-	
-; OSBPUT - Write a byte to a random disk file.
-;  E = file channel
-;  A = byte to write
-; Destroys: A,B,C,F
-;	
-OSBPUT:			PUSH	BC
-			LD	C, E
-			LD	B, A
-			MOSCALL	mos_fputc
-			POP	BC
-			RET
-
-; OSSTAT - Read file status
-;  E = file channel
-; Returns
-;  F: Z flag set - EOF
-;  A: If Z then A = 0
-; Destroys: A,D,E,H,L,F
-;
-OSSTAT:			PUSH	BC
-			LD	C, E
-			MOSCALL	mos_feof
-			POP	BC
-			CP	1
-			RET
-	
-; GETPTR - Return file pointer.
-;    E = file channel
-; Returns:
-; DEHL = pointer (0-&7FFFFF)
-; Destroys: A,B,C,D,E,H,L,F
-;
-GETPTR:			PUSH		IY
-			LD		C, E 
-			MOSCALL		mos_getfil 	; HLU: Pointer to FIL structure
-			PUSH.LIL	HL
-			POP.LIL		IY		; IYU: Pointer to FIL structure
-			LD.LIL		L, (IY + FIL.fptr + 0)
-			LD.LIL		H, (IY + FIL.fptr + 1)
-			LD.LIL		E, (IY + FIL.fptr + 2)
-			LD.LIL		D, (IY + FIL.fptr + 3)
-			POP		IY
-			RET
-
-; PUTPTR - Update file pointer.
-;    A = file channel
-; DEHL = new pointer (0-&7FFFFF)
-; Destroys: A,B,C,D,E,H,L,F
-;
-PUTPTR:			PUSH		IY 			
-			LD		C, A  		; C: Filehandle
-			PUSH.LIL	HL 		
-			LD.LIL		HL, 2
-			ADD.LIL		HL, SP
-			LD.LIL		(HL), E 	; 3rd byte of DWORD set to E
-			POP.LIL		HL
-			LD		E, D  		; 4th byte passed as E
-			MOSCALL		mos_flseek
-			POP		IY 
-			RET
-	
-; GETEXT - Find file size.
-;    E = file channel
-; Returns:
-; DEHL = file size (0-&800000)
-; Destroys: A,B,C,D,E,H,L,F
-;
-GETEXT:			PUSH		IY 
-			LD		C, E 
-			MOSCALL		mos_getfil 	; HLU: Pointer to FIL structure
-			PUSH.LIL	HL
-			POP.LIL		IY		; IYU: Pointer to FIL structure
-			LD.LIL		L, (IY + FIL.obj.objsize + 0)
-			LD.LIL		H, (IY + FIL.obj.objsize + 1)
-			LD.LIL		E, (IY + FIL.obj.objsize + 2)
-			LD.LIL		D, (IY + FIL.obj.objsize + 3)			
-			POP		IY 
-			RET	
-
-;OSLOAD - Load an area of memory from a file.
-;   Inputs: HL addresses filename (CR terminated)
-;           DE = address at which to load
-;           BC = maximum allowed size (bytes)
-;  Outputs: Carry reset indicates no room for file.
-; Destroys: A,B,C,D,E,H,L,F
-;
-OSLOAD:			PUSH	BC			; Stack the size
-			PUSH	DE			; Stack the load address
-			LD	DE, ACCS		; Buffer address for filename
-			CALL	CSTR_FNAME		; Fetch filename from MOS into buffer
-			LD	HL, ACCS		; HL: Filename
-			CALL	EXT_DEFAULT		; Tack on the extension .BBC if not specified
-			CALL	EXT_HANDLER		; Get the default handler
-			POP	DE			; Restore the load address
-			POP	BC			; Restore the size
-			OR	A
-			JP 	Z, OSLOAD_BBC
-;
-; Load the file in as a text file
-;
-OSLOAD_TXT:		XOR	A			; Set file attributes to read
-			CALL	OSOPEN			; Open the file			
-			LD 	E, A 			; The filehandle
-			OR	A
-			LD	A, 4			; File not found error
-			JP	Z, OSERROR		; Jump to error handler
-			CALL	NEWIT			; Call NEW to clear the program space
-;
-OSLOAD_TXT1:		LD	HL, ACCS 		; Where the input is going to be stored
-;
-; First skip any whitespace (indents) at the beginning of the input
-;
-@@:			CALL	OSBGET			; Read the byte into A
-			JR	C, OSLOAD_TXT3		; Is it EOF?
-			CP	LF 			; Is it LF?
-			JR	Z, OSLOAD_TXT3 		; Yes, so skip to the next line
-			CP	21h			; Is it less than or equal to ASCII space?
-			JR	C, @B 			; Yes, so keep looping
-			LD	(HL), A 		; Store the first character
-			INC	L
-;
-; Now read the rest of the line in
-;
-OSLOAD_TXT2:		CALL	OSBGET			; Read the byte into A
-			JR	C, OSLOAD_TXT4		; Is it EOF?
-			CP	20h			; Skip if not an ASCII character
-			JR	C, @F
-			LD	(HL), A 		; Store in the input buffer			
-			INC	L			; Increment the buffer pointer
-			JP	Z, BAD			; If the buffer is full (wrapped to 0) then jump to Bad Program error
-@@:			CP	LF			; Check for LF
-			JR	NZ, OSLOAD_TXT2		; If not, then loop to read the rest of the characters in
-;
-; Finally, handle EOL/EOF
-;
-OSLOAD_TXT3:		LD	(HL), CR		; Store a CR for BBC BASIC
-			LD	A, L			; Check for minimum line length
-			CP	2			; If it is 2 characters or less (including CR)
-			JR	C, @F			; Then don't bother entering it
-			PUSH	DE			; Preserve the filehandle
-			CALL	OSEDIT			; Enter the line in memory
-			CALL	C,CLEAN			; If a new line has been entered, then call CLEAN to set TOP and write &FFFF end of program marker
-			POP	DE
-@@:			CALL	OSSTAT			; End of file?
-			JR	NZ, OSLOAD_TXT1		; No, so loop
-			CALL	OSSHUT			; Close the file
-			SCF				; Flag to BASIC that we're good
-			RET
-;
-; Special case for BASIC programs with no blank line at the end
-;
-OSLOAD_TXT4:		CP	20h			; Skip if not an ASCII character
-			JR	C, @F
-			LD	(HL), A			; Store the character
-			INC	L
-			JP	Z, BAD
-@@:			JR	OSLOAD_TXT3
-;
-; This bit enters the line into memory
-; Also called from OSLOAD_TXT
-; Returns:
-; F: C if a new line has been entered (CLEAN will need to be called)
-;
-OSEDIT:			XOR	A			; Entry point after *EDIT
-			LD      (COUNT),A
-			LD      IY,ACCS
-			CALL    LINNUM			; HL: The line number from the input buffer
-			CALL    NXT			; Skip spaces
-			LD      A,H			; HL: The line number will be 0 for immediate mode or when auto line numbering is used
-			OR      L
-			JR      Z,LNZERO        	; Skip if there is no line number in the input buffer
-;
-; This bit does the lexical analysis and tokenisation
-;
-LNZERO:			LD	DE,BUFFER	
-                	LD	C,1			; LEFT MODE	
-                	PUSH	HL	
-                	CALL	LEXAN2			; LEXICAL ANALYSIS	
-                	POP	HL	
-                	LD	(DE),A			; TERMINATOR	
-                	XOR	A	
-                	LD	B,A	
-                	LD	C,E			; BC=LINE LENGTH	
-                	INC	DE	
-                	LD	(DE),A			; ZERO NEXT	
-                	LD	A,H	
-                	OR	L	
-                	LD	IY,BUFFER		; FOR XEQ	
-                	JP	Z,XEQ			; DIRECT MODE	
-                	PUSH	BC	
-                	CALL	FINDL	
-                	CALL	Z,DEL	
-                	POP	BC	
-                	LD	A,C	
-                	OR	A	
-                	RET	Z
-                	ADD	A,4	
-                	LD	C,A			; LENGTH INCLUSIVE	
-                	PUSH	DE			; LINE NUMBER	
-                	PUSH	BC			; SAVE LINE LENGTH	
-                	EX	DE,HL	
-                	PUSH	BC	
-                	CALL	GETTOP	
-                	POP	BC	
-                	PUSH	HL	
-                	ADD	HL,BC	
-                	PUSH	HL	
-                	INC	H	
-                	XOR	A	
-                	SBC	HL,SP	
-                	POP	HL	
-                	JP	NC,ERROR_		; "No room"	
-                	EX	(SP),HL	
-                	PUSH	HL	
-                	INC	HL	
-                	OR	A	
-                	SBC	HL,DE	
-                	LD	B,H			; BC=AMOUNT TO MOVE	
-                	LD	C,L	
-                	POP	HL	
-                	POP	DE	
-                	JR	Z,ATENDos	
-                	LDDR				; MAKE SPACE	
-ATENDos:          	POP	BC			; LINE LENGTH	
-                	POP	DE			; LINE NUMBER	
-                	INC	HL	
-                	LD	(HL),C			; STORE LENGTH	
-                	INC	HL	
-                	LD	(HL),E			; STORE LINE NUMBER	
-                	INC	HL	
-                	LD	(HL),D	
-                	INC	HL	
-                	LD	DE,BUFFER	
-                	EX	DE,HL	
-                	DEC	C	
-                	DEC	C	
-                	DEC	C	
-                	LDIR				; ADD LINE
-			SCF
-			RET	
-;
-; Load the file in as a tokenised binary blob
-;
-OSLOAD_BBC:		MOSCALL	mos_load		; Call LOAD in MOS
-			RET	NC			; If load returns with carry reset - NO ROOM
-			OR	A			; If there is no error (A=0)
-			SCF				; Need to set carry indicating there was room
-			RET	Z			; Return
-;
-OSERROR:		PUSH	AF			; Handle the MOS error
-			LD	HL, ACCS		; Address of the buffer
-			LD	BC, 256			; Length of the buffer
-			LD	E, A			; The error code
-			MOSCALL	mos_getError		; Copy the error message into the buffer
-			POP	AF			
-			PUSH	HL			; Stack the address of the error (now in ACCS)		
-			ADD	A, 127			; Add 127 to the error code (MOS errors start at 128, and are trappable)
-			JP	EXTERR			; Trigger an external error
-
-;OSSAVE - Save an area of memory to a file.
-;   Inputs: HL addresses filename (term CR)
-;           DE = start address of data to save
-;           BC = length of data to save (bytes)
-; Destroys: A,B,C,D,E,H,L,F
-;
-OSSAVE:			PUSH	BC			; Stack the size
-			PUSH	DE			; Stack the save address
-			LD	DE, ACCS		; Buffer address for filename
-			CALL	CSTR_FNAME		; Fetch filename from MOS into buffer
-			LD	HL, ACCS		; HL: Filename
-			CALL	EXT_DEFAULT		; Tack on the extension .BBC if not specified
-			CALL	EXT_HANDLER		; Get the default handler
-			POP	DE			; Restore the save address
-			POP	BC			; Restore the size
-			OR	A			; Is the extension .BBC
-			JR	Z, OSSAVE_BBC		; Yes, so use that
-;
-; Save the file out as a text file
-;
-OSSAVE_TXT:		LD 	A, (OSWRCHCH)		; Stack the current channel
-			PUSH	AF
-			XOR	A
-			INC	A			; Make sure C is clear, A is 1, for OPENOUT
-			LD	(OSWRCHCH), A
-			CALL	OSOPEN			; Open the file
-			LD	(OSWRCHFH), A		; Store the file handle for OSWRCH
-			LD	IX, LISTON		; Required for LISTIT
-			LD	HL, (PAGE_)		; Get start of program area
-			EXX
-			LD	BC, 0			; Set the initial indent counters
-			EXX			
-OSSAVE_TXT1:		LD	A, (HL)			; Check for end of program marker
-			OR	A		
-			JR	Z, OSSAVE_TXT2
-			INC	HL			; Skip the length byte
-			LD	E, (HL)			; Get the line number
-			INC	HL
-			LD	D, (HL)
-			INC	HL
-			CALL	LISTIT			; List the line
-			JR	OSSAVE_TXT1
-OSSAVE_TXT2:		LD	A, (OSWRCHFH)		; Get the file handle
-			LD	E, A
-			CALL	OSSHUT			; Close it
-			POP	AF			; Restore the channel
-			LD	(OSWRCHCH), A		
-			RET
-;
-; Save the file out as a tokenised binary blob
-;
-OSSAVE_BBC:		MOSCALL	mos_save		; Call SAVE in MOS
-			OR	A			; If there is no error (A=0)
-			RET	Z			; Just return
-			JR	OSERROR			; Trip an error
-
-; Check if an extension is specified in the filename
-; Add a default if not specified
-; HL: Filename (CSTR format)
-;
-EXT_DEFAULT:		PUSH	HL			; Stack the filename pointer	
-			LD	C, '.'			; Search for dot (marks start of extension)
-			CALL	CSTR_FINDCH
-			OR	A			; Check for end of string marker
-			JR	NZ, @F			; No, so skip as we have an extension at this point			
-			LD	DE, EXT_LOOKUP		; Get the first (default extension)
-			CALL	CSTR_CAT		; Concat it to string pointed to by HL
-@@:			POP	HL			; Restore the filename pointer
-			RET
-			
-; Check if an extension is valid and, if so, provide a pointer to a handler
-; HL: Filename (CSTR format)
-; Returns:
-;  A: Filename extension type (0=BBC tokenised, 1=ASCII untokenised)
-;
-EXT_HANDLER:		PUSH	HL			; Stack the filename pointer
-			LD	C, '.'			; Find the '.'
-			CALL	CSTR_FINDCH
-			LD	DE, EXT_LOOKUP		; The lookup table
-;
-EXT_HANDLER_1:		PUSH	HL			; Stack the pointer to the extension
-			CALL	CSTR_ENDSWITH		; Check whether the string ends with the entry in the lookup
-			POP	HL			; Restore the pointer to the extension
-			JR	Z, EXT_HANDLER_2	; We have a match!
-;
-@@:			LD	A, (DE)			; Skip to the end of the entry in the lookup
-			INC	DE
-			OR	A
-			JR	NZ, @B
-			INC	DE			; Skip the file extension # byte
-;
-			LD	A, (DE)			; Are we at the end of the table?
-			OR	A
-			JR	NZ, EXT_HANDLER_1	; No, so loop
-;			
-			LD      A,204			; Throw a "Bad name" error
-        		CALL    EXTERR
-        		DB    	"Bad name", 0
-;
-EXT_HANDLER_2:		INC	DE			; Skip to the file extension # byte
-			LD	A, (DE)		
-			POP	HL			; Restore the filename pointer
-			RET
-
-; Extension lookup table
-; CSTR, TYPE
-; 	- 0: BBC (tokenised BBC BASIC for Z80 format)
-; 	- 1: Human readable plain text
-;
-EXT_LOOKUP:		DB	".BBC", 0, 0		; First entry is the default extension
-			DB	".TXT", 0, 1
-			DB	".ASC", 0, 1
-			DB	".BAS", 0, 1
-			DB	0			; End of table
-
-; OSWORD
-;
-OSWORD:			CP	07H			; SOUND
-			; JR	Z, OSWORD_07
-			JP	Z, OSWORD_07 ; JR WAS TOO LARGE
-			CP	08H			; ENVELOPE
-			JR	Z, OSWORD_08
-			CP	09H			; POINT
-			JR	Z, OSWORD_09
-			JP	HUH			; Anything else trips an error
-
-; SOUND channel,volume,pitch,duration
-; Parameters:
-; - HL: Pointer to data
-;   - 0,1: Channel
-;   - 2,3: Volume 0 (off) to 15 (full volume)
-;   - 4,5: Pitch 0 - 255
-;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
-;
-OSWORD_07:		EQU	SOUND_
-
-; OSWORD 0x09: POINT
-; Parameters:
-; - HL: Address of data
-;   - 0,1: X coordinate
-;   - 2,3: Y coordinate
-;
-OSWORD_09:		LD	DE,(SCRAP+0)
-			LD	HL,(SCRAP+2)
-			CALL	POINT_
-			LD	(SCRAP+4),A
-OSWORD_08:		RET				; Envelope not currently implemented
-
-;
-; OSBYTE
-; Parameters:
-; - A: FX #
-; - L: First parameter
-; - H: Second parameter
-;
-OSBYTE:			CP	0BH			; Keyboard auto-repeat delay
-			JR	Z, OSBYTE_0B
-			CP	0CH			; Keyboard auto-repeat rate
-			JR	Z, OSBYTE_0C
-			CP	13H			; Wait for vblank
-			JR	Z, OSBYTE_13		
-			CP	76H			; Set keyboard LED
-			JR	Z, OSBYTE_76
-			CP	81H			; Read the keyboard
-			JP	Z, OSBYTE_81
-			CP	86H			; Get cursor coordinates
-			JP	Z, OSBYTE_86
-			CP	87H			; Fetch current mode and character under cursor
-			JP	Z, OSBYTE_87
-			CP	A0H			; Fetch system variable
-			JP	Z, OSBYTE_A0		
-;
-; Anything else trips an error
-;
-HUH:    		LD      A,254			; Bad command error
-        		CALL    EXTERR
-        		DB    	"Bad command"
-        		DEFB    0				
-
-; OSBYTE 0x0B (FX 11,n): Keyboard auto-repeat delay
-; Parameters:
-; - HL: Repeat delay
-;
-OSBYTE_0B:		VDU	23
-			VDU	0
-			VDU	vdp_keystate
-			VDU	L
-			VDU	H 
-			VDU	0
-			VDU 	0
-			VDU	255
-			RET 
-
-; OSBYTE 0x0C (FX 12,n): Keyboard auto-repeat rate
-; Parameters:
-; - HL: Repeat rate
-;
-OSBYTE_0C:		VDU	23
-			VDU	0
-			VDU	vdp_keystate
-			VDU	0
-			VDU 	0
-			VDU	L
-			VDU	H 
-			VDU	255
-			RET 
-
-; OSBYTE 0x13 (FX 19): Wait for vertical blank interrupt
-;
-OSBYTE_13:		CALL	WAIT_VBLANK
-			LD	L, 0			; Returns 0
-			JP	COUNT0
-;
-; OSBYTE 0x76 (FX 118,n): Set Keyboard LED
-; Parameters:
-; - L: LED (Bit 0: Scroll Lock, Bit 1: Caps Lock, Bit 2: Num Lock)
-;
-OSBYTE_76:		VDU	23
-			VDU	0
-			VDU	vdp_keystate
-			VDU	0
-			VDU 	0
-			VDU	0
-			VDU	0 
-			VDU	L
-			RET 
-
-; OSBYTE 0x81: Read the keyboard
-; Parameters:
-; - HL = Time to wait (centiseconds)
-; Returns:
-; - F: Carry reset indicates time-out
-; - A: If carry set, A = character typed
-; Destroys: A,D,E,H,L,F
-;
-OSBYTE_81:		CALL	READKEY			; Read the keyboard 
-			JR	Z, @F 			; Skip if we have a key
-			LD	A, H 			; Check loop counter
-			OR 	L
-			RET 	Z 			; Return, we've not got a key at this point
-			CALL	WAIT_VBLANK 		; Wait a frame
-			DEC 	HL			; Decrement
-			JR	OSBYTE_81		; And loop
-;
-@@:			LD	HL, KEYDOWN		; We have a key, so 
-			LD	(HL), 0			; clear the keydown flag
-			CP	1BH			; If we are not pressing ESC, 
-			SCF 				; then flag we've got a character
-			RET	NZ
-			JP	ESCSET			; Handle ESC
-
-; OSBYTE 0x86: Fetch cursor coordinates
-; Returns:
-; - DE: X Coordinate (POS)
-; - HL: Y Coordinate (VPOS)
-;
-OSBYTE_86:		PUSH	IX			; Get the system vars in IX
-			MOSCALL	mos_sysvars		; Reset the semaphore
-			RES.LIL	0, (IX+sysvar_vpd_pflags)
-			VDU	23
-			VDU	0
-			VDU	vdp_cursor
-@@:			BIT.LIL	0, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
-			LD 	D, 0
-			LD	H, D
-			LD.LIL	E, (IX + sysvar_cursorX)
-			LD.LIL	L, (IX + sysvar_cursorY)			
-			POP	IX			
-			RET	
-
-; OSBYTE 0x87: Fetch current mode and character under cursor
-;
-OSBYTE_87:		PUSH	IX
-			CALL	GETCSR			; Get the current screen position
-			CALL	GETSCHR_1		; Read character from screen
-			LD	L, A 
-			MOSCALL	mos_sysvars
-			LD.LIL	H, (IX+sysvar_scrMode)	; H: Screen mode
-			POP	IX
-			JP	COUNT1
-			
-; OSBYTE 0xA0: Fetch system variable
-; Parameters:
-; - L: The system variable to fetch
-;
-OSBYTE_A0:		PUSH	IX
-			MOSCALL	mos_sysvars		; Fetch pointer to system variables
-			LD.LIL	BC, 0			
-			LD	C, L			; BCU = L
-			ADD.LIL	IX, BC			; Add to IX
-			LD.LIL	L, (IX + 0)		; Fetch the return value
-			POP	IX
-			JP 	COUNT0
-
-; OSCLI
-;
-;
-;OSCLI - Process a MOS command
-;
-OSCLI: 			CALL    SKIPSP
-			CP      CR
-			RET     Z
-			CP      '|'
-			RET     Z
-			EX      DE,HL
-			LD      HL,COMDS
-OSCLI0:			LD      A,(DE)
-			CALL    UPPRC
-			CP      (HL)
-			JR      Z,OSCLI2
-			JR      C,OSCLI6
-OSCLI1:			BIT     7,(HL)
-			INC     HL
-			JR      Z,OSCLI1
-			INC     HL
-			INC     HL
-			JR      OSCLI0
-;
-OSCLI2:			PUSH    DE
-OSCLI3:			INC     DE
-			INC     HL
-			LD      A,(DE)
-			CALL    UPPRC
-			CP      '.'			; ABBREVIATED?
-			JR      Z,OSCLI4
-			XOR     (HL)
-			JR      Z,OSCLI3
-			CP      80H
-			JR      Z,OSCLI4
-			POP     DE
-			JR      OSCLI1
-;
-OSCLI4:			POP     AF
-		        INC     DE
-OSCLI5:			BIT     7,(HL)
-			INC     HL
-			JR      Z,OSCLI5
-			LD      A,(HL)
-			INC     HL
-			LD      H,(HL)
-			LD      L,A
-			PUSH    HL
-			EX      DE,HL
-			JP      SKIPSP
-;
-OSCLI6:			EX	DE, HL			; HL: Buffer for command
-			LD	DE, ACCS		; Buffer for command string is ACCS (the string accumulator)
-			PUSH	DE			; Store buffer address
-			CALL	CSTR_LINE		; Fetch the line
-			POP	HL			; HL: Pointer to command string in ACCS
-			PUSH	IY
-			MOSCALL	mos_oscli		; Returns OSCLI error in A
-			POP	IY
-			OR	A			; 0 means MOS returned OK
-			RET	Z			; So don't do anything
-			JP 	OSERROR			; Otherwise it's a MOS error
-
-SKIPSP:			LD      A,(HL)			
-        		CP      ' '
-        		RET     NZ
-        		INC     HL
-        		JR      SKIPSP	
-
-UPPRC:  		AND     7FH
-			CP      '`'
-			RET     C
-			AND     5FH			; CONVERT TO UPPER CASE
-			RET	
-
-; Each command has bit 7 of the last character set, and is followed by the address of the handler
-; These must be in alphabetical order
-;		
-COMDS:  		DB	"BY","E"+80h		; BYE
-			DW	BYE
-			DB	"EDI","T"+80h		; EDIT
-			DW	STAR_EDIT
-			DB	"F","X"+80h		; FX
-			DW	STAR_FX
-;			DB	'VERSIO','N'+80h	; VERSION
-;			DW	STAR_VERSION
-			DB	FFh			
-
-; *BYE
-;
-BYE:			CALL	VBLANK_STOP		; Restore MOS interrupts
-			POP.LIL	IX 			; The return address to init
-			LD	HL, 0			; The return code
-			JP	(IX)
-
-; *EDIT linenum
-;
-STAR_EDIT:		CALL	ASC_TO_NUMBER		; DE: Line number to edit
-			EX	DE, HL			; HL: Line number
-			CALL	FINDL			; HL: Address in RAM of tokenised line			
-			LD	A, 41			; F:NZ If the line is not found
-			JP	NZ, ERROR_		; Do error 41: No such line in that case
-;
-; Use LISTIT to output the line to the ACCS buffer
-;
-			INC	HL			; Skip the length byte
-			LD	E, (HL)			; Fetch the line number
-			INC	HL
-			LD	D, (HL)
-			INC	HL
-			LD	IX, ACCS		; Pointer to where the copy is to be stored
-			LD	(OSWRCHPT), IX
-			LD	IX, LISTON		; Pointer to LISTON variable in RAM
-			LD	A, (IX)			; Store that variable
-			PUSH	AF
-			LD	(IX), 09h		; Set to echo to buffer
-			CALL	LISTIT
-			POP	AF
-			LD	(IX), A			; Restore the original LISTON variable			
-			LD	HL, ACCS		; HL: ACCS
-			LD	E, L			;  E: 0 - Don't clear the buffer; ACCS is on a page boundary so L is 0
-			CALL	OSLINE1			; Invoke the editor
-			CALL	OSEDIT
-			CALL    C,CLEAN			; Set TOP, write out &FFFF end of program marker
-			JP      CLOOP			; Jump back to immediate mode
-
-; OSCLI FX n
-;
-STAR_FX:		CALL	ASC_TO_NUMBER
-			LD	C, E			; C: Save FX #
-			CALL	ASC_TO_NUMBER
-			LD	A, D  			; Is first parameter > 255?
-			OR 	A 			
-			JR	Z, STAR_FX1		; Yes, so skip next bit 
-			EX	DE, HL 			; Parameter is 16-bit
-			JR	STAR_FX2 
-;
-STAR_FX1:		LD	B, E 			; B: Save First parameter
-			CALL	ASC_TO_NUMBER		; Fetch second parameter
-			LD	L, B 			; L: First parameter
-			LD	H, E 			; H: Second parameter
-;
-STAR_FX2:		LD	A, C 			; A: FX #
-			JP	OSBYTE	
-
-; Helper Functions
-;
-WAIT_VBLANK:		PUSH 	IX			; Wait for VBLANK interrupt
-			MOSCALL	mos_sysvars		; Fetch pointer to system variables
-			LD.LIL	A, (IX + sysvar_time + 0)
-@@:			CP.LIL 	A, (IX + sysvar_time + 0)
-			JR	Z, @B
-			POP	IX
-			RET    
-			; --- End agon_os.asm ---
 
 ; --- Begin eval.asm ---
 ;

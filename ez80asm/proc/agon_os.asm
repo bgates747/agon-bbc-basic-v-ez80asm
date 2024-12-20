@@ -656,15 +656,17 @@ OSWORD:			CP	07H			; SOUND
 			JR	Z, OSWORD_09
 			JP	HUH			; Anything else trips an error
 
-; SOUND channel,volume,pitch,duration
-; Parameters:
-; - HL: Pointer to data
-;   - 0,1: Channel
-;   - 2,3: Volume 0 (off) to 15 (full volume)
-;   - 4,5: Pitch 0 - 255
-;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
-;
-OSWORD_07:		EQU	SOUND_
+; moved to agon_sound.asm
+; ; SOUND channel,volume,pitch,duration
+; ; Parameters:
+; ; - HL: Pointer to data
+; ;   - 0,1: Channel
+; ;   - 2,3: Volume 0 (off) to 15 (full volume)
+; ;   - 4,5: Pitch 0 - 255
+; ;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
+; ;
+; OSWORD_07:		EQU	SOUND_
+; end moved to agon_sound.asm
 
 ; OSWORD 0x09: POINT
 ; Parameters:
