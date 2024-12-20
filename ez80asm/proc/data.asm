@@ -67,8 +67,10 @@ SCRAP:          DS	31
 ACCS:           DS	256		;STRING ACCUMULATOR	
 BUFFER:         DS	256		;STRING INPUT BUFFER	
 STAVAR:         DS	27*4		;STATIC VARIABLES	
-; OC:             EQU	STAVAR+15*4	;CODE ORIGIN (O%)	
-; PC:             EQU	STAVAR+16*4	;PROGRAM COUNTER (P%)	
+; OC:             EQU	STAVAR+15*4	;CODE ORIGIN (O%)	; restored from equs.inc
+; PC:             EQU	STAVAR+16*4	;PROGRAM COUNTER (P%)	; restored from equs.inc
+OC:             EQU	15*4+STAVAR	;CODE ORIGIN (O%)	; restored from equs.inc
+PC:             EQU	16*4+STAVAR	;PROGRAM COUNTER (P%)	; restored from equs.inc
 DYNVAR:         DS	54*2		;DYN. VARIABLE POINTERS	
 FNPTR:          DS	2		;DYN. FUNCTION POINTER	
 PROPTR:         DS	2		;DYN. PROCEDURE POINTER	
@@ -93,6 +95,7 @@ WIDTH:          DS	1		;PRINT WIDTH
 ERR:            DS	1		;ERROR NUMBER	
 LISTON:         DS	1		;LISTO & OPT FLAG	
 INCREM:         DS	1		;AUTO INCREMENT	
+VDU_BUFFER:		EQU	ACCS		; Storage for VDU commands ; originally in equs.inc
 ;
 USER:           ; END	
 ;    include "data.inc"

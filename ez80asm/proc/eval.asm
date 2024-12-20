@@ -120,18 +120,16 @@
 ;                XREF	FPP	
 ;
 FUNTOK:         EQU	8DH		;1st FUNCTION TOKEN	
-; IN main.asm
-; TMOD:           EQU	83H	
-; TLEN:           EQU	0A9H	
-; TTO:            EQU	0B8H	
-; TDIM:           EQU	0DEH	
-; TEND:           EQU	0E0H	
-; TMODE:          EQU	0EBH	
-; TREPORT:        EQU	0F6H	
-; TWIDTH:         EQU	0FEH	
-; TTINT:          EQU	0AH	
-; TBY:            EQU	0FH	
-; END in main.asm
+TMOD:           EQU	83H	
+TLEN:           EQU	0A9H	
+; TTO:            EQU	0B8H	; IN main.asm
+; TDIM:           EQU	0DEH	; IN main.asm
+TEND:           EQU	0E0H	
+TMODE:          EQU	0EBH	
+TREPORT:        EQU	0F6H	
+TWIDTH:         EQU	0FEH	
+TTINT:          EQU	0AH	
+; TBY:            EQU	0FH	; IN main.asm
 ;
 ;TABLE OF ADDRESSES FOR FUNCTIONS:
 ;

@@ -50,12 +50,12 @@ GPIOMODE_INTRE:		EQU		9	; Interrupt, Rising Edge
 	
 ; Originally in ram.asm
 ;
-OC:			EQU     STAVAR+15*4     ; CODE ORIGIN (O%)
-PC:			EQU     STAVAR+16*4     ; PROGRAM COUNTER (P%)
-VDU_BUFFER:		EQU	ACCS		; Storage for VDU commands
+; OC:			EQU     STAVAR+15*4     ; CODE ORIGIN (O%) ; back to data.asm
+; PC:			EQU     STAVAR+16*4     ; PROGRAM COUNTER (P%) ; back to data.asm
+; VDU_BUFFER:		EQU	ACCS		; Storage for VDU commands ; moved to data.asm
 
 ; Originally in main.asm
 ;
-CR			EQU     0DH
+CR:			EQU     0DH
 LF:			EQU     0AH
 ESC:			EQU     1BH

@@ -10,9 +10,9 @@
 			.ASSUME	ADL = 0
 ;	.ORG 0x0000
 				
-			INCLUDE	"equs.inc"
-			INCLUDE "macros.inc"
-			INCLUDE "mos_api.inc"	; In MOS/src
+			; INCLUDE	"equs.inc"
+			; INCLUDE "macros.inc"
+			; INCLUDE "mos_api.inc"	; In MOS/src
 		
 ;			SEGMENT CODE
 			

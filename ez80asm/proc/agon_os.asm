@@ -13,9 +13,9 @@
 			.ASSUME	ADL = 0
 ;			.ORG 0x0000
 				
-			INCLUDE	"equs.inc"
-			INCLUDE "macros.inc"
-			INCLUDE "mos_api.inc"	; In MOS/src
+			; INCLUDE	"equs.inc"
+			; INCLUDE "macros.inc"
+			; INCLUDE "mos_api.inc"	; In MOS/src
 
 ;			include "agon_os.inc"
 
@@ -650,7 +650,8 @@ EXT_LOOKUP:		DB	".BBC", 0, 0		; First entry is the default extension
 ; OSWORD
 ;
 OSWORD:			CP	07H			; SOUND
-			JR	Z, OSWORD_07
+			; JR	Z, OSWORD_07
+			JP	Z, OSWORD_07 ; JR WAS TOO LARGE
 			CP	08H			; ENVELOPE
 			JR	Z, OSWORD_08
 			CP	09H			; POINT

@@ -15,8 +15,8 @@
 ;                XREF	OSBYTE	
 ;
 ; ESC            EQU	1BH	
-; TBY:            EQU	0FH	; in eval.asm
-; TTO:            EQU	0B8H	; in eval.asm
+TBY:            EQU	0FH	
+; TTO:            EQU	0B8H in main.asm
 TFILL:          EQU	03H	
 ;
 ;                XREF	ITEMI	

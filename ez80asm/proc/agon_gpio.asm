@@ -6,8 +6,8 @@
 ;
 ; Modinfo:
 
-			INCLUDE	"macros.inc"
-			INCLUDE	"equs.inc"
+			; INCLUDE	"macros.inc"
+			; INCLUDE	"equs.inc"
 
 			.ASSUME	ADL = 0
 ;	.ORG 0x0000

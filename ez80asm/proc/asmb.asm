@@ -34,11 +34,11 @@
 ;                XREF	PC	
 ;
 ; CR             EQU	0DH	; in equs.inc
-; TAND:           EQU	80H	; in exec.asm 
-; TOR:            EQU	84H	; in exec.asm
+TAND:           EQU	80H	
+TOR:            EQU	84H	
 ; TERROR:         EQU	85H	; in exec.asm
-; TCALL:          EQU	0D6H ; in exec.asm	
-; TDEF:           EQU	0DDH ; in exec.asm	
+TCALL:          EQU	0D6H
+TDEF:           EQU	0DDH 
 ;
 ;ASSEMBLER:
 ;LANGUAGE-INDEPENDENT CONTROL SECTION:

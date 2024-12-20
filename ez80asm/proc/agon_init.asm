@@ -17,7 +17,7 @@
 			.ASSUME	ADL = 0
 ;	.ORG 0x0000
 				
-			INCLUDE	"equs.inc"
+			; INCLUDE	"equs.inc"
 			
 argv_ptrs_max:		EQU	16				; Maximum number of arguments allowed in argv
 			

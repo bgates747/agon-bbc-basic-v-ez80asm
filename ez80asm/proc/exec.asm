@@ -150,15 +150,15 @@
 ; TOR:            EQU	84H	
 ; TERROR:         EQU	85H	
 ; TLINE:          EQU	86H	
-; TOFF:           EQU	87H	
-; TSTEP:          EQU	88H	
-; TSPC:           EQU	89H	
-; TTAB:           EQU	8AH	
+TOFF:           EQU	87H	
+TSTEP:          EQU	88H	
+TSPC:           EQU	89H	
+TTAB:           EQU	8AH	
 ; TELSE:          EQU	8BH	
 ; TTHEN:          EQU	8CH	
 ; TLINO:          EQU	8DH	
 ; TTO:            EQU	0B8H	
-; TBYex:           EQU	0C0H	
+; TBY:           EQU	0C0H	
 ; TWHILE:         EQU	0C7H	
 ; TWHEN:          EQU	0C9H	
 ; TOF:            EQU	0CAH	
@@ -178,8 +178,8 @@
 ; TPROC:          EQU	0F2H	
 ; TREM:           EQU	0F4H	
 ; TREPEAT:        EQU	0F5H	
-; TRETURN:        EQU	0F8H	
-; TSTOP:          EQU	0FAH	
+TRETURN:        EQU	0F8H	
+TSTOP:          EQU	0FAH	
 ; TUNTIL:         EQU	0FDH	
 ; TEXIT:          EQU	10H	
 ; END in main.asm
@@ -268,7 +268,7 @@ CMDTAB:         DW	LEFTSL
 ;
 CMDTAB_END:     EQU	$	
 ; TLAST:          EQU	TCMD-128+(CMDTAB_END-CMDTAB)/2	
-TLAST:          EQU	CMDTAB_END-CMDTAB/2+TBYex-128
+TLAST:          EQU	CMDTAB_END-CMDTAB/2+TCMD-128
 ;
 RUN:            CALL	TERMQ	
                 JR	Z,RUN0	
@@ -311,7 +311,7 @@ XEQ1:           CALL	NXT
                 JR	Z,XEQ0		;NEW PROGRAM LINE	
                 CP	TLAST	
                 JP	PE,LET0		;IMPLIED LET	
-                SUB	TBYex	
+                SUB	TCMD	
                 JP	M,EXTRAS	
                 ADD	A,A	
                 LD	C,A	
@@ -332,7 +332,7 @@ ENDIM:          PUSH	IY
                 LD	BC,(PAGE_)	
                 SBC	HL,BC		;IMMEDIATE MODE ?	
                 JP	C,CLOOP	
-;END:            LD	E,0	
+END:            LD	E,0	
                 CALL	OSSHUT		;CLOSE ALL FILES	
                 JP	WARM		;"Ready"	
 ;
@@ -369,13 +369,13 @@ CLI:            CALL	EXPRS
                 CALL	OSCLI	
                 JR	XEQ	
 ;
-EXTRAS:         CP	TELSE-TBYex	
+EXTRAS:         CP	TELSE-TCMD	
                 JR	Z,REM		;ELSE	
-                CP	TERROR-TBYex	
+                CP	TERROR-TCMD	
                 JR	Z,THROW		;ERROR	
-                CP	TLINE-TBYex	
+                CP	TLINE-TCMD	
                 JP	Z,LINE		;LINE	
-                CP	TOFF-TBYex	
+                CP	TOFF-TCMD	
                 JP	Z,CSROFF	;OFF	
                 JP	SYNTAX	
 ;
