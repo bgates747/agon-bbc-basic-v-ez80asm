@@ -27,6 +27,8 @@ KEYASCII:       DS	1
 KEYCOUNT:       DS	1	
 SCRAP:          DS	31	
 ;
+end_binary: ;  for 05_assemble.py to know where to truncate the binary file
+
                 ALIGN 256	
 ;
 ;RAM MODULE FOR BBC BASIC INTERPRETER
@@ -66,6 +68,7 @@ SCRAP:          DS	31
 ;
 ACCS:           DS	256		;STRING ACCUMULATOR	
 BUFFER:         DS	256		;STRING INPUT BUFFER	
+
 STAVAR:         DS	27*4		;STATIC VARIABLES	
 ; OC:             EQU	STAVAR+15*4	;CODE ORIGIN (O%)	; restored from equs.inc
 ; PC:             EQU	STAVAR+16*4	;PROGRAM COUNTER (P%)	; restored from equs.inc
