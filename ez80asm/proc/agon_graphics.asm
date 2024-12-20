@@ -51,26 +51,29 @@ MODE_:			PUSH	IX			; Get the system vars in IX
 			JR	Z, @B			; Wait for the result			
 			POP	IX
 			JP	XEQ
-			
-; GET(x,y): Get the ASCII code of a character on screen
-;
-GETSCHR:		INC	IY
-			CALL    EXPRI      		; Get X coordinate
-			EXX
-			PUSH	HL			; Stack X
-			CALL	COMMA		
-			CALL	EXPRI			; Get Y coordinate
-			EXX 
-			CALL	BRAKET			; Closing bracket	
-			POP	DE			; Pop X back into DE
-			CALL	GETSCHR_1
-;			JP	INKEY1
-	        	LD	DE,ACCS	
-	                LD	(DE),A	
-	                LD	A,80H	
-        	        RET	NC	
-	                INC	E	
-                	RET	
+
+; NOT IN BINARY			
+; ; GET(x,y): Get the ASCII code of a character on screen
+; ;
+; GETSCHR:		INC	IY
+; 			CALL    EXPRI      		; Get X coordinate
+; 			EXX
+; 			PUSH	HL			; Stack X
+; 			CALL	COMMA		
+; 			CALL	EXPRI			; Get Y coordinate
+; 			EXX 
+; 			CALL	BRAKET			; Closing bracket	
+; 			POP	DE			; Pop X back into DE
+; 			CALL	GETSCHR_1
+; ;			JP	INKEY1
+; 	        	LD	DE,ACCS	
+; 	                LD	(DE),A	
+; 	                LD	A,80H	
+;         	        RET	NC	
+; 	                INC	E	
+;                 	RET	
+; END NOT IN BINARY
+
 ;
 ; Fetch a character from the screen
 ; - DE: X coordinate
