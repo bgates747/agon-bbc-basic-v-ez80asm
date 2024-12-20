@@ -1,0 +1,3 @@
+SOUND_: EQU 0
+
+    LD A,SOUND_
