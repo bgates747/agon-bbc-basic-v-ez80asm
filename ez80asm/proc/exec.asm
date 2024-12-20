@@ -143,44 +143,46 @@
 ;                XREF	PC	
 ;                XREF	OC	
 ;
-LF:             EQU	0AH	
-CR:             EQU	0DH	
-TAND:           EQU	80H	
-TOR:            EQU	84H	
-TERROR:         EQU	85H	
-TLINE:          EQU	86H	
-TOFF:           EQU	87H	
-TSTEP:          EQU	88H	
-TSPC:           EQU	89H	
-TTAB:           EQU	8AH	
-TELSE:          EQU	8BH	
-TTHEN:          EQU	8CH	
-TLINO:          EQU	8DH	
-TTO:            EQU	0B8H	
-TCMD:           EQU	0C0H	
-TWHILE:         EQU	0C7H	
-TWHEN:          EQU	0C9H	
-TOF:            EQU	0CAH	
-TENDCASE:       EQU	0CBH	
-TOTHERWISE:     EQU	0CCH	
-TENDIF:         EQU	0CDH	
-TENDWHILE:      EQU	0CEH	
-TCALL:          EQU	0D6H	
-TDATA:          EQU	0DCH	
-TDEF:           EQU	0DDH	
-TFOR:           EQU	0E3H	
-TGOSUB:         EQU	0E4H	
-TGOTO:          EQU	0E5H	
-TLOCAL:         EQU	0EAH	
-TNEXT:          EQU	0EDH	
-TON:            EQU	0EEH	
-TPROC:          EQU	0F2H	
-TREM:           EQU	0F4H	
-TREPEAT:        EQU	0F5H	
-TRETURN:        EQU	0F8H	
-TSTOP:          EQU	0FAH	
-TUNTIL:         EQU	0FDH	
-TEXIT:          EQU	10H	
+; LF             EQU	0AH	; in equs.inc
+; CR             EQU	0DH	; in equs.inc
+; IN main.asm
+; TAND:           EQU	80H	
+; TOR:            EQU	84H	
+; TERROR:         EQU	85H	
+; TLINE:          EQU	86H	
+; TOFF:           EQU	87H	
+; TSTEP:          EQU	88H	
+; TSPC:           EQU	89H	
+; TTAB:           EQU	8AH	
+; TELSE:          EQU	8BH	
+; TTHEN:          EQU	8CH	
+; TLINO:          EQU	8DH	
+; TTO:            EQU	0B8H	
+; TBYex:           EQU	0C0H	
+; TWHILE:         EQU	0C7H	
+; TWHEN:          EQU	0C9H	
+; TOF:            EQU	0CAH	
+; TENDCASE:       EQU	0CBH	
+; TOTHERWISE:     EQU	0CCH	
+; TENDIF:         EQU	0CDH	
+; TENDWHILE:      EQU	0CEH	
+; TCALL:          EQU	0D6H	
+; TDATA:          EQU	0DCH	
+; TDEF:           EQU	0DDH	
+; TFOR:           EQU	0E3H	
+; TGOSUB:         EQU	0E4H	
+; TGOTO:          EQU	0E5H	
+; TLOCAL:         EQU	0EAH	
+; TNEXT:          EQU	0EDH	
+; TON:            EQU	0EEH	
+; TPROC:          EQU	0F2H	
+; TREM:           EQU	0F4H	
+; TREPEAT:        EQU	0F5H	
+; TRETURN:        EQU	0F8H	
+; TSTOP:          EQU	0FAH	
+; TUNTIL:         EQU	0FDH	
+; TEXIT:          EQU	10H	
+; END in main.asm
 ;
 CMDTAB:         DW	LEFTSL	
                 DW	MIDSL	
@@ -217,7 +219,7 @@ CMDTAB:         DW	LEFTSL
                 DW	END	
                 DW	ENDPRO	
                 DW	ENVEL	
-                DW	FOR	
+                DW	FORex	
                 DW	GOSUB	
                 DW	GOTO	
                 DW	GCOL	
@@ -254,7 +256,7 @@ CMDTAB:         DW	LEFTSL
                 DW	ORIGIN	
                 DW	BYE		;QUIT	
                 DW	RECTAN	
-                DW	SWAP	
+                DW	SWAPex	
                 DW	SYS	
                 DW	TINT	
                 DW	WAIT	
@@ -262,11 +264,11 @@ CMDTAB:         DW	LEFTSL
                 DW	REM		;CR	
                 DW	PUT		;Token changed	
                 DW	SYNTAX		;BY	
-                DW	EXIT	
+                DW	EXITex	
 ;
 CMDTAB_END:     EQU	$	
 ; TLAST:          EQU	TCMD-128+(CMDTAB_END-CMDTAB)/2	
-TLAST:          EQU	CMDTAB_END-CMDTAB/2+TCMD-128
+TLAST:          EQU	CMDTAB_END-CMDTAB/2+TBYex-128
 ;
 RUN:            CALL	TERMQ	
                 JR	Z,RUN0	
@@ -309,7 +311,7 @@ XEQ1:           CALL	NXT
                 JR	Z,XEQ0		;NEW PROGRAM LINE	
                 CP	TLAST	
                 JP	PE,LET0		;IMPLIED LET	
-                SUB	TCMD	
+                SUB	TBYex	
                 JP	M,EXTRAS	
                 ADD	A,A	
                 LD	C,A	
@@ -338,7 +340,7 @@ NEWLIN:         LD	A,(IY+0)	;A=LINE LENGTH
                 LD	BC,3	
                 ADD	IY,BC	
                 OR	A	
-                JR	Z,ENDIM		;LENGTH=0, EXIT	
+                JR	Z,ENDIM		;LENGTH=0, EXITex	
                 LD	HL,(TRACEN)	
                 LD	A,H	
                 OR	L	
@@ -367,13 +369,13 @@ CLI:            CALL	EXPRS
                 CALL	OSCLI	
                 JR	XEQ	
 ;
-EXTRAS:         CP	TELSE-TCMD	
+EXTRAS:         CP	TELSE-TBYex	
                 JR	Z,REM		;ELSE	
-                CP	TERROR-TCMD	
+                CP	TERROR-TBYex	
                 JR	Z,THROW		;ERROR	
-                CP	TLINE-TCMD	
+                CP	TLINE-TBYex	
                 JP	Z,LINE		;LINE	
-                CP	TOFF-TCMD	
+                CP	TOFF-TBYex	
                 JP	Z,CSROFF	;OFF	
                 JP	SYNTAX	
 ;
@@ -412,7 +414,7 @@ THROW:          CALL	EXPRI
 ;
 ; SWAP
 ;
-SWAP:           CALL	GETVAR	
+SWAPex:           CALL	GETVAR	
                 JR	NZ,SWAPNZ	
                 PUSH	AF	
                 PUSH	HL	
@@ -428,19 +430,19 @@ SWAPNZ:         JR	NZ,NOSUCH
                 JR	Z,MISMAT	
                 LD	A,B	
                 AND	11000000B	
-                JR	Z,SWAP1	
+                JR	Z,SWAP1ex	
                 LD	B,2	
-                JP	P,SWAP1	
-                JP	PE,SWAP1	
+                JP	P,SWAP1ex	
+                JP	PE,SWAP1ex	
                 LD	B,4	
-SWAP1:          LD	C,(HL)	
+SWAP1ex:          LD	C,(HL)	
                 LD	A,(DE)	
                 LD	(HL),A	
                 LD	A,C	
                 LD	(DE),A	
                 INC	DE	
                 INC	HL	
-                DJNZ	SWAP1	
+                DJNZ	SWAP1ex	
                 JR	XEQGO4	
 ;
 ;[LET] var = expr
@@ -495,7 +497,7 @@ ESCAPE:         LD	A,17		;"Escape"
 BADUSE:         LD	A,14		;'Bad use of array'	
                 DB	21H	
 MISMAT:         LD	A,6		;'Type mismatch'	
-ERROR0:         JP	ERROR_	
+ERROR0ex:         JP	ERROR_	
 ;
 ASM0:           CALL	NEWLIN	
 ASM:            LD	(CURLIN),IY	
@@ -534,7 +536,7 @@ FNEND2:         POP	BC
                 CALL	RESLOC	
                 JR	NZ,FNEND2	
                 LD	A,7	
-                JR	ERROR0		;"No FN"	
+                JR	ERROR0ex		;"No FN"	
 ;
 FNEND3:         POP	IY	
                 LD	(CURLIN),IY	;IN CASE OF ERROR	
@@ -668,7 +670,7 @@ DIM2:           LD	A,D
 BADDIM:         LD	A,10		;"Bad DIM"	
                 DB	21H	
 NOROOM:         LD	A,11		;"DIM space"	
-ERROR1:         JP	ERROR_	
+ERROR1ex:         JP	ERROR_	
 ;
 DIM5:           SBC	HL,SP	
                 JR	NC,DIM7		;LOCAL	
@@ -859,7 +861,7 @@ ON:             CALL	TERMQ
                 LD	E,TPROC	
                 CP	E	
                 LD	A,39	
-                JR	NZ,ERROR2	;"ON syntax"	
+                JR	NZ,ERROR2ex	;"ON syntax"	
 ON1:            LD	D,A	
                 EXX	
                 PUSH	HL	
@@ -907,7 +909,7 @@ ON4:            LD	A,(IY)
                 LD	A,40		;'ON range'	
                 DB	21H	
 FORVAR:         LD	A,34		;'FOR variable'	
-ERROR2:         JP	ERROR_	
+ERROR2ex:         JP	ERROR_	
 ;
 ONPROC:         LD	A,TON	
                 JP	PROC	
@@ -923,7 +925,7 @@ GOTO2:          EXX
                 POP	IY	
                 JP	Z,XEQ0	
                 LD	A,41	
-                JR	ERROR2		;"No such line"	
+                JR	ERROR2ex		;"No such line"	
 ;
 ;GOSUB line
 ;
@@ -940,9 +942,9 @@ RETURN:         POP	DE		;MARKER
                 OR	A	
                 SBC	HL,DE	
                 POP	IY	
-                JR	Z,XEQGO2	
+                JR	Z,XEQGO2ex	
                 LD	A,38	
-                JR	ERROR2		;"No GOSUB"	
+                JR	ERROR2ex		;"No GOSUB"	
 ;
 ;REPEAT
 ;
@@ -963,28 +965,28 @@ UNTIL:          POP	BC
                 CALL	RESLOC	
                 JR	NZ,UNTIL	
                 LD	A,43	
-                JR	ERROR2		;"Not in a REPEAT loop"	
+                JR	ERROR2ex		;"Not in a REPEAT loop"	
 ;
 UNTIL1:         CALL	EXPRI	
                 CALL	TEST	
                 POP	BC	
                 POP	DE	
-                JR	NZ,XEQGO2		;TRUE	
+                JR	NZ,XEQGO2ex		;TRUE	
                 PUSH	DE	
                 PUSH	BC	
                 PUSH	DE	
                 POP	IY	
-XEQGO2:         JP	XEQ	
+XEQGO2ex:         JP	XEQ	
 ;
 ;FOR var = expr TO expr [STEP expr]
 ;
-FOR:            CALL	ASSIGN	
+FORex:            CALL	ASSIGN	
                 JR	NZ,FORVAR	;"FOR variable"	
                 PUSH	AF		;SAVE TYPE	
                 LD	A,(IY)	
                 CP	TTO	
                 LD	A,36	
-                JR	NZ,ERROR2	;"No TO"	
+                JR	NZ,ERROR2ex	;"No TO"	
                 INC	IY	
                 PUSH	IX	
                 CALL	EXPRN		;LIMIT	
@@ -1033,7 +1035,7 @@ NEXT:           POP	BC		;MARKER
                 CALL	RESLOC	
                 JR	NZ,NEXT	
                 LD	A,32	
-                JR	ERROR3		;"Not in a FOR loop"	
+                JR	ERROR3ex		;"Not in a FOR loop"	
 ;
 NEXT2:          CALL	TERMQ	
                 POP	HL	
@@ -1056,7 +1058,7 @@ NEXT0:          SBC	HL,DE
                 PUSH	AF	
                 LD	A,'+' & 0FH	
                 CALL	FPP		;ADD STEP	
-                JR	C,ERROR3	
+                JR	C,ERROR3ex	
                 POP	AF		;RESTORE TYPE	
                 CALL	STOREN		;UPDATE VARIABLE	
                 LD	IX,12	
@@ -1064,7 +1066,7 @@ NEXT0:          SBC	HL,DE
                 CALL	DLOAD5		;LIMIT	
                 LD	A,(IX-1)	
                 CALL	FPP		;TEST AGAINST LIMIT	
-                JR	C,ERROR3	
+                JR	C,ERROR3ex	
                 INC	H	
                 JR	NZ,LOOP		;KEEP LOOPING	
                 LD	HL,18	
@@ -1092,7 +1094,7 @@ NEXT1:          LD	HL,18
                 PUSH	BC	
                 JR	Z,NEXT0	
                 LD	A,33	
-ERROR3:         JP	ERROR_		;"Can't match FOR"	
+ERROR3ex:         JP	ERROR_		;"Can't match FOR"	
 ;
 ;FNname
 ;N.B. ENTERED WITH A <> TON
@@ -1114,11 +1116,11 @@ PROC1:          CALL	CHECK
                 POP	BC	
                 JR	Z,PROC4	
                 LD	A,30	
-                JR	C,ERROR3	;"Bad call"	
+                JR	C,ERROR3ex	;"Bad call"	
                 PUSH	BC	
                 LD	HL,(PAGE_)	
 PROC2:          LD	A,TDEF	
-                CALL	SEARCH		;LOOK FOR "DEF"	
+                CALL	SEARCHex		;LOOK FOR "DEF"	
                 JR	C,PROC3	
                 PUSH	HL	
                 POP	IY	
@@ -1142,7 +1144,7 @@ PROC6:          EX	DE,HL
 PROC3:          POP	IY		;RESTORE TEXT POINTER	
                 CALL	GETDEF	
                 LD	A,29	
-                JR	NZ,ERROR3	;"No such FN/PROC"	
+                JR	NZ,ERROR3ex	;"No such FN/PROC"	
 PROC4:          LD	E,(HL)	
                 INC	HL	
                 LD	D,(HL)		;GET ADDRESS	
@@ -1558,7 +1560,7 @@ GETDAT:         CALL	DSRCH
                 INC	HL	
                 RET	NC	
                 LD	A,42	
-                JR	ERROR4		;"Out of DATA"	
+                JR	ERROR4ex		;"Out of DATA"	
 ;
 ;IF expr statement
 ;IF expr THEN statement [ELSE statement]
@@ -1608,7 +1610,7 @@ IFTHEN:         LD	A,(IY)
                 CALL	NSCAN	
                 JP	Z,XEQ1	
 NENDIF:         LD	A,49	
-ERROR4:         JP	ERROR_		;"Missing ENDIF"	
+ERROR4ex:         JP	ERROR_		;"Missing ENDIF"	
 ;
 ; ELSE (multi-line)
 ;
@@ -1629,7 +1631,7 @@ WHEN:           LD	BC,-3
                 CALL	NSCAN	
                 JR	Z,XEQGO7	
                 LD	A,47	
-                JR	ERROR4		;"Missing ENDCASE"	
+                JR	ERROR4ex		;"Missing ENDCASE"	
 ;
 ; CASE
 ;
@@ -1644,12 +1646,12 @@ CASE6:          LD	A,(IY)
                 INC	IY	
                 CP	TOF	
                 LD	A,37	
-                JR	NZ,ERROR4	;"Missing OF"	
+                JR	NZ,ERROR4ex	;"Missing OF"	
                 LD	A,(IY)	
                 INC	IY		;Address line-length byte	
                 CP	CR	
                 LD	A,48	
-                JR	NZ,ERROR4	;"OF not last"	
+                JR	NZ,ERROR4ex	;"OF not last"	
 CASE1:          XOR	A		;Level	
 CASE0:          EXX	
                 PUSH	HL		;Push to stack	
@@ -1905,14 +1907,14 @@ PTR:            CALL	CHANEL
                 POP	DE	
                 POP	AF	
                 CALL	PUTPTR	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 PAGEV:          CALL	EQUALS	
                 CALL	EXPRI	
                 EXX	
                 LD	L,0	
                 LD	(PAGE_),HL	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 TIMEV:          CP	'$'	
                 JR	Z,TIMEVS	
@@ -1922,13 +1924,13 @@ TIMEV:          CP	'$'
                 EXX	
                 POP	DE	
                 CALL	PUTIME	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 TIMEVS:         INC	IY		;SKIP '$'	
                 CALL	EQUALS	
                 CALL	EXPRS	
                 CALL	PUTIMS	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 LOMEMV:         CALL	EQUALS	
                 CALL	EXPRI	
@@ -1936,7 +1938,7 @@ LOMEMV:         CALL	EQUALS
                 EXX	
                 LD	(LOMEM),HL	
                 LD	(FREE),HL	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 HIMEMV:         CALL	EQUALS	
                 CALL	EXPRI	
@@ -1954,7 +1956,7 @@ HIMEMV:         CALL	EQUALS
                 JP	NZ,XEQ	
                 EX	DE,HL	
                 LD	SP,HL		;LOAD STACK POINTER	
-XEQGO1:         JP	XEQ	
+XEQGO1ex:         JP	XEQ	
 ;
 ;WIDTH expr
 ;
@@ -1962,7 +1964,7 @@ WIDTHV:         CALL	EXPRI
                 EXX	
                 LD	A,L	
                 LD	(WIDTH),A	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 ;TRACE ON
 ;TRACE OFF
@@ -1979,7 +1981,7 @@ TRACE:          INC	IY
                 EXX	
 TRACE0:         DEC	HL	
 TRACE1:         LD	(TRACEN),HL	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 ;VDU expr,expr;....[|]
 ;
@@ -2001,7 +2003,7 @@ VDU1:           CALL	OSWRCH
 VDU2:           INC	IY	
 VDU3:           CALL	TERMQ	
                 JR	NZ,VDU	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 VDU4:           INC	IY	
                 XOR	A	
@@ -2012,7 +2014,7 @@ VDU4:           INC	IY
 ;
 CLOSE:          CALL	CHANEL	
                 CALL	OSSHUT	
-                JR	XEQGO1	
+                JR	XEQGO1ex	
 ;
 ;BPUT #channel,byte
 ;BPUT #channel,string[;]
@@ -2028,7 +2030,7 @@ BPUT:           CALL	CHANEL		;CHANNEL NUMBER
                 LD	A,L	
                 POP	DE	
                 CALL	OSBPUT	
-BPUTX:          JR	XEQGO1	
+BPUTX:          JR	XEQGO1ex	
 ;
 BPUTS:          LD	A,E	
                 POP	DE	
@@ -2229,14 +2231,14 @@ SUBSL4:         LD	B,0
                 LDIR	
 SUBSL9:         JP	XEQ	
 ;
-; EXIT FOR [var]
-; EXIT REPEAT
-; EXIT WHILE
+; EXITex FOR [var]
+; EXITex REPEAT
+; EXITex WHILE
 ;
-EXIT:           INC	IY		;Skip FOR/REPEAT/WHILE	
+EXITex:           INC	IY		;Skip FOR/REPEAT/WHILE	
                 CP	TFOR	
                 JR	NZ,EXIT0	
-                LD	IX,0		;For EXIT FOR <var>	
+                LD	IX,0		;For EXITex FOR <var>	
                 CALL	TERMQ	
                 CALL	NZ,GETVAR	
                 LD	A,TFOR	
@@ -2267,7 +2269,7 @@ EXIT1:          LD	A,E
                 POP	IX	
                 JR	NZ,EXIT1	
                 LD	A,44	
-                JP	ERROR_		;'Bad EXIT'	
+                JP	ERROR_		;'Bad EXITex'	
 ;
 EXIT4:          POP	BC		;VARPTR	
                 LD	HL,14		;Skip text pointer, limit & step	
@@ -3059,7 +3061,7 @@ XTRAC1:         LD	A,(IY)
                 JR	XTRAC1	
 ;
 DSRCH:          LD	A,TDATA	
-SEARCH:         LD	B,0	
+SEARCHex:         LD	B,0	
 SRCH1:          LD	C,(HL)	
                 INC	C	
                 DEC	C	
@@ -3133,7 +3135,7 @@ NSCAN6:         OR	1		;NZ
 ; WSRCH - search for token, with nesting of inner structures
 ;
 ;   Inputs: B = token to find or unnest (anywhere)
-;           C = token to nest (anywhere), ignore after EXIT
+;           C = token to nest (anywhere), ignore after EXITex
 ;           D = ordinal (1 = find first token, 2 = second)
 ;           IY = address to start looking
 ;  Outputs: IY points to byte after that found

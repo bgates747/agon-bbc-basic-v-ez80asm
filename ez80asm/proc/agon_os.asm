@@ -494,9 +494,9 @@ LNZERO:			LD	DE,BUFFER
                 	LD	C,L	
                 	POP	HL	
                 	POP	DE	
-                	JR	Z,ATEND	
+                	JR	Z,ATENDos	
                 	LDDR				; MAKE SPACE	
-ATEND:          	POP	BC			; LINE LENGTH	
+ATENDos:          	POP	BC			; LINE LENGTH	
                 	POP	DE			; LINE NUMBER	
                 	INC	HL	
                 	LD	(HL),C			; STORE LENGTH	
@@ -646,8 +646,6 @@ EXT_LOOKUP:		DB	".BBC", 0, 0		; First entry is the default extension
 			DB	".ASC", 0, 1
 			DB	".BAS", 0, 1
 			DB	0			; End of table
-
-SOUND_:			RET ; TEMPORARY
 
 ; OSWORD
 ;

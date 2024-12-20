@@ -115,9 +115,9 @@
 ;                XREF	LISTON	
 ;                XREF	TRACEN	
 ;
-CR:             EQU	0DH	
-LF:             EQU	0AH	
-ESC:            EQU	1BH	
+; CR             EQU	0DH	
+; LF             EQU	0AH	
+; ESC            EQU	1BH	
 ;
 TERROR:         EQU	85H	
 TLINE:          EQU	86H	
@@ -220,7 +220,7 @@ CLOOP:          SCF
                 LD	BC,(INCREM)	
                 LD	B,0	
                 ADD	HL,BC	
-                JP	C,TOOBIG	
+                JP	C,TOOBIGmn	
                 LD	(AUTONO),HL	
                 LD	A,' '	
                 CALL	OUTCHR	
@@ -239,7 +239,7 @@ NOAUTO:         LD	HL,ACCS
                 OR	L	
                 JR	NZ,INAUTO	
                 LD	B,A	
-                LD	HL,CMDTAB	
+                LD	HL,CMDTABmn	
                 ADD	HL,BC	
                 LD	A,(HL)		;TABLE ENTRY	
                 INC	HL	
@@ -661,7 +661,7 @@ COMNDS:         DB	80H
 ;
 ;IMMEDIATE MODE COMMANDS:
 ;
-CMDTAB:         DW	AUTO	
+CMDTABmn:         DW	AUTO	
                 DW	DELETE	
                 DW	LIST	
                 DW	LOAD	
@@ -1004,7 +1004,7 @@ RENUM1:         LD	A,(HL)		;BUILD TABLE
                 EXX	
                 PUSH	HL	
                 ADD	HL,BC		;ADD INCREMENT	
-                JP	C,TOOBIG	;"Too big"	
+                JP	C,TOOBIGmn	;"Too big"	
                 EXX	
                 POP	BC	
                 LD	(HL),C	
@@ -1968,18 +1968,18 @@ LINNM1:         LD	A,(IY)
                 LD	D,H	
                 LD	E,L	
                 ADD	HL,HL		;*2	
-                JR	C,TOOBIG	
+                JR	C,TOOBIGmn	
                 ADD	HL,HL		;*4	
-                JR	C,TOOBIG	
+                JR	C,TOOBIGmn	
                 ADD	HL,DE		;*5	
-                JR	C,TOOBIG	
+                JR	C,TOOBIGmn	
                 ADD	HL,HL		;*10	
-                JR	C,TOOBIG	
+                JR	C,TOOBIGmn	
                 LD	E,A	
                 LD	D,0	
                 ADD	HL,DE		;ADD IN DIGIT	
                 JR	NC,LINNM1	
-TOOBIG:         LD	A,20	
+TOOBIGmn:         LD	A,20	
                 JP	ERROR_		;"Too big"	
 ;
 ;PAIR - GET PAIR OF LINE NUMBERS FOR RENUMBER/AUTO.

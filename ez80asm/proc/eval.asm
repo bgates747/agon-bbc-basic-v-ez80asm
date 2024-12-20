@@ -120,66 +120,68 @@
 ;                XREF	FPP	
 ;
 FUNTOK:         EQU	8DH		;1st FUNCTION TOKEN	
-TMOD:           EQU	83H	
-TLEN:           EQU	0A9H	
-TTO:            EQU	0B8H	
-TDIM:           EQU	0DEH	
-TEND:           EQU	0E0H	
-TMODE:          EQU	0EBH	
-TREPORT:        EQU	0F6H	
-TWIDTH:         EQU	0FEH	
-TTINT:          EQU	0AH	
-TBY:            EQU	0FH	
+; IN main.asm
+; TMOD:           EQU	83H	
+; TLEN:           EQU	0A9H	
+; TTO:            EQU	0B8H	
+; TDIM:           EQU	0DEH	
+; TEND:           EQU	0E0H	
+; TMODE:          EQU	0EBH	
+; TREPORT:        EQU	0F6H	
+; TWIDTH:         EQU	0FEH	
+; TTINT:          EQU	0AH	
+; TBY:            EQU	0FH	
+; END in main.asm
 ;
 ;TABLE OF ADDRESSES FOR FUNCTIONS:
 ;
 FUNTBL:         DW	DECODE		;Line number	
                 DW	OPENIN		;OPENIN	
-                DW	PTR		;PTR	
-                DW	PAGEV		;PAGE	
-                DW	TIMEV		;TIME	
-                DW	LOMEMV		;LOMEM	
-                DW	HIMEMV		;HIMEM	
-                DW	ABS		;ABS	
-                DW	ACS		;ACS	
+                DW	PTRev		;PTR	
+                DW	PAGEVev		;PAGE	
+                DW	TIMEVev		;TIME	
+                DW	LOMEMVev		;LOMEM	
+                DW	HIMEMVev		;HIMEM	
+                DW	ABSev		;ABS	
+                DW	ACSev		;ACS	
                 DW	ADVAL		;ADVAL	
                 DW	ASC		;ASC	
-                DW	ASN		;ASN	
-                DW	ATN		;ATN	
+                DW	ASNev		;ASN	
+                DW	ATNev		;ATN	
                 DW	BGET		;BGET	
-                DW	COS		;COS	
+                DW	COSev		;COS	
                 DW	COUNTV		;COUNT	
-                DW	DEG		;DEG	
+                DW	DEGev		;DEG	
                 DW	ERLV		;ERL	
                 DW	ERRV		;ERR	
                 DW	EVAL_		;EVAL_	
-                DW	EXP		;EXP	
-                DW	EXT		;EXT	
+                DW	EXPev		;EXP	
+                DW	EXTev		;EXT	
                 DW	ZERO		;FALSE	
                 DW	FN		;FN	
                 DW	GET		;GET	
                 DW	INKEY		;INKEY	
                 DW	INSTR		;INSTR(	
-                DW	INT_		;INT_	
+                DW	INT_ev		;INT_	
                 DW	LEN		;LEN	
-                DW	LN		;LN	
-                DW	LOG		;LOG	
-                DW	CPL_		;NOT	
+                DW	LNev		;LN	
+                DW	LOGev		;LOG	
+                DW	CPL_ev		;NOT	
                 DW	OPENUP		;OPENUP	
                 DW	OPENOT		;OPENOUT	
-                DW	PI		;PI	
+                DW	PIev		;PI	
                 DW	POINT		;POINT(	
                 DW	POS		;POS	
-                DW	RAD		;RAD	
+                DW	RADev		;RAD	
                 DW	RND		;RND	
-                DW	SGN		;SGN	
-                DW	SIN		;SIN	
-                DW	SQR		;SQR	
-                DW	TAN		;TAN	
+                DW	SGNev		;SGN	
+                DW	SINev		;SIN	
+                DW	SQRev		;SQR	
+                DW	TANev		;TAN	
                 DW	TOPV		;TO(P)	
-                DW	TRUE		;TRUE	
+                DW	TRUEev		;TRUE	
                 DW	USR		;USR	
-                DW	VAL		;VAL	
+                DW	VALev		;VAL	
                 DW	VPOS		;VPOS	
                 DW	CHRS		;CHR$	
                 DW	GETS		;GET$	
@@ -196,8 +198,8 @@ FUNTBL_END:     EQU	$
 ; TCMD:           EQU	FUNTOK+(FUNTBL_END-FUNTBL)/2	
 TCMD:           EQU	FUNTBL_END-FUNTBL/2+FUNTOK
 ;
-CR:             EQU	0DH	
-LF:             EQU	0AH	
+; CR             EQU	0DH	
+; LF             EQU	0AH	
 AND_:           EQU	80H	
 DIV_:           EQU	81H	
 EOR:            EQU	82H	
@@ -233,7 +235,7 @@ EXPR0A:         CP	EOR		;CHECK OPERATOR
                 JR	Z,EXPR0B	
                 CP	OR_	
                 RET	NZ	
-EXPR0B:         CALL	SAVE		;SAVE FIRST OPERAND	
+EXPR0B:         CALL	SAVEev		;SAVE FIRST OPERAND	
                 CALL	EXPR1		;GET SECOND OPERAND	
                 CALL	DOIT		;DO OPERATION	
                 JR	EXPR0A		;CONTINUE	
@@ -241,12 +243,12 @@ EXPR0B:         CALL	SAVE		;SAVE FIRST OPERAND
 EXPR1:          CALL	EXPR2	
 EXPR1A:         CP	AND_	
                 RET	NZ	
-                CALL	SAVE	
+                CALL	SAVEev	
                 CALL	EXPR2	
                 CALL	DOIT	
                 JR	EXPR1A	
 ;
-EXPR2:          CALL	EXPR3	
+EXPR2:          CALL	EXPR3ev	
                 CALL	RELOPQ	
                 RET	NZ	
                 LD	B,A	
@@ -269,7 +271,7 @@ EXPR2B:         LD	A,B
                 ADD	A,2	
 EXPR2C:         AND	0FH	
 EXPR2D:         CALL	SAVE1	
-                CALL	EXPR3	
+                CALL	EXPR3ev	
                 CALL	DOIT		;Must NOT be "JP DOIT"	
                 RET	
 ;
@@ -291,9 +293,9 @@ EXPR2S:         EX	AF,AF'
                 AND	7	
                 CALL	PUSHS		;SAVE STRING ON STACK	
                 PUSH	AF		;SAVE OPERATOR	
-                CALL	EXPR3		;SECOND STRING	
+                CALL	EXPR3ev		;SECOND STRING	
                 EX	AF,AF'	
-                JP	P,MISMAT	
+                JP	P,MISMATev	
                 POP	AF	
                 LD	C,E		;LENGTH OF STRING #2	
                 POP	DE	
@@ -316,7 +318,7 @@ EXPR2S:         EX	AF,AF'
                 LD	A,(IY)	
                 RET	
 ;
-EXPR3:          CALL	EXPR4	
+EXPR3ev:          CALL	EXPR4	
 EXPR3A:         CP	'-'	
                 JR	Z,EXPR3B	
                 CP	'+'	
@@ -324,7 +326,7 @@ EXPR3A:         CP	'-'
                 EX	AF,AF'	
                 JP	M,EXPR3S	
                 EX	AF,AF'	
-EXPR3B:         CALL	SAVE	
+EXPR3B:         CALL	SAVEev	
                 CALL	EXPR4	
                 CALL	DOIT	
                 JR	EXPR3A	
@@ -334,7 +336,7 @@ EXPR3S:         EX	AF,AF'
                 CALL	PUSHS		;SAVE STRING ON STACK	
                 CALL	EXPR4		;SECOND STRING	
                 EX	AF,AF'	
-                JP	P,MISMAT	
+                JP	P,MISMATev	
                 LD	C,E		;C=LENGTH	
                 POP	DE	
                 PUSH	DE	
@@ -348,7 +350,7 @@ EXPR3S:         EX	AF,AF'
                 ADD	A,E	
                 LD	E,A		;DESTINATION	
                 LD	A,19	
-                JR	C,ERROR2	;"String too long"	
+                JR	C,ERROR2ev	;"String too long"	
                 PUSH	DE	
                 DEC	E	
                 DEC	L	
@@ -372,7 +374,7 @@ EXPR4A:         CP	'*'
                 JR	Z,EXPR4B	
                 CP	DIV_	
                 RET	NZ	
-EXPR4B:         CALL	SAVE	
+EXPR4B:         CALL	SAVEev	
                 CALL	EXPR5	
                 CALL	DOIT	
                 JR	EXPR4A	
@@ -388,7 +390,7 @@ EXPR5:          CALL	ITEM
 EXPR5A:         CALL	NXT	
                 CP	'^'	
                 RET	NZ	
-                CALL	SAVE	
+                CALL	SAVEev	
                 CALL	ITEM	
                 OR	A	
                 EX	AF,AF'	
@@ -398,22 +400,22 @@ EXPR5A:         CALL	NXT
 EXPRN:          CALL	EXPR	
                 EX	AF,AF'	
                 RET	P	
-                JR	MISMAT	
+                JR	MISMATev	
 ;
 EXPRI:          CALL	EXPR	
                 EX	AF,AF'	
                 JP	P,SFIX	
-                JR	MISMAT	
+                JR	MISMATev	
 ;
 EXPRS:          CALL	EXPR	
                 EX	AF,AF'	
                 RET	M	
-                JR	MISMAT	
+                JR	MISMATev	
 ;
 BADHEX:         LD	A,28	
-ERROR2:         JP	ERROR_		;"Bad HEX or binary"	
+ERROR2ev:         JP	ERROR_		;"Bad HEX or binary"	
 ;
-NEGATE:         EXX	
+NEGATEev:         EXX	
                 LD	A,H	
                 CPL	
                 LD	H,A	
@@ -427,7 +429,7 @@ NEGATE:         EXX
                 LD	A,L	
                 CPL	
                 LD	L,A	
-ADD1:           EXX	
+ADD1ev:           EXX	
                 INC	HL	
                 LD	A,H	
                 OR	L	
@@ -440,13 +442,13 @@ ADD1:           EXX
 ITEMI:          CALL	ITEM	
                 OR	A	
                 JP	P,SFIX	
-                JR	MISMAT	
+                JR	MISMATev	
 ;
 ITEMS:          CALL	ITEM	
                 OR	A	
                 RET	M	
-MISMAT:         LD	A,6	
-                JR	ERROR2		;"Type mismatch"	
+MISMATev:         LD	A,6	
+                JR	ERROR2ev		;"Type mismatch"	
 ;
 ITEM1:          CALL	EXPR		;BRACKETED EXPR	
                 CALL	BRAKET	
@@ -456,14 +458,14 @@ ITEM1:          CALL	EXPR		;BRACKETED EXPR
 ITEMN:          CALL	ITEM	
                 OR	A	
                 RET	P	
-                JR	MISMAT	
+                JR	MISMATev	
 ;
 ;HEX - Get hexadecimal constant.
 ;   Inputs: ASCII string at (IY)
 ;  Outputs: Integer result in H'L'HL, C=0, A7=0.
 ;           IY updated (points to delimiter)
 ;
-HEX:            CALL	ZERO	
+HEXev:            CALL	ZERO	
                 CALL	HEXDIG	
                 JR	C,BADHEX	
 HEX1:           INC	IY	
@@ -510,7 +512,7 @@ BIN1:           INC	IY
 MINUS:          CALL	ITEMN	
 MINUS0:         DEC	C	
                 INC	C	
-                JR	Z,NEGATE	;ZERO/INTEGER	
+                JR	Z,NEGATEev	;ZERO/INTEGER	
                 LD	A,H	
                 XOR	80H		;CHANGE SIGN (FP)	
                 LD	H,A	
@@ -536,13 +538,13 @@ ITEM:           CALL	CHECK
                 CP	FUNTOK	
                 JR	C,ITEM0	
                 CP	TCMD	
-                JP	C,DISPAT	;FUNCTIONS	
-                JP	EXTRAS		;DIM, END, MODE, REPORT$, WIDTH	
+                JP	C,DISPATev	;FUNCTIONS	
+                JP	EXTRASev		;DIM, END, MODE, REPORT$, WIDTH	
 ;
 ITEM0:          CP	':'	
                 JR	NC,ITEM2	;VARIABLES	
                 CP	'0'	
-                JR	NC,CON		;NUMERIC CONSTANT	
+                JR	NC,CONev		;NUMERIC CONSTANT	
                 CP	'('	
                 JR	Z,ITEM1		;EXPRESSION	
                 CP	'-'	
@@ -550,24 +552,24 @@ ITEM0:          CP	':'
                 CP	'+'	
                 JR	Z,ITEMN		;UNARY PLUS	
                 CP	'.'	
-                JR	Z,CON		;NUMERIC CONSTANT	
+                JR	Z,CONev		;NUMERIC CONSTANT	
                 CP	'&'	
-                JR	Z,HEX		;HEX CONSTANT	
+                JR	Z,HEXev		;HEX CONSTANT	
                 CP	'%'	
                 JR	Z,BIN		;BINARY CONSTANT	
                 CP	'"'	
                 JR	Z,CONS		;STRING CONSTANT	
                 CP	TTINT	
-                JP	Z,TINT		;TINT FUNCTION	
+                JP	Z,TINTev		;TINT FUNCTION	
 ITEM2:          CP	TMOD	
                 JP	Z,MODFUN	;MOD	
                 CP	'^'	
                 JR	Z,ADDROF	;^ OPERATOR	
                 DEC	IY	
                 CALL	GETVAR		;VARIABLE	
-                JR	NZ,NOSUCH	
+                JR	NZ,NOSUCHev	
                 BIT	6,A	
-                JR	NZ,ARRAY	
+                JR	NZ,ARRAYev	
                 OR	A	
                 JP	M,LOADS		;STRING VARIABLE	
 LOADN:          BIT	2,A	
@@ -591,11 +593,11 @@ LOAD1:          LD	HL,0
                 EXX	
                 RET	
 ;
-NOSUCH:         JP	C,SYNTAX	
+NOSUCHev:         JP	C,SYNTAX	
                 LD	A,(LISTON)	
                 BIT	5,A	
                 LD	A,26	
-                JR	NZ,ERROR0	;"No such variable"	
+                JR	NZ,ERROR0ev	;"No such variable"	
 NOS1:           INC	IY	
                 CALL	RANGE	
                 JR	NC,NOS1	
@@ -610,12 +612,12 @@ NOS1:           INC	IY
 ;           IY updated (points to delimiter)
 ;           A7 = 0 (numeric marker)
 ;
-CON:            DEC	IY	
+CONev:            DEC	IY	
                 PUSH	IY	
                 POP	IX	
                 LD	A,36	
                 CALL	FPP	
-                JR	C,ERROR0	
+                JR	C,ERROR0ev	
                 PUSH	IX	
                 POP	IY	
                 XOR	A	
@@ -638,7 +640,7 @@ CONS1:          LD	(DE),A
                 CP	CR	
                 JR	NZ,CONS3	
                 LD	A,9	
-ERROR0:         JP	ERROR_		;"Missing """	
+ERROR0ev:         JP	ERROR_		;"Missing """	
 ;
 CONS2:          LD	A,(IY)	
                 CP	'"'	
@@ -648,7 +650,7 @@ CONS2:          LD	A,(IY)
                 LD	A,80H		;STRING MARKER	
                 RET	
 ;
-ARRAY:          LD	A,14		;'Bad use of array'	
+ARRAYev:          LD	A,14		;'Bad use of array'	
                 JP	ERROR_	
 ;
 ; ARRLEN - Get start address and number of elements of an array
@@ -661,7 +663,7 @@ ARRAY:          LD	A,14		;'Bad use of array'
 ARRLEN:         LD	A,(HL)		;Number of dimensions	
                 INC	HL	
                 OR	A	
-                JR	Z,ARRAY	
+                JR	Z,ARRAYev	
                 LD	DE,1	
 ARLOOP:         LD	C,(HL)	
                 INC	HL	
@@ -680,10 +682,10 @@ ARLOOP:         LD	C,(HL)
 ;
 GETARR:         CALL	NXT	
                 CALL	GETVAR	
-                JR	NZ,NOSUCH	
+                JR	NZ,NOSUCHev	
                 BIT	6,A	
                 SCF	
-                JR	Z,NOSUCH	
+                JR	Z,NOSUCHev	
                 AND	8FH	
                 LD	B,A		;Type + size	
 GETAR1:         LD	A,(HL)	
@@ -692,7 +694,7 @@ GETAR1:         LD	A,(HL)
                 LD	L,A	
                 AND	0FEH	
                 OR	H	
-                JR	Z,ARRAY		;Bad use of array	
+                JR	Z,ARRAYev		;Bad use of array	
                 RET	
 ;
 GETARB:         CALL	NXT	
@@ -751,7 +753,7 @@ REPDUN:         LD	A,80H		;STRING MARKER
 ;
 ; Version 5 extensions:
 ;
-EXTRAS:         CP	TMODE	
+EXTRASev:         CP	TMODE	
                 JP	Z,MODEFN	;MODE	
                 CP	TWIDTH	
                 JP	Z,WIDFN		;WIDTH	
@@ -874,7 +876,7 @@ BADSUB:         LD	A,15
 ;COUNT - number of printing characters since CR.
 ;Results are integer numeric.
 ;
-TINT:           CALL	TINTFN	
+TINTev:           CALL	TINTFN	
                 JR	COUNT1	
 POS:            CALL	GETCSR	
                 EX	DE,HL	
@@ -883,7 +885,7 @@ VPOS:           CALL	GETCSR
                 JR	COUNT1	
 EOF:            CALL	CHANEL	
                 CALL	OSSTAT	
-                JP	Z,TRUE	
+                JP	Z,TRUEev	
                 JP	ZERO	
 BGET:           CALL	CHANEL		;CHANNEL NUMBER	
                 CALL	OSBGET	
@@ -905,17 +907,17 @@ GET0:           CALL	GETS
 ASC:            CALL	ITEMS	
 ASC0:           XOR	A	
                 CP	E	
-                JP	Z,TRUE		;NULL STRING	
+                JP	Z,TRUEev		;NULL STRING	
 ASC1:           LD	HL,(ACCS)	
                 JR	COUNT0	
 LEN:            CALL	ITEMS	
                 EX	DE,HL	
                 JR	COUNT0	
-LOMEMV:         LD	HL,(LOMEM)	
+LOMEMVev:         LD	HL,(LOMEM)	
                 JR	COUNT1	
-HIMEMV:         LD	HL,(HIMEM)	
+HIMEMVev:         LD	HL,(HIMEM)	
                 JR	COUNT1	
-PAGEV:          LD	HL,(PAGE_)	
+PAGEVev:          LD	HL,(PAGE_)	
                 JR	COUNT1	
 TOPV:           LD	A,(IY)	
                 INC	IY		;SKIP "P"	
@@ -961,20 +963,20 @@ OPENIN:         LD	A,1
 ;PTR - Return current file pointer.
 ;Results are integer numeric.
 ;
-EXT:            CALL	CHANEL	
+EXTev:            CALL	CHANEL	
                 CALL	GETEXT	
                 JR	TIME0	
 ;
-PTR:            CALL	CHANEL	
+PTRev:            CALL	CHANEL	
                 CALL	GETPTR	
                 JR	TIME0	
 ;
 ;TIME - Return current value of elapsed time.
 ;Result is integer numeric.
 ;
-TIMEV:          LD	A,(IY)	
+TIMEVev:          LD	A,(IY)	
                 CP	'$'	
-                JR	Z,TIMEVS	
+                JR	Z,TIMEVSev	
                 CALL	GETIME	
 TIME0:          PUSH	DE	
                 EXX	
@@ -986,7 +988,7 @@ TIME0:          PUSH	DE
 ;TIME$ - Return date/time string.
 ;Result is string
 ;
-TIMEVS:         INC	IY		;SKIP $	
+TIMEVSev:         INC	IY		;SKIP $	
                 CALL	GETIMS	
                 LD	A,80H		;MARK STRING	
                 RET	
@@ -995,29 +997,29 @@ TIMEVS:         INC	IY		;SKIP $
 ;
 SLT:            CALL	SCP	
                 RET	NC	
-                JR	TRUE	
+                JR	TRUEev	
 ;
 SGT:            CALL	SCP	
                 RET	Z	
                 RET	C	
-                JR	TRUE	
+                JR	TRUEev	
 ;
 SGE:            CALL	SCP	
                 RET	C	
-                JR	TRUE	
+                JR	TRUEev	
 ;
 SLE:            CALL	SCP	
-                JR	Z,TRUE	
+                JR	Z,TRUEev	
                 RET	NC	
-                JR	TRUE	
+                JR	TRUEev	
 ;
 SNE:            CALL	SCP	
                 RET	Z	
-                JR	TRUE	
+                JR	TRUEev	
 ;
 SEQ:            CALL	SCP	
                 RET	NZ	
-TRUE:           LD	A,-1	
+TRUEev:           LD	A,-1	
                 EXX	
                 LD	H,A	
                 LD	L,A	
@@ -1031,103 +1033,103 @@ TRUE:           LD	A,-1
 ;PI - Return PI (3.141592654)
 ;Result is floating-point numeric.
 ;
-PI:             LD	A,35	
+PIev:             LD	A,35	
                 JR	FPP1	
 ;
 ;ABS - Absolute value
 ;Result is numeric, variable type.
 ;
-ABS:            LD	A,16	
+ABSev:            LD	A,16	
                 JR	FPPN	
 ;
 ;NOT - Complement integer.
 ;Result is integer numeric.
 ;
-CPL_:           LD	A,26	
+CPL_ev:           LD	A,26	
                 JR	FPPN	
 ;
 ;DEG - Convert radians to degrees
 ;Result is floating-point numeric.
 ;
-DEG:            LD	A,21	
+DEGev:            LD	A,21	
                 JR	FPPN	
 ;
 ;RAD - Convert degrees to radians
 ;Result is floating-point numeric.
 ;
-RAD:            LD	A,27	
+RADev:            LD	A,27	
                 JR	FPPN	
 ;
 ;SGN - Return -1, 0 or +1
 ;Result is integer numeric.
 ;
-SGN:            LD	A,28	
+SGNev:            LD	A,28	
                 JR	FPPN	
 ;
 ;INT - Floor function
 ;Result is integer numeric.
 ;
-INT_:           LD	A,23	
+INT_ev:           LD	A,23	
                 JR	FPPN	
 ;
 ;SQR - square root
 ;Result is floating-point numeric.
 ;
-SQR:            LD	A,30	
+SQRev:            LD	A,30	
                 JR	FPPN	
 ;
 ;TAN - Tangent function
 ;Result is floating-point numeric.
 ;
-TAN:            LD	A,31	
+TANev:            LD	A,31	
                 JR	FPPN	
 ;
 ;COS - Cosine function
 ;Result is floating-point numeric.
 ;
-COS:            LD	A,20	
+COSev:            LD	A,20	
                 JR	FPPN	
 ;
 ;SIN - Sine function
 ;Result is floating-point numeric.
 ;
-SIN:            LD	A,29	
+SINev:            LD	A,29	
                 JR	FPPN	
 ;
 ;EXP - Exponential function
 ;Result is floating-point numeric.
 ;
-EXP:            LD	A,22	
+EXPev:            LD	A,22	
                 JR	FPPN	
 ;
 ;LN - Natural log.
 ;Result is floating-point numeric.
 ;
-LN:             LD	A,24	
+LNev:             LD	A,24	
                 JR	FPPN	
 ;
 ;LOG - base-10 logarithm.
 ;Result is floating-point numeric.
 ;
-LOG:            LD	A,25	
+LOGev:            LD	A,25	
                 JR	FPPN	
 ;
 ;ASN - Arc-sine
 ;Result is floating-point numeric.
 ;
-ASN:            LD	A,18	
+ASNev:            LD	A,18	
                 JR	FPPN	
 ;
 ;ATN - arc-tangent
 ;Result is floating-point numeric.
 ;
-ATN:            LD	A,19	
+ATNev:            LD	A,19	
                 JR	FPPN	
 ;
 ;ACS - arc-cosine
 ;Result is floating point numeric.
 ;
-ACS:            LD	A,17	
+ACSev:            LD	A,17	
 FPPN:           PUSH	AF	
                 CALL	ITEMN	
                 POP	AF	
@@ -1143,13 +1145,13 @@ SFIX:           LD	A,38
 ;
 ;SFLOAT - Convert to floating-point notation
 ;
-SFLOAT:         LD	A,39	
+SFLOATev:         LD	A,39	
                 JR	FPP1	
 ;
 ;VAL - Return numeric value of string.
 ;Result is variable type numeric.
 ;
-VAL:            CALL	ITEMS	
+VALev:            CALL	ITEMS	
 VAL0:           XOR	A	
                 LD	(DE),A	
                 LD	IX,ACCS	
@@ -1247,14 +1249,14 @@ RND7:           RES	7,H		;POSITIVE 0-0.999999
                 CALL	FPP		;MULTIPLY	
                 JP	C,ERROR_	
                 CALL	SFIX	
-                JP	ADD1	
+                JP	ADD1ev	
 ;
 ;SUMLEN(array())
 ;
 SUMLEN:         INC	IY		;Skip LEN	
                 CALL	GETARB	
                 BIT	7,B	
-                JP	Z,MISMAT	;Type mismatch	
+                JP	Z,MISMATev	;Type mismatch	
                 CALL	ARRLEN	
                 PUSH	HL	
                 POP	IX		;IX addresses array	
@@ -1338,7 +1340,7 @@ SUMST2:         POP	HL
 ;
 MODFUN:         CALL	GETARB	
                 BIT	7,B	
-                JP	NZ,MISMAT	
+                JP	NZ,MISMATev	
                 PUSH	BC	
                 CALL	ARRLEN	
                 PUSH	HL	
@@ -1457,7 +1459,7 @@ SEARCH:         PUSH	BC
                 JR	NC,SRCH4	
                 NEG	
                 LD	C,A		;REMAINING LENGTH	
-SRCH1:          LD	A,(DE)	
+SRCH1ev:          LD	A,(DE)	
                 PUSH	BC	
                 LD	B,0	
                 CPIR			;FIND FIRST CHARACTER	
@@ -1474,16 +1476,16 @@ SRCH1:          LD	A,(DE)
                 PUSH	HL	
                 DEC	B	
                 JR	Z,SRCH3		;FOUND !	
-SRCH2:          INC	DE	
+SRCH2ev:          INC	DE	
                 LD	A,(DE)	
                 CP	(HL)	
                 JR	NZ,SRCH3	
                 INC	HL	
-                DJNZ	SRCH2	
+                DJNZ	SRCH2ev	
 SRCH3:          POP	HL	
                 POP	DE	
                 POP	BC	
-                JR	NZ,SRCH1	
+                JR	NZ,SRCH1ev	
                 XOR	A		;Z, NC	
                 RET			;FOUND	
 ;
@@ -1928,10 +1930,10 @@ RELOPQ:         CP	'>'
                 CP	'<'	
                 RET	
 ;
-SAVE:           INC	IY	
+SAVEev:           INC	IY	
                 AND	0FH	
 SAVE1:          EX	AF,AF'	
-                JP	M,MISMAT	
+                JP	M,MISMATev	
                 EX	AF,AF'	
                 EX	(SP),HL	
                 EXX	
@@ -1942,7 +1944,7 @@ SAVE1:          EX	AF,AF'
                 JP	(HL)	
 ;
 DOIT:           EX	AF,AF'	
-                JP	M,MISMAT	
+                JP	M,MISMATev	
                 EXX	
                 POP	BC		;RETURN ADDRESS	
                 EXX	
@@ -1960,7 +1962,7 @@ DOIT:           EX	AF,AF'
                 PUSH	BC	
                 EXX	
                 CALL	FPP	
-                JR	C,ERROR1	
+                JR	C,ERROR1ev	
                 XOR	A	
                 EX	AF,AF'		;TYPE	
                 LD	A,(IY)	
@@ -1971,20 +1973,20 @@ COMMA:          CALL	NXT
                 CP	','	
                 RET	Z	
                 LD	A,5	
-                JR	ERROR1		;"Missing ,"	
+                JR	ERROR1ev		;"Missing ,"	
 ;
 BRAKET:         CALL	NXT	
                 INC	IY	
                 CP	')'	
                 RET	Z	
                 LD	A,27	
-ERROR1:         JP	ERROR_		;"Missing )"	
+ERROR1ev:         JP	ERROR_		;"Missing )"	
 ;
 DISPT2:         PUSH	HL	
                 LD	HL,SOPTBL	
                 JR	DISPT0	
 ;
-DISPAT:         PUSH	HL	
+DISPATev:         PUSH	HL	
                 SUB	FUNTOK	
                 LD	HL,FUNTBL	
 DISPT0:         PUSH	BC	
@@ -2061,14 +2063,14 @@ LETARR:         RES	6,D		;Lose array marker
                 SBC	HL,HL	
                 ADD	HL,SP		;HL = SP	
                 SBC	HL,BC	
-                JR	C,ERROR1	;'No room'	
+                JR	C,ERROR1ev	;'No room'	
                 PUSH	BC	
                 LD	BC,(FREE)	
                 INC	B		;Safety margin	
                 SBC	HL,BC	
                 ADD	HL,BC	
                 POP	BC	
-                JR	C,ERROR1	;'No room'	
+                JR	C,ERROR1ev	;'No room'	
                 LD	SP,HL	
 LETA0:          LD	(HL),0	
                 INC	HL	
@@ -2215,7 +2217,7 @@ ITEMA1:         PUSH	DE		;Type and operator
                 POP	BC		;Junk saved text pointer	
                 RES	6,A	
                 CP	D	
-                JP	NZ,MISMAT	;'Type mismatch'	
+                JP	NZ,MISMATev	;'Type mismatch'	
                 PUSH	DE		;Save type & operator again	
                 CALL	GETAR1	
                 CALL	ARRLEN	
@@ -2229,7 +2231,7 @@ ITEMA1:         PUSH	DE		;Type and operator
                 JP	Z,ARRDOT	;Dot product	
                 OR	A	
                 SBC	HL,BC		;Same number of elements?	
-                JP	NZ,MISMAT	;'Type mismatch'	
+                JP	NZ,MISMATev	;'Type mismatch'	
                 POP	HL		;Pointer to destination	
                 BIT	7,D	
                 JR	NZ,ITEMA3	
@@ -2339,7 +2341,7 @@ ITEMA6:         CALL	STORE4
 ARRDOT:         INC	IY		;Bump past dot	
                 LD	A,D		;Type	
                 OR	A	
-                JP	M,MISMAT	;'Type mismatch'	
+                JP	M,MISMATev	;'Type mismatch'	
                 EX	DE,HL	
                 POP	HL	
 ;

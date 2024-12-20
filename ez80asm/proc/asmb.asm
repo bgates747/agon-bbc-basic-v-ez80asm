@@ -33,12 +33,12 @@
 ;                XREF	OC	
 ;                XREF	PC	
 ;
-CR:             EQU	0DH	
-TAND:           EQU	80H	
-TOR:            EQU	84H	
-TERROR:         EQU	85H	
-TCALL:          EQU	0D6H	
-TDEF:           EQU	0DDH	
+; CR             EQU	0DH	; in equs.inc
+; TAND:           EQU	80H	; in exec.asm 
+; TOR:            EQU	84H	; in exec.asm
+; TERROR:         EQU	85H	; in exec.asm
+; TCALL:          EQU	0D6H ; in exec.asm	
+; TDEF:           EQU	0DDH ; in exec.asm	
 ;
 ;ASSEMBLER:
 ;LANGUAGE-INDEPENDENT CONTROL SECTION:
@@ -209,7 +209,7 @@ GROUP2:         SUB	10
 ;
 GROUP4:         SUB	3	
                 JR	NC,GROUP5	
-G4:             CALL	PAIR	
+G4:             CALL	PAIRasm	
                 RET	C	
                 JR	BYTE0	
 ;
@@ -258,7 +258,7 @@ BIND1:          JP	NC,BIND
                 RLCA	
                 RLCA	
                 LD	C,A	
-                CALL	PAIR1	
+                CALL	PAIR1asm	
                 RET	C	
 BYTE0:          LD	A,C	
                 JR	BYTE2	
@@ -371,12 +371,12 @@ GROUPF:         DJNZ	MISC
                 EX	AF,AF'	
                 JP	NC,G6	
                 LD	C,1	
-                CALL	PAIR1	
+                CALL	PAIR1asm	
                 RET	C	
                 LD	A,14	
                 CP	B	
                 LD	B,A	
-                CALL	Z,PAIR	
+                CALL	Z,PAIRasm	
                 LD	A,B	
                 AND	3FH	
                 CP	12	
@@ -392,12 +392,12 @@ LDIN:           EX	AF,AF'
                 POP	BC	
                 JR	NC,BIND	
                 LD	C,0AH	
-                CALL	PAIR1	
+                CALL	PAIR1asm	
                 CALL	LD16	
                 JR	NC,GRPB	
                 CALL	NUMBER	
                 LD	C,2	
-                CALL	PAIR	
+                CALL	PAIRasm	
                 CALL	LD16	
                 RET	C	
                 CALL	BYTE	
@@ -486,7 +486,7 @@ OPND:           PUSH	HL
                 RET	Z	
                 BIT	3,B	
                 PUSH	HL	
-                CALL	Z,OFFSET	
+                CALL	Z,OFFSETasm	
                 LD	E,L	
                 POP	HL	
                 LD	A,0DDH	
@@ -502,7 +502,7 @@ BYTE:           LD	(IX),A
                 OR	A	
                 RET	
 ;
-OFFSET:         LD	A,(IY)	
+OFFSETasm:         LD	A,(IY)	
                 CP	')'	
                 LD	HL,0	
                 RET	Z	
@@ -547,9 +547,9 @@ COND_:          CALL	OPND
                 LD	A,3	
                 JR	SHL3	
 ;
-PAIR:           CALL	OPND	
+PAIRasm:           CALL	OPND	
                 RET	C	
-PAIR1:          LD	A,B	
+PAIR1asm:          LD	A,B	
                 AND	0FH	
                 SUB	8	
                 RET	C	

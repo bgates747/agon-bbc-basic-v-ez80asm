@@ -38,14 +38,14 @@
 ;
 ASC_TO_NUMBER:		PUSH	BC			; Preserve BC
 			LD	DE, 0			; Initialise DE
-			CALL	SKIPSP			; Skip whitespace
+			CALL	SKIPSPmisc			; Skip whitespace
 			LD	A, (HL)			; Read first character
 			CP	'&'			; Is it prefixed with '&' (HEX number)?
 			JR	NZ, ASC_TO_NUMBER3	; Jump to decimal parser if not
 			INC	HL			; Otherwise fall through to ASC_TO_HEX
 ;
 ASC_TO_NUMBER1:		LD	A, (HL)			; Fetch the character
-			CALL    UPPRC			; Convert to uppercase  
+			CALL    UPPRCmisc			; Convert to uppercase  
 			SUB	'0'			; Normalise to 0
 			JR 	C, ASC_TO_NUMBER4	; Return if < ASCII '0'
 			CP 	10			; Check if >= 10
@@ -85,11 +85,11 @@ ASC_TO_NUMBER4:		POP	BC 			; Fall through to SKIPSP here
 ; Skip a space
 ; HL: Pointer in string buffer
 ; 
-SKIPSP:			LD      A, (HL)
+SKIPSPmisc:			LD      A, (HL)
 			CP      ' '
 			RET     NZ
 			INC     HL
-			JR      SKIPSP
+			JR      SKIPSPmisc
 
 ; Skip a string
 ; HL: Pointer in string buffer
@@ -103,7 +103,7 @@ SKIPNOTSP:		LD	A, (HL)
 ; Convert a character to upper case
 ;  A: Character to convert
 ;
-UPPRC:  		AND     7FH
+UPPRCmisc:  		AND     7FH
 			CP      '`'
 			RET     C
 			AND     5FH			; Convert to upper case
@@ -200,7 +200,7 @@ CSTR_FINDCH:		LD	A, (HL)			; Get source
 ;  F: Z if HL ends with DE, otherwise NZ
 ;
 CSTR_ENDSWITH:		LD	A, (HL)			; Get the source string byte
-			CALL	UPPRC			; Convert to upper case
+			CALL	UPPRCmisc			; Convert to upper case
 			LD	C, A
 			LD	A, (DE)			; Get the substring byte
 			CP	C

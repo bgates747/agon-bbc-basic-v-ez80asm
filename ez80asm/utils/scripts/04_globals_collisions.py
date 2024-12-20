@@ -346,25 +346,25 @@ def write_collisions_to_file(collisions, output_file):
 
 # Main script execution
 if __name__ == "__main__":
-    directory = "."
+    directory = "ez80asm/proc"
     file_list = [
-        "mos_api.inc",
-        "macros.inc",
-        "init.asm",
-        "ram.asm",
-        "equs.inc",
-        "main.asm",
-        "eval.asm",
-        "exec.asm",
-        "fpp.asm",
-        "gpio.asm",
-        "interrupts.asm",
-        "agon_graphics.asm",
-        "agon_sound.asm",
-        "misc.asm",
-        "patch.asm",
-        "sorry.asm",
-        "user.asm",
+    'mos_api.inc',
+    'equs.inc',
+    'macros.inc',
+    'acorn.asm',
+    'agon_gpio.asm',
+    'agon_graphics.asm',
+    'agon_init.asm',
+    'agon_interrupt.asm',
+    'agon_misc.asm',
+    'agon_os.asm',
+    'agon_sound.asm',
+    'data.asm',
+    'eval.asm',
+    'exec.asm',
+    'main.asm',
+    'math.asm',
+    'asmb.asm',
     ]
 
     files_dict = load_files_to_dict(directory, file_list)
@@ -373,13 +373,13 @@ if __name__ == "__main__":
     equs = extract_equ_definitions(files_dict)
     macros = extract_macros(files_dict)
 
-    output_file = f"utils/symbols.txt"
+    output_file = f"ez80asm/utils/symbols.txt"
     write_equ_labels_to_file(equs, labels, output_file)
 
     collisions = find_namespace_collisions(labels, equs)
-    collisions_output_file = f"utils/namespace_collisions.txt"
+    collisions_output_file = f"ez80asm/utils/namespace_collisions.txt"
     write_collisions_to_file(collisions, collisions_output_file)
 
     # modified_files_dict = replace_duplicate_labels(files_dict, collisions, xdefs, xrefs)
-    # master_output_file = f"{directory}/master_assembly.asm",
+    # master_output_file = f"{directory}/master_assembly.asm"
     # write_master_assembly(modified_files_dict, master_output_file)
