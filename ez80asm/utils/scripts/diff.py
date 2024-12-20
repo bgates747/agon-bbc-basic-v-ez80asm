@@ -151,7 +151,7 @@ if __name__ == '__main__':
 
     # Get file paths
     file1_path = f'utils/mod/{source_filename}.dis.{source_file_extension}'
-    file2_path = f'utils/mod/bbcbasic24.dis.{source_file_extension}'
+    file2_path = f'utils/mod/bbcbasicv.dis.{source_file_extension}'
     diff_output_path = f'utils/mod/{source_filename}.dif.{source_file_extension}'
 
     # Configurable parameters

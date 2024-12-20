@@ -141,7 +141,7 @@ if __name__ == "__main__":
         # "misc.asm", # done
         "patch.asm", # done
         # "sorry.asm", # done
-        # "bbcbasic24.asm",
+        # "bbcbasicv.asm",
     ]
 
     # Paths for the saved dictionaries

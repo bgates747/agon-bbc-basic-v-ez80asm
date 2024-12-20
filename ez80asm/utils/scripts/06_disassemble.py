@@ -212,7 +212,8 @@ def import_fixed_width_to_db(db_path, lst_filepath, table_name):
                 continue  # Move to the next line after updating the filename
 
             # Parse fixed-width columns
-            address = line[0:6].strip()
+            # address = line[0:6].strip() # 24-bit address
+            address = line[2:6].strip() # 16-bit address
             bytecode = line[7:9].strip()
             linenum = line[10:19].strip()
             srccode = line[20:].strip()
@@ -223,6 +224,9 @@ def import_fixed_width_to_db(db_path, lst_filepath, table_name):
                 VALUES (?, ?, ?, ?, ?)
             """, (address, bytecode, linenum, srccode, current_file))
 
+    conn.commit()
+    # # Update the address field to the equivalent of right(address, 4)
+    # cursor.execute(f"UPDATE {table_name} SET address = substr(address, -4, 4)")
     conn.commit()
     conn.close()
     print(f"Data imported into table '{table_name}' from {lst_filepath}")
@@ -260,14 +264,14 @@ def populate_final_table(db_path, final_table_name):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    # Execute the query to retrieve data from `bbcbasic24` and `bbcbasicvez` joined through `matched_indices`
+    # Execute the query to retrieve data from `bbcbasicv` and `bbcbasicvez` joined through `matched_indices`
     cursor.execute("""
         SELECT t1.idx1, t1.address1, t1.opcode1, t1.instruction1, t1.matching1,
                t2.idx2, t2.address2, t2.opcode2, t2.instruction2, t2.matching2
         FROM (
             SELECT t1.idx AS idx1, t1.address AS address1, t1.opcode AS opcode1, 
                    t1.instruction AS instruction1, t1.matching AS matching1 
-            FROM bbcbasic24 AS t1
+            FROM bbcbasicv AS t1
         ) AS t1
         JOIN matched_indices AS t3 ON t1.idx1 = t3.left_idx
         LEFT JOIN (
@@ -434,30 +438,13 @@ def export_query_to_csv(db_path, output_csv_path):
     conn.close()
     print(f"Query results saved to '{output_csv_path}' in CSV format with NULLs as empty fields.")
 
-def compare_binaries(left_hand_filepath, right_hand_filepath, src_base_filename):
-    # Define the output file path
-    cmp_output_filepath = f"{src_base_filename}_cmp.txt"
-    
-    # Construct the shell command
-    cmp_command = (
-        f"cmp -l {left_hand_filepath} {right_hand_filepath} "
-        f"| gawk '{{printf \"%08X %02X %02X\\n\", $1-1, strtonum(0$2), strtonum(0$3)}}'"
-    )
-    
-    # Run the command and redirect output to the desired file
-    with open(cmp_output_filepath, 'w') as cmp_output_file:
-        subprocess.run(cmp_command, shell=True, stdout=cmp_output_file, check=True)
-    
-    print(f"Comparison output written to {cmp_output_filepath}")
-
 if __name__ == "__main__":
-    db_path = 'utils/dif/difs.db'
-    source_dir = 'src'
-    tgt_bin_dir = 'utils/bin'
-    dif_dir = 'utils/dif'
+    db_path = 'ez80asm/utils/dif/difs.db'
+    tgt_bin_dir = 'ez80asm/utils/bin'
+    dif_dir = 'ez80asm/utils/dif'
 
-    list_filename_in = 'utils/dif/bbcbasicvez.lst'
-    list_filename_out = 'utils/dif/bbcbasicvez_expanded.lst'
+    list_filename_in = 'ez80asm/utils/dif/bbcbasicvez.lst'
+    list_filename_out = 'ez80asm/utils/dif/bbcbasicvez_expanded.lst'
     if True: expand_lines(list_filename_in, list_filename_out)
 
     table_name = 'bbcbasicvez_lst'
@@ -465,26 +452,22 @@ if __name__ == "__main__":
     if True: import_fixed_width_to_db(db_path, list_filename_out, table_name)
 
     src_base_filename = 'bbcbasicvez'
-    src_filepath = f'{source_dir}/{src_base_filename}.asm'
+    src_filepath = f'{dif_dir}/{src_base_filename}.asm'
 
-    left_hand_filepath = f'{dif_dir}/bbcbasic24.dis.asm'
+    left_hand_filepath = f'{dif_dir}/bbcbasicv.dis.asm'
     right_hand_filepath = f'{dif_dir}/{src_base_filename}.dis.asm'
 
-    compare_binaries(left_hand_filepath, right_hand_filepath, src_base_filename)
-
-    ez80_dis_args = '--start 0 --target 0x040000 --address --hex-dump --lowercase --explicit-dest --ez80 --prefix --hex --mnemonic-space --no-argument-space --compute-absolute --literal-absolute'
+    ez80_dis_args = '--start 0 --target 0x0000 --address --hex-dump --lowercase --explicit-dest --z80 --prefix --hex --mnemonic-space --no-argument-space --compute-absolute --literal-absolute'
 
     if True:
-        # Now disassemble the generated binary
-        cmd = f"ez80-dis {ez80_dis_args} orig/bbcbasic24.bin > {left_hand_filepath}"
+        cmd = f"ez80-dis {ez80_dis_args} {tgt_bin_dir}/bbcbasicv.bin > {left_hand_filepath}"
         print (f"Running command: {cmd}")
         subprocess.run(cmd, shell=True, check=True)
         clean_disassembly_output(left_hand_filepath, left_hand_filepath)
         print(f"Disassembly written to {left_hand_filepath}")
-        make_dis_table(db_path, left_hand_filepath, 'bbcbasic24')
+        make_dis_table(db_path, left_hand_filepath, 'bbcbasicv')
 
     if True:
-        # Now disassemble the generated binary
         cmd = f"ez80-dis {ez80_dis_args} {tgt_bin_dir}/{src_base_filename}.bin > {right_hand_filepath}"
         print (f"Running command: {cmd}")
         subprocess.run(cmd, shell=True, check=True)
@@ -496,7 +479,7 @@ if __name__ == "__main__":
     diff_output_path = f'{dif_dir}/{src_base_filename}.dif'
 
     # Main workflow
-    left_table = 'bbcbasic24'
+    left_table = 'bbcbasicv'
     right_table = src_base_filename
     
     # Set parameters
