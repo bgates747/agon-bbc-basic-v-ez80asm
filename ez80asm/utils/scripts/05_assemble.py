@@ -22,26 +22,27 @@ if __name__ == '__main__':
     # List of include statements as provided
     include_files = [
         'mos_api.inc',
-        'macros.inc',
         'equs.inc',
-        'init.asm',
+        'macros.inc',
+        'agon_init.asm',
+        'acorn.asm',
+        'asmb.asm',
+        'agon_gpio.asm',
+        'agon_graphics.asm',
+        'agon_interrupt.asm',
+        'agon_misc.asm',
+        'agon_sound.asm',
+        'agon_os.asm',
         'eval.asm',
         'exec.asm',
-        'fpp.asm',
-        'gpio.asm',
         'main.asm',
-        'misc.asm',
-        'patch.asm',
-        'sorry.asm',
-        'agon_graphics.asm',
-        'agon_sound.asm',
-        'interrupts.asm',
-        'ram.asm',
+        'math.asm',
+        'data.asm',
     ]
 
-    source_dir = 'src'
-    tgt_bin_dir = 'utils/bin'
-    dif_dir = 'utils/dif'
+    source_dir = 'ez80asm/proc'
+    tgt_bin_dir = 'ez80asm/utils/bin'
+    dif_dir = 'ez80asm/utils/dif'
     emulator_dir = '~/Agon/emulator/sdcard/bin'
 
     # Output filename
@@ -52,22 +53,30 @@ if __name__ == '__main__':
     concatenate_files(include_files, source_dir, src_filepath)
     print(f"\nAll files have been concatenated into {src_filepath}")
 
-    # Assemble the output file
+# Assemble the output file
     subprocess.run(f'(cd {source_dir} && ez80asm -l -s -b FF {src_base_filename}.asm)', shell=True, check=True)
+
+    if True:
     # Open the symbols file and find the address of the end_binary label
-    with open(symb_filepath, 'r') as f:
-        lines = f.readlines()
-    for line in lines:
-        if 'end_binary' in line:
-            address = int(line.split()[1][1:], 16) - 0x040000
-            break
+        with open(symb_filepath, 'r') as f:
+            lines = f.readlines()
+        for line in lines:
+            if 'end_binary' in line:
+                address = int(line.split()[1][1:], 16) # - 0x040000
+                break
     # Truncate the binary file to the end_binary address
-    subprocess.run(f'head -c {address} {source_dir}/{src_base_filename}.bin > {source_dir}/{src_base_filename}.bin.tmp', shell=True, check=True)
-    subprocess.run(f'mv {source_dir}/{src_base_filename}.bin.tmp {source_dir}/{src_base_filename}.bin', shell=True, check=True)
-    print(f"Binary file truncated to address {address:06X}")
-    # Copy the generated binary to the emulator directory
+        subprocess.run(f'head -c {address} {source_dir}/{src_base_filename}.bin > {source_dir}/{src_base_filename}.bin.tmp', shell=True, check=True)
+        subprocess.run(f'mv {source_dir}/{src_base_filename}.bin.tmp {source_dir}/{src_base_filename}.bin', shell=True, check=True)
+        print(f"Binary file truncated to address {address:06X}")
+
+# Copy the generated binary to the emulator directory
     subprocess.run(f'cp {source_dir}/{src_base_filename}.bin {emulator_dir}', shell=True, check=True)
-    # Move the generated binary to the target directory
+# Move the generated binary to the target directory
     subprocess.run(f'mv {source_dir}/{src_base_filename}.bin {tgt_bin_dir}', shell=True, check=True)
-    # Move the generated listing file to the diff directory
+# Move the generated listing file to the diff directory
     subprocess.run(f'mv {source_dir}/{src_base_filename}.lst {dif_dir}', shell=True, check=True)
+# Move the generated symbols file to the diff directory
+    subprocess.run(f'mv {source_dir}/{src_base_filename}.symbols {dif_dir}', shell=True, check=True)
+# Move the generated source file to the diff directory
+    subprocess.run(f'mv {source_dir}/{src_base_filename}.asm {dif_dir}', shell=True, check=True)
+    print(f"Generated files have been moved to the target and diff directories")
