@@ -677,7 +677,8 @@ OSWORD:			CP	01H			; GETIME
 			CP	0FH			; PUTIMS
 			JR	Z, @F
 			CP	07H			; SOUND
-			JR	Z, OSWORD_07
+			; JR	Z, OSWORD_07
+			JP Z, SOUND_ ; REALTIVE JUMP TOO FAR
 			CP	08H			; ENVELOPE
 			JR	Z, @F
 			CP	09H			; POINT
@@ -720,6 +721,7 @@ OSWORD_02:		PUSH 	IX
 ; ;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
 ; ;
 ; OSWORD_07:		EQU	SOUND_
+; ; NOTE: we call this directly above because ez80asm has trouble resolving the label
 
 ; OSWORD 0x09: POINT
 ; Parameters:
@@ -1006,11 +1008,11 @@ UPPRC:  		AND     7FH
 ; Each command has bit 7 of the last character set, and is followed by the address of the handler
 ; These must be in alphabetical order
 ;		
-COMDS:  		DB	"BY","E"+80h		; BYE
+COMDS:  		DB	"BY",'E'+80h		; BYE
 			DW	BYE
-			DB	"EDI","T"+80h		; EDIT
+			DB	"EDI",'T'+80h		; EDIT
 			DW	STAR_EDIT
-			DB	"F","X"+80h		; FX
+			DB	'F','X'+80h		; FX
 			DW	STAR_FX
 ;			DB	'VERSIO','N'+80h	; VERSION
 ;			DW	STAR_VERSION
