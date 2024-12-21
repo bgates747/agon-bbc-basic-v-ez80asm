@@ -3,8 +3,8 @@
 ;
                 .ASSUME ADL = 0	
 ;	.ORG 0x0000
-;                DEFINE LORAM, SPACE = ROM	
-;                SEGMENT LORAM	
+            ;    DEFINE LORAM, SPACE = ROM	
+            ;    SEGMENT LORAM	
 ;
 ;                XDEF	FLAGS	
 ;                XDEF	OSWRCHPT	
@@ -18,6 +18,7 @@
 ;                XDEF	LISTON	
 ;                XDEF	PAGE_	
 ;
+                ALIGN 256	
 FLAGS:          DS	1	
 OSWRCHPT:       DS	2	
 OSWRCHCH:       DS	1	
