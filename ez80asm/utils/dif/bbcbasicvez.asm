@@ -213,7 +213,7 @@ FIL.clust:        EQU FFOBJID_SIZE + 6   ; Current cluster of fptr
 FIL.sect:         EQU FFOBJID_SIZE + 10  ; Sector number appearing in buf[]
 FIL.dir_sect:     EQU FFOBJID_SIZE + 14  ; Sector number containing the directory entry
 FIL.dir_ptr:      EQU FFOBJID_SIZE + 18  ; Pointer to the directory entry in the win[]
-FIL.obj.objsize:         EQU FFOBJID_SIZE + 21  ; Total size of FIL structure
+FIL_SIZE:         EQU FFOBJID_SIZE + 21  ; Total size of FIL structure
 ;
 ; Directory object structure (DIR)
 ; 
@@ -616,40 +616,38 @@ argv_ptrs:		BLKP	argv_ptrs_max, 0		; Storage for the argv array pointers
 ; Title:	BBC Basic for AGON - Graphics stuff
 ; Author:	Dean Belfield
 ; Created:	04/12/2024
-; Last Updated:	11/12/2024
+; Last Updated:	17/12/2024
 ;
 ; Modinfo:
 ; 11/12/2024:	Modified POINT_ to work with OSWORD
+; 17/12/2024:	Modified GETSCHR
 			
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 				
 			; INCLUDE	"equs.inc"
 			; INCLUDE "macros.inc"
 			; INCLUDE "mos_api.inc"	; In MOS/src
 		
-;			SEGMENT CODE
+			; SEGMENT CODE
 				
-;			XDEF	MODE_
-;			XDEF	COLOUR_
-;			XDEF	POINT_
-;			XDEF	GETSCHR
-;			XDEF	GETSCHR_1
+			; XDEF	MODE_
+			; XDEF	COLOUR_
+			; XDEF	POINT_
+			; XDEF	GETSCHR
 			
-;			XREF	ACCS
-;			XREF	OSWRCH
-;			XREF	ASC_TO_NUMBER
-;			XREF	EXTERR
-;			XREF	EXPRI
-;			XREF	COMMA
-;			XREF	XEQ
-;			XREF	NXT
-;			XREF	BRAKET
-;			XREF	CRTONULL
-;			XREF	NULLTOCR
-;			XREF	CRLF
-;			XREF	EXPR_W2
-;			XREF	INKEY1
+			; XREF	ACCS
+			; XREF	OSWRCH
+			; XREF	ASC_TO_NUMBER
+			; XREF	EXTERR
+			; XREF	EXPRI
+			; XREF	COMMA
+			; XREF	XEQ
+			; XREF	NXT
+			; XREF	BRAKET
+			; XREF	CRTONULL
+			; XREF	NULLTOCR
+			; XREF	CRLF
+			; XREF	EXPR_W2
 			
 ; MODE n: Set video mode
 ;
@@ -666,25 +664,6 @@ MODE_:			PUSH	IX			; Get the system vars in IX
 			POP	IX
 			JP	XEQ
 			
-; ; GET(x,y): Get the ASCII code of a character on screen
-; ;
-; GETSCHR:		INC	IY
-; 			CALL    EXPRI      		; Get X coordinate
-; 			EXX
-; 			PUSH	HL			; Stack X
-; 			CALL	COMMA		
-; 			CALL	EXPRI			; Get Y coordinate
-; 			EXX 
-; 			CALL	BRAKET			; Closing bracket	
-; 			POP	DE			; Pop X back into DE
-; 			CALL	GETSCHR_1
-; ;			JP	INKEY1
-; 	        	LD	DE,ACCS	
-; 	                LD	(DE),A	
-; 	                LD	A,80H	
-;         	        RET	NC	
-; 	                INC	E	
-;                 	RET	
 ;
 ; Fetch a character from the screen
 ; - DE: X coordinate
@@ -693,7 +672,7 @@ MODE_:			PUSH	IX			; Get the system vars in IX
 ; - A: The character or FFh if no match
 ; - F: C if match, otherwise NC
 ;
-GETSCHR_1:		PUSH	IX			; Get the system vars in IX
+GETSCHR:		PUSH	IX			; Get the system vars in IX
 			MOSCALL	mos_sysvars		; Reset the semaphore
 			RES.LIL	1, (IX+sysvar_vpd_pflags)
 			VDU	23
@@ -788,8 +767,7 @@ COLOUR_2:		CALL	COMMA
 			VDU	(VDU_BUFFER+1)		; R
 			VDU	(VDU_BUFFER+2)		; G
 			VDU	(VDU_BUFFER+3)		; B
-			JP	XEQ    
-; --- End agon_graphics.asm ---
+			JP	XEQ; --- End agon_graphics.asm ---
 
 ; --- Begin agon_gpio.asm ---
 ;
@@ -1268,90 +1246,96 @@ CSTR_CAT_1:		LD	A, (DE)			; Copy the second string onto the end of the first str
 ; Title:	BBC Basic for AGON - MOS stuff
 ; Author:	Dean Belfield
 ; Created:	04/12/2024
-; Last Updated:	12/12/2024
+; Last Updated:	17/12/2024
 ;
 ; Modinfo:
 ; 08/12/2024:	Added OSCLI and file I/O
 ; 11/12/2024:	Added ESC key handling
 ; 		Added OSWORD
 ; 12/12/2024:	Added OSRDCH, OSBYTE_81 and fixed *EDIT
+; 17/12/2024:	Added OSWORD_01, OSWORD_02, OSWORD_0E, GET$(x,y), fixed INKEY, POS, VPOS and autoload
 
 			.ASSUME	ADL = 0
-;			.ORG 0x0000
 				
 			; INCLUDE	"equs.inc"
 			; INCLUDE "macros.inc"
 			; INCLUDE "mos_api.inc"	; In MOS/src
-
-;			SEGMENT CODE
+		
+			; SEGMENT CODE
 			
-;			XDEF	OSWORD
-;			XDEF	OSBYTE
-;			XDEF	OSINIT
-;			XDEF	OSOPEN
-;			XDEF	OSSHUT
-;			XDEF	OSLOAD
-;			XDEF	OSSAVE
-;			XDEF	OSLINE
-;			XDEF	OSSTAT
-;			XDEF	OSWRCH
-;			XDEF	OSRDCH
-;			XDEF	OSBGET
-;			XDEF	OSBPUT
-;			XDEF	OSCLI
-;			XDEF	PROMPT
-;			XDEF	GETPTR
-;			XDEF	PUTPTR
-;			XDEF	GETEXT
-;			XDEF	TRAP
-;			XDEF	LTRAP
-;			XDEF	BYE
-;			XDEF	RESET
-;			XDEF	ESCSET
+			; XDEF	OSWORD
+			; XDEF	OSBYTE
+			; XDEF	OSINIT
+			; XDEF	OSOPEN
+			; XDEF	OSSHUT
+			; XDEF	OSLOAD
+			; XDEF	OSSAVE
+			; XDEF	OSLINE
+			; XDEF	OSSTAT
+			; XDEF	OSWRCH
+			; XDEF	OSRDCH
+			; XDEF	OSBGET
+			; XDEF	OSBPUT
+			; XDEF	OSCLI
+			; XDEF	PROMPT
+			; XDEF	GETPTR
+			; XDEF	PUTPTR
+			; XDEF	GETEXT
+			; XDEF	TRAP
+			; XDEF	LTRAP
+			; XDEF	BYE
+			; XDEF	RESET
+			; XDEF	ESCSET
 			
-;			XREF	EXTERR
-;			XREF	VBLANK_INIT
-;			XREF	VBLANK_STOP
-;			XREF	USER
-;			XREF	COUNT
-;			XREF	COUNT0
-;			XREF	COUNT1
-;			XREF	GETCSR 
-;			XREF	GETSCHR_1
-;			XREF	NULLTOCR
-;			XREF	CRLF
-;			XREF	FLAGS
-;			XREF	OSWRCHPT
-;			XREF	OSWRCHCH
-;			XREF	OSWRCHFH
-;			XREF	KEYASCII
-;			XREF	KEYDOWN
-;			XREF	LISTON 
-;			XREF	PAGE_
-;			XREF	CSTR_FNAME
-;			XREF	CSTR_FINDCH
-;			XREF	CSTR_CAT 
-;			XREF	CSTR_ENDSWITH
-;			XREF	CSTR_LINE 
-;			XREF	NEWIT
-;			XREF	BAD
-;			XREF	CLEAN
-;			XREF	LINNUM
-;			XREF	BUFFER
-;			XREF	NXT
-;			XREF	ERROR_
-;			XREF	XEQ
-;			XREF	LEXAN2
-;			XREF	GETTOP
-;			XREF	FINDL
-;			XREF	DEL
-;			XREF	LISTIT
-;			XREF	ESCAPE
-;			XREF	ASC_TO_NUMBER
-;			XREF	CLOOP
-;			XREF	SCRAP
-;			XREF	POINT_
-;			XREF	SOUND_
+			; XREF	EXTERR
+			; XREF	VBLANK_INIT
+			; XREF	VBLANK_STOP
+			; XREF	USER
+			; XREF	COUNT
+			; XREF	COUNT0
+			; XREF	COUNT1
+			; XREF	GETCSR 
+			; XREF	GETSCHR_1
+			; XREF	NULLTOCR
+			; XREF	CRLF
+			; XREF	FLAGS
+			; XREF	OSWRCHPT
+			; XREF	OSWRCHCH
+			; XREF	OSWRCHFH
+			; XREF	KEYASCII
+			; XREF	KEYDOWN
+			; XREF	LISTON 
+			; XREF	PAGE_
+			; XREF	CSTR_FNAME
+			; XREF	CSTR_FINDCH
+			; XREF	CSTR_CAT 
+			; XREF	CSTR_ENDSWITH
+			; XREF	CSTR_LINE 
+			; XREF	NEWIT
+			; XREF	BAD
+			; XREF	CLEAN
+			; XREF	LINNUM
+			; XREF	BUFFER
+			; XREF	NXT
+			; XREF	ERROR_
+			; XREF	XEQ
+			; XREF	LEXAN2
+			; XREF	GETTOP
+			; XREF	FINDL
+			; XREF	DEL
+			; XREF	LISTIT
+			; XREF	ESCAPE
+			; XREF	ASC_TO_NUMBER
+			; XREF	CLOOP
+			; XREF	SCRAP
+			; XREF	POINT_
+			; XREF	SOUND_
+			; XREF	EXPRI 
+			; XREF	COMMA 
+			; XREF	BRAKET 
+			; XREF 	GETSCHR 
+			; XREF	ZERO
+			; XREF	TRUE
 
 ;OSINIT - Initialise RAM mapping etc.
 ;If BASIC is entered by BBCBASIC FILENAME then file
@@ -1367,6 +1351,8 @@ OSINIT:			CALL	VBLANK_INIT
 			LD 	HL, USER
 			LD	DE, RAM_Top
 			LD	E, A			; Page boundary
+			LD	A, (ACCS)		; Return NZ if there is a file to chain
+			OR	A			
 			RET	
 
 ; PROMPT: output the input prompt
@@ -1411,10 +1397,24 @@ OSWRCH_FILE:		PUSH	DE
 
 ; OSRDCH
 ;
-OSRDCH:			MOSCALL	mos_getkey		; Read keyboard
+OSRDCH:			CALL    NXT			; Check if we are doing GET$(x,y)
+			CP      '('
+			JR	Z, @F 			; Yes, so skip to that functionality
+			MOSCALL	mos_getkey		; Otherwise, read keyboard
 			CP	1Bh
 			JR	Z, LTRAP1 
 			RET
+;
+@@:			INC	IY			; Skip '('
+			CALL    EXPRI         	  	; Get the first parameter
+			EXX
+			PUSH	HL
+			CALL	COMMA			; Get the second parameter
+			CALL	EXPRI
+			EXX 
+			POP	DE 			; DE: X coordinate 
+			CALL	BRAKET 			; Check for trailing bracket
+			JP 	GETSCHR			; Read the character
 
 ; OSLINE: Invoke the line editor
 ;
@@ -1609,10 +1609,10 @@ GETEXT:			PUSH		IY
 			MOSCALL		mos_getfil 	; HLU: Pointer to FIL structure
 			PUSH.LIL	HL
 			POP.LIL		IY		; IYU: Pointer to FIL structure
-			LD.LIL		L, (IY + FIL.obj.objsize + 0)
-			LD.LIL		H, (IY + FIL.obj.objsize + 1)
-			LD.LIL		E, (IY + FIL.obj.objsize + 2)
-			LD.LIL		D, (IY + FIL.obj.objsize + 3)			
+			LD.LIL		L, (IY + FFOBJID.objsize + 0)
+			LD.LIL		H, (IY + FFOBJID.objsize + 1)
+			LD.LIL		E, (IY + FFOBJID.objsize + 2)
+			LD.LIL		D, (IY + FFOBJID.objsize + 3)
 			POP		IY 
 			RET	
 
@@ -1910,19 +1910,52 @@ EXT_LOOKUP:		DB	".BBC", 0, 0		; First entry is the default extension
 			DB	".ASC", 0, 1
 			DB	".BAS", 0, 1
 			DB	0			; End of table
-
 ; OSWORD
 ;
-OSWORD:			CP	07H			; SOUND
+OSWORD:			CP	01H			; GETIME
+			JR	Z, OSWORD_01
+			CP	02H			; PUTIME
+			JR	Z, OSWORD_02
+			CP	0EH			; GETIMS
+			JR	Z, OSWORD_0E
+			CP	0FH			; PUTIMS
+			JR	Z, @F
+			CP	07H			; SOUND
 			; JR	Z, OSWORD_07
-			JP	Z, OSWORD_07 ; JR WAS TOO LARGE
+			JP Z, SOUND_ ; REALTIVE JUMP TOO FAR
 			CP	08H			; ENVELOPE
-			JR	Z, OSWORD_08
+			JR	Z, @F
 			CP	09H			; POINT
 			JR	Z, OSWORD_09
 			JP	HUH			; Anything else trips an error
+@@:			RET				; Dummy return for unimplemented functions
 
-; moved to agon_sound.asm
+; GETIME: return current time in centiseconds
+;
+OSWORD_01:		PUSH 	IX
+			MOSCALL	mos_sysvars
+			LD	B, 4
+@@:			LD.LIL	A, (IX + sysvar_time)
+			LD	(HL), A
+			INC	HL
+			INC.LIL	IX
+			DJNZ 	@B
+			POP	IX
+			RET
+
+; PUTIME: set time in centiseconds
+;
+OSWORD_02:		PUSH 	IX
+			MOSCALL	mos_sysvars
+			LD	B, 4
+@@:			LD	A, (HL)
+			LD.LIL 	(IX + sysvar_time), A
+			INC	HL
+			INC.LIL IX
+			DJNZ 	@B
+			POP	IX
+			RET
+
 ; ; SOUND channel,volume,pitch,duration
 ; ; Parameters:
 ; ; - HL: Pointer to data
@@ -1932,7 +1965,7 @@ OSWORD:			CP	07H			; SOUND
 ; ;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
 ; ;
 ; OSWORD_07:		EQU	SOUND_
-; end moved to agon_sound.asm
+; ; NOTE: we call this directly above because ez80asm has trouble resolving the label
 
 ; OSWORD 0x09: POINT
 ; Parameters:
@@ -1944,7 +1977,14 @@ OSWORD_09:		LD	DE,(SCRAP+0)
 			LD	HL,(SCRAP+2)
 			CALL	POINT_
 			LD	(SCRAP+4),A
-OSWORD_08:		RET				; Envelope not currently implemented
+			RET	
+
+; GETIMS - Get time from RTC
+;
+OSWORD_0E:		PUSH	IY
+			MOSCALL	mos_getrtc
+			POP	IY
+			RET
 
 ;
 ; OSBYTE
@@ -2030,29 +2070,72 @@ OSBYTE_76:		VDU	23
 ; - HL = Time to wait (centiseconds)
 ; Returns:
 ; - F: Carry reset indicates time-out
-; - A: If carry set, A = character typed
+; - H: NZ if timed out
+; - L: The character typed
 ; Destroys: A,D,E,H,L,F
 ;
-OSBYTE_81:		CALL	READKEY			; Read the keyboard 
+OSBYTE_81:		EXX
+			BIT 	7, H 			; Check for minus numbers
+			EXX
+			JR	NZ, OSBYTE_81_1		; Yes, so do INKEY(-n)
+			CALL	READKEY			; Read the keyboard 
 			JR	Z, @F 			; Skip if we have a key
+			CALL	WAIT_VBLANK 		; Wait a frame
 			LD	A, H 			; Check loop counter
 			OR 	L
-			RET 	Z 			; Return, we've not got a key at this point
-			CALL	WAIT_VBLANK 		; Wait a frame
 			DEC 	HL			; Decrement
-			JR	OSBYTE_81		; And loop
+			JR	NZ, OSBYTE_81		; And loop 
+			RET 				; H: Will be set to 255 to flag timeout
 ;
 @@:			LD	HL, KEYDOWN		; We have a key, so 
 			LD	(HL), 0			; clear the keydown flag
-			CP	1BH			; If we are not pressing ESC, 
-			SCF 				; then flag we've got a character
-			RET	NZ
-			JP	ESCSET			; Handle ESC
+			CP	1BH			; If we are pressing ESC, 
+			JP	Z, ESCSET 		; Then handle ESC
+			LD	H, 0			; H: Not timed out
+			LD	L, A			; L: The character
+			RET	
+;
+;
+; Check immediately whether a given key is being pressed
+; Result is integer numeric
+;
+OSBYTE_81_1:		MOSCALL	mos_getkbmap		; Get the base address of the keyboard
+			INC	HL			; Index from 0
+			LD	A, L			; Negate the LSB of the answer
+			NEG
+			LD	C, A			;  E: The positive keycode value
+			LD	A, 1			; Throw an "Out of range" error
+			JP	M, ERROR_		; if the argument < - 128
+;
+			LD	HL, BITLOOKUP		; HL: The bit lookup table
+			LD	DE, 0
+			LD	A, C
+			AND	00000111b		; Just need the first three bits
+			LD	E, A			; DE: The bit number
+			ADD	HL, DE
+			LD	B, (HL)			;  B: The mask
+;
+			LD	A, C			; Fetch the keycode again
+			AND	01111000b		; And divide by 8
+			RRCA
+			RRCA
+			RRCA
+			LD	E, A			; DE: The offset (the MSW has already been cleared previously)
+			ADD.LIL	IX, DE			; IX: The address
+			LD.LIL	A, (IX+0)		;  A: The keypress
+			AND	B			; Check whether the bit is set
+			JP	Z, ZERO			; No, so return 0
+			JP	TRUEev			; Otherwise return -1
+;
+; A bit lookup table
+;
+BITLOOKUP:		DB	01h, 02h, 04h, 08h
+			DB	10h, 20h, 40h, 80h	
 
 ; OSBYTE 0x86: Fetch cursor coordinates
 ; Returns:
-; - DE: X Coordinate (POS)
-; - HL: Y Coordinate (VPOS)
+; - L: X Coordinate (POS)
+; - H: Y Coordinate (VPOS)
 ;
 OSBYTE_86:		PUSH	IX			; Get the system vars in IX
 			MOSCALL	mos_sysvars		; Reset the semaphore
@@ -2062,10 +2145,8 @@ OSBYTE_86:		PUSH	IX			; Get the system vars in IX
 			VDU	vdp_cursor
 @@:			BIT.LIL	0, (IX+sysvar_vpd_pflags)
 			JR	Z, @B			; Wait for the result
-			LD 	D, 0
-			LD	H, D
-			LD.LIL	E, (IX + sysvar_cursorX)
-			LD.LIL	L, (IX + sysvar_cursorY)			
+			LD.LIL	L, (IX + sysvar_cursorX)
+			LD.LIL	H, (IX + sysvar_cursorY)			
 			POP	IX			
 			RET	
 
@@ -2073,7 +2154,7 @@ OSBYTE_86:		PUSH	IX			; Get the system vars in IX
 ;
 OSBYTE_87:		PUSH	IX
 			CALL	GETCSR			; Get the current screen position
-			CALL	GETSCHR_1		; Read character from screen
+			CALL	GETSCHR			; Read character from screen
 			LD	L, A 
 			MOSCALL	mos_sysvars
 			LD.LIL	H, (IX+sysvar_scrMode)	; H: Screen mode
@@ -2171,11 +2252,11 @@ UPPRC:  		AND     7FH
 ; Each command has bit 7 of the last character set, and is followed by the address of the handler
 ; These must be in alphabetical order
 ;		
-COMDS:  		DB	"BY","E"+80h		; BYE
+COMDS:  		DB	"BY",'E'+80h		; BYE
 			DW	BYE
-			DB	"EDI","T"+80h		; EDIT
+			DB	"EDI",'T'+80h		; EDIT
 			DW	STAR_EDIT
-			DB	"F","X"+80h		; FX
+			DB	'F','X'+80h		; FX
 			DW	STAR_FX
 ;			DB	'VERSIO','N'+80h	; VERSION
 ;			DW	STAR_VERSION
@@ -2246,8 +2327,7 @@ WAIT_VBLANK:		PUSH 	IX			; Wait for VBLANK interrupt
 @@:			CP.LIL 	A, (IX + sysvar_time + 0)
 			JR	Z, @B
 			POP	IX
-			RET    
-			; --- End agon_os.asm ---
+			RET; --- End agon_os.asm ---
 
 ; --- Begin agon_sound.asm ---
 ;
@@ -2349,18 +2429,6 @@ SOUND0:			RES.LIL	3, (IX+sysvar_vpd_pflags)
 ;
 			POP	IX
 			RET 
-
-; FROM agon_os.asm
-; SOUND channel,volume,pitch,duration
-; Parameters:
-; - HL: Pointer to data
-;   - 0,1: Channel
-;   - 2,3: Volume 0 (off) to 15 (full volume)
-;   - 4,5: Pitch 0 - 255
-;   - 6,7: Duration -1 to 254 (duration in 20ths of a second, -1 = play forever)
-;
-OSWORD_07:		EQU	SOUND_
-; end from agon_os.asm
 
 ; Frequency Lookup Table
 ; Set up to replicate the BBC Micro audio frequencies
@@ -3835,7 +3903,7 @@ OPCODS:         DB	"NO"
                 DB	"AF"	
                 DB	0	
                 DB	"AF"	
-                DB	"'"+80H	
+                DB	27H+80H ; APOSTROPHE	
                 DB	8	
                 DB	"RRC"	
                 DB	'A'+80H	
@@ -4200,14 +4268,15 @@ FIN:            ; END
 
 ; --- Begin eval.asm ---
 ;
-;Automatically created from original source on 2024-12-15 15:29:12
+;Automatically created from original source on 2024-12-20 19:08:22
 ;
                 .ASSUME ADL = 0	
-;	.ORG 0x0000
 ;                SEGMENT CODE	
 ;
 ;                XDEF	COUNT0	
 ;                XDEF	COUNT1	
+;                XDEF	ZERO	
+;                XDEF	TRUE	
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;EVALUATE EXPRESSION MODULE - "EVAL"
@@ -4330,7 +4399,7 @@ TMODE:          EQU	0EBH
 TREPORT:        EQU	0F6H	
 TWIDTH:         EQU	0FEH	
 TTINT:          EQU	0AH	
-; TBY:            EQU	0FH	; IN main.asm
+; TBY:            EQU	0FH	; IN acorn.asm
 ;
 ;TABLE OF ADDRESSES FOR FUNCTIONS:
 ;
@@ -4394,8 +4463,7 @@ FUNTBL:         DW	DECODE		;Line number
                 DW	SUM		;SUM	
 ;
 FUNTBL_END:     EQU	$	
-; TCMD:           EQU	FUNTOK+(FUNTBL_END-FUNTBL)/2	
-TCMD:           EQU	FUNTBL_END-FUNTBL/2+FUNTOK
+TCMDev:           EQU	FUNTOK+[[FUNTBL_END-FUNTBL]/2]
 ;
 ; CR             EQU	0DH	
 ; LF             EQU	0AH	
@@ -4736,7 +4804,7 @@ ITEM:           CALL	CHECK
                 INC	IY	
                 CP	FUNTOK	
                 JR	C,ITEM0	
-                CP	TCMD	
+                CP	TCMDev	
                 JP	C,DISPATev	;FUNCTIONS	
                 JP	EXTRASev		;DIM, END, MODE, REPORT$, WIDTH	
 ;
@@ -6957,7 +7025,7 @@ TTAB:           EQU	8AH
 ; TTHEN:          EQU	8CH	
 ; TLINO:          EQU	8DH	
 ; TTO:            EQU	0B8H	
-; TBY:           EQU	0C0H	
+TCMD:           EQU	0C0H	
 ; TWHILE:         EQU	0C7H	
 ; TWHEN:          EQU	0C9H	
 ; TOF:            EQU	0CAH	
@@ -7066,8 +7134,7 @@ CMDTAB:         DW	LEFTSL
                 DW	EXITex	
 ;
 CMDTAB_END:     EQU	$	
-; TLAST:          EQU	TCMD-128+(CMDTAB_END-CMDTAB)/2	
-TLAST:          EQU	CMDTAB_END-CMDTAB/2+TCMD-128
+TLAST:          EQU	TCMD-128+[[CMDTAB_END-CMDTAB]/2]
 ;
 RUN:            CALL	TERMQ	
                 JR	Z,RUN0	
@@ -8566,7 +8633,7 @@ WHICHK:         CALL	EXPRI
                 JR	NZ,XEQGO5	
                 POP	BC		;Pop marker	
                 POP	BC		;Level stack	
-                LD	BC,TWHILE+TENDWHILE*256	
+                LD	BC,TWHILE+[TENDWHILE*256]	
                 LD	D,1	
                 CALL	WSRCH	
 XEQGO5:         JP	XEQ	
@@ -9082,7 +9149,7 @@ EXIT4:          POP	BC		;VARPTR
                 OR	L	
                 JR	Z,EXIT5	
                 SBC	HL,BC	
-EXIT5:          LD	BC,TFOR+TNEXT*256	
+EXIT5:          LD	BC,TFOR+[TNEXT*256]	
                 JR	Z,EXIT8	
                 INC	D		;Count nested FOR loops	
                 JR	EXIT1	
@@ -9090,13 +9157,13 @@ EXIT5:          LD	BC,TFOR+TNEXT*256
 EXIT6:          POP	BC		;Text pointer	
                 CP	TREPEAT	
                 JR	NZ,EXIT1	
-                LD	BC,TREPEAT+TUNTIL*256	
+                LD	BC,TREPEAT+[TUNTIL*256]
                 JR	EXIT8	
 ;
 EXIT7:          POP	BC		;Text pointer	
                 CP	TWHILE	
                 JR	NZ,EXIT1	
-                LD	BC,TWHILE+TENDWHILE*256	
+                LD	BC,TWHILE+[TENDWHILE*256]
 EXIT8:          CALL	WSRCH	
                 CALL	SPAN		;Skip UNTIL expression	
                 JP	XEQ	
@@ -14619,8 +14686,8 @@ ABS2:           EX	AF,AF'
 ;
                 .ASSUME ADL = 0	
 ;	.ORG 0x0000
-;                DEFINE LORAM, SPACE = ROM	
-;                SEGMENT LORAM	
+            ;    DEFINE LORAM, SPACE = ROM	
+            ;    SEGMENT LORAM	
 ;
 ;                XDEF	FLAGS	
 ;                XDEF	OSWRCHPT	
@@ -14634,6 +14701,8 @@ ABS2:           EX	AF,AF'
 ;                XDEF	LISTON	
 ;                XDEF	PAGE_	
 ;
+end_binary: ;  for 05_assemble.py to know where to truncate the binary file
+                ALIGN 256	
 FLAGS:          DS	1	
 OSWRCHPT:       DS	2	
 OSWRCHCH:       DS	1	
@@ -14643,8 +14712,6 @@ KEYASCII:       DS	1
 KEYCOUNT:       DS	1	
 SCRAP:          DS	31	
 ;
-end_binary: ;  for 05_assemble.py to know where to truncate the binary file
-
                 ALIGN 256	
 ;
 ;RAM MODULE FOR BBC BASIC INTERPRETER

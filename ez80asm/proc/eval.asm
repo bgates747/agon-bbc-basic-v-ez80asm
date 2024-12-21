@@ -1,12 +1,13 @@
 ;
-;Automatically created from original source on 2024-12-15 15:29:12
+;Automatically created from original source on 2024-12-20 19:08:22
 ;
                 .ASSUME ADL = 0	
-;	.ORG 0x0000
 ;                SEGMENT CODE	
 ;
 ;                XDEF	COUNT0	
 ;                XDEF	COUNT1	
+;                XDEF	ZERO	
+;                XDEF	TRUE	
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;EVALUATE EXPRESSION MODULE - "EVAL"
@@ -129,7 +130,7 @@ TMODE:          EQU	0EBH
 TREPORT:        EQU	0F6H	
 TWIDTH:         EQU	0FEH	
 TTINT:          EQU	0AH	
-; TBY:            EQU	0FH	; IN main.asm
+; TBY:            EQU	0FH	; IN acorn.asm
 ;
 ;TABLE OF ADDRESSES FOR FUNCTIONS:
 ;
@@ -193,8 +194,7 @@ FUNTBL:         DW	DECODE		;Line number
                 DW	SUM		;SUM	
 ;
 FUNTBL_END:     EQU	$	
-; TCMD:           EQU	FUNTOK+(FUNTBL_END-FUNTBL)/2	
-TCMD:           EQU	FUNTBL_END-FUNTBL/2+FUNTOK
+TCMDev:           EQU	FUNTOK+[[FUNTBL_END-FUNTBL]/2]
 ;
 ; CR             EQU	0DH	
 ; LF             EQU	0AH	
@@ -535,7 +535,7 @@ ITEM:           CALL	CHECK
                 INC	IY	
                 CP	FUNTOK	
                 JR	C,ITEM0	
-                CP	TCMD	
+                CP	TCMDev	
                 JP	C,DISPATev	;FUNCTIONS	
                 JP	EXTRASev		;DIM, END, MODE, REPORT$, WIDTH	
 ;

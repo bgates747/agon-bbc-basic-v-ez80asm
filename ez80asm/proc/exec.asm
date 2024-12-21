@@ -267,7 +267,7 @@ CMDTAB:         DW	LEFTSL
                 DW	EXITex	
 ;
 CMDTAB_END:     EQU	$	
-TLAST:          EQU	TCMD-128+[CMDTAB_END-CMDTAB]/2	
+TLAST:          EQU	TCMD-128+[[CMDTAB_END-CMDTAB]/2]
 ;
 RUN:            CALL	TERMQ	
                 JR	Z,RUN0	
@@ -1766,7 +1766,7 @@ WHICHK:         CALL	EXPRI
                 JR	NZ,XEQGO5	
                 POP	BC		;Pop marker	
                 POP	BC		;Level stack	
-                LD	BC,TWHILE+TENDWHILE*256	
+                LD	BC,TWHILE+[TENDWHILE*256]	
                 LD	D,1	
                 CALL	WSRCH	
 XEQGO5:         JP	XEQ	
@@ -2282,7 +2282,7 @@ EXIT4:          POP	BC		;VARPTR
                 OR	L	
                 JR	Z,EXIT5	
                 SBC	HL,BC	
-EXIT5:          LD	BC,TFOR+TNEXT*256	
+EXIT5:          LD	BC,TFOR+[TNEXT*256]	
                 JR	Z,EXIT8	
                 INC	D		;Count nested FOR loops	
                 JR	EXIT1	
@@ -2290,13 +2290,13 @@ EXIT5:          LD	BC,TFOR+TNEXT*256
 EXIT6:          POP	BC		;Text pointer	
                 CP	TREPEAT	
                 JR	NZ,EXIT1	
-                LD	BC,TREPEAT+TUNTIL*256	
+                LD	BC,TREPEAT+[TUNTIL*256]
                 JR	EXIT8	
 ;
 EXIT7:          POP	BC		;Text pointer	
                 CP	TWHILE	
                 JR	NZ,EXIT1	
-                LD	BC,TWHILE+TENDWHILE*256	
+                LD	BC,TWHILE+[TENDWHILE*256]
 EXIT8:          CALL	WSRCH	
                 CALL	SPAN		;Skip UNTIL expression	
                 JP	XEQ	
