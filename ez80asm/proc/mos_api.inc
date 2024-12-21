@@ -212,7 +212,7 @@ FIL.clust:        EQU FFOBJID_SIZE + 6   ; Current cluster of fptr
 FIL.sect:         EQU FFOBJID_SIZE + 10  ; Sector number appearing in buf[]
 FIL.dir_sect:     EQU FFOBJID_SIZE + 14  ; Sector number containing the directory entry
 FIL.dir_ptr:      EQU FFOBJID_SIZE + 18  ; Pointer to the directory entry in the win[]
-FIL.obj.objsize:         EQU FFOBJID_SIZE + 21  ; Total size of FIL structure
+FIL_SIZE:         EQU FFOBJID_SIZE + 21  ; Total size of FIL structure
 ;
 ; Directory object structure (DIR)
 ; 
