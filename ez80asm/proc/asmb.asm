@@ -651,7 +651,7 @@ OPCODS:         DB	"NO"
                 DB	"AF"	
                 DB	0	
                 DB	"AF"	
-                DB	"'"+80H	
+                DB	27H+80H ; APOSTROPHE	
                 DB	8	
                 DB	"RRC"	
                 DB	'A'+80H	
