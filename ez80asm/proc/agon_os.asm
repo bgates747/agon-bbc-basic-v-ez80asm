@@ -881,7 +881,7 @@ OSBYTE_81_1:		MOSCALL	mos_getkbmap		; Get the base address of the keyboard
 			LD.LIL	A, (IX+0)		;  A: The keypress
 			AND	B			; Check whether the bit is set
 			JP	Z, ZERO			; No, so return 0
-			JP	TRUE			; Otherwise return -1
+			JP	TRUEev			; Otherwise return -1
 ;
 ; A bit lookup table
 ;
