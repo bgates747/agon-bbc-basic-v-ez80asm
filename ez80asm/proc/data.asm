@@ -18,6 +18,7 @@
 ;                XDEF	LISTON	
 ;                XDEF	PAGE_	
 ;
+end_binary: ;  for 05_assemble.py to know where to truncate the binary file
                 ALIGN 256	
 FLAGS:          DS	1	
 OSWRCHPT:       DS	2	
@@ -28,8 +29,6 @@ KEYASCII:       DS	1
 KEYCOUNT:       DS	1	
 SCRAP:          DS	31	
 ;
-end_binary: ;  for 05_assemble.py to know where to truncate the binary file
-
                 ALIGN 256	
 ;
 ;RAM MODULE FOR BBC BASIC INTERPRETER
