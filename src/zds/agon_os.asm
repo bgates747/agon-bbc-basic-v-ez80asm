@@ -2,13 +2,14 @@
 ; Title:	BBC Basic for AGON - MOS stuff
 ; Author:	Dean Belfield
 ; Created:	04/12/2024
-; Last Updated:	12/12/2024
+; Last Updated:	17/12/2024
 ;
 ; Modinfo:
 ; 08/12/2024:	Added OSCLI and file I/O
 ; 11/12/2024:	Added ESC key handling
 ; 		Added OSWORD
 ; 12/12/2024:	Added OSRDCH, OSBYTE_81 and fixed *EDIT
+; 17/12/2024:	Added OSWORD_01, OSWORD_02, OSWORD_0E, GET$(x,y), fixed INKEY, POS, VPOS and autoload
 
 			.ASSUME	ADL = 0
 				
@@ -85,6 +86,12 @@
 			XREF	SCRAP
 			XREF	POINT_
 			XREF	SOUND_
+			XREF	EXPRI 
+			XREF	COMMA 
+			XREF	BRAKET 
+			XREF 	GETSCHR 
+			XREF	ZERO
+			XREF	TRUE
 
 ;OSINIT - Initialise RAM mapping etc.
 ;If BASIC is entered by BBCBASIC FILENAME then file
@@ -100,6 +107,8 @@ OSINIT:			CALL	VBLANK_INIT
 			LD 	HL, USER
 			LD	DE, RAM_Top
 			LD	E, A			; Page boundary
+			LD	A, (ACCS)		; Return NZ if there is a file to chain
+			OR	A			
 			RET	
 
 ; PROMPT: output the input prompt
@@ -144,10 +153,24 @@ OSWRCH_FILE:		PUSH	DE
 
 ; OSRDCH
 ;
-OSRDCH:			MOSCALL	mos_getkey		; Read keyboard
+OSRDCH:			CALL    NXT			; Check if we are doing GET$(x,y)
+			CP      '('
+			JR	Z, $F 			; Yes, so skip to that functionality
+			MOSCALL	mos_getkey		; Otherwise, read keyboard
 			CP	1Bh
 			JR	Z, LTRAP1 
 			RET
+;
+$$:			INC	IY			; Skip '('
+			CALL    EXPRI         	  	; Get the first parameter
+			EXX
+			PUSH	HL
+			CALL	COMMA			; Get the second parameter
+			CALL	EXPRI
+			EXX 
+			POP	DE 			; DE: X coordinate 
+			CALL	BRAKET 			; Check for trailing bracket
+			JP 	GETSCHR			; Read the character
 
 ; OSLINE: Invoke the line editor
 ;
@@ -239,11 +262,11 @@ RESET:			RET				; Yes this is fine
 ;  A: Filehandle, 0 if cannot open
 ;
 OSOPEN:			LD	C, fa_read
-			JR	Z, @F
+			JR	Z, $F
 			LD	C, fa_write | fa_open_append
-			JR	C, @F
+			JR	C, $F
 			LD	C, fa_write | fa_create_always
-@@:			MOSCALL	mos_fopen			
+$$:			MOSCALL	mos_fopen			
 			RET
 
 ;OSSHUT - Close disk file(s).
@@ -382,12 +405,12 @@ OSLOAD_TXT1:		LD	HL, ACCS 		; Where the input is going to be stored
 ;
 ; First skip any whitespace (indents) at the beginning of the input
 ;
-@@:			CALL	OSBGET			; Read the byte into A
+$$:			CALL	OSBGET			; Read the byte into A
 			JR	C, OSLOAD_TXT3		; Is it EOF?
 			CP	LF 			; Is it LF?
 			JR	Z, OSLOAD_TXT3 		; Yes, so skip to the next line
 			CP	21h			; Is it less than or equal to ASCII space?
-			JR	C, @B 			; Yes, so keep looping
+			JR	C, $B 			; Yes, so keep looping
 			LD	(HL), A 		; Store the first character
 			INC	L
 ;
@@ -396,11 +419,11 @@ OSLOAD_TXT1:		LD	HL, ACCS 		; Where the input is going to be stored
 OSLOAD_TXT2:		CALL	OSBGET			; Read the byte into A
 			JR	C, OSLOAD_TXT4		; Is it EOF?
 			CP	20h			; Skip if not an ASCII character
-			JR	C, @F
+			JR	C, $F
 			LD	(HL), A 		; Store in the input buffer			
 			INC	L			; Increment the buffer pointer
 			JP	Z, BAD			; If the buffer is full (wrapped to 0) then jump to Bad Program error
-@@:			CP	LF			; Check for LF
+$$:			CP	LF			; Check for LF
 			JR	NZ, OSLOAD_TXT2		; If not, then loop to read the rest of the characters in
 ;
 ; Finally, handle EOL/EOF
@@ -408,12 +431,12 @@ OSLOAD_TXT2:		CALL	OSBGET			; Read the byte into A
 OSLOAD_TXT3:		LD	(HL), CR		; Store a CR for BBC BASIC
 			LD	A, L			; Check for minimum line length
 			CP	2			; If it is 2 characters or less (including CR)
-			JR	C, @F			; Then don't bother entering it
+			JR	C, $F			; Then don't bother entering it
 			PUSH	DE			; Preserve the filehandle
 			CALL	OSEDIT			; Enter the line in memory
 			CALL	C,CLEAN			; If a new line has been entered, then call CLEAN to set TOP and write &FFFF end of program marker
 			POP	DE
-@@:			CALL	OSSTAT			; End of file?
+$$:			CALL	OSSTAT			; End of file?
 			JR	NZ, OSLOAD_TXT1		; No, so loop
 			CALL	OSSHUT			; Close the file
 			SCF				; Flag to BASIC that we're good
@@ -422,11 +445,11 @@ OSLOAD_TXT3:		LD	(HL), CR		; Store a CR for BBC BASIC
 ; Special case for BASIC programs with no blank line at the end
 ;
 OSLOAD_TXT4:		CP	20h			; Skip if not an ASCII character
-			JR	C, @F
+			JR	C, $F
 			LD	(HL), A			; Store the character
 			INC	L
 			JP	Z, BAD
-@@:			JR	OSLOAD_TXT3
+$$:			JR	OSLOAD_TXT3
 ;
 ; This bit enters the line into memory
 ; Also called from OSLOAD_TXT
@@ -593,10 +616,10 @@ EXT_DEFAULT:		PUSH	HL			; Stack the filename pointer
 			LD	C, '.'			; Search for dot (marks start of extension)
 			CALL	CSTR_FINDCH
 			OR	A			; Check for end of string marker
-			JR	NZ, @F			; No, so skip as we have an extension at this point			
+			JR	NZ, $F			; No, so skip as we have an extension at this point			
 			LD	DE, EXT_LOOKUP		; Get the first (default extension)
 			CALL	CSTR_CAT		; Concat it to string pointed to by HL
-@@:			POP	HL			; Restore the filename pointer
+$$:			POP	HL			; Restore the filename pointer
 			RET
 			
 ; Check if an extension is valid and, if so, provide a pointer to a handler
@@ -614,10 +637,10 @@ EXT_HANDLER_1:		PUSH	HL			; Stack the pointer to the extension
 			POP	HL			; Restore the pointer to the extension
 			JR	Z, EXT_HANDLER_2	; We have a match!
 ;
-@@:			LD	A, (DE)			; Skip to the end of the entry in the lookup
+$$:			LD	A, (DE)			; Skip to the end of the entry in the lookup
 			INC	DE
 			OR	A
-			JR	NZ, @B
+			JR	NZ, $B
 			INC	DE			; Skip the file extension # byte
 ;
 			LD	A, (DE)			; Are we at the end of the table?
@@ -645,13 +668,48 @@ EXT_LOOKUP:		DB	'.BBC', 0, 0		; First entry is the default extension
 			DB	0			; End of table
 ; OSWORD
 ;
-OSWORD:			CP	07H			; SOUND
+OSWORD:			CP	01H			; GETIME
+			JR	Z, OSWORD_01
+			CP	02H			; PUTIME
+			JR	Z, OSWORD_02
+			CP	0EH			; GETIMS
+			JR	Z, OSWORD_0E
+			CP	0FH			; PUTIMS
+			JR	Z, $F
+			CP	07H			; SOUND
 			JR	Z, OSWORD_07
 			CP	08H			; ENVELOPE
-			JR	Z, OSWORD_08
+			JR	Z, $F
 			CP	09H			; POINT
 			JR	Z, OSWORD_09
 			JP	HUH			; Anything else trips an error
+$$:			RET				; Dummy return for unimplemented functions
+
+; GETIME: return current time in centiseconds
+;
+OSWORD_01:		PUSH 	IX
+			MOSCALL	mos_sysvars
+			LD	B, 4
+$$:			LD.LIL	A, (IX + sysvar_time)
+			LD	(HL), A
+			INC	HL
+			INC.LIL	IX
+			DJNZ 	$B
+			POP	IX
+			RET
+
+; PUTIME: set time in centiseconds
+;
+OSWORD_02:		PUSH 	IX
+			MOSCALL	mos_sysvars
+			LD	B, 4
+$$:			LD	A, (HL)
+			LD.LIL 	(IX + sysvar_time), A
+			INC	HL
+			INC.LIL IX
+			DJNZ 	$B
+			POP	IX
+			RET
 
 ; SOUND channel,volume,pitch,duration
 ; Parameters:
@@ -673,7 +731,14 @@ OSWORD_09:		LD	DE,(SCRAP+0)
 			LD	HL,(SCRAP+2)
 			CALL	POINT_
 			LD	(SCRAP+4),A
-OSWORD_08:		RET				; Envelope not currently implemented
+			RET	
+
+; GETIMS - Get time from RTC
+;
+OSWORD_0E:		PUSH	IY
+			MOSCALL	mos_getrtc
+			POP	IY
+			RET
 
 ;
 ; OSBYTE
@@ -759,29 +824,72 @@ OSBYTE_76:		VDU	23
 ; - HL = Time to wait (centiseconds)
 ; Returns:
 ; - F: Carry reset indicates time-out
-; - A: If carry set, A = character typed
+; - H: NZ if timed out
+; - L: The character typed
 ; Destroys: A,D,E,H,L,F
 ;
-OSBYTE_81:		CALL	READKEY			; Read the keyboard 
-			JR	Z, @F 			; Skip if we have a key
+OSBYTE_81:		EXX
+			BIT 	7, H 			; Check for minus numbers
+			EXX
+			JR	NZ, OSBYTE_81_1		; Yes, so do INKEY(-n)
+			CALL	READKEY			; Read the keyboard 
+			JR	Z, $F 			; Skip if we have a key
+			CALL	WAIT_VBLANK 		; Wait a frame
 			LD	A, H 			; Check loop counter
 			OR 	L
-			RET 	Z 			; Return, we've not got a key at this point
-			CALL	WAIT_VBLANK 		; Wait a frame
 			DEC 	HL			; Decrement
-			JR	OSBYTE_81		; And loop
+			JR	NZ, OSBYTE_81		; And loop 
+			RET 				; H: Will be set to 255 to flag timeout
 ;
-@@:			LD	HL, KEYDOWN		; We have a key, so 
+$$:			LD	HL, KEYDOWN		; We have a key, so 
 			LD	(HL), 0			; clear the keydown flag
-			CP	1BH			; If we are not pressing ESC, 
-			SCF 				; then flag we've got a character
-			RET	NZ
-			JP	ESCSET			; Handle ESC
+			CP	1BH			; If we are pressing ESC, 
+			JP	Z, ESCSET 		; Then handle ESC
+			LD	H, 0			; H: Not timed out
+			LD	L, A			; L: The character
+			RET	
+;
+;
+; Check immediately whether a given key is being pressed
+; Result is integer numeric
+;
+OSBYTE_81_1:		MOSCALL	mos_getkbmap		; Get the base address of the keyboard
+			INC	HL			; Index from 0
+			LD	A, L			; Negate the LSB of the answer
+			NEG
+			LD	C, A			;  E: The positive keycode value
+			LD	A, 1			; Throw an "Out of range" error
+			JP	M, ERROR_		; if the argument < - 128
+;
+			LD	HL, BITLOOKUP		; HL: The bit lookup table
+			LD	DE, 0
+			LD	A, C
+			AND	00000111b		; Just need the first three bits
+			LD	E, A			; DE: The bit number
+			ADD	HL, DE
+			LD	B, (HL)			;  B: The mask
+;
+			LD	A, C			; Fetch the keycode again
+			AND	01111000b		; And divide by 8
+			RRCA
+			RRCA
+			RRCA
+			LD	E, A			; DE: The offset (the MSW has already been cleared previously)
+			ADD.LIL	IX, DE			; IX: The address
+			LD.LIL	A, (IX+0)		;  A: The keypress
+			AND	B			; Check whether the bit is set
+			JP	Z, ZERO			; No, so return 0
+			JP	TRUE			; Otherwise return -1
+;
+; A bit lookup table
+;
+BITLOOKUP:		DB	01h, 02h, 04h, 08h
+			DB	10h, 20h, 40h, 80h	
 
 ; OSBYTE 0x86: Fetch cursor coordinates
 ; Returns:
-; - DE: X Coordinate (POS)
-; - HL: Y Coordinate (VPOS)
+; - L: X Coordinate (POS)
+; - H: Y Coordinate (VPOS)
 ;
 OSBYTE_86:		PUSH	IX			; Get the system vars in IX
 			MOSCALL	mos_sysvars		; Reset the semaphore
@@ -789,12 +897,10 @@ OSBYTE_86:		PUSH	IX			; Get the system vars in IX
 			VDU	23
 			VDU	0
 			VDU	vdp_cursor
-@@:			BIT.LIL	0, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
-			LD 	D, 0
-			LD	H, D
-			LD.LIL	E, (IX + sysvar_cursorX)
-			LD.LIL	L, (IX + sysvar_cursorY)			
+$$:			BIT.LIL	0, (IX+sysvar_vpd_pflags)
+			JR	Z, $B			; Wait for the result
+			LD.LIL	L, (IX + sysvar_cursorX)
+			LD.LIL	H, (IX + sysvar_cursorY)			
 			POP	IX			
 			RET	
 
@@ -802,7 +908,7 @@ OSBYTE_86:		PUSH	IX			; Get the system vars in IX
 ;
 OSBYTE_87:		PUSH	IX
 			CALL	GETCSR			; Get the current screen position
-			CALL	GETSCHR_1		; Read character from screen
+			CALL	GETSCHR			; Read character from screen
 			LD	L, A 
 			MOSCALL	mos_sysvars
 			LD.LIL	H, (IX+sysvar_scrMode)	; H: Screen mode
@@ -972,7 +1078,7 @@ STAR_FX2:		LD	A, C 			; A: FX #
 WAIT_VBLANK:		PUSH 	IX			; Wait for VBLANK interrupt
 			MOSCALL	mos_sysvars		; Fetch pointer to system variables
 			LD.LIL	A, (IX + sysvar_time + 0)
-@@:			CP.LIL 	A, (IX + sysvar_time + 0)
-			JR	Z, @B
+$$:			CP.LIL 	A, (IX + sysvar_time + 0)
+			JR	Z, $B
 			POP	IX
 			RET
