@@ -616,40 +616,38 @@ argv_ptrs:		BLKP	argv_ptrs_max, 0		; Storage for the argv array pointers
 ; Title:	BBC Basic for AGON - Graphics stuff
 ; Author:	Dean Belfield
 ; Created:	04/12/2024
-; Last Updated:	11/12/2024
+; Last Updated:	17/12/2024
 ;
 ; Modinfo:
 ; 11/12/2024:	Modified POINT_ to work with OSWORD
+; 17/12/2024:	Modified GETSCHR
 			
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 				
 			; INCLUDE	"equs.inc"
 			; INCLUDE "macros.inc"
 			; INCLUDE "mos_api.inc"	; In MOS/src
 		
-;			SEGMENT CODE
+			; SEGMENT CODE
 				
-;			XDEF	MODE_
-;			XDEF	COLOUR_
-;			XDEF	POINT_
-;			XDEF	GETSCHR
-;			XDEF	GETSCHR_1
+			; XDEF	MODE_
+			; XDEF	COLOUR_
+			; XDEF	POINT_
+			; XDEF	GETSCHR
 			
-;			XREF	ACCS
-;			XREF	OSWRCH
-;			XREF	ASC_TO_NUMBER
-;			XREF	EXTERR
-;			XREF	EXPRI
-;			XREF	COMMA
-;			XREF	XEQ
-;			XREF	NXT
-;			XREF	BRAKET
-;			XREF	CRTONULL
-;			XREF	NULLTOCR
-;			XREF	CRLF
-;			XREF	EXPR_W2
-;			XREF	INKEY1
+			; XREF	ACCS
+			; XREF	OSWRCH
+			; XREF	ASC_TO_NUMBER
+			; XREF	EXTERR
+			; XREF	EXPRI
+			; XREF	COMMA
+			; XREF	XEQ
+			; XREF	NXT
+			; XREF	BRAKET
+			; XREF	CRTONULL
+			; XREF	NULLTOCR
+			; XREF	CRLF
+			; XREF	EXPR_W2
 			
 ; MODE n: Set video mode
 ;
@@ -666,25 +664,6 @@ MODE_:			PUSH	IX			; Get the system vars in IX
 			POP	IX
 			JP	XEQ
 			
-; ; GET(x,y): Get the ASCII code of a character on screen
-; ;
-; GETSCHR:		INC	IY
-; 			CALL    EXPRI      		; Get X coordinate
-; 			EXX
-; 			PUSH	HL			; Stack X
-; 			CALL	COMMA		
-; 			CALL	EXPRI			; Get Y coordinate
-; 			EXX 
-; 			CALL	BRAKET			; Closing bracket	
-; 			POP	DE			; Pop X back into DE
-; 			CALL	GETSCHR_1
-; ;			JP	INKEY1
-; 	        	LD	DE,ACCS	
-; 	                LD	(DE),A	
-; 	                LD	A,80H	
-;         	        RET	NC	
-; 	                INC	E	
-;                 	RET	
 ;
 ; Fetch a character from the screen
 ; - DE: X coordinate
@@ -693,7 +672,7 @@ MODE_:			PUSH	IX			; Get the system vars in IX
 ; - A: The character or FFh if no match
 ; - F: C if match, otherwise NC
 ;
-GETSCHR_1:		PUSH	IX			; Get the system vars in IX
+GETSCHR:		PUSH	IX			; Get the system vars in IX
 			MOSCALL	mos_sysvars		; Reset the semaphore
 			RES.LIL	1, (IX+sysvar_vpd_pflags)
 			VDU	23
@@ -788,8 +767,7 @@ COLOUR_2:		CALL	COMMA
 			VDU	(VDU_BUFFER+1)		; R
 			VDU	(VDU_BUFFER+2)		; G
 			VDU	(VDU_BUFFER+3)		; B
-			JP	XEQ    
-; --- End agon_graphics.asm ---
+			JP	XEQ; --- End agon_graphics.asm ---
 
 ; --- Begin agon_gpio.asm ---
 ;
@@ -1367,6 +1345,8 @@ OSINIT:			CALL	VBLANK_INIT
 			LD 	HL, USER
 			LD	DE, RAM_Top
 			LD	E, A			; Page boundary
+			LD	A, (ACCS)		; Return NZ if there is a file to chain
+			OR	A			
 			RET	
 
 ; PROMPT: output the input prompt

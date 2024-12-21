@@ -108,7 +108,7 @@
 00a0	fe 02 	cp $02	cp $00
 00a2	28 24 	jr z,$+$26	jr z,$+$00
 00a4	38 35 	jr c,$+$37	jr c,$+$00
-00a6	cd fa 44 	call $44fa	call $0000
+00a6	cd dc 44 	call $44dc	call $0000
 00a9	55 	ld d,l	ld d,l
 00aa	73 	ld (hl),e	ld (hl),e
 00ab	61 	ld h,c	ld h,c
@@ -144,7 +144,7 @@
 00da	12 	ld (de),a	ld (de),a
 00db	e1 	pop hl	pop hl
 00dc	5b e5 	push.lil hl	push.lil hl
-00de	c3 17 37 	jp $3717	jp $0000
+00de	c3 f9 36 	jp $36f9	jp $0000
 00e1	01 45 00 	ld bc,$0045	ld bc,$0000
 00e4	cd 3f 01 	call $013f	call $0000
 00e7	5b dd 0f 00 	ld.lil (ix),bc	ld.lil (ix),bc
@@ -258,11980 +258,11996 @@
 0197	3e 08 	ld a,$08	ld a,$00
 0199	49 cf 	rst.lis $08	rst.lis $00
 019b	5b dd cb 04 a6 	res.lil 4,(ix+$04)	res.lil 4,(ix+$00)
-01a0	cd 33 18 	call $1833	call $0000
+01a0	cd 15 18 	call $1815	call $0000
 01a3	d9 	exx	exx
 01a4	3e 16 	ld a,$16	ld a,$00
-01a6	cd b1 05 	call $05b1	call $0000
+01a6	cd 93 05 	call $0593	call $0000
 01a9	7d 	ld a,l	ld a,l
-01aa	cd b1 05 	call $05b1	call $0000
+01aa	cd 93 05 	call $0593	call $0000
 01ad	3e 08 	ld a,$08	ld a,$00
 01af	49 cf 	rst.lis $08	rst.lis $00
 01b1	5b dd cb 04 66 	bit.lil 4,(ix+$04)	bit.lil 4,(ix+$00)
 01b6	28 f9 	jr z,$-$05	jr z,$-$00
 01b8	dd e1 	pop ix	pop ix
-01ba	c3 99 24 	jp $2499	jp $0000
-01bd	fd 23 	inc iy	inc iy
-01bf	cd 33 18 	call $1833	call $0000
-01c2	d9 	exx	exx
-01c3	e5 	push hl	push hl
-01c4	cd a2 20 	call $20a2	call $0000
-01c7	cd 33 18 	call $1833	call $0000
-01ca	d9 	exx	exx
-01cb	cd ae 20 	call $20ae	call $0000
-01ce	d1 	pop de	pop de
-01cf	cd db 01 	call $01db	call $0000
-01d2	11 00 52 	ld de,$5200	ld de,$0000
-01d5	12 	ld (de),a	ld (de),a
-01d6	3e 80 	ld a,$80	ld a,$00
-01d8	d0 	ret nc	ret nc
-01d9	1c 	inc e	inc e
-01da	c9 	ret	ret
-01db	dd e5 	push ix	push ix
-01dd	3e 08 	ld a,$08	ld a,$00
-01df	49 cf 	rst.lis $08	rst.lis $00
-01e1	5b dd cb 04 8e 	res.lil 1,(ix+$04)	res.lil 1,(ix+$00)
-01e6	3e 17 	ld a,$17	ld a,$00
-01e8	cd b1 05 	call $05b1	call $0000
-01eb	3e 00 	ld a,$00	ld a,$00
-01ed	cd b1 05 	call $05b1	call $0000
-01f0	3e 83 	ld a,$83	ld a,$00
-01f2	cd b1 05 	call $05b1	call $0000
-01f5	7b 	ld a,e	ld a,e
-01f6	cd b1 05 	call $05b1	call $0000
-01f9	7a 	ld a,d	ld a,d
-01fa	cd b1 05 	call $05b1	call $0000
-01fd	7d 	ld a,l	ld a,l
-01fe	cd b1 05 	call $05b1	call $0000
-0201	7c 	ld a,h	ld a,h
-0202	cd b1 05 	call $05b1	call $0000
-0205	5b dd cb 04 4e 	bit.lil 1,(ix+$04)	bit.lil 1,(ix+$00)
-020a	28 f9 	jr z,$-$05	jr z,$-$00
-020c	5b dd 7e 09 	ld.lil a,(ix+$09)	ld.lil a,(ix+$00)
-0210	b7 	or a	or a
-0211	37 	scf	scf
-0212	20 01 	jr nz,$+$03	jr nz,$+$00
-0214	af 	xor a	xor a
-0215	dd e1 	pop ix	pop ix
-0217	c9 	ret	ret
-0218	dd e5 	push ix	push ix
-021a	3e 08 	ld a,$08	ld a,$00
-021c	49 cf 	rst.lis $08	rst.lis $00
-021e	5b dd cb 04 96 	res.lil 2,(ix+$04)	res.lil 2,(ix+$00)
-0223	3e 17 	ld a,$17	ld a,$00
-0225	cd b1 05 	call $05b1	call $0000
-0228	3e 00 	ld a,$00	ld a,$00
-022a	cd b1 05 	call $05b1	call $0000
-022d	3e 84 	ld a,$84	ld a,$00
-022f	cd b1 05 	call $05b1	call $0000
-0232	7b 	ld a,e	ld a,e
-0233	cd b1 05 	call $05b1	call $0000
-0236	7a 	ld a,d	ld a,d
-0237	cd b1 05 	call $05b1	call $0000
-023a	7d 	ld a,l	ld a,l
-023b	cd b1 05 	call $05b1	call $0000
-023e	7c 	ld a,h	ld a,h
-023f	cd b1 05 	call $05b1	call $0000
-0242	5b dd cb 04 56 	bit.lil 2,(ix+$04)	bit.lil 2,(ix+$00)
-0247	28 f9 	jr z,$-$05	jr z,$-$00
-0249	5b dd 7e 16 	ld.lil a,(ix+$16)	ld.lil a,(ix+$00)
-024d	dd e1 	pop ix	pop ix
-024f	c9 	ret	ret
-0250	cd 33 18 	call $1833	call $0000
-0253	d9 	exx	exx
-0254	7d 	ld a,l	ld a,l
-0255	32 00 52 	ld ($5200),a	ld ($0000),a
-0258	cd 0b 45 	call $450b	call $0000
-025b	fe 2c 	cp $2c	cp $00
-025d	28 0e 	jr z,$+$10	jr z,$+$00
-025f	3e 11 	ld a,$11	ld a,$00
-0261	cd b1 05 	call $05b1	call $0000
-0264	3a 00 52 	ld a,($5200)	ld a,($0000)
-0267	cd b1 05 	call $05b1	call $0000
-026a	c3 99 24 	jp $2499	jp $0000
-026d	cd a2 20 	call $20a2	call $0000
-0270	cd 33 18 	call $1833	call $0000
-0273	d9 	exx	exx
-0274	7d 	ld a,l	ld a,l
-0275	32 01 52 	ld ($5201),a	ld ($0000),a
-0278	cd 0b 45 	call $450b	call $0000
-027b	fe 2c 	cp $2c	cp $00
-027d	28 23 	jr z,$+$25	jr z,$+$00
-027f	3e 13 	ld a,$13	ld a,$00
-0281	cd b1 05 	call $05b1	call $0000
-0284	3a 00 52 	ld a,($5200)	ld a,($0000)
-0287	cd b1 05 	call $05b1	call $0000
-028a	3a 01 52 	ld a,($5201)	ld a,($0000)
-028d	cd b1 05 	call $05b1	call $0000
-0290	3e 00 	ld a,$00	ld a,$00
-0292	cd b1 05 	call $05b1	call $0000
-0295	3e 00 	ld a,$00	ld a,$00
-0297	cd b1 05 	call $05b1	call $0000
-029a	3e 00 	ld a,$00	ld a,$00
-029c	cd b1 05 	call $05b1	call $0000
-029f	c3 99 24 	jp $2499	jp $0000
-02a2	cd a2 20 	call $20a2	call $0000
-02a5	cd 33 18 	call $1833	call $0000
-02a8	d9 	exx	exx
-02a9	7d 	ld a,l	ld a,l
-02aa	32 02 52 	ld ($5202),a	ld ($0000),a
-02ad	cd a2 20 	call $20a2	call $0000
-02b0	cd 33 18 	call $1833	call $0000
-02b3	d9 	exx	exx
-02b4	7d 	ld a,l	ld a,l
-02b5	32 03 52 	ld ($5203),a	ld ($0000),a
-02b8	3e 13 	ld a,$13	ld a,$00
-02ba	cd b1 05 	call $05b1	call $0000
-02bd	3a 00 52 	ld a,($5200)	ld a,($0000)
-02c0	cd b1 05 	call $05b1	call $0000
-02c3	3e ff 	ld a,$ff	ld a,$00
-02c5	cd b1 05 	call $05b1	call $0000
-02c8	3a 01 52 	ld a,($5201)	ld a,($0000)
-02cb	cd b1 05 	call $05b1	call $0000
-02ce	3a 02 52 	ld a,($5202)	ld a,($0000)
-02d1	cd b1 05 	call $05b1	call $0000
-02d4	3a 03 52 	ld a,($5203)	ld a,($0000)
-02d7	cd b1 05 	call $05b1	call $0000
-02da	c3 99 24 	jp $2499	jp $0000
-02dd	cd 36 05 	call $0536	call $0000
-02e0	f4 02 19 	call p,$1902	call p,$0000
-02e3	03 	inc bc	inc bc
-02e4	39 	add hl,sp	add hl,sp
-02e5	03 	inc bc	inc bc
-02e6	59 	ld e,c	ld e,c
-02e7	03 	inc bc	inc bc
-02e8	74 	ld (hl),h	ld (hl),h
-02e9	03 	inc bc	inc bc
-02ea	a0 	and b	and b
-02eb	03 	inc bc	inc bc
-02ec	bb 	cp e	cp e
-02ed	03 	inc bc	inc bc
-02ee	e2 03 04 	jp po,$0403	jp po,$0000
-02f1	04 	inc b	inc b
-02f2	26 04 	ld h,$04	ld h,$00
-02f4	c5 	push bc	push bc
-02f5	78 	ld a,b	ld a,b
-02f6	2f 	cpl	cpl
-02f7	4f 	ld c,a	ld c,a
-02f8	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-02fb	a1 	and c	and c
-02fc	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-02ff	c1 	pop bc	pop bc
-0300	c5 	push bc	push bc
-0301	78 	ld a,b	ld a,b
-0302	2f 	cpl	cpl
-0303	4f 	ld c,a	ld c,a
-0304	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-0307	a1 	and c	and c
-0308	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-030b	c1 	pop bc	pop bc
-030c	c5 	push bc	push bc
-030d	78 	ld a,b	ld a,b
-030e	2f 	cpl	cpl
-030f	4f 	ld c,a	ld c,a
-0310	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-0313	a1 	and c	and c
-0314	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-0317	c1 	pop bc	pop bc
-0318	c9 	ret	ret
-0319	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-031c	b0 	or b	or b
-031d	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-0320	c5 	push bc	push bc
-0321	78 	ld a,b	ld a,b
-0322	2f 	cpl	cpl
-0323	4f 	ld c,a	ld c,a
-0324	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-0327	a1 	and c	and c
-0328	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-032b	c1 	pop bc	pop bc
-032c	c5 	push bc	push bc
-032d	78 	ld a,b	ld a,b
-032e	2f 	cpl	cpl
-032f	4f 	ld c,a	ld c,a
-0330	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-0333	a1 	and c	and c
-0334	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-0337	c1 	pop bc	pop bc
-0338	c9 	ret	ret
-0339	c5 	push bc	push bc
-033a	78 	ld a,b	ld a,b
-033b	2f 	cpl	cpl
-033c	4f 	ld c,a	ld c,a
-033d	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-0340	a1 	and c	and c
-0341	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-0344	c1 	pop bc	pop bc
-0345	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-0348	b0 	or b	or b
-0349	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-034c	c5 	push bc	push bc
-034d	78 	ld a,b	ld a,b
-034e	2f 	cpl	cpl
-034f	4f 	ld c,a	ld c,a
-0350	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-0353	a1 	and c	and c
-0354	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-0357	c1 	pop bc	pop bc
-0358	c9 	ret	ret
-0359	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-035c	b0 	or b	or b
-035d	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-0360	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-0363	b0 	or b	or b
-0364	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-0367	c5 	push bc	push bc
-0368	78 	ld a,b	ld a,b
-0369	2f 	cpl	cpl
-036a	4f 	ld c,a	ld c,a
-036b	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-036e	a1 	and c	and c
-036f	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-0372	c1 	pop bc	pop bc
-0373	c9 	ret	ret
-0374	ed 38 9a 	in0 a,($9a)	in0 a,($00)
-0377	b0 	or b	or b
-0378	ed 39 9a 	out0 ($9a),a	out0 ($00),a
-037b	c5 	push bc	push bc
-037c	78 	ld a,b	ld a,b
-037d	2f 	cpl	cpl
-037e	4f 	ld c,a	ld c,a
-037f	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-0382	a1 	and c	and c
-0383	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-0386	c1 	pop bc	pop bc
-0387	c5 	push bc	push bc
-0388	78 	ld a,b	ld a,b
-0389	2f 	cpl	cpl
-038a	4f 	ld c,a	ld c,a
-038b	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-038e	a1 	and c	and c
-038f	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-0392	c1 	pop bc	pop bc
-0393	c5 	push bc	push bc
-0394	78 	ld a,b	ld a,b
-0395	2f 	cpl	cpl
-0396	4f 	ld c,a	ld c,a
-0397	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-039a	a1 	and c	and c
-039b	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-039e	c1 	pop bc	pop bc
-039f	c9 	ret	ret
-03a0	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-03a3	b0 	or b	or b
-03a4	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-03a7	c5 	push bc	push bc
-03a8	78 	ld a,b	ld a,b
-03a9	2f 	cpl	cpl
-03aa	4f 	ld c,a	ld c,a
-03ab	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-03ae	a1 	and c	and c
-03af	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-03b2	c1 	pop bc	pop bc
-03b3	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-03b6	b0 	or b	or b
-03b7	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-03ba	c9 	ret	ret
-03bb	c5 	push bc	push bc
-03bc	78 	ld a,b	ld a,b
-03bd	2f 	cpl	cpl
-03be	4f 	ld c,a	ld c,a
-03bf	ed 38 9a 	in0 a,($9a)	in0 a,($00)
-03c2	a1 	and c	and c
-03c3	ed 39 9a 	out0 ($9a),a	out0 ($00),a
-03c6	c1 	pop bc	pop bc
-03c7	c5 	push bc	push bc
-03c8	78 	ld a,b	ld a,b
-03c9	2f 	cpl	cpl
-03ca	4f 	ld c,a	ld c,a
-03cb	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-03ce	a1 	and c	and c
-03cf	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-03d2	c1 	pop bc	pop bc
-03d3	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-03d6	b0 	or b	or b
-03d7	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-03da	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-03dd	b0 	or b	or b
-03de	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-03e1	c9 	ret	ret
-03e2	ed 38 9a 	in0 a,($9a)	in0 a,($00)
-03e5	b0 	or b	or b
-03e6	ed 39 9a 	out0 ($9a),a	out0 ($00),a
-03e9	c5 	push bc	push bc
-03ea	78 	ld a,b	ld a,b
-03eb	2f 	cpl	cpl
-03ec	4f 	ld c,a	ld c,a
-03ed	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-03f0	a1 	and c	and c
-03f1	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-03f4	c1 	pop bc	pop bc
-03f5	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-03f8	b0 	or b	or b
-03f9	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-03fc	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-03ff	b0 	or b	or b
-0400	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-0403	c9 	ret	ret
-0404	c5 	push bc	push bc
-0405	78 	ld a,b	ld a,b
-0406	2f 	cpl	cpl
-0407	4f 	ld c,a	ld c,a
+01ba	c3 7b 24 	jp $247b	jp $0000
+01bd	dd e5 	push ix	push ix
+01bf	3e 08 	ld a,$08	ld a,$00
+01c1	49 cf 	rst.lis $08	rst.lis $00
+01c3	5b dd cb 04 8e 	res.lil 1,(ix+$04)	res.lil 1,(ix+$00)
+01c8	3e 17 	ld a,$17	ld a,$00
+01ca	cd 93 05 	call $0593	call $0000
+01cd	3e 00 	ld a,$00	ld a,$00
+01cf	cd 93 05 	call $0593	call $0000
+01d2	3e 83 	ld a,$83	ld a,$00
+01d4	cd 93 05 	call $0593	call $0000
+01d7	7b 	ld a,e	ld a,e
+01d8	cd 93 05 	call $0593	call $0000
+01db	7a 	ld a,d	ld a,d
+01dc	cd 93 05 	call $0593	call $0000
+01df	7d 	ld a,l	ld a,l
+01e0	cd 93 05 	call $0593	call $0000
+01e3	7c 	ld a,h	ld a,h
+01e4	cd 93 05 	call $0593	call $0000
+01e7	5b dd cb 04 4e 	bit.lil 1,(ix+$04)	bit.lil 1,(ix+$00)
+01ec	28 f9 	jr z,$-$05	jr z,$-$00
+01ee	5b dd 7e 09 	ld.lil a,(ix+$09)	ld.lil a,(ix+$00)
+01f2	b7 	or a	or a
+01f3	37 	scf	scf
+01f4	20 01 	jr nz,$+$03	jr nz,$+$00
+01f6	af 	xor a	xor a
+01f7	dd e1 	pop ix	pop ix
+01f9	c9 	ret	ret
+01fa	dd e5 	push ix	push ix
+01fc	3e 08 	ld a,$08	ld a,$00
+01fe	49 cf 	rst.lis $08	rst.lis $00
+0200	5b dd cb 04 96 	res.lil 2,(ix+$04)	res.lil 2,(ix+$00)
+0205	3e 17 	ld a,$17	ld a,$00
+0207	cd 93 05 	call $0593	call $0000
+020a	3e 00 	ld a,$00	ld a,$00
+020c	cd 93 05 	call $0593	call $0000
+020f	3e 84 	ld a,$84	ld a,$00
+0211	cd 93 05 	call $0593	call $0000
+0214	7b 	ld a,e	ld a,e
+0215	cd 93 05 	call $0593	call $0000
+0218	7a 	ld a,d	ld a,d
+0219	cd 93 05 	call $0593	call $0000
+021c	7d 	ld a,l	ld a,l
+021d	cd 93 05 	call $0593	call $0000
+0220	7c 	ld a,h	ld a,h
+0221	cd 93 05 	call $0593	call $0000
+0224	5b dd cb 04 56 	bit.lil 2,(ix+$04)	bit.lil 2,(ix+$00)
+0229	28 f9 	jr z,$-$05	jr z,$-$00
+022b	5b dd 7e 16 	ld.lil a,(ix+$16)	ld.lil a,(ix+$00)
+022f	dd e1 	pop ix	pop ix
+0231	c9 	ret	ret
+0232	cd 15 18 	call $1815	call $0000
+0235	d9 	exx	exx
+0236	7d 	ld a,l	ld a,l
+0237	32 00 52 	ld ($5200),a	ld ($0000),a
+023a	cd ed 44 	call $44ed	call $0000
+023d	fe 2c 	cp $2c	cp $00
+023f	28 0e 	jr z,$+$10	jr z,$+$00
+0241	3e 11 	ld a,$11	ld a,$00
+0243	cd 93 05 	call $0593	call $0000
+0246	3a 00 52 	ld a,($5200)	ld a,($0000)
+0249	cd 93 05 	call $0593	call $0000
+024c	c3 7b 24 	jp $247b	jp $0000
+024f	cd 84 20 	call $2084	call $0000
+0252	cd 15 18 	call $1815	call $0000
+0255	d9 	exx	exx
+0256	7d 	ld a,l	ld a,l
+0257	32 01 52 	ld ($5201),a	ld ($0000),a
+025a	cd ed 44 	call $44ed	call $0000
+025d	fe 2c 	cp $2c	cp $00
+025f	28 23 	jr z,$+$25	jr z,$+$00
+0261	3e 13 	ld a,$13	ld a,$00
+0263	cd 93 05 	call $0593	call $0000
+0266	3a 00 52 	ld a,($5200)	ld a,($0000)
+0269	cd 93 05 	call $0593	call $0000
+026c	3a 01 52 	ld a,($5201)	ld a,($0000)
+026f	cd 93 05 	call $0593	call $0000
+0272	3e 00 	ld a,$00	ld a,$00
+0274	cd 93 05 	call $0593	call $0000
+0277	3e 00 	ld a,$00	ld a,$00
+0279	cd 93 05 	call $0593	call $0000
+027c	3e 00 	ld a,$00	ld a,$00
+027e	cd 93 05 	call $0593	call $0000
+0281	c3 7b 24 	jp $247b	jp $0000
+0284	cd 84 20 	call $2084	call $0000
+0287	cd 15 18 	call $1815	call $0000
+028a	d9 	exx	exx
+028b	7d 	ld a,l	ld a,l
+028c	32 02 52 	ld ($5202),a	ld ($0000),a
+028f	cd 84 20 	call $2084	call $0000
+0292	cd 15 18 	call $1815	call $0000
+0295	d9 	exx	exx
+0296	7d 	ld a,l	ld a,l
+0297	32 03 52 	ld ($5203),a	ld ($0000),a
+029a	3e 13 	ld a,$13	ld a,$00
+029c	cd 93 05 	call $0593	call $0000
+029f	3a 00 52 	ld a,($5200)	ld a,($0000)
+02a2	cd 93 05 	call $0593	call $0000
+02a5	3e ff 	ld a,$ff	ld a,$00
+02a7	cd 93 05 	call $0593	call $0000
+02aa	3a 01 52 	ld a,($5201)	ld a,($0000)
+02ad	cd 93 05 	call $0593	call $0000
+02b0	3a 02 52 	ld a,($5202)	ld a,($0000)
+02b3	cd 93 05 	call $0593	call $0000
+02b6	3a 03 52 	ld a,($5203)	ld a,($0000)
+02b9	cd 93 05 	call $0593	call $0000
+02bc	c3 7b 24 	jp $247b	jp $0000
+02bf	cd 18 05 	call $0518	call $0000
+02c2	d6 02 	sub $02	sub $00
+02c4	fb 	ei	ei
+02c5	02 	ld (bc),a	ld (bc),a
+02c6	1b 	dec de	dec de
+02c7	03 	inc bc	inc bc
+02c8	3b 	dec sp	dec sp
+02c9	03 	inc bc	inc bc
+02ca	56 	ld d,(hl)	ld d,(hl)
+02cb	03 	inc bc	inc bc
+02cc	82 	add a,d	add a,d
+02cd	03 	inc bc	inc bc
+02ce	9d 	sbc a,l	sbc a,l
+02cf	03 	inc bc	inc bc
+02d0	c4 03 e6 	call nz,$e603	call nz,$0000
+02d3	03 	inc bc	inc bc
+02d4	08 	ex af,af'	ex af,af'
+02d5	04 	inc b	inc b
+02d6	c5 	push bc	push bc
+02d7	78 	ld a,b	ld a,b
+02d8	2f 	cpl	cpl
+02d9	4f 	ld c,a	ld c,a
+02da	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+02dd	a1 	and c	and c
+02de	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+02e1	c1 	pop bc	pop bc
+02e2	c5 	push bc	push bc
+02e3	78 	ld a,b	ld a,b
+02e4	2f 	cpl	cpl
+02e5	4f 	ld c,a	ld c,a
+02e6	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+02e9	a1 	and c	and c
+02ea	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+02ed	c1 	pop bc	pop bc
+02ee	c5 	push bc	push bc
+02ef	78 	ld a,b	ld a,b
+02f0	2f 	cpl	cpl
+02f1	4f 	ld c,a	ld c,a
+02f2	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+02f5	a1 	and c	and c
+02f6	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+02f9	c1 	pop bc	pop bc
+02fa	c9 	ret	ret
+02fb	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+02fe	b0 	or b	or b
+02ff	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+0302	c5 	push bc	push bc
+0303	78 	ld a,b	ld a,b
+0304	2f 	cpl	cpl
+0305	4f 	ld c,a	ld c,a
+0306	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+0309	a1 	and c	and c
+030a	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+030d	c1 	pop bc	pop bc
+030e	c5 	push bc	push bc
+030f	78 	ld a,b	ld a,b
+0310	2f 	cpl	cpl
+0311	4f 	ld c,a	ld c,a
+0312	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+0315	a1 	and c	and c
+0316	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+0319	c1 	pop bc	pop bc
+031a	c9 	ret	ret
+031b	c5 	push bc	push bc
+031c	78 	ld a,b	ld a,b
+031d	2f 	cpl	cpl
+031e	4f 	ld c,a	ld c,a
+031f	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+0322	a1 	and c	and c
+0323	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+0326	c1 	pop bc	pop bc
+0327	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+032a	b0 	or b	or b
+032b	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+032e	c5 	push bc	push bc
+032f	78 	ld a,b	ld a,b
+0330	2f 	cpl	cpl
+0331	4f 	ld c,a	ld c,a
+0332	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+0335	a1 	and c	and c
+0336	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+0339	c1 	pop bc	pop bc
+033a	c9 	ret	ret
+033b	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+033e	b0 	or b	or b
+033f	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+0342	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+0345	b0 	or b	or b
+0346	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+0349	c5 	push bc	push bc
+034a	78 	ld a,b	ld a,b
+034b	2f 	cpl	cpl
+034c	4f 	ld c,a	ld c,a
+034d	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+0350	a1 	and c	and c
+0351	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+0354	c1 	pop bc	pop bc
+0355	c9 	ret	ret
+0356	ed 38 9a 	in0 a,($9a)	in0 a,($00)
+0359	b0 	or b	or b
+035a	ed 39 9a 	out0 ($9a),a	out0 ($00),a
+035d	c5 	push bc	push bc
+035e	78 	ld a,b	ld a,b
+035f	2f 	cpl	cpl
+0360	4f 	ld c,a	ld c,a
+0361	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+0364	a1 	and c	and c
+0365	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+0368	c1 	pop bc	pop bc
+0369	c5 	push bc	push bc
+036a	78 	ld a,b	ld a,b
+036b	2f 	cpl	cpl
+036c	4f 	ld c,a	ld c,a
+036d	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+0370	a1 	and c	and c
+0371	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+0374	c1 	pop bc	pop bc
+0375	c5 	push bc	push bc
+0376	78 	ld a,b	ld a,b
+0377	2f 	cpl	cpl
+0378	4f 	ld c,a	ld c,a
+0379	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+037c	a1 	and c	and c
+037d	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+0380	c1 	pop bc	pop bc
+0381	c9 	ret	ret
+0382	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+0385	b0 	or b	or b
+0386	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+0389	c5 	push bc	push bc
+038a	78 	ld a,b	ld a,b
+038b	2f 	cpl	cpl
+038c	4f 	ld c,a	ld c,a
+038d	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+0390	a1 	and c	and c
+0391	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+0394	c1 	pop bc	pop bc
+0395	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+0398	b0 	or b	or b
+0399	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+039c	c9 	ret	ret
+039d	c5 	push bc	push bc
+039e	78 	ld a,b	ld a,b
+039f	2f 	cpl	cpl
+03a0	4f 	ld c,a	ld c,a
+03a1	ed 38 9a 	in0 a,($9a)	in0 a,($00)
+03a4	a1 	and c	and c
+03a5	ed 39 9a 	out0 ($9a),a	out0 ($00),a
+03a8	c1 	pop bc	pop bc
+03a9	c5 	push bc	push bc
+03aa	78 	ld a,b	ld a,b
+03ab	2f 	cpl	cpl
+03ac	4f 	ld c,a	ld c,a
+03ad	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+03b0	a1 	and c	and c
+03b1	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+03b4	c1 	pop bc	pop bc
+03b5	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+03b8	b0 	or b	or b
+03b9	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+03bc	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+03bf	b0 	or b	or b
+03c0	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+03c3	c9 	ret	ret
+03c4	ed 38 9a 	in0 a,($9a)	in0 a,($00)
+03c7	b0 	or b	or b
+03c8	ed 39 9a 	out0 ($9a),a	out0 ($00),a
+03cb	c5 	push bc	push bc
+03cc	78 	ld a,b	ld a,b
+03cd	2f 	cpl	cpl
+03ce	4f 	ld c,a	ld c,a
+03cf	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+03d2	a1 	and c	and c
+03d3	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+03d6	c1 	pop bc	pop bc
+03d7	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+03da	b0 	or b	or b
+03db	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+03de	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+03e1	b0 	or b	or b
+03e2	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+03e5	c9 	ret	ret
+03e6	c5 	push bc	push bc
+03e7	78 	ld a,b	ld a,b
+03e8	2f 	cpl	cpl
+03e9	4f 	ld c,a	ld c,a
+03ea	ed 38 9a 	in0 a,($9a)	in0 a,($00)
+03ed	a1 	and c	and c
+03ee	ed 39 9a 	out0 ($9a),a	out0 ($00),a
+03f1	c1 	pop bc	pop bc
+03f2	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+03f5	b0 	or b	or b
+03f6	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+03f9	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+03fc	b0 	or b	or b
+03fd	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+0400	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+0403	b0 	or b	or b
+0404	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+0407	c9 	ret	ret
 0408	ed 38 9a 	in0 a,($9a)	in0 a,($00)
-040b	a1 	and c	and c
+040b	b0 	or b	or b
 040c	ed 39 9a 	out0 ($9a),a	out0 ($00),a
-040f	c1 	pop bc	pop bc
-0410	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-0413	b0 	or b	or b
-0414	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-0417	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-041a	b0 	or b	or b
-041b	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-041e	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-0421	b0 	or b	or b
-0422	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-0425	c9 	ret	ret
-0426	ed 38 9a 	in0 a,($9a)	in0 a,($00)
-0429	b0 	or b	or b
-042a	ed 39 9a 	out0 ($9a),a	out0 ($00),a
-042d	ed 38 9b 	in0 a,($9b)	in0 a,($00)
-0430	b0 	or b	or b
-0431	ed 39 9b 	out0 ($9b),a	out0 ($00),a
-0434	ed 38 9c 	in0 a,($9c)	in0 a,($00)
-0437	b0 	or b	or b
-0438	ed 39 9c 	out0 ($9c),a	out0 ($00),a
-043b	ed 38 9d 	in0 a,($9d)	in0 a,($00)
-043e	b0 	or b	or b
-043f	ed 39 9d 	out0 ($9d),a	out0 ($00),a
-0442	c9 	ret	ret
-0443	f3 	di	di
-0444	ed 6e 	ld a,mb	ld a,mb
-0446	21 c1 04 	ld hl,$04c1	ld hl,$0000
-0449	cd 83 04 	call $0483	call $0000
-044c	1e 32 	ld e,$32	ld e,$00
-044e	3e 14 	ld a,$14	ld a,$00
-0450	49 cf 	rst.lis $08	rst.lis $00
-0452	5b e5 	push.lil hl	push.lil hl
-0454	5b d1 	pop.lil de	pop.lil de
-0456	21 d9 04 	ld hl,$04d9	ld hl,$0000
-0459	ed 6e 	ld a,mb	ld a,mb
-045b	32 ca 04 	ld ($04ca),a	ld ($0000),a
-045e	cd 83 04 	call $0483	call $0000
-0461	5b ed 1f 	ld.lil (hl),de	ld.lil (hl),de
-0464	fb 	ei	ei
-0465	c9 	ret	ret
-0466	f3 	di	di
-0467	21 d9 04 	ld hl,$04d9	ld hl,$0000
-046a	3a ca 04 	ld a,($04ca)	ld a,($0000)
-046d	f5 	push af	push af
-046e	cd 83 04 	call $0483	call $0000
-0471	5b ed 17 	ld.lil de,(hl)	ld.lil de,(hl)
-0474	5b d5 	push.lil de	push.lil de
-0476	5b e1 	pop.lil hl	pop.lil hl
-0478	1e 32 	ld e,$32	ld e,$00
-047a	3e 14 	ld a,$14	ld a,$00
-047c	49 cf 	rst.lis $08	rst.lis $00
-047e	f1 	pop af	pop af
-047f	ed 6d 	ld mb,a	ld mb,a
-0481	fb 	ei	ei
-0482	c9 	ret	ret
-0483	5b e5 	push.lil hl	push.lil hl
-0485	5b 21 02 00 00 	ld.lil hl,$000002	ld.lil hl,$000000
-048a	5b 39 	add.lil hl,sp	add.lil hl,sp
-048c	5b 77 	ld.lil (hl),a	ld.lil (hl),a
-048e	5b e1 	pop.lil hl	pop.lil hl
-0490	c9 	ret	ret
-0491	3e 08 	ld a,$08	ld a,$00
-0493	49 cf 	rst.lis $08	rst.lis $00
-0495	21 16 51 	ld hl,$5116	ld hl,$0000
-0498	5b dd 7e 19 	ld.lil a,(ix+$19)	ld.lil a,(ix+$00)
-049c	be 	cp (hl)	cp (hl)
-049d	20 09 	jr nz,$+$0b	jr nz,$+$00
-049f	af 	xor a	xor a
-04a0	32 15 51 	ld ($5115),a	ld ($0000),a
-04a3	32 14 51 	ld ($5114),a	ld ($0000),a
-04a6	5b c9 	ret.lil	ret.lil
-04a8	77 	ld (hl),a	ld (hl),a
-04a9	5b dd 7e 18 	ld.lil a,(ix+$18)	ld.lil a,(ix+$00)
-04ad	b7 	or a	or a
-04ae	28 ef 	jr z,$-$0f	jr z,$-$00
-04b0	32 14 51 	ld ($5114),a	ld ($0000),a
-04b3	5b dd 7e 05 	ld.lil a,(ix+$05)	ld.lil a,(ix+$00)
-04b7	32 15 51 	ld ($5115),a	ld ($0000),a
-04ba	fe 1b 	cp $1b	cp $00
-04bc	cc 16 06 	call z,$0616	call z,$0000
-04bf	49 c9 	ret.lis	ret.lis
-04c1	f3 	di	di
-04c2	f5 	push af	push af
-04c3	e5 	push hl	push hl
-04c4	dd e5 	push ix	push ix
-04c6	ed 6e 	ld a,mb	ld a,mb
-04c8	f5 	push af	push af
-04c9	3e 00 	ld a,$00	ld a,$00
-04cb	ed 6d 	ld mb,a	ld mb,a
-04cd	49 cd 91 04 	call.lis $0491	call.lis $0000
-04d1	f1 	pop af	pop af
-04d2	ed 6d 	ld mb,a	ld mb,a
-04d4	dd e1 	pop ix	pop ix
-04d6	e1 	pop hl	pop hl
-04d7	f1 	pop af	pop af
-04d8	c3 00 00 	jp $0000	jp $0000
-04db	00 	nop	nop
-04dc	c5 	push bc	push bc
-04dd	11 00 00 	ld de,$0000	ld de,$0000
-04e0	cd 20 05 	call $0520	call $0000
-04e3	7e 	ld a,(hl)	ld a,(hl)
-04e4	fe 26 	cp $26	cp $00
-04e6	20 1e 	jr nz,$+$20	jr nz,$+$00
-04e8	23 	inc hl	inc hl
-04e9	7e 	ld a,(hl)	ld a,(hl)
-04ea	cd 2e 05 	call $052e	call $0000
-04ed	d6 30 	sub $30	sub $00
-04ef	38 2e 	jr c,$+$30	jr c,$+$00
-04f1	fe 0a 	cp $0a	cp $00
-04f3	38 06 	jr c,$+$08	jr c,$+$00
-04f5	d6 07 	sub $07	sub $00
-04f7	fe 10 	cp $10	cp $00
-04f9	30 24 	jr nc,$+$26	jr nc,$+$00
-04fb	eb 	ex de,hl	ex de,hl
-04fc	29 	add hl,hl	add hl,hl
-04fd	29 	add hl,hl	add hl,hl
-04fe	29 	add hl,hl	add hl,hl
-04ff	29 	add hl,hl	add hl,hl
-0500	eb 	ex de,hl	ex de,hl
-0501	b3 	or e	or e
-0502	5f 	ld e,a	ld e,a
-0503	23 	inc hl	inc hl
-0504	18 e3 	jr $-$1b	jr $-$00
-0506	7e 	ld a,(hl)	ld a,(hl)
-0507	d6 30 	sub $30	sub $00
-0509	38 14 	jr c,$+$16	jr c,$+$00
-050b	fe 0a 	cp $0a	cp $00
-050d	30 10 	jr nc,$+$12	jr nc,$+$00
-050f	eb 	ex de,hl	ex de,hl
-0510	44 	ld b,h	ld b,h
-0511	4d 	ld c,l	ld c,l
-0512	29 	add hl,hl	add hl,hl
-0513	29 	add hl,hl	add hl,hl
-0514	09 	add hl,bc	add hl,bc
-0515	29 	add hl,hl	add hl,hl
-0516	eb 	ex de,hl	ex de,hl
-0517	83 	add a,e	add a,e
-0518	5f 	ld e,a	ld e,a
-0519	8a 	adc a,d	adc a,d
-051a	93 	sub e	sub e
-051b	57 	ld d,a	ld d,a
-051c	23 	inc hl	inc hl
-051d	18 e7 	jr $-$17	jr $-$00
-051f	c1 	pop bc	pop bc
-0520	7e 	ld a,(hl)	ld a,(hl)
-0521	fe 20 	cp $20	cp $00
-0523	c0 	ret nz	ret nz
-0524	23 	inc hl	inc hl
-0525	18 f9 	jr $-$05	jr $-$00
-0527	7e 	ld a,(hl)	ld a,(hl)
-0528	fe 20 	cp $20	cp $00
-052a	c8 	ret z	ret z
-052b	23 	inc hl	inc hl
-052c	18 f9 	jr $-$05	jr $-$00
-052e	e6 7f 	and $7f	and $00
-0530	fe 60 	cp $60	cp $00
-0532	d8 	ret c	ret c
-0533	e6 5f 	and $5f	and $00
-0535	c9 	ret	ret
-0536	e3 	ex (sp),hl	ex (sp),hl
-0537	87 	add a,a	add a,a
-0538	85 	add a,l	add a,l
-0539	6f 	ld l,a	ld l,a
-053a	8c 	adc a,h	adc a,h
-053b	95 	sub l	sub l
-053c	67 	ld h,a	ld h,a
+040f	ed 38 9b 	in0 a,($9b)	in0 a,($00)
+0412	b0 	or b	or b
+0413	ed 39 9b 	out0 ($9b),a	out0 ($00),a
+0416	ed 38 9c 	in0 a,($9c)	in0 a,($00)
+0419	b0 	or b	or b
+041a	ed 39 9c 	out0 ($9c),a	out0 ($00),a
+041d	ed 38 9d 	in0 a,($9d)	in0 a,($00)
+0420	b0 	or b	or b
+0421	ed 39 9d 	out0 ($9d),a	out0 ($00),a
+0424	c9 	ret	ret
+0425	f3 	di	di
+0426	ed 6e 	ld a,mb	ld a,mb
+0428	21 a3 04 	ld hl,$04a3	ld hl,$0000
+042b	cd 65 04 	call $0465	call $0000
+042e	1e 32 	ld e,$32	ld e,$00
+0430	3e 14 	ld a,$14	ld a,$00
+0432	49 cf 	rst.lis $08	rst.lis $00
+0434	5b e5 	push.lil hl	push.lil hl
+0436	5b d1 	pop.lil de	pop.lil de
+0438	21 bb 04 	ld hl,$04bb	ld hl,$0000
+043b	ed 6e 	ld a,mb	ld a,mb
+043d	32 ac 04 	ld ($04ac),a	ld ($0000),a
+0440	cd 65 04 	call $0465	call $0000
+0443	5b ed 1f 	ld.lil (hl),de	ld.lil (hl),de
+0446	fb 	ei	ei
+0447	c9 	ret	ret
+0448	f3 	di	di
+0449	21 bb 04 	ld hl,$04bb	ld hl,$0000
+044c	3a ac 04 	ld a,($04ac)	ld a,($0000)
+044f	f5 	push af	push af
+0450	cd 65 04 	call $0465	call $0000
+0453	5b ed 17 	ld.lil de,(hl)	ld.lil de,(hl)
+0456	5b d5 	push.lil de	push.lil de
+0458	5b e1 	pop.lil hl	pop.lil hl
+045a	1e 32 	ld e,$32	ld e,$00
+045c	3e 14 	ld a,$14	ld a,$00
+045e	49 cf 	rst.lis $08	rst.lis $00
+0460	f1 	pop af	pop af
+0461	ed 6d 	ld mb,a	ld mb,a
+0463	fb 	ei	ei
+0464	c9 	ret	ret
+0465	5b e5 	push.lil hl	push.lil hl
+0467	5b 21 02 00 00 	ld.lil hl,$000002	ld.lil hl,$000000
+046c	5b 39 	add.lil hl,sp	add.lil hl,sp
+046e	5b 77 	ld.lil (hl),a	ld.lil (hl),a
+0470	5b e1 	pop.lil hl	pop.lil hl
+0472	c9 	ret	ret
+0473	3e 08 	ld a,$08	ld a,$00
+0475	49 cf 	rst.lis $08	rst.lis $00
+0477	21 f8 50 	ld hl,$50f8	ld hl,$0000
+047a	5b dd 7e 19 	ld.lil a,(ix+$19)	ld.lil a,(ix+$00)
+047e	be 	cp (hl)	cp (hl)
+047f	20 09 	jr nz,$+$0b	jr nz,$+$00
+0481	af 	xor a	xor a
+0482	32 f7 50 	ld ($50f7),a	ld ($0000),a
+0485	32 f6 50 	ld ($50f6),a	ld ($0000),a
+0488	5b c9 	ret.lil	ret.lil
+048a	77 	ld (hl),a	ld (hl),a
+048b	5b dd 7e 18 	ld.lil a,(ix+$18)	ld.lil a,(ix+$00)
+048f	b7 	or a	or a
+0490	28 ef 	jr z,$-$0f	jr z,$-$00
+0492	32 f6 50 	ld ($50f6),a	ld ($0000),a
+0495	5b dd 7e 05 	ld.lil a,(ix+$05)	ld.lil a,(ix+$00)
+0499	32 f7 50 	ld ($50f7),a	ld ($0000),a
+049c	fe 1b 	cp $1b	cp $00
+049e	cc f8 05 	call z,$05f8	call z,$0000
+04a1	49 c9 	ret.lis	ret.lis
+04a3	f3 	di	di
+04a4	f5 	push af	push af
+04a5	e5 	push hl	push hl
+04a6	dd e5 	push ix	push ix
+04a8	ed 6e 	ld a,mb	ld a,mb
+04aa	f5 	push af	push af
+04ab	3e 00 	ld a,$00	ld a,$00
+04ad	ed 6d 	ld mb,a	ld mb,a
+04af	49 cd 73 04 	call.lis $0473	call.lis $0000
+04b3	f1 	pop af	pop af
+04b4	ed 6d 	ld mb,a	ld mb,a
+04b6	dd e1 	pop ix	pop ix
+04b8	e1 	pop hl	pop hl
+04b9	f1 	pop af	pop af
+04ba	c3 00 00 	jp $0000	jp $0000
+04bd	00 	nop	nop
+04be	c5 	push bc	push bc
+04bf	11 00 00 	ld de,$0000	ld de,$0000
+04c2	cd 02 05 	call $0502	call $0000
+04c5	7e 	ld a,(hl)	ld a,(hl)
+04c6	fe 26 	cp $26	cp $00
+04c8	20 1e 	jr nz,$+$20	jr nz,$+$00
+04ca	23 	inc hl	inc hl
+04cb	7e 	ld a,(hl)	ld a,(hl)
+04cc	cd 10 05 	call $0510	call $0000
+04cf	d6 30 	sub $30	sub $00
+04d1	38 2e 	jr c,$+$30	jr c,$+$00
+04d3	fe 0a 	cp $0a	cp $00
+04d5	38 06 	jr c,$+$08	jr c,$+$00
+04d7	d6 07 	sub $07	sub $00
+04d9	fe 10 	cp $10	cp $00
+04db	30 24 	jr nc,$+$26	jr nc,$+$00
+04dd	eb 	ex de,hl	ex de,hl
+04de	29 	add hl,hl	add hl,hl
+04df	29 	add hl,hl	add hl,hl
+04e0	29 	add hl,hl	add hl,hl
+04e1	29 	add hl,hl	add hl,hl
+04e2	eb 	ex de,hl	ex de,hl
+04e3	b3 	or e	or e
+04e4	5f 	ld e,a	ld e,a
+04e5	23 	inc hl	inc hl
+04e6	18 e3 	jr $-$1b	jr $-$00
+04e8	7e 	ld a,(hl)	ld a,(hl)
+04e9	d6 30 	sub $30	sub $00
+04eb	38 14 	jr c,$+$16	jr c,$+$00
+04ed	fe 0a 	cp $0a	cp $00
+04ef	30 10 	jr nc,$+$12	jr nc,$+$00
+04f1	eb 	ex de,hl	ex de,hl
+04f2	44 	ld b,h	ld b,h
+04f3	4d 	ld c,l	ld c,l
+04f4	29 	add hl,hl	add hl,hl
+04f5	29 	add hl,hl	add hl,hl
+04f6	09 	add hl,bc	add hl,bc
+04f7	29 	add hl,hl	add hl,hl
+04f8	eb 	ex de,hl	ex de,hl
+04f9	83 	add a,e	add a,e
+04fa	5f 	ld e,a	ld e,a
+04fb	8a 	adc a,d	adc a,d
+04fc	93 	sub e	sub e
+04fd	57 	ld d,a	ld d,a
+04fe	23 	inc hl	inc hl
+04ff	18 e7 	jr $-$17	jr $-$00
+0501	c1 	pop bc	pop bc
+0502	7e 	ld a,(hl)	ld a,(hl)
+0503	fe 20 	cp $20	cp $00
+0505	c0 	ret nz	ret nz
+0506	23 	inc hl	inc hl
+0507	18 f9 	jr $-$05	jr $-$00
+0509	7e 	ld a,(hl)	ld a,(hl)
+050a	fe 20 	cp $20	cp $00
+050c	c8 	ret z	ret z
+050d	23 	inc hl	inc hl
+050e	18 f9 	jr $-$05	jr $-$00
+0510	e6 7f 	and $7f	and $00
+0512	fe 60 	cp $60	cp $00
+0514	d8 	ret c	ret c
+0515	e6 5f 	and $5f	and $00
+0517	c9 	ret	ret
+0518	e3 	ex (sp),hl	ex (sp),hl
+0519	87 	add a,a	add a,a
+051a	85 	add a,l	add a,l
+051b	6f 	ld l,a	ld l,a
+051c	8c 	adc a,h	adc a,h
+051d	95 	sub l	sub l
+051e	67 	ld h,a	ld h,a
+051f	7e 	ld a,(hl)	ld a,(hl)
+0520	23 	inc hl	inc hl
+0521	66 	ld h,(hl)	ld h,(hl)
+0522	6f 	ld l,a	ld l,a
+0523	e3 	ex (sp),hl	ex (sp),hl
+0524	c9 	ret	ret
+0525	c5 	push bc	push bc
+0526	06 00 	ld b,$00	ld b,$00
+0528	0e 0d 	ld c,$0d	ld c,$00
+052a	18 05 	jr $+$07	jr $+$00
+052c	c5 	push bc	push bc
+052d	06 0d 	ld b,$0d	ld b,$00
+052f	0e 00 	ld c,$00	ld c,$00
+0531	e5 	push hl	push hl
+0532	7e 	ld a,(hl)	ld a,(hl)
+0533	b8 	cp b	cp b
+0534	28 03 	jr z,$+$05	jr z,$+$00
+0536	23 	inc hl	inc hl
+0537	18 f9 	jr $-$05	jr $-$00
+0539	71 	ld (hl),c	ld (hl),c
+053a	e1 	pop hl	pop hl
+053b	c1 	pop bc	pop bc
+053c	c9 	ret	ret
 053d	7e 	ld a,(hl)	ld a,(hl)
-053e	23 	inc hl	inc hl
-053f	66 	ld h,(hl)	ld h,(hl)
-0540	6f 	ld l,a	ld l,a
-0541	e3 	ex (sp),hl	ex (sp),hl
-0542	c9 	ret	ret
-0543	c5 	push bc	push bc
-0544	06 00 	ld b,$00	ld b,$00
-0546	0e 0d 	ld c,$0d	ld c,$00
-0548	18 05 	jr $+$07	jr $+$00
-054a	c5 	push bc	push bc
-054b	06 0d 	ld b,$0d	ld b,$00
-054d	0e 00 	ld c,$00	ld c,$00
-054f	e5 	push hl	push hl
-0550	7e 	ld a,(hl)	ld a,(hl)
-0551	b8 	cp b	cp b
-0552	28 03 	jr z,$+$05	jr z,$+$00
-0554	23 	inc hl	inc hl
-0555	18 f9 	jr $-$05	jr $-$00
-0557	71 	ld (hl),c	ld (hl),c
-0558	e1 	pop hl	pop hl
-0559	c1 	pop bc	pop bc
-055a	c9 	ret	ret
-055b	7e 	ld a,(hl)	ld a,(hl)
-055c	fe 20 	cp $20	cp $00
-055e	28 09 	jr z,$+$0b	jr z,$+$00
-0560	fe 0d 	cp $0d	cp $00
-0562	28 05 	jr z,$+$07	jr z,$+$00
-0564	12 	ld (de),a	ld (de),a
-0565	23 	inc hl	inc hl
-0566	13 	inc de	inc de
-0567	18 f2 	jr $-$0c	jr $-$00
-0569	af 	xor a	xor a
-056a	12 	ld (de),a	ld (de),a
-056b	13 	inc de	inc de
-056c	c9 	ret	ret
-056d	7e 	ld a,(hl)	ld a,(hl)
-056e	fe 0d 	cp $0d	cp $00
-0570	28 05 	jr z,$+$07	jr z,$+$00
-0572	12 	ld (de),a	ld (de),a
-0573	23 	inc hl	inc hl
-0574	13 	inc de	inc de
-0575	18 f6 	jr $-$08	jr $-$00
-0577	af 	xor a	xor a
-0578	12 	ld (de),a	ld (de),a
-0579	13 	inc de	inc de
-057a	c9 	ret	ret
-057b	7e 	ld a,(hl)	ld a,(hl)
-057c	b9 	cp c	cp c
+053e	fe 20 	cp $20	cp $00
+0540	28 09 	jr z,$+$0b	jr z,$+$00
+0542	fe 0d 	cp $0d	cp $00
+0544	28 05 	jr z,$+$07	jr z,$+$00
+0546	12 	ld (de),a	ld (de),a
+0547	23 	inc hl	inc hl
+0548	13 	inc de	inc de
+0549	18 f2 	jr $-$0c	jr $-$00
+054b	af 	xor a	xor a
+054c	12 	ld (de),a	ld (de),a
+054d	13 	inc de	inc de
+054e	c9 	ret	ret
+054f	7e 	ld a,(hl)	ld a,(hl)
+0550	fe 0d 	cp $0d	cp $00
+0552	28 05 	jr z,$+$07	jr z,$+$00
+0554	12 	ld (de),a	ld (de),a
+0555	23 	inc hl	inc hl
+0556	13 	inc de	inc de
+0557	18 f6 	jr $-$08	jr $-$00
+0559	af 	xor a	xor a
+055a	12 	ld (de),a	ld (de),a
+055b	13 	inc de	inc de
+055c	c9 	ret	ret
+055d	7e 	ld a,(hl)	ld a,(hl)
+055e	b9 	cp c	cp c
+055f	c8 	ret z	ret z
+0560	b7 	or a	or a
+0561	c8 	ret z	ret z
+0562	23 	inc hl	inc hl
+0563	18 f8 	jr $-$06	jr $-$00
+0565	7e 	ld a,(hl)	ld a,(hl)
+0566	cd 10 05 	call $0510	call $0000
+0569	4f 	ld c,a	ld c,a
+056a	1a 	ld a,(de)	ld a,(de)
+056b	b9 	cp c	cp c
+056c	c0 	ret nz	ret nz
+056d	b1 	or c	or c
+056e	c8 	ret z	ret z
+056f	23 	inc hl	inc hl
+0570	13 	inc de	inc de
+0571	18 f2 	jr $-$0c	jr $-$00
+0573	7e 	ld a,(hl)	ld a,(hl)
+0574	b7 	or a	or a
+0575	28 03 	jr z,$+$05	jr z,$+$00
+0577	23 	inc hl	inc hl
+0578	18 f9 	jr $-$05	jr $-$00
+057a	1a 	ld a,(de)	ld a,(de)
+057b	77 	ld (hl),a	ld (hl),a
+057c	b7 	or a	or a
 057d	c8 	ret z	ret z
-057e	b7 	or a	or a
-057f	c8 	ret z	ret z
-0580	23 	inc hl	inc hl
-0581	18 f8 	jr $-$06	jr $-$00
-0583	7e 	ld a,(hl)	ld a,(hl)
-0584	cd 2e 05 	call $052e	call $0000
-0587	4f 	ld c,a	ld c,a
-0588	1a 	ld a,(de)	ld a,(de)
-0589	b9 	cp c	cp c
-058a	c0 	ret nz	ret nz
-058b	b1 	or c	or c
-058c	c8 	ret z	ret z
-058d	23 	inc hl	inc hl
-058e	13 	inc de	inc de
-058f	18 f2 	jr $-$0c	jr $-$00
-0591	7e 	ld a,(hl)	ld a,(hl)
-0592	b7 	or a	or a
-0593	28 03 	jr z,$+$05	jr z,$+$00
-0595	23 	inc hl	inc hl
-0596	18 f9 	jr $-$05	jr $-$00
-0598	1a 	ld a,(de)	ld a,(de)
-0599	77 	ld (hl),a	ld (hl),a
-059a	b7 	or a	or a
-059b	c8 	ret z	ret z
-059c	23 	inc hl	inc hl
-059d	13 	inc de	inc de
-059e	18 f8 	jr $-$06	jr $-$00
-05a0	cd 43 04 	call $0443	call $0000
-05a3	af 	xor a	xor a
-05a4	32 0f 51 	ld ($510f),a	ld ($0000),a
-05a7	21 00 55 	ld hl,$5500	ld hl,$0000
-05aa	11 00 ff 	ld de,$ff00	ld de,$0000
-05ad	5f 	ld e,a	ld e,a
-05ae	c9 	ret	ret
-05af	3e 3e 	ld a,$3e	ld a,$00
-05b1	e5 	push hl	push hl
-05b2	21 fe 54 	ld hl,$54fe	ld hl,$0000
-05b5	cb 5e 	bit 3,(hl)	bit 3,(hl)
-05b7	20 0a 	jr nz,$+$0c	jr nz,$+$00
-05b9	2a 12 51 	ld hl,($5112)	ld hl,($0000)
-05bc	2d 	dec l	dec l
-05bd	28 17 	jr z,$+$19	jr z,$+$00
-05bf	e1 	pop hl	pop hl
-05c0	49 d7 	rst.lis $10	rst.lis $00
-05c2	c9 	ret	ret
-05c3	2a 10 51 	ld hl,($5110)	ld hl,($0000)
-05c6	fe 0a 	cp $0a	cp $00
-05c8	28 0a 	jr z,$+$0c	jr z,$+$00
-05ca	fe 0d 	cp $0d	cp $00
-05cc	20 01 	jr nz,$+$03	jr nz,$+$00
-05ce	af 	xor a	xor a
-05cf	77 	ld (hl),a	ld (hl),a
-05d0	23 	inc hl	inc hl
-05d1	22 10 51 	ld ($5110),hl	ld ($0000),hl
-05d4	e1 	pop hl	pop hl
-05d5	c9 	ret	ret
-05d6	d5 	push de	push de
-05d7	5c 	ld e,h	ld e,h
-05d8	cd 63 06 	call $0663	call $0000
-05db	d1 	pop de	pop de
-05dc	e1 	pop hl	pop hl
-05dd	c9 	ret	ret
-05de	3e 00 	ld a,$00	ld a,$00
-05e0	49 cf 	rst.lis $08	rst.lis $00
-05e2	fe 1b 	cp $1b	cp $00
-05e4	28 55 	jr z,$+$57	jr z,$+$00
-05e6	c9 	ret	ret
-05e7	1e 01 	ld e,$01	ld e,$00
-05e9	fd e5 	push iy	push iy
-05eb	e5 	push hl	push hl
-05ec	01 00 01 	ld bc,$0100	ld bc,$0000
-05ef	3e 09 	ld a,$09	ld a,$00
-05f1	49 cf 	rst.lis $08	rst.lis $00
-05f3	e1 	pop hl	pop hl
-05f4	fd e1 	pop iy	pop iy
-05f6	f5 	push af	push af
-05f7	cd 43 05 	call $0543	call $0000
-05fa	cd fb 40 	call $40fb	call $0000
-05fd	f1 	pop af	pop af
-05fe	fe 1b 	cp $1b	cp $00
-0600	ca 3b 06 	jp z,$063b	jp z,$0000
-0603	3a 0f 51 	ld a,($510f)	ld a,($0000)
-0606	cb bf 	res 7,a	res 7,a
-0608	32 0f 51 	ld ($510f),a	ld ($0000),a
-060b	cd 8b 0a 	call $0a8b	call $0000
-060e	af 	xor a	xor a
-060f	32 14 51 	ld ($5114),a	ld ($0000),a
-0612	32 15 51 	ld ($5115),a	ld ($0000),a
-0615	c9 	ret	ret
-0616	e5 	push hl	push hl
-0617	21 0f 51 	ld hl,$510f	ld hl,$0000
-061a	cb 76 	bit 6,(hl)	bit 6,(hl)
-061c	20 02 	jr nz,$+$04	jr nz,$+$00
-061e	cb fe 	set 7,(hl)	set 7,(hl)
-0620	e1 	pop hl	pop hl
-0621	c9 	ret	ret
-0622	cd 2b 06 	call $062b	call $0000
-0625	c0 	ret nz	ret nz
-0626	fe 1b 	cp $1b	cp $00
-0628	28 ec 	jr z,$-$12	jr z,$-$00
-062a	c9 	ret	ret
-062b	3a 14 51 	ld a,($5114)	ld a,($0000)
-062e	3d 	dec a	dec a
-062f	3a 15 51 	ld a,($5115)	ld a,($0000)
-0632	c9 	ret	ret
-0633	cd 22 06 	call $0622	call $0000
-0636	3a 0f 51 	ld a,($510f)	ld a,($0000)
-0639	b7 	or a	or a
-063a	f0 	ret p	ret p
-063b	21 0f 51 	ld hl,$510f	ld hl,$0000
-063e	cb be 	res 7,(hl)	res 7,(hl)
-0640	c3 e3 25 	jp $25e3	jp $0000
-0643	c9 	ret	ret
-0644	0e 01 	ld c,$01	ld c,$00
-0646	28 06 	jr z,$+$08	jr z,$+$00
-0648	0e 32 	ld c,$32	ld c,$00
-064a	38 02 	jr c,$+$04	jr c,$+$00
-064c	0e 0a 	ld c,$0a	ld c,$00
-064e	3e 0a 	ld a,$0a	ld a,$00
-0650	49 cf 	rst.lis $08	rst.lis $00
-0652	c9 	ret	ret
-0653	c5 	push bc	push bc
-0654	4b 	ld c,e	ld c,e
-0655	3e 0b 	ld a,$0b	ld a,$00
-0657	49 cf 	rst.lis $08	rst.lis $00
-0659	c1 	pop bc	pop bc
-065a	c9 	ret	ret
-065b	c5 	push bc	push bc
-065c	4b 	ld c,e	ld c,e
-065d	3e 0c 	ld a,$0c	ld a,$00
-065f	49 cf 	rst.lis $08	rst.lis $00
-0661	c1 	pop bc	pop bc
-0662	c9 	ret	ret
-0663	c5 	push bc	push bc
-0664	4b 	ld c,e	ld c,e
-0665	47 	ld b,a	ld b,a
-0666	3e 0d 	ld a,$0d	ld a,$00
-0668	49 cf 	rst.lis $08	rst.lis $00
-066a	c1 	pop bc	pop bc
-066b	c9 	ret	ret
-066c	c5 	push bc	push bc
-066d	4b 	ld c,e	ld c,e
-066e	3e 0e 	ld a,$0e	ld a,$00
-0670	49 cf 	rst.lis $08	rst.lis $00
-0672	c1 	pop bc	pop bc
-0673	fe 01 	cp $01	cp $00
-0675	c9 	ret	ret
-0676	fd e5 	push iy	push iy
-0678	4b 	ld c,e	ld c,e
-0679	3e 19 	ld a,$19	ld a,$00
-067b	49 cf 	rst.lis $08	rst.lis $00
-067d	5b e5 	push.lil hl	push.lil hl
-067f	5b fd e1 	pop.lil iy	pop.lil iy
-0682	5b fd 6e 11 	ld.lil l,(iy+$11)	ld.lil l,(iy+$00)
-0686	5b fd 66 12 	ld.lil h,(iy+$12)	ld.lil h,(iy+$00)
-068a	5b fd 5e 13 	ld.lil e,(iy+$13)	ld.lil e,(iy+$00)
-068e	5b fd 56 14 	ld.lil d,(iy+$14)	ld.lil d,(iy+$00)
-0692	fd e1 	pop iy	pop iy
-0694	c9 	ret	ret
-0695	fd e5 	push iy	push iy
-0697	4f 	ld c,a	ld c,a
-0698	5b e5 	push.lil hl	push.lil hl
-069a	5b 21 02 00 00 	ld.lil hl,$000002	ld.lil hl,$000000
-069f	5b 39 	add.lil hl,sp	add.lil hl,sp
-06a1	5b 73 	ld.lil (hl),e	ld.lil (hl),e
-06a3	5b e1 	pop.lil hl	pop.lil hl
-06a5	5a 	ld e,d	ld e,d
-06a6	3e 1c 	ld a,$1c	ld a,$00
-06a8	49 cf 	rst.lis $08	rst.lis $00
-06aa	fd e1 	pop iy	pop iy
-06ac	c9 	ret	ret
-06ad	fd e5 	push iy	push iy
-06af	4b 	ld c,e	ld c,e
-06b0	3e 19 	ld a,$19	ld a,$00
-06b2	49 cf 	rst.lis $08	rst.lis $00
-06b4	5b e5 	push.lil hl	push.lil hl
-06b6	5b fd e1 	pop.lil iy	pop.lil iy
-06b9	5b fd 6e 24 	ld.lil l,(iy+$24)	ld.lil l,(iy+$00)
-06bd	5b fd 66 25 	ld.lil h,(iy+$25)	ld.lil h,(iy+$00)
-06c1	5b fd 5e 26 	ld.lil e,(iy+$26)	ld.lil e,(iy+$00)
-06c5	5b fd 56 27 	ld.lil d,(iy+$27)	ld.lil d,(iy+$00)
-06c9	fd e1 	pop iy	pop iy
-06cb	c9 	ret	ret
-06cc	c5 	push bc	push bc
-06cd	d5 	push de	push de
-06ce	11 00 52 	ld de,$5200	ld de,$0000
-06d1	cd 5b 05 	call $055b	call $0000
-06d4	21 00 52 	ld hl,$5200	ld hl,$0000
-06d7	cd 15 08 	call $0815	call $0000
-06da	cd 26 08 	call $0826	call $0000
-06dd	d1 	pop de	pop de
-06de	c1 	pop bc	pop bc
-06df	b7 	or a	or a
-06e0	ca a7 07 	jp z,$07a7	jp z,$0000
-06e3	af 	xor a	xor a
-06e4	cd 44 06 	call $0644	call $0000
-06e7	5f 	ld e,a	ld e,a
-06e8	b7 	or a	or a
-06e9	3e 04 	ld a,$04	ld a,$00
-06eb	ca af 07 	jp z,$07af	jp z,$0000
-06ee	cd 3e 40 	call $403e	call $0000
-06f1	21 00 52 	ld hl,$5200	ld hl,$0000
-06f4	cd 5b 06 	call $065b	call $0000
-06f7	38 1c 	jr c,$+$1e	jr c,$+$00
-06f9	fe 0a 	cp $0a	cp $00
-06fb	28 18 	jr z,$+$1a	jr z,$+$00
-06fd	fe 21 	cp $21	cp $00
-06ff	38 f3 	jr c,$-$0b	jr c,$-$00
-0701	77 	ld (hl),a	ld (hl),a
-0702	2c 	inc l	inc l
-0703	cd 5b 06 	call $065b	call $0000
-0706	38 26 	jr c,$+$28	jr c,$+$00
-0708	fe 20 	cp $20	cp $00
-070a	38 05 	jr c,$+$07	jr c,$+$00
-070c	77 	ld (hl),a	ld (hl),a
-070d	2c 	inc l	inc l
-070e	ca ef 3e 	jp z,$3eef	jp z,$0000
-0711	fe 0a 	cp $0a	cp $00
-0713	20 ee 	jr nz,$-$10	jr nz,$-$00
-0715	36 0d 	ld (hl),$0d	ld (hl),$00
-0717	7d 	ld a,l	ld a,l
-0718	fe 02 	cp $02	cp $00
-071a	38 08 	jr c,$+$0a	jr c,$+$00
-071c	d5 	push de	push de
-071d	cd 39 07 	call $0739	call $0000
-0720	dc 1a 40 	call c,$401a	call c,$0000
-0723	d1 	pop de	pop de
-0724	cd 6c 06 	call $066c	call $0000
-0727	20 c8 	jr nz,$-$36	jr nz,$-$00
-0729	cd 53 06 	call $0653	call $0000
-072c	37 	scf	scf
-072d	c9 	ret	ret
-072e	fe 20 	cp $20	cp $00
-0730	38 05 	jr c,$+$07	jr c,$+$00
-0732	77 	ld (hl),a	ld (hl),a
-0733	2c 	inc l	inc l
-0734	ca ef 3e 	jp z,$3eef	jp z,$0000
-0737	18 dc 	jr $-$22	jr $-$00
-0739	af 	xor a	xor a
-073a	32 fb 54 	ld ($54fb),a	ld ($0000),a
-073d	fd 21 00 52 	ld iy,$5200	ld iy,$0000
-0741	cd 8a 43 	call $438a	call $0000
-0744	cd 0b 45 	call $450b	call $0000
-0747	7c 	ld a,h	ld a,h
-0748	b5 	or l	or l
-0749	28 00 	jr z,$+$02	jr z,$+$00
-074b	11 00 53 	ld de,$5300	ld de,$0000
-074e	0e 01 	ld c,$01	ld c,$00
-0750	e5 	push hl	push hl
-0751	cd 18 44 	call $4418	call $0000
-0754	e1 	pop hl	pop hl
-0755	12 	ld (de),a	ld (de),a
-0756	af 	xor a	xor a
-0757	47 	ld b,a	ld b,a
-0758	4b 	ld c,e	ld c,e
-0759	13 	inc de	inc de
-075a	12 	ld (de),a	ld (de),a
-075b	7c 	ld a,h	ld a,h
-075c	b5 	or l	or l
-075d	fd 21 00 53 	ld iy,$5300	ld iy,$0000
-0761	ca 99 24 	jp z,$2499	jp z,$0000
-0764	c5 	push bc	push bc
-0765	cd 43 41 	call $4143	call $0000
-0768	cc e9 3f 	call z,$3fe9	call z,$0000
-076b	c1 	pop bc	pop bc
-076c	79 	ld a,c	ld a,c
-076d	b7 	or a	or a
-076e	c8 	ret z	ret z
-076f	c6 04 	add a,$04	add a,$00
-0771	4f 	ld c,a	ld c,a
-0772	d5 	push de	push de
-0773	c5 	push bc	push bc
-0774	eb 	ex de,hl	ex de,hl
-0775	c5 	push bc	push bc
-0776	cd 25 40 	call $4025	call $0000
-0779	c1 	pop bc	pop bc
-077a	e5 	push hl	push hl
-077b	09 	add hl,bc	add hl,bc
-077c	e5 	push hl	push hl
-077d	24 	inc h	inc h
-077e	af 	xor a	xor a
-077f	ed 72 	sbc hl,sp	sbc hl,sp
-0781	e1 	pop hl	pop hl
-0782	d2 44 3f 	jp nc,$3f44	jp nc,$0000
-0785	e3 	ex (sp),hl	ex (sp),hl
-0786	e5 	push hl	push hl
-0787	23 	inc hl	inc hl
-0788	b7 	or a	or a
-0789	ed 52 	sbc hl,de	sbc hl,de
-078b	44 	ld b,h	ld b,h
-078c	4d 	ld c,l	ld c,l
-078d	e1 	pop hl	pop hl
-078e	d1 	pop de	pop de
-078f	28 02 	jr z,$+$04	jr z,$+$00
-0791	ed b8 	lddr	lddr
-0793	c1 	pop bc	pop bc
-0794	d1 	pop de	pop de
-0795	23 	inc hl	inc hl
-0796	71 	ld (hl),c	ld (hl),c
-0797	23 	inc hl	inc hl
-0798	73 	ld (hl),e	ld (hl),e
-0799	23 	inc hl	inc hl
-079a	72 	ld (hl),d	ld (hl),d
-079b	23 	inc hl	inc hl
-079c	11 00 53 	ld de,$5300	ld de,$0000
-079f	eb 	ex de,hl	ex de,hl
-07a0	0d 	dec c	dec c
-07a1	0d 	dec c	dec c
-07a2	0d 	dec c	dec c
-07a3	ed b0 	ldir	ldir
-07a5	37 	scf	scf
-07a6	c9 	ret	ret
-07a7	3e 01 	ld a,$01	ld a,$00
-07a9	49 cf 	rst.lis $08	rst.lis $00
-07ab	d0 	ret nc	ret nc
-07ac	b7 	or a	or a
-07ad	37 	scf	scf
-07ae	c8 	ret z	ret z
-07af	f5 	push af	push af
-07b0	21 00 52 	ld hl,$5200	ld hl,$0000
-07b3	01 00 01 	ld bc,$0100	ld bc,$0000
-07b6	5f 	ld e,a	ld e,a
-07b7	3e 0f 	ld a,$0f	ld a,$00
-07b9	49 cf 	rst.lis $08	rst.lis $00
-07bb	f1 	pop af	pop af
-07bc	e5 	push hl	push hl
-07bd	c6 7f 	add a,$7f	add a,$00
-07bf	c3 55 3f 	jp $3f55	jp $0000
-07c2	c5 	push bc	push bc
-07c3	d5 	push de	push de
-07c4	11 00 52 	ld de,$5200	ld de,$0000
-07c7	cd 5b 05 	call $055b	call $0000
-07ca	21 00 52 	ld hl,$5200	ld hl,$0000
-07cd	cd 15 08 	call $0815	call $0000
-07d0	cd 26 08 	call $0826	call $0000
-07d3	d1 	pop de	pop de
-07d4	c1 	pop bc	pop bc
-07d5	b7 	or a	or a
-07d6	28 35 	jr z,$+$37	jr z,$+$00
-07d8	3a 12 51 	ld a,($5112)	ld a,($0000)
-07db	f5 	push af	push af
-07dc	af 	xor a	xor a
-07dd	3c 	inc a	inc a
-07de	32 12 51 	ld ($5112),a	ld ($0000),a
-07e1	cd 44 06 	call $0644	call $0000
-07e4	32 13 51 	ld ($5113),a	ld ($0000),a
-07e7	dd 21 fe 54 	ld ix,$54fe	ld ix,$0000
-07eb	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-07ee	d9 	exx	exx
-07ef	01 00 00 	ld bc,$0000	ld bc,$0000
-07f2	d9 	exx	exx
-07f3	7e 	ld a,(hl)	ld a,(hl)
-07f4	b7 	or a	or a
-07f5	28 0a 	jr z,$+$0c	jr z,$+$00
-07f7	23 	inc hl	inc hl
-07f8	5e 	ld e,(hl)	ld e,(hl)
-07f9	23 	inc hl	inc hl
-07fa	56 	ld d,(hl)	ld d,(hl)
-07fb	23 	inc hl	inc hl
-07fc	cd 5d 40 	call $405d	call $0000
-07ff	18 f2 	jr $-$0c	jr $-$00
-0801	3a 13 51 	ld a,($5113)	ld a,($0000)
-0804	5f 	ld e,a	ld e,a
-0805	cd 53 06 	call $0653	call $0000
-0808	f1 	pop af	pop af
-0809	32 12 51 	ld ($5112),a	ld ($0000),a
-080c	c9 	ret	ret
-080d	3e 02 	ld a,$02	ld a,$00
-080f	49 cf 	rst.lis $08	rst.lis $00
-0811	b7 	or a	or a
-0812	c8 	ret z	ret z
-0813	18 9a 	jr $-$64	jr $-$00
-0815	e5 	push hl	push hl
-0816	0e 2e 	ld c,$2e	ld c,$00
-0818	cd 7b 05 	call $057b	call $0000
-081b	b7 	or a	or a
-081c	20 06 	jr nz,$+$08	jr nz,$+$00
-081e	11 52 08 	ld de,$0852	ld de,$0000
-0821	cd 91 05 	call $0591	call $0000
-0824	e1 	pop hl	pop hl
-0825	c9 	ret	ret
-0826	e5 	push hl	push hl
-0827	0e 2e 	ld c,$2e	ld c,$00
-0829	cd 7b 05 	call $057b	call $0000
-082c	11 52 08 	ld de,$0852	ld de,$0000
-082f	e5 	push hl	push hl
-0830	cd 83 05 	call $0583	call $0000
-0833	e1 	pop hl	pop hl
-0834	28 18 	jr z,$+$1a	jr z,$+$00
-0836	1a 	ld a,(de)	ld a,(de)
-0837	13 	inc de	inc de
-0838	b7 	or a	or a
-0839	20 fb 	jr nz,$-$03	jr nz,$-$00
-083b	13 	inc de	inc de
-083c	1a 	ld a,(de)	ld a,(de)
-083d	b7 	or a	or a
-083e	20 ef 	jr nz,$-$0f	jr nz,$-$00
-0840	3e cc 	ld a,$cc	ld a,$00
-0842	cd 55 3f 	call $3f55	call $0000
-0845	42 	ld b,d	ld b,d
-0846	61 	ld h,c	ld h,c
-0847	64 	ld h,h	ld h,h
-0848	20 6e 	jr nz,$+$70	jr nz,$+$00
-084a	61 	ld h,c	ld h,c
-084b	6d 	ld l,l	ld l,l
-084c	65 	ld h,l	ld h,l
-084d	00 	nop	nop
-084e	13 	inc de	inc de
-084f	1a 	ld a,(de)	ld a,(de)
-0850	e1 	pop hl	pop hl
-0851	c9 	ret	ret
-0852	2e 42 	ld l,$42	ld l,$00
-0854	42 	ld b,d	ld b,d
-0855	43 	ld b,e	ld b,e
-0856	00 	nop	nop
-0857	00 	nop	nop
-0858	2e 54 	ld l,$54	ld l,$00
-085a	58 	ld e,b	ld e,b
-085b	54 	ld d,h	ld d,h
-085c	00 	nop	nop
-085d	01 2e 41 	ld bc,$412e	ld bc,$0000
-0860	53 	ld d,e	ld d,e
-0861	43 	ld b,e	ld b,e
-0862	00 	nop	nop
-0863	01 2e 42 	ld bc,$422e	ld bc,$0000
-0866	41 	ld b,c	ld b,c
-0867	53 	ld d,e	ld d,e
-0868	00 	nop	nop
-0869	01 00 fe 	ld bc,$fe00	ld bc,$0000
-086c	07 	rlca	rlca
-086d	ca 9e 0a 	jp z,$0a9e	jp z,$0000
-0870	fe 08 	cp $08	cp $00
-0872	28 14 	jr z,$+$16	jr z,$+$00
-0874	fe 09 	cp $09	cp $00
-0876	28 03 	jr z,$+$05	jr z,$+$00
-0878	c3 ad 08 	jp $08ad	jp $0000
-087b	ed 5b 17 51 	ld de,($5117)	ld de,($0000)
-087f	2a 19 51 	ld hl,($5119)	ld hl,($0000)
-0882	cd 18 02 	call $0218	call $0000
-0885	32 1b 51 	ld ($511b),a	ld ($0000),a
-0888	c9 	ret	ret
-0889	fe 0b 	cp $0b	cp $00
-088b	28 31 	jr z,$+$33	jr z,$+$00
-088d	fe 0c 	cp $0c	cp $00
-088f	28 54 	jr z,$+$56	jr z,$+$00
-0891	fe 13 	cp $13	cp $00
-0893	28 77 	jr z,$+$79	jr z,$+$00
-0895	fe 76 	cp $76	cp $00
-0897	28 7b 	jr z,$+$7d	jr z,$+$00
-0899	fe 81 	cp $81	cp $00
-089b	ca 3c 09 	jp z,$093c	jp z,$0000
-089e	fe 86 	cp $86	cp $00
-08a0	ca 56 09 	jp z,$0956	jp z,$0000
-08a3	fe 87 	cp $87	cp $00
-08a5	ca 85 09 	jp z,$0985	jp z,$0000
-08a8	fe a0 	cp $a0	cp $00
-08aa	ca 9b 09 	jp z,$099b	jp z,$0000
-08ad	3e fe 	ld a,$fe	ld a,$00
-08af	cd 55 3f 	call $3f55	call $0000
-08b2	42 	ld b,d	ld b,d
-08b3	61 	ld h,c	ld h,c
-08b4	64 	ld h,h	ld h,h
-08b5	20 63 	jr nz,$+$65	jr nz,$+$00
-08b7	6f 	ld l,a	ld l,a
-08b8	6d 	ld l,l	ld l,l
-08b9	6d 	ld l,l	ld l,l
-08ba	61 	ld h,c	ld h,c
-08bb	6e 	ld l,(hl)	ld l,(hl)
-08bc	64 	ld h,h	ld h,h
-08bd	00 	nop	nop
-08be	3e 17 	ld a,$17	ld a,$00
-08c0	cd b1 05 	call $05b1	call $0000
-08c3	3e 00 	ld a,$00	ld a,$00
-08c5	cd b1 05 	call $05b1	call $0000
-08c8	3e 88 	ld a,$88	ld a,$00
-08ca	cd b1 05 	call $05b1	call $0000
-08cd	7d 	ld a,l	ld a,l
-08ce	cd b1 05 	call $05b1	call $0000
-08d1	7c 	ld a,h	ld a,h
-08d2	cd b1 05 	call $05b1	call $0000
-08d5	3e 00 	ld a,$00	ld a,$00
-08d7	cd b1 05 	call $05b1	call $0000
-08da	3e 00 	ld a,$00	ld a,$00
-08dc	cd b1 05 	call $05b1	call $0000
-08df	3e ff 	ld a,$ff	ld a,$00
-08e1	cd b1 05 	call $05b1	call $0000
-08e4	c9 	ret	ret
-08e5	3e 17 	ld a,$17	ld a,$00
-08e7	cd b1 05 	call $05b1	call $0000
-08ea	3e 00 	ld a,$00	ld a,$00
-08ec	cd b1 05 	call $05b1	call $0000
-08ef	3e 88 	ld a,$88	ld a,$00
-08f1	cd b1 05 	call $05b1	call $0000
-08f4	3e 00 	ld a,$00	ld a,$00
-08f6	cd b1 05 	call $05b1	call $0000
-08f9	3e 00 	ld a,$00	ld a,$00
-08fb	cd b1 05 	call $05b1	call $0000
-08fe	7d 	ld a,l	ld a,l
-08ff	cd b1 05 	call $05b1	call $0000
-0902	7c 	ld a,h	ld a,h
-0903	cd b1 05 	call $05b1	call $0000
-0906	3e ff 	ld a,$ff	ld a,$00
-0908	cd b1 05 	call $05b1	call $0000
-090b	c9 	ret	ret
-090c	cd 8b 0a 	call $0a8b	call $0000
-090f	2e 00 	ld l,$00	ld l,$00
-0911	c3 4e 1b 	jp $1b4e	jp $0000
-0914	3e 17 	ld a,$17	ld a,$00
-0916	cd b1 05 	call $05b1	call $0000
-0919	3e 00 	ld a,$00	ld a,$00
-091b	cd b1 05 	call $05b1	call $0000
-091e	3e 88 	ld a,$88	ld a,$00
-0920	cd b1 05 	call $05b1	call $0000
-0923	3e 00 	ld a,$00	ld a,$00
-0925	cd b1 05 	call $05b1	call $0000
-0928	3e 00 	ld a,$00	ld a,$00
-092a	cd b1 05 	call $05b1	call $0000
-092d	3e 00 	ld a,$00	ld a,$00
-092f	cd b1 05 	call $05b1	call $0000
-0932	3e 00 	ld a,$00	ld a,$00
-0934	cd b1 05 	call $05b1	call $0000
-0937	7d 	ld a,l	ld a,l
-0938	cd b1 05 	call $05b1	call $0000
-093b	c9 	ret	ret
-093c	cd 2b 06 	call $062b	call $0000
-093f	28 09 	jr z,$+$0b	jr z,$+$00
-0941	7c 	ld a,h	ld a,h
-0942	b5 	or l	or l
-0943	c8 	ret z	ret z
-0944	cd 8b 0a 	call $0a8b	call $0000
-0947	2b 	dec hl	dec hl
-0948	18 f2 	jr $-$0c	jr $-$00
-094a	21 14 51 	ld hl,$5114	ld hl,$0000
-094d	36 00 	ld (hl),$00	ld (hl),$00
-094f	fe 1b 	cp $1b	cp $00
-0951	37 	scf	scf
-0952	c0 	ret nz	ret nz
-0953	c3 16 06 	jp $0616	jp $0000
-0956	dd e5 	push ix	push ix
-0958	3e 08 	ld a,$08	ld a,$00
-095a	49 cf 	rst.lis $08	rst.lis $00
-095c	5b dd cb 04 86 	res.lil 0,(ix+$04)	res.lil 0,(ix+$00)
-0961	3e 17 	ld a,$17	ld a,$00
-0963	cd b1 05 	call $05b1	call $0000
-0966	3e 00 	ld a,$00	ld a,$00
-0968	cd b1 05 	call $05b1	call $0000
-096b	3e 82 	ld a,$82	ld a,$00
-096d	cd b1 05 	call $05b1	call $0000
-0970	5b dd cb 04 46 	bit.lil 0,(ix+$04)	bit.lil 0,(ix+$00)
-0975	28 f9 	jr z,$-$05	jr z,$-$00
-0977	16 00 	ld d,$00	ld d,$00
-0979	62 	ld h,d	ld h,d
-097a	5b dd 5e 07 	ld.lil e,(ix+$07)	ld.lil e,(ix+$00)
-097e	5b dd 6e 08 	ld.lil l,(ix+$08)	ld.lil l,(ix+$00)
-0982	dd e1 	pop ix	pop ix
-0984	c9 	ret	ret
-0985	dd e5 	push ix	push ix
-0987	cd a9 0d 	call $0da9	call $0000
-098a	cd db 01 	call $01db	call $0000
-098d	6f 	ld l,a	ld l,a
-098e	3e 08 	ld a,$08	ld a,$00
-0990	49 cf 	rst.lis $08	rst.lis $00
-0992	5b dd 66 27 	ld.lil h,(ix+$27)	ld.lil h,(ix+$00)
-0996	dd e1 	pop ix	pop ix
-0998	c3 50 1b 	jp $1b50	jp $0000
-099b	dd e5 	push ix	push ix
-099d	3e 08 	ld a,$08	ld a,$00
-099f	49 cf 	rst.lis $08	rst.lis $00
-09a1	5b 01 00 00 00 	ld.lil bc,$000000	ld.lil bc,$000000
-09a6	4d 	ld c,l	ld c,l
-09a7	5b dd 09 	add.lil ix,bc	add.lil ix,bc
-09aa	5b dd 6e 00 	ld.lil l,(ix)	ld.lil l,(ix)
-09ae	dd e1 	pop ix	pop ix
-09b0	c3 4e 1b 	jp $1b4e	jp $0000
-09b3	cd 0d 0a 	call $0a0d	call $0000
-09b6	fe 0d 	cp $0d	cp $00
-09b8	c8 	ret z	ret z
-09b9	fe 7c 	cp $7c	cp $00
-09bb	c8 	ret z	ret z
-09bc	eb 	ex de,hl	ex de,hl
-09bd	21 1c 0a 	ld hl,$0a1c	ld hl,$0000
-09c0	1a 	ld a,(de)	ld a,(de)
-09c1	cd 14 0a 	call $0a14	call $0000
-09c4	be 	cp (hl)	cp (hl)
-09c5	28 0b 	jr z,$+$0d	jr z,$+$00
-09c7	38 2e 	jr c,$+$30	jr c,$+$00
-09c9	cb 7e 	bit 7,(hl)	bit 7,(hl)
-09cb	23 	inc hl	inc hl
-09cc	28 fb 	jr z,$-$03	jr z,$-$00
-09ce	23 	inc hl	inc hl
-09cf	23 	inc hl	inc hl
-09d0	18 ee 	jr $-$10	jr $-$00
-09d2	d5 	push de	push de
-09d3	13 	inc de	inc de
-09d4	23 	inc hl	inc hl
-09d5	1a 	ld a,(de)	ld a,(de)
-09d6	cd 14 0a 	call $0a14	call $0000
-09d9	fe 2e 	cp $2e	cp $00
-09db	28 0a 	jr z,$+$0c	jr z,$+$00
-09dd	ae 	xor (hl)	xor (hl)
-09de	28 f3 	jr z,$-$0b	jr z,$-$00
-09e0	fe 80 	cp $80	cp $00
-09e2	28 03 	jr z,$+$05	jr z,$+$00
-09e4	d1 	pop de	pop de
-09e5	18 e2 	jr $-$1c	jr $-$00
-09e7	f1 	pop af	pop af
-09e8	13 	inc de	inc de
-09e9	cb 7e 	bit 7,(hl)	bit 7,(hl)
-09eb	23 	inc hl	inc hl
-09ec	28 fb 	jr z,$-$03	jr z,$-$00
-09ee	7e 	ld a,(hl)	ld a,(hl)
-09ef	23 	inc hl	inc hl
-09f0	66 	ld h,(hl)	ld h,(hl)
-09f1	6f 	ld l,a	ld l,a
-09f2	e5 	push hl	push hl
-09f3	eb 	ex de,hl	ex de,hl
-09f4	c3 0d 0a 	jp $0a0d	jp $0000
-09f7	eb 	ex de,hl	ex de,hl
-09f8	11 00 52 	ld de,$5200	ld de,$0000
-09fb	d5 	push de	push de
-09fc	cd 6d 05 	call $056d	call $0000
-09ff	e1 	pop hl	pop hl
-0a00	fd e5 	push iy	push iy
-0a02	3e 10 	ld a,$10	ld a,$00
-0a04	49 cf 	rst.lis $08	rst.lis $00
-0a06	fd e1 	pop iy	pop iy
-0a08	b7 	or a	or a
-0a09	c8 	ret z	ret z
-0a0a	c3 af 07 	jp $07af	jp $0000
-0a0d	7e 	ld a,(hl)	ld a,(hl)
-0a0e	fe 20 	cp $20	cp $00
-0a10	c0 	ret nz	ret nz
-0a11	23 	inc hl	inc hl
-0a12	18 f9 	jr $-$05	jr $-$00
-0a14	e6 7f 	and $7f	and $00
-0a16	fe 60 	cp $60	cp $00
-0a18	d8 	ret c	ret c
-0a19	e6 5f 	and $5f	and $00
-0a1b	c9 	ret	ret
-0a1c	42 	ld b,d	ld b,d
-0a1d	59 	ld e,c	ld e,c
-0a1e	45 	ld b,l	ld b,l
-0a1f	2c 	inc l	inc l
-0a20	0a 	ld a,(bc)	ld a,(bc)
-0a21	45 	ld b,l	ld b,l
-0a22	44 	ld b,h	ld b,h
-0a23	49 54 	ld.lis d,h	ld.lis d,h
-0a25	37 	scf	scf
-0a26	0a 	ld a,(bc)	ld a,(bc)
-0a27	46 	ld b,(hl)	ld b,(hl)
-0a28	58 	ld e,b	ld e,b
-0a29	73 	ld (hl),e	ld (hl),e
-0a2a	0a 	ld a,(bc)	ld a,(bc)
-0a2b	ff 	rst $38	rst $00
-0a2c	cd 66 04 	call $0466	call $0000
-0a2f	5b dd e1 	pop.lil ix	pop.lil ix
-0a32	21 00 00 	ld hl,$0000	ld hl,$0000
-0a35	dd e9 	jp (ix)	jp (ix)
-0a37	cd dc 04 	call $04dc	call $0000
-0a3a	eb 	ex de,hl	ex de,hl
-0a3b	cd 43 41 	call $4143	call $0000
-0a3e	3e 29 	ld a,$29	ld a,$00
-0a40	c2 44 3f 	jp nz,$3f44	jp nz,$0000
-0a43	23 	inc hl	inc hl
-0a44	5e 	ld e,(hl)	ld e,(hl)
-0a45	23 	inc hl	inc hl
-0a46	56 	ld d,(hl)	ld d,(hl)
-0a47	23 	inc hl	inc hl
-0a48	dd 21 00 52 	ld ix,$5200	ld ix,$0000
-0a4c	dd 22 10 51 	ld ($5110),ix	ld ($0000),ix
-0a50	dd 21 fe 54 	ld ix,$54fe	ld ix,$0000
-0a54	dd 7e 00 	ld a,(ix)	ld a,(ix)
-0a57	f5 	push af	push af
-0a58	dd 36 00 09 	ld (ix),$09	ld (ix),$00
-0a5c	cd 5d 40 	call $405d	call $0000
-0a5f	f1 	pop af	pop af
-0a60	dd 77 00 	ld (ix),a	ld (ix),a
-0a63	21 00 52 	ld hl,$5200	ld hl,$0000
-0a66	5d 	ld e,l	ld e,l
-0a67	cd e9 05 	call $05e9	call $0000
-0a6a	cd 39 07 	call $0739	call $0000
-0a6d	dc 1a 40 	call c,$401a	call c,$0000
-0a70	c3 b0 37 	jp $37b0	jp $0000
-0a73	cd dc 04 	call $04dc	call $0000
-0a76	4b 	ld c,e	ld c,e
-0a77	cd dc 04 	call $04dc	call $0000
-0a7a	7a 	ld a,d	ld a,d
-0a7b	b7 	or a	or a
-0a7c	28 03 	jr z,$+$05	jr z,$+$00
-0a7e	eb 	ex de,hl	ex de,hl
-0a7f	18 06 	jr $+$08	jr $+$00
-0a81	43 	ld b,e	ld b,e
-0a82	cd dc 04 	call $04dc	call $0000
-0a85	68 	ld l,b	ld l,b
-0a86	63 	ld h,e	ld h,e
-0a87	79 	ld a,c	ld a,c
-0a88	c3 89 08 	jp $0889	jp $0000
-0a8b	dd e5 	push ix	push ix
-0a8d	3e 08 	ld a,$08	ld a,$00
-0a8f	49 cf 	rst.lis $08	rst.lis $00
-0a91	5b dd 7e 00 	ld.lil a,(ix)	ld.lil a,(ix)
-0a95	5b dd be 00 	cp.lil (ix)	cp.lil (ix)
-0a99	28 fa 	jr z,$-$04	jr z,$-$00
-0a9b	dd e1 	pop ix	pop ix
-0a9d	c9 	ret	ret
+057e	23 	inc hl	inc hl
+057f	13 	inc de	inc de
+0580	18 f8 	jr $-$06	jr $-$00
+0582	cd 25 04 	call $0425	call $0000
+0585	af 	xor a	xor a
+0586	32 f1 50 	ld ($50f1),a	ld ($0000),a
+0589	21 00 55 	ld hl,$5500	ld hl,$0000
+058c	11 00 ff 	ld de,$ff00	ld de,$0000
+058f	5f 	ld e,a	ld e,a
+0590	c9 	ret	ret
+0591	3e 3e 	ld a,$3e	ld a,$00
+0593	e5 	push hl	push hl
+0594	21 fe 54 	ld hl,$54fe	ld hl,$0000
+0597	cb 5e 	bit 3,(hl)	bit 3,(hl)
+0599	20 0a 	jr nz,$+$0c	jr nz,$+$00
+059b	2a f4 50 	ld hl,($50f4)	ld hl,($0000)
+059e	2d 	dec l	dec l
+059f	28 17 	jr z,$+$19	jr z,$+$00
+05a1	e1 	pop hl	pop hl
+05a2	49 d7 	rst.lis $10	rst.lis $00
+05a4	c9 	ret	ret
+05a5	2a f2 50 	ld hl,($50f2)	ld hl,($0000)
+05a8	fe 0a 	cp $0a	cp $00
+05aa	28 0a 	jr z,$+$0c	jr z,$+$00
+05ac	fe 0d 	cp $0d	cp $00
+05ae	20 01 	jr nz,$+$03	jr nz,$+$00
+05b0	af 	xor a	xor a
+05b1	77 	ld (hl),a	ld (hl),a
+05b2	23 	inc hl	inc hl
+05b3	22 f2 50 	ld ($50f2),hl	ld ($0000),hl
+05b6	e1 	pop hl	pop hl
+05b7	c9 	ret	ret
+05b8	d5 	push de	push de
+05b9	5c 	ld e,h	ld e,h
+05ba	cd 45 06 	call $0645	call $0000
+05bd	d1 	pop de	pop de
+05be	e1 	pop hl	pop hl
+05bf	c9 	ret	ret
+05c0	3e 00 	ld a,$00	ld a,$00
+05c2	49 cf 	rst.lis $08	rst.lis $00
+05c4	fe 1b 	cp $1b	cp $00
+05c6	28 55 	jr z,$+$57	jr z,$+$00
+05c8	c9 	ret	ret
+05c9	1e 01 	ld e,$01	ld e,$00
+05cb	fd e5 	push iy	push iy
+05cd	e5 	push hl	push hl
+05ce	01 00 01 	ld bc,$0100	ld bc,$0000
+05d1	3e 09 	ld a,$09	ld a,$00
+05d3	49 cf 	rst.lis $08	rst.lis $00
+05d5	e1 	pop hl	pop hl
+05d6	fd e1 	pop iy	pop iy
+05d8	f5 	push af	push af
+05d9	cd 25 05 	call $0525	call $0000
+05dc	cd dd 40 	call $40dd	call $0000
+05df	f1 	pop af	pop af
+05e0	fe 1b 	cp $1b	cp $00
+05e2	ca 1d 06 	jp z,$061d	jp z,$0000
+05e5	3a f1 50 	ld a,($50f1)	ld a,($0000)
+05e8	cb bf 	res 7,a	res 7,a
+05ea	32 f1 50 	ld ($50f1),a	ld ($0000),a
+05ed	cd 6d 0a 	call $0a6d	call $0000
+05f0	af 	xor a	xor a
+05f1	32 f6 50 	ld ($50f6),a	ld ($0000),a
+05f4	32 f7 50 	ld ($50f7),a	ld ($0000),a
+05f7	c9 	ret	ret
+05f8	e5 	push hl	push hl
+05f9	21 f1 50 	ld hl,$50f1	ld hl,$0000
+05fc	cb 76 	bit 6,(hl)	bit 6,(hl)
+05fe	20 02 	jr nz,$+$04	jr nz,$+$00
+0600	cb fe 	set 7,(hl)	set 7,(hl)
+0602	e1 	pop hl	pop hl
+0603	c9 	ret	ret
+0604	cd 0d 06 	call $060d	call $0000
+0607	c0 	ret nz	ret nz
+0608	fe 1b 	cp $1b	cp $00
+060a	28 ec 	jr z,$-$12	jr z,$-$00
+060c	c9 	ret	ret
+060d	3a f6 50 	ld a,($50f6)	ld a,($0000)
+0610	3d 	dec a	dec a
+0611	3a f7 50 	ld a,($50f7)	ld a,($0000)
+0614	c9 	ret	ret
+0615	cd 04 06 	call $0604	call $0000
+0618	3a f1 50 	ld a,($50f1)	ld a,($0000)
+061b	b7 	or a	or a
+061c	f0 	ret p	ret p
+061d	21 f1 50 	ld hl,$50f1	ld hl,$0000
+0620	cb be 	res 7,(hl)	res 7,(hl)
+0622	c3 c5 25 	jp $25c5	jp $0000
+0625	c9 	ret	ret
+0626	0e 01 	ld c,$01	ld c,$00
+0628	28 06 	jr z,$+$08	jr z,$+$00
+062a	0e 32 	ld c,$32	ld c,$00
+062c	38 02 	jr c,$+$04	jr c,$+$00
+062e	0e 0a 	ld c,$0a	ld c,$00
+0630	3e 0a 	ld a,$0a	ld a,$00
+0632	49 cf 	rst.lis $08	rst.lis $00
+0634	c9 	ret	ret
+0635	c5 	push bc	push bc
+0636	4b 	ld c,e	ld c,e
+0637	3e 0b 	ld a,$0b	ld a,$00
+0639	49 cf 	rst.lis $08	rst.lis $00
+063b	c1 	pop bc	pop bc
+063c	c9 	ret	ret
+063d	c5 	push bc	push bc
+063e	4b 	ld c,e	ld c,e
+063f	3e 0c 	ld a,$0c	ld a,$00
+0641	49 cf 	rst.lis $08	rst.lis $00
+0643	c1 	pop bc	pop bc
+0644	c9 	ret	ret
+0645	c5 	push bc	push bc
+0646	4b 	ld c,e	ld c,e
+0647	47 	ld b,a	ld b,a
+0648	3e 0d 	ld a,$0d	ld a,$00
+064a	49 cf 	rst.lis $08	rst.lis $00
+064c	c1 	pop bc	pop bc
+064d	c9 	ret	ret
+064e	c5 	push bc	push bc
+064f	4b 	ld c,e	ld c,e
+0650	3e 0e 	ld a,$0e	ld a,$00
+0652	49 cf 	rst.lis $08	rst.lis $00
+0654	c1 	pop bc	pop bc
+0655	fe 01 	cp $01	cp $00
+0657	c9 	ret	ret
+0658	fd e5 	push iy	push iy
+065a	4b 	ld c,e	ld c,e
+065b	3e 19 	ld a,$19	ld a,$00
+065d	49 cf 	rst.lis $08	rst.lis $00
+065f	5b e5 	push.lil hl	push.lil hl
+0661	5b fd e1 	pop.lil iy	pop.lil iy
+0664	5b fd 6e 11 	ld.lil l,(iy+$11)	ld.lil l,(iy+$00)
+0668	5b fd 66 12 	ld.lil h,(iy+$12)	ld.lil h,(iy+$00)
+066c	5b fd 5e 13 	ld.lil e,(iy+$13)	ld.lil e,(iy+$00)
+0670	5b fd 56 14 	ld.lil d,(iy+$14)	ld.lil d,(iy+$00)
+0674	fd e1 	pop iy	pop iy
+0676	c9 	ret	ret
+0677	fd e5 	push iy	push iy
+0679	4f 	ld c,a	ld c,a
+067a	5b e5 	push.lil hl	push.lil hl
+067c	5b 21 02 00 00 	ld.lil hl,$000002	ld.lil hl,$000000
+0681	5b 39 	add.lil hl,sp	add.lil hl,sp
+0683	5b 73 	ld.lil (hl),e	ld.lil (hl),e
+0685	5b e1 	pop.lil hl	pop.lil hl
+0687	5a 	ld e,d	ld e,d
+0688	3e 1c 	ld a,$1c	ld a,$00
+068a	49 cf 	rst.lis $08	rst.lis $00
+068c	fd e1 	pop iy	pop iy
+068e	c9 	ret	ret
+068f	fd e5 	push iy	push iy
+0691	4b 	ld c,e	ld c,e
+0692	3e 19 	ld a,$19	ld a,$00
+0694	49 cf 	rst.lis $08	rst.lis $00
+0696	5b e5 	push.lil hl	push.lil hl
+0698	5b fd e1 	pop.lil iy	pop.lil iy
+069b	5b fd 6e 24 	ld.lil l,(iy+$24)	ld.lil l,(iy+$00)
+069f	5b fd 66 25 	ld.lil h,(iy+$25)	ld.lil h,(iy+$00)
+06a3	5b fd 5e 26 	ld.lil e,(iy+$26)	ld.lil e,(iy+$00)
+06a7	5b fd 56 27 	ld.lil d,(iy+$27)	ld.lil d,(iy+$00)
+06ab	fd e1 	pop iy	pop iy
+06ad	c9 	ret	ret
+06ae	c5 	push bc	push bc
+06af	d5 	push de	push de
+06b0	11 00 52 	ld de,$5200	ld de,$0000
+06b3	cd 3d 05 	call $053d	call $0000
+06b6	21 00 52 	ld hl,$5200	ld hl,$0000
+06b9	cd f7 07 	call $07f7	call $0000
+06bc	cd 08 08 	call $0808	call $0000
+06bf	d1 	pop de	pop de
+06c0	c1 	pop bc	pop bc
+06c1	b7 	or a	or a
+06c2	ca 89 07 	jp z,$0789	jp z,$0000
+06c5	af 	xor a	xor a
+06c6	cd 26 06 	call $0626	call $0000
+06c9	5f 	ld e,a	ld e,a
+06ca	b7 	or a	or a
+06cb	3e 04 	ld a,$04	ld a,$00
+06cd	ca 91 07 	jp z,$0791	jp z,$0000
+06d0	cd 20 40 	call $4020	call $0000
+06d3	21 00 52 	ld hl,$5200	ld hl,$0000
+06d6	cd 3d 06 	call $063d	call $0000
+06d9	38 1c 	jr c,$+$1e	jr c,$+$00
+06db	fe 0a 	cp $0a	cp $00
+06dd	28 18 	jr z,$+$1a	jr z,$+$00
+06df	fe 21 	cp $21	cp $00
+06e1	38 f3 	jr c,$-$0b	jr c,$-$00
+06e3	77 	ld (hl),a	ld (hl),a
+06e4	2c 	inc l	inc l
+06e5	cd 3d 06 	call $063d	call $0000
+06e8	38 26 	jr c,$+$28	jr c,$+$00
+06ea	fe 20 	cp $20	cp $00
+06ec	38 05 	jr c,$+$07	jr c,$+$00
+06ee	77 	ld (hl),a	ld (hl),a
+06ef	2c 	inc l	inc l
+06f0	ca d1 3e 	jp z,$3ed1	jp z,$0000
+06f3	fe 0a 	cp $0a	cp $00
+06f5	20 ee 	jr nz,$-$10	jr nz,$-$00
+06f7	36 0d 	ld (hl),$0d	ld (hl),$00
+06f9	7d 	ld a,l	ld a,l
+06fa	fe 02 	cp $02	cp $00
+06fc	38 08 	jr c,$+$0a	jr c,$+$00
+06fe	d5 	push de	push de
+06ff	cd 1b 07 	call $071b	call $0000
+0702	dc fc 3f 	call c,$3ffc	call c,$0000
+0705	d1 	pop de	pop de
+0706	cd 4e 06 	call $064e	call $0000
+0709	20 c8 	jr nz,$-$36	jr nz,$-$00
+070b	cd 35 06 	call $0635	call $0000
+070e	37 	scf	scf
+070f	c9 	ret	ret
+0710	fe 20 	cp $20	cp $00
+0712	38 05 	jr c,$+$07	jr c,$+$00
+0714	77 	ld (hl),a	ld (hl),a
+0715	2c 	inc l	inc l
+0716	ca d1 3e 	jp z,$3ed1	jp z,$0000
+0719	18 dc 	jr $-$22	jr $-$00
+071b	af 	xor a	xor a
+071c	32 fb 54 	ld ($54fb),a	ld ($0000),a
+071f	fd 21 00 52 	ld iy,$5200	ld iy,$0000
+0723	cd 6c 43 	call $436c	call $0000
+0726	cd ed 44 	call $44ed	call $0000
+0729	7c 	ld a,h	ld a,h
+072a	b5 	or l	or l
+072b	28 00 	jr z,$+$02	jr z,$+$00
+072d	11 00 53 	ld de,$5300	ld de,$0000
+0730	0e 01 	ld c,$01	ld c,$00
+0732	e5 	push hl	push hl
+0733	cd fa 43 	call $43fa	call $0000
+0736	e1 	pop hl	pop hl
+0737	12 	ld (de),a	ld (de),a
+0738	af 	xor a	xor a
+0739	47 	ld b,a	ld b,a
+073a	4b 	ld c,e	ld c,e
+073b	13 	inc de	inc de
+073c	12 	ld (de),a	ld (de),a
+073d	7c 	ld a,h	ld a,h
+073e	b5 	or l	or l
+073f	fd 21 00 53 	ld iy,$5300	ld iy,$0000
+0743	ca 7b 24 	jp z,$247b	jp z,$0000
+0746	c5 	push bc	push bc
+0747	cd 25 41 	call $4125	call $0000
+074a	cc cb 3f 	call z,$3fcb	call z,$0000
+074d	c1 	pop bc	pop bc
+074e	79 	ld a,c	ld a,c
+074f	b7 	or a	or a
+0750	c8 	ret z	ret z
+0751	c6 04 	add a,$04	add a,$00
+0753	4f 	ld c,a	ld c,a
+0754	d5 	push de	push de
+0755	c5 	push bc	push bc
+0756	eb 	ex de,hl	ex de,hl
+0757	c5 	push bc	push bc
+0758	cd 07 40 	call $4007	call $0000
+075b	c1 	pop bc	pop bc
+075c	e5 	push hl	push hl
+075d	09 	add hl,bc	add hl,bc
+075e	e5 	push hl	push hl
+075f	24 	inc h	inc h
+0760	af 	xor a	xor a
+0761	ed 72 	sbc hl,sp	sbc hl,sp
+0763	e1 	pop hl	pop hl
+0764	d2 26 3f 	jp nc,$3f26	jp nc,$0000
+0767	e3 	ex (sp),hl	ex (sp),hl
+0768	e5 	push hl	push hl
+0769	23 	inc hl	inc hl
+076a	b7 	or a	or a
+076b	ed 52 	sbc hl,de	sbc hl,de
+076d	44 	ld b,h	ld b,h
+076e	4d 	ld c,l	ld c,l
+076f	e1 	pop hl	pop hl
+0770	d1 	pop de	pop de
+0771	28 02 	jr z,$+$04	jr z,$+$00
+0773	ed b8 	lddr	lddr
+0775	c1 	pop bc	pop bc
+0776	d1 	pop de	pop de
+0777	23 	inc hl	inc hl
+0778	71 	ld (hl),c	ld (hl),c
+0779	23 	inc hl	inc hl
+077a	73 	ld (hl),e	ld (hl),e
+077b	23 	inc hl	inc hl
+077c	72 	ld (hl),d	ld (hl),d
+077d	23 	inc hl	inc hl
+077e	11 00 53 	ld de,$5300	ld de,$0000
+0781	eb 	ex de,hl	ex de,hl
+0782	0d 	dec c	dec c
+0783	0d 	dec c	dec c
+0784	0d 	dec c	dec c
+0785	ed b0 	ldir	ldir
+0787	37 	scf	scf
+0788	c9 	ret	ret
+0789	3e 01 	ld a,$01	ld a,$00
+078b	49 cf 	rst.lis $08	rst.lis $00
+078d	d0 	ret nc	ret nc
+078e	b7 	or a	or a
+078f	37 	scf	scf
+0790	c8 	ret z	ret z
+0791	f5 	push af	push af
+0792	21 00 52 	ld hl,$5200	ld hl,$0000
+0795	01 00 01 	ld bc,$0100	ld bc,$0000
+0798	5f 	ld e,a	ld e,a
+0799	3e 0f 	ld a,$0f	ld a,$00
+079b	49 cf 	rst.lis $08	rst.lis $00
+079d	f1 	pop af	pop af
+079e	e5 	push hl	push hl
+079f	c6 7f 	add a,$7f	add a,$00
+07a1	c3 37 3f 	jp $3f37	jp $0000
+07a4	c5 	push bc	push bc
+07a5	d5 	push de	push de
+07a6	11 00 52 	ld de,$5200	ld de,$0000
+07a9	cd 3d 05 	call $053d	call $0000
+07ac	21 00 52 	ld hl,$5200	ld hl,$0000
+07af	cd f7 07 	call $07f7	call $0000
+07b2	cd 08 08 	call $0808	call $0000
+07b5	d1 	pop de	pop de
+07b6	c1 	pop bc	pop bc
+07b7	b7 	or a	or a
+07b8	28 35 	jr z,$+$37	jr z,$+$00
+07ba	3a f4 50 	ld a,($50f4)	ld a,($0000)
+07bd	f5 	push af	push af
+07be	af 	xor a	xor a
+07bf	3c 	inc a	inc a
+07c0	32 f4 50 	ld ($50f4),a	ld ($0000),a
+07c3	cd 26 06 	call $0626	call $0000
+07c6	32 f5 50 	ld ($50f5),a	ld ($0000),a
+07c9	dd 21 fe 54 	ld ix,$54fe	ld ix,$0000
+07cd	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+07d0	d9 	exx	exx
+07d1	01 00 00 	ld bc,$0000	ld bc,$0000
+07d4	d9 	exx	exx
+07d5	7e 	ld a,(hl)	ld a,(hl)
+07d6	b7 	or a	or a
+07d7	28 0a 	jr z,$+$0c	jr z,$+$00
+07d9	23 	inc hl	inc hl
+07da	5e 	ld e,(hl)	ld e,(hl)
+07db	23 	inc hl	inc hl
+07dc	56 	ld d,(hl)	ld d,(hl)
+07dd	23 	inc hl	inc hl
+07de	cd 3f 40 	call $403f	call $0000
+07e1	18 f2 	jr $-$0c	jr $-$00
+07e3	3a f5 50 	ld a,($50f5)	ld a,($0000)
+07e6	5f 	ld e,a	ld e,a
+07e7	cd 35 06 	call $0635	call $0000
+07ea	f1 	pop af	pop af
+07eb	32 f4 50 	ld ($50f4),a	ld ($0000),a
+07ee	c9 	ret	ret
+07ef	3e 02 	ld a,$02	ld a,$00
+07f1	49 cf 	rst.lis $08	rst.lis $00
+07f3	b7 	or a	or a
+07f4	c8 	ret z	ret z
+07f5	18 9a 	jr $-$64	jr $-$00
+07f7	e5 	push hl	push hl
+07f8	0e 2e 	ld c,$2e	ld c,$00
+07fa	cd 5d 05 	call $055d	call $0000
+07fd	b7 	or a	or a
+07fe	20 06 	jr nz,$+$08	jr nz,$+$00
+0800	11 34 08 	ld de,$0834	ld de,$0000
+0803	cd 73 05 	call $0573	call $0000
+0806	e1 	pop hl	pop hl
+0807	c9 	ret	ret
+0808	e5 	push hl	push hl
+0809	0e 2e 	ld c,$2e	ld c,$00
+080b	cd 5d 05 	call $055d	call $0000
+080e	11 34 08 	ld de,$0834	ld de,$0000
+0811	e5 	push hl	push hl
+0812	cd 65 05 	call $0565	call $0000
+0815	e1 	pop hl	pop hl
+0816	28 18 	jr z,$+$1a	jr z,$+$00
+0818	1a 	ld a,(de)	ld a,(de)
+0819	13 	inc de	inc de
+081a	b7 	or a	or a
+081b	20 fb 	jr nz,$-$03	jr nz,$-$00
+081d	13 	inc de	inc de
+081e	1a 	ld a,(de)	ld a,(de)
+081f	b7 	or a	or a
+0820	20 ef 	jr nz,$-$0f	jr nz,$-$00
+0822	3e cc 	ld a,$cc	ld a,$00
+0824	cd 37 3f 	call $3f37	call $0000
+0827	42 	ld b,d	ld b,d
+0828	61 	ld h,c	ld h,c
+0829	64 	ld h,h	ld h,h
+082a	20 6e 	jr nz,$+$70	jr nz,$+$00
+082c	61 	ld h,c	ld h,c
+082d	6d 	ld l,l	ld l,l
+082e	65 	ld h,l	ld h,l
+082f	00 	nop	nop
+0830	13 	inc de	inc de
+0831	1a 	ld a,(de)	ld a,(de)
+0832	e1 	pop hl	pop hl
+0833	c9 	ret	ret
+0834	2e 42 	ld l,$42	ld l,$00
+0836	42 	ld b,d	ld b,d
+0837	43 	ld b,e	ld b,e
+0838	00 	nop	nop
+0839	00 	nop	nop
+083a	2e 54 	ld l,$54	ld l,$00
+083c	58 	ld e,b	ld e,b
+083d	54 	ld d,h	ld d,h
+083e	00 	nop	nop
+083f	01 2e 41 	ld bc,$412e	ld bc,$0000
+0842	53 	ld d,e	ld d,e
+0843	43 	ld b,e	ld b,e
+0844	00 	nop	nop
+0845	01 2e 42 	ld bc,$422e	ld bc,$0000
+0848	41 	ld b,c	ld b,c
+0849	53 	ld d,e	ld d,e
+084a	00 	nop	nop
+084b	01 00 fe 	ld bc,$fe00	ld bc,$0000
+084e	07 	rlca	rlca
+084f	ca 80 0a 	jp z,$0a80	jp z,$0000
+0852	fe 08 	cp $08	cp $00
+0854	28 14 	jr z,$+$16	jr z,$+$00
+0856	fe 09 	cp $09	cp $00
+0858	28 03 	jr z,$+$05	jr z,$+$00
+085a	c3 8f 08 	jp $088f	jp $0000
+085d	ed 5b f9 50 	ld de,($50f9)	ld de,($0000)
+0861	2a fb 50 	ld hl,($50fb)	ld hl,($0000)
+0864	cd fa 01 	call $01fa	call $0000
+0867	32 fd 50 	ld ($50fd),a	ld ($0000),a
+086a	c9 	ret	ret
+086b	fe 0b 	cp $0b	cp $00
+086d	28 31 	jr z,$+$33	jr z,$+$00
+086f	fe 0c 	cp $0c	cp $00
+0871	28 54 	jr z,$+$56	jr z,$+$00
+0873	fe 13 	cp $13	cp $00
+0875	28 77 	jr z,$+$79	jr z,$+$00
+0877	fe 76 	cp $76	cp $00
+0879	28 7b 	jr z,$+$7d	jr z,$+$00
+087b	fe 81 	cp $81	cp $00
+087d	ca 1e 09 	jp z,$091e	jp z,$0000
+0880	fe 86 	cp $86	cp $00
+0882	ca 38 09 	jp z,$0938	jp z,$0000
+0885	fe 87 	cp $87	cp $00
+0887	ca 67 09 	jp z,$0967	jp z,$0000
+088a	fe a0 	cp $a0	cp $00
+088c	ca 7d 09 	jp z,$097d	jp z,$0000
+088f	3e fe 	ld a,$fe	ld a,$00
+0891	cd 37 3f 	call $3f37	call $0000
+0894	42 	ld b,d	ld b,d
+0895	61 	ld h,c	ld h,c
+0896	64 	ld h,h	ld h,h
+0897	20 63 	jr nz,$+$65	jr nz,$+$00
+0899	6f 	ld l,a	ld l,a
+089a	6d 	ld l,l	ld l,l
+089b	6d 	ld l,l	ld l,l
+089c	61 	ld h,c	ld h,c
+089d	6e 	ld l,(hl)	ld l,(hl)
+089e	64 	ld h,h	ld h,h
+089f	00 	nop	nop
+08a0	3e 17 	ld a,$17	ld a,$00
+08a2	cd 93 05 	call $0593	call $0000
+08a5	3e 00 	ld a,$00	ld a,$00
+08a7	cd 93 05 	call $0593	call $0000
+08aa	3e 88 	ld a,$88	ld a,$00
+08ac	cd 93 05 	call $0593	call $0000
+08af	7d 	ld a,l	ld a,l
+08b0	cd 93 05 	call $0593	call $0000
+08b3	7c 	ld a,h	ld a,h
+08b4	cd 93 05 	call $0593	call $0000
+08b7	3e 00 	ld a,$00	ld a,$00
+08b9	cd 93 05 	call $0593	call $0000
+08bc	3e 00 	ld a,$00	ld a,$00
+08be	cd 93 05 	call $0593	call $0000
+08c1	3e ff 	ld a,$ff	ld a,$00
+08c3	cd 93 05 	call $0593	call $0000
+08c6	c9 	ret	ret
+08c7	3e 17 	ld a,$17	ld a,$00
+08c9	cd 93 05 	call $0593	call $0000
+08cc	3e 00 	ld a,$00	ld a,$00
+08ce	cd 93 05 	call $0593	call $0000
+08d1	3e 88 	ld a,$88	ld a,$00
+08d3	cd 93 05 	call $0593	call $0000
+08d6	3e 00 	ld a,$00	ld a,$00
+08d8	cd 93 05 	call $0593	call $0000
+08db	3e 00 	ld a,$00	ld a,$00
+08dd	cd 93 05 	call $0593	call $0000
+08e0	7d 	ld a,l	ld a,l
+08e1	cd 93 05 	call $0593	call $0000
+08e4	7c 	ld a,h	ld a,h
+08e5	cd 93 05 	call $0593	call $0000
+08e8	3e ff 	ld a,$ff	ld a,$00
+08ea	cd 93 05 	call $0593	call $0000
+08ed	c9 	ret	ret
+08ee	cd 6d 0a 	call $0a6d	call $0000
+08f1	2e 00 	ld l,$00	ld l,$00
+08f3	c3 30 1b 	jp $1b30	jp $0000
+08f6	3e 17 	ld a,$17	ld a,$00
+08f8	cd 93 05 	call $0593	call $0000
+08fb	3e 00 	ld a,$00	ld a,$00
+08fd	cd 93 05 	call $0593	call $0000
+0900	3e 88 	ld a,$88	ld a,$00
+0902	cd 93 05 	call $0593	call $0000
+0905	3e 00 	ld a,$00	ld a,$00
+0907	cd 93 05 	call $0593	call $0000
+090a	3e 00 	ld a,$00	ld a,$00
+090c	cd 93 05 	call $0593	call $0000
+090f	3e 00 	ld a,$00	ld a,$00
+0911	cd 93 05 	call $0593	call $0000
+0914	3e 00 	ld a,$00	ld a,$00
+0916	cd 93 05 	call $0593	call $0000
+0919	7d 	ld a,l	ld a,l
+091a	cd 93 05 	call $0593	call $0000
+091d	c9 	ret	ret
+091e	cd 0d 06 	call $060d	call $0000
+0921	28 09 	jr z,$+$0b	jr z,$+$00
+0923	7c 	ld a,h	ld a,h
+0924	b5 	or l	or l
+0925	c8 	ret z	ret z
+0926	cd 6d 0a 	call $0a6d	call $0000
+0929	2b 	dec hl	dec hl
+092a	18 f2 	jr $-$0c	jr $-$00
+092c	21 f6 50 	ld hl,$50f6	ld hl,$0000
+092f	36 00 	ld (hl),$00	ld (hl),$00
+0931	fe 1b 	cp $1b	cp $00
+0933	37 	scf	scf
+0934	c0 	ret nz	ret nz
+0935	c3 f8 05 	jp $05f8	jp $0000
+0938	dd e5 	push ix	push ix
+093a	3e 08 	ld a,$08	ld a,$00
+093c	49 cf 	rst.lis $08	rst.lis $00
+093e	5b dd cb 04 86 	res.lil 0,(ix+$04)	res.lil 0,(ix+$00)
+0943	3e 17 	ld a,$17	ld a,$00
+0945	cd 93 05 	call $0593	call $0000
+0948	3e 00 	ld a,$00	ld a,$00
+094a	cd 93 05 	call $0593	call $0000
+094d	3e 82 	ld a,$82	ld a,$00
+094f	cd 93 05 	call $0593	call $0000
+0952	5b dd cb 04 46 	bit.lil 0,(ix+$04)	bit.lil 0,(ix+$00)
+0957	28 f9 	jr z,$-$05	jr z,$-$00
+0959	16 00 	ld d,$00	ld d,$00
+095b	62 	ld h,d	ld h,d
+095c	5b dd 5e 07 	ld.lil e,(ix+$07)	ld.lil e,(ix+$00)
+0960	5b dd 6e 08 	ld.lil l,(ix+$08)	ld.lil l,(ix+$00)
+0964	dd e1 	pop ix	pop ix
+0966	c9 	ret	ret
+0967	dd e5 	push ix	push ix
+0969	cd 8b 0d 	call $0d8b	call $0000
+096c	cd bd 01 	call $01bd	call $0000
+096f	6f 	ld l,a	ld l,a
+0970	3e 08 	ld a,$08	ld a,$00
+0972	49 cf 	rst.lis $08	rst.lis $00
+0974	5b dd 66 27 	ld.lil h,(ix+$27)	ld.lil h,(ix+$00)
+0978	dd e1 	pop ix	pop ix
+097a	c3 32 1b 	jp $1b32	jp $0000
+097d	dd e5 	push ix	push ix
+097f	3e 08 	ld a,$08	ld a,$00
+0981	49 cf 	rst.lis $08	rst.lis $00
+0983	5b 01 00 00 00 	ld.lil bc,$000000	ld.lil bc,$000000
+0988	4d 	ld c,l	ld c,l
+0989	5b dd 09 	add.lil ix,bc	add.lil ix,bc
+098c	5b dd 6e 00 	ld.lil l,(ix)	ld.lil l,(ix)
+0990	dd e1 	pop ix	pop ix
+0992	c3 30 1b 	jp $1b30	jp $0000
+0995	cd ef 09 	call $09ef	call $0000
+0998	fe 0d 	cp $0d	cp $00
+099a	c8 	ret z	ret z
+099b	fe 7c 	cp $7c	cp $00
+099d	c8 	ret z	ret z
+099e	eb 	ex de,hl	ex de,hl
+099f	21 fe 09 	ld hl,$09fe	ld hl,$0000
+09a2	1a 	ld a,(de)	ld a,(de)
+09a3	cd f6 09 	call $09f6	call $0000
+09a6	be 	cp (hl)	cp (hl)
+09a7	28 0b 	jr z,$+$0d	jr z,$+$00
+09a9	38 2e 	jr c,$+$30	jr c,$+$00
+09ab	cb 7e 	bit 7,(hl)	bit 7,(hl)
+09ad	23 	inc hl	inc hl
+09ae	28 fb 	jr z,$-$03	jr z,$-$00
+09b0	23 	inc hl	inc hl
+09b1	23 	inc hl	inc hl
+09b2	18 ee 	jr $-$10	jr $-$00
+09b4	d5 	push de	push de
+09b5	13 	inc de	inc de
+09b6	23 	inc hl	inc hl
+09b7	1a 	ld a,(de)	ld a,(de)
+09b8	cd f6 09 	call $09f6	call $0000
+09bb	fe 2e 	cp $2e	cp $00
+09bd	28 0a 	jr z,$+$0c	jr z,$+$00
+09bf	ae 	xor (hl)	xor (hl)
+09c0	28 f3 	jr z,$-$0b	jr z,$-$00
+09c2	fe 80 	cp $80	cp $00
+09c4	28 03 	jr z,$+$05	jr z,$+$00
+09c6	d1 	pop de	pop de
+09c7	18 e2 	jr $-$1c	jr $-$00
+09c9	f1 	pop af	pop af
+09ca	13 	inc de	inc de
+09cb	cb 7e 	bit 7,(hl)	bit 7,(hl)
+09cd	23 	inc hl	inc hl
+09ce	28 fb 	jr z,$-$03	jr z,$-$00
+09d0	7e 	ld a,(hl)	ld a,(hl)
+09d1	23 	inc hl	inc hl
+09d2	66 	ld h,(hl)	ld h,(hl)
+09d3	6f 	ld l,a	ld l,a
+09d4	e5 	push hl	push hl
+09d5	eb 	ex de,hl	ex de,hl
+09d6	c3 ef 09 	jp $09ef	jp $0000
+09d9	eb 	ex de,hl	ex de,hl
+09da	11 00 52 	ld de,$5200	ld de,$0000
+09dd	d5 	push de	push de
+09de	cd 4f 05 	call $054f	call $0000
+09e1	e1 	pop hl	pop hl
+09e2	fd e5 	push iy	push iy
+09e4	3e 10 	ld a,$10	ld a,$00
+09e6	49 cf 	rst.lis $08	rst.lis $00
+09e8	fd e1 	pop iy	pop iy
+09ea	b7 	or a	or a
+09eb	c8 	ret z	ret z
+09ec	c3 91 07 	jp $0791	jp $0000
+09ef	7e 	ld a,(hl)	ld a,(hl)
+09f0	fe 20 	cp $20	cp $00
+09f2	c0 	ret nz	ret nz
+09f3	23 	inc hl	inc hl
+09f4	18 f9 	jr $-$05	jr $-$00
+09f6	e6 7f 	and $7f	and $00
+09f8	fe 60 	cp $60	cp $00
+09fa	d8 	ret c	ret c
+09fb	e6 5f 	and $5f	and $00
+09fd	c9 	ret	ret
+09fe	42 	ld b,d	ld b,d
+09ff	59 	ld e,c	ld e,c
+0a00	45 	ld b,l	ld b,l
+0a01	0e 0a 	ld c,$0a	ld c,$00
+0a03	45 	ld b,l	ld b,l
+0a04	44 	ld b,h	ld b,h
+0a05	49 54 	ld.lis d,h	ld.lis d,h
+0a07	19 	add hl,de	add hl,de
+0a08	0a 	ld a,(bc)	ld a,(bc)
+0a09	46 	ld b,(hl)	ld b,(hl)
+0a0a	58 	ld e,b	ld e,b
+0a0b	55 	ld d,l	ld d,l
+0a0c	0a 	ld a,(bc)	ld a,(bc)
+0a0d	ff 	rst $38	rst $00
+0a0e	cd 48 04 	call $0448	call $0000
+0a11	5b dd e1 	pop.lil ix	pop.lil ix
+0a14	21 00 00 	ld hl,$0000	ld hl,$0000
+0a17	dd e9 	jp (ix)	jp (ix)
+0a19	cd be 04 	call $04be	call $0000
+0a1c	eb 	ex de,hl	ex de,hl
+0a1d	cd 25 41 	call $4125	call $0000
+0a20	3e 29 	ld a,$29	ld a,$00
+0a22	c2 26 3f 	jp nz,$3f26	jp nz,$0000
+0a25	23 	inc hl	inc hl
+0a26	5e 	ld e,(hl)	ld e,(hl)
+0a27	23 	inc hl	inc hl
+0a28	56 	ld d,(hl)	ld d,(hl)
+0a29	23 	inc hl	inc hl
+0a2a	dd 21 00 52 	ld ix,$5200	ld ix,$0000
+0a2e	dd 22 f2 50 	ld ($50f2),ix	ld ($0000),ix
+0a32	dd 21 fe 54 	ld ix,$54fe	ld ix,$0000
+0a36	dd 7e 00 	ld a,(ix)	ld a,(ix)
+0a39	f5 	push af	push af
+0a3a	dd 36 00 09 	ld (ix),$09	ld (ix),$00
+0a3e	cd 3f 40 	call $403f	call $0000
+0a41	f1 	pop af	pop af
+0a42	dd 77 00 	ld (ix),a	ld (ix),a
+0a45	21 00 52 	ld hl,$5200	ld hl,$0000
+0a48	5d 	ld e,l	ld e,l
+0a49	cd cb 05 	call $05cb	call $0000
+0a4c	cd 1b 07 	call $071b	call $0000
+0a4f	dc fc 3f 	call c,$3ffc	call c,$0000
+0a52	c3 92 37 	jp $3792	jp $0000
+0a55	cd be 04 	call $04be	call $0000
+0a58	4b 	ld c,e	ld c,e
+0a59	cd be 04 	call $04be	call $0000
+0a5c	7a 	ld a,d	ld a,d
+0a5d	b7 	or a	or a
+0a5e	28 03 	jr z,$+$05	jr z,$+$00
+0a60	eb 	ex de,hl	ex de,hl
+0a61	18 06 	jr $+$08	jr $+$00
+0a63	43 	ld b,e	ld b,e
+0a64	cd be 04 	call $04be	call $0000
+0a67	68 	ld l,b	ld l,b
+0a68	63 	ld h,e	ld h,e
+0a69	79 	ld a,c	ld a,c
+0a6a	c3 6b 08 	jp $086b	jp $0000
+0a6d	dd e5 	push ix	push ix
+0a6f	3e 08 	ld a,$08	ld a,$00
+0a71	49 cf 	rst.lis $08	rst.lis $00
+0a73	5b dd 7e 00 	ld.lil a,(ix)	ld.lil a,(ix)
+0a77	5b dd be 00 	cp.lil (ix)	cp.lil (ix)
+0a7b	28 fa 	jr z,$-$04	jr z,$-$00
+0a7d	dd e1 	pop ix	pop ix
+0a7f	c9 	ret	ret
+0a80	7e 	ld a,(hl)	ld a,(hl)
+0a81	32 00 52 	ld ($5200),a	ld ($0000),a
+0a84	af 	xor a	xor a
+0a85	32 01 52 	ld ($5201),a	ld ($0000),a
+0a88	23 	inc hl	inc hl
+0a89	23 	inc hl	inc hl
+0a8a	4e 	ld c,(hl)	ld c,(hl)
+0a8b	06 06 	ld b,$06	ld b,$00
+0a8d	ed 4c 	mlt bc	mlt bc
+0a8f	79 	ld a,c	ld a,c
+0a90	32 02 52 	ld ($5202),a	ld ($0000),a
+0a93	23 	inc hl	inc hl
+0a94	23 	inc hl	inc hl
+0a95	e5 	push hl	push hl
+0a96	6e 	ld l,(hl)	ld l,(hl)
+0a97	26 00 	ld h,$00	ld h,$00
+0a99	11 0b 0b 	ld de,$0b0b	ld de,$0000
+0a9c	29 	add hl,hl	add hl,hl
+0a9d	19 	add hl,de	add hl,de
 0a9e	7e 	ld a,(hl)	ld a,(hl)
-0a9f	32 00 52 	ld ($5200),a	ld ($0000),a
-0aa2	af 	xor a	xor a
-0aa3	32 01 52 	ld ($5201),a	ld ($0000),a
-0aa6	23 	inc hl	inc hl
-0aa7	23 	inc hl	inc hl
-0aa8	4e 	ld c,(hl)	ld c,(hl)
-0aa9	06 06 	ld b,$06	ld b,$00
-0aab	ed 4c 	mlt bc	mlt bc
-0aad	79 	ld a,c	ld a,c
-0aae	32 02 52 	ld ($5202),a	ld ($0000),a
-0ab1	23 	inc hl	inc hl
-0ab2	23 	inc hl	inc hl
-0ab3	e5 	push hl	push hl
-0ab4	6e 	ld l,(hl)	ld l,(hl)
-0ab5	26 00 	ld h,$00	ld h,$00
-0ab7	11 29 0b 	ld de,$0b29	ld de,$0000
-0aba	29 	add hl,hl	add hl,hl
-0abb	19 	add hl,de	add hl,de
-0abc	7e 	ld a,(hl)	ld a,(hl)
-0abd	32 03 52 	ld ($5203),a	ld ($0000),a
-0ac0	23 	inc hl	inc hl
-0ac1	7e 	ld a,(hl)	ld a,(hl)
-0ac2	32 04 52 	ld ($5204),a	ld ($0000),a
-0ac5	e1 	pop hl	pop hl
-0ac6	23 	inc hl	inc hl
-0ac7	23 	inc hl	inc hl
-0ac8	4e 	ld c,(hl)	ld c,(hl)
-0ac9	06 32 	ld b,$32	ld b,$00
-0acb	ed 4c 	mlt bc	mlt bc
-0acd	ed 43 05 52 	ld ($5205),bc	ld ($0000),bc
-0ad1	dd e5 	push ix	push ix
-0ad3	3e 08 	ld a,$08	ld a,$00
-0ad5	49 cf 	rst.lis $08	rst.lis $00
-0ad7	5b dd cb 04 9e 	res.lil 3,(ix+$04)	res.lil 3,(ix+$00)
-0adc	3e 17 	ld a,$17	ld a,$00
-0ade	cd b1 05 	call $05b1	call $0000
-0ae1	3e 00 	ld a,$00	ld a,$00
-0ae3	cd b1 05 	call $05b1	call $0000
-0ae6	3e 85 	ld a,$85	ld a,$00
-0ae8	cd b1 05 	call $05b1	call $0000
-0aeb	3a 00 52 	ld a,($5200)	ld a,($0000)
-0aee	cd b1 05 	call $05b1	call $0000
-0af1	3a 01 52 	ld a,($5201)	ld a,($0000)
-0af4	cd b1 05 	call $05b1	call $0000
-0af7	3a 02 52 	ld a,($5202)	ld a,($0000)
-0afa	cd b1 05 	call $05b1	call $0000
-0afd	3a 03 52 	ld a,($5203)	ld a,($0000)
-0b00	cd b1 05 	call $05b1	call $0000
-0b03	3a 04 52 	ld a,($5204)	ld a,($0000)
-0b06	cd b1 05 	call $05b1	call $0000
-0b09	3a 05 52 	ld a,($5205)	ld a,($0000)
-0b0c	cd b1 05 	call $05b1	call $0000
-0b0f	3a 06 52 	ld a,($5206)	ld a,($0000)
-0b12	cd b1 05 	call $05b1	call $0000
-0b15	5b dd cb 04 5e 	bit.lil 3,(ix+$04)	bit.lil 3,(ix+$00)
-0b1a	28 f9 	jr z,$-$05	jr z,$-$00
-0b1c	cd 36 06 	call $0636	call $0000
-0b1f	5b dd 7e 0e 	ld.lil a,(ix+$0e)	ld.lil a,(ix+$00)
-0b23	a7 	and a	and a
-0b24	28 b1 	jr z,$-$4d	jr z,$-$00
-0b26	dd e1 	pop ix	pop ix
-0b28	c9 	ret	ret
-0b29	75 	ld (hl),l	ld (hl),l
+0a9f	32 03 52 	ld ($5203),a	ld ($0000),a
+0aa2	23 	inc hl	inc hl
+0aa3	7e 	ld a,(hl)	ld a,(hl)
+0aa4	32 04 52 	ld ($5204),a	ld ($0000),a
+0aa7	e1 	pop hl	pop hl
+0aa8	23 	inc hl	inc hl
+0aa9	23 	inc hl	inc hl
+0aaa	4e 	ld c,(hl)	ld c,(hl)
+0aab	06 32 	ld b,$32	ld b,$00
+0aad	ed 4c 	mlt bc	mlt bc
+0aaf	ed 43 05 52 	ld ($5205),bc	ld ($0000),bc
+0ab3	dd e5 	push ix	push ix
+0ab5	3e 08 	ld a,$08	ld a,$00
+0ab7	49 cf 	rst.lis $08	rst.lis $00
+0ab9	5b dd cb 04 9e 	res.lil 3,(ix+$04)	res.lil 3,(ix+$00)
+0abe	3e 17 	ld a,$17	ld a,$00
+0ac0	cd 93 05 	call $0593	call $0000
+0ac3	3e 00 	ld a,$00	ld a,$00
+0ac5	cd 93 05 	call $0593	call $0000
+0ac8	3e 85 	ld a,$85	ld a,$00
+0aca	cd 93 05 	call $0593	call $0000
+0acd	3a 00 52 	ld a,($5200)	ld a,($0000)
+0ad0	cd 93 05 	call $0593	call $0000
+0ad3	3a 01 52 	ld a,($5201)	ld a,($0000)
+0ad6	cd 93 05 	call $0593	call $0000
+0ad9	3a 02 52 	ld a,($5202)	ld a,($0000)
+0adc	cd 93 05 	call $0593	call $0000
+0adf	3a 03 52 	ld a,($5203)	ld a,($0000)
+0ae2	cd 93 05 	call $0593	call $0000
+0ae5	3a 04 52 	ld a,($5204)	ld a,($0000)
+0ae8	cd 93 05 	call $0593	call $0000
+0aeb	3a 05 52 	ld a,($5205)	ld a,($0000)
+0aee	cd 93 05 	call $0593	call $0000
+0af1	3a 06 52 	ld a,($5206)	ld a,($0000)
+0af4	cd 93 05 	call $0593	call $0000
+0af7	5b dd cb 04 5e 	bit.lil 3,(ix+$04)	bit.lil 3,(ix+$00)
+0afc	28 f9 	jr z,$-$05	jr z,$-$00
+0afe	cd 18 06 	call $0618	call $0000
+0b01	5b dd 7e 0e 	ld.lil a,(ix+$0e)	ld.lil a,(ix+$00)
+0b05	a7 	and a	and a
+0b06	28 b1 	jr z,$-$4d	jr z,$-$00
+0b08	dd e1 	pop ix	pop ix
+0b0a	c9 	ret	ret
+0b0b	75 	ld (hl),l	ld (hl),l
+0b0c	00 	nop	nop
+0b0d	76 	halt	halt
+0b0e	00 	nop	nop
+0b0f	78 	ld a,b	ld a,b
+0b10	00 	nop	nop
+0b11	7a 	ld a,d	ld a,d
+0b12	00 	nop	nop
+0b13	7b 	ld a,e	ld a,e
+0b14	00 	nop	nop
+0b15	83 	add a,e	add a,e
+0b16	00 	nop	nop
+0b17	85 	add a,l	add a,l
+0b18	00 	nop	nop
+0b19	87 	add a,a	add a,a
+0b1a	00 	nop	nop
+0b1b	89 	adc a,c	adc a,c
+0b1c	00 	nop	nop
+0b1d	8b 	adc a,e	adc a,e
+0b1e	00 	nop	nop
+0b1f	8d 	adc a,l	adc a,l
+0b20	00 	nop	nop
+0b21	8f 	adc a,a	adc a,a
+0b22	00 	nop	nop
+0b23	91 	sub c	sub c
+0b24	00 	nop	nop
+0b25	93 	sub e	sub e
+0b26	00 	nop	nop
+0b27	95 	sub l	sub l
+0b28	00 	nop	nop
+0b29	97 	sub a	sub a
 0b2a	00 	nop	nop
-0b2b	76 	halt	halt
+0b2b	99 	sbc a,c	sbc a,c
 0b2c	00 	nop	nop
-0b2d	78 	ld a,b	ld a,b
+0b2d	9c 	sbc a,h	sbc a,h
 0b2e	00 	nop	nop
-0b2f	7a 	ld a,d	ld a,d
+0b2f	9e 	sbc a,(hl)	sbc a,(hl)
 0b30	00 	nop	nop
-0b31	7b 	ld a,e	ld a,e
+0b31	a0 	and b	and b
 0b32	00 	nop	nop
-0b33	83 	add a,e	add a,e
+0b33	a2 	and d	and d
 0b34	00 	nop	nop
-0b35	85 	add a,l	add a,l
+0b35	a5 	and l	and l
 0b36	00 	nop	nop
-0b37	87 	add a,a	add a,a
+0b37	a7 	and a	and a
 0b38	00 	nop	nop
-0b39	89 	adc a,c	adc a,c
+0b39	aa 	xor d	xor d
 0b3a	00 	nop	nop
-0b3b	8b 	adc a,e	adc a,e
+0b3b	ac 	xor h	xor h
 0b3c	00 	nop	nop
-0b3d	8d 	adc a,l	adc a,l
+0b3d	af 	xor a	xor a
 0b3e	00 	nop	nop
-0b3f	8f 	adc a,a	adc a,a
+0b3f	b1 	or c	or c
 0b40	00 	nop	nop
-0b41	91 	sub c	sub c
+0b41	b4 	or h	or h
 0b42	00 	nop	nop
-0b43	93 	sub e	sub e
+0b43	b6 	or (hl)	or (hl)
 0b44	00 	nop	nop
-0b45	95 	sub l	sub l
+0b45	b9 	cp c	cp c
 0b46	00 	nop	nop
-0b47	97 	sub a	sub a
+0b47	bc 	cp h	cp h
 0b48	00 	nop	nop
-0b49	99 	sbc a,c	sbc a,c
+0b49	be 	cp (hl)	cp (hl)
 0b4a	00 	nop	nop
-0b4b	9c 	sbc a,h	sbc a,h
+0b4b	c1 	pop bc	pop bc
 0b4c	00 	nop	nop
-0b4d	9e 	sbc a,(hl)	sbc a,(hl)
-0b4e	00 	nop	nop
-0b4f	a0 	and b	and b
+0b4d	c4 00 c7 	call nz,$c700	call nz,$0000
 0b50	00 	nop	nop
-0b51	a2 	and d	and d
-0b52	00 	nop	nop
-0b53	a5 	and l	and l
+0b51	ca 00 cd 	jp z,$cd00	jp z,$0000
 0b54	00 	nop	nop
-0b55	a7 	and a	and a
+0b55	d0 	ret nc	ret nc
 0b56	00 	nop	nop
-0b57	aa 	xor d	xor d
-0b58	00 	nop	nop
-0b59	ac 	xor h	xor h
-0b5a	00 	nop	nop
-0b5b	af 	xor a	xor a
+0b57	d3 00 	out ($00),a	out ($00),a
+0b59	d6 00 	sub $00	sub $00
+0b5b	d9 	exx	exx
 0b5c	00 	nop	nop
-0b5d	b1 	or c	or c
-0b5e	00 	nop	nop
-0b5f	b4 	or h	or h
+0b5d	dc 00 df 	call c,$df00	call c,$0000
 0b60	00 	nop	nop
-0b61	b6 	or (hl)	or (hl)
-0b62	00 	nop	nop
-0b63	b9 	cp c	cp c
+0b61	e2 00 e6 	jp po,$e600	jp po,$0000
 0b64	00 	nop	nop
-0b65	bc 	cp h	cp h
+0b65	e9 	jp (hl)	jp (hl)
 0b66	00 	nop	nop
-0b67	be 	cp (hl)	cp (hl)
-0b68	00 	nop	nop
-0b69	c1 	pop bc	pop bc
+0b67	ec 00 f0 	call pe,$f000	call pe,$0000
 0b6a	00 	nop	nop
-0b6b	c4 00 c7 	call nz,$c700	call nz,$0000
+0b6b	f3 	di	di
+0b6c	00 	nop	nop
+0b6d	f7 	rst $30	rst $00
 0b6e	00 	nop	nop
-0b6f	ca 00 cd 	jp z,$cd00	jp z,$0000
-0b72	00 	nop	nop
-0b73	d0 	ret nc	ret nc
-0b74	00 	nop	nop
-0b75	d3 00 	out ($00),a	out ($00),a
-0b77	d6 00 	sub $00	sub $00
-0b79	d9 	exx	exx
-0b7a	00 	nop	nop
-0b7b	dc 00 df 	call c,$df00	call c,$0000
-0b7e	00 	nop	nop
-0b7f	e2 00 e6 	jp po,$e600	jp po,$0000
-0b82	00 	nop	nop
-0b83	e9 	jp (hl)	jp (hl)
-0b84	00 	nop	nop
-0b85	ec 00 f0 	call pe,$f000	call pe,$0000
-0b88	00 	nop	nop
-0b89	f3 	di	di
-0b8a	00 	nop	nop
-0b8b	f7 	rst $30	rst $00
-0b8c	00 	nop	nop
-0b8d	fb 	ei	ei
-0b8e	00 	nop	nop
-0b8f	fe 00 	cp $00	cp $00
-0b91	02 	ld (bc),a	ld (bc),a
-0b92	01 06 01 	ld bc,$0106	ld bc,$0000
-0b95	09 	add hl,bc	add hl,bc
-0b96	01 0d 01 	ld bc,$010d	ld bc,$0000
-0b99	11 01 15 	ld de,$1501	ld de,$0000
-0b9c	01 19 01 	ld bc,$0119	ld bc,$0000
-0b9f	1d 	dec e	dec e
-0ba0	01 21 01 	ld bc,$0121	ld bc,$0000
-0ba3	26 01 	ld h,$01	ld h,$00
-0ba5	2a 01 2e 	ld hl,($2e01)	ld hl,($0000)
-0ba8	01 33 01 	ld bc,$0133	ld bc,$0000
-0bab	37 	scf	scf
-0bac	01 3c 01 	ld bc,$013c	ld bc,$0000
-0baf	40 01 45 01 	ld.sis bc,$0145	ld.sis bc,$0000
-0bb3	4a 	ld c,d	ld c,d
-0bb4	01 4e 01 	ld bc,$014e	ld bc,$0000
-0bb7	53 	ld d,e	ld d,e
-0bb8	01 58 01 	ld bc,$0158	ld bc,$0000
-0bbb	5d 	ld e,l	ld e,l
-0bbc	01 62 01 	ld bc,$0162	ld bc,$0000
-0bbf	67 	ld h,a	ld h,a
-0bc0	01 6d 01 	ld bc,$016d	ld bc,$0000
-0bc3	72 	ld (hl),d	ld (hl),d
-0bc4	01 77 01 	ld bc,$0177	ld bc,$0000
-0bc7	7d 	ld a,l	ld a,l
-0bc8	01 82 01 	ld bc,$0182	ld bc,$0000
-0bcb	88 	adc a,b	adc a,b
-0bcc	01 8e 01 	ld bc,$018e	ld bc,$0000
-0bcf	93 	sub e	sub e
-0bd0	01 99 01 	ld bc,$0199	ld bc,$0000
-0bd3	9f 	sbc a,a	sbc a,a
-0bd4	01 a5 01 	ld bc,$01a5	ld bc,$0000
-0bd7	ab 	xor e	xor e
-0bd8	01 b2 01 	ld bc,$01b2	ld bc,$0000
-0bdb	b8 	cp b	cp b
-0bdc	01 be 01 	ld bc,$01be	ld bc,$0000
-0bdf	c5 	push bc	push bc
-0be0	01 cb 01 	ld bc,$01cb	ld bc,$0000
-0be3	d2 01 d9 	jp nc,$d901	jp nc,$0000
-0be6	01 e0 01 	ld bc,$01e0	ld bc,$0000
-0be9	e7 	rst $20	rst $00
-0bea	01 ee 01 	ld bc,$01ee	ld bc,$0000
-0bed	f5 	push af	push af
-0bee	01 fc 01 	ld bc,$01fc	ld bc,$0000
-0bf1	04 	inc b	inc b
+0b6f	fb 	ei	ei
+0b70	00 	nop	nop
+0b71	fe 00 	cp $00	cp $00
+0b73	02 	ld (bc),a	ld (bc),a
+0b74	01 06 01 	ld bc,$0106	ld bc,$0000
+0b77	09 	add hl,bc	add hl,bc
+0b78	01 0d 01 	ld bc,$010d	ld bc,$0000
+0b7b	11 01 15 	ld de,$1501	ld de,$0000
+0b7e	01 19 01 	ld bc,$0119	ld bc,$0000
+0b81	1d 	dec e	dec e
+0b82	01 21 01 	ld bc,$0121	ld bc,$0000
+0b85	26 01 	ld h,$01	ld h,$00
+0b87	2a 01 2e 	ld hl,($2e01)	ld hl,($0000)
+0b8a	01 33 01 	ld bc,$0133	ld bc,$0000
+0b8d	37 	scf	scf
+0b8e	01 3c 01 	ld bc,$013c	ld bc,$0000
+0b91	40 01 45 01 	ld.sis bc,$0145	ld.sis bc,$0000
+0b95	4a 	ld c,d	ld c,d
+0b96	01 4e 01 	ld bc,$014e	ld bc,$0000
+0b99	53 	ld d,e	ld d,e
+0b9a	01 58 01 	ld bc,$0158	ld bc,$0000
+0b9d	5d 	ld e,l	ld e,l
+0b9e	01 62 01 	ld bc,$0162	ld bc,$0000
+0ba1	67 	ld h,a	ld h,a
+0ba2	01 6d 01 	ld bc,$016d	ld bc,$0000
+0ba5	72 	ld (hl),d	ld (hl),d
+0ba6	01 77 01 	ld bc,$0177	ld bc,$0000
+0ba9	7d 	ld a,l	ld a,l
+0baa	01 82 01 	ld bc,$0182	ld bc,$0000
+0bad	88 	adc a,b	adc a,b
+0bae	01 8e 01 	ld bc,$018e	ld bc,$0000
+0bb1	93 	sub e	sub e
+0bb2	01 99 01 	ld bc,$0199	ld bc,$0000
+0bb5	9f 	sbc a,a	sbc a,a
+0bb6	01 a5 01 	ld bc,$01a5	ld bc,$0000
+0bb9	ab 	xor e	xor e
+0bba	01 b2 01 	ld bc,$01b2	ld bc,$0000
+0bbd	b8 	cp b	cp b
+0bbe	01 be 01 	ld bc,$01be	ld bc,$0000
+0bc1	c5 	push bc	push bc
+0bc2	01 cb 01 	ld bc,$01cb	ld bc,$0000
+0bc5	d2 01 d9 	jp nc,$d901	jp nc,$0000
+0bc8	01 e0 01 	ld bc,$01e0	ld bc,$0000
+0bcb	e7 	rst $20	rst $00
+0bcc	01 ee 01 	ld bc,$01ee	ld bc,$0000
+0bcf	f5 	push af	push af
+0bd0	01 fc 01 	ld bc,$01fc	ld bc,$0000
+0bd3	04 	inc b	inc b
+0bd4	02 	ld (bc),a	ld (bc),a
+0bd5	0b 	dec bc	dec bc
+0bd6	02 	ld (bc),a	ld (bc),a
+0bd7	13 	inc de	inc de
+0bd8	02 	ld (bc),a	ld (bc),a
+0bd9	1b 	dec de	dec de
+0bda	02 	ld (bc),a	ld (bc),a
+0bdb	22 02 2a 	ld ($2a02),hl	ld ($0000),hl
+0bde	02 	ld (bc),a	ld (bc),a
+0bdf	32 02 3b 	ld ($3b02),a	ld ($0000),a
+0be2	02 	ld (bc),a	ld (bc),a
+0be3	43 	ld b,e	ld b,e
+0be4	02 	ld (bc),a	ld (bc),a
+0be5	4b 	ld c,e	ld c,e
+0be6	02 	ld (bc),a	ld (bc),a
+0be7	54 	ld d,h	ld d,h
+0be8	02 	ld (bc),a	ld (bc),a
+0be9	5d 	ld e,l	ld e,l
+0bea	02 	ld (bc),a	ld (bc),a
+0beb	65 	ld h,l	ld h,l
+0bec	02 	ld (bc),a	ld (bc),a
+0bed	6e 	ld l,(hl)	ld l,(hl)
+0bee	02 	ld (bc),a	ld (bc),a
+0bef	77 	ld (hl),a	ld (hl),a
+0bf0	02 	ld (bc),a	ld (bc),a
+0bf1	81 	add a,c	add a,c
 0bf2	02 	ld (bc),a	ld (bc),a
-0bf3	0b 	dec bc	dec bc
+0bf3	8a 	adc a,d	adc a,d
 0bf4	02 	ld (bc),a	ld (bc),a
-0bf5	13 	inc de	inc de
+0bf5	93 	sub e	sub e
 0bf6	02 	ld (bc),a	ld (bc),a
-0bf7	1b 	dec de	dec de
+0bf7	9d 	sbc a,l	sbc a,l
 0bf8	02 	ld (bc),a	ld (bc),a
-0bf9	22 02 2a 	ld ($2a02),hl	ld ($0000),hl
+0bf9	a7 	and a	and a
+0bfa	02 	ld (bc),a	ld (bc),a
+0bfb	b1 	or c	or c
 0bfc	02 	ld (bc),a	ld (bc),a
-0bfd	32 02 3b 	ld ($3b02),a	ld ($0000),a
+0bfd	bb 	cp e	cp e
+0bfe	02 	ld (bc),a	ld (bc),a
+0bff	c5 	push bc	push bc
 0c00	02 	ld (bc),a	ld (bc),a
-0c01	43 	ld b,e	ld b,e
+0c01	cf 	rst $08	rst $00
 0c02	02 	ld (bc),a	ld (bc),a
-0c03	4b 	ld c,e	ld c,e
+0c03	d9 	exx	exx
 0c04	02 	ld (bc),a	ld (bc),a
-0c05	54 	ld d,h	ld d,h
-0c06	02 	ld (bc),a	ld (bc),a
-0c07	5d 	ld e,l	ld e,l
+0c05	e4 02 ef 	call po,$ef02	call po,$0000
 0c08	02 	ld (bc),a	ld (bc),a
-0c09	65 	ld h,l	ld h,l
-0c0a	02 	ld (bc),a	ld (bc),a
-0c0b	6e 	ld l,(hl)	ld l,(hl)
-0c0c	02 	ld (bc),a	ld (bc),a
-0c0d	77 	ld (hl),a	ld (hl),a
-0c0e	02 	ld (bc),a	ld (bc),a
-0c0f	81 	add a,c	add a,c
-0c10	02 	ld (bc),a	ld (bc),a
-0c11	8a 	adc a,d	adc a,d
-0c12	02 	ld (bc),a	ld (bc),a
-0c13	93 	sub e	sub e
-0c14	02 	ld (bc),a	ld (bc),a
-0c15	9d 	sbc a,l	sbc a,l
-0c16	02 	ld (bc),a	ld (bc),a
-0c17	a7 	and a	and a
-0c18	02 	ld (bc),a	ld (bc),a
-0c19	b1 	or c	or c
-0c1a	02 	ld (bc),a	ld (bc),a
-0c1b	bb 	cp e	cp e
-0c1c	02 	ld (bc),a	ld (bc),a
-0c1d	c5 	push bc	push bc
-0c1e	02 	ld (bc),a	ld (bc),a
-0c1f	cf 	rst $08	rst $00
-0c20	02 	ld (bc),a	ld (bc),a
-0c21	d9 	exx	exx
-0c22	02 	ld (bc),a	ld (bc),a
-0c23	e4 02 ef 	call po,$ef02	call po,$0000
-0c26	02 	ld (bc),a	ld (bc),a
-0c27	fa 02 05 	jp m,$0502	jp m,$0000
+0c09	fa 02 05 	jp m,$0502	jp m,$0000
+0c0c	03 	inc bc	inc bc
+0c0d	10 03 	djnz $+$05	djnz $+$00
+0c0f	1b 	dec de	dec de
+0c10	03 	inc bc	inc bc
+0c11	27 	daa	daa
+0c12	03 	inc bc	inc bc
+0c13	33 	inc sp	inc sp
+0c14	03 	inc bc	inc bc
+0c15	3f 	ccf	ccf
+0c16	03 	inc bc	inc bc
+0c17	4b 	ld c,e	ld c,e
+0c18	03 	inc bc	inc bc
+0c19	57 	ld d,a	ld d,a
+0c1a	03 	inc bc	inc bc
+0c1b	63 	ld h,e	ld h,e
+0c1c	03 	inc bc	inc bc
+0c1d	70 	ld (hl),b	ld (hl),b
+0c1e	03 	inc bc	inc bc
+0c1f	7d 	ld a,l	ld a,l
+0c20	03 	inc bc	inc bc
+0c21	8a 	adc a,d	adc a,d
+0c22	03 	inc bc	inc bc
+0c23	97 	sub a	sub a
+0c24	03 	inc bc	inc bc
+0c25	a4 	and h	and h
+0c26	03 	inc bc	inc bc
+0c27	b2 	or d	or d
+0c28	03 	inc bc	inc bc
+0c29	c0 	ret nz	ret nz
 0c2a	03 	inc bc	inc bc
-0c2b	10 03 	djnz $+$05	djnz $+$00
-0c2d	1b 	dec de	dec de
-0c2e	03 	inc bc	inc bc
-0c2f	27 	daa	daa
+0c2b	ce 03 	adc a,$03	adc a,$00
+0c2d	dc 03 ea 	call c,$ea03	call c,$0000
 0c30	03 	inc bc	inc bc
-0c31	33 	inc sp	inc sp
+0c31	f9 	ld sp,hl	ld sp,hl
 0c32	03 	inc bc	inc bc
-0c33	3f 	ccf	ccf
-0c34	03 	inc bc	inc bc
-0c35	4b 	ld c,e	ld c,e
-0c36	03 	inc bc	inc bc
-0c37	57 	ld d,a	ld d,a
-0c38	03 	inc bc	inc bc
-0c39	63 	ld h,e	ld h,e
-0c3a	03 	inc bc	inc bc
-0c3b	70 	ld (hl),b	ld (hl),b
-0c3c	03 	inc bc	inc bc
-0c3d	7d 	ld a,l	ld a,l
-0c3e	03 	inc bc	inc bc
-0c3f	8a 	adc a,d	adc a,d
-0c40	03 	inc bc	inc bc
-0c41	97 	sub a	sub a
-0c42	03 	inc bc	inc bc
-0c43	a4 	and h	and h
-0c44	03 	inc bc	inc bc
-0c45	b2 	or d	or d
-0c46	03 	inc bc	inc bc
-0c47	c0 	ret nz	ret nz
-0c48	03 	inc bc	inc bc
-0c49	ce 03 	adc a,$03	adc a,$00
-0c4b	dc 03 ea 	call c,$ea03	call c,$0000
-0c4e	03 	inc bc	inc bc
-0c4f	f9 	ld sp,hl	ld sp,hl
-0c50	03 	inc bc	inc bc
-0c51	08 	ex af,af'	ex af,af'
-0c52	04 	inc b	inc b
-0c53	17 	rla	rla
-0c54	04 	inc b	inc b
-0c55	26 04 	ld h,$04	ld h,$00
-0c57	36 04 	ld (hl),$04	ld (hl),$00
-0c59	45 	ld b,l	ld b,l
-0c5a	04 	inc b	inc b
-0c5b	55 	ld d,l	ld d,l
-0c5c	04 	inc b	inc b
-0c5d	65 	ld h,l	ld h,l
-0c5e	04 	inc b	inc b
-0c5f	76 	halt	halt
-0c60	04 	inc b	inc b
-0c61	86 	add a,(hl)	add a,(hl)
-0c62	04 	inc b	inc b
-0c63	97 	sub a	sub a
-0c64	04 	inc b	inc b
-0c65	a8 	xor b	xor b
-0c66	04 	inc b	inc b
-0c67	ba 	cp d	cp d
-0c68	04 	inc b	inc b
-0c69	cb 04 	rlc h	rlc h
-0c6b	dd 04 	trap	trap
-0c6d	ef 	rst $28	rst $00
-0c6e	04 	inc b	inc b
-0c6f	02 	ld (bc),a	ld (bc),a
-0c70	05 	dec b	dec b
-0c71	14 	inc d	inc d
-0c72	05 	dec b	dec b
-0c73	27 	daa	daa
-0c74	05 	dec b	dec b
-0c75	3a 05 4e 	ld a,($4e05)	ld a,($0000)
-0c78	05 	dec b	dec b
-0c79	62 	ld h,d	ld h,d
-0c7a	05 	dec b	dec b
-0c7b	76 	halt	halt
-0c7c	05 	dec b	dec b
-0c7d	8a 	adc a,d	adc a,d
-0c7e	05 	dec b	dec b
-0c7f	9f 	sbc a,a	sbc a,a
-0c80	05 	dec b	dec b
-0c81	b3 	or e	or e
-0c82	05 	dec b	dec b
-0c83	c9 	ret	ret
-0c84	05 	dec b	dec b
-0c85	de 05 	sbc a,$05	sbc a,$00
-0c87	f4 05 0a 	call p,$0a05	call p,$0000
-0c8a	06 21 	ld b,$21	ld b,$00
-0c8c	06 38 	ld b,$38	ld b,$00
-0c8e	06 4f 	ld b,$4f	ld b,$00
-0c90	06 66 	ld b,$66	ld b,$00
-0c92	06 7e 	ld b,$7e	ld b,$00
-0c94	06 96 	ld b,$96	ld b,$00
-0c96	06 af 	ld b,$af	ld b,$00
-0c98	06 c8 	ld b,$c8	ld b,$00
-0c9a	06 e1 	ld b,$e1	ld b,$00
-0c9c	06 fa 	ld b,$fa	ld b,$00
-0c9e	06 14 	ld b,$14	ld b,$00
-0ca0	07 	rlca	rlca
-0ca1	2f 	cpl	cpl
-0ca2	07 	rlca	rlca
-0ca3	4a 	ld c,d	ld c,d
-0ca4	07 	rlca	rlca
-0ca5	65 	ld h,l	ld h,l
-0ca6	07 	rlca	rlca
-0ca7	80 	add a,b	add a,b
-0ca8	07 	rlca	rlca
-0ca9	9c 	sbc a,h	sbc a,h
-0caa	07 	rlca	rlca
-0cab	b8 	cp b	cp b
-0cac	07 	rlca	rlca
-0cad	d5 	push de	push de
-0cae	07 	rlca	rlca
-0caf	f2 07 10 	jp p,$1007	jp p,$0000
-0cb2	08 	ex af,af'	ex af,af'
-0cb3	2d 	dec l	dec l
-0cb4	08 	ex af,af'	ex af,af'
-0cb5	4b 	ld c,e	ld c,e
-0cb6	08 	ex af,af'	ex af,af'
-0cb7	6a 	ld l,d	ld l,d
-0cb8	08 	ex af,af'	ex af,af'
-0cb9	8a 	adc a,d	adc a,d
-0cba	08 	ex af,af'	ex af,af'
-0cbb	a9 	xor c	xor c
-0cbc	08 	ex af,af'	ex af,af'
-0cbd	ca 08 ea 	jp z,$ea08	jp z,$0000
-0cc0	08 	ex af,af'	ex af,af'
-0cc1	0c 	inc c	inc c
-0cc2	09 	add hl,bc	add hl,bc
-0cc3	2d 	dec l	dec l
-0cc4	09 	add hl,bc	add hl,bc
-0cc5	4f 	ld c,a	ld c,a
-0cc6	09 	add hl,bc	add hl,bc
-0cc7	72 	ld (hl),d	ld (hl),d
-0cc8	09 	add hl,bc	add hl,bc
-0cc9	95 	sub l	sub l
-0cca	09 	add hl,bc	add hl,bc
-0ccb	b9 	cp c	cp c
-0ccc	09 	add hl,bc	add hl,bc
-0ccd	dd 09 	add ix,bc	add ix,bc
-0ccf	02 	ld (bc),a	ld (bc),a
-0cd0	0a 	ld a,(bc)	ld a,(bc)
-0cd1	27 	daa	daa
-0cd2	0a 	ld a,(bc)	ld a,(bc)
-0cd3	4d 	ld c,l	ld c,l
-0cd4	0a 	ld a,(bc)	ld a,(bc)
-0cd5	73 	ld (hl),e	ld (hl),e
-0cd6	0a 	ld a,(bc)	ld a,(bc)
-0cd7	9a 	sbc a,d	sbc a,d
-0cd8	0a 	ld a,(bc)	ld a,(bc)
-0cd9	c2 0a ea 	jp nz,$ea0a	jp nz,$0000
-0cdc	0a 	ld a,(bc)	ld a,(bc)
-0cdd	12 	ld (de),a	ld (de),a
-0cde	0b 	dec bc	dec bc
-0cdf	3c 	inc a	inc a
-0ce0	0b 	dec bc	dec bc
-0ce1	66 	ld h,(hl)	ld h,(hl)
-0ce2	0b 	dec bc	dec bc
-0ce3	90 	sub b	sub b
-0ce4	0b 	dec bc	dec bc
-0ce5	bb 	cp e	cp e
-0ce6	0b 	dec bc	dec bc
-0ce7	e7 	rst $20	rst $00
-0ce8	0b 	dec bc	dec bc
-0ce9	13 	inc de	inc de
-0cea	0c 	inc c	inc c
-0ceb	40 0c 	inc.sis c	inc.sis c
-0ced	6e 	ld l,(hl)	ld l,(hl)
-0cee	0c 	inc c	inc c
-0cef	9c 	sbc a,h	sbc a,h
-0cf0	0c 	inc c	inc c
-0cf1	cb 0c 	rrc h	rrc h
-0cf3	fa 0c 2b 	jp m,$2b0c	jp m,$0000
-0cf6	0d 	dec c	dec c
-0cf7	5c 	ld e,h	ld e,h
-0cf8	0d 	dec c	dec c
-0cf9	8e 	adc a,(hl)	adc a,(hl)
-0cfa	0d 	dec c	dec c
-0cfb	c0 	ret nz	ret nz
-0cfc	0d 	dec c	dec c
-0cfd	f3 	di	di
-0cfe	0d 	dec c	dec c
-0cff	27 	daa	daa
-0d00	0e 5c 	ld c,$5c	ld c,$00
-0d02	0e 91 	ld c,$91	ld c,$00
-0d04	0e c8 	ld c,$c8	ld c,$00
-0d06	0e ff 	ld c,$ff	ld c,$00
-0d08	0e 36 	ld c,$36	ld c,$00
-0d0a	0f 	rrca	rrca
-0d0b	6f 	ld l,a	ld l,a
-0d0c	0f 	rrca	rrca
-0d0d	a9 	xor c	xor c
-0d0e	0f 	rrca	rrca
-0d0f	e3 	ex (sp),hl	ex (sp),hl
-0d10	0f 	rrca	rrca
-0d11	1e 10 	ld e,$10	ld e,$00
-0d13	5a 	ld e,d	ld e,d
-0d14	10 97 	djnz $-$67	djnz $-$00
-0d16	10 d5 	djnz $-$29	djnz $-$00
-0d18	10 13 	djnz $+$15	djnz $+$00
-0d1a	11 53 11 	ld de,$1153	ld de,$0000
-0d1d	93 	sub e	sub e
-0d1e	11 d5 11 	ld de,$11d5	ld de,$0000
-0d21	17 	rla	rla
-0d22	12 	ld (de),a	ld (de),a
-0d23	5b 12 	ld.lil (de),a	ld.lil (de),a
-0d25	9f 	sbc a,a	sbc a,a
-0d26	12 	ld (de),a	ld (de),a
-0d27	e4 12 3e 	call po,$3e12	call po,$0000
-0d2a	01 21 17 	ld bc,$1721	ld bc,$0000
-0d2d	51 	ld d,c	ld d,c
-0d2e	cd 6b 08 	call $086b	call $0000
-0d31	21 17 51 	ld hl,$5117	ld hl,$0000
-0d34	5e 	ld e,(hl)	ld e,(hl)
-0d35	23 	inc hl	inc hl
-0d36	56 	ld d,(hl)	ld d,(hl)
-0d37	23 	inc hl	inc hl
-0d38	7e 	ld a,(hl)	ld a,(hl)
-0d39	23 	inc hl	inc hl
-0d3a	66 	ld h,(hl)	ld h,(hl)
-0d3b	6f 	ld l,a	ld l,a
-0d3c	eb 	ex de,hl	ex de,hl
-0d3d	c9 	ret	ret
-0d3e	3e 0e 	ld a,$0e	ld a,$00
-0d40	21 17 51 	ld hl,$5117	ld hl,$0000
-0d43	36 00 	ld (hl),$00	ld (hl),$00
-0d45	cd 6b 08 	call $086b	call $0000
-0d48	21 17 51 	ld hl,$5117	ld hl,$0000
-0d4b	11 00 52 	ld de,$5200	ld de,$0000
-0d4e	7e 	ld a,(hl)	ld a,(hl)
-0d4f	bb 	cp e	cp e
-0d50	c8 	ret z	ret z
-0d51	01 19 00 	ld bc,$0019	ld bc,$0000
-0d54	ed b0 	ldir	ldir
-0d56	c9 	ret	ret
-0d57	dd e5 	push ix	push ix
-0d59	dd 21 17 51 	ld ix,$5117	ld ix,$0000
-0d5d	dd 75 00 	ld (ix),l	ld (ix),l
-0d60	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
-0d63	dd 73 02 	ld (ix+$02),e	ld (ix+$00),e
-0d66	dd 72 03 	ld (ix+$03),d	ld (ix+$00),d
-0d69	3e 02 	ld a,$02	ld a,$00
-0d6b	21 17 51 	ld hl,$5117	ld hl,$0000
-0d6e	cd 6b 08 	call $086b	call $0000
-0d71	dd e1 	pop ix	pop ix
-0d73	c9 	ret	ret
-0d74	7b 	ld a,e	ld a,e
-0d75	fe 1a 	cp $1a	cp $00
-0d77	d0 	ret nc	ret nc
-0d78	06 00 	ld b,$00	ld b,$00
-0d7a	4f 	ld c,a	ld c,a
-0d7b	11 18 51 	ld de,$5118	ld de,$0000
-0d7e	21 00 52 	ld hl,$5200	ld hl,$0000
-0d81	ed b0 	ldir	ldir
-0d83	21 17 51 	ld hl,$5117	ld hl,$0000
-0d86	77 	ld (hl),a	ld (hl),a
-0d87	3e 0f 	ld a,$0f	ld a,$00
-0d89	c3 6b 08 	jp $086b	jp $0000
-0d8c	3e 0c 	ld a,$0c	ld a,$00
-0d8e	c3 b1 05 	jp $05b1	jp $0000
-0d91	3e 81 	ld a,$81	ld a,$00
-0d93	cd 89 08 	call $0889	call $0000
-0d96	7c 	ld a,h	ld a,h
-0d97	b7 	or a	or a
-0d98	c0 	ret nz	ret nz
-0d99	7d 	ld a,l	ld a,l
-0d9a	37 	scf	scf
-0d9b	c9 	ret	ret
-0d9c	3e 1f 	ld a,$1f	ld a,$00
-0d9e	cd b1 05 	call $05b1	call $0000
-0da1	7b 	ld a,e	ld a,e
-0da2	cd b1 05 	call $05b1	call $0000
-0da5	7d 	ld a,l	ld a,l
-0da6	c3 b1 05 	jp $05b1	jp $0000
-0da9	3e 86 	ld a,$86	ld a,$00
-0dab	cd 89 08 	call $0889	call $0000
-0dae	5d 	ld e,l	ld e,l
-0daf	6c 	ld l,h	ld l,h
-0db0	16 00 	ld d,$00	ld d,$00
-0db2	62 	ld h,d	ld h,d
-0db3	c9 	ret	ret
-0db4	cd 33 18 	call $1833	call $0000
-0db7	d9 	exx	exx
-0db8	e5 	push hl	push hl
-0db9	cd f1 10 	call $10f1	call $0000
-0dbc	d9 	exx	exx
-0dbd	d1 	pop de	pop de
-0dbe	cd ae 20 	call $20ae	call $0000
-0dc1	dd 21 17 51 	ld ix,$5117	ld ix,$0000
-0dc5	dd 73 00 	ld (ix),e	ld (ix),e
-0dc8	dd 72 01 	ld (ix+$01),d	ld (ix+$00),d
-0dcb	dd 75 02 	ld (ix+$02),l	ld (ix+$00),l
-0dce	dd 74 03 	ld (ix+$03),h	ld (ix+$00),h
-0dd1	21 17 51 	ld hl,$5117	ld hl,$0000
-0dd4	3e 09 	ld a,$09	ld a,$00
-0dd6	cd 6b 08 	call $086b	call $0000
-0dd9	dd 7e 04 	ld a,(ix+$04)	ld a,(ix+$00)
-0ddc	6f 	ld l,a	ld l,a
-0ddd	c6 01 	add a,$01	add a,$00
-0ddf	9f 	sbc a,a	sbc a,a
-0de0	67 	ld h,a	ld h,a
-0de1	d9 	exx	exx
-0de2	67 	ld h,a	ld h,a
-0de3	6f 	ld l,a	ld l,a
-0de4	af 	xor a	xor a
-0de5	4f 	ld c,a	ld c,a
-0de6	c9 	ret	ret
-0de7	cd 60 18 	call $1860	call $0000
-0dea	d9 	exx	exx
-0deb	3e 80 	ld a,$80	ld a,$00
-0ded	cd 89 08 	call $0889	call $0000
-0df0	af 	xor a	xor a
-0df1	18 ee 	jr $-$10	jr $-$00
-0df3	3e 87 	ld a,$87	ld a,$00
-0df5	cd 89 08 	call $0889	call $0000
-0df8	6c 	ld l,h	ld l,h
-0df9	af 	xor a	xor a
-0dfa	67 	ld h,a	ld h,a
-0dfb	18 e4 	jr $-$1a	jr $-$00
-0dfd	3a fc 54 	ld a,($54fc)	ld a,($0000)
-0e00	6f 	ld l,a	ld l,a
-0e01	18 f6 	jr $-$08	jr $-$00
-0e03	06 00 	ld b,$00	ld b,$00
-0e05	dd 21 17 51 	ld ix,$5117	ld ix,$0000
-0e09	c5 	push bc	push bc
-0e0a	dd e5 	push ix	push ix
-0e0c	cd 33 18 	call $1833	call $0000
-0e0f	d9 	exx	exx
-0e10	dd e1 	pop ix	pop ix
-0e12	c1 	pop bc	pop bc
-0e13	dd 75 00 	ld (ix),l	ld (ix),l
-0e16	78 	ld a,b	ld a,b
-0e17	fe 0d 	cp $0d	cp $00
-0e19	28 0b 	jr z,$+$0d	jr z,$+$00
-0e1b	04 	inc b	inc b
-0e1c	dd 23 	inc ix	inc ix
-0e1e	c5 	push bc	push bc
-0e1f	dd e5 	push ix	push ix
-0e21	cd a2 20 	call $20a2	call $0000
-0e24	18 e6 	jr $-$18	jr $-$00
-0e26	21 17 51 	ld hl,$5117	ld hl,$0000
-0e29	3e 08 	ld a,$08	ld a,$00
-0e2b	cd 6b 08 	call $086b	call $0000
-0e2e	c3 99 24 	jp $2499	jp $0000
-0e31	06 00 	ld b,$00	ld b,$00
-0e33	dd 21 17 51 	ld ix,$5117	ld ix,$0000
-0e37	c5 	push bc	push bc
-0e38	dd e5 	push ix	push ix
-0e3a	cd 33 18 	call $1833	call $0000
-0e3d	d9 	exx	exx
-0e3e	dd e1 	pop ix	pop ix
-0e40	c1 	pop bc	pop bc
-0e41	dd 75 00 	ld (ix),l	ld (ix),l
-0e44	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
-0e47	dd 23 	inc ix	inc ix
-0e49	dd 23 	inc ix	inc ix
-0e4b	04 	inc b	inc b
-0e4c	04 	inc b	inc b
-0e4d	78 	ld a,b	ld a,b
-0e4e	fe 08 	cp $08	cp $00
-0e50	28 08 	jr z,$+$0a	jr z,$+$00
-0e52	c5 	push bc	push bc
-0e53	dd e5 	push ix	push ix
-0e55	cd a2 20 	call $20a2	call $0000
-0e58	18 e0 	jr $-$1e	jr $-$00
-0e5a	21 17 51 	ld hl,$5117	ld hl,$0000
-0e5d	3e 07 	ld a,$07	ld a,$00
-0e5f	cd 6b 08 	call $086b	call $0000
-0e62	c3 99 24 	jp $2499	jp $0000
-0e65	cd 33 18 	call $1833	call $0000
-0e68	af 	xor a	xor a
-0e69	32 fb 54 	ld ($54fb),a	ld ($0000),a
-0e6c	d9 	exx	exx
-0e6d	65 	ld h,l	ld h,l
-0e6e	2e 16 	ld l,$16	ld l,$00
-0e70	cd d8 10 	call $10d8	call $0000
-0e73	18 72 	jr $+$74	jr $+$00
-0e75	3e 10 	ld a,$10	ld a,$00
-0e77	cd b1 05 	call $05b1	call $0000
-0e7a	18 6b 	jr $+$6d	jr $+$00
-0e7c	cd 33 18 	call $1833	call $0000
-0e7f	d9 	exx	exx
-0e80	e5 	push hl	push hl
-0e81	cd f1 10 	call $10f1	call $0000
-0e84	d9 	exx	exx
-0e85	d1 	pop de	pop de
-0e86	0e 1d 	ld c,$1d	ld c,$00
-0e88	cd cc 10 	call $10cc	call $0000
-0e8b	18 5a 	jr $+$5c	jr $+$00
-0e8d	cd 33 18 	call $1833	call $0000
-0e90	d9 	exx	exx
-0e91	fd 7e 00 	ld a,(iy)	ld a,(iy)
-0e94	fe 2c 	cp $2c	cp $00
-0e96	28 08 	jr z,$+$0a	jr z,$+$00
-0e98	65 	ld h,l	ld h,l
-0e99	2e 11 	ld l,$11	ld l,$00
-0e9b	cd d8 10 	call $10d8	call $0000
-0e9e	18 47 	jr $+$49	jr $+$00
-0ea0	e5 	push hl	push hl
-0ea1	cd f1 10 	call $10f1	call $0000
-0ea4	d9 	exx	exx
-0ea5	eb 	ex de,hl	ex de,hl
-0ea6	21 00 00 	ld hl,$0000	ld hl,$0000
-0ea9	fd 7e 00 	ld a,(iy)	ld a,(iy)
-0eac	fe 2c 	cp $2c	cp $00
-0eae	20 15 	jr nz,$+$17	jr nz,$+$00
-0eb0	d5 	push de	push de
-0eb1	cd f1 10 	call $10f1	call $0000
-0eb4	d9 	exx	exx
-0eb5	e5 	push hl	push hl
-0eb6	cd f1 10 	call $10f1	call $0000
-0eb9	d9 	exx	exx
-0eba	d1 	pop de	pop de
-0ebb	c1 	pop bc	pop bc
-0ebc	7d 	ld a,l	ld a,l
-0ebd	e1 	pop hl	pop hl
-0ebe	51 	ld d,c	ld d,c
-0ebf	4d 	ld c,l	ld c,l
-0ec0	6b 	ld l,e	ld l,e
-0ec1	67 	ld h,a	ld h,a
-0ec2	1e 10 	ld e,$10	ld e,$00
-0ec4	c5 	push bc	push bc
-0ec5	c1 	pop bc	pop bc
-0ec6	06 13 	ld b,$13	ld b,$00
-0ec8	cd c8 10 	call $10c8	call $0000
-0ecb	18 1a 	jr $+$1c	jr $+$00
-0ecd	cd 33 18 	call $1833	call $0000
-0ed0	d9 	exx	exx
-0ed1	1e 00 	ld e,$00	ld e,$00
-0ed3	fd 7e 00 	ld a,(iy)	ld a,(iy)
-0ed6	fe 2c 	cp $2c	cp $00
-0ed8	20 06 	jr nz,$+$08	jr nz,$+$00
-0eda	e5 	push hl	push hl
-0edb	cd f1 10 	call $10f1	call $0000
-0ede	d9 	exx	exx
-0edf	d1 	pop de	pop de
-0ee0	65 	ld h,l	ld h,l
-0ee1	6b 	ld l,e	ld l,e
-0ee2	16 12 	ld d,$12	ld d,$00
-0ee4	cd d4 10 	call $10d4	call $0000
-0ee7	c3 99 24 	jp $2499	jp $0000
-0eea	0e 01 	ld c,$01	ld c,$00
-0eec	18 02 	jr $+$04	jr $+$00
-0eee	0e 00 	ld c,$00	ld c,$00
-0ef0	3e 17 	ld a,$17	ld a,$00
-0ef2	cd b1 05 	call $05b1	call $0000
-0ef5	3e 01 	ld a,$01	ld a,$00
-0ef7	cd b1 05 	call $05b1	call $0000
-0efa	79 	ld a,c	ld a,c
-0efb	06 08 	ld b,$08	ld b,$00
-0efd	cd b1 05 	call $05b1	call $0000
-0f00	af 	xor a	xor a
-0f01	10 fa 	djnz $-$04	djnz $-$00
-0f03	18 e2 	jr $-$1c	jr $-$00
-0f05	cd 33 18 	call $1833	call $0000
-0f08	d9 	exx	exx
-0f09	e5 	push hl	push hl
-0f0a	cd e0 10 	call $10e0	call $0000
-0f0d	e3 	ex (sp),hl	ex (sp),hl
-0f0e	c5 	push bc	push bc
-0f0f	eb 	ex de,hl	ex de,hl
-0f10	0e 04 	ld c,$04	ld c,$00
-0f12	cd c6 10 	call $10c6	call $0000
-0f15	d1 	pop de	pop de
-0f16	e1 	pop hl	pop hl
-0f17	0e 05 	ld c,$05	ld c,$00
-0f19	18 2a 	jr $+$2c	jr $+$00
-0f1b	fe 03 	cp $03	cp $00
-0f1d	f5 	push af	push af
-0f1e	20 02 	jr nz,$+$04	jr nz,$+$00
-0f20	fd 23 	inc iy	inc iy
-0f22	cd 33 18 	call $1833	call $0000
-0f25	d9 	exx	exx
-0f26	e5 	push hl	push hl
-0f27	cd f1 10 	call $10f1	call $0000
-0f2a	d9 	exx	exx
-0f2b	e5 	push hl	push hl
-0f2c	cd f1 10 	call $10f1	call $0000
-0f2f	d9 	exx	exx
-0f30	c1 	pop bc	pop bc
-0f31	d1 	pop de	pop de
-0f32	e5 	push hl	push hl
-0f33	69 	ld l,c	ld l,c
-0f34	60 	ld h,b	ld h,b
-0f35	0e 04 	ld c,$04	ld c,$00
-0f37	cd c6 10 	call $10c6	call $0000
-0f3a	d1 	pop de	pop de
-0f3b	21 00 00 	ld hl,$0000	ld hl,$0000
-0f3e	f1 	pop af	pop af
-0f3f	0e 91 	ld c,$91	ld c,$00
-0f41	20 02 	jr nz,$+$04	jr nz,$+$00
-0f43	0e 99 	ld c,$99	ld c,$00
-0f45	18 6c 	jr $+$6e	jr $+$00
-0f47	fe 03 	cp $03	cp $00
-0f49	f5 	push af	push af
-0f4a	20 02 	jr nz,$+$04	jr nz,$+$00
-0f4c	fd 23 	inc iy	inc iy
-0f4e	cd 33 18 	call $1833	call $0000
-0f51	d9 	exx	exx
-0f52	e5 	push hl	push hl
-0f53	cd e0 10 	call $10e0	call $0000
-0f56	e3 	ex (sp),hl	ex (sp),hl
-0f57	c5 	push bc	push bc
-0f58	eb 	ex de,hl	ex de,hl
-0f59	0e 04 	ld c,$04	ld c,$00
-0f5b	cd c6 10 	call $10c6	call $0000
-0f5e	d1 	pop de	pop de
-0f5f	d5 	push de	push de
-0f60	21 00 00 	ld hl,$0000	ld hl,$0000
-0f63	4d 	ld c,l	ld c,l
-0f64	cd c6 10 	call $10c6	call $0000
-0f67	d1 	pop de	pop de
-0f68	af 	xor a	xor a
-0f69	6f 	ld l,a	ld l,a
-0f6a	67 	ld h,a	ld h,a
-0f6b	ed 52 	sbc hl,de	sbc hl,de
-0f6d	eb 	ex de,hl	ex de,hl
-0f6e	e1 	pop hl	pop hl
-0f6f	f1 	pop af	pop af
-0f70	0e c1 	ld c,$c1	ld c,$00
-0f72	20 3f 	jr nz,$+$41	jr nz,$+$00
-0f74	0e c9 	ld c,$c9	ld c,$00
-0f76	18 3b 	jr $+$3d	jr $+$00
-0f78	0e 04 	ld c,$04	ld c,$00
-0f7a	18 23 	jr $+$25	jr $+$00
-0f7c	0e 05 	ld c,$05	ld c,$00
-0f7e	18 1f 	jr $+$21	jr $+$00
-0f80	0e 85 	ld c,$85	ld c,$00
-0f82	18 1b 	jr $+$1d	jr $+$00
-0f84	0e 45 	ld c,$45	ld c,$00
-0f86	fe 0f 	cp $0f	cp $00
-0f88	28 15 	jr z,$+$17	jr z,$+$00
-0f8a	cd 33 18 	call $1833	call $0000
+0c33	08 	ex af,af'	ex af,af'
+0c34	04 	inc b	inc b
+0c35	17 	rla	rla
+0c36	04 	inc b	inc b
+0c37	26 04 	ld h,$04	ld h,$00
+0c39	36 04 	ld (hl),$04	ld (hl),$00
+0c3b	45 	ld b,l	ld b,l
+0c3c	04 	inc b	inc b
+0c3d	55 	ld d,l	ld d,l
+0c3e	04 	inc b	inc b
+0c3f	65 	ld h,l	ld h,l
+0c40	04 	inc b	inc b
+0c41	76 	halt	halt
+0c42	04 	inc b	inc b
+0c43	86 	add a,(hl)	add a,(hl)
+0c44	04 	inc b	inc b
+0c45	97 	sub a	sub a
+0c46	04 	inc b	inc b
+0c47	a8 	xor b	xor b
+0c48	04 	inc b	inc b
+0c49	ba 	cp d	cp d
+0c4a	04 	inc b	inc b
+0c4b	cb 04 	rlc h	rlc h
+0c4d	dd 04 	trap	trap
+0c4f	ef 	rst $28	rst $00
+0c50	04 	inc b	inc b
+0c51	02 	ld (bc),a	ld (bc),a
+0c52	05 	dec b	dec b
+0c53	14 	inc d	inc d
+0c54	05 	dec b	dec b
+0c55	27 	daa	daa
+0c56	05 	dec b	dec b
+0c57	3a 05 4e 	ld a,($4e05)	ld a,($0000)
+0c5a	05 	dec b	dec b
+0c5b	62 	ld h,d	ld h,d
+0c5c	05 	dec b	dec b
+0c5d	76 	halt	halt
+0c5e	05 	dec b	dec b
+0c5f	8a 	adc a,d	adc a,d
+0c60	05 	dec b	dec b
+0c61	9f 	sbc a,a	sbc a,a
+0c62	05 	dec b	dec b
+0c63	b3 	or e	or e
+0c64	05 	dec b	dec b
+0c65	c9 	ret	ret
+0c66	05 	dec b	dec b
+0c67	de 05 	sbc a,$05	sbc a,$00
+0c69	f4 05 0a 	call p,$0a05	call p,$0000
+0c6c	06 21 	ld b,$21	ld b,$00
+0c6e	06 38 	ld b,$38	ld b,$00
+0c70	06 4f 	ld b,$4f	ld b,$00
+0c72	06 66 	ld b,$66	ld b,$00
+0c74	06 7e 	ld b,$7e	ld b,$00
+0c76	06 96 	ld b,$96	ld b,$00
+0c78	06 af 	ld b,$af	ld b,$00
+0c7a	06 c8 	ld b,$c8	ld b,$00
+0c7c	06 e1 	ld b,$e1	ld b,$00
+0c7e	06 fa 	ld b,$fa	ld b,$00
+0c80	06 14 	ld b,$14	ld b,$00
+0c82	07 	rlca	rlca
+0c83	2f 	cpl	cpl
+0c84	07 	rlca	rlca
+0c85	4a 	ld c,d	ld c,d
+0c86	07 	rlca	rlca
+0c87	65 	ld h,l	ld h,l
+0c88	07 	rlca	rlca
+0c89	80 	add a,b	add a,b
+0c8a	07 	rlca	rlca
+0c8b	9c 	sbc a,h	sbc a,h
+0c8c	07 	rlca	rlca
+0c8d	b8 	cp b	cp b
+0c8e	07 	rlca	rlca
+0c8f	d5 	push de	push de
+0c90	07 	rlca	rlca
+0c91	f2 07 10 	jp p,$1007	jp p,$0000
+0c94	08 	ex af,af'	ex af,af'
+0c95	2d 	dec l	dec l
+0c96	08 	ex af,af'	ex af,af'
+0c97	4b 	ld c,e	ld c,e
+0c98	08 	ex af,af'	ex af,af'
+0c99	6a 	ld l,d	ld l,d
+0c9a	08 	ex af,af'	ex af,af'
+0c9b	8a 	adc a,d	adc a,d
+0c9c	08 	ex af,af'	ex af,af'
+0c9d	a9 	xor c	xor c
+0c9e	08 	ex af,af'	ex af,af'
+0c9f	ca 08 ea 	jp z,$ea08	jp z,$0000
+0ca2	08 	ex af,af'	ex af,af'
+0ca3	0c 	inc c	inc c
+0ca4	09 	add hl,bc	add hl,bc
+0ca5	2d 	dec l	dec l
+0ca6	09 	add hl,bc	add hl,bc
+0ca7	4f 	ld c,a	ld c,a
+0ca8	09 	add hl,bc	add hl,bc
+0ca9	72 	ld (hl),d	ld (hl),d
+0caa	09 	add hl,bc	add hl,bc
+0cab	95 	sub l	sub l
+0cac	09 	add hl,bc	add hl,bc
+0cad	b9 	cp c	cp c
+0cae	09 	add hl,bc	add hl,bc
+0caf	dd 09 	add ix,bc	add ix,bc
+0cb1	02 	ld (bc),a	ld (bc),a
+0cb2	0a 	ld a,(bc)	ld a,(bc)
+0cb3	27 	daa	daa
+0cb4	0a 	ld a,(bc)	ld a,(bc)
+0cb5	4d 	ld c,l	ld c,l
+0cb6	0a 	ld a,(bc)	ld a,(bc)
+0cb7	73 	ld (hl),e	ld (hl),e
+0cb8	0a 	ld a,(bc)	ld a,(bc)
+0cb9	9a 	sbc a,d	sbc a,d
+0cba	0a 	ld a,(bc)	ld a,(bc)
+0cbb	c2 0a ea 	jp nz,$ea0a	jp nz,$0000
+0cbe	0a 	ld a,(bc)	ld a,(bc)
+0cbf	12 	ld (de),a	ld (de),a
+0cc0	0b 	dec bc	dec bc
+0cc1	3c 	inc a	inc a
+0cc2	0b 	dec bc	dec bc
+0cc3	66 	ld h,(hl)	ld h,(hl)
+0cc4	0b 	dec bc	dec bc
+0cc5	90 	sub b	sub b
+0cc6	0b 	dec bc	dec bc
+0cc7	bb 	cp e	cp e
+0cc8	0b 	dec bc	dec bc
+0cc9	e7 	rst $20	rst $00
+0cca	0b 	dec bc	dec bc
+0ccb	13 	inc de	inc de
+0ccc	0c 	inc c	inc c
+0ccd	40 0c 	inc.sis c	inc.sis c
+0ccf	6e 	ld l,(hl)	ld l,(hl)
+0cd0	0c 	inc c	inc c
+0cd1	9c 	sbc a,h	sbc a,h
+0cd2	0c 	inc c	inc c
+0cd3	cb 0c 	rrc h	rrc h
+0cd5	fa 0c 2b 	jp m,$2b0c	jp m,$0000
+0cd8	0d 	dec c	dec c
+0cd9	5c 	ld e,h	ld e,h
+0cda	0d 	dec c	dec c
+0cdb	8e 	adc a,(hl)	adc a,(hl)
+0cdc	0d 	dec c	dec c
+0cdd	c0 	ret nz	ret nz
+0cde	0d 	dec c	dec c
+0cdf	f3 	di	di
+0ce0	0d 	dec c	dec c
+0ce1	27 	daa	daa
+0ce2	0e 5c 	ld c,$5c	ld c,$00
+0ce4	0e 91 	ld c,$91	ld c,$00
+0ce6	0e c8 	ld c,$c8	ld c,$00
+0ce8	0e ff 	ld c,$ff	ld c,$00
+0cea	0e 36 	ld c,$36	ld c,$00
+0cec	0f 	rrca	rrca
+0ced	6f 	ld l,a	ld l,a
+0cee	0f 	rrca	rrca
+0cef	a9 	xor c	xor c
+0cf0	0f 	rrca	rrca
+0cf1	e3 	ex (sp),hl	ex (sp),hl
+0cf2	0f 	rrca	rrca
+0cf3	1e 10 	ld e,$10	ld e,$00
+0cf5	5a 	ld e,d	ld e,d
+0cf6	10 97 	djnz $-$67	djnz $-$00
+0cf8	10 d5 	djnz $-$29	djnz $-$00
+0cfa	10 13 	djnz $+$15	djnz $+$00
+0cfc	11 53 11 	ld de,$1153	ld de,$0000
+0cff	93 	sub e	sub e
+0d00	11 d5 11 	ld de,$11d5	ld de,$0000
+0d03	17 	rla	rla
+0d04	12 	ld (de),a	ld (de),a
+0d05	5b 12 	ld.lil (de),a	ld.lil (de),a
+0d07	9f 	sbc a,a	sbc a,a
+0d08	12 	ld (de),a	ld (de),a
+0d09	e4 12 3e 	call po,$3e12	call po,$0000
+0d0c	01 21 f9 	ld bc,$f921	ld bc,$0000
+0d0f	50 	ld d,b	ld d,b
+0d10	cd 4d 08 	call $084d	call $0000
+0d13	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0d16	5e 	ld e,(hl)	ld e,(hl)
+0d17	23 	inc hl	inc hl
+0d18	56 	ld d,(hl)	ld d,(hl)
+0d19	23 	inc hl	inc hl
+0d1a	7e 	ld a,(hl)	ld a,(hl)
+0d1b	23 	inc hl	inc hl
+0d1c	66 	ld h,(hl)	ld h,(hl)
+0d1d	6f 	ld l,a	ld l,a
+0d1e	eb 	ex de,hl	ex de,hl
+0d1f	c9 	ret	ret
+0d20	3e 0e 	ld a,$0e	ld a,$00
+0d22	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0d25	36 00 	ld (hl),$00	ld (hl),$00
+0d27	cd 4d 08 	call $084d	call $0000
+0d2a	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0d2d	11 00 52 	ld de,$5200	ld de,$0000
+0d30	7e 	ld a,(hl)	ld a,(hl)
+0d31	bb 	cp e	cp e
+0d32	c8 	ret z	ret z
+0d33	01 19 00 	ld bc,$0019	ld bc,$0000
+0d36	ed b0 	ldir	ldir
+0d38	c9 	ret	ret
+0d39	dd e5 	push ix	push ix
+0d3b	dd 21 f9 50 	ld ix,$50f9	ld ix,$0000
+0d3f	dd 75 00 	ld (ix),l	ld (ix),l
+0d42	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
+0d45	dd 73 02 	ld (ix+$02),e	ld (ix+$00),e
+0d48	dd 72 03 	ld (ix+$03),d	ld (ix+$00),d
+0d4b	3e 02 	ld a,$02	ld a,$00
+0d4d	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0d50	cd 4d 08 	call $084d	call $0000
+0d53	dd e1 	pop ix	pop ix
+0d55	c9 	ret	ret
+0d56	7b 	ld a,e	ld a,e
+0d57	fe 1a 	cp $1a	cp $00
+0d59	d0 	ret nc	ret nc
+0d5a	06 00 	ld b,$00	ld b,$00
+0d5c	4f 	ld c,a	ld c,a
+0d5d	11 fa 50 	ld de,$50fa	ld de,$0000
+0d60	21 00 52 	ld hl,$5200	ld hl,$0000
+0d63	ed b0 	ldir	ldir
+0d65	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0d68	77 	ld (hl),a	ld (hl),a
+0d69	3e 0f 	ld a,$0f	ld a,$00
+0d6b	c3 4d 08 	jp $084d	jp $0000
+0d6e	3e 0c 	ld a,$0c	ld a,$00
+0d70	c3 93 05 	jp $0593	jp $0000
+0d73	3e 81 	ld a,$81	ld a,$00
+0d75	cd 6b 08 	call $086b	call $0000
+0d78	7c 	ld a,h	ld a,h
+0d79	b7 	or a	or a
+0d7a	c0 	ret nz	ret nz
+0d7b	7d 	ld a,l	ld a,l
+0d7c	37 	scf	scf
+0d7d	c9 	ret	ret
+0d7e	3e 1f 	ld a,$1f	ld a,$00
+0d80	cd 93 05 	call $0593	call $0000
+0d83	7b 	ld a,e	ld a,e
+0d84	cd 93 05 	call $0593	call $0000
+0d87	7d 	ld a,l	ld a,l
+0d88	c3 93 05 	jp $0593	jp $0000
+0d8b	3e 86 	ld a,$86	ld a,$00
+0d8d	cd 6b 08 	call $086b	call $0000
+0d90	5d 	ld e,l	ld e,l
+0d91	6c 	ld l,h	ld l,h
+0d92	16 00 	ld d,$00	ld d,$00
+0d94	62 	ld h,d	ld h,d
+0d95	c9 	ret	ret
+0d96	cd 15 18 	call $1815	call $0000
+0d99	d9 	exx	exx
+0d9a	e5 	push hl	push hl
+0d9b	cd d3 10 	call $10d3	call $0000
+0d9e	d9 	exx	exx
+0d9f	d1 	pop de	pop de
+0da0	cd 90 20 	call $2090	call $0000
+0da3	dd 21 f9 50 	ld ix,$50f9	ld ix,$0000
+0da7	dd 73 00 	ld (ix),e	ld (ix),e
+0daa	dd 72 01 	ld (ix+$01),d	ld (ix+$00),d
+0dad	dd 75 02 	ld (ix+$02),l	ld (ix+$00),l
+0db0	dd 74 03 	ld (ix+$03),h	ld (ix+$00),h
+0db3	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0db6	3e 09 	ld a,$09	ld a,$00
+0db8	cd 4d 08 	call $084d	call $0000
+0dbb	dd 7e 04 	ld a,(ix+$04)	ld a,(ix+$00)
+0dbe	6f 	ld l,a	ld l,a
+0dbf	c6 01 	add a,$01	add a,$00
+0dc1	9f 	sbc a,a	sbc a,a
+0dc2	67 	ld h,a	ld h,a
+0dc3	d9 	exx	exx
+0dc4	67 	ld h,a	ld h,a
+0dc5	6f 	ld l,a	ld l,a
+0dc6	af 	xor a	xor a
+0dc7	4f 	ld c,a	ld c,a
+0dc8	c9 	ret	ret
+0dc9	cd 42 18 	call $1842	call $0000
+0dcc	d9 	exx	exx
+0dcd	3e 80 	ld a,$80	ld a,$00
+0dcf	cd 6b 08 	call $086b	call $0000
+0dd2	af 	xor a	xor a
+0dd3	18 ee 	jr $-$10	jr $-$00
+0dd5	3e 87 	ld a,$87	ld a,$00
+0dd7	cd 6b 08 	call $086b	call $0000
+0dda	6c 	ld l,h	ld l,h
+0ddb	af 	xor a	xor a
+0ddc	67 	ld h,a	ld h,a
+0ddd	18 e4 	jr $-$1a	jr $-$00
+0ddf	3a fc 54 	ld a,($54fc)	ld a,($0000)
+0de2	6f 	ld l,a	ld l,a
+0de3	18 f6 	jr $-$08	jr $-$00
+0de5	06 00 	ld b,$00	ld b,$00
+0de7	dd 21 f9 50 	ld ix,$50f9	ld ix,$0000
+0deb	c5 	push bc	push bc
+0dec	dd e5 	push ix	push ix
+0dee	cd 15 18 	call $1815	call $0000
+0df1	d9 	exx	exx
+0df2	dd e1 	pop ix	pop ix
+0df4	c1 	pop bc	pop bc
+0df5	dd 75 00 	ld (ix),l	ld (ix),l
+0df8	78 	ld a,b	ld a,b
+0df9	fe 0d 	cp $0d	cp $00
+0dfb	28 0b 	jr z,$+$0d	jr z,$+$00
+0dfd	04 	inc b	inc b
+0dfe	dd 23 	inc ix	inc ix
+0e00	c5 	push bc	push bc
+0e01	dd e5 	push ix	push ix
+0e03	cd 84 20 	call $2084	call $0000
+0e06	18 e6 	jr $-$18	jr $-$00
+0e08	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0e0b	3e 08 	ld a,$08	ld a,$00
+0e0d	cd 4d 08 	call $084d	call $0000
+0e10	c3 7b 24 	jp $247b	jp $0000
+0e13	06 00 	ld b,$00	ld b,$00
+0e15	dd 21 f9 50 	ld ix,$50f9	ld ix,$0000
+0e19	c5 	push bc	push bc
+0e1a	dd e5 	push ix	push ix
+0e1c	cd 15 18 	call $1815	call $0000
+0e1f	d9 	exx	exx
+0e20	dd e1 	pop ix	pop ix
+0e22	c1 	pop bc	pop bc
+0e23	dd 75 00 	ld (ix),l	ld (ix),l
+0e26	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
+0e29	dd 23 	inc ix	inc ix
+0e2b	dd 23 	inc ix	inc ix
+0e2d	04 	inc b	inc b
+0e2e	04 	inc b	inc b
+0e2f	78 	ld a,b	ld a,b
+0e30	fe 08 	cp $08	cp $00
+0e32	28 08 	jr z,$+$0a	jr z,$+$00
+0e34	c5 	push bc	push bc
+0e35	dd e5 	push ix	push ix
+0e37	cd 84 20 	call $2084	call $0000
+0e3a	18 e0 	jr $-$1e	jr $-$00
+0e3c	21 f9 50 	ld hl,$50f9	ld hl,$0000
+0e3f	3e 07 	ld a,$07	ld a,$00
+0e41	cd 4d 08 	call $084d	call $0000
+0e44	c3 7b 24 	jp $247b	jp $0000
+0e47	cd 15 18 	call $1815	call $0000
+0e4a	af 	xor a	xor a
+0e4b	32 fb 54 	ld ($54fb),a	ld ($0000),a
+0e4e	d9 	exx	exx
+0e4f	65 	ld h,l	ld h,l
+0e50	2e 16 	ld l,$16	ld l,$00
+0e52	cd ba 10 	call $10ba	call $0000
+0e55	18 72 	jr $+$74	jr $+$00
+0e57	3e 10 	ld a,$10	ld a,$00
+0e59	cd 93 05 	call $0593	call $0000
+0e5c	18 6b 	jr $+$6d	jr $+$00
+0e5e	cd 15 18 	call $1815	call $0000
+0e61	d9 	exx	exx
+0e62	e5 	push hl	push hl
+0e63	cd d3 10 	call $10d3	call $0000
+0e66	d9 	exx	exx
+0e67	d1 	pop de	pop de
+0e68	0e 1d 	ld c,$1d	ld c,$00
+0e6a	cd ae 10 	call $10ae	call $0000
+0e6d	18 5a 	jr $+$5c	jr $+$00
+0e6f	cd 15 18 	call $1815	call $0000
+0e72	d9 	exx	exx
+0e73	fd 7e 00 	ld a,(iy)	ld a,(iy)
+0e76	fe 2c 	cp $2c	cp $00
+0e78	28 08 	jr z,$+$0a	jr z,$+$00
+0e7a	65 	ld h,l	ld h,l
+0e7b	2e 11 	ld l,$11	ld l,$00
+0e7d	cd ba 10 	call $10ba	call $0000
+0e80	18 47 	jr $+$49	jr $+$00
+0e82	e5 	push hl	push hl
+0e83	cd d3 10 	call $10d3	call $0000
+0e86	d9 	exx	exx
+0e87	eb 	ex de,hl	ex de,hl
+0e88	21 00 00 	ld hl,$0000	ld hl,$0000
+0e8b	fd 7e 00 	ld a,(iy)	ld a,(iy)
+0e8e	fe 2c 	cp $2c	cp $00
+0e90	20 15 	jr nz,$+$17	jr nz,$+$00
+0e92	d5 	push de	push de
+0e93	cd d3 10 	call $10d3	call $0000
+0e96	d9 	exx	exx
+0e97	e5 	push hl	push hl
+0e98	cd d3 10 	call $10d3	call $0000
+0e9b	d9 	exx	exx
+0e9c	d1 	pop de	pop de
+0e9d	c1 	pop bc	pop bc
+0e9e	7d 	ld a,l	ld a,l
+0e9f	e1 	pop hl	pop hl
+0ea0	51 	ld d,c	ld d,c
+0ea1	4d 	ld c,l	ld c,l
+0ea2	6b 	ld l,e	ld l,e
+0ea3	67 	ld h,a	ld h,a
+0ea4	1e 10 	ld e,$10	ld e,$00
+0ea6	c5 	push bc	push bc
+0ea7	c1 	pop bc	pop bc
+0ea8	06 13 	ld b,$13	ld b,$00
+0eaa	cd aa 10 	call $10aa	call $0000
+0ead	18 1a 	jr $+$1c	jr $+$00
+0eaf	cd 15 18 	call $1815	call $0000
+0eb2	d9 	exx	exx
+0eb3	1e 00 	ld e,$00	ld e,$00
+0eb5	fd 7e 00 	ld a,(iy)	ld a,(iy)
+0eb8	fe 2c 	cp $2c	cp $00
+0eba	20 06 	jr nz,$+$08	jr nz,$+$00
+0ebc	e5 	push hl	push hl
+0ebd	cd d3 10 	call $10d3	call $0000
+0ec0	d9 	exx	exx
+0ec1	d1 	pop de	pop de
+0ec2	65 	ld h,l	ld h,l
+0ec3	6b 	ld l,e	ld l,e
+0ec4	16 12 	ld d,$12	ld d,$00
+0ec6	cd b6 10 	call $10b6	call $0000
+0ec9	c3 7b 24 	jp $247b	jp $0000
+0ecc	0e 01 	ld c,$01	ld c,$00
+0ece	18 02 	jr $+$04	jr $+$00
+0ed0	0e 00 	ld c,$00	ld c,$00
+0ed2	3e 17 	ld a,$17	ld a,$00
+0ed4	cd 93 05 	call $0593	call $0000
+0ed7	3e 01 	ld a,$01	ld a,$00
+0ed9	cd 93 05 	call $0593	call $0000
+0edc	79 	ld a,c	ld a,c
+0edd	06 08 	ld b,$08	ld b,$00
+0edf	cd 93 05 	call $0593	call $0000
+0ee2	af 	xor a	xor a
+0ee3	10 fa 	djnz $-$04	djnz $-$00
+0ee5	18 e2 	jr $-$1c	jr $-$00
+0ee7	cd 15 18 	call $1815	call $0000
+0eea	d9 	exx	exx
+0eeb	e5 	push hl	push hl
+0eec	cd c2 10 	call $10c2	call $0000
+0eef	e3 	ex (sp),hl	ex (sp),hl
+0ef0	c5 	push bc	push bc
+0ef1	eb 	ex de,hl	ex de,hl
+0ef2	0e 04 	ld c,$04	ld c,$00
+0ef4	cd a8 10 	call $10a8	call $0000
+0ef7	d1 	pop de	pop de
+0ef8	e1 	pop hl	pop hl
+0ef9	0e 05 	ld c,$05	ld c,$00
+0efb	18 2a 	jr $+$2c	jr $+$00
+0efd	fe 03 	cp $03	cp $00
+0eff	f5 	push af	push af
+0f00	20 02 	jr nz,$+$04	jr nz,$+$00
+0f02	fd 23 	inc iy	inc iy
+0f04	cd 15 18 	call $1815	call $0000
+0f07	d9 	exx	exx
+0f08	e5 	push hl	push hl
+0f09	cd d3 10 	call $10d3	call $0000
+0f0c	d9 	exx	exx
+0f0d	e5 	push hl	push hl
+0f0e	cd d3 10 	call $10d3	call $0000
+0f11	d9 	exx	exx
+0f12	c1 	pop bc	pop bc
+0f13	d1 	pop de	pop de
+0f14	e5 	push hl	push hl
+0f15	69 	ld l,c	ld l,c
+0f16	60 	ld h,b	ld h,b
+0f17	0e 04 	ld c,$04	ld c,$00
+0f19	cd a8 10 	call $10a8	call $0000
+0f1c	d1 	pop de	pop de
+0f1d	21 00 00 	ld hl,$0000	ld hl,$0000
+0f20	f1 	pop af	pop af
+0f21	0e 91 	ld c,$91	ld c,$00
+0f23	20 02 	jr nz,$+$04	jr nz,$+$00
+0f25	0e 99 	ld c,$99	ld c,$00
+0f27	18 6c 	jr $+$6e	jr $+$00
+0f29	fe 03 	cp $03	cp $00
+0f2b	f5 	push af	push af
+0f2c	20 02 	jr nz,$+$04	jr nz,$+$00
+0f2e	fd 23 	inc iy	inc iy
+0f30	cd 15 18 	call $1815	call $0000
+0f33	d9 	exx	exx
+0f34	e5 	push hl	push hl
+0f35	cd c2 10 	call $10c2	call $0000
+0f38	e3 	ex (sp),hl	ex (sp),hl
+0f39	c5 	push bc	push bc
+0f3a	eb 	ex de,hl	ex de,hl
+0f3b	0e 04 	ld c,$04	ld c,$00
+0f3d	cd a8 10 	call $10a8	call $0000
+0f40	d1 	pop de	pop de
+0f41	d5 	push de	push de
+0f42	21 00 00 	ld hl,$0000	ld hl,$0000
+0f45	4d 	ld c,l	ld c,l
+0f46	cd a8 10 	call $10a8	call $0000
+0f49	d1 	pop de	pop de
+0f4a	af 	xor a	xor a
+0f4b	6f 	ld l,a	ld l,a
+0f4c	67 	ld h,a	ld h,a
+0f4d	ed 52 	sbc hl,de	sbc hl,de
+0f4f	eb 	ex de,hl	ex de,hl
+0f50	e1 	pop hl	pop hl
+0f51	f1 	pop af	pop af
+0f52	0e c1 	ld c,$c1	ld c,$00
+0f54	20 3f 	jr nz,$+$41	jr nz,$+$00
+0f56	0e c9 	ld c,$c9	ld c,$00
+0f58	18 3b 	jr $+$3d	jr $+$00
+0f5a	0e 04 	ld c,$04	ld c,$00
+0f5c	18 23 	jr $+$25	jr $+$00
+0f5e	0e 05 	ld c,$05	ld c,$00
+0f60	18 1f 	jr $+$21	jr $+$00
+0f62	0e 85 	ld c,$85	ld c,$00
+0f64	18 1b 	jr $+$1d	jr $+$00
+0f66	0e 45 	ld c,$45	ld c,$00
+0f68	fe 0f 	cp $0f	cp $00
+0f6a	28 15 	jr z,$+$17	jr z,$+$00
+0f6c	cd 15 18 	call $1815	call $0000
+0f6f	d9 	exx	exx
+0f70	e5 	push hl	push hl
+0f71	cd d3 10 	call $10d3	call $0000
+0f74	d9 	exx	exx
+0f75	fd 7e 00 	ld a,(iy)	ld a,(iy)
+0f78	fe 2c 	cp $2c	cp $00
+0f7a	28 12 	jr z,$+$14	jr z,$+$00
+0f7c	d1 	pop de	pop de
+0f7d	0e 45 	ld c,$45	ld c,$00
+0f7f	18 14 	jr $+$16	jr $+$00
+0f81	fe 0f 	cp $0f	cp $00
+0f83	20 04 	jr nz,$+$06	jr nz,$+$00
+0f85	fd 23 	inc iy	inc iy
+0f87	cb 91 	res 2,c	res 2,c
+0f89	c5 	push bc	push bc
+0f8a	cd 15 18 	call $1815	call $0000
 0f8d	d9 	exx	exx
 0f8e	e5 	push hl	push hl
-0f8f	cd f1 10 	call $10f1	call $0000
+0f8f	cd d3 10 	call $10d3	call $0000
 0f92	d9 	exx	exx
-0f93	fd 7e 00 	ld a,(iy)	ld a,(iy)
-0f96	fe 2c 	cp $2c	cp $00
-0f98	28 12 	jr z,$+$14	jr z,$+$00
-0f9a	d1 	pop de	pop de
-0f9b	0e 45 	ld c,$45	ld c,$00
-0f9d	18 14 	jr $+$16	jr $+$00
-0f9f	fe 0f 	cp $0f	cp $00
-0fa1	20 04 	jr nz,$+$06	jr nz,$+$00
-0fa3	fd 23 	inc iy	inc iy
-0fa5	cb 91 	res 2,c	res 2,c
-0fa7	c5 	push bc	push bc
-0fa8	cd 33 18 	call $1833	call $0000
-0fab	d9 	exx	exx
-0fac	e5 	push hl	push hl
-0fad	cd f1 10 	call $10f1	call $0000
-0fb0	d9 	exx	exx
-0fb1	d1 	pop de	pop de
-0fb2	c1 	pop bc	pop bc
-0fb3	cd c6 10 	call $10c6	call $0000
-0fb6	c3 99 24 	jp $2499	jp $0000
-0fb9	fe 03 	cp $03	cp $00
-0fbb	f5 	push af	push af
-0fbc	20 02 	jr nz,$+$04	jr nz,$+$00
-0fbe	fd 23 	inc iy	inc iy
-0fc0	cd 33 18 	call $1833	call $0000
-0fc3	d9 	exx	exx
-0fc4	e5 	push hl	push hl
-0fc5	cd f1 10 	call $10f1	call $0000
-0fc8	d9 	exx	exx
-0fc9	e5 	push hl	push hl
-0fca	cd f1 10 	call $10f1	call $0000
-0fcd	d9 	exx	exx
-0fce	e5 	push hl	push hl
-0fcf	fd 7e 00 	ld a,(iy)	ld a,(iy)
-0fd2	fe 2c 	cp $2c	cp $00
-0fd4	20 04 	jr nz,$+$06	jr nz,$+$00
-0fd6	cd f1 10 	call $10f1	call $0000
-0fd9	d9 	exx	exx
-0fda	c1 	pop bc	pop bc
-0fdb	d1 	pop de	pop de
-0fdc	e3 	ex (sp),hl	ex (sp),hl
-0fdd	c5 	push bc	push bc
-0fde	eb 	ex de,hl	ex de,hl
-0fdf	0e 04 	ld c,$04	ld c,$00
-0fe1	cd c6 10 	call $10c6	call $0000
-0fe4	fd 7e 00 	ld a,(iy)	ld a,(iy)
-0fe7	fe b8 	cp $b8	cp $00
-0fe9	28 09 	jr z,$+$0b	jr z,$+$00
-0feb	d1 	pop de	pop de
-0fec	e1 	pop hl	pop hl
-0fed	f1 	pop af	pop af
-0fee	20 22 	jr nz,$+$24	jr nz,$+$00
-0ff0	0e 61 	ld c,$61	ld c,$00
-0ff2	18 bf 	jr $-$3f	jr $-$00
-0ff4	fd 23 	inc iy	inc iy
-0ff6	cd 33 18 	call $1833	call $0000
-0ff9	d9 	exx	exx
-0ffa	e5 	push hl	push hl
-0ffb	cd f1 10 	call $10f1	call $0000
-0ffe	d9 	exx	exx
-0fff	c1 	pop bc	pop bc
-1000	d1 	pop de	pop de
-1001	e3 	ex (sp),hl	ex (sp),hl
-1002	c5 	push bc	push bc
-1003	0e 00 	ld c,$00	ld c,$00
-1005	cd c6 10 	call $10c6	call $0000
-1008	d1 	pop de	pop de
-1009	e1 	pop hl	pop hl
-100a	f1 	pop af	pop af
-100b	0e be 	ld c,$be	ld c,$00
-100d	20 01 	jr nz,$+$03	jr nz,$+$00
-100f	0d 	dec c	dec c
-1010	18 a1 	jr $-$5d	jr $-$00
-1012	0e 09 	ld c,$09	ld c,$00
-1014	e5 	push hl	push hl
-1015	21 00 00 	ld hl,$0000	ld hl,$0000
-1018	cd c6 10 	call $10c6	call $0000
-101b	e1 	pop hl	pop hl
-101c	d5 	push de	push de
-101d	11 00 00 	ld de,$0000	ld de,$0000
-1020	cd c6 10 	call $10c6	call $0000
-1023	d1 	pop de	pop de
+0f93	d1 	pop de	pop de
+0f94	c1 	pop bc	pop bc
+0f95	cd a8 10 	call $10a8	call $0000
+0f98	c3 7b 24 	jp $247b	jp $0000
+0f9b	fe 03 	cp $03	cp $00
+0f9d	f5 	push af	push af
+0f9e	20 02 	jr nz,$+$04	jr nz,$+$00
+0fa0	fd 23 	inc iy	inc iy
+0fa2	cd 15 18 	call $1815	call $0000
+0fa5	d9 	exx	exx
+0fa6	e5 	push hl	push hl
+0fa7	cd d3 10 	call $10d3	call $0000
+0faa	d9 	exx	exx
+0fab	e5 	push hl	push hl
+0fac	cd d3 10 	call $10d3	call $0000
+0faf	d9 	exx	exx
+0fb0	e5 	push hl	push hl
+0fb1	fd 7e 00 	ld a,(iy)	ld a,(iy)
+0fb4	fe 2c 	cp $2c	cp $00
+0fb6	20 04 	jr nz,$+$06	jr nz,$+$00
+0fb8	cd d3 10 	call $10d3	call $0000
+0fbb	d9 	exx	exx
+0fbc	c1 	pop bc	pop bc
+0fbd	d1 	pop de	pop de
+0fbe	e3 	ex (sp),hl	ex (sp),hl
+0fbf	c5 	push bc	push bc
+0fc0	eb 	ex de,hl	ex de,hl
+0fc1	0e 04 	ld c,$04	ld c,$00
+0fc3	cd a8 10 	call $10a8	call $0000
+0fc6	fd 7e 00 	ld a,(iy)	ld a,(iy)
+0fc9	fe b8 	cp $b8	cp $00
+0fcb	28 09 	jr z,$+$0b	jr z,$+$00
+0fcd	d1 	pop de	pop de
+0fce	e1 	pop hl	pop hl
+0fcf	f1 	pop af	pop af
+0fd0	20 22 	jr nz,$+$24	jr nz,$+$00
+0fd2	0e 61 	ld c,$61	ld c,$00
+0fd4	18 bf 	jr $-$3f	jr $-$00
+0fd6	fd 23 	inc iy	inc iy
+0fd8	cd 15 18 	call $1815	call $0000
+0fdb	d9 	exx	exx
+0fdc	e5 	push hl	push hl
+0fdd	cd d3 10 	call $10d3	call $0000
+0fe0	d9 	exx	exx
+0fe1	c1 	pop bc	pop bc
+0fe2	d1 	pop de	pop de
+0fe3	e3 	ex (sp),hl	ex (sp),hl
+0fe4	c5 	push bc	push bc
+0fe5	0e 00 	ld c,$00	ld c,$00
+0fe7	cd a8 10 	call $10a8	call $0000
+0fea	d1 	pop de	pop de
+0feb	e1 	pop hl	pop hl
+0fec	f1 	pop af	pop af
+0fed	0e be 	ld c,$be	ld c,$00
+0fef	20 01 	jr nz,$+$03	jr nz,$+$00
+0ff1	0d 	dec c	dec c
+0ff2	18 a1 	jr $-$5d	jr $-$00
+0ff4	0e 09 	ld c,$09	ld c,$00
+0ff6	e5 	push hl	push hl
+0ff7	21 00 00 	ld hl,$0000	ld hl,$0000
+0ffa	cd a8 10 	call $10a8	call $0000
+0ffd	e1 	pop hl	pop hl
+0ffe	d5 	push de	push de
+0fff	11 00 00 	ld de,$0000	ld de,$0000
+1002	cd a8 10 	call $10a8	call $0000
+1005	d1 	pop de	pop de
+1006	e5 	push hl	push hl
+1007	af 	xor a	xor a
+1008	6f 	ld l,a	ld l,a
+1009	67 	ld h,a	ld h,a
+100a	ed 52 	sbc hl,de	sbc hl,de
+100c	eb 	ex de,hl	ex de,hl
+100d	6f 	ld l,a	ld l,a
+100e	67 	ld h,a	ld h,a
+100f	cd a8 10 	call $10a8	call $0000
+1012	d1 	pop de	pop de
+1013	af 	xor a	xor a
+1014	6f 	ld l,a	ld l,a
+1015	67 	ld h,a	ld h,a
+1016	ed 52 	sbc hl,de	sbc hl,de
+1018	5f 	ld e,a	ld e,a
+1019	57 	ld d,a	ld d,a
+101a	18 d6 	jr $-$28	jr $-$00
+101c	3e 80 	ld a,$80	ld a,$00
+101e	21 09 00 	ld hl,$0009	ld hl,$0000
+1021	cd 6b 08 	call $086b	call $0000
 1024	e5 	push hl	push hl
-1025	af 	xor a	xor a
-1026	6f 	ld l,a	ld l,a
-1027	67 	ld h,a	ld h,a
-1028	ed 52 	sbc hl,de	sbc hl,de
-102a	eb 	ex de,hl	ex de,hl
-102b	6f 	ld l,a	ld l,a
-102c	67 	ld h,a	ld h,a
-102d	cd c6 10 	call $10c6	call $0000
-1030	d1 	pop de	pop de
-1031	af 	xor a	xor a
-1032	6f 	ld l,a	ld l,a
-1033	67 	ld h,a	ld h,a
-1034	ed 52 	sbc hl,de	sbc hl,de
-1036	5f 	ld e,a	ld e,a
-1037	57 	ld d,a	ld d,a
-1038	18 d6 	jr $-$28	jr $-$00
-103a	3e 80 	ld a,$80	ld a,$00
-103c	21 09 00 	ld hl,$0009	ld hl,$0000
-103f	cd 89 08 	call $0889	call $0000
-1042	e5 	push hl	push hl
-1043	3e 80 	ld a,$80	ld a,$00
-1045	21 08 00 	ld hl,$0008	ld hl,$0000
-1048	cd 89 08 	call $0889	call $0000
-104b	e5 	push hl	push hl
-104c	3e 80 	ld a,$80	ld a,$00
-104e	21 07 00 	ld hl,$0007	ld hl,$0000
-1051	cd 89 08 	call $0889	call $0000
-1054	e5 	push hl	push hl
-1055	cd d6 25 	call $25d6	call $0000
-1058	e1 	pop hl	pop hl
-1059	cd f7 10 	call $10f7	call $0000
-105c	cd a2 20 	call $20a2	call $0000
-105f	cd 0b 45 	call $450b	call $0000
-1062	cd d6 25 	call $25d6	call $0000
-1065	e1 	pop hl	pop hl
-1066	cd f7 10 	call $10f7	call $0000
-1069	cd a2 20 	call $20a2	call $0000
-106c	cd 0b 45 	call $450b	call $0000
-106f	cd d6 25 	call $25d6	call $0000
-1072	e1 	pop hl	pop hl
-1073	cd f7 10 	call $10f7	call $0000
-1076	c3 99 24 	jp $2499	jp $0000
-1079	cd 36 35 	call $3536	call $0000
-107c	28 f8 	jr z,$-$06	jr z,$-$00
-107e	cd 33 18 	call $1833	call $0000
-1081	d9 	exx	exx
-1082	44 	ld b,h	ld b,h
-1083	4d 	ld c,l	ld c,l
-1084	cd 29 0d 	call $0d29	call $0000
-1087	09 	add hl,bc	add hl,bc
-1088	01 00 00 	ld bc,$0000	ld bc,$0000
-108b	eb 	ex de,hl	ex de,hl
-108c	ed 4a 	adc hl,bc	adc hl,bc
-108e	eb 	ex de,hl	ex de,hl
-108f	cd 33 06 	call $0633	call $0000
-1092	d5 	push de	push de
-1093	e5 	push hl	push hl
-1094	cd 29 0d 	call $0d29	call $0000
-1097	c1 	pop bc	pop bc
-1098	b7 	or a	or a
-1099	ed 42 	sbc hl,bc	sbc hl,bc
-109b	60 	ld h,b	ld h,b
-109c	69 	ld l,c	ld l,c
-109d	eb 	ex de,hl	ex de,hl
-109e	c1 	pop bc	pop bc
-109f	ed 42 	sbc hl,bc	sbc hl,bc
-10a1	30 d3 	jr nc,$-$2b	jr nc,$-$00
-10a3	eb 	ex de,hl	ex de,hl
-10a4	50 	ld d,b	ld d,b
-10a5	59 	ld e,c	ld e,c
-10a6	18 e7 	jr $-$17	jr $-$00
-10a8	e1 	pop hl	pop hl
-10a9	21 bb 10 	ld hl,$10bb	ld hl,$0000
-10ac	e5 	push hl	push hl
-10ad	dd 7e 04 	ld a,(ix+$04)	ld a,(ix+$00)
-10b0	dd 5e 14 	ld e,(ix+$14)	ld e,(ix+$00)
-10b3	dd 66 64 	ld h,(ix+$64)	ld h,(ix+$00)
-10b6	dd 6e 60 	ld l,(ix+$60)	ld l,(ix+$00)
-10b9	fd e9 	jp (iy)	jp (iy)
-10bb	f5 	push af	push af
-10bc	7d 	ld a,l	ld a,l
-10bd	6c 	ld l,h	ld l,h
-10be	d9 	exx	exx
-10bf	c1 	pop bc	pop bc
-10c0	67 	ld h,a	ld h,a
-10c1	68 	ld l,b	ld l,b
-10c2	79 	ld a,c	ld a,c
-10c3	d9 	exx	exx
-10c4	67 	ld h,a	ld h,a
-10c5	c9 	ret	ret
-10c6	06 19 	ld b,$19	ld b,$00
-10c8	78 	ld a,b	ld a,b
-10c9	cd b1 05 	call $05b1	call $0000
-10cc	79 	ld a,c	ld a,c
-10cd	cd b1 05 	call $05b1	call $0000
-10d0	7b 	ld a,e	ld a,e
-10d1	cd b1 05 	call $05b1	call $0000
-10d4	7a 	ld a,d	ld a,d
-10d5	cd b1 05 	call $05b1	call $0000
-10d8	7d 	ld a,l	ld a,l
-10d9	cd b1 05 	call $05b1	call $0000
-10dc	7c 	ld a,h	ld a,h
-10dd	c3 b1 05 	jp $05b1	jp $0000
-10e0	cd f1 10 	call $10f1	call $0000
-10e3	d9 	exx	exx
-10e4	e5 	push hl	push hl
-10e5	cd f1 10 	call $10f1	call $0000
-10e8	d9 	exx	exx
-10e9	e5 	push hl	push hl
-10ea	cd f1 10 	call $10f1	call $0000
-10ed	d9 	exx	exx
-10ee	c1 	pop bc	pop bc
-10ef	d1 	pop de	pop de
-10f0	c9 	ret	ret
-10f1	cd a2 20 	call $20a2	call $0000
-10f4	c3 33 18 	jp $1833	jp $0000
-10f7	cb 7f 	bit 7,a	bit 7,a
-10f9	20 0c 	jr nz,$+$0e	jr nz,$+$00
-10fb	cb 77 	bit 6,a	bit 6,a
-10fd	20 08 	jr nz,$+$0a	jr nz,$+$00
-10ff	d9 	exx	exx
-1100	21 00 00 	ld hl,$0000	ld hl,$0000
-1103	4d 	ld c,l	ld c,l
-1104	c3 f0 31 	jp $31f0	jp $0000
-1107	3e 32 	ld a,$32	ld a,$00
-1109	cd 55 3f 	call $3f55	call $0000
-110c	13 	inc de	inc de
-110d	04 	inc b	inc b
-110e	20 15 	jr nz,$+$17	jr nz,$+$00
-1110	00 	nop	nop
-1111	af 	xor a	xor a
-1112	cd 55 3f 	call $3f55	call $0000
-1115	53 	ld d,e	ld d,e
-1116	6f 	ld l,a	ld l,a
-1117	72 	ld (hl),d	ld (hl),d
-1118	72 	ld (hl),d	ld (hl),d
-1119	79 	ld a,c	ld a,c
-111a	00 	nop	nop
-111b	cd a3 14 	call $14a3	call $0000
-111e	fd 23 	inc iy	inc iy
-1120	fe 3a 	cp $3a	cp $00
-1122	28 f7 	jr z,$-$07	jr z,$-$00
-1124	fe 5d 	cp $5d	cp $00
-1126	c8 	ret z	ret z
-1127	fe 0d 	cp $0d	cp $00
-1129	c8 	ret z	ret z
-112a	fd 2b 	dec iy	dec iy
-112c	dd 2a 40 54 	ld ix,($5440)	ld ix,($0000)
-1130	21 fe 54 	ld hl,$54fe	ld hl,$0000
-1133	cb 76 	bit 6,(hl)	bit 6,(hl)
-1135	28 04 	jr z,$+$06	jr z,$+$00
-1137	dd 2a 3c 54 	ld ix,($543c)	ld ix,($0000)
+1025	3e 80 	ld a,$80	ld a,$00
+1027	21 08 00 	ld hl,$0008	ld hl,$0000
+102a	cd 6b 08 	call $086b	call $0000
+102d	e5 	push hl	push hl
+102e	3e 80 	ld a,$80	ld a,$00
+1030	21 07 00 	ld hl,$0007	ld hl,$0000
+1033	cd 6b 08 	call $086b	call $0000
+1036	e5 	push hl	push hl
+1037	cd b8 25 	call $25b8	call $0000
+103a	e1 	pop hl	pop hl
+103b	cd d9 10 	call $10d9	call $0000
+103e	cd 84 20 	call $2084	call $0000
+1041	cd ed 44 	call $44ed	call $0000
+1044	cd b8 25 	call $25b8	call $0000
+1047	e1 	pop hl	pop hl
+1048	cd d9 10 	call $10d9	call $0000
+104b	cd 84 20 	call $2084	call $0000
+104e	cd ed 44 	call $44ed	call $0000
+1051	cd b8 25 	call $25b8	call $0000
+1054	e1 	pop hl	pop hl
+1055	cd d9 10 	call $10d9	call $0000
+1058	c3 7b 24 	jp $247b	jp $0000
+105b	cd 18 35 	call $3518	call $0000
+105e	28 f8 	jr z,$-$06	jr z,$-$00
+1060	cd 15 18 	call $1815	call $0000
+1063	d9 	exx	exx
+1064	44 	ld b,h	ld b,h
+1065	4d 	ld c,l	ld c,l
+1066	cd 0b 0d 	call $0d0b	call $0000
+1069	09 	add hl,bc	add hl,bc
+106a	01 00 00 	ld bc,$0000	ld bc,$0000
+106d	eb 	ex de,hl	ex de,hl
+106e	ed 4a 	adc hl,bc	adc hl,bc
+1070	eb 	ex de,hl	ex de,hl
+1071	cd 15 06 	call $0615	call $0000
+1074	d5 	push de	push de
+1075	e5 	push hl	push hl
+1076	cd 0b 0d 	call $0d0b	call $0000
+1079	c1 	pop bc	pop bc
+107a	b7 	or a	or a
+107b	ed 42 	sbc hl,bc	sbc hl,bc
+107d	60 	ld h,b	ld h,b
+107e	69 	ld l,c	ld l,c
+107f	eb 	ex de,hl	ex de,hl
+1080	c1 	pop bc	pop bc
+1081	ed 42 	sbc hl,bc	sbc hl,bc
+1083	30 d3 	jr nc,$-$2b	jr nc,$-$00
+1085	eb 	ex de,hl	ex de,hl
+1086	50 	ld d,b	ld d,b
+1087	59 	ld e,c	ld e,c
+1088	18 e7 	jr $-$17	jr $-$00
+108a	e1 	pop hl	pop hl
+108b	21 9d 10 	ld hl,$109d	ld hl,$0000
+108e	e5 	push hl	push hl
+108f	dd 7e 04 	ld a,(ix+$04)	ld a,(ix+$00)
+1092	dd 5e 14 	ld e,(ix+$14)	ld e,(ix+$00)
+1095	dd 66 64 	ld h,(ix+$64)	ld h,(ix+$00)
+1098	dd 6e 60 	ld l,(ix+$60)	ld l,(ix+$00)
+109b	fd e9 	jp (iy)	jp (iy)
+109d	f5 	push af	push af
+109e	7d 	ld a,l	ld a,l
+109f	6c 	ld l,h	ld l,h
+10a0	d9 	exx	exx
+10a1	c1 	pop bc	pop bc
+10a2	67 	ld h,a	ld h,a
+10a3	68 	ld l,b	ld l,b
+10a4	79 	ld a,c	ld a,c
+10a5	d9 	exx	exx
+10a6	67 	ld h,a	ld h,a
+10a7	c9 	ret	ret
+10a8	06 19 	ld b,$19	ld b,$00
+10aa	78 	ld a,b	ld a,b
+10ab	cd 93 05 	call $0593	call $0000
+10ae	79 	ld a,c	ld a,c
+10af	cd 93 05 	call $0593	call $0000
+10b2	7b 	ld a,e	ld a,e
+10b3	cd 93 05 	call $0593	call $0000
+10b6	7a 	ld a,d	ld a,d
+10b7	cd 93 05 	call $0593	call $0000
+10ba	7d 	ld a,l	ld a,l
+10bb	cd 93 05 	call $0593	call $0000
+10be	7c 	ld a,h	ld a,h
+10bf	c3 93 05 	jp $0593	jp $0000
+10c2	cd d3 10 	call $10d3	call $0000
+10c5	d9 	exx	exx
+10c6	e5 	push hl	push hl
+10c7	cd d3 10 	call $10d3	call $0000
+10ca	d9 	exx	exx
+10cb	e5 	push hl	push hl
+10cc	cd d3 10 	call $10d3	call $0000
+10cf	d9 	exx	exx
+10d0	c1 	pop bc	pop bc
+10d1	d1 	pop de	pop de
+10d2	c9 	ret	ret
+10d3	cd 84 20 	call $2084	call $0000
+10d6	c3 15 18 	jp $1815	jp $0000
+10d9	cb 7f 	bit 7,a	bit 7,a
+10db	20 0c 	jr nz,$+$0e	jr nz,$+$00
+10dd	cb 77 	bit 6,a	bit 6,a
+10df	20 08 	jr nz,$+$0a	jr nz,$+$00
+10e1	d9 	exx	exx
+10e2	21 00 00 	ld hl,$0000	ld hl,$0000
+10e5	4d 	ld c,l	ld c,l
+10e6	c3 d2 31 	jp $31d2	jp $0000
+10e9	3e 32 	ld a,$32	ld a,$00
+10eb	cd 37 3f 	call $3f37	call $0000
+10ee	13 	inc de	inc de
+10ef	04 	inc b	inc b
+10f0	20 15 	jr nz,$+$17	jr nz,$+$00
+10f2	00 	nop	nop
+10f3	af 	xor a	xor a
+10f4	cd 37 3f 	call $3f37	call $0000
+10f7	53 	ld d,e	ld d,e
+10f8	6f 	ld l,a	ld l,a
+10f9	72 	ld (hl),d	ld (hl),d
+10fa	72 	ld (hl),d	ld (hl),d
+10fb	79 	ld a,c	ld a,c
+10fc	00 	nop	nop
+10fd	cd 85 14 	call $1485	call $0000
+1100	fd 23 	inc iy	inc iy
+1102	fe 3a 	cp $3a	cp $00
+1104	28 f7 	jr z,$-$07	jr z,$-$00
+1106	fe 5d 	cp $5d	cp $00
+1108	c8 	ret z	ret z
+1109	fe 0d 	cp $0d	cp $00
+110b	c8 	ret z	ret z
+110c	fd 2b 	dec iy	dec iy
+110e	dd 2a 40 54 	ld ix,($5440)	ld ix,($0000)
+1112	21 fe 54 	ld hl,$54fe	ld hl,$0000
+1115	cb 76 	bit 6,(hl)	bit 6,(hl)
+1117	28 04 	jr z,$+$06	jr z,$+$00
+1119	dd 2a 3c 54 	ld ix,($543c)	ld ix,($0000)
+111d	dd e5 	push ix	push ix
+111f	fd e5 	push iy	push iy
+1121	cd b1 11 	call $11b1	call $0000
+1124	c1 	pop bc	pop bc
+1125	d1 	pop de	pop de
+1126	d8 	ret c	ret c
+1127	cd 85 14 	call $1485	call $0000
+112a	37 	scf	scf
+112b	c0 	ret nz	ret nz
+112c	fd 2b 	dec iy	dec iy
+112e	fd 23 	inc iy	inc iy
+1130	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1133	cd a9 14 	call $14a9	call $0000
+1136	20 f6 	jr nz,$-$08	jr nz,$-$00
+1138	3a fe 54 	ld a,($54fe)	ld a,($0000)
 113b	dd e5 	push ix	push ix
-113d	fd e5 	push iy	push iy
-113f	cd cf 11 	call $11cf	call $0000
-1142	c1 	pop bc	pop bc
-1143	d1 	pop de	pop de
-1144	d8 	ret c	ret c
-1145	cd a3 14 	call $14a3	call $0000
-1148	37 	scf	scf
-1149	c0 	ret nz	ret nz
-114a	fd 2b 	dec iy	dec iy
-114c	fd 23 	inc iy	inc iy
-114e	fd 7e 00 	ld a,(iy)	ld a,(iy)
-1151	cd c7 14 	call $14c7	call $0000
-1154	20 f6 	jr nz,$-$08	jr nz,$-$00
-1156	3a fe 54 	ld a,($54fe)	ld a,($0000)
-1159	dd e5 	push ix	push ix
-115b	e1 	pop hl	pop hl
-115c	b7 	or a	or a
-115d	ed 52 	sbc hl,de	sbc hl,de
-115f	eb 	ex de,hl	ex de,hl
-1160	e5 	push hl	push hl
-1161	2a 40 54 	ld hl,($5440)	ld hl,($0000)
-1164	e5 	push hl	push hl
-1165	19 	add hl,de	add hl,de
-1166	22 40 54 	ld ($5440),hl	ld ($0000),hl
-1169	cb 77 	bit 6,a	bit 6,a
-116b	28 07 	jr z,$+$09	jr z,$+$00
-116d	2a 3c 54 	ld hl,($543c)	ld hl,($0000)
-1170	19 	add hl,de	add hl,de
-1171	22 3c 54 	ld ($543c),hl	ld ($0000),hl
-1174	e1 	pop hl	pop hl
-1175	dd e1 	pop ix	pop ix
-1177	cb 67 	bit 4,a	bit 4,a
-1179	28 a0 	jr z,$-$5e	jr z,$-$00
-117b	7c 	ld a,h	ld a,h
-117c	cd bb 11 	call $11bb	call $0000
-117f	7d 	ld a,l	ld a,l
-1180	cd b4 11 	call $11b4	call $0000
-1183	af 	xor a	xor a
-1184	bb 	cp e	cp e
-1185	28 15 	jr z,$+$17	jr z,$+$00
-1187	3a fb 54 	ld a,($54fb)	ld a,($0000)
-118a	fe 11 	cp $11	cp $00
-118c	3e 05 	ld a,$05	ld a,$00
-118e	d4 7d 35 	call nc,$357d	call nc,$0000
-1191	dd 7e 00 	ld a,(ix)	ld a,(ix)
-1194	cd b4 11 	call $11b4	call $0000
-1197	dd 23 	inc ix	inc ix
-1199	1d 	dec e	dec e
-119a	20 eb 	jr nz,$-$13	jr nz,$-$00
-119c	3e 12 	ld a,$12	ld a,$00
-119e	cd 7d 35 	call $357d	call $0000
-11a1	fd e5 	push iy	push iy
-11a3	e1 	pop hl	pop hl
-11a4	ed 42 	sbc hl,bc	sbc hl,bc
-11a6	0a 	ld a,(bc)	ld a,(bc)
-11a7	cd 1b 41 	call $411b	call $0000
-11aa	03 	inc bc	inc bc
-11ab	2d 	dec l	dec l
-11ac	20 f8 	jr nz,$-$06	jr nz,$-$00
-11ae	cd fb 40 	call $40fb	call $0000
-11b1	c3 1b 11 	jp $111b	jp $0000
-11b4	cd bb 11 	call $11bb	call $0000
-11b7	3e 20 	ld a,$20	ld a,$00
-11b9	18 11 	jr $+$13	jr $+$00
-11bb	f5 	push af	push af
-11bc	0f 	rrca	rrca
-11bd	0f 	rrca	rrca
-11be	0f 	rrca	rrca
-11bf	0f 	rrca	rrca
-11c0	cd c4 11 	call $11c4	call $0000
-11c3	f1 	pop af	pop af
-11c4	e6 0f 	and $0f	and $00
-11c6	c6 90 	add a,$90	add a,$00
-11c8	27 	daa	daa
-11c9	ce 40 	adc a,$40	adc a,$00
-11cb	27 	daa	daa
-11cc	c3 1b 41 	jp $411b	jp $0000
-11cf	fe 2e 	cp $2e	cp $00
-11d1	20 28 	jr nz,$+$2a	jr nz,$+$00
-11d3	fd 23 	inc iy	inc iy
-11d5	dd e5 	push ix	push ix
-11d7	cd d6 25 	call $25d6	call $0000
-11da	f5 	push af	push af
-11db	cd f8 1f 	call $1ff8	call $0000
-11de	d9 	exx	exx
-11df	2a 40 54 	ld hl,($5440)	ld hl,($0000)
-11e2	d9 	exx	exx
-11e3	3a fe 54 	ld a,($54fe)	ld a,($0000)
-11e6	e6 20 	and $20	and $00
-11e8	20 0b 	jr nz,$+$0d	jr nz,$+$00
-11ea	dd 7e 00 	ld a,(ix)	ld a,(ix)
-11ed	dd b6 01 	or (ix+$01)	or (ix+$00)
-11f0	3e 03 	ld a,$03	ld a,$00
-11f2	c2 44 3f 	jp nz,$3f44	jp nz,$0000
-11f5	f1 	pop af	pop af
-11f6	cd f0 31 	call $31f0	call $0000
-11f9	dd e1 	pop ix	pop ix
-11fb	cd a3 14 	call $14a3	call $0000
-11fe	c8 	ret z	ret z
-11ff	fe d6 	cp $d6	cp $00
-1201	0e c4 	ld c,$c4	ld c,$00
-1203	fd 23 	inc iy	inc iy
-1205	ca f2 12 	jp z,$12f2	jp z,$0000
-1208	fd 2b 	dec iy	dec iy
-120a	21 cd 14 	ld hl,$14cd	ld hl,$0000
-120d	cd 5a 14 	call $145a	call $0000
-1210	d8 	ret c	ret c
-1211	48 	ld c,b	ld c,b
-1212	16 00 	ld d,$00	ld d,$00
-1214	d6 27 	sub $27	sub $00
-1216	30 07 	jr nc,$+$09	jr nc,$+$00
-1218	fe e8 	cp $e8	cp $00
-121a	d4 c0 13 	call nc,$13c0	call nc,$0000
-121d	18 68 	jr $+$6a	jr $+$00
-121f	d6 0a 	sub $0a	sub $00
-1221	30 0f 	jr nc,$+$11	jr nc,$+$00
-1223	fe f9 	cp $f9	cp $00
-1225	dc 4a 14 	call c,$144a	call c,$0000
-1228	d8 	ret c	ret c
-1229	cd 1f 14 	call $141f	call $0000
-122c	d8 	ret c	ret c
-122d	cd c4 13 	call $13c4	call $0000
-1230	18 55 	jr $+$57	jr $+$00
-1232	d6 03 	sub $03	sub $00
-1234	30 06 	jr nc,$+$08	jr nc,$+$00
-1236	cd 3e 14 	call $143e	call $0000
-1239	d8 	ret c	ret c
-123a	18 4b 	jr $+$4d	jr $+$00
-123c	d6 0a 	sub $0a	sub $00
-123e	30 32 	jr nc,$+$34	jr nc,$+$00
-1240	fe fd 	cp $fd	cp $00
-1242	06 07 	ld b,$07	ld b,$00
-1244	d4 d2 13 	call nc,$13d2	call nc,$0000
-1247	78 	ld a,b	ld a,b
-1248	fe 07 	cp $07	cp $00
-124a	20 10 	jr nz,$+$12	jr nz,$+$00
-124c	cd 1f 14 	call $141f	call $0000
-124f	79 	ld a,c	ld a,c
-1250	30 28 	jr nc,$+$2a	jr nc,$+$00
-1252	ee 46 	xor $46	xor $00
-1254	cd c6 13 	call $13c6	call $0000
-1257	cd 02 14 	call $1402	call $0000
-125a	18 78 	jr $+$7a	jr $+$00
-125c	e6 3f 	and $3f	and $00
-125e	fe 0c 	cp $0c	cp $00
-1260	37 	scf	scf
-1261	c0 	ret nz	ret nz
-1262	79 	ld a,c	ld a,c
-1263	fe 80 	cp $80	cp $00
-1265	0e 09 	ld c,$09	ld c,$00
-1267	28 cd 	jr z,$-$31	jr z,$-$00
-1269	ee 1c 	xor $1c	xor $00
-126b	0f 	rrca	rrca
-126c	4f 	ld c,a	ld c,a
-126d	cd c0 13 	call $13c0	call $0000
-1270	18 c4 	jr $-$3a	jr $-$00
-1272	d6 02 	sub $02	sub $00
-1274	30 14 	jr nc,$+$16	jr nc,$+$00
-1276	cd 25 14 	call $1425	call $0000
-1279	79 	ld a,c	ld a,c
-127a	d2 c6 13 	jp nc,$13c6	jp nc,$0000
-127d	ee 64 	xor $64	xor $00
-127f	07 	rlca	rlca
-1280	07 	rlca	rlca
-1281	07 	rlca	rlca
-1282	4f 	ld c,a	ld c,a
-1283	cd 42 14 	call $1442	call $0000
-1286	d8 	ret c	ret c
-1287	79 	ld a,c	ld a,c
-1288	18 7f 	jr $+$81	jr $+$00
-128a	d6 02 	sub $02	sub $00
-128c	30 21 	jr nc,$+$23	jr nc,$+$00
-128e	fe ff 	cp $ff	cp $00
-1290	cc b5 13 	call z,$13b5	call z,$0000
-1293	08 	ex af,af'	ex af,af'
-1294	cd 25 14 	call $1425	call $0000
-1297	d8 	ret c	ret c
-1298	08 	ex af,af'	ex af,af'
-1299	dc b5 13 	call c,$13b5	call c,$0000
-129c	24 	inc h	inc h
-129d	28 e8 	jr z,$-$16	jr z,$-$00
-129f	78 	ld a,b	ld a,b
-12a0	fe 07 	cp $07	cp $00
-12a2	37 	scf	scf
-12a3	c0 	ret nz	ret nz
-12a4	79 	ld a,c	ld a,c
-12a5	ee 03 	xor $03	xor $00
-12a7	07 	rlca	rlca
-12a8	07 	rlca	rlca
-12a9	07 	rlca	rlca
-12aa	cd f2 13 	call $13f2	call $0000
-12ad	18 25 	jr $+$27	jr $+$00
-12af	d6 02 	sub $02	sub $00
-12b1	30 24 	jr nc,$+$26	jr nc,$+$00
-12b3	fe ff 	cp $ff	cp $00
-12b5	c4 2b 14 	call nz,$142b	call nz,$0000
-12b8	79 	ld a,c	ld a,c
-12b9	30 02 	jr nc,$+$04	jr nc,$+$00
-12bb	3e 18 	ld a,$18	ld a,$00
-12bd	cd f2 13 	call $13f2	call $0000
-12c0	cd 02 14 	call $1402	call $0000
-12c3	ed 5b 40 54 	ld de,($5440)	ld de,($0000)
-12c7	13 	inc de	inc de
-12c8	37 	scf	scf
-12c9	ed 52 	sbc hl,de	sbc hl,de
-12cb	7d 	ld a,l	ld a,l
-12cc	17 	rla	rla
-12cd	9f 	sbc a,a	sbc a,a
-12ce	bc 	cp h	cp h
-12cf	3e 01 	ld a,$01	ld a,$00
-12d1	c2 44 3f 	jp nz,$3f44	jp nz,$0000
-12d4	7d 	ld a,l	ld a,l
-12d5	18 32 	jr $+$34	jr $+$00
-12d7	47 	ld b,a	ld b,a
-12d8	20 16 	jr nz,$+$18	jr nz,$+$00
-12da	cd 2b 14 	call $142b	call $0000
-12dd	79 	ld a,c	ld a,c
-12de	30 0b 	jr nc,$+$0d	jr nc,$+$00
-12e0	78 	ld a,b	ld a,b
-12e1	e6 3f 	and $3f	and $00
-12e3	fe 06 	cp $06	cp $00
-12e5	3e e9 	ld a,$e9	ld a,$00
-12e7	28 20 	jr z,$+$22	jr z,$+$00
-12e9	3e c3 	ld a,$c3	ld a,$00
-12eb	cd f2 13 	call $13f2	call $0000
-12ee	18 05 	jr $+$07	jr $+$00
-12f0	10 0c 	djnz $+$0e	djnz $+$00
-12f2	cd 0d 13 	call $130d	call $0000
-12f5	cd 02 14 	call $1402	call $0000
-12f8	cd d4 12 	call $12d4	call $0000
-12fb	7c 	ld a,h	ld a,h
-12fc	18 0b 	jr $+$0d	jr $+$00
-12fe	10 0b 	djnz $+$0d	djnz $+$00
-1300	cd 02 14 	call $1402	call $0000
-1303	a1 	and c	and c
-1304	b4 	or h	or h
-1305	20 c8 	jr nz,$-$36	jr nz,$-$00
-1307	7d 	ld a,l	ld a,l
-1308	b1 	or c	or c
-1309	18 78 	jr $+$7a	jr $+$00
-130b	10 0a 	djnz $+$0c	djnz $+$00
-130d	cd 2b 14 	call $142b	call $0000
-1310	79 	ld a,c	ld a,c
-1311	30 70 	jr nc,$+$72	jr nc,$+$00
-1313	f6 09 	or $09	or $00
-1315	18 6c 	jr $+$6e	jr $+$00
-1317	10 6c 	djnz $+$6e	djnz $+$00
-1319	cd 57 14 	call $1457	call $0000
-131c	30 5f 	jr nc,$+$61	jr nc,$+$00
-131e	cd 25 14 	call $1425	call $0000
-1321	08 	ex af,af'	ex af,af'
-1322	cd a3 14 	call $14a3	call $0000
-1325	fe 28 	cp $28	cp $00
-1327	28 1d 	jr z,$+$1f	jr z,$+$00
-1329	08 	ex af,af'	ex af,af'
-132a	d2 4c 12 	jp nc,$124c	jp nc,$0000
-132d	0e 01 	ld c,$01	ld c,$00
-132f	cd 42 14 	call $1442	call $0000
-1332	d8 	ret c	ret c
-1333	3e 0e 	ld a,$0e	ld a,$00
-1335	b8 	cp b	cp b
-1336	47 	ld b,a	ld b,a
-1337	cc 3e 14 	call z,$143e	call z,$0000
-133a	78 	ld a,b	ld a,b
-133b	e6 3f 	and $3f	and $00
-133d	fe 0c 	cp $0c	cp $00
-133f	79 	ld a,c	ld a,c
-1340	20 a9 	jr nz,$-$55	jr nz,$-$00
-1342	3e f9 	ld a,$f9	ld a,$00
-1344	18 3d 	jr $+$3f	jr $+$00
-1346	08 	ex af,af'	ex af,af'
-1347	c5 	push bc	push bc
-1348	d4 1f 14 	call nc,$141f	call nc,$0000
-134b	79 	ld a,c	ld a,c
-134c	c1 	pop bc	pop bc
-134d	30 77 	jr nc,$+$79	jr nc,$+$00
-134f	0e 0a 	ld c,$0a	ld c,$00
-1351	cd 42 14 	call $1442	call $0000
-1354	cd 9c 13 	call $139c	call $0000
-1357	30 92 	jr nc,$-$6c	jr nc,$-$00
-1359	cd 02 14 	call $1402	call $0000
-135c	0e 02 	ld c,$02	ld c,$00
-135e	cd 3e 14 	call $143e	call $0000
-1361	cd 9c 13 	call $139c	call $0000
-1364	d8 	ret c	ret c
-1365	cd f2 13 	call $13f2	call $0000
-1368	18 8e 	jr $-$70	jr $-$00
-136a	05 	dec b	dec b
-136b	ca 57 12 	jp z,$1257	jp z,$0000
-136e	10 85 	djnz $-$79	djnz $-$00
-1370	cd 02 14 	call $1402	call $0000
-1373	21 fe 54 	ld hl,$54fe	ld hl,$0000
-1376	4f 	ld c,a	ld c,a
-1377	ed 6f 	rld	rld
-1379	79 	ld a,c	ld a,c
-137a	ed 67 	rrd	rrd
-137c	c9 	ret	ret
-137d	fe 04 	cp $04	cp $00
-137f	dc c0 13 	call c,$13c0	call c,$0000
-1382	78 	ld a,b	ld a,b
-1383	18 6d 	jr $+$6f	jr $+$00
-1385	10 e3 	djnz $-$1b	djnz $-$00
-1387	dd e5 	push ix	push ix
-1389	cd 3c 18 	call $183c	call $0000
-138c	dd e1 	pop ix	pop ix
-138e	21 00 52 	ld hl,$5200	ld hl,$0000
-1391	af 	xor a	xor a
-1392	bb 	cp e	cp e
-1393	c8 	ret z	ret z
-1394	7e 	ld a,(hl)	ld a,(hl)
-1395	23 	inc hl	inc hl
-1396	cd f2 13 	call $13f2	call $0000
-1399	1d 	dec e	dec e
-139a	18 f5 	jr $-$09	jr $-$00
-139c	78 	ld a,b	ld a,b
-139d	38 0e 	jr c,$+$10	jr c,$+$00
-139f	78 	ld a,b	ld a,b
-13a0	e6 3f 	and $3f	and $00
-13a2	fe 0c 	cp $0c	cp $00
-13a4	79 	ld a,c	ld a,c
-13a5	c8 	ret z	ret z
-13a6	cd c0 13 	call $13c0	call $0000
-13a9	79 	ld a,c	ld a,c
-13aa	f6 43 	or $43	or $00
-13ac	c9 	ret	ret
-13ad	fe 07 	cp $07	cp $00
-13af	37 	scf	scf
-13b0	c0 	ret nz	ret nz
-13b1	79 	ld a,c	ld a,c
-13b2	f6 30 	or $30	or $00
-13b4	c9 	ret	ret
-13b5	c5 	push bc	push bc
-13b6	cd d2 13 	call $13d2	call $0000
-13b9	cb 68 	bit 5,b	bit 5,b
-13bb	c1 	pop bc	pop bc
-13bc	28 44 	jr z,$+$46	jr z,$+$00
-13be	26 ff 	ld h,$ff	ld h,$00
-13c0	3e ed 	ld a,$ed	ld a,$00
-13c2	18 2e 	jr $+$30	jr $+$00
-13c4	3e cb 	ld a,$cb	ld a,$00
-13c6	fe 76 	cp $76	cp $00
-13c8	37 	scf	scf
-13c9	c8 	ret z	ret z
-13ca	cd f2 13 	call $13f2	call $0000
-13cd	14 	inc d	inc d
-13ce	f0 	ret p	ret p
-13cf	7b 	ld a,e	ld a,e
-13d0	18 20 	jr $+$22	jr $+$00
-13d2	e5 	push hl	push hl
-13d3	21 14 16 	ld hl,$1614	ld hl,$0000
-13d6	cd 5a 14 	call $145a	call $0000
-13d9	e1 	pop hl	pop hl
-13da	d8 	ret c	ret c
-13db	cb 78 	bit 7,b	bit 7,b
-13dd	c8 	ret z	ret z
-13de	cb 58 	bit 3,b	bit 3,b
-13e0	e5 	push hl	push hl
-13e1	cc f9 13 	call z,$13f9	call z,$0000
-13e4	5d 	ld e,l	ld e,l
-13e5	e1 	pop hl	pop hl
-13e6	3e dd 	ld a,$dd	ld a,$00
-13e8	cb 70 	bit 6,b	bit 6,b
-13ea	28 02 	jr z,$+$04	jr z,$+$00
-13ec	3e fd 	ld a,$fd	ld a,$00
-13ee	b7 	or a	or a
-13ef	14 	inc d	inc d
-13f0	57 	ld d,a	ld d,a
-13f1	f8 	ret m	ret m
-13f2	dd 77 00 	ld (ix),a	ld (ix),a
-13f5	dd 23 	inc ix	inc ix
-13f7	b7 	or a	or a
-13f8	c9 	ret	ret
-13f9	fd 7e 00 	ld a,(iy)	ld a,(iy)
-13fc	fe 29 	cp $29	cp $00
-13fe	21 00 00 	ld hl,$0000	ld hl,$0000
-1401	c8 	ret z	ret z
-1402	cd a3 14 	call $14a3	call $0000
-1405	c5 	push bc	push bc
-1406	d5 	push de	push de
-1407	dd e5 	push ix	push ix
-1409	cd 33 18 	call $1833	call $0000
-140c	dd e1 	pop ix	pop ix
-140e	d9 	exx	exx
-140f	d1 	pop de	pop de
-1410	c1 	pop bc	pop bc
-1411	7d 	ld a,l	ld a,l
-1412	b7 	or a	or a
-1413	c9 	ret	ret
-1414	cd d2 13 	call $13d2	call $0000
-1417	d8 	ret c	ret c
-1418	78 	ld a,b	ld a,b
-1419	e6 3f 	and $3f	and $00
-141b	fe 08 	cp $08	cp $00
-141d	3f 	ccf	ccf
-141e	c9 	ret	ret
-141f	cd 14 14 	call $1414	call $0000
-1422	d8 	ret c	ret c
-1423	18 2f 	jr $+$31	jr $+$00
-1425	cd 14 14 	call $1414	call $0000
-1428	d8 	ret c	ret c
-1429	18 26 	jr $+$28	jr $+$00
-142b	cd d2 13 	call $13d2	call $0000
-142e	d8 	ret c	ret c
-142f	78 	ld a,b	ld a,b
-1430	e6 1f 	and $1f	and $00
-1432	d6 10 	sub $10	sub $00
-1434	30 1b 	jr nc,$+$1d	jr nc,$+$00
-1436	fe f1 	cp $f1	cp $00
-1438	37 	scf	scf
-1439	c0 	ret nz	ret nz
-143a	3e 03 	ld a,$03	ld a,$00
-143c	18 13 	jr $+$15	jr $+$00
-143e	cd d2 13 	call $13d2	call $0000
-1441	d8 	ret c	ret c
-1442	78 	ld a,b	ld a,b
-1443	e6 0f 	and $0f	and $00
-1445	d6 08 	sub $08	sub $00
-1447	d8 	ret c	ret c
-1448	18 07 	jr $+$09	jr $+$00
-144a	cd 02 14 	call $1402	call $0000
-144d	fe 08 	cp $08	cp $00
-144f	3f 	ccf	ccf
-1450	d8 	ret c	ret c
-1451	07 	rlca	rlca
-1452	07 	rlca	rlca
-1453	07 	rlca	rlca
-1454	b1 	or c	or c
-1455	4f 	ld c,a	ld c,a
-1456	c9 	ret	ret
-1457	21 59 16 	ld hl,$1659	ld hl,$0000
-145a	cd a3 14 	call $14a3	call $0000
-145d	06 00 	ld b,$00	ld b,$00
-145f	37 	scf	scf
-1460	c8 	ret z	ret z
-1461	fe dd 	cp $dd	cp $00
-1463	28 04 	jr z,$+$06	jr z,$+$00
-1465	fe 85 	cp $85	cp $00
-1467	3f 	ccf	ccf
-1468	d8 	ret c	ret c
-1469	7e 	ld a,(hl)	ld a,(hl)
-146a	b7 	or a	or a
-146b	28 f0 	jr z,$-$0e	jr z,$-$00
+113d	e1 	pop hl	pop hl
+113e	b7 	or a	or a
+113f	ed 52 	sbc hl,de	sbc hl,de
+1141	eb 	ex de,hl	ex de,hl
+1142	e5 	push hl	push hl
+1143	2a 40 54 	ld hl,($5440)	ld hl,($0000)
+1146	e5 	push hl	push hl
+1147	19 	add hl,de	add hl,de
+1148	22 40 54 	ld ($5440),hl	ld ($0000),hl
+114b	cb 77 	bit 6,a	bit 6,a
+114d	28 07 	jr z,$+$09	jr z,$+$00
+114f	2a 3c 54 	ld hl,($543c)	ld hl,($0000)
+1152	19 	add hl,de	add hl,de
+1153	22 3c 54 	ld ($543c),hl	ld ($0000),hl
+1156	e1 	pop hl	pop hl
+1157	dd e1 	pop ix	pop ix
+1159	cb 67 	bit 4,a	bit 4,a
+115b	28 a0 	jr z,$-$5e	jr z,$-$00
+115d	7c 	ld a,h	ld a,h
+115e	cd 9d 11 	call $119d	call $0000
+1161	7d 	ld a,l	ld a,l
+1162	cd 96 11 	call $1196	call $0000
+1165	af 	xor a	xor a
+1166	bb 	cp e	cp e
+1167	28 15 	jr z,$+$17	jr z,$+$00
+1169	3a fb 54 	ld a,($54fb)	ld a,($0000)
+116c	fe 11 	cp $11	cp $00
+116e	3e 05 	ld a,$05	ld a,$00
+1170	d4 5f 35 	call nc,$355f	call nc,$0000
+1173	dd 7e 00 	ld a,(ix)	ld a,(ix)
+1176	cd 96 11 	call $1196	call $0000
+1179	dd 23 	inc ix	inc ix
+117b	1d 	dec e	dec e
+117c	20 eb 	jr nz,$-$13	jr nz,$-$00
+117e	3e 12 	ld a,$12	ld a,$00
+1180	cd 5f 35 	call $355f	call $0000
+1183	fd e5 	push iy	push iy
+1185	e1 	pop hl	pop hl
+1186	ed 42 	sbc hl,bc	sbc hl,bc
+1188	0a 	ld a,(bc)	ld a,(bc)
+1189	cd fd 40 	call $40fd	call $0000
+118c	03 	inc bc	inc bc
+118d	2d 	dec l	dec l
+118e	20 f8 	jr nz,$-$06	jr nz,$-$00
+1190	cd dd 40 	call $40dd	call $0000
+1193	c3 fd 10 	jp $10fd	jp $0000
+1196	cd 9d 11 	call $119d	call $0000
+1199	3e 20 	ld a,$20	ld a,$00
+119b	18 11 	jr $+$13	jr $+$00
+119d	f5 	push af	push af
+119e	0f 	rrca	rrca
+119f	0f 	rrca	rrca
+11a0	0f 	rrca	rrca
+11a1	0f 	rrca	rrca
+11a2	cd a6 11 	call $11a6	call $0000
+11a5	f1 	pop af	pop af
+11a6	e6 0f 	and $0f	and $00
+11a8	c6 90 	add a,$90	add a,$00
+11aa	27 	daa	daa
+11ab	ce 40 	adc a,$40	adc a,$00
+11ad	27 	daa	daa
+11ae	c3 fd 40 	jp $40fd	jp $0000
+11b1	fe 2e 	cp $2e	cp $00
+11b3	20 28 	jr nz,$+$2a	jr nz,$+$00
+11b5	fd 23 	inc iy	inc iy
+11b7	dd e5 	push ix	push ix
+11b9	cd b8 25 	call $25b8	call $0000
+11bc	f5 	push af	push af
+11bd	cd da 1f 	call $1fda	call $0000
+11c0	d9 	exx	exx
+11c1	2a 40 54 	ld hl,($5440)	ld hl,($0000)
+11c4	d9 	exx	exx
+11c5	3a fe 54 	ld a,($54fe)	ld a,($0000)
+11c8	e6 20 	and $20	and $00
+11ca	20 0b 	jr nz,$+$0d	jr nz,$+$00
+11cc	dd 7e 00 	ld a,(ix)	ld a,(ix)
+11cf	dd b6 01 	or (ix+$01)	or (ix+$00)
+11d2	3e 03 	ld a,$03	ld a,$00
+11d4	c2 26 3f 	jp nz,$3f26	jp nz,$0000
+11d7	f1 	pop af	pop af
+11d8	cd d2 31 	call $31d2	call $0000
+11db	dd e1 	pop ix	pop ix
+11dd	cd 85 14 	call $1485	call $0000
+11e0	c8 	ret z	ret z
+11e1	fe d6 	cp $d6	cp $00
+11e3	0e c4 	ld c,$c4	ld c,$00
+11e5	fd 23 	inc iy	inc iy
+11e7	ca d4 12 	jp z,$12d4	jp z,$0000
+11ea	fd 2b 	dec iy	dec iy
+11ec	21 af 14 	ld hl,$14af	ld hl,$0000
+11ef	cd 3c 14 	call $143c	call $0000
+11f2	d8 	ret c	ret c
+11f3	48 	ld c,b	ld c,b
+11f4	16 00 	ld d,$00	ld d,$00
+11f6	d6 27 	sub $27	sub $00
+11f8	30 07 	jr nc,$+$09	jr nc,$+$00
+11fa	fe e8 	cp $e8	cp $00
+11fc	d4 a2 13 	call nc,$13a2	call nc,$0000
+11ff	18 68 	jr $+$6a	jr $+$00
+1201	d6 0a 	sub $0a	sub $00
+1203	30 0f 	jr nc,$+$11	jr nc,$+$00
+1205	fe f9 	cp $f9	cp $00
+1207	dc 2c 14 	call c,$142c	call c,$0000
+120a	d8 	ret c	ret c
+120b	cd 01 14 	call $1401	call $0000
+120e	d8 	ret c	ret c
+120f	cd a6 13 	call $13a6	call $0000
+1212	18 55 	jr $+$57	jr $+$00
+1214	d6 03 	sub $03	sub $00
+1216	30 06 	jr nc,$+$08	jr nc,$+$00
+1218	cd 20 14 	call $1420	call $0000
+121b	d8 	ret c	ret c
+121c	18 4b 	jr $+$4d	jr $+$00
+121e	d6 0a 	sub $0a	sub $00
+1220	30 32 	jr nc,$+$34	jr nc,$+$00
+1222	fe fd 	cp $fd	cp $00
+1224	06 07 	ld b,$07	ld b,$00
+1226	d4 b4 13 	call nc,$13b4	call nc,$0000
+1229	78 	ld a,b	ld a,b
+122a	fe 07 	cp $07	cp $00
+122c	20 10 	jr nz,$+$12	jr nz,$+$00
+122e	cd 01 14 	call $1401	call $0000
+1231	79 	ld a,c	ld a,c
+1232	30 28 	jr nc,$+$2a	jr nc,$+$00
+1234	ee 46 	xor $46	xor $00
+1236	cd a8 13 	call $13a8	call $0000
+1239	cd e4 13 	call $13e4	call $0000
+123c	18 78 	jr $+$7a	jr $+$00
+123e	e6 3f 	and $3f	and $00
+1240	fe 0c 	cp $0c	cp $00
+1242	37 	scf	scf
+1243	c0 	ret nz	ret nz
+1244	79 	ld a,c	ld a,c
+1245	fe 80 	cp $80	cp $00
+1247	0e 09 	ld c,$09	ld c,$00
+1249	28 cd 	jr z,$-$31	jr z,$-$00
+124b	ee 1c 	xor $1c	xor $00
+124d	0f 	rrca	rrca
+124e	4f 	ld c,a	ld c,a
+124f	cd a2 13 	call $13a2	call $0000
+1252	18 c4 	jr $-$3a	jr $-$00
+1254	d6 02 	sub $02	sub $00
+1256	30 14 	jr nc,$+$16	jr nc,$+$00
+1258	cd 07 14 	call $1407	call $0000
+125b	79 	ld a,c	ld a,c
+125c	d2 a8 13 	jp nc,$13a8	jp nc,$0000
+125f	ee 64 	xor $64	xor $00
+1261	07 	rlca	rlca
+1262	07 	rlca	rlca
+1263	07 	rlca	rlca
+1264	4f 	ld c,a	ld c,a
+1265	cd 24 14 	call $1424	call $0000
+1268	d8 	ret c	ret c
+1269	79 	ld a,c	ld a,c
+126a	18 7f 	jr $+$81	jr $+$00
+126c	d6 02 	sub $02	sub $00
+126e	30 21 	jr nc,$+$23	jr nc,$+$00
+1270	fe ff 	cp $ff	cp $00
+1272	cc 97 13 	call z,$1397	call z,$0000
+1275	08 	ex af,af'	ex af,af'
+1276	cd 07 14 	call $1407	call $0000
+1279	d8 	ret c	ret c
+127a	08 	ex af,af'	ex af,af'
+127b	dc 97 13 	call c,$1397	call c,$0000
+127e	24 	inc h	inc h
+127f	28 e8 	jr z,$-$16	jr z,$-$00
+1281	78 	ld a,b	ld a,b
+1282	fe 07 	cp $07	cp $00
+1284	37 	scf	scf
+1285	c0 	ret nz	ret nz
+1286	79 	ld a,c	ld a,c
+1287	ee 03 	xor $03	xor $00
+1289	07 	rlca	rlca
+128a	07 	rlca	rlca
+128b	07 	rlca	rlca
+128c	cd d4 13 	call $13d4	call $0000
+128f	18 25 	jr $+$27	jr $+$00
+1291	d6 02 	sub $02	sub $00
+1293	30 24 	jr nc,$+$26	jr nc,$+$00
+1295	fe ff 	cp $ff	cp $00
+1297	c4 0d 14 	call nz,$140d	call nz,$0000
+129a	79 	ld a,c	ld a,c
+129b	30 02 	jr nc,$+$04	jr nc,$+$00
+129d	3e 18 	ld a,$18	ld a,$00
+129f	cd d4 13 	call $13d4	call $0000
+12a2	cd e4 13 	call $13e4	call $0000
+12a5	ed 5b 40 54 	ld de,($5440)	ld de,($0000)
+12a9	13 	inc de	inc de
+12aa	37 	scf	scf
+12ab	ed 52 	sbc hl,de	sbc hl,de
+12ad	7d 	ld a,l	ld a,l
+12ae	17 	rla	rla
+12af	9f 	sbc a,a	sbc a,a
+12b0	bc 	cp h	cp h
+12b1	3e 01 	ld a,$01	ld a,$00
+12b3	c2 26 3f 	jp nz,$3f26	jp nz,$0000
+12b6	7d 	ld a,l	ld a,l
+12b7	18 32 	jr $+$34	jr $+$00
+12b9	47 	ld b,a	ld b,a
+12ba	20 16 	jr nz,$+$18	jr nz,$+$00
+12bc	cd 0d 14 	call $140d	call $0000
+12bf	79 	ld a,c	ld a,c
+12c0	30 0b 	jr nc,$+$0d	jr nc,$+$00
+12c2	78 	ld a,b	ld a,b
+12c3	e6 3f 	and $3f	and $00
+12c5	fe 06 	cp $06	cp $00
+12c7	3e e9 	ld a,$e9	ld a,$00
+12c9	28 20 	jr z,$+$22	jr z,$+$00
+12cb	3e c3 	ld a,$c3	ld a,$00
+12cd	cd d4 13 	call $13d4	call $0000
+12d0	18 05 	jr $+$07	jr $+$00
+12d2	10 0c 	djnz $+$0e	djnz $+$00
+12d4	cd ef 12 	call $12ef	call $0000
+12d7	cd e4 13 	call $13e4	call $0000
+12da	cd b6 12 	call $12b6	call $0000
+12dd	7c 	ld a,h	ld a,h
+12de	18 0b 	jr $+$0d	jr $+$00
+12e0	10 0b 	djnz $+$0d	djnz $+$00
+12e2	cd e4 13 	call $13e4	call $0000
+12e5	a1 	and c	and c
+12e6	b4 	or h	or h
+12e7	20 c8 	jr nz,$-$36	jr nz,$-$00
+12e9	7d 	ld a,l	ld a,l
+12ea	b1 	or c	or c
+12eb	18 78 	jr $+$7a	jr $+$00
+12ed	10 0a 	djnz $+$0c	djnz $+$00
+12ef	cd 0d 14 	call $140d	call $0000
+12f2	79 	ld a,c	ld a,c
+12f3	30 70 	jr nc,$+$72	jr nc,$+$00
+12f5	f6 09 	or $09	or $00
+12f7	18 6c 	jr $+$6e	jr $+$00
+12f9	10 6c 	djnz $+$6e	djnz $+$00
+12fb	cd 39 14 	call $1439	call $0000
+12fe	30 5f 	jr nc,$+$61	jr nc,$+$00
+1300	cd 07 14 	call $1407	call $0000
+1303	08 	ex af,af'	ex af,af'
+1304	cd 85 14 	call $1485	call $0000
+1307	fe 28 	cp $28	cp $00
+1309	28 1d 	jr z,$+$1f	jr z,$+$00
+130b	08 	ex af,af'	ex af,af'
+130c	d2 2e 12 	jp nc,$122e	jp nc,$0000
+130f	0e 01 	ld c,$01	ld c,$00
+1311	cd 24 14 	call $1424	call $0000
+1314	d8 	ret c	ret c
+1315	3e 0e 	ld a,$0e	ld a,$00
+1317	b8 	cp b	cp b
+1318	47 	ld b,a	ld b,a
+1319	cc 20 14 	call z,$1420	call z,$0000
+131c	78 	ld a,b	ld a,b
+131d	e6 3f 	and $3f	and $00
+131f	fe 0c 	cp $0c	cp $00
+1321	79 	ld a,c	ld a,c
+1322	20 a9 	jr nz,$-$55	jr nz,$-$00
+1324	3e f9 	ld a,$f9	ld a,$00
+1326	18 3d 	jr $+$3f	jr $+$00
+1328	08 	ex af,af'	ex af,af'
+1329	c5 	push bc	push bc
+132a	d4 01 14 	call nc,$1401	call nc,$0000
+132d	79 	ld a,c	ld a,c
+132e	c1 	pop bc	pop bc
+132f	30 77 	jr nc,$+$79	jr nc,$+$00
+1331	0e 0a 	ld c,$0a	ld c,$00
+1333	cd 24 14 	call $1424	call $0000
+1336	cd 7e 13 	call $137e	call $0000
+1339	30 92 	jr nc,$-$6c	jr nc,$-$00
+133b	cd e4 13 	call $13e4	call $0000
+133e	0e 02 	ld c,$02	ld c,$00
+1340	cd 20 14 	call $1420	call $0000
+1343	cd 7e 13 	call $137e	call $0000
+1346	d8 	ret c	ret c
+1347	cd d4 13 	call $13d4	call $0000
+134a	18 8e 	jr $-$70	jr $-$00
+134c	05 	dec b	dec b
+134d	ca 39 12 	jp z,$1239	jp z,$0000
+1350	10 85 	djnz $-$79	djnz $-$00
+1352	cd e4 13 	call $13e4	call $0000
+1355	21 fe 54 	ld hl,$54fe	ld hl,$0000
+1358	4f 	ld c,a	ld c,a
+1359	ed 6f 	rld	rld
+135b	79 	ld a,c	ld a,c
+135c	ed 67 	rrd	rrd
+135e	c9 	ret	ret
+135f	fe 04 	cp $04	cp $00
+1361	dc a2 13 	call c,$13a2	call c,$0000
+1364	78 	ld a,b	ld a,b
+1365	18 6d 	jr $+$6f	jr $+$00
+1367	10 e3 	djnz $-$1b	djnz $-$00
+1369	dd e5 	push ix	push ix
+136b	cd 1e 18 	call $181e	call $0000
+136e	dd e1 	pop ix	pop ix
+1370	21 00 52 	ld hl,$5200	ld hl,$0000
+1373	af 	xor a	xor a
+1374	bb 	cp e	cp e
+1375	c8 	ret z	ret z
+1376	7e 	ld a,(hl)	ld a,(hl)
+1377	23 	inc hl	inc hl
+1378	cd d4 13 	call $13d4	call $0000
+137b	1d 	dec e	dec e
+137c	18 f5 	jr $-$09	jr $-$00
+137e	78 	ld a,b	ld a,b
+137f	38 0e 	jr c,$+$10	jr c,$+$00
+1381	78 	ld a,b	ld a,b
+1382	e6 3f 	and $3f	and $00
+1384	fe 0c 	cp $0c	cp $00
+1386	79 	ld a,c	ld a,c
+1387	c8 	ret z	ret z
+1388	cd a2 13 	call $13a2	call $0000
+138b	79 	ld a,c	ld a,c
+138c	f6 43 	or $43	or $00
+138e	c9 	ret	ret
+138f	fe 07 	cp $07	cp $00
+1391	37 	scf	scf
+1392	c0 	ret nz	ret nz
+1393	79 	ld a,c	ld a,c
+1394	f6 30 	or $30	or $00
+1396	c9 	ret	ret
+1397	c5 	push bc	push bc
+1398	cd b4 13 	call $13b4	call $0000
+139b	cb 68 	bit 5,b	bit 5,b
+139d	c1 	pop bc	pop bc
+139e	28 44 	jr z,$+$46	jr z,$+$00
+13a0	26 ff 	ld h,$ff	ld h,$00
+13a2	3e ed 	ld a,$ed	ld a,$00
+13a4	18 2e 	jr $+$30	jr $+$00
+13a6	3e cb 	ld a,$cb	ld a,$00
+13a8	fe 76 	cp $76	cp $00
+13aa	37 	scf	scf
+13ab	c8 	ret z	ret z
+13ac	cd d4 13 	call $13d4	call $0000
+13af	14 	inc d	inc d
+13b0	f0 	ret p	ret p
+13b1	7b 	ld a,e	ld a,e
+13b2	18 20 	jr $+$22	jr $+$00
+13b4	e5 	push hl	push hl
+13b5	21 f6 15 	ld hl,$15f6	ld hl,$0000
+13b8	cd 3c 14 	call $143c	call $0000
+13bb	e1 	pop hl	pop hl
+13bc	d8 	ret c	ret c
+13bd	cb 78 	bit 7,b	bit 7,b
+13bf	c8 	ret z	ret z
+13c0	cb 58 	bit 3,b	bit 3,b
+13c2	e5 	push hl	push hl
+13c3	cc db 13 	call z,$13db	call z,$0000
+13c6	5d 	ld e,l	ld e,l
+13c7	e1 	pop hl	pop hl
+13c8	3e dd 	ld a,$dd	ld a,$00
+13ca	cb 70 	bit 6,b	bit 6,b
+13cc	28 02 	jr z,$+$04	jr z,$+$00
+13ce	3e fd 	ld a,$fd	ld a,$00
+13d0	b7 	or a	or a
+13d1	14 	inc d	inc d
+13d2	57 	ld d,a	ld d,a
+13d3	f8 	ret m	ret m
+13d4	dd 77 00 	ld (ix),a	ld (ix),a
+13d7	dd 23 	inc ix	inc ix
+13d9	b7 	or a	or a
+13da	c9 	ret	ret
+13db	fd 7e 00 	ld a,(iy)	ld a,(iy)
+13de	fe 29 	cp $29	cp $00
+13e0	21 00 00 	ld hl,$0000	ld hl,$0000
+13e3	c8 	ret z	ret z
+13e4	cd 85 14 	call $1485	call $0000
+13e7	c5 	push bc	push bc
+13e8	d5 	push de	push de
+13e9	dd e5 	push ix	push ix
+13eb	cd 15 18 	call $1815	call $0000
+13ee	dd e1 	pop ix	pop ix
+13f0	d9 	exx	exx
+13f1	d1 	pop de	pop de
+13f2	c1 	pop bc	pop bc
+13f3	7d 	ld a,l	ld a,l
+13f4	b7 	or a	or a
+13f5	c9 	ret	ret
+13f6	cd b4 13 	call $13b4	call $0000
+13f9	d8 	ret c	ret c
+13fa	78 	ld a,b	ld a,b
+13fb	e6 3f 	and $3f	and $00
+13fd	fe 08 	cp $08	cp $00
+13ff	3f 	ccf	ccf
+1400	c9 	ret	ret
+1401	cd f6 13 	call $13f6	call $0000
+1404	d8 	ret c	ret c
+1405	18 2f 	jr $+$31	jr $+$00
+1407	cd f6 13 	call $13f6	call $0000
+140a	d8 	ret c	ret c
+140b	18 26 	jr $+$28	jr $+$00
+140d	cd b4 13 	call $13b4	call $0000
+1410	d8 	ret c	ret c
+1411	78 	ld a,b	ld a,b
+1412	e6 1f 	and $1f	and $00
+1414	d6 10 	sub $10	sub $00
+1416	30 1b 	jr nc,$+$1d	jr nc,$+$00
+1418	fe f1 	cp $f1	cp $00
+141a	37 	scf	scf
+141b	c0 	ret nz	ret nz
+141c	3e 03 	ld a,$03	ld a,$00
+141e	18 13 	jr $+$15	jr $+$00
+1420	cd b4 13 	call $13b4	call $0000
+1423	d8 	ret c	ret c
+1424	78 	ld a,b	ld a,b
+1425	e6 0f 	and $0f	and $00
+1427	d6 08 	sub $08	sub $00
+1429	d8 	ret c	ret c
+142a	18 07 	jr $+$09	jr $+$00
+142c	cd e4 13 	call $13e4	call $0000
+142f	fe 08 	cp $08	cp $00
+1431	3f 	ccf	ccf
+1432	d8 	ret c	ret c
+1433	07 	rlca	rlca
+1434	07 	rlca	rlca
+1435	07 	rlca	rlca
+1436	b1 	or c	or c
+1437	4f 	ld c,a	ld c,a
+1438	c9 	ret	ret
+1439	21 3b 16 	ld hl,$163b	ld hl,$0000
+143c	cd 85 14 	call $1485	call $0000
+143f	06 00 	ld b,$00	ld b,$00
+1441	37 	scf	scf
+1442	c8 	ret z	ret z
+1443	fe dd 	cp $dd	cp $00
+1445	28 04 	jr z,$+$06	jr z,$+$00
+1447	fe 85 	cp $85	cp $00
+1449	3f 	ccf	ccf
+144a	d8 	ret c	ret c
+144b	7e 	ld a,(hl)	ld a,(hl)
+144c	b7 	or a	or a
+144d	28 f0 	jr z,$-$0e	jr z,$-$00
+144f	fd ae 00 	xor (iy)	xor (iy)
+1452	e6 5f 	and $5f	and $00
+1454	28 09 	jr z,$+$0b	jr z,$+$00
+1456	cb 7e 	bit 7,(hl)	bit 7,(hl)
+1458	23 	inc hl	inc hl
+1459	28 fb 	jr z,$-$03	jr z,$-$00
+145b	23 	inc hl	inc hl
+145c	04 	inc b	inc b
+145d	18 ec 	jr $-$12	jr $-$00
+145f	fd e5 	push iy	push iy
+1461	cb 7e 	bit 7,(hl)	bit 7,(hl)
+1463	fd 23 	inc iy	inc iy
+1465	23 	inc hl	inc hl
+1466	20 10 	jr nz,$+$12	jr nz,$+$00
+1468	be 	cp (hl)	cp (hl)
+1469	cc 84 14 	call z,$1484	call z,$0000
+146c	7e 	ld a,(hl)	ld a,(hl)
 146d	fd ae 00 	xor (iy)	xor (iy)
 1470	e6 5f 	and $5f	and $00
-1472	28 09 	jr z,$+$0b	jr z,$+$00
-1474	cb 7e 	bit 7,(hl)	bit 7,(hl)
-1476	23 	inc hl	inc hl
-1477	28 fb 	jr z,$-$03	jr z,$-$00
-1479	23 	inc hl	inc hl
-147a	04 	inc b	inc b
-147b	18 ec 	jr $-$12	jr $-$00
-147d	fd e5 	push iy	push iy
-147f	cb 7e 	bit 7,(hl)	bit 7,(hl)
-1481	fd 23 	inc iy	inc iy
-1483	23 	inc hl	inc hl
-1484	20 10 	jr nz,$+$12	jr nz,$+$00
-1486	be 	cp (hl)	cp (hl)
-1487	cc a2 14 	call z,$14a2	call z,$0000
-148a	7e 	ld a,(hl)	ld a,(hl)
-148b	fd ae 00 	xor (iy)	xor (iy)
-148e	e6 5f 	and $5f	and $00
-1490	28 ed 	jr z,$-$11	jr z,$-$00
-1492	fd e1 	pop iy	pop iy
-1494	18 de 	jr $-$20	jr $-$00
-1496	cd b5 14 	call $14b5	call $0000
-1499	c4 af 14 	call nz,$14af	call nz,$0000
-149c	20 f4 	jr nz,$-$0a	jr nz,$-$00
-149e	78 	ld a,b	ld a,b
-149f	46 	ld b,(hl)	ld b,(hl)
-14a0	e1 	pop hl	pop hl
-14a1	c9 	ret	ret
-14a2	23 	inc hl	inc hl
-14a3	cd b5 14 	call $14b5	call $0000
-14a6	c0 	ret nz	ret nz
-14a7	cd c1 14 	call $14c1	call $0000
-14aa	c8 	ret z	ret z
-14ab	fd 23 	inc iy	inc iy
-14ad	18 f4 	jr $-$0a	jr $-$00
-14af	fe 2b 	cp $2b	cp $00
-14b1	c8 	ret z	ret z
-14b2	fe 2d 	cp $2d	cp $00
-14b4	c9 	ret	ret
-14b5	fd 7e 00 	ld a,(iy)	ld a,(iy)
-14b8	fe 20 	cp $20	cp $00
-14ba	c8 	ret z	ret z
-14bb	fe 2c 	cp $2c	cp $00
-14bd	c8 	ret z	ret z
-14be	fe 29 	cp $29	cp $00
-14c0	c8 	ret z	ret z
-14c1	fe 3b 	cp $3b	cp $00
-14c3	c8 	ret z	ret z
-14c4	fe 5c 	cp $5c	cp $00
-14c6	c8 	ret z	ret z
-14c7	fe 3a 	cp $3a	cp $00
-14c9	d0 	ret nc	ret nc
-14ca	fe 0d 	cp $0d	cp $00
-14cc	c9 	ret	ret
-14cd	4e 	ld c,(hl)	ld c,(hl)
-14ce	4f 	ld c,a	ld c,a
-14cf	d0 	ret nc	ret nc
-14d0	00 	nop	nop
-14d1	52 4c 	ld.sil c,h	ld.sil c,h
+1472	28 ed 	jr z,$-$11	jr z,$-$00
+1474	fd e1 	pop iy	pop iy
+1476	18 de 	jr $-$20	jr $-$00
+1478	cd 97 14 	call $1497	call $0000
+147b	c4 91 14 	call nz,$1491	call nz,$0000
+147e	20 f4 	jr nz,$-$0a	jr nz,$-$00
+1480	78 	ld a,b	ld a,b
+1481	46 	ld b,(hl)	ld b,(hl)
+1482	e1 	pop hl	pop hl
+1483	c9 	ret	ret
+1484	23 	inc hl	inc hl
+1485	cd 97 14 	call $1497	call $0000
+1488	c0 	ret nz	ret nz
+1489	cd a3 14 	call $14a3	call $0000
+148c	c8 	ret z	ret z
+148d	fd 23 	inc iy	inc iy
+148f	18 f4 	jr $-$0a	jr $-$00
+1491	fe 2b 	cp $2b	cp $00
+1493	c8 	ret z	ret z
+1494	fe 2d 	cp $2d	cp $00
+1496	c9 	ret	ret
+1497	fd 7e 00 	ld a,(iy)	ld a,(iy)
+149a	fe 20 	cp $20	cp $00
+149c	c8 	ret z	ret z
+149d	fe 2c 	cp $2c	cp $00
+149f	c8 	ret z	ret z
+14a0	fe 29 	cp $29	cp $00
+14a2	c8 	ret z	ret z
+14a3	fe 3b 	cp $3b	cp $00
+14a5	c8 	ret z	ret z
+14a6	fe 5c 	cp $5c	cp $00
+14a8	c8 	ret z	ret z
+14a9	fe 3a 	cp $3a	cp $00
+14ab	d0 	ret nc	ret nc
+14ac	fe 0d 	cp $0d	cp $00
+14ae	c9 	ret	ret
+14af	4e 	ld c,(hl)	ld c,(hl)
+14b0	4f 	ld c,a	ld c,a
+14b1	d0 	ret nc	ret nc
+14b2	00 	nop	nop
+14b3	52 4c 	ld.sil c,h	ld.sil c,h
+14b5	43 	ld b,e	ld b,e
+14b6	c1 	pop bc	pop bc
+14b7	07 	rlca	rlca
+14b8	45 	ld b,l	ld b,l
+14b9	58 	ld e,b	ld e,b
+14ba	00 	nop	nop
+14bb	41 	ld b,c	ld b,c
+14bc	46 	ld b,(hl)	ld b,(hl)
+14bd	00 	nop	nop
+14be	41 	ld b,c	ld b,c
+14bf	46 	ld b,(hl)	ld b,(hl)
+14c0	27 	daa	daa
+14c1	08 	ex af,af'	ex af,af'
+14c2	52 	noni.sil	noni.sil
+14c3	52 43 	ld.sil b,e	ld.sil b,e
+14c5	c1 	pop bc	pop bc
+14c6	0f 	rrca	rrca
+14c7	52 4c 	ld.sil c,h	ld.sil c,h
+14c9	c1 	pop bc	pop bc
+14ca	17 	rla	rla
+14cb	52 	noni.sil	noni.sil
+14cc	52 c1 	pop.sil bc	pop.sil bc
+14ce	1f 	rra	rra
+14cf	44 	ld b,h	ld b,h
+14d0	41 	ld b,c	ld b,c
+14d1	c1 	pop bc	pop bc
+14d2	27 	daa	daa
 14d3	43 	ld b,e	ld b,e
-14d4	c1 	pop bc	pop bc
-14d5	07 	rlca	rlca
-14d6	45 	ld b,l	ld b,l
-14d7	58 	ld e,b	ld e,b
-14d8	00 	nop	nop
-14d9	41 	ld b,c	ld b,c
-14da	46 	ld b,(hl)	ld b,(hl)
-14db	00 	nop	nop
-14dc	41 	ld b,c	ld b,c
-14dd	46 	ld b,(hl)	ld b,(hl)
-14de	27 	daa	daa
-14df	08 	ex af,af'	ex af,af'
-14e0	52 	noni.sil	noni.sil
-14e1	52 43 	ld.sil b,e	ld.sil b,e
-14e3	c1 	pop bc	pop bc
-14e4	0f 	rrca	rrca
-14e5	52 4c 	ld.sil c,h	ld.sil c,h
-14e7	c1 	pop bc	pop bc
-14e8	17 	rla	rla
-14e9	52 	noni.sil	noni.sil
-14ea	52 c1 	pop.sil bc	pop.sil bc
-14ec	1f 	rra	rra
-14ed	44 	ld b,h	ld b,h
-14ee	41 	ld b,c	ld b,c
-14ef	c1 	pop bc	pop bc
-14f0	27 	daa	daa
-14f1	43 	ld b,e	ld b,e
-14f2	50 	ld d,b	ld d,b
-14f3	cc 2f 53 	call z,$532f	call z,$0000
-14f6	43 	ld b,e	ld b,e
-14f7	c6 37 	add a,$37	add a,$00
-14f9	43 	ld b,e	ld b,e
-14fa	43 	ld b,e	ld b,e
-14fb	c6 3f 	add a,$3f	add a,$00
-14fd	48 	ld c,b	ld c,b
-14fe	41 	ld b,c	ld b,c
-14ff	4c 	ld c,h	ld c,h
-1500	d4 76 45 	call nc,$4576	call nc,$0000
-1503	58 	ld e,b	ld e,b
-1504	d8 	ret c	ret c
-1505	d9 	exx	exx
-1506	45 	ld b,l	ld b,l
-1507	58 	ld e,b	ld e,b
-1508	00 	nop	nop
-1509	44 	ld b,h	ld b,h
-150a	45 	ld b,l	ld b,l
-150b	00 	nop	nop
-150c	48 	ld c,b	ld c,b
-150d	cc eb 44 	call z,$44eb	call z,$0000
-1510	c9 	ret	ret
-1511	f3 	di	di
-1512	45 	ld b,l	ld b,l
-1513	c9 	ret	ret
-1514	fb 	ei	ei
-1515	4e 	ld c,(hl)	ld c,(hl)
-1516	45 	ld b,l	ld b,l
-1517	c7 	rst $00	rst $00
-1518	44 	ld b,h	ld b,h
-1519	49 4d 	ld.lis c,l	ld.lis c,l
-151b	00 	nop	nop
-151c	b0 	or b	or b
-151d	46 	ld b,(hl)	ld b,(hl)
-151e	52 45 	ld.sil b,l	ld.sil b,l
-1520	54 	ld d,h	ld d,h
-1521	ce 45 	adc a,$45	adc a,$00
-1523	52 45 	ld.sil b,l	ld.sil b,l
-1525	54 	ld d,h	ld d,h
+14d4	50 	ld d,b	ld d,b
+14d5	cc 2f 53 	call z,$532f	call z,$0000
+14d8	43 	ld b,e	ld b,e
+14d9	c6 37 	add a,$37	add a,$00
+14db	43 	ld b,e	ld b,e
+14dc	43 	ld b,e	ld b,e
+14dd	c6 3f 	add a,$3f	add a,$00
+14df	48 	ld c,b	ld c,b
+14e0	41 	ld b,c	ld b,c
+14e1	4c 	ld c,h	ld c,h
+14e2	d4 76 45 	call nc,$4576	call nc,$0000
+14e5	58 	ld e,b	ld e,b
+14e6	d8 	ret c	ret c
+14e7	d9 	exx	exx
+14e8	45 	ld b,l	ld b,l
+14e9	58 	ld e,b	ld e,b
+14ea	00 	nop	nop
+14eb	44 	ld b,h	ld b,h
+14ec	45 	ld b,l	ld b,l
+14ed	00 	nop	nop
+14ee	48 	ld c,b	ld c,b
+14ef	cc eb 44 	call z,$44eb	call z,$0000
+14f2	c9 	ret	ret
+14f3	f3 	di	di
+14f4	45 	ld b,l	ld b,l
+14f5	c9 	ret	ret
+14f6	fb 	ei	ei
+14f7	4e 	ld c,(hl)	ld c,(hl)
+14f8	45 	ld b,l	ld b,l
+14f9	c7 	rst $00	rst $00
+14fa	44 	ld b,h	ld b,h
+14fb	49 4d 	ld.lis c,l	ld.lis c,l
+14fd	00 	nop	nop
+14fe	b0 	or b	or b
+14ff	46 	ld b,(hl)	ld b,(hl)
+1500	52 45 	ld.sil b,l	ld.sil b,l
+1502	54 	ld d,h	ld d,h
+1503	ce 45 	adc a,$45	adc a,$00
+1505	52 45 	ld.sil b,l	ld.sil b,l
+1507	54 	ld d,h	ld d,h
+1508	c9 	ret	ret
+1509	4d 	ld c,l	ld c,l
+150a	49 4d 	ld.lis c,l	ld.lis c,l
+150c	00 	nop	nop
+150d	b1 	or c	or c
+150e	56 	ld d,(hl)	ld d,(hl)
+150f	49 4d 	ld.lis c,l	ld.lis c,l
+1511	00 	nop	nop
+1512	b2 	or d	or d
+1513	5e 	ld e,(hl)	ld e,(hl)
+1514	52 	noni.sil	noni.sil
+1515	52 c4 67 52 4c 	call.sil nz,$4c5267	call.sil nz,$000000
+151a	c4 6f 4c 	call nz,$4c6f	call nz,$0000
+151d	44 	ld b,h	ld b,h
+151e	c9 	ret	ret
+151f	a0 	and b	and b
+1520	43 	ld b,e	ld b,e
+1521	50 	ld d,b	ld d,b
+1522	c9 	ret	ret
+1523	a1 	and c	and c
+1524	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
 1526	c9 	ret	ret
-1527	4d 	ld c,l	ld c,l
-1528	49 4d 	ld.lis c,l	ld.lis c,l
-152a	00 	nop	nop
-152b	b1 	or c	or c
-152c	56 	ld d,(hl)	ld d,(hl)
-152d	49 4d 	ld.lis c,l	ld.lis c,l
-152f	00 	nop	nop
-1530	b2 	or d	or d
-1531	5e 	ld e,(hl)	ld e,(hl)
-1532	52 	noni.sil	noni.sil
-1533	52 c4 67 52 4c 	call.sil nz,$4c5267	call.sil nz,$000000
-1538	c4 6f 4c 	call nz,$4c6f	call nz,$0000
-153b	44 	ld b,h	ld b,h
-153c	c9 	ret	ret
-153d	a0 	and b	and b
-153e	43 	ld b,e	ld b,e
-153f	50 	ld d,b	ld d,b
-1540	c9 	ret	ret
-1541	a1 	and c	and c
-1542	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-1544	c9 	ret	ret
-1545	a2 	and d	and d
-1546	4f 	ld c,a	ld c,a
-1547	55 	ld d,l	ld d,l
-1548	54 	ld d,h	ld d,h
-1549	c9 	ret	ret
-154a	a3 	and e	and e
-154b	4c 	ld c,h	ld c,h
-154c	44 	ld b,h	ld b,h
-154d	c4 a8 43 	call nz,$43a8	call nz,$0000
-1550	50 	ld d,b	ld d,b
-1551	c4 a9 49 	call nz,$49a9	call nz,$0000
-1554	4e 	ld c,(hl)	ld c,(hl)
-1555	c4 aa 4f 	call nz,$4faa	call nz,$0000
-1558	55 	ld d,l	ld d,l
-1559	54 	ld d,h	ld d,h
-155a	c4 ab 4c 	call nz,$4cab	call nz,$0000
-155d	44 	ld b,h	ld b,h
-155e	49 d2 b0 43 	jp.lis nc,$43b0	jp.lis nc,$0000
-1562	50 	ld d,b	ld d,b
-1563	49 d2 b1 49 	jp.lis nc,$49b1	jp.lis nc,$0000
-1567	4e 	ld c,(hl)	ld c,(hl)
-1568	49 d2 b2 4f 	jp.lis nc,$4fb2	jp.lis nc,$0000
-156c	54 	ld d,h	ld d,h
-156d	49 d2 b3 4c 	jp.lis nc,$4cb3	jp.lis nc,$0000
-1571	44 	ld b,h	ld b,h
-1572	44 	ld b,h	ld b,h
-1573	d2 b8 43 	jp nc,$43b8	jp nc,$0000
-1576	50 	ld d,b	ld d,b
-1577	44 	ld b,h	ld b,h
-1578	d2 b9 49 	jp nc,$49b9	jp nc,$0000
-157b	4e 	ld c,(hl)	ld c,(hl)
-157c	44 	ld b,h	ld b,h
-157d	d2 ba 4f 	jp nc,$4fba	jp nc,$0000
-1580	54 	ld d,h	ld d,h
-1581	44 	ld b,h	ld b,h
-1582	d2 bb 42 	jp nc,$42bb	jp nc,$0000
-1585	49 d4 40 52 	call.lis nc,$5240	call.lis nc,$0000
-1589	45 	ld b,l	ld b,l
-158a	d3 80 	out ($80),a	out ($00),a
-158c	53 	ld d,e	ld d,e
-158d	45 	ld b,l	ld b,l
-158e	d4 c0 52 	call nc,$52c0	call nc,$0000
-1591	4c 	ld c,h	ld c,h
-1592	c3 00 52 	jp $5200	jp $0000
-1595	52 c3 08 52 cc 	jp.sil $cc5208	jp.sil $000000
-159a	10 52 	djnz $+$54	djnz $+$00
-159c	d2 18 53 	jp nc,$5318	jp nc,$0000
-159f	4c 	ld c,h	ld c,h
-15a0	c1 	pop bc	pop bc
-15a1	20 53 	jr nz,$+$55	jr nz,$+$00
-15a3	52 c1 	pop.sil bc	pop.sil bc
-15a5	28 53 	jr z,$+$55	jr z,$+$00
-15a7	52 cc 38 50 4f 	call.sil z,$4f5038	call.sil z,$000000
+1527	a2 	and d	and d
+1528	4f 	ld c,a	ld c,a
+1529	55 	ld d,l	ld d,l
+152a	54 	ld d,h	ld d,h
+152b	c9 	ret	ret
+152c	a3 	and e	and e
+152d	4c 	ld c,h	ld c,h
+152e	44 	ld b,h	ld b,h
+152f	c4 a8 43 	call nz,$43a8	call nz,$0000
+1532	50 	ld d,b	ld d,b
+1533	c4 a9 49 	call nz,$49a9	call nz,$0000
+1536	4e 	ld c,(hl)	ld c,(hl)
+1537	c4 aa 4f 	call nz,$4faa	call nz,$0000
+153a	55 	ld d,l	ld d,l
+153b	54 	ld d,h	ld d,h
+153c	c4 ab 4c 	call nz,$4cab	call nz,$0000
+153f	44 	ld b,h	ld b,h
+1540	49 d2 b0 43 	jp.lis nc,$43b0	jp.lis nc,$0000
+1544	50 	ld d,b	ld d,b
+1545	49 d2 b1 49 	jp.lis nc,$49b1	jp.lis nc,$0000
+1549	4e 	ld c,(hl)	ld c,(hl)
+154a	49 d2 b2 4f 	jp.lis nc,$4fb2	jp.lis nc,$0000
+154e	54 	ld d,h	ld d,h
+154f	49 d2 b3 4c 	jp.lis nc,$4cb3	jp.lis nc,$0000
+1553	44 	ld b,h	ld b,h
+1554	44 	ld b,h	ld b,h
+1555	d2 b8 43 	jp nc,$43b8	jp nc,$0000
+1558	50 	ld d,b	ld d,b
+1559	44 	ld b,h	ld b,h
+155a	d2 b9 49 	jp nc,$49b9	jp nc,$0000
+155d	4e 	ld c,(hl)	ld c,(hl)
+155e	44 	ld b,h	ld b,h
+155f	d2 ba 4f 	jp nc,$4fba	jp nc,$0000
+1562	54 	ld d,h	ld d,h
+1563	44 	ld b,h	ld b,h
+1564	d2 bb 42 	jp nc,$42bb	jp nc,$0000
+1567	49 d4 40 52 	call.lis nc,$5240	call.lis nc,$0000
+156b	45 	ld b,l	ld b,l
+156c	d3 80 	out ($80),a	out ($00),a
+156e	53 	ld d,e	ld d,e
+156f	45 	ld b,l	ld b,l
+1570	d4 c0 52 	call nc,$52c0	call nc,$0000
+1573	4c 	ld c,h	ld c,h
+1574	c3 00 52 	jp $5200	jp $0000
+1577	52 c3 08 52 cc 	jp.sil $cc5208	jp.sil $000000
+157c	10 52 	djnz $+$54	djnz $+$00
+157e	d2 18 53 	jp nc,$5318	jp nc,$0000
+1581	4c 	ld c,h	ld c,h
+1582	c1 	pop bc	pop bc
+1583	20 53 	jr nz,$+$55	jr nz,$+$00
+1585	52 c1 	pop.sil bc	pop.sil bc
+1587	28 53 	jr z,$+$55	jr z,$+$00
+1589	52 cc 38 50 4f 	call.sil z,$4f5038	call.sil z,$000000
+158e	d0 	ret nc	ret nc
+158f	c1 	pop bc	pop bc
+1590	50 	ld d,b	ld d,b
+1591	55 	ld d,l	ld d,l
+1592	53 	ld d,e	ld d,e
+1593	c8 	ret z	ret z
+1594	c5 	push bc	push bc
+1595	45 	ld b,l	ld b,l
+1596	58 	ld e,b	ld e,b
+1597	00 	nop	nop
+1598	28 53 	jr z,$+$55	jr z,$+$00
+159a	d0 	ret nc	ret nc
+159b	e3 	ex (sp),hl	ex (sp),hl
+159c	53 	ld d,e	ld d,e
+159d	55 	ld d,l	ld d,l
+159e	c2 90 41 	jp nz,$4190	jp nz,$0000
+15a1	4e 	ld c,(hl)	ld c,(hl)
+15a2	c4 a0 58 	call nz,$58a0	call nz,$0000
+15a5	4f 	ld c,a	ld c,a
+15a6	d2 a8 4f 	jp nc,$4fa8	jp nc,$0000
+15a9	d2 b0 43 	jp nc,$43b0	jp nc,$0000
 15ac	d0 	ret nc	ret nc
-15ad	c1 	pop bc	pop bc
-15ae	50 	ld d,b	ld d,b
-15af	55 	ld d,l	ld d,l
-15b0	53 	ld d,e	ld d,e
-15b1	c8 	ret z	ret z
-15b2	c5 	push bc	push bc
-15b3	45 	ld b,l	ld b,l
-15b4	58 	ld e,b	ld e,b
-15b5	00 	nop	nop
-15b6	28 53 	jr z,$+$55	jr z,$+$00
-15b8	d0 	ret nc	ret nc
-15b9	e3 	ex (sp),hl	ex (sp),hl
-15ba	53 	ld d,e	ld d,e
-15bb	55 	ld d,l	ld d,l
-15bc	c2 90 41 	jp nz,$4190	jp nz,$0000
+15ad	b8 	cp b	cp b
+15ae	80 	add a,b	add a,b
+15af	a0 	and b	and b
+15b0	84 	add a,h	add a,h
+15b1	b0 	or b	or b
+15b2	41 	ld b,c	ld b,c
+15b3	44 	ld b,h	ld b,h
+15b4	c4 80 41 	call nz,$4180	call nz,$0000
+15b7	44 	ld b,h	ld b,h
+15b8	c3 88 53 	jp $5388	jp $0000
+15bb	42 	ld b,d	ld b,d
+15bc	c3 98 49 	jp $4998	jp $0000
 15bf	4e 	ld c,(hl)	ld c,(hl)
-15c0	c4 a0 58 	call nz,$58a0	call nz,$0000
-15c3	4f 	ld c,a	ld c,a
-15c4	d2 a8 4f 	jp nc,$4fa8	jp nc,$0000
-15c7	d2 b0 43 	jp nc,$43b0	jp nc,$0000
-15ca	d0 	ret nc	ret nc
-15cb	b8 	cp b	cp b
-15cc	80 	add a,b	add a,b
-15cd	a0 	and b	and b
-15ce	84 	add a,h	add a,h
-15cf	b0 	or b	or b
-15d0	41 	ld b,c	ld b,c
-15d1	44 	ld b,h	ld b,h
-15d2	c4 80 41 	call nz,$4180	call nz,$0000
-15d5	44 	ld b,h	ld b,h
-15d6	c3 88 53 	jp $5388	jp $0000
-15d9	42 	ld b,d	ld b,d
-15da	c3 98 49 	jp $4998	jp $0000
-15dd	4e 	ld c,(hl)	ld c,(hl)
-15de	c3 04 44 	jp $4404	jp $0000
-15e1	45 	ld b,l	ld b,l
-15e2	c3 05 49 	jp $4905	jp $0000
-15e5	ce 40 	adc a,$40	adc a,$00
-15e7	4f 	ld c,a	ld c,a
-15e8	55 	ld d,l	ld d,l
-15e9	d4 41 4a 	call nc,$4a41	call nc,$0000
-15ec	d2 20 44 	jp nc,$4420	jp nc,$0000
-15ef	4a 	ld c,d	ld c,d
-15f0	4e 	ld c,(hl)	ld c,(hl)
-15f1	da 10 4a 	jp c,$4a10	jp c,$0000
-15f4	d0 	ret nc	ret nc
-15f5	c2 43 41 	jp nz,$4143	jp nz,$0000
-15f8	4c 	ld c,h	ld c,h
-15f9	cc c4 52 	call z,$52c4	call z,$0000
-15fc	53 	ld d,e	ld d,e
-15fd	d4 c7 52 	call nc,$52c7	call nc,$0000
-1600	45 	ld b,l	ld b,l
-1601	d4 c0 4c 	call nc,$4cc0	call nc,$0000
-1604	c4 40 5d 	call nz,$5d40	call nz,$0000
-1607	cd 00 5d 	call $5d00	call $0000
-160a	c2 00 4f 	jp nz,$4f00	jp nz,$0000
-160d	50 	ld d,b	ld d,b
-160e	d4 00 5d 	call nc,$5d00	call nc,$0000
-1611	d7 	rst $10	rst $00
-1612	00 	nop	nop
-1613	00 	nop	nop
-1614	c2 00 c3 	jp nz,$c300	jp nz,$0000
-1617	01 c4 02 	ld bc,$02c4	ld bc,$0000
-161a	c5 	push bc	push bc
-161b	03 	inc bc	inc bc
-161c	c8 	ret z	ret z
-161d	04 	inc b	inc b
-161e	cc 05 28 	call z,$2805	call z,$0000
-1621	48 	ld c,b	ld c,b
-1622	cc 06 c1 	call z,$c106	call z,$0000
-1625	07 	rlca	rlca
-1626	28 49 	jr z,$+$4b	jr z,$+$00
-1628	d8 	ret c	ret c
-1629	86 	add a,(hl)	add a,(hl)
-162a	28 49 	jr z,$+$4b	jr z,$+$00
-162c	d9 	exx	exx
-162d	c6 42 	add a,$42	add a,$00
-162f	c3 08 44 	jp $4408	jp $0000
-1632	c5 	push bc	push bc
-1633	0a 	ld a,(bc)	ld a,(bc)
-1634	48 	ld c,b	ld c,b
-1635	cc 0c 49 	call z,$490c	call z,$0000
-1638	d8 	ret c	ret c
-1639	8c 	adc a,h	adc a,h
-163a	49 d9 	exx.lis	exx.lis
-163c	cc 41 c6 	call z,$c641	call z,$0000
-163f	0e 53 	ld c,$53	ld c,$00
-1641	d0 	ret nc	ret nc
-1642	0e 4e 	ld c,$4e	ld c,$00
-1644	da 10 da 	jp c,$da10	jp c,$0000
-1647	11 4e c3 	ld de,$c34e	ld de,$0000
-164a	12 	ld (de),a	ld (de),a
-164b	50 	ld d,b	ld d,b
-164c	cf 	rst $08	rst $00
-164d	14 	inc d	inc d
-164e	50 	ld d,b	ld d,b
-164f	c5 	push bc	push bc
-1650	15 	dec d	dec d
-1651	d0 	ret nc	ret nc
-1652	16 cd 	ld d,$cd	ld d,$00
-1654	17 	rla	rla
-1655	28 c3 	jr z,$-$3b	jr z,$-$00
-1657	20 00 	jr nz,$+$02	jr nz,$+$00
-1659	49 00 	nop.lis	nop.lis
-165b	c1 	pop bc	pop bc
-165c	47 	ld b,a	ld b,a
-165d	52 00 	nop.sil	nop.sil
-165f	c1 	pop bc	pop bc
-1660	4f 	ld c,a	ld c,a
-1661	41 	ld b,c	ld b,c
-1662	00 	nop	nop
-1663	c9 	ret	ret
-1664	57 	ld d,a	ld d,a
-1665	41 	ld b,c	ld b,c
-1666	00 	nop	nop
-1667	d2 5f 28 	jp nc,$285f	jp nc,$0000
-166a	42 	ld b,d	ld b,d
-166b	43 	ld b,e	ld b,e
-166c	00 	nop	nop
-166d	c1 	pop bc	pop bc
-166e	02 	ld (bc),a	ld (bc),a
-166f	28 44 	jr z,$+$46	jr z,$+$00
-1671	45 	ld b,l	ld b,l
-1672	00 	nop	nop
-1673	c1 	pop bc	pop bc
-1674	12 	ld (de),a	ld (de),a
-1675	41 	ld b,c	ld b,c
-1676	00 	nop	nop
-1677	28 42 	jr z,$+$44	jr z,$+$00
-1679	c3 0a 41 	jp $410a	jp $0000
-167c	00 	nop	nop
-167d	28 44 	jr z,$+$46	jr z,$+$00
-167f	c5 	push bc	push bc
-1680	1a 	ld a,(de)	ld a,(de)
-1681	00 	nop	nop
-1682	60 	ld h,b	ld h,b
-1683	1f 	rra	rra
-1684	5b 1b 	dec.lil de	dec.lil de
-1686	78 	ld a,b	ld a,b
+15c0	c3 04 44 	jp $4404	jp $0000
+15c3	45 	ld b,l	ld b,l
+15c4	c3 05 49 	jp $4905	jp $0000
+15c7	ce 40 	adc a,$40	adc a,$00
+15c9	4f 	ld c,a	ld c,a
+15ca	55 	ld d,l	ld d,l
+15cb	d4 41 4a 	call nc,$4a41	call nc,$0000
+15ce	d2 20 44 	jp nc,$4420	jp nc,$0000
+15d1	4a 	ld c,d	ld c,d
+15d2	4e 	ld c,(hl)	ld c,(hl)
+15d3	da 10 4a 	jp c,$4a10	jp c,$0000
+15d6	d0 	ret nc	ret nc
+15d7	c2 43 41 	jp nz,$4143	jp nz,$0000
+15da	4c 	ld c,h	ld c,h
+15db	cc c4 52 	call z,$52c4	call z,$0000
+15de	53 	ld d,e	ld d,e
+15df	d4 c7 52 	call nc,$52c7	call nc,$0000
+15e2	45 	ld b,l	ld b,l
+15e3	d4 c0 4c 	call nc,$4cc0	call nc,$0000
+15e6	c4 40 5d 	call nz,$5d40	call nz,$0000
+15e9	cd 00 5d 	call $5d00	call $0000
+15ec	c2 00 4f 	jp nz,$4f00	jp nz,$0000
+15ef	50 	ld d,b	ld d,b
+15f0	d4 00 5d 	call nc,$5d00	call nc,$0000
+15f3	d7 	rst $10	rst $00
+15f4	00 	nop	nop
+15f5	00 	nop	nop
+15f6	c2 00 c3 	jp nz,$c300	jp nz,$0000
+15f9	01 c4 02 	ld bc,$02c4	ld bc,$0000
+15fc	c5 	push bc	push bc
+15fd	03 	inc bc	inc bc
+15fe	c8 	ret z	ret z
+15ff	04 	inc b	inc b
+1600	cc 05 28 	call z,$2805	call z,$0000
+1603	48 	ld c,b	ld c,b
+1604	cc 06 c1 	call z,$c106	call z,$0000
+1607	07 	rlca	rlca
+1608	28 49 	jr z,$+$4b	jr z,$+$00
+160a	d8 	ret c	ret c
+160b	86 	add a,(hl)	add a,(hl)
+160c	28 49 	jr z,$+$4b	jr z,$+$00
+160e	d9 	exx	exx
+160f	c6 42 	add a,$42	add a,$00
+1611	c3 08 44 	jp $4408	jp $0000
+1614	c5 	push bc	push bc
+1615	0a 	ld a,(bc)	ld a,(bc)
+1616	48 	ld c,b	ld c,b
+1617	cc 0c 49 	call z,$490c	call z,$0000
+161a	d8 	ret c	ret c
+161b	8c 	adc a,h	adc a,h
+161c	49 d9 	exx.lis	exx.lis
+161e	cc 41 c6 	call z,$c641	call z,$0000
+1621	0e 53 	ld c,$53	ld c,$00
+1623	d0 	ret nc	ret nc
+1624	0e 4e 	ld c,$4e	ld c,$00
+1626	da 10 da 	jp c,$da10	jp c,$0000
+1629	11 4e c3 	ld de,$c34e	ld de,$0000
+162c	12 	ld (de),a	ld (de),a
+162d	50 	ld d,b	ld d,b
+162e	cf 	rst $08	rst $00
+162f	14 	inc d	inc d
+1630	50 	ld d,b	ld d,b
+1631	c5 	push bc	push bc
+1632	15 	dec d	dec d
+1633	d0 	ret nc	ret nc
+1634	16 cd 	ld d,$cd	ld d,$00
+1636	17 	rla	rla
+1637	28 c3 	jr z,$-$3b	jr z,$-$00
+1639	20 00 	jr nz,$+$02	jr nz,$+$00
+163b	49 00 	nop.lis	nop.lis
+163d	c1 	pop bc	pop bc
+163e	47 	ld b,a	ld b,a
+163f	52 00 	nop.sil	nop.sil
+1641	c1 	pop bc	pop bc
+1642	4f 	ld c,a	ld c,a
+1643	41 	ld b,c	ld b,c
+1644	00 	nop	nop
+1645	c9 	ret	ret
+1646	57 	ld d,a	ld d,a
+1647	41 	ld b,c	ld b,c
+1648	00 	nop	nop
+1649	d2 5f 28 	jp nc,$285f	jp nc,$0000
+164c	42 	ld b,d	ld b,d
+164d	43 	ld b,e	ld b,e
+164e	00 	nop	nop
+164f	c1 	pop bc	pop bc
+1650	02 	ld (bc),a	ld (bc),a
+1651	28 44 	jr z,$+$46	jr z,$+$00
+1653	45 	ld b,l	ld b,l
+1654	00 	nop	nop
+1655	c1 	pop bc	pop bc
+1656	12 	ld (de),a	ld (de),a
+1657	41 	ld b,c	ld b,c
+1658	00 	nop	nop
+1659	28 42 	jr z,$+$44	jr z,$+$00
+165b	c3 0a 41 	jp $410a	jp $0000
+165e	00 	nop	nop
+165f	28 44 	jr z,$+$46	jr z,$+$00
+1661	c5 	push bc	push bc
+1662	1a 	ld a,(de)	ld a,(de)
+1663	00 	nop	nop
+1664	42 	ld b,d	ld b,d
+1665	1f 	rra	rra
+1666	3d 	dec a	dec a
+1667	1b 	dec de	dec de
+1668	5a 	ld e,d	ld e,d
+1669	1b 	dec de	dec de
+166a	0f 	rrca	rrca
+166b	1b 	dec de	dec de
+166c	62 	ld h,d	ld h,d
+166d	1b 	dec de	dec de
+166e	05 	dec b	dec b
+166f	1b 	dec de	dec de
+1670	0a 	ld a,(bc)	ld a,(bc)
+1671	1b 	dec de	dec de
+1672	ae 	xor (hl)	xor (hl)
+1673	1b 	dec de	dec de
+1674	ea 1b c9 	jp pe,$c91b	jp pe,$0000
+1677	0d 	dec c	dec c
+1678	f2 1a e2 	jp p,$e21a	jp p,$0000
+167b	1b 	dec de	dec de
+167c	e6 1b 	and $1b	and $00
+167e	ce 1a 	adc a,$1a	adc a,$00
+1680	ce 1b 	adc a,$1b	adc a,$00
+1682	2d 	dec l	dec l
+1683	1b 	dec de	dec de
+1684	b6 	or (hl)	or (hl)
+1685	1b 	dec de	dec de
+1686	23 	inc hl	inc hl
 1687	1b 	dec de	dec de
-1688	2d 	dec l	dec l
-1689	1b 	dec de	dec de
-168a	80 	add a,b	add a,b
-168b	1b 	dec de	dec de
-168c	23 	inc hl	inc hl
-168d	1b 	dec de	dec de
-168e	28 1b 	jr z,$+$1d	jr z,$+$00
-1690	cc 1b 08 	call z,$081b	call z,$0000
-1693	1c 	inc e	inc e
-1694	e7 	rst $20	rst $00
-1695	0d 	dec c	dec c
-1696	10 1b 	djnz $+$1d	djnz $+$00
-1698	00 	nop	nop
-1699	1c 	inc e	inc e
-169a	04 	inc b	inc b
-169b	1c 	inc e	inc e
-169c	ec 1a ec 	call pe,$ec1a	call pe,$0000
-169f	1b 	dec de	dec de
-16a0	4b 	ld c,e	ld c,e
+1688	28 1b 	jr z,$+$1d	jr z,$+$00
+168a	0e 1c 	ld c,$1c	ld c,$00
+168c	d6 1b 	sub $1b	sub $00
+168e	52 1b 	dec.sil de	dec.sil de
+1690	da 1f c5 	jp c,$c51f	jp c,$0000
+1693	29 	add hl,hl	add hl,hl
+1694	dc 1a d7 	call c,$d71a	call c,$0000
+1697	1a 	ld a,(de)	ld a,(de)
+1698	87 	add a,a	add a,a
+1699	1d 	dec e	dec e
+169a	c2 1b ff 	jp nz,$ff1b	jp nz,$0000
+169d	1a 	ld a,(de)	ld a,(de)
+169e	da 1b de 	jp c,$de1b	jp c,$0000
 16a1	1b 	dec de	dec de
-16a2	d4 1b 41 	call nc,$411b	call nc,$0000
-16a5	1b 	dec de	dec de
-16a6	46 	ld b,(hl)	ld b,(hl)
+16a2	b2 	or d	or d
+16a3	1b 	dec de	dec de
+16a4	3a 1b 38 	ld a,($381b)	ld a,($0000)
 16a7	1b 	dec de	dec de
-16a8	2c 	inc l	inc l
-16a9	1c 	inc e	inc e
-16aa	f4 1b 70 	call p,$701b	call p,$0000
-16ad	1b 	dec de	dec de
-16ae	f8 	ret m	ret m
-16af	1f 	rra	rra
-16b0	e3 	ex (sp),hl	ex (sp),hl
-16b1	29 	add hl,hl	add hl,hl
-16b2	fa 1a f5 	jp m,$f51a	jp m,$0000
-16b5	1a 	ld a,(de)	ld a,(de)
-16b6	a5 	and l	and l
-16b7	1d 	dec e	dec e
-16b8	e0 	ret po	ret po
-16b9	1b 	dec de	dec de
-16ba	1d 	dec e	dec e
+16a8	aa 	xor d	xor d
+16a9	1b 	dec de	dec de
+16aa	96 	sub (hl)	sub (hl)
+16ab	0d 	dec c	dec c
+16ac	b7 	or a	or a
+16ad	1a 	ld a,(de)	ld a,(de)
+16ae	ba 	cp d	cp d
+16af	1b 	dec de	dec de
+16b0	3b 	dec sp	dec sp
+16b1	1c 	inc e	inc e
+16b2	be 	cp (hl)	cp (hl)
+16b3	1b 	dec de	dec de
+16b4	d2 1b c6 	jp nc,$c61b	jp nc,$0000
+16b7	1b 	dec de	dec de
+16b8	ca 1b 14 	jp z,$141b	jp z,$0000
 16bb	1b 	dec de	dec de
-16bc	f8 	ret m	ret m
+16bc	9f 	sbc a,a	sbc a,a
 16bd	1b 	dec de	dec de
-16be	fc 1b d0 	call m,$d01b	call m,$0000
-16c1	1b 	dec de	dec de
-16c2	58 	ld e,b	ld e,b
-16c3	1b 	dec de	dec de
-16c4	56 	ld d,(hl)	ld d,(hl)
-16c5	1b 	dec de	dec de
-16c6	c8 	ret z	ret z
-16c7	1b 	dec de	dec de
-16c8	b4 	or h	or h
-16c9	0d 	dec c	dec c
-16ca	d5 	push de	push de
-16cb	1a 	ld a,(de)	ld a,(de)
-16cc	d8 	ret c	ret c
-16cd	1b 	dec de	dec de
-16ce	59 	ld e,c	ld e,c
-16cf	1c 	inc e	inc e
-16d0	dc 1b f0 	call c,$f01b	call c,$0000
-16d3	1b 	dec de	dec de
-16d4	e4 1b e8 	call po,$e81b	call po,$0000
-16d7	1b 	dec de	dec de
-16d8	32 1b bd 	ld ($bd1b),a	ld ($0000),a
+16be	21 30 01 	ld hl,$0130	ld hl,$0000
+16c1	1c 	inc e	inc e
+16c2	bd 	cp l	cp l
+16c3	1a 	ld a,(de)	ld a,(de)
+16c4	08 	ex af,af'	ex af,af'
+16c5	1e 0f 	ld e,$0f	ld e,$00
+16c7	1e 70 	ld e,$70	ld e,$00
+16c9	1e b0 	ld e,$b0	ld e,$00
+16cb	1e 80 	ld e,$80	ld e,$00
+16cd	1e de 	ld e,$de	ld e,$00
+16cf	1e 9a 	ld e,$9a	ld e,$00
+16d1	1f 	rra	rra
+16d2	08 	ex af,af'	ex af,af'
+16d3	1f 	rra	rra
+16d4	c2 1a cb 	jp nz,$cb1a	jp nz,$0000
+16d7	1c 	inc e	inc e
+16d8	8d 	adc a,l	adc a,l
+16d9	1b 	dec de	dec de
+16da	95 	sub l	sub l
 16db	1b 	dec de	dec de
-16dc	3f 	ccf	ccf
-16dd	30 1f 	jr nc,$+$21	jr nc,$+$00
-16df	1c 	inc e	inc e
-16e0	db 1a 	in a,($1a)	in a,($00)
-16e2	26 1e 	ld h,$1e	ld h,$00
-16e4	2d 	dec l	dec l
-16e5	1e 8e 	ld e,$8e	ld e,$00
-16e7	1e ce 	ld e,$ce	ld e,$00
-16e9	1e 9e 	ld e,$9e	ld e,$00
-16eb	1e fc 	ld e,$fc	ld e,$00
-16ed	1e b8 	ld e,$b8	ld e,$00
-16ef	1f 	rra	rra
-16f0	26 1f 	ld h,$1f	ld h,$00
-16f2	e0 	ret po	ret po
-16f3	1a 	ld a,(de)	ld a,(de)
-16f4	e9 	jp (hl)	jp (hl)
-16f5	1c 	inc e	inc e
-16f6	ab 	xor e	xor e
-16f7	1b 	dec de	dec de
-16f8	b3 	or e	or e
-16f9	1b 	dec de	dec de
-16fa	a5 	and l	and l
-16fb	1b 	dec de	dec de
-16fc	98 	sbc a,b	sbc a,b
-16fd	1b 	dec de	dec de
-16fe	b9 	cp c	cp c
-16ff	1b 	dec de	dec de
-1700	9e 	sbc a,(hl)	sbc a,(hl)
-1701	1b 	dec de	dec de
-1702	cd 17 17 	call $1717	call $0000
-1705	fe 82 	cp $82	cp $00
-1707	28 03 	jr z,$+$05	jr z,$+$00
-1709	fe 84 	cp $84	cp $00
-170b	c0 	ret nz	ret nz
-170c	cd 73 20 	call $2073	call $0000
-170f	cd 17 17 	call $1717	call $0000
-1712	cd 83 20 	call $2083	call $0000
-1715	18 ee 	jr $-$10	jr $-$00
-1717	cd 28 17 	call $1728	call $0000
-171a	fe 80 	cp $80	cp $00
-171c	c0 	ret nz	ret nz
-171d	cd 73 20 	call $2073	call $0000
-1720	cd 28 17 	call $1728	call $0000
-1723	cd 83 20 	call $2083	call $0000
-1726	18 f2 	jr $-$0c	jr $-$00
-1728	cd a0 17 	call $17a0	call $0000
-172b	cd 6a 20 	call $206a	call $0000
-172e	c0 	ret nz	ret nz
-172f	47 	ld b,a	ld b,a
-1730	fd 23 	inc iy	inc iy
-1732	cd 0b 45 	call $450b	call $0000
-1735	cd 6a 20 	call $206a	call $0000
-1738	20 07 	jr nz,$+$09	jr nz,$+$00
-173a	fd 23 	inc iy	inc iy
-173c	b8 	cp b	cp b
-173d	28 1c 	jr z,$+$1e	jr z,$+$00
-173f	80 	add a,b	add a,b
-1740	47 	ld b,a	ld b,a
-1741	78 	ld a,b	ld a,b
-1742	08 	ex af,af'	ex af,af'
-1743	fa 73 17 	jp m,$1773	jp m,$0000
-1746	08 	ex af,af'	ex af,af'
-1747	d6 04 	sub $04	sub $00
-1749	fe 3a 	cp $3a	cp $00
-174b	20 02 	jr nz,$+$04	jr nz,$+$00
-174d	c6 02 	add a,$02	add a,$00
-174f	e6 0f 	and $0f	and $00
-1751	cd 77 20 	call $2077	call $0000
-1754	cd a0 17 	call $17a0	call $0000
-1757	cd 83 20 	call $2083	call $0000
-175a	c9 	ret	ret
-175b	fe 3d 	cp $3d	cp $00
-175d	28 e2 	jr z,$-$1c	jr z,$-$00
-175f	cd 0b 45 	call $450b	call $0000
-1762	cd 6a 20 	call $206a	call $0000
-1765	20 07 	jr nz,$+$09	jr nz,$+$00
-1767	b8 	cp b	cp b
-1768	c2 e0 25 	jp nz,$25e0	jp nz,$0000
-176b	fd 23 	inc iy	inc iy
-176d	04 	inc b	inc b
-176e	78 	ld a,b	ld a,b
-176f	d6 12 	sub $12	sub $00
-1771	18 de 	jr $-$20	jr $-$00
-1773	08 	ex af,af'	ex af,af'
-1774	3d 	dec a	dec a
-1775	e6 07 	and $07	and $00
-1777	cd 19 20 	call $2019	call $0000
-177a	f5 	push af	push af
-177b	cd a0 17 	call $17a0	call $0000
-177e	08 	ex af,af'	ex af,af'
-177f	f2 6e 18 	jp p,$186e	jp p,$0000
-1782	f1 	pop af	pop af
-1783	4b 	ld c,e	ld c,e
-1784	d1 	pop de	pop de
-1785	21 00 00 	ld hl,$0000	ld hl,$0000
-1788	39 	add hl,sp	add hl,sp
-1789	43 	ld b,e	ld b,e
-178a	d5 	push de	push de
-178b	11 00 52 	ld de,$5200	ld de,$0000
-178e	eb 	ex de,hl	ex de,hl
-178f	cd bb 20 	call $20bb	call $0000
-1792	d1 	pop de	pop de
-1793	eb 	ex de,hl	ex de,hl
-1794	26 00 	ld h,$00	ld h,$00
-1796	39 	add hl,sp	add hl,sp
-1797	f9 	ld sp,hl	ld sp,hl
-1798	eb 	ex de,hl	ex de,hl
-1799	af 	xor a	xor a
-179a	4f 	ld c,a	ld c,a
-179b	08 	ex af,af'	ex af,af'
-179c	fd 7e 00 	ld a,(iy)	ld a,(iy)
-179f	c9 	ret	ret
-17a0	cd ee 17 	call $17ee	call $0000
-17a3	fe 2d 	cp $2d	cp $00
-17a5	28 08 	jr z,$+$0a	jr z,$+$00
-17a7	fe 2b 	cp $2b	cp $00
-17a9	c0 	ret nz	ret nz
-17aa	08 	ex af,af'	ex af,af'
-17ab	fa ba 17 	jp m,$17ba	jp m,$0000
-17ae	08 	ex af,af'	ex af,af'
-17af	cd 73 20 	call $2073	call $0000
-17b2	cd ee 17 	call $17ee	call $0000
-17b5	cd 83 20 	call $2083	call $0000
-17b8	18 e9 	jr $-$15	jr $-$00
-17ba	08 	ex af,af'	ex af,af'
-17bb	fd 23 	inc iy	inc iy
-17bd	cd 19 20 	call $2019	call $0000
-17c0	cd ee 17 	call $17ee	call $0000
-17c3	08 	ex af,af'	ex af,af'
-17c4	f2 6e 18 	jp p,$186e	jp p,$0000
-17c7	4b 	ld c,e	ld c,e
-17c8	d1 	pop de	pop de
-17c9	d5 	push de	push de
-17ca	21 00 52 	ld hl,$5200	ld hl,$0000
-17cd	54 	ld d,h	ld d,h
-17ce	79 	ld a,c	ld a,c
-17cf	b7 	or a	or a
-17d0	28 0e 	jr z,$+$10	jr z,$+$00
-17d2	45 	ld b,l	ld b,l
-17d3	6f 	ld l,a	ld l,a
-17d4	83 	add a,e	add a,e
-17d5	5f 	ld e,a	ld e,a
-17d6	3e 13 	ld a,$13	ld a,$00
-17d8	38 6b 	jr c,$+$6d	jr c,$+$00
-17da	d5 	push de	push de
-17db	1d 	dec e	dec e
-17dc	2d 	dec l	dec l
-17dd	ed b8 	lddr	lddr
-17df	d1 	pop de	pop de
-17e0	d9 	exx	exx
-17e1	c1 	pop bc	pop bc
-17e2	cd 37 20 	call $2037	call $0000
-17e5	d9 	exx	exx
-17e6	f6 80 	or $80	or $00
-17e8	08 	ex af,af'	ex af,af'
-17e9	fd 7e 00 	ld a,(iy)	ld a,(iy)
-17ec	18 b5 	jr $-$49	jr $-$00
-17ee	cd 14 18 	call $1814	call $0000
-17f1	fe 2a 	cp $2a	cp $00
-17f3	28 0b 	jr z,$+$0d	jr z,$+$00
-17f5	fe 2f 	cp $2f	cp $00
-17f7	28 07 	jr z,$+$09	jr z,$+$00
-17f9	fe 83 	cp $83	cp $00
-17fb	28 03 	jr z,$+$05	jr z,$+$00
-17fd	fe 81 	cp $81	cp $00
-17ff	c0 	ret nz	ret nz
-1800	cd 73 20 	call $2073	call $0000
-1803	cd 14 18 	call $1814	call $0000
-1806	cd 83 20 	call $2083	call $0000
-1809	18 e6 	jr $-$18	jr $-$00
-180b	7b 	ld a,e	ld a,e
-180c	fe 2b 	cp $2b	cp $00
-180e	28 de 	jr z,$-$20	jr z,$-$00
-1810	fe 2d 	cp $2d	cp $00
-1812	28 da 	jr z,$-$24	jr z,$-$00
-1814	cd d0 18 	call $18d0	call $0000
-1817	b7 	or a	or a
+16dc	87 	add a,a	add a,a
+16dd	1b 	dec de	dec de
+16de	7a 	ld a,d	ld a,d
+16df	1b 	dec de	dec de
+16e0	9b 	sbc a,e	sbc a,e
+16e1	1b 	dec de	dec de
+16e2	80 	add a,b	add a,b
+16e3	1b 	dec de	dec de
+16e4	cd f9 16 	call $16f9	call $0000
+16e7	fe 82 	cp $82	cp $00
+16e9	28 03 	jr z,$+$05	jr z,$+$00
+16eb	fe 84 	cp $84	cp $00
+16ed	c0 	ret nz	ret nz
+16ee	cd 55 20 	call $2055	call $0000
+16f1	cd f9 16 	call $16f9	call $0000
+16f4	cd 65 20 	call $2065	call $0000
+16f7	18 ee 	jr $-$10	jr $-$00
+16f9	cd 0a 17 	call $170a	call $0000
+16fc	fe 80 	cp $80	cp $00
+16fe	c0 	ret nz	ret nz
+16ff	cd 55 20 	call $2055	call $0000
+1702	cd 0a 17 	call $170a	call $0000
+1705	cd 65 20 	call $2065	call $0000
+1708	18 f2 	jr $-$0c	jr $-$00
+170a	cd 82 17 	call $1782	call $0000
+170d	cd 4c 20 	call $204c	call $0000
+1710	c0 	ret nz	ret nz
+1711	47 	ld b,a	ld b,a
+1712	fd 23 	inc iy	inc iy
+1714	cd ed 44 	call $44ed	call $0000
+1717	cd 4c 20 	call $204c	call $0000
+171a	20 07 	jr nz,$+$09	jr nz,$+$00
+171c	fd 23 	inc iy	inc iy
+171e	b8 	cp b	cp b
+171f	28 1c 	jr z,$+$1e	jr z,$+$00
+1721	80 	add a,b	add a,b
+1722	47 	ld b,a	ld b,a
+1723	78 	ld a,b	ld a,b
+1724	08 	ex af,af'	ex af,af'
+1725	fa 55 17 	jp m,$1755	jp m,$0000
+1728	08 	ex af,af'	ex af,af'
+1729	d6 04 	sub $04	sub $00
+172b	fe 3a 	cp $3a	cp $00
+172d	20 02 	jr nz,$+$04	jr nz,$+$00
+172f	c6 02 	add a,$02	add a,$00
+1731	e6 0f 	and $0f	and $00
+1733	cd 59 20 	call $2059	call $0000
+1736	cd 82 17 	call $1782	call $0000
+1739	cd 65 20 	call $2065	call $0000
+173c	c9 	ret	ret
+173d	fe 3d 	cp $3d	cp $00
+173f	28 e2 	jr z,$-$1c	jr z,$-$00
+1741	cd ed 44 	call $44ed	call $0000
+1744	cd 4c 20 	call $204c	call $0000
+1747	20 07 	jr nz,$+$09	jr nz,$+$00
+1749	b8 	cp b	cp b
+174a	c2 c2 25 	jp nz,$25c2	jp nz,$0000
+174d	fd 23 	inc iy	inc iy
+174f	04 	inc b	inc b
+1750	78 	ld a,b	ld a,b
+1751	d6 12 	sub $12	sub $00
+1753	18 de 	jr $-$20	jr $-$00
+1755	08 	ex af,af'	ex af,af'
+1756	3d 	dec a	dec a
+1757	e6 07 	and $07	and $00
+1759	cd fb 1f 	call $1ffb	call $0000
+175c	f5 	push af	push af
+175d	cd 82 17 	call $1782	call $0000
+1760	08 	ex af,af'	ex af,af'
+1761	f2 50 18 	jp p,$1850	jp p,$0000
+1764	f1 	pop af	pop af
+1765	4b 	ld c,e	ld c,e
+1766	d1 	pop de	pop de
+1767	21 00 00 	ld hl,$0000	ld hl,$0000
+176a	39 	add hl,sp	add hl,sp
+176b	43 	ld b,e	ld b,e
+176c	d5 	push de	push de
+176d	11 00 52 	ld de,$5200	ld de,$0000
+1770	eb 	ex de,hl	ex de,hl
+1771	cd 9d 20 	call $209d	call $0000
+1774	d1 	pop de	pop de
+1775	eb 	ex de,hl	ex de,hl
+1776	26 00 	ld h,$00	ld h,$00
+1778	39 	add hl,sp	add hl,sp
+1779	f9 	ld sp,hl	ld sp,hl
+177a	eb 	ex de,hl	ex de,hl
+177b	af 	xor a	xor a
+177c	4f 	ld c,a	ld c,a
+177d	08 	ex af,af'	ex af,af'
+177e	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1781	c9 	ret	ret
+1782	cd d0 17 	call $17d0	call $0000
+1785	fe 2d 	cp $2d	cp $00
+1787	28 08 	jr z,$+$0a	jr z,$+$00
+1789	fe 2b 	cp $2b	cp $00
+178b	c0 	ret nz	ret nz
+178c	08 	ex af,af'	ex af,af'
+178d	fa 9c 17 	jp m,$179c	jp m,$0000
+1790	08 	ex af,af'	ex af,af'
+1791	cd 55 20 	call $2055	call $0000
+1794	cd d0 17 	call $17d0	call $0000
+1797	cd 65 20 	call $2065	call $0000
+179a	18 e9 	jr $-$15	jr $-$00
+179c	08 	ex af,af'	ex af,af'
+179d	fd 23 	inc iy	inc iy
+179f	cd fb 1f 	call $1ffb	call $0000
+17a2	cd d0 17 	call $17d0	call $0000
+17a5	08 	ex af,af'	ex af,af'
+17a6	f2 50 18 	jp p,$1850	jp p,$0000
+17a9	4b 	ld c,e	ld c,e
+17aa	d1 	pop de	pop de
+17ab	d5 	push de	push de
+17ac	21 00 52 	ld hl,$5200	ld hl,$0000
+17af	54 	ld d,h	ld d,h
+17b0	79 	ld a,c	ld a,c
+17b1	b7 	or a	or a
+17b2	28 0e 	jr z,$+$10	jr z,$+$00
+17b4	45 	ld b,l	ld b,l
+17b5	6f 	ld l,a	ld l,a
+17b6	83 	add a,e	add a,e
+17b7	5f 	ld e,a	ld e,a
+17b8	3e 13 	ld a,$13	ld a,$00
+17ba	38 6b 	jr c,$+$6d	jr c,$+$00
+17bc	d5 	push de	push de
+17bd	1d 	dec e	dec e
+17be	2d 	dec l	dec l
+17bf	ed b8 	lddr	lddr
+17c1	d1 	pop de	pop de
+17c2	d9 	exx	exx
+17c3	c1 	pop bc	pop bc
+17c4	cd 19 20 	call $2019	call $0000
+17c7	d9 	exx	exx
+17c8	f6 80 	or $80	or $00
+17ca	08 	ex af,af'	ex af,af'
+17cb	fd 7e 00 	ld a,(iy)	ld a,(iy)
+17ce	18 b5 	jr $-$49	jr $-$00
+17d0	cd f6 17 	call $17f6	call $0000
+17d3	fe 2a 	cp $2a	cp $00
+17d5	28 0b 	jr z,$+$0d	jr z,$+$00
+17d7	fe 2f 	cp $2f	cp $00
+17d9	28 07 	jr z,$+$09	jr z,$+$00
+17db	fe 83 	cp $83	cp $00
+17dd	28 03 	jr z,$+$05	jr z,$+$00
+17df	fe 81 	cp $81	cp $00
+17e1	c0 	ret nz	ret nz
+17e2	cd 55 20 	call $2055	call $0000
+17e5	cd f6 17 	call $17f6	call $0000
+17e8	cd 65 20 	call $2065	call $0000
+17eb	18 e6 	jr $-$18	jr $-$00
+17ed	7b 	ld a,e	ld a,e
+17ee	fe 2b 	cp $2b	cp $00
+17f0	28 de 	jr z,$-$20	jr z,$-$00
+17f2	fe 2d 	cp $2d	cp $00
+17f4	28 da 	jr z,$-$24	jr z,$-$00
+17f6	cd b2 18 	call $18b2	call $0000
+17f9	b7 	or a	or a
+17fa	08 	ex af,af'	ex af,af'
+17fb	cd ed 44 	call $44ed	call $0000
+17fe	fe 5e 	cp $5e	cp $00
+1800	c0 	ret nz	ret nz
+1801	cd 55 20 	call $2055	call $0000
+1804	cd b2 18 	call $18b2	call $0000
+1807	b7 	or a	or a
+1808	08 	ex af,af'	ex af,af'
+1809	cd 65 20 	call $2065	call $0000
+180c	18 ed 	jr $-$11	jr $-$00
+180e	cd e4 16 	call $16e4	call $0000
+1811	08 	ex af,af'	ex af,af'
+1812	f0 	ret p	ret p
+1813	18 3b 	jr $+$3d	jr $+$00
+1815	cd e4 16 	call $16e4	call $0000
 1818	08 	ex af,af'	ex af,af'
-1819	cd 0b 45 	call $450b	call $0000
-181c	fe 5e 	cp $5e	cp $00
-181e	c0 	ret nz	ret nz
-181f	cd 73 20 	call $2073	call $0000
-1822	cd d0 18 	call $18d0	call $0000
-1825	b7 	or a	or a
-1826	08 	ex af,af'	ex af,af'
-1827	cd 83 20 	call $2083	call $0000
-182a	18 ed 	jr $-$11	jr $-$00
-182c	cd 02 17 	call $1702	call $0000
-182f	08 	ex af,af'	ex af,af'
-1830	f0 	ret p	ret p
-1831	18 3b 	jr $+$3d	jr $+$00
-1833	cd 02 17 	call $1702	call $0000
-1836	08 	ex af,af'	ex af,af'
-1837	f2 17 1c 	jp p,$1c17	jp p,$0000
-183a	18 32 	jr $+$34	jr $+$00
-183c	cd 02 17 	call $1702	call $0000
-183f	08 	ex af,af'	ex af,af'
-1840	f8 	ret m	ret m
-1841	18 2b 	jr $+$2d	jr $+$00
-1843	3e 1c 	ld a,$1c	ld a,$00
-1845	c3 44 3f 	jp $3f44	jp $0000
-1848	d9 	exx	exx
-1849	7c 	ld a,h	ld a,h
-184a	2f 	cpl	cpl
-184b	67 	ld h,a	ld h,a
-184c	7d 	ld a,l	ld a,l
-184d	2f 	cpl	cpl
-184e	6f 	ld l,a	ld l,a
-184f	d9 	exx	exx
-1850	7c 	ld a,h	ld a,h
-1851	2f 	cpl	cpl
-1852	67 	ld h,a	ld h,a
-1853	7d 	ld a,l	ld a,l
-1854	2f 	cpl	cpl
-1855	6f 	ld l,a	ld l,a
-1856	d9 	exx	exx
-1857	23 	inc hl	inc hl
-1858	7c 	ld a,h	ld a,h
-1859	b5 	or l	or l
-185a	d9 	exx	exx
-185b	3e 00 	ld a,$00	ld a,$00
-185d	c0 	ret nz	ret nz
-185e	23 	inc hl	inc hl
-185f	c9 	ret	ret
-1860	cd d0 18 	call $18d0	call $0000
-1863	b7 	or a	or a
-1864	f2 17 1c 	jp p,$1c17	jp p,$0000
-1867	18 05 	jr $+$07	jr $+$00
-1869	cd d0 18 	call $18d0	call $0000
-186c	b7 	or a	or a
-186d	f8 	ret m	ret m
-186e	3e 06 	ld a,$06	ld a,$00
-1870	18 d3 	jr $-$2b	jr $-$00
-1872	cd 02 17 	call $1702	call $0000
-1875	cd ae 20 	call $20ae	call $0000
-1878	08 	ex af,af'	ex af,af'
-1879	c9 	ret	ret
-187a	cd d0 18 	call $18d0	call $0000
-187d	b7 	or a	or a
-187e	f0 	ret p	ret p
-187f	18 ed 	jr $-$11	jr $-$00
-1881	cd f8 1f 	call $1ff8	call $0000
-1884	cd 57 20 	call $2057	call $0000
-1887	38 ba 	jr c,$-$44	jr c,$-$00
-1889	fd 23 	inc iy	inc iy
-188b	e6 0f 	and $0f	and $00
-188d	06 04 	ld b,$04	ld b,$00
+1819	f2 f9 1b 	jp p,$1bf9	jp p,$0000
+181c	18 32 	jr $+$34	jr $+$00
+181e	cd e4 16 	call $16e4	call $0000
+1821	08 	ex af,af'	ex af,af'
+1822	f8 	ret m	ret m
+1823	18 2b 	jr $+$2d	jr $+$00
+1825	3e 1c 	ld a,$1c	ld a,$00
+1827	c3 26 3f 	jp $3f26	jp $0000
+182a	d9 	exx	exx
+182b	7c 	ld a,h	ld a,h
+182c	2f 	cpl	cpl
+182d	67 	ld h,a	ld h,a
+182e	7d 	ld a,l	ld a,l
+182f	2f 	cpl	cpl
+1830	6f 	ld l,a	ld l,a
+1831	d9 	exx	exx
+1832	7c 	ld a,h	ld a,h
+1833	2f 	cpl	cpl
+1834	67 	ld h,a	ld h,a
+1835	7d 	ld a,l	ld a,l
+1836	2f 	cpl	cpl
+1837	6f 	ld l,a	ld l,a
+1838	d9 	exx	exx
+1839	23 	inc hl	inc hl
+183a	7c 	ld a,h	ld a,h
+183b	b5 	or l	or l
+183c	d9 	exx	exx
+183d	3e 00 	ld a,$00	ld a,$00
+183f	c0 	ret nz	ret nz
+1840	23 	inc hl	inc hl
+1841	c9 	ret	ret
+1842	cd b2 18 	call $18b2	call $0000
+1845	b7 	or a	or a
+1846	f2 f9 1b 	jp p,$1bf9	jp p,$0000
+1849	18 05 	jr $+$07	jr $+$00
+184b	cd b2 18 	call $18b2	call $0000
+184e	b7 	or a	or a
+184f	f8 	ret m	ret m
+1850	3e 06 	ld a,$06	ld a,$00
+1852	18 d3 	jr $-$2b	jr $-$00
+1854	cd e4 16 	call $16e4	call $0000
+1857	cd 90 20 	call $2090	call $0000
+185a	08 	ex af,af'	ex af,af'
+185b	c9 	ret	ret
+185c	cd b2 18 	call $18b2	call $0000
+185f	b7 	or a	or a
+1860	f0 	ret p	ret p
+1861	18 ed 	jr $-$11	jr $-$00
+1863	cd da 1f 	call $1fda	call $0000
+1866	cd 39 20 	call $2039	call $0000
+1869	38 ba 	jr c,$-$44	jr c,$-$00
+186b	fd 23 	inc iy	inc iy
+186d	e6 0f 	and $0f	and $00
+186f	06 04 	ld b,$04	ld b,$00
+1871	d9 	exx	exx
+1872	29 	add hl,hl	add hl,hl
+1873	d9 	exx	exx
+1874	ed 6a 	adc hl,hl	adc hl,hl
+1876	10 f9 	djnz $-$05	djnz $-$00
+1878	d9 	exx	exx
+1879	b5 	or l	or l
+187a	6f 	ld l,a	ld l,a
+187b	d9 	exx	exx
+187c	cd 39 20 	call $2039	call $0000
+187f	30 ea 	jr nc,$-$14	jr nc,$-$00
+1881	af 	xor a	xor a
+1882	c9 	ret	ret
+1883	cd da 1f 	call $1fda	call $0000
+1886	cd 2c 20 	call $202c	call $0000
+1889	38 9a 	jr c,$-$64	jr c,$-$00
+188b	fd 23 	inc iy	inc iy
+188d	cb 1f 	rr a	rr a
 188f	d9 	exx	exx
-1890	29 	add hl,hl	add hl,hl
-1891	d9 	exx	exx
-1892	ed 6a 	adc hl,hl	adc hl,hl
-1894	10 f9 	djnz $-$05	djnz $-$00
-1896	d9 	exx	exx
-1897	b5 	or l	or l
-1898	6f 	ld l,a	ld l,a
-1899	d9 	exx	exx
-189a	cd 57 20 	call $2057	call $0000
-189d	30 ea 	jr nc,$-$14	jr nc,$-$00
-189f	af 	xor a	xor a
-18a0	c9 	ret	ret
-18a1	cd f8 1f 	call $1ff8	call $0000
-18a4	cd 4a 20 	call $204a	call $0000
-18a7	38 9a 	jr c,$-$64	jr c,$-$00
-18a9	fd 23 	inc iy	inc iy
-18ab	cb 1f 	rr a	rr a
+1890	ed 6a 	adc hl,hl	adc hl,hl
+1892	d9 	exx	exx
+1893	ed 6a 	adc hl,hl	adc hl,hl
+1895	cd 2c 20 	call $202c	call $0000
+1898	30 f1 	jr nc,$-$0d	jr nc,$-$00
+189a	af 	xor a	xor a
+189b	c9 	ret	ret
+189c	cd 5c 18 	call $185c	call $0000
+189f	0d 	dec c	dec c
+18a0	0c 	inc c	inc c
+18a1	28 87 	jr z,$-$77	jr z,$-$00
+18a3	7c 	ld a,h	ld a,h
+18a4	ee 80 	xor $80	xor $00
+18a6	67 	ld h,a	ld h,a
+18a7	af 	xor a	xor a
+18a8	c9 	ret	ret
+18a9	cd b8 25 	call $25b8	call $0000
+18ac	e5 	push hl	push hl
 18ad	d9 	exx	exx
-18ae	ed 6a 	adc hl,hl	adc hl,hl
-18b0	d9 	exx	exx
-18b1	ed 6a 	adc hl,hl	adc hl,hl
-18b3	cd 4a 20 	call $204a	call $0000
-18b6	30 f1 	jr nc,$-$0d	jr nc,$-$00
-18b8	af 	xor a	xor a
-18b9	c9 	ret	ret
-18ba	cd 7a 18 	call $187a	call $0000
-18bd	0d 	dec c	dec c
-18be	0c 	inc c	inc c
-18bf	28 87 	jr z,$-$77	jr z,$-$00
-18c1	7c 	ld a,h	ld a,h
-18c2	ee 80 	xor $80	xor $00
-18c4	67 	ld h,a	ld h,a
-18c5	af 	xor a	xor a
-18c6	c9 	ret	ret
-18c7	cd d6 25 	call $25d6	call $0000
-18ca	e5 	push hl	push hl
-18cb	d9 	exx	exx
-18cc	e1 	pop hl	pop hl
-18cd	c3 50 1b 	jp $1b50	jp $0000
-18d0	cd 86 32 	call $3286	call $0000
-18d3	cd 0b 45 	call $450b	call $0000
-18d6	fd 23 	inc iy	inc iy
-18d8	fe 8d 	cp $8d	cp $00
-18da	38 08 	jr c,$+$0a	jr c,$+$00
-18dc	fe c7 	cp $c7	cp $00
-18de	da c1 20 	jp c,$20c1	jp c,$0000
-18e1	c3 30 1a 	jp $1a30	jp $0000
-18e4	fe 3a 	cp $3a	cp $00
-18e6	30 25 	jr nc,$+$27	jr nc,$+$00
-18e8	fe 30 	cp $30	cp $00
-18ea	30 7b 	jr nc,$+$7d	jr nc,$+$00
-18ec	fe 28 	cp $28	cp $00
-18ee	28 82 	jr z,$-$7c	jr z,$-$00
-18f0	fe 2d 	cp $2d	cp $00
-18f2	28 c6 	jr z,$-$38	jr z,$-$00
-18f4	fe 2b 	cp $2b	cp $00
-18f6	28 82 	jr z,$-$7c	jr z,$-$00
-18f8	fe 2e 	cp $2e	cp $00
-18fa	28 6b 	jr z,$+$6d	jr z,$+$00
-18fc	fe 26 	cp $26	cp $00
-18fe	28 81 	jr z,$-$7d	jr z,$-$00
-1900	fe 25 	cp $25	cp $00
-1902	28 9d 	jr z,$-$61	jr z,$-$00
-1904	fe 22 	cp $22	cp $00
-1906	28 72 	jr z,$+$74	jr z,$+$00
-1908	fe 0a 	cp $0a	cp $00
-190a	ca d0 1a 	jp z,$1ad0	jp z,$0000
-190d	fe 83 	cp $83	cp $00
-190f	ca 4d 1d 	jp z,$1d4d	jp z,$0000
-1912	fe 5e 	cp $5e	cp $00
-1914	28 b1 	jr z,$-$4d	jr z,$-$00
-1916	fd 2b 	dec iy	dec iy
-1918	cd e3 41 	call $41e3	call $0000
-191b	20 2f 	jr nz,$+$31	jr nz,$+$00
-191d	cb 77 	bit 6,a	bit 6,a
-191f	20 7e 	jr nz,$+$80	jr nz,$+$00
-1921	b7 	or a	or a
-1922	fa 0e 1a 	jp m,$1a0e	jp m,$0000
-1925	cb 57 	bit 2,a	bit 2,a
-1927	0e 00 	ld c,$00	ld c,$00
-1929	28 16 	jr z,$+$18	jr z,$+$00
-192b	cb 47 	bit 0,a	bit 0,a
-192d	28 03 	jr z,$+$05	jr z,$+$00
-192f	dd 4e 04 	ld c,(ix+$04)	ld c,(ix+$00)
-1932	d9 	exx	exx
-1933	dd 6e 00 	ld l,(ix)	ld l,(ix)
-1936	dd 66 01 	ld h,(ix+$01)	ld h,(ix+$00)
-1939	d9 	exx	exx
-193a	dd 6e 02 	ld l,(ix+$02)	ld l,(ix+$00)
-193d	dd 66 03 	ld h,(ix+$03)	ld h,(ix+$00)
-1940	c9 	ret	ret
-1941	21 00 00 	ld hl,$0000	ld hl,$0000
-1944	d9 	exx	exx
-1945	26 00 	ld h,$00	ld h,$00
-1947	dd 6e 00 	ld l,(ix)	ld l,(ix)
-194a	d9 	exx	exx
-194b	c9 	ret	ret
-194c	da e0 25 	jp c,$25e0	jp c,$0000
-194f	3a fe 54 	ld a,($54fe)	ld a,($0000)
-1952	cb 6f 	bit 5,a	bit 5,a
-1954	3e 1a 	ld a,$1a	ld a,$00
-1956	20 36 	jr nz,$+$38	jr nz,$+$00
-1958	fd 23 	inc iy	inc iy
-195a	cd ef 43 	call $43ef	call $0000
-195d	30 f9 	jr nc,$-$05	jr nc,$-$00
-195f	dd 21 40 54 	ld ix,$5440	ld ix,$0000
-1963	af 	xor a	xor a
-1964	4f 	ld c,a	ld c,a
-1965	18 cb 	jr $-$33	jr $-$00
-1967	fd 2b 	dec iy	dec iy
-1969	fd e5 	push iy	push iy
-196b	dd e1 	pop ix	pop ix
-196d	3e 24 	ld a,$24	ld a,$00
-196f	cd 15 45 	call $4515	call $0000
-1972	38 1a 	jr c,$+$1c	jr c,$+$00
-1974	dd e5 	push ix	push ix
-1976	fd e1 	pop iy	pop iy
-1978	af 	xor a	xor a
-1979	c9 	ret	ret
-197a	11 00 52 	ld de,$5200	ld de,$0000
-197d	fd 7e 00 	ld a,(iy)	ld a,(iy)
-1980	fd 23 	inc iy	inc iy
-1982	fe 22 	cp $22	cp $00
-1984	28 0b 	jr z,$+$0d	jr z,$+$00
-1986	12 	ld (de),a	ld (de),a
-1987	1c 	inc e	inc e
-1988	fe 0d 	cp $0d	cp $00
-198a	20 f1 	jr nz,$-$0d	jr nz,$-$00
-198c	3e 09 	ld a,$09	ld a,$00
-198e	c3 44 3f 	jp $3f44	jp $0000
-1991	fd 7e 00 	ld a,(iy)	ld a,(iy)
-1994	fe 22 	cp $22	cp $00
-1996	fd 23 	inc iy	inc iy
-1998	28 ec 	jr z,$-$12	jr z,$-$00
-199a	fd 2b 	dec iy	dec iy
-199c	3e 80 	ld a,$80	ld a,$00
+18ae	e1 	pop hl	pop hl
+18af	c3 32 1b 	jp $1b32	jp $0000
+18b2	cd 68 32 	call $3268	call $0000
+18b5	cd ed 44 	call $44ed	call $0000
+18b8	fd 23 	inc iy	inc iy
+18ba	fe 8d 	cp $8d	cp $00
+18bc	38 08 	jr c,$+$0a	jr c,$+$00
+18be	fe c7 	cp $c7	cp $00
+18c0	da a3 20 	jp c,$20a3	jp c,$0000
+18c3	c3 12 1a 	jp $1a12	jp $0000
+18c6	fe 3a 	cp $3a	cp $00
+18c8	30 25 	jr nc,$+$27	jr nc,$+$00
+18ca	fe 30 	cp $30	cp $00
+18cc	30 7b 	jr nc,$+$7d	jr nc,$+$00
+18ce	fe 28 	cp $28	cp $00
+18d0	28 82 	jr z,$-$7c	jr z,$-$00
+18d2	fe 2d 	cp $2d	cp $00
+18d4	28 c6 	jr z,$-$38	jr z,$-$00
+18d6	fe 2b 	cp $2b	cp $00
+18d8	28 82 	jr z,$-$7c	jr z,$-$00
+18da	fe 2e 	cp $2e	cp $00
+18dc	28 6b 	jr z,$+$6d	jr z,$+$00
+18de	fe 26 	cp $26	cp $00
+18e0	28 81 	jr z,$-$7d	jr z,$-$00
+18e2	fe 25 	cp $25	cp $00
+18e4	28 9d 	jr z,$-$61	jr z,$-$00
+18e6	fe 22 	cp $22	cp $00
+18e8	28 72 	jr z,$+$74	jr z,$+$00
+18ea	fe 0a 	cp $0a	cp $00
+18ec	ca b2 1a 	jp z,$1ab2	jp z,$0000
+18ef	fe 83 	cp $83	cp $00
+18f1	ca 2f 1d 	jp z,$1d2f	jp z,$0000
+18f4	fe 5e 	cp $5e	cp $00
+18f6	28 b1 	jr z,$-$4d	jr z,$-$00
+18f8	fd 2b 	dec iy	dec iy
+18fa	cd c5 41 	call $41c5	call $0000
+18fd	20 2f 	jr nz,$+$31	jr nz,$+$00
+18ff	cb 77 	bit 6,a	bit 6,a
+1901	20 7e 	jr nz,$+$80	jr nz,$+$00
+1903	b7 	or a	or a
+1904	fa f0 19 	jp m,$19f0	jp m,$0000
+1907	cb 57 	bit 2,a	bit 2,a
+1909	0e 00 	ld c,$00	ld c,$00
+190b	28 16 	jr z,$+$18	jr z,$+$00
+190d	cb 47 	bit 0,a	bit 0,a
+190f	28 03 	jr z,$+$05	jr z,$+$00
+1911	dd 4e 04 	ld c,(ix+$04)	ld c,(ix+$00)
+1914	d9 	exx	exx
+1915	dd 6e 00 	ld l,(ix)	ld l,(ix)
+1918	dd 66 01 	ld h,(ix+$01)	ld h,(ix+$00)
+191b	d9 	exx	exx
+191c	dd 6e 02 	ld l,(ix+$02)	ld l,(ix+$00)
+191f	dd 66 03 	ld h,(ix+$03)	ld h,(ix+$00)
+1922	c9 	ret	ret
+1923	21 00 00 	ld hl,$0000	ld hl,$0000
+1926	d9 	exx	exx
+1927	26 00 	ld h,$00	ld h,$00
+1929	dd 6e 00 	ld l,(ix)	ld l,(ix)
+192c	d9 	exx	exx
+192d	c9 	ret	ret
+192e	da c2 25 	jp c,$25c2	jp c,$0000
+1931	3a fe 54 	ld a,($54fe)	ld a,($0000)
+1934	cb 6f 	bit 5,a	bit 5,a
+1936	3e 1a 	ld a,$1a	ld a,$00
+1938	20 36 	jr nz,$+$38	jr nz,$+$00
+193a	fd 23 	inc iy	inc iy
+193c	cd d1 43 	call $43d1	call $0000
+193f	30 f9 	jr nc,$-$05	jr nc,$-$00
+1941	dd 21 40 54 	ld ix,$5440	ld ix,$0000
+1945	af 	xor a	xor a
+1946	4f 	ld c,a	ld c,a
+1947	18 cb 	jr $-$33	jr $-$00
+1949	fd 2b 	dec iy	dec iy
+194b	fd e5 	push iy	push iy
+194d	dd e1 	pop ix	pop ix
+194f	3e 24 	ld a,$24	ld a,$00
+1951	cd f7 44 	call $44f7	call $0000
+1954	38 1a 	jr c,$+$1c	jr c,$+$00
+1956	dd e5 	push ix	push ix
+1958	fd e1 	pop iy	pop iy
+195a	af 	xor a	xor a
+195b	c9 	ret	ret
+195c	11 00 52 	ld de,$5200	ld de,$0000
+195f	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1962	fd 23 	inc iy	inc iy
+1964	fe 22 	cp $22	cp $00
+1966	28 0b 	jr z,$+$0d	jr z,$+$00
+1968	12 	ld (de),a	ld (de),a
+1969	1c 	inc e	inc e
+196a	fe 0d 	cp $0d	cp $00
+196c	20 f1 	jr nz,$-$0d	jr nz,$-$00
+196e	3e 09 	ld a,$09	ld a,$00
+1970	c3 26 3f 	jp $3f26	jp $0000
+1973	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1976	fe 22 	cp $22	cp $00
+1978	fd 23 	inc iy	inc iy
+197a	28 ec 	jr z,$-$12	jr z,$-$00
+197c	fd 2b 	dec iy	dec iy
+197e	3e 80 	ld a,$80	ld a,$00
+1980	c9 	ret	ret
+1981	3e 0e 	ld a,$0e	ld a,$00
+1983	c3 26 3f 	jp $3f26	jp $0000
+1986	7e 	ld a,(hl)	ld a,(hl)
+1987	23 	inc hl	inc hl
+1988	b7 	or a	or a
+1989	28 f6 	jr z,$-$08	jr z,$-$00
+198b	11 01 00 	ld de,$0001	ld de,$0000
+198e	4e 	ld c,(hl)	ld c,(hl)
+198f	23 	inc hl	inc hl
+1990	46 	ld b,(hl)	ld b,(hl)
+1991	23 	inc hl	inc hl
+1992	eb 	ex de,hl	ex de,hl
+1993	f5 	push af	push af
+1994	d5 	push de	push de
+1995	cd 9f 36 	call $369f	call $0000
+1998	d1 	pop de	pop de
+1999	f1 	pop af	pop af
+199a	eb 	ex de,hl	ex de,hl
+199b	3d 	dec a	dec a
+199c	20 f0 	jr nz,$-$0e	jr nz,$-$00
 199e	c9 	ret	ret
-199f	3e 0e 	ld a,$0e	ld a,$00
-19a1	c3 44 3f 	jp $3f44	jp $0000
-19a4	7e 	ld a,(hl)	ld a,(hl)
-19a5	23 	inc hl	inc hl
-19a6	b7 	or a	or a
-19a7	28 f6 	jr z,$-$08	jr z,$-$00
-19a9	11 01 00 	ld de,$0001	ld de,$0000
-19ac	4e 	ld c,(hl)	ld c,(hl)
-19ad	23 	inc hl	inc hl
-19ae	46 	ld b,(hl)	ld b,(hl)
-19af	23 	inc hl	inc hl
-19b0	eb 	ex de,hl	ex de,hl
-19b1	f5 	push af	push af
-19b2	d5 	push de	push de
-19b3	cd bd 36 	call $36bd	call $0000
-19b6	d1 	pop de	pop de
-19b7	f1 	pop af	pop af
-19b8	eb 	ex de,hl	ex de,hl
-19b9	3d 	dec a	dec a
-19ba	20 f0 	jr nz,$-$0e	jr nz,$-$00
-19bc	c9 	ret	ret
-19bd	cd 0b 45 	call $450b	call $0000
-19c0	cd e3 41 	call $41e3	call $0000
-19c3	20 87 	jr nz,$-$77	jr nz,$-$00
-19c5	cb 77 	bit 6,a	bit 6,a
-19c7	37 	scf	scf
-19c8	28 82 	jr z,$-$7c	jr z,$-$00
-19ca	e6 8f 	and $8f	and $00
-19cc	47 	ld b,a	ld b,a
-19cd	7e 	ld a,(hl)	ld a,(hl)
-19ce	23 	inc hl	inc hl
-19cf	66 	ld h,(hl)	ld h,(hl)
-19d0	6f 	ld l,a	ld l,a
-19d1	e6 fe 	and $fe	and $00
-19d3	b4 	or h	or h
-19d4	28 c9 	jr z,$-$35	jr z,$-$00
-19d6	c9 	ret	ret
-19d7	cd 0b 45 	call $450b	call $0000
-19da	fe 28 	cp $28	cp $00
-19dc	20 df 	jr nz,$-$1f	jr nz,$-$00
-19de	fd 23 	inc iy	inc iy
-19e0	cd bd 19 	call $19bd	call $0000
-19e3	cd ae 20 	call $20ae	call $0000
-19e6	c9 	ret	ret
-19e7	cb 57 	bit 2,a	bit 2,a
-19e9	06 00 	ld b,$00	ld b,$00
-19eb	28 16 	jr z,$+$18	jr z,$+$00
-19ed	cb 47 	bit 0,a	bit 0,a
-19ef	28 03 	jr z,$+$05	jr z,$+$00
-19f1	dd 46 04 	ld b,(ix+$04)	ld b,(ix+$00)
-19f4	d9 	exx	exx
-19f5	dd 5e 00 	ld e,(ix)	ld e,(ix)
-19f8	dd 56 01 	ld d,(ix+$01)	ld d,(ix+$00)
+199f	cd ed 44 	call $44ed	call $0000
+19a2	cd c5 41 	call $41c5	call $0000
+19a5	20 87 	jr nz,$-$77	jr nz,$-$00
+19a7	cb 77 	bit 6,a	bit 6,a
+19a9	37 	scf	scf
+19aa	28 82 	jr z,$-$7c	jr z,$-$00
+19ac	e6 8f 	and $8f	and $00
+19ae	47 	ld b,a	ld b,a
+19af	7e 	ld a,(hl)	ld a,(hl)
+19b0	23 	inc hl	inc hl
+19b1	66 	ld h,(hl)	ld h,(hl)
+19b2	6f 	ld l,a	ld l,a
+19b3	e6 fe 	and $fe	and $00
+19b5	b4 	or h	or h
+19b6	28 c9 	jr z,$-$35	jr z,$-$00
+19b8	c9 	ret	ret
+19b9	cd ed 44 	call $44ed	call $0000
+19bc	fe 28 	cp $28	cp $00
+19be	20 df 	jr nz,$-$1f	jr nz,$-$00
+19c0	fd 23 	inc iy	inc iy
+19c2	cd 9f 19 	call $199f	call $0000
+19c5	cd 90 20 	call $2090	call $0000
+19c8	c9 	ret	ret
+19c9	cb 57 	bit 2,a	bit 2,a
+19cb	06 00 	ld b,$00	ld b,$00
+19cd	28 16 	jr z,$+$18	jr z,$+$00
+19cf	cb 47 	bit 0,a	bit 0,a
+19d1	28 03 	jr z,$+$05	jr z,$+$00
+19d3	dd 46 04 	ld b,(ix+$04)	ld b,(ix+$00)
+19d6	d9 	exx	exx
+19d7	dd 5e 00 	ld e,(ix)	ld e,(ix)
+19da	dd 56 01 	ld d,(ix+$01)	ld d,(ix+$00)
+19dd	d9 	exx	exx
+19de	dd 5e 02 	ld e,(ix+$02)	ld e,(ix+$00)
+19e1	dd 56 03 	ld d,(ix+$03)	ld d,(ix+$00)
+19e4	c9 	ret	ret
+19e5	11 00 00 	ld de,$0000	ld de,$0000
+19e8	d9 	exx	exx
+19e9	16 00 	ld d,$00	ld d,$00
+19eb	dd 5e 00 	ld e,(ix)	ld e,(ix)
+19ee	d9 	exx	exx
+19ef	c9 	ret	ret
+19f0	11 00 52 	ld de,$5200	ld de,$0000
+19f3	1f 	rra	rra
+19f4	30 10 	jr nc,$+$12	jr nc,$+$00
+19f6	cd 14 19 	call $1914	call $0000
+19f9	d9 	exx	exx
+19fa	7d 	ld a,l	ld a,l
 19fb	d9 	exx	exx
-19fc	dd 5e 02 	ld e,(ix+$02)	ld e,(ix+$00)
-19ff	dd 56 03 	ld d,(ix+$03)	ld d,(ix+$00)
-1a02	c9 	ret	ret
-1a03	11 00 00 	ld de,$0000	ld de,$0000
-1a06	d9 	exx	exx
-1a07	16 00 	ld d,$00	ld d,$00
-1a09	dd 5e 00 	ld e,(ix)	ld e,(ix)
-1a0c	d9 	exx	exx
-1a0d	c9 	ret	ret
-1a0e	11 00 52 	ld de,$5200	ld de,$0000
-1a11	1f 	rra	rra
-1a12	30 10 	jr nc,$+$12	jr nc,$+$00
-1a14	cd 32 19 	call $1932	call $0000
-1a17	d9 	exx	exx
-1a18	7d 	ld a,l	ld a,l
-1a19	d9 	exx	exx
-1a1a	b7 	or a	or a
-1a1b	4f 	ld c,a	ld c,a
-1a1c	3e 80 	ld a,$80	ld a,$00
-1a1e	c8 	ret z	ret z
-1a1f	06 00 	ld b,$00	ld b,$00
-1a21	ed b0 	ldir	ldir
-1a23	c9 	ret	ret
-1a24	7e 	ld a,(hl)	ld a,(hl)
-1a25	12 	ld (de),a	ld (de),a
-1a26	23 	inc hl	inc hl
-1a27	fe 0d 	cp $0d	cp $00
-1a29	3e 80 	ld a,$80	ld a,$00
-1a2b	c8 	ret z	ret z
-1a2c	1c 	inc e	inc e
-1a2d	20 f5 	jr nz,$-$09	jr nz,$-$00
-1a2f	c9 	ret	ret
-1a30	fe eb 	cp $eb	cp $00
-1a32	ca f3 0d 	jp z,$0df3	jp z,$0000
-1a35	fe fe 	cp $fe	cp $00
-1a37	ca fd 0d 	jp z,$0dfd	jp z,$0000
-1a3a	fe f6 	cp $f6	cp $00
-1a3c	28 11 	jr z,$+$13	jr z,$+$00
-1a3e	fe e0 	cp $e0	cp $00
-1a40	28 07 	jr z,$+$09	jr z,$+$00
-1a42	fe de 	cp $de	cp $00
-1a44	28 44 	jr z,$+$46	jr z,$+$00
-1a46	c3 e0 25 	jp $25e0	jp $0000
-1a49	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
-1a4c	c3 50 1b 	jp $1b50	jp $0000
-1a4f	fd 7e 00 	ld a,(iy)	ld a,(iy)
-1a52	fe 24 	cp $24	cp $00
-1a54	20 f0 	jr nz,$-$0e	jr nz,$-$00
-1a56	fd 23 	inc iy	inc iy
-1a58	2a ee 54 	ld hl,($54ee)	ld hl,($0000)
-1a5b	11 00 52 	ld de,$5200	ld de,$0000
-1a5e	7e 	ld a,(hl)	ld a,(hl)
-1a5f	b7 	or a	or a
-1a60	28 c7 	jr z,$-$37	jr z,$-$00
+19fc	b7 	or a	or a
+19fd	4f 	ld c,a	ld c,a
+19fe	3e 80 	ld a,$80	ld a,$00
+1a00	c8 	ret z	ret z
+1a01	06 00 	ld b,$00	ld b,$00
+1a03	ed b0 	ldir	ldir
+1a05	c9 	ret	ret
+1a06	7e 	ld a,(hl)	ld a,(hl)
+1a07	12 	ld (de),a	ld (de),a
+1a08	23 	inc hl	inc hl
+1a09	fe 0d 	cp $0d	cp $00
+1a0b	3e 80 	ld a,$80	ld a,$00
+1a0d	c8 	ret z	ret z
+1a0e	1c 	inc e	inc e
+1a0f	20 f5 	jr nz,$-$09	jr nz,$-$00
+1a11	c9 	ret	ret
+1a12	fe eb 	cp $eb	cp $00
+1a14	ca d5 0d 	jp z,$0dd5	jp z,$0000
+1a17	fe fe 	cp $fe	cp $00
+1a19	ca df 0d 	jp z,$0ddf	jp z,$0000
+1a1c	fe f6 	cp $f6	cp $00
+1a1e	28 11 	jr z,$+$13	jr z,$+$00
+1a20	fe e0 	cp $e0	cp $00
+1a22	28 07 	jr z,$+$09	jr z,$+$00
+1a24	fe de 	cp $de	cp $00
+1a26	28 44 	jr z,$+$46	jr z,$+$00
+1a28	c3 c2 25 	jp $25c2	jp $0000
+1a2b	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
+1a2e	c3 32 1b 	jp $1b32	jp $0000
+1a31	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1a34	fe 24 	cp $24	cp $00
+1a36	20 f0 	jr nz,$-$0e	jr nz,$-$00
+1a38	fd 23 	inc iy	inc iy
+1a3a	2a ee 54 	ld hl,($54ee)	ld hl,($0000)
+1a3d	11 00 52 	ld de,$5200	ld de,$0000
+1a40	7e 	ld a,(hl)	ld a,(hl)
+1a41	b7 	or a	or a
+1a42	28 c7 	jr z,$-$37	jr z,$-$00
+1a44	ed a0 	ldi	ldi
+1a46	fe a0 	cp $a0	cp $00
+1a48	ea 40 1a 	jp pe,$1a40	jp pe,$0000
+1a4b	fe 0a 	cp $0a	cp $00
+1a4d	28 f1 	jr z,$-$0d	jr z,$-$00
+1a4f	1d 	dec e	dec e
+1a50	e5 	push hl	push hl
+1a51	21 66 38 	ld hl,$3866	ld hl,$0000
+1a54	01 5b 03 	ld bc,$035b	ld bc,$0000
+1a57	ed b1 	cpir	cpir
+1a59	06 a0 	ld b,$a0	ld b,$00
+1a5b	fe 91 	cp $91	cp $00
+1a5d	ea 61 1a 	jp pe,$1a61	jp pe,$0000
+1a60	04 	inc b	inc b
+1a61	7e 	ld a,(hl)	ld a,(hl)
 1a62	ed a0 	ldi	ldi
-1a64	fe a0 	cp $a0	cp $00
-1a66	ea 5e 1a 	jp pe,$1a5e	jp pe,$0000
-1a69	fe 0a 	cp $0a	cp $00
-1a6b	28 f1 	jr z,$-$0d	jr z,$-$00
-1a6d	1d 	dec e	dec e
-1a6e	e5 	push hl	push hl
-1a6f	21 84 38 	ld hl,$3884	ld hl,$0000
-1a72	01 5b 03 	ld bc,$035b	ld bc,$0000
-1a75	ed b1 	cpir	cpir
-1a77	06 a0 	ld b,$a0	ld b,$00
-1a79	fe 91 	cp $91	cp $00
-1a7b	ea 7f 1a 	jp pe,$1a7f	jp pe,$0000
-1a7e	04 	inc b	inc b
-1a7f	7e 	ld a,(hl)	ld a,(hl)
-1a80	ed a0 	ldi	ldi
-1a82	b8 	cp b	cp b
-1a83	ea 7f 1a 	jp pe,$1a7f	jp pe,$0000
-1a86	e1 	pop hl	pop hl
-1a87	1d 	dec e	dec e
-1a88	18 d4 	jr $-$2a	jr $-$00
-1a8a	cd 0b 45 	call $450b	call $0000
-1a8d	fe 28 	cp $28	cp $00
-1a8f	20 09 	jr nz,$+$0b	jr nz,$+$00
-1a91	fd 23 	inc iy	inc iy
-1a93	cd 9a 1a 	call $1a9a	call $0000
-1a96	cd ae 20 	call $20ae	call $0000
-1a99	c9 	ret	ret
-1a9a	cd bd 19 	call $19bd	call $0000
-1a9d	e5 	push hl	push hl
-1a9e	cd 0b 45 	call $450b	call $0000
-1aa1	1e 00 	ld e,$00	ld e,$00
-1aa3	fe 2c 	cp $2c	cp $00
-1aa5	20 0b 	jr nz,$+$0d	jr nz,$+$00
-1aa7	fd 23 	inc iy	inc iy
-1aa9	cd 33 18 	call $1833	call $0000
-1aac	d9 	exx	exx
-1aad	eb 	ex de,hl	ex de,hl
-1aae	1c 	inc e	inc e
-1aaf	1d 	dec e	dec e
-1ab0	28 19 	jr z,$+$1b	jr z,$+$00
-1ab2	e1 	pop hl	pop hl
-1ab3	7e 	ld a,(hl)	ld a,(hl)
-1ab4	23 	inc hl	inc hl
-1ab5	bb 	cp e	cp e
-1ab6	38 13 	jr c,$+$15	jr c,$+$00
-1ab8	1d 	dec e	dec e
-1ab9	fa c6 1a 	jp m,$1ac6	jp m,$0000
-1abc	19 	add hl,de	add hl,de
-1abd	19 	add hl,de	add hl,de
-1abe	7e 	ld a,(hl)	ld a,(hl)
-1abf	23 	inc hl	inc hl
-1ac0	66 	ld h,(hl)	ld h,(hl)
-1ac1	6f 	ld l,a	ld l,a
-1ac2	2b 	dec hl	dec hl
-1ac3	c3 50 1b 	jp $1b50	jp $0000
-1ac6	6f 	ld l,a	ld l,a
-1ac7	26 00 	ld h,$00	ld h,$00
-1ac9	18 f8 	jr $-$06	jr $-$00
-1acb	3e 0f 	ld a,$0f	ld a,$00
-1acd	c3 44 3f 	jp $3f44	jp $0000
-1ad0	cd 11 11 	call $1111	call $0000
-1ad3	18 7b 	jr $+$7d	jr $+$00
-1ad5	cd a9 0d 	call $0da9	call $0000
-1ad8	eb 	ex de,hl	ex de,hl
-1ad9	18 75 	jr $+$77	jr $+$00
-1adb	cd a9 0d 	call $0da9	call $0000
-1ade	18 70 	jr $+$72	jr $+$00
-1ae0	cd d1 36 	call $36d1	call $0000
-1ae3	cd 6c 06 	call $066c	call $0000
-1ae6	ca bd 1b 	jp z,$1bbd	jp z,$0000
-1ae9	c3 f8 1f 	jp $1ff8	jp $0000
-1aec	cd d1 36 	call $36d1	call $0000
-1aef	cd 5b 06 	call $065b	call $0000
-1af2	6f 	ld l,a	ld l,a
-1af3	18 59 	jr $+$5b	jr $+$00
-1af5	cd 8e 1e 	call $1e8e	call $0000
-1af8	18 19 	jr $+$1b	jr $+$00
-1afa	cd 0b 45 	call $450b	call $0000
-1afd	fe 28 	cp $28	cp $00
-1aff	20 0a 	jr nz,$+$0c	jr nz,$+$00
-1b01	cd 60 18 	call $1860	call $0000
-1b04	d9 	exx	exx
-1b05	44 	ld b,h	ld b,h
-1b06	4d 	ld c,l	ld c,l
-1b07	ed 68 	in l,(bc)	in l,(bc)
-1b09	18 43 	jr $+$45	jr $+$00
-1b0b	cd 2d 1e 	call $1e2d	call $0000
-1b0e	18 08 	jr $+$0a	jr $+$00
-1b10	cd 69 18 	call $1869	call $0000
-1b13	af 	xor a	xor a
-1b14	bb 	cp e	cp e
-1b15	ca bd 1b 	jp z,$1bbd	jp z,$0000
-1b18	2a 00 52 	ld hl,($5200)	ld hl,($0000)
-1b1b	18 31 	jr $+$33	jr $+$00
-1b1d	cd 69 18 	call $1869	call $0000
-1b20	eb 	ex de,hl	ex de,hl
-1b21	18 2b 	jr $+$2d	jr $+$00
-1b23	2a de 54 	ld hl,($54de)	ld hl,($0000)
-1b26	18 28 	jr $+$2a	jr $+$00
-1b28	2a e2 54 	ld hl,($54e2)	ld hl,($0000)
-1b2b	18 23 	jr $+$25	jr $+$00
-1b2d	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-1b30	18 1e 	jr $+$20	jr $+$00
-1b32	fd 7e 00 	ld a,(iy)	ld a,(iy)
-1b35	fd 23 	inc iy	inc iy
-1b37	fe 50 	cp $50	cp $00
-1b39	c2 e0 25 	jp nz,$25e0	jp nz,$0000
-1b3c	cd 25 40 	call $4025	call $0000
-1b3f	18 0f 	jr $+$11	jr $+$00
-1b41	2a f2 54 	ld hl,($54f2)	ld hl,($0000)
-1b44	18 0a 	jr $+$0c	jr $+$00
-1b46	2a fd 54 	ld hl,($54fd)	ld hl,($0000)
-1b49	18 03 	jr $+$05	jr $+$00
-1b4b	2a fb 54 	ld hl,($54fb)	ld hl,($0000)
-1b4e	26 00 	ld h,$00	ld h,$00
-1b50	d9 	exx	exx
-1b51	af 	xor a	xor a
-1b52	4f 	ld c,a	ld c,a
-1b53	67 	ld h,a	ld h,a
-1b54	6f 	ld l,a	ld l,a
-1b55	c9 	ret	ret
-1b56	af 	xor a	xor a
-1b57	21 3e 02 	ld hl,$023e	ld hl,$0000
-1b5a	21 3e 01 	ld hl,$013e	ld hl,$0000
-1b5d	f5 	push af	push af
-1b5e	cd 69 18 	call $1869	call $0000
-1b61	3e 0d 	ld a,$0d	ld a,$00
-1b63	12 	ld (de),a	ld (de),a
-1b64	f1 	pop af	pop af
-1b65	c6 ff 	add a,$ff	add a,$00
-1b67	21 00 52 	ld hl,$5200	ld hl,$0000
-1b6a	cd 44 06 	call $0644	call $0000
-1b6d	6f 	ld l,a	ld l,a
-1b6e	18 de 	jr $-$20	jr $-$00
-1b70	cd d1 36 	call $36d1	call $0000
-1b73	cd ad 06 	call $06ad	call $0000
-1b76	18 12 	jr $+$14	jr $+$00
-1b78	cd d1 36 	call $36d1	call $0000
-1b7b	cd 76 06 	call $0676	call $0000
-1b7e	18 0a 	jr $+$0c	jr $+$00
-1b80	fd 7e 00 	ld a,(iy)	ld a,(iy)
-1b83	fe 24 	cp $24	cp $00
-1b85	28 09 	jr z,$+$0b	jr z,$+$00
-1b87	cd 29 0d 	call $0d29	call $0000
-1b8a	d5 	push de	push de
-1b8b	d9 	exx	exx
-1b8c	e1 	pop hl	pop hl
-1b8d	af 	xor a	xor a
-1b8e	4f 	ld c,a	ld c,a
-1b8f	c9 	ret	ret
-1b90	fd 23 	inc iy	inc iy
-1b92	cd 3e 0d 	call $0d3e	call $0000
-1b95	3e 80 	ld a,$80	ld a,$00
-1b97	c9 	ret	ret
-1b98	cd f5 1f 	call $1ff5	call $0000
-1b9b	d0 	ret nc	ret nc
-1b9c	18 1f 	jr $+$21	jr $+$00
-1b9e	cd f5 1f 	call $1ff5	call $0000
-1ba1	c8 	ret z	ret z
-1ba2	d8 	ret c	ret c
-1ba3	18 18 	jr $+$1a	jr $+$00
-1ba5	cd f5 1f 	call $1ff5	call $0000
-1ba8	d8 	ret c	ret c
-1ba9	18 12 	jr $+$14	jr $+$00
-1bab	cd f5 1f 	call $1ff5	call $0000
-1bae	28 0d 	jr z,$+$0f	jr z,$+$00
-1bb0	d0 	ret nc	ret nc
-1bb1	18 0a 	jr $+$0c	jr $+$00
-1bb3	cd f5 1f 	call $1ff5	call $0000
-1bb6	c8 	ret z	ret z
-1bb7	18 04 	jr $+$06	jr $+$00
-1bb9	cd f5 1f 	call $1ff5	call $0000
-1bbc	c0 	ret nz	ret nz
-1bbd	3e ff 	ld a,$ff	ld a,$00
-1bbf	d9 	exx	exx
-1bc0	67 	ld h,a	ld h,a
-1bc1	6f 	ld l,a	ld l,a
-1bc2	d9 	exx	exx
-1bc3	67 	ld h,a	ld h,a
-1bc4	6f 	ld l,a	ld l,a
-1bc5	3c 	inc a	inc a
-1bc6	4f 	ld c,a	ld c,a
-1bc7	c9 	ret	ret
-1bc8	3e 23 	ld a,$23	ld a,$00
-1bca	18 43 	jr $+$45	jr $+$00
-1bcc	3e 10 	ld a,$10	ld a,$00
-1bce	18 3a 	jr $+$3c	jr $+$00
-1bd0	3e 1a 	ld a,$1a	ld a,$00
-1bd2	18 36 	jr $+$38	jr $+$00
-1bd4	3e 15 	ld a,$15	ld a,$00
-1bd6	18 32 	jr $+$34	jr $+$00
-1bd8	3e 1b 	ld a,$1b	ld a,$00
-1bda	18 2e 	jr $+$30	jr $+$00
-1bdc	3e 1c 	ld a,$1c	ld a,$00
-1bde	18 2a 	jr $+$2c	jr $+$00
-1be0	3e 17 	ld a,$17	ld a,$00
-1be2	18 26 	jr $+$28	jr $+$00
-1be4	3e 1e 	ld a,$1e	ld a,$00
-1be6	18 22 	jr $+$24	jr $+$00
-1be8	3e 1f 	ld a,$1f	ld a,$00
-1bea	18 1e 	jr $+$20	jr $+$00
-1bec	3e 14 	ld a,$14	ld a,$00
-1bee	18 1a 	jr $+$1c	jr $+$00
-1bf0	3e 1d 	ld a,$1d	ld a,$00
-1bf2	18 16 	jr $+$18	jr $+$00
-1bf4	3e 16 	ld a,$16	ld a,$00
-1bf6	18 12 	jr $+$14	jr $+$00
-1bf8	3e 18 	ld a,$18	ld a,$00
-1bfa	18 0e 	jr $+$10	jr $+$00
-1bfc	3e 19 	ld a,$19	ld a,$00
-1bfe	18 0a 	jr $+$0c	jr $+$00
-1c00	3e 12 	ld a,$12	ld a,$00
-1c02	18 06 	jr $+$08	jr $+$00
-1c04	3e 13 	ld a,$13	ld a,$00
-1c06	18 02 	jr $+$04	jr $+$00
-1c08	3e 11 	ld a,$11	ld a,$00
-1c0a	f5 	push af	push af
-1c0b	cd 7a 18 	call $187a	call $0000
-1c0e	f1 	pop af	pop af
-1c0f	cd 15 45 	call $4515	call $0000
-1c12	da 44 3f 	jp c,$3f44	jp c,$0000
-1c15	af 	xor a	xor a
-1c16	c9 	ret	ret
-1c17	3e 26 	ld a,$26	ld a,$00
-1c19	18 f4 	jr $-$0a	jr $-$00
-1c1b	3e 27 	ld a,$27	ld a,$00
-1c1d	18 f0 	jr $-$0e	jr $-$00
-1c1f	cd 69 18 	call $1869	call $0000
-1c22	af 	xor a	xor a
-1c23	12 	ld (de),a	ld (de),a
-1c24	dd 21 00 52 	ld ix,$5200	ld ix,$0000
-1c28	3e 24 	ld a,$24	ld a,$00
-1c2a	18 e3 	jr $-$1b	jr $-$00
-1c2c	cd 69 18 	call $1869	call $0000
-1c2f	3e 0d 	ld a,$0d	ld a,$00
-1c31	12 	ld (de),a	ld (de),a
-1c32	fd e5 	push iy	push iy
-1c34	11 00 52 	ld de,$5200	ld de,$0000
-1c37	fd 21 00 52 	ld iy,$5200	ld iy,$0000
-1c3b	0e 00 	ld c,$00	ld c,$00
-1c3d	cd 18 44 	call $4418	call $0000
-1c40	12 	ld (de),a	ld (de),a
-1c41	13 	inc de	inc de
-1c42	af 	xor a	xor a
-1c43	cd 19 20 	call $2019	call $0000
-1c46	fd 21 02 00 	ld iy,$0002	ld iy,$0000
-1c4a	fd 39 	add iy,sp	add iy,sp
-1c4c	cd 02 17 	call $1702	call $0000
-1c4f	fd e1 	pop iy	pop iy
-1c51	fd 39 	add iy,sp	add iy,sp
-1c53	fd f9 	ld sp,iy	ld sp,iy
-1c55	fd e1 	pop iy	pop iy
-1c57	08 	ex af,af'	ex af,af'
-1c58	c9 	ret	ret
-1c59	dd 21 f6 54 	ld ix,$54f6	ld ix,$0000
-1c5d	cd 0b 45 	call $450b	call $0000
-1c60	fe 28 	cp $28	cp $00
-1c62	28 1c 	jr z,$+$1e	jr z,$+$00
-1c64	cd 2f 19 	call $192f	call $0000
-1c67	cb 19 	rr c	rr c
-1c69	06 20 	ld b,$20	ld b,$00
-1c6b	d9 	exx	exx
-1c6c	ed 6a 	adc hl,hl	adc hl,hl
-1c6e	d9 	exx	exx
-1c6f	ed 6a 	adc hl,hl	adc hl,hl
-1c71	cb 5d 	bit 3,l	bit 3,l
-1c73	28 01 	jr z,$+$03	jr z,$+$00
-1c75	3f 	ccf	ccf
-1c76	10 f3 	djnz $-$0b	djnz $-$00
-1c78	cb 11 	rl c	rl c
-1c7a	cd 06 32 	call $3206	call $0000
-1c7d	af 	xor a	xor a
-1c7e	4f 	ld c,a	ld c,a
-1c7f	c9 	ret	ret
-1c80	cd 60 18 	call $1860	call $0000
-1c83	dd 21 f6 54 	ld ix,$54f6	ld ix,$0000
-1c87	cb 7c 	bit 7,h	bit 7,h
-1c89	37 	scf	scf
-1c8a	20 ec 	jr nz,$-$12	jr nz,$-$00
-1c8c	cd 59 1f 	call $1f59	call $0000
-1c8f	f5 	push af	push af
-1c90	41 	ld b,c	ld b,c
-1c91	eb 	ex de,hl	ex de,hl
-1c92	d9 	exx	exx
-1c93	eb 	ex de,hl	ex de,hl
-1c94	cd 2f 19 	call $192f	call $0000
-1c97	c4 67 1c 	call nz,$1c67	call nz,$0000
-1c9a	d9 	exx	exx
-1c9b	0e 7f 	ld c,$7f	ld c,$00
-1c9d	cb 7c 	bit 7,h	bit 7,h
-1c9f	20 08 	jr nz,$+$0a	jr nz,$+$00
-1ca1	d9 	exx	exx
-1ca2	29 	add hl,hl	add hl,hl
-1ca3	d9 	exx	exx
-1ca4	ed 6a 	adc hl,hl	adc hl,hl
-1ca6	0d 	dec c	dec c
-1ca7	20 f4 	jr nz,$-$0a	jr nz,$-$00
-1ca9	cb bc 	res 7,h	res 7,h
-1cab	f1 	pop af	pop af
-1cac	c8 	ret z	ret z
-1cad	d9 	exx	exx
-1cae	7b 	ld a,e	ld a,e
-1caf	3d 	dec a	dec a
-1cb0	b2 	or d	or d
-1cb1	d9 	exx	exx
-1cb2	b3 	or e	or e
-1cb3	b2 	or d	or d
-1cb4	c8 	ret z	ret z
-1cb5	06 00 	ld b,$00	ld b,$00
-1cb7	3e 0a 	ld a,$0a	ld a,$00
-1cb9	cd 15 45 	call $4515	call $0000
-1cbc	da 44 3f 	jp c,$3f44	jp c,$0000
-1cbf	cd 17 1c 	call $1c17	call $0000
-1cc2	c3 56 18 	jp $1856	jp $0000
-1cc5	fd 23 	inc iy	inc iy
-1cc7	cd d7 19 	call $19d7	call $0000
-1cca	cb 78 	bit 7,b	bit 7,b
-1ccc	ca 6e 18 	jp z,$186e	jp z,$0000
-1ccf	cd a4 19 	call $19a4	call $0000
-1cd2	e5 	push hl	push hl
-1cd3	dd e1 	pop ix	pop ix
-1cd5	af 	xor a	xor a
-1cd6	67 	ld h,a	ld h,a
-1cd7	6f 	ld l,a	ld l,a
-1cd8	47 	ld b,a	ld b,a
-1cd9	dd 4e 00 	ld c,(ix)	ld c,(ix)
-1cdc	09 	add hl,bc	add hl,bc
-1cdd	0e 04 	ld c,$04	ld c,$00
-1cdf	dd 09 	add ix,bc	add ix,bc
-1ce1	1b 	dec de	dec de
-1ce2	7a 	ld a,d	ld a,d
-1ce3	b3 	or e	or e
-1ce4	20 f3 	jr nz,$-$0b	jr nz,$-$00
-1ce6	c3 50 1b 	jp $1b50	jp $0000
-1ce9	cd 0b 45 	call $450b	call $0000
-1cec	fe a9 	cp $a9	cp $00
-1cee	28 d5 	jr z,$-$29	jr z,$-$00
-1cf0	cd d7 19 	call $19d7	call $0000
-1cf3	cb 78 	bit 7,b	bit 7,b
-1cf5	20 27 	jr nz,$+$29	jr nz,$+$00
-1cf7	c5 	push bc	push bc
-1cf8	cd a4 19 	call $19a4	call $0000
-1cfb	e5 	push hl	push hl
-1cfc	dd e1 	pop ix	pop ix
-1cfe	cd f8 1f 	call $1ff8	call $0000
-1d01	f1 	pop af	pop af
-1d02	d5 	push de	push de
-1d03	f5 	push af	push af
-1d04	cd e7 19 	call $19e7	call $0000
-1d07	3e 0b 	ld a,$0b	ld a,$00
-1d09	cd 15 45 	call $4515	call $0000
-1d0c	da 44 3f 	jp c,$3f44	jp c,$0000
-1d0f	f1 	pop af	pop af
-1d10	16 00 	ld d,$00	ld d,$00
-1d12	5f 	ld e,a	ld e,a
-1d13	dd 19 	add ix,de	add ix,de
-1d15	d1 	pop de	pop de
-1d16	1b 	dec de	dec de
-1d17	47 	ld b,a	ld b,a
-1d18	7a 	ld a,d	ld a,d
-1d19	b3 	or e	or e
-1d1a	78 	ld a,b	ld a,b
-1d1b	20 e5 	jr nz,$-$19	jr nz,$-$00
-1d1d	c9 	ret	ret
-1d1e	cd a4 19 	call $19a4	call $0000
-1d21	e5 	push hl	push hl
-1d22	dd e1 	pop ix	pop ix
-1d24	eb 	ex de,hl	ex de,hl
-1d25	11 00 52 	ld de,$5200	ld de,$0000
-1d28	06 00 	ld b,$00	ld b,$00
-1d2a	e5 	push hl	push hl
-1d2b	dd 4e 00 	ld c,(ix)	ld c,(ix)
-1d2e	79 	ld a,c	ld a,c
-1d2f	b7 	or a	or a
-1d30	28 0e 	jr z,$+$10	jr z,$+$00
-1d32	83 	add a,e	add a,e
-1d33	3e 13 	ld a,$13	ld a,$00
-1d35	da 44 3f 	jp c,$3f44	jp c,$0000
-1d38	dd 6e 02 	ld l,(ix+$02)	ld l,(ix+$00)
-1d3b	dd 66 03 	ld h,(ix+$03)	ld h,(ix+$00)
-1d3e	ed b0 	ldir	ldir
-1d40	e1 	pop hl	pop hl
-1d41	0e 04 	ld c,$04	ld c,$00
-1d43	dd 09 	add ix,bc	add ix,bc
-1d45	2b 	dec hl	dec hl
-1d46	7c 	ld a,h	ld a,h
-1d47	b5 	or l	or l
-1d48	20 e0 	jr nz,$-$1e	jr nz,$-$00
-1d4a	f6 80 	or $80	or $00
-1d4c	c9 	ret	ret
-1d4d	cd d7 19 	call $19d7	call $0000
-1d50	cb 78 	bit 7,b	bit 7,b
-1d52	c2 6e 18 	jp nz,$186e	jp nz,$0000
-1d55	c5 	push bc	push bc
-1d56	cd a4 19 	call $19a4	call $0000
-1d59	e5 	push hl	push hl
-1d5a	dd e1 	pop ix	pop ix
-1d5c	cd f8 1f 	call $1ff8	call $0000
-1d5f	f1 	pop af	pop af
-1d60	d5 	push de	push de
-1d61	f5 	push af	push af
-1d62	c5 	push bc	push bc
-1d63	e5 	push hl	push hl
+1a64	b8 	cp b	cp b
+1a65	ea 61 1a 	jp pe,$1a61	jp pe,$0000
+1a68	e1 	pop hl	pop hl
+1a69	1d 	dec e	dec e
+1a6a	18 d4 	jr $-$2a	jr $-$00
+1a6c	cd ed 44 	call $44ed	call $0000
+1a6f	fe 28 	cp $28	cp $00
+1a71	20 09 	jr nz,$+$0b	jr nz,$+$00
+1a73	fd 23 	inc iy	inc iy
+1a75	cd 7c 1a 	call $1a7c	call $0000
+1a78	cd 90 20 	call $2090	call $0000
+1a7b	c9 	ret	ret
+1a7c	cd 9f 19 	call $199f	call $0000
+1a7f	e5 	push hl	push hl
+1a80	cd ed 44 	call $44ed	call $0000
+1a83	1e 00 	ld e,$00	ld e,$00
+1a85	fe 2c 	cp $2c	cp $00
+1a87	20 0b 	jr nz,$+$0d	jr nz,$+$00
+1a89	fd 23 	inc iy	inc iy
+1a8b	cd 15 18 	call $1815	call $0000
+1a8e	d9 	exx	exx
+1a8f	eb 	ex de,hl	ex de,hl
+1a90	1c 	inc e	inc e
+1a91	1d 	dec e	dec e
+1a92	28 19 	jr z,$+$1b	jr z,$+$00
+1a94	e1 	pop hl	pop hl
+1a95	7e 	ld a,(hl)	ld a,(hl)
+1a96	23 	inc hl	inc hl
+1a97	bb 	cp e	cp e
+1a98	38 13 	jr c,$+$15	jr c,$+$00
+1a9a	1d 	dec e	dec e
+1a9b	fa a8 1a 	jp m,$1aa8	jp m,$0000
+1a9e	19 	add hl,de	add hl,de
+1a9f	19 	add hl,de	add hl,de
+1aa0	7e 	ld a,(hl)	ld a,(hl)
+1aa1	23 	inc hl	inc hl
+1aa2	66 	ld h,(hl)	ld h,(hl)
+1aa3	6f 	ld l,a	ld l,a
+1aa4	2b 	dec hl	dec hl
+1aa5	c3 32 1b 	jp $1b32	jp $0000
+1aa8	6f 	ld l,a	ld l,a
+1aa9	26 00 	ld h,$00	ld h,$00
+1aab	18 f8 	jr $-$06	jr $-$00
+1aad	3e 0f 	ld a,$0f	ld a,$00
+1aaf	c3 26 3f 	jp $3f26	jp $0000
+1ab2	cd f3 10 	call $10f3	call $0000
+1ab5	18 7b 	jr $+$7d	jr $+$00
+1ab7	cd 8b 0d 	call $0d8b	call $0000
+1aba	eb 	ex de,hl	ex de,hl
+1abb	18 75 	jr $+$77	jr $+$00
+1abd	cd 8b 0d 	call $0d8b	call $0000
+1ac0	18 70 	jr $+$72	jr $+$00
+1ac2	cd b3 36 	call $36b3	call $0000
+1ac5	cd 4e 06 	call $064e	call $0000
+1ac8	ca 9f 1b 	jp z,$1b9f	jp z,$0000
+1acb	c3 da 1f 	jp $1fda	jp $0000
+1ace	cd b3 36 	call $36b3	call $0000
+1ad1	cd 3d 06 	call $063d	call $0000
+1ad4	6f 	ld l,a	ld l,a
+1ad5	18 59 	jr $+$5b	jr $+$00
+1ad7	cd 70 1e 	call $1e70	call $0000
+1ada	18 19 	jr $+$1b	jr $+$00
+1adc	cd ed 44 	call $44ed	call $0000
+1adf	fe 28 	cp $28	cp $00
+1ae1	20 0a 	jr nz,$+$0c	jr nz,$+$00
+1ae3	cd 42 18 	call $1842	call $0000
+1ae6	d9 	exx	exx
+1ae7	44 	ld b,h	ld b,h
+1ae8	4d 	ld c,l	ld c,l
+1ae9	ed 68 	in l,(bc)	in l,(bc)
+1aeb	18 43 	jr $+$45	jr $+$00
+1aed	cd 0f 1e 	call $1e0f	call $0000
+1af0	18 08 	jr $+$0a	jr $+$00
+1af2	cd 4b 18 	call $184b	call $0000
+1af5	af 	xor a	xor a
+1af6	bb 	cp e	cp e
+1af7	ca 9f 1b 	jp z,$1b9f	jp z,$0000
+1afa	2a 00 52 	ld hl,($5200)	ld hl,($0000)
+1afd	18 31 	jr $+$33	jr $+$00
+1aff	cd 4b 18 	call $184b	call $0000
+1b02	eb 	ex de,hl	ex de,hl
+1b03	18 2b 	jr $+$2d	jr $+$00
+1b05	2a de 54 	ld hl,($54de)	ld hl,($0000)
+1b08	18 28 	jr $+$2a	jr $+$00
+1b0a	2a e2 54 	ld hl,($54e2)	ld hl,($0000)
+1b0d	18 23 	jr $+$25	jr $+$00
+1b0f	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+1b12	18 1e 	jr $+$20	jr $+$00
+1b14	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1b17	fd 23 	inc iy	inc iy
+1b19	fe 50 	cp $50	cp $00
+1b1b	c2 c2 25 	jp nz,$25c2	jp nz,$0000
+1b1e	cd 07 40 	call $4007	call $0000
+1b21	18 0f 	jr $+$11	jr $+$00
+1b23	2a f2 54 	ld hl,($54f2)	ld hl,($0000)
+1b26	18 0a 	jr $+$0c	jr $+$00
+1b28	2a fd 54 	ld hl,($54fd)	ld hl,($0000)
+1b2b	18 03 	jr $+$05	jr $+$00
+1b2d	2a fb 54 	ld hl,($54fb)	ld hl,($0000)
+1b30	26 00 	ld h,$00	ld h,$00
+1b32	d9 	exx	exx
+1b33	af 	xor a	xor a
+1b34	4f 	ld c,a	ld c,a
+1b35	67 	ld h,a	ld h,a
+1b36	6f 	ld l,a	ld l,a
+1b37	c9 	ret	ret
+1b38	af 	xor a	xor a
+1b39	21 3e 02 	ld hl,$023e	ld hl,$0000
+1b3c	21 3e 01 	ld hl,$013e	ld hl,$0000
+1b3f	f5 	push af	push af
+1b40	cd 4b 18 	call $184b	call $0000
+1b43	3e 0d 	ld a,$0d	ld a,$00
+1b45	12 	ld (de),a	ld (de),a
+1b46	f1 	pop af	pop af
+1b47	c6 ff 	add a,$ff	add a,$00
+1b49	21 00 52 	ld hl,$5200	ld hl,$0000
+1b4c	cd 26 06 	call $0626	call $0000
+1b4f	6f 	ld l,a	ld l,a
+1b50	18 de 	jr $-$20	jr $-$00
+1b52	cd b3 36 	call $36b3	call $0000
+1b55	cd 8f 06 	call $068f	call $0000
+1b58	18 12 	jr $+$14	jr $+$00
+1b5a	cd b3 36 	call $36b3	call $0000
+1b5d	cd 58 06 	call $0658	call $0000
+1b60	18 0a 	jr $+$0c	jr $+$00
+1b62	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1b65	fe 24 	cp $24	cp $00
+1b67	28 09 	jr z,$+$0b	jr z,$+$00
+1b69	cd 0b 0d 	call $0d0b	call $0000
+1b6c	d5 	push de	push de
+1b6d	d9 	exx	exx
+1b6e	e1 	pop hl	pop hl
+1b6f	af 	xor a	xor a
+1b70	4f 	ld c,a	ld c,a
+1b71	c9 	ret	ret
+1b72	fd 23 	inc iy	inc iy
+1b74	cd 20 0d 	call $0d20	call $0000
+1b77	3e 80 	ld a,$80	ld a,$00
+1b79	c9 	ret	ret
+1b7a	cd d7 1f 	call $1fd7	call $0000
+1b7d	d0 	ret nc	ret nc
+1b7e	18 1f 	jr $+$21	jr $+$00
+1b80	cd d7 1f 	call $1fd7	call $0000
+1b83	c8 	ret z	ret z
+1b84	d8 	ret c	ret c
+1b85	18 18 	jr $+$1a	jr $+$00
+1b87	cd d7 1f 	call $1fd7	call $0000
+1b8a	d8 	ret c	ret c
+1b8b	18 12 	jr $+$14	jr $+$00
+1b8d	cd d7 1f 	call $1fd7	call $0000
+1b90	28 0d 	jr z,$+$0f	jr z,$+$00
+1b92	d0 	ret nc	ret nc
+1b93	18 0a 	jr $+$0c	jr $+$00
+1b95	cd d7 1f 	call $1fd7	call $0000
+1b98	c8 	ret z	ret z
+1b99	18 04 	jr $+$06	jr $+$00
+1b9b	cd d7 1f 	call $1fd7	call $0000
+1b9e	c0 	ret nz	ret nz
+1b9f	3e ff 	ld a,$ff	ld a,$00
+1ba1	d9 	exx	exx
+1ba2	67 	ld h,a	ld h,a
+1ba3	6f 	ld l,a	ld l,a
+1ba4	d9 	exx	exx
+1ba5	67 	ld h,a	ld h,a
+1ba6	6f 	ld l,a	ld l,a
+1ba7	3c 	inc a	inc a
+1ba8	4f 	ld c,a	ld c,a
+1ba9	c9 	ret	ret
+1baa	3e 23 	ld a,$23	ld a,$00
+1bac	18 43 	jr $+$45	jr $+$00
+1bae	3e 10 	ld a,$10	ld a,$00
+1bb0	18 3a 	jr $+$3c	jr $+$00
+1bb2	3e 1a 	ld a,$1a	ld a,$00
+1bb4	18 36 	jr $+$38	jr $+$00
+1bb6	3e 15 	ld a,$15	ld a,$00
+1bb8	18 32 	jr $+$34	jr $+$00
+1bba	3e 1b 	ld a,$1b	ld a,$00
+1bbc	18 2e 	jr $+$30	jr $+$00
+1bbe	3e 1c 	ld a,$1c	ld a,$00
+1bc0	18 2a 	jr $+$2c	jr $+$00
+1bc2	3e 17 	ld a,$17	ld a,$00
+1bc4	18 26 	jr $+$28	jr $+$00
+1bc6	3e 1e 	ld a,$1e	ld a,$00
+1bc8	18 22 	jr $+$24	jr $+$00
+1bca	3e 1f 	ld a,$1f	ld a,$00
+1bcc	18 1e 	jr $+$20	jr $+$00
+1bce	3e 14 	ld a,$14	ld a,$00
+1bd0	18 1a 	jr $+$1c	jr $+$00
+1bd2	3e 1d 	ld a,$1d	ld a,$00
+1bd4	18 16 	jr $+$18	jr $+$00
+1bd6	3e 16 	ld a,$16	ld a,$00
+1bd8	18 12 	jr $+$14	jr $+$00
+1bda	3e 18 	ld a,$18	ld a,$00
+1bdc	18 0e 	jr $+$10	jr $+$00
+1bde	3e 19 	ld a,$19	ld a,$00
+1be0	18 0a 	jr $+$0c	jr $+$00
+1be2	3e 12 	ld a,$12	ld a,$00
+1be4	18 06 	jr $+$08	jr $+$00
+1be6	3e 13 	ld a,$13	ld a,$00
+1be8	18 02 	jr $+$04	jr $+$00
+1bea	3e 11 	ld a,$11	ld a,$00
+1bec	f5 	push af	push af
+1bed	cd 5c 18 	call $185c	call $0000
+1bf0	f1 	pop af	pop af
+1bf1	cd f7 44 	call $44f7	call $0000
+1bf4	da 26 3f 	jp c,$3f26	jp c,$0000
+1bf7	af 	xor a	xor a
+1bf8	c9 	ret	ret
+1bf9	3e 26 	ld a,$26	ld a,$00
+1bfb	18 f4 	jr $-$0a	jr $-$00
+1bfd	3e 27 	ld a,$27	ld a,$00
+1bff	18 f0 	jr $-$0e	jr $-$00
+1c01	cd 4b 18 	call $184b	call $0000
+1c04	af 	xor a	xor a
+1c05	12 	ld (de),a	ld (de),a
+1c06	dd 21 00 52 	ld ix,$5200	ld ix,$0000
+1c0a	3e 24 	ld a,$24	ld a,$00
+1c0c	18 e3 	jr $-$1b	jr $-$00
+1c0e	cd 4b 18 	call $184b	call $0000
+1c11	3e 0d 	ld a,$0d	ld a,$00
+1c13	12 	ld (de),a	ld (de),a
+1c14	fd e5 	push iy	push iy
+1c16	11 00 52 	ld de,$5200	ld de,$0000
+1c19	fd 21 00 52 	ld iy,$5200	ld iy,$0000
+1c1d	0e 00 	ld c,$00	ld c,$00
+1c1f	cd fa 43 	call $43fa	call $0000
+1c22	12 	ld (de),a	ld (de),a
+1c23	13 	inc de	inc de
+1c24	af 	xor a	xor a
+1c25	cd fb 1f 	call $1ffb	call $0000
+1c28	fd 21 02 00 	ld iy,$0002	ld iy,$0000
+1c2c	fd 39 	add iy,sp	add iy,sp
+1c2e	cd e4 16 	call $16e4	call $0000
+1c31	fd e1 	pop iy	pop iy
+1c33	fd 39 	add iy,sp	add iy,sp
+1c35	fd f9 	ld sp,iy	ld sp,iy
+1c37	fd e1 	pop iy	pop iy
+1c39	08 	ex af,af'	ex af,af'
+1c3a	c9 	ret	ret
+1c3b	dd 21 f6 54 	ld ix,$54f6	ld ix,$0000
+1c3f	cd ed 44 	call $44ed	call $0000
+1c42	fe 28 	cp $28	cp $00
+1c44	28 1c 	jr z,$+$1e	jr z,$+$00
+1c46	cd 11 19 	call $1911	call $0000
+1c49	cb 19 	rr c	rr c
+1c4b	06 20 	ld b,$20	ld b,$00
+1c4d	d9 	exx	exx
+1c4e	ed 6a 	adc hl,hl	adc hl,hl
+1c50	d9 	exx	exx
+1c51	ed 6a 	adc hl,hl	adc hl,hl
+1c53	cb 5d 	bit 3,l	bit 3,l
+1c55	28 01 	jr z,$+$03	jr z,$+$00
+1c57	3f 	ccf	ccf
+1c58	10 f3 	djnz $-$0b	djnz $-$00
+1c5a	cb 11 	rl c	rl c
+1c5c	cd e8 31 	call $31e8	call $0000
+1c5f	af 	xor a	xor a
+1c60	4f 	ld c,a	ld c,a
+1c61	c9 	ret	ret
+1c62	cd 42 18 	call $1842	call $0000
+1c65	dd 21 f6 54 	ld ix,$54f6	ld ix,$0000
+1c69	cb 7c 	bit 7,h	bit 7,h
+1c6b	37 	scf	scf
+1c6c	20 ec 	jr nz,$-$12	jr nz,$-$00
+1c6e	cd 3b 1f 	call $1f3b	call $0000
+1c71	f5 	push af	push af
+1c72	41 	ld b,c	ld b,c
+1c73	eb 	ex de,hl	ex de,hl
+1c74	d9 	exx	exx
+1c75	eb 	ex de,hl	ex de,hl
+1c76	cd 11 19 	call $1911	call $0000
+1c79	c4 49 1c 	call nz,$1c49	call nz,$0000
+1c7c	d9 	exx	exx
+1c7d	0e 7f 	ld c,$7f	ld c,$00
+1c7f	cb 7c 	bit 7,h	bit 7,h
+1c81	20 08 	jr nz,$+$0a	jr nz,$+$00
+1c83	d9 	exx	exx
+1c84	29 	add hl,hl	add hl,hl
+1c85	d9 	exx	exx
+1c86	ed 6a 	adc hl,hl	adc hl,hl
+1c88	0d 	dec c	dec c
+1c89	20 f4 	jr nz,$-$0a	jr nz,$-$00
+1c8b	cb bc 	res 7,h	res 7,h
+1c8d	f1 	pop af	pop af
+1c8e	c8 	ret z	ret z
+1c8f	d9 	exx	exx
+1c90	7b 	ld a,e	ld a,e
+1c91	3d 	dec a	dec a
+1c92	b2 	or d	or d
+1c93	d9 	exx	exx
+1c94	b3 	or e	or e
+1c95	b2 	or d	or d
+1c96	c8 	ret z	ret z
+1c97	06 00 	ld b,$00	ld b,$00
+1c99	3e 0a 	ld a,$0a	ld a,$00
+1c9b	cd f7 44 	call $44f7	call $0000
+1c9e	da 26 3f 	jp c,$3f26	jp c,$0000
+1ca1	cd f9 1b 	call $1bf9	call $0000
+1ca4	c3 38 18 	jp $1838	jp $0000
+1ca7	fd 23 	inc iy	inc iy
+1ca9	cd b9 19 	call $19b9	call $0000
+1cac	cb 78 	bit 7,b	bit 7,b
+1cae	ca 50 18 	jp z,$1850	jp z,$0000
+1cb1	cd 86 19 	call $1986	call $0000
+1cb4	e5 	push hl	push hl
+1cb5	dd e1 	pop ix	pop ix
+1cb7	af 	xor a	xor a
+1cb8	67 	ld h,a	ld h,a
+1cb9	6f 	ld l,a	ld l,a
+1cba	47 	ld b,a	ld b,a
+1cbb	dd 4e 00 	ld c,(ix)	ld c,(ix)
+1cbe	09 	add hl,bc	add hl,bc
+1cbf	0e 04 	ld c,$04	ld c,$00
+1cc1	dd 09 	add ix,bc	add ix,bc
+1cc3	1b 	dec de	dec de
+1cc4	7a 	ld a,d	ld a,d
+1cc5	b3 	or e	or e
+1cc6	20 f3 	jr nz,$-$0b	jr nz,$-$00
+1cc8	c3 32 1b 	jp $1b32	jp $0000
+1ccb	cd ed 44 	call $44ed	call $0000
+1cce	fe a9 	cp $a9	cp $00
+1cd0	28 d5 	jr z,$-$29	jr z,$-$00
+1cd2	cd b9 19 	call $19b9	call $0000
+1cd5	cb 78 	bit 7,b	bit 7,b
+1cd7	20 27 	jr nz,$+$29	jr nz,$+$00
+1cd9	c5 	push bc	push bc
+1cda	cd 86 19 	call $1986	call $0000
+1cdd	e5 	push hl	push hl
+1cde	dd e1 	pop ix	pop ix
+1ce0	cd da 1f 	call $1fda	call $0000
+1ce3	f1 	pop af	pop af
+1ce4	d5 	push de	push de
+1ce5	f5 	push af	push af
+1ce6	cd c9 19 	call $19c9	call $0000
+1ce9	3e 0b 	ld a,$0b	ld a,$00
+1ceb	cd f7 44 	call $44f7	call $0000
+1cee	da 26 3f 	jp c,$3f26	jp c,$0000
+1cf1	f1 	pop af	pop af
+1cf2	16 00 	ld d,$00	ld d,$00
+1cf4	5f 	ld e,a	ld e,a
+1cf5	dd 19 	add ix,de	add ix,de
+1cf7	d1 	pop de	pop de
+1cf8	1b 	dec de	dec de
+1cf9	47 	ld b,a	ld b,a
+1cfa	7a 	ld a,d	ld a,d
+1cfb	b3 	or e	or e
+1cfc	78 	ld a,b	ld a,b
+1cfd	20 e5 	jr nz,$-$19	jr nz,$-$00
+1cff	c9 	ret	ret
+1d00	cd 86 19 	call $1986	call $0000
+1d03	e5 	push hl	push hl
+1d04	dd e1 	pop ix	pop ix
+1d06	eb 	ex de,hl	ex de,hl
+1d07	11 00 52 	ld de,$5200	ld de,$0000
+1d0a	06 00 	ld b,$00	ld b,$00
+1d0c	e5 	push hl	push hl
+1d0d	dd 4e 00 	ld c,(ix)	ld c,(ix)
+1d10	79 	ld a,c	ld a,c
+1d11	b7 	or a	or a
+1d12	28 0e 	jr z,$+$10	jr z,$+$00
+1d14	83 	add a,e	add a,e
+1d15	3e 13 	ld a,$13	ld a,$00
+1d17	da 26 3f 	jp c,$3f26	jp c,$0000
+1d1a	dd 6e 02 	ld l,(ix+$02)	ld l,(ix+$00)
+1d1d	dd 66 03 	ld h,(ix+$03)	ld h,(ix+$00)
+1d20	ed b0 	ldir	ldir
+1d22	e1 	pop hl	pop hl
+1d23	0e 04 	ld c,$04	ld c,$00
+1d25	dd 09 	add ix,bc	add ix,bc
+1d27	2b 	dec hl	dec hl
+1d28	7c 	ld a,h	ld a,h
+1d29	b5 	or l	or l
+1d2a	20 e0 	jr nz,$-$1e	jr nz,$-$00
+1d2c	f6 80 	or $80	or $00
+1d2e	c9 	ret	ret
+1d2f	cd b9 19 	call $19b9	call $0000
+1d32	cb 78 	bit 7,b	bit 7,b
+1d34	c2 50 18 	jp nz,$1850	jp nz,$0000
+1d37	c5 	push bc	push bc
+1d38	cd 86 19 	call $1986	call $0000
+1d3b	e5 	push hl	push hl
+1d3c	dd e1 	pop ix	pop ix
+1d3e	cd da 1f 	call $1fda	call $0000
+1d41	f1 	pop af	pop af
+1d42	d5 	push de	push de
+1d43	f5 	push af	push af
+1d44	c5 	push bc	push bc
+1d45	e5 	push hl	push hl
+1d46	d9 	exx	exx
+1d47	e5 	push hl	push hl
+1d48	d9 	exx	exx
+1d49	cd 07 19 	call $1907	call $0000
+1d4c	af 	xor a	xor a
+1d4d	47 	ld b,a	ld b,a
+1d4e	57 	ld d,a	ld d,a
+1d4f	5f 	ld e,a	ld e,a
+1d50	d9 	exx	exx
+1d51	57 	ld d,a	ld d,a
+1d52	1e 02 	ld e,$02	ld e,$00
+1d54	d9 	exx	exx
+1d55	3e 0e 	ld a,$0e	ld a,$00
+1d57	dd e5 	push ix	push ix
+1d59	cd f7 44 	call $44f7	call $0000
+1d5c	dd e1 	pop ix	pop ix
+1d5e	da 26 3f 	jp c,$3f26	jp c,$0000
+1d61	d9 	exx	exx
+1d62	eb 	ex de,hl	ex de,hl
+1d63	e1 	pop hl	pop hl
 1d64	d9 	exx	exx
-1d65	e5 	push hl	push hl
-1d66	d9 	exx	exx
-1d67	cd 25 19 	call $1925	call $0000
-1d6a	af 	xor a	xor a
-1d6b	47 	ld b,a	ld b,a
-1d6c	57 	ld d,a	ld d,a
-1d6d	5f 	ld e,a	ld e,a
-1d6e	d9 	exx	exx
-1d6f	57 	ld d,a	ld d,a
-1d70	1e 02 	ld e,$02	ld e,$00
-1d72	d9 	exx	exx
-1d73	3e 0e 	ld a,$0e	ld a,$00
-1d75	dd e5 	push ix	push ix
-1d77	cd 15 45 	call $4515	call $0000
-1d7a	dd e1 	pop ix	pop ix
-1d7c	da 44 3f 	jp c,$3f44	jp c,$0000
-1d7f	d9 	exx	exx
-1d80	eb 	ex de,hl	ex de,hl
-1d81	e1 	pop hl	pop hl
-1d82	d9 	exx	exx
-1d83	eb 	ex de,hl	ex de,hl
-1d84	e1 	pop hl	pop hl
-1d85	79 	ld a,c	ld a,c
-1d86	c1 	pop bc	pop bc
-1d87	47 	ld b,a	ld b,a
-1d88	3e 0b 	ld a,$0b	ld a,$00
-1d8a	cd 15 45 	call $4515	call $0000
-1d8d	da 44 3f 	jp c,$3f44	jp c,$0000
-1d90	f1 	pop af	pop af
-1d91	16 00 	ld d,$00	ld d,$00
-1d93	5f 	ld e,a	ld e,a
-1d94	dd 19 	add ix,de	add ix,de
-1d96	d1 	pop de	pop de
-1d97	1b 	dec de	dec de
-1d98	47 	ld b,a	ld b,a
-1d99	7a 	ld a,d	ld a,d
-1d9a	b3 	or e	or e
-1d9b	78 	ld a,b	ld a,b
-1d9c	20 c2 	jr nz,$-$3c	jr nz,$-$00
-1d9e	3e 1e 	ld a,$1e	ld a,$00
-1da0	cd 15 45 	call $4515	call $0000
-1da3	af 	xor a	xor a
-1da4	c9 	ret	ret
-1da5	cd 3c 18 	call $183c	call $0000
-1da8	cd a2 20 	call $20a2	call $0000
-1dab	cd 19 20 	call $2019	call $0000
-1dae	cd 3c 18 	call $183c	call $0000
-1db1	c1 	pop bc	pop bc
-1db2	21 00 00 	ld hl,$0000	ld hl,$0000
-1db5	39 	add hl,sp	add hl,sp
-1db6	c5 	push bc	push bc
-1db7	43 	ld b,e	ld b,e
-1db8	cd 0b 45 	call $450b	call $0000
-1dbb	fe 2c 	cp $2c	cp $00
-1dbd	3e 00 	ld a,$00	ld a,$00
-1dbf	20 17 	jr nz,$+$19	jr nz,$+$00
-1dc1	fd 23 	inc iy	inc iy
-1dc3	c5 	push bc	push bc
-1dc4	e5 	push hl	push hl
-1dc5	cd 19 20 	call $2019	call $0000
-1dc8	cd 33 18 	call $1833	call $0000
-1dcb	c1 	pop bc	pop bc
-1dcc	cd 37 20 	call $2037	call $0000
-1dcf	e1 	pop hl	pop hl
-1dd0	c1 	pop bc	pop bc
-1dd1	d9 	exx	exx
-1dd2	7d 	ld a,l	ld a,l
-1dd3	d9 	exx	exx
-1dd4	b7 	or a	or a
-1dd5	28 01 	jr z,$+$03	jr z,$+$00
-1dd7	3d 	dec a	dec a
-1dd8	11 00 52 	ld de,$5200	ld de,$0000
-1ddb	cd f2 1d 	call $1df2	call $0000
-1dde	d1 	pop de	pop de
-1ddf	28 03 	jr z,$+$05	jr z,$+$00
-1de1	ed 62 	sbc hl,hl	sbc hl,hl
-1de3	39 	add hl,sp	add hl,sp
-1de4	ed 72 	sbc hl,sp	sbc hl,sp
-1de6	eb 	ex de,hl	ex de,hl
-1de7	26 00 	ld h,$00	ld h,$00
-1de9	39 	add hl,sp	add hl,sp
-1dea	f9 	ld sp,hl	ld sp,hl
-1deb	eb 	ex de,hl	ex de,hl
-1dec	cd ae 20 	call $20ae	call $0000
-1def	c3 50 1b 	jp $1b50	jp $0000
-1df2	c5 	push bc	push bc
-1df3	06 00 	ld b,$00	ld b,$00
-1df5	4f 	ld c,a	ld c,a
-1df6	09 	add hl,bc	add hl,bc
-1df7	c1 	pop bc	pop bc
-1df8	91 	sub c	sub c
-1df9	30 28 	jr nc,$+$2a	jr nc,$+$00
-1dfb	ed 44 	neg	neg
-1dfd	4f 	ld c,a	ld c,a
-1dfe	1a 	ld a,(de)	ld a,(de)
-1dff	c5 	push bc	push bc
-1e00	06 00 	ld b,$00	ld b,$00
-1e02	ed b1 	cpir	cpir
-1e04	79 	ld a,c	ld a,c
-1e05	c1 	pop bc	pop bc
-1e06	20 1b 	jr nz,$+$1d	jr nz,$+$00
-1e08	4f 	ld c,a	ld c,a
-1e09	05 	dec b	dec b
-1e0a	b8 	cp b	cp b
-1e0b	04 	inc b	inc b
-1e0c	38 15 	jr c,$+$17	jr c,$+$00
-1e0e	c5 	push bc	push bc
-1e0f	d5 	push de	push de
-1e10	e5 	push hl	push hl
-1e11	05 	dec b	dec b
-1e12	28 08 	jr z,$+$0a	jr z,$+$00
-1e14	13 	inc de	inc de
-1e15	1a 	ld a,(de)	ld a,(de)
-1e16	be 	cp (hl)	cp (hl)
-1e17	20 03 	jr nz,$+$05	jr nz,$+$00
-1e19	23 	inc hl	inc hl
-1e1a	10 f8 	djnz $-$06	djnz $-$00
-1e1c	e1 	pop hl	pop hl
-1e1d	d1 	pop de	pop de
-1e1e	c1 	pop bc	pop bc
-1e1f	20 dd 	jr nz,$-$21	jr nz,$-$00
-1e21	af 	xor a	xor a
-1e22	c9 	ret	ret
-1e23	f6 ff 	or $ff	or $00
-1e25	c9 	ret	ret
-1e26	cd 60 18 	call $1860	call $0000
-1e29	d9 	exx	exx
-1e2a	7d 	ld a,l	ld a,l
-1e2b	18 0a 	jr $+$0c	jr $+$00
-1e2d	cd 0b 45 	call $450b	call $0000
-1e30	fe 23 	cp $23	cp $00
-1e32	28 06 	jr z,$+$08	jr z,$+$00
-1e34	cd de 05 	call $05de	call $0000
-1e37	37 	scf	scf
-1e38	18 5b 	jr $+$5d	jr $+$00
-1e3a	cd db 36 	call $36db	call $0000
-1e3d	cd 0b 45 	call $450b	call $0000
-1e40	fe 0f 	cp $0f	cp $00
-1e42	28 04 	jr z,$+$06	jr z,$+$00
-1e44	fe b8 	cp $b8	cp $00
-1e46	20 0c 	jr nz,$+$0e	jr nz,$+$00
-1e48	fd 23 	inc iy	inc iy
-1e4a	f5 	push af	push af
-1e4b	d5 	push de	push de
-1e4c	cd 60 18 	call $1860	call $0000
-1e4f	d9 	exx	exx
-1e50	44 	ld b,h	ld b,h
-1e51	4d 	ld c,l	ld c,l
-1e52	d1 	pop de	pop de
-1e53	f1 	pop af	pop af
-1e54	21 00 52 	ld hl,$5200	ld hl,$0000
-1e57	fe b8 	cp $b8	cp $00
-1e59	28 08 	jr z,$+$0a	jr z,$+$00
-1e5b	51 	ld d,c	ld d,c
-1e5c	01 00 01 	ld bc,$0100	ld bc,$0000
-1e5f	fe 0f 	cp $0f	cp $00
-1e61	28 04 	jr z,$+$06	jr z,$+$00
-1e63	16 00 	ld d,$00	ld d,$00
-1e65	cb c8 	set 1,b	set 1,b
-1e67	c5 	push bc	push bc
-1e68	cd 5b 06 	call $065b	call $0000
-1e6b	c1 	pop bc	pop bc
-1e6c	38 1c 	jr c,$+$1e	jr c,$+$00
-1e6e	cb 48 	bit 1,b	bit 1,b
-1e70	28 13 	jr z,$+$15	jr z,$+$00
-1e72	b9 	cp c	cp c
-1e73	28 15 	jr z,$+$17	jr z,$+$00
-1e75	cb 78 	bit 7,b	bit 7,b
-1e77	20 08 	jr nz,$+$0a	jr nz,$+$00
-1e79	cb 40 	bit 0,b	bit 0,b
-1e7b	28 08 	jr z,$+$0a	jr z,$+$00
-1e7d	fe 0a 	cp $0a	cp $00
-1e7f	28 09 	jr z,$+$0b	jr z,$+$00
-1e81	fe 0d 	cp $0d	cp $00
-1e83	28 05 	jr z,$+$07	jr z,$+$00
-1e85	77 	ld (hl),a	ld (hl),a
-1e86	2c 	inc l	inc l
-1e87	15 	dec d	dec d
-1e88	20 dd 	jr nz,$-$21	jr nz,$-$00
-1e8a	eb 	ex de,hl	ex de,hl
-1e8b	3e 80 	ld a,$80	ld a,$00
-1e8d	c9 	ret	ret
-1e8e	cd 60 18 	call $1860	call $0000
-1e91	d9 	exx	exx
-1e92	cd 91 0d 	call $0d91	call $0000
-1e95	11 00 52 	ld de,$5200	ld de,$0000
-1e98	12 	ld (de),a	ld (de),a
-1e99	3e 80 	ld a,$80	ld a,$00
-1e9b	d0 	ret nc	ret nc
-1e9c	1c 	inc e	inc e
-1e9d	c9 	ret	ret
-1e9e	cd 3c 18 	call $183c	call $0000
-1ea1	cd a2 20 	call $20a2	call $0000
-1ea4	cd 19 20 	call $2019	call $0000
-1ea7	cd 33 18 	call $1833	call $0000
-1eaa	c1 	pop bc	pop bc
-1eab	cd 37 20 	call $2037	call $0000
-1eae	d9 	exx	exx
-1eaf	7d 	ld a,l	ld a,l
-1eb0	d9 	exx	exx
-1eb1	b7 	or a	or a
-1eb2	28 0d 	jr z,$+$0f	jr z,$+$00
-1eb4	3d 	dec a	dec a
-1eb5	6f 	ld l,a	ld l,a
-1eb6	93 	sub e	sub e
-1eb7	1e 00 	ld e,$00	ld e,$00
-1eb9	30 06 	jr nc,$+$08	jr nc,$+$00
-1ebb	ed 44 	neg	neg
-1ebd	4f 	ld c,a	ld c,a
-1ebe	cd 1d 1f 	call $1f1d	call $0000
-1ec1	cd 0b 45 	call $450b	call $0000
-1ec4	fe 2c 	cp $2c	cp $00
-1ec6	28 1a 	jr z,$+$1c	jr z,$+$00
-1ec8	cd ae 20 	call $20ae	call $0000
-1ecb	3e 80 	ld a,$80	ld a,$00
-1ecd	c9 	ret	ret
-1ece	cd 3c 18 	call $183c	call $0000
-1ed1	cd 0b 45 	call $450b	call $0000
-1ed4	fe 2c 	cp $2c	cp $00
-1ed6	28 0a 	jr z,$+$0c	jr z,$+$00
-1ed8	cd ae 20 	call $20ae	call $0000
-1edb	7b 	ld a,e	ld a,e
-1edc	b7 	or a	or a
-1edd	28 1a 	jr z,$+$1c	jr z,$+$00
-1edf	1d 	dec e	dec e
-1ee0	18 17 	jr $+$19	jr $+$00
-1ee2	fd 23 	inc iy	inc iy
-1ee4	cd 19 20 	call $2019	call $0000
-1ee7	cd 33 18 	call $1833	call $0000
-1eea	c1 	pop bc	pop bc
-1eeb	cd 37 20 	call $2037	call $0000
-1eee	cd ae 20 	call $20ae	call $0000
-1ef1	d9 	exx	exx
-1ef2	7d 	ld a,l	ld a,l
-1ef3	d9 	exx	exx
-1ef4	bb 	cp e	cp e
-1ef5	30 02 	jr nc,$+$04	jr nc,$+$00
-1ef7	6b 	ld l,e	ld l,e
-1ef8	5f 	ld e,a	ld e,a
-1ef9	3e 80 	ld a,$80	ld a,$00
-1efb	c9 	ret	ret
-1efc	cd 3c 18 	call $183c	call $0000
-1eff	cd 0b 45 	call $450b	call $0000
-1f02	fe 2c 	cp $2c	cp $00
-1f04	28 0c 	jr z,$+$0e	jr z,$+$00
-1f06	cd ae 20 	call $20ae	call $0000
-1f09	7b 	ld a,e	ld a,e
-1f0a	b7 	or a	or a
-1f0b	28 ec 	jr z,$-$12	jr z,$-$00
-1f0d	3d 	dec a	dec a
-1f0e	0e 01 	ld c,$01	ld c,$00
-1f10	18 0a 	jr $+$0c	jr $+$00
-1f12	cd e2 1e 	call $1ee2	call $0000
-1f15	d0 	ret nc	ret nc
-1f16	1c 	inc e	inc e
-1f17	1d 	dec e	dec e
-1f18	c8 	ret z	ret z
-1f19	4b 	ld c,e	ld c,e
-1f1a	7d 	ld a,l	ld a,l
-1f1b	93 	sub e	sub e
-1f1c	6f 	ld l,a	ld l,a
-1f1d	06 00 	ld b,$00	ld b,$00
-1f1f	62 	ld h,d	ld h,d
-1f20	58 	ld e,b	ld e,b
-1f21	ed b0 	ldir	ldir
-1f23	3e 80 	ld a,$80	ld a,$00
-1f25	c9 	ret	ret
-1f26	cd 33 18 	call $1833	call $0000
-1f29	cd a2 20 	call $20a2	call $0000
-1f2c	d9 	exx	exx
-1f2d	7d 	ld a,l	ld a,l
-1f2e	d9 	exx	exx
-1f2f	f5 	push af	push af
-1f30	cd 3c 18 	call $183c	call $0000
-1f33	cd ae 20 	call $20ae	call $0000
-1f36	f1 	pop af	pop af
-1f37	b7 	or a	or a
-1f38	28 be 	jr z,$-$40	jr z,$-$00
-1f3a	3d 	dec a	dec a
-1f3b	4f 	ld c,a	ld c,a
-1f3c	3e 80 	ld a,$80	ld a,$00
-1f3e	c8 	ret z	ret z
-1f3f	1c 	inc e	inc e
-1f40	1d 	dec e	dec e
-1f41	c8 	ret z	ret z
-1f42	43 	ld b,e	ld b,e
-1f43	62 	ld h,d	ld h,d
-1f44	2e 00 	ld l,$00	ld l,$00
-1f46	c5 	push bc	push bc
-1f47	7e 	ld a,(hl)	ld a,(hl)
-1f48	23 	inc hl	inc hl
-1f49	12 	ld (de),a	ld (de),a
-1f4a	1c 	inc e	inc e
-1f4b	3e 13 	ld a,$13	ld a,$00
-1f4d	ca 44 3f 	jp z,$3f44	jp z,$0000
-1f50	10 f5 	djnz $-$09	djnz $-$00
-1f52	c1 	pop bc	pop bc
-1f53	0d 	dec c	dec c
-1f54	20 f0 	jr nz,$-$0e	jr nz,$-$00
-1f56	3e 80 	ld a,$80	ld a,$00
-1f58	c9 	ret	ret
-1f59	7c 	ld a,h	ld a,h
-1f5a	b5 	or l	or l
-1f5b	d9 	exx	exx
-1f5c	b4 	or h	or h
-1f5d	b5 	or l	or l
+1d65	eb 	ex de,hl	ex de,hl
+1d66	e1 	pop hl	pop hl
+1d67	79 	ld a,c	ld a,c
+1d68	c1 	pop bc	pop bc
+1d69	47 	ld b,a	ld b,a
+1d6a	3e 0b 	ld a,$0b	ld a,$00
+1d6c	cd f7 44 	call $44f7	call $0000
+1d6f	da 26 3f 	jp c,$3f26	jp c,$0000
+1d72	f1 	pop af	pop af
+1d73	16 00 	ld d,$00	ld d,$00
+1d75	5f 	ld e,a	ld e,a
+1d76	dd 19 	add ix,de	add ix,de
+1d78	d1 	pop de	pop de
+1d79	1b 	dec de	dec de
+1d7a	47 	ld b,a	ld b,a
+1d7b	7a 	ld a,d	ld a,d
+1d7c	b3 	or e	or e
+1d7d	78 	ld a,b	ld a,b
+1d7e	20 c2 	jr nz,$-$3c	jr nz,$-$00
+1d80	3e 1e 	ld a,$1e	ld a,$00
+1d82	cd f7 44 	call $44f7	call $0000
+1d85	af 	xor a	xor a
+1d86	c9 	ret	ret
+1d87	cd 1e 18 	call $181e	call $0000
+1d8a	cd 84 20 	call $2084	call $0000
+1d8d	cd fb 1f 	call $1ffb	call $0000
+1d90	cd 1e 18 	call $181e	call $0000
+1d93	c1 	pop bc	pop bc
+1d94	21 00 00 	ld hl,$0000	ld hl,$0000
+1d97	39 	add hl,sp	add hl,sp
+1d98	c5 	push bc	push bc
+1d99	43 	ld b,e	ld b,e
+1d9a	cd ed 44 	call $44ed	call $0000
+1d9d	fe 2c 	cp $2c	cp $00
+1d9f	3e 00 	ld a,$00	ld a,$00
+1da1	20 17 	jr nz,$+$19	jr nz,$+$00
+1da3	fd 23 	inc iy	inc iy
+1da5	c5 	push bc	push bc
+1da6	e5 	push hl	push hl
+1da7	cd fb 1f 	call $1ffb	call $0000
+1daa	cd 15 18 	call $1815	call $0000
+1dad	c1 	pop bc	pop bc
+1dae	cd 19 20 	call $2019	call $0000
+1db1	e1 	pop hl	pop hl
+1db2	c1 	pop bc	pop bc
+1db3	d9 	exx	exx
+1db4	7d 	ld a,l	ld a,l
+1db5	d9 	exx	exx
+1db6	b7 	or a	or a
+1db7	28 01 	jr z,$+$03	jr z,$+$00
+1db9	3d 	dec a	dec a
+1dba	11 00 52 	ld de,$5200	ld de,$0000
+1dbd	cd d4 1d 	call $1dd4	call $0000
+1dc0	d1 	pop de	pop de
+1dc1	28 03 	jr z,$+$05	jr z,$+$00
+1dc3	ed 62 	sbc hl,hl	sbc hl,hl
+1dc5	39 	add hl,sp	add hl,sp
+1dc6	ed 72 	sbc hl,sp	sbc hl,sp
+1dc8	eb 	ex de,hl	ex de,hl
+1dc9	26 00 	ld h,$00	ld h,$00
+1dcb	39 	add hl,sp	add hl,sp
+1dcc	f9 	ld sp,hl	ld sp,hl
+1dcd	eb 	ex de,hl	ex de,hl
+1dce	cd 90 20 	call $2090	call $0000
+1dd1	c3 32 1b 	jp $1b32	jp $0000
+1dd4	c5 	push bc	push bc
+1dd5	06 00 	ld b,$00	ld b,$00
+1dd7	4f 	ld c,a	ld c,a
+1dd8	09 	add hl,bc	add hl,bc
+1dd9	c1 	pop bc	pop bc
+1dda	91 	sub c	sub c
+1ddb	30 28 	jr nc,$+$2a	jr nc,$+$00
+1ddd	ed 44 	neg	neg
+1ddf	4f 	ld c,a	ld c,a
+1de0	1a 	ld a,(de)	ld a,(de)
+1de1	c5 	push bc	push bc
+1de2	06 00 	ld b,$00	ld b,$00
+1de4	ed b1 	cpir	cpir
+1de6	79 	ld a,c	ld a,c
+1de7	c1 	pop bc	pop bc
+1de8	20 1b 	jr nz,$+$1d	jr nz,$+$00
+1dea	4f 	ld c,a	ld c,a
+1deb	05 	dec b	dec b
+1dec	b8 	cp b	cp b
+1ded	04 	inc b	inc b
+1dee	38 15 	jr c,$+$17	jr c,$+$00
+1df0	c5 	push bc	push bc
+1df1	d5 	push de	push de
+1df2	e5 	push hl	push hl
+1df3	05 	dec b	dec b
+1df4	28 08 	jr z,$+$0a	jr z,$+$00
+1df6	13 	inc de	inc de
+1df7	1a 	ld a,(de)	ld a,(de)
+1df8	be 	cp (hl)	cp (hl)
+1df9	20 03 	jr nz,$+$05	jr nz,$+$00
+1dfb	23 	inc hl	inc hl
+1dfc	10 f8 	djnz $-$06	djnz $-$00
+1dfe	e1 	pop hl	pop hl
+1dff	d1 	pop de	pop de
+1e00	c1 	pop bc	pop bc
+1e01	20 dd 	jr nz,$-$21	jr nz,$-$00
+1e03	af 	xor a	xor a
+1e04	c9 	ret	ret
+1e05	f6 ff 	or $ff	or $00
+1e07	c9 	ret	ret
+1e08	cd 42 18 	call $1842	call $0000
+1e0b	d9 	exx	exx
+1e0c	7d 	ld a,l	ld a,l
+1e0d	18 0a 	jr $+$0c	jr $+$00
+1e0f	cd ed 44 	call $44ed	call $0000
+1e12	fe 23 	cp $23	cp $00
+1e14	28 06 	jr z,$+$08	jr z,$+$00
+1e16	cd c0 05 	call $05c0	call $0000
+1e19	37 	scf	scf
+1e1a	18 5b 	jr $+$5d	jr $+$00
+1e1c	cd bd 36 	call $36bd	call $0000
+1e1f	cd ed 44 	call $44ed	call $0000
+1e22	fe 0f 	cp $0f	cp $00
+1e24	28 04 	jr z,$+$06	jr z,$+$00
+1e26	fe b8 	cp $b8	cp $00
+1e28	20 0c 	jr nz,$+$0e	jr nz,$+$00
+1e2a	fd 23 	inc iy	inc iy
+1e2c	f5 	push af	push af
+1e2d	d5 	push de	push de
+1e2e	cd 42 18 	call $1842	call $0000
+1e31	d9 	exx	exx
+1e32	44 	ld b,h	ld b,h
+1e33	4d 	ld c,l	ld c,l
+1e34	d1 	pop de	pop de
+1e35	f1 	pop af	pop af
+1e36	21 00 52 	ld hl,$5200	ld hl,$0000
+1e39	fe b8 	cp $b8	cp $00
+1e3b	28 08 	jr z,$+$0a	jr z,$+$00
+1e3d	51 	ld d,c	ld d,c
+1e3e	01 00 01 	ld bc,$0100	ld bc,$0000
+1e41	fe 0f 	cp $0f	cp $00
+1e43	28 04 	jr z,$+$06	jr z,$+$00
+1e45	16 00 	ld d,$00	ld d,$00
+1e47	cb c8 	set 1,b	set 1,b
+1e49	c5 	push bc	push bc
+1e4a	cd 3d 06 	call $063d	call $0000
+1e4d	c1 	pop bc	pop bc
+1e4e	38 1c 	jr c,$+$1e	jr c,$+$00
+1e50	cb 48 	bit 1,b	bit 1,b
+1e52	28 13 	jr z,$+$15	jr z,$+$00
+1e54	b9 	cp c	cp c
+1e55	28 15 	jr z,$+$17	jr z,$+$00
+1e57	cb 78 	bit 7,b	bit 7,b
+1e59	20 08 	jr nz,$+$0a	jr nz,$+$00
+1e5b	cb 40 	bit 0,b	bit 0,b
+1e5d	28 08 	jr z,$+$0a	jr z,$+$00
+1e5f	fe 0a 	cp $0a	cp $00
+1e61	28 09 	jr z,$+$0b	jr z,$+$00
+1e63	fe 0d 	cp $0d	cp $00
+1e65	28 05 	jr z,$+$07	jr z,$+$00
+1e67	77 	ld (hl),a	ld (hl),a
+1e68	2c 	inc l	inc l
+1e69	15 	dec d	dec d
+1e6a	20 dd 	jr nz,$-$21	jr nz,$-$00
+1e6c	eb 	ex de,hl	ex de,hl
+1e6d	3e 80 	ld a,$80	ld a,$00
+1e6f	c9 	ret	ret
+1e70	cd 42 18 	call $1842	call $0000
+1e73	d9 	exx	exx
+1e74	cd 73 0d 	call $0d73	call $0000
+1e77	11 00 52 	ld de,$5200	ld de,$0000
+1e7a	12 	ld (de),a	ld (de),a
+1e7b	3e 80 	ld a,$80	ld a,$00
+1e7d	d0 	ret nc	ret nc
+1e7e	1c 	inc e	inc e
+1e7f	c9 	ret	ret
+1e80	cd 1e 18 	call $181e	call $0000
+1e83	cd 84 20 	call $2084	call $0000
+1e86	cd fb 1f 	call $1ffb	call $0000
+1e89	cd 15 18 	call $1815	call $0000
+1e8c	c1 	pop bc	pop bc
+1e8d	cd 19 20 	call $2019	call $0000
+1e90	d9 	exx	exx
+1e91	7d 	ld a,l	ld a,l
+1e92	d9 	exx	exx
+1e93	b7 	or a	or a
+1e94	28 0d 	jr z,$+$0f	jr z,$+$00
+1e96	3d 	dec a	dec a
+1e97	6f 	ld l,a	ld l,a
+1e98	93 	sub e	sub e
+1e99	1e 00 	ld e,$00	ld e,$00
+1e9b	30 06 	jr nc,$+$08	jr nc,$+$00
+1e9d	ed 44 	neg	neg
+1e9f	4f 	ld c,a	ld c,a
+1ea0	cd ff 1e 	call $1eff	call $0000
+1ea3	cd ed 44 	call $44ed	call $0000
+1ea6	fe 2c 	cp $2c	cp $00
+1ea8	28 1a 	jr z,$+$1c	jr z,$+$00
+1eaa	cd 90 20 	call $2090	call $0000
+1ead	3e 80 	ld a,$80	ld a,$00
+1eaf	c9 	ret	ret
+1eb0	cd 1e 18 	call $181e	call $0000
+1eb3	cd ed 44 	call $44ed	call $0000
+1eb6	fe 2c 	cp $2c	cp $00
+1eb8	28 0a 	jr z,$+$0c	jr z,$+$00
+1eba	cd 90 20 	call $2090	call $0000
+1ebd	7b 	ld a,e	ld a,e
+1ebe	b7 	or a	or a
+1ebf	28 1a 	jr z,$+$1c	jr z,$+$00
+1ec1	1d 	dec e	dec e
+1ec2	18 17 	jr $+$19	jr $+$00
+1ec4	fd 23 	inc iy	inc iy
+1ec6	cd fb 1f 	call $1ffb	call $0000
+1ec9	cd 15 18 	call $1815	call $0000
+1ecc	c1 	pop bc	pop bc
+1ecd	cd 19 20 	call $2019	call $0000
+1ed0	cd 90 20 	call $2090	call $0000
+1ed3	d9 	exx	exx
+1ed4	7d 	ld a,l	ld a,l
+1ed5	d9 	exx	exx
+1ed6	bb 	cp e	cp e
+1ed7	30 02 	jr nc,$+$04	jr nc,$+$00
+1ed9	6b 	ld l,e	ld l,e
+1eda	5f 	ld e,a	ld e,a
+1edb	3e 80 	ld a,$80	ld a,$00
+1edd	c9 	ret	ret
+1ede	cd 1e 18 	call $181e	call $0000
+1ee1	cd ed 44 	call $44ed	call $0000
+1ee4	fe 2c 	cp $2c	cp $00
+1ee6	28 0c 	jr z,$+$0e	jr z,$+$00
+1ee8	cd 90 20 	call $2090	call $0000
+1eeb	7b 	ld a,e	ld a,e
+1eec	b7 	or a	or a
+1eed	28 ec 	jr z,$-$12	jr z,$-$00
+1eef	3d 	dec a	dec a
+1ef0	0e 01 	ld c,$01	ld c,$00
+1ef2	18 0a 	jr $+$0c	jr $+$00
+1ef4	cd c4 1e 	call $1ec4	call $0000
+1ef7	d0 	ret nc	ret nc
+1ef8	1c 	inc e	inc e
+1ef9	1d 	dec e	dec e
+1efa	c8 	ret z	ret z
+1efb	4b 	ld c,e	ld c,e
+1efc	7d 	ld a,l	ld a,l
+1efd	93 	sub e	sub e
+1efe	6f 	ld l,a	ld l,a
+1eff	06 00 	ld b,$00	ld b,$00
+1f01	62 	ld h,d	ld h,d
+1f02	58 	ld e,b	ld e,b
+1f03	ed b0 	ldir	ldir
+1f05	3e 80 	ld a,$80	ld a,$00
+1f07	c9 	ret	ret
+1f08	cd 15 18 	call $1815	call $0000
+1f0b	cd 84 20 	call $2084	call $0000
+1f0e	d9 	exx	exx
+1f0f	7d 	ld a,l	ld a,l
+1f10	d9 	exx	exx
+1f11	f5 	push af	push af
+1f12	cd 1e 18 	call $181e	call $0000
+1f15	cd 90 20 	call $2090	call $0000
+1f18	f1 	pop af	pop af
+1f19	b7 	or a	or a
+1f1a	28 be 	jr z,$-$40	jr z,$-$00
+1f1c	3d 	dec a	dec a
+1f1d	4f 	ld c,a	ld c,a
+1f1e	3e 80 	ld a,$80	ld a,$00
+1f20	c8 	ret z	ret z
+1f21	1c 	inc e	inc e
+1f22	1d 	dec e	dec e
+1f23	c8 	ret z	ret z
+1f24	43 	ld b,e	ld b,e
+1f25	62 	ld h,d	ld h,d
+1f26	2e 00 	ld l,$00	ld l,$00
+1f28	c5 	push bc	push bc
+1f29	7e 	ld a,(hl)	ld a,(hl)
+1f2a	23 	inc hl	inc hl
+1f2b	12 	ld (de),a	ld (de),a
+1f2c	1c 	inc e	inc e
+1f2d	3e 13 	ld a,$13	ld a,$00
+1f2f	ca 26 3f 	jp z,$3f26	jp z,$0000
+1f32	10 f5 	djnz $-$09	djnz $-$00
+1f34	c1 	pop bc	pop bc
+1f35	0d 	dec c	dec c
+1f36	20 f0 	jr nz,$-$0e	jr nz,$-$00
+1f38	3e 80 	ld a,$80	ld a,$00
+1f3a	c9 	ret	ret
+1f3b	7c 	ld a,h	ld a,h
+1f3c	b5 	or l	or l
+1f3d	d9 	exx	exx
+1f3e	b4 	or h	or h
+1f3f	b5 	or l	or l
+1f40	d9 	exx	exx
+1f41	c9 	ret	ret
+1f42	d9 	exx	exx
+1f43	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1f46	fd 23 	inc iy	inc iy
+1f48	17 	rla	rla
+1f49	17 	rla	rla
+1f4a	67 	ld h,a	ld h,a
+1f4b	e6 c0 	and $c0	and $00
+1f4d	fd ae 00 	xor (iy)	xor (iy)
+1f50	fd 23 	inc iy	inc iy
+1f52	6f 	ld l,a	ld l,a
+1f53	7c 	ld a,h	ld a,h
+1f54	17 	rla	rla
+1f55	17 	rla	rla
+1f56	e6 c0 	and $c0	and $00
+1f58	fd ae 00 	xor (iy)	xor (iy)
+1f5b	fd 23 	inc iy	inc iy
+1f5d	67 	ld h,a	ld h,a
 1f5e	d9 	exx	exx
-1f5f	c9 	ret	ret
-1f60	d9 	exx	exx
-1f61	fd 7e 00 	ld a,(iy)	ld a,(iy)
+1f5f	af 	xor a	xor a
+1f60	4f 	ld c,a	ld c,a
+1f61	67 	ld h,a	ld h,a
+1f62	6f 	ld l,a	ld l,a
+1f63	c9 	ret	ret
 1f64	fd 23 	inc iy	inc iy
-1f66	17 	rla	rla
-1f67	17 	rla	rla
-1f68	67 	ld h,a	ld h,a
-1f69	e6 c0 	and $c0	and $00
-1f6b	fd ae 00 	xor (iy)	xor (iy)
-1f6e	fd 23 	inc iy	inc iy
-1f70	6f 	ld l,a	ld l,a
-1f71	7c 	ld a,h	ld a,h
-1f72	17 	rla	rla
-1f73	17 	rla	rla
-1f74	e6 c0 	and $c0	and $00
-1f76	fd ae 00 	xor (iy)	xor (iy)
-1f79	fd 23 	inc iy	inc iy
-1f7b	67 	ld h,a	ld h,a
+1f66	cd 5c 18 	call $185c	call $0000
+1f69	cd 6f 1f 	call $1f6f	call $0000
+1f6c	3e 80 	ld a,$80	ld a,$00
+1f6e	c9 	ret	ret
+1f6f	cd f9 1b 	call $1bf9	call $0000
+1f72	01 08 00 	ld bc,$0008	ld bc,$0000
+1f75	11 00 52 	ld de,$5200	ld de,$0000
+1f78	c5 	push bc	push bc
+1f79	06 04 	ld b,$04	ld b,$00
+1f7b	af 	xor a	xor a
 1f7c	d9 	exx	exx
-1f7d	af 	xor a	xor a
-1f7e	4f 	ld c,a	ld c,a
-1f7f	67 	ld h,a	ld h,a
-1f80	6f 	ld l,a	ld l,a
-1f81	c9 	ret	ret
-1f82	fd 23 	inc iy	inc iy
-1f84	cd 7a 18 	call $187a	call $0000
-1f87	cd 8d 1f 	call $1f8d	call $0000
-1f8a	3e 80 	ld a,$80	ld a,$00
-1f8c	c9 	ret	ret
-1f8d	cd 17 1c 	call $1c17	call $0000
-1f90	01 08 00 	ld bc,$0008	ld bc,$0000
-1f93	11 00 52 	ld de,$5200	ld de,$0000
-1f96	c5 	push bc	push bc
-1f97	06 04 	ld b,$04	ld b,$00
-1f99	af 	xor a	xor a
-1f9a	d9 	exx	exx
-1f9b	29 	add hl,hl	add hl,hl
-1f9c	d9 	exx	exx
-1f9d	ed 6a 	adc hl,hl	adc hl,hl
-1f9f	17 	rla	rla
-1fa0	10 f8 	djnz $-$06	djnz $-$00
-1fa2	c1 	pop bc	pop bc
-1fa3	0d 	dec c	dec c
-1fa4	f8 	ret m	ret m
-1fa5	28 06 	jr z,$+$08	jr z,$+$00
-1fa7	b7 	or a	or a
-1fa8	20 03 	jr nz,$+$05	jr nz,$+$00
-1faa	b8 	cp b	cp b
-1fab	28 e9 	jr z,$-$15	jr z,$-$00
-1fad	c6 90 	add a,$90	add a,$00
-1faf	27 	daa	daa
-1fb0	ce 40 	adc a,$40	adc a,$00
-1fb2	27 	daa	daa
-1fb3	12 	ld (de),a	ld (de),a
-1fb4	13 	inc de	inc de
-1fb5	47 	ld b,a	ld b,a
-1fb6	18 de 	jr $-$20	jr $-$00
-1fb8	cd 0b 45 	call $450b	call $0000
-1fbb	fe 7e 	cp $7e	cp $00
-1fbd	28 c3 	jr z,$-$3b	jr z,$-$00
-1fbf	cd 7a 18 	call $187a	call $0000
-1fc2	dd 21 00 54 	ld ix,$5400	ld ix,$0000
-1fc6	dd 7e 03 	ld a,(ix+$03)	ld a,(ix+$00)
-1fc9	b7 	or a	or a
-1fca	dd 21 f2 1f 	ld ix,$1ff2	ld ix,$0000
-1fce	28 04 	jr z,$+$06	jr z,$+$00
-1fd0	dd 21 00 54 	ld ix,$5400	ld ix,$0000
-1fd4	11 00 52 	ld de,$5200	ld de,$0000
-1fd7	3e 25 	ld a,$25	ld a,$00
-1fd9	cd 15 45 	call $4515	call $0000
-1fdc	da 44 3f 	jp c,$3f44	jp c,$0000
-1fdf	dd cb 02 46 	bit 0,(ix+$02)	bit 0,(ix+$00)
-1fe3	3e 80 	ld a,$80	ld a,$00
-1fe5	c8 	ret z	ret z
-1fe6	79 	ld a,c	ld a,c
-1fe7	c6 04 	add a,$04	add a,$00
-1fe9	bb 	cp e	cp e
-1fea	28 f7 	jr z,$-$07	jr z,$-$00
-1fec	eb 	ex de,hl	ex de,hl
-1fed	36 20 	ld (hl),$20	ld (hl),$00
-1fef	23 	inc hl	inc hl
-1ff0	eb 	ex de,hl	ex de,hl
-1ff1	18 f6 	jr $-$08	jr $-$00
-1ff3	09 	add hl,bc	add hl,bc
-1ff4	00 	nop	nop
-1ff5	cd 02 20 	call $2002	call $0000
-1ff8	3e 00 	ld a,$00	ld a,$00
-1ffa	d9 	exx	exx
-1ffb	67 	ld h,a	ld h,a
-1ffc	6f 	ld l,a	ld l,a
-1ffd	d9 	exx	exx
-1ffe	67 	ld h,a	ld h,a
-1fff	6f 	ld l,a	ld l,a
-2000	4f 	ld c,a	ld c,a
-2001	c9 	ret	ret
-2002	04 	inc b	inc b
-2003	0c 	inc c	inc c
-2004	05 	dec b	dec b
-2005	28 0a 	jr z,$+$0c	jr z,$+$00
-2007	0d 	dec c	dec c
-2008	28 0c 	jr z,$+$0e	jr z,$+$00
-200a	1a 	ld a,(de)	ld a,(de)
-200b	be 	cp (hl)	cp (hl)
-200c	c0 	ret nz	ret nz
-200d	13 	inc de	inc de
-200e	23 	inc hl	inc hl
-200f	18 f3 	jr $-$0b	jr $-$00
-2011	b7 	or a	or a
-2012	0d 	dec c	dec c
-2013	c8 	ret z	ret z
-2014	37 	scf	scf
-2015	c9 	ret	ret
-2016	b7 	or a	or a
-2017	0c 	inc c	inc c
-2018	c9 	ret	ret
-2019	21 00 52 	ld hl,$5200	ld hl,$0000
-201c	cd 86 32 	call $3286	call $0000
-201f	dd e1 	pop ix	pop ix
-2021	b7 	or a	or a
-2022	54 	ld d,h	ld d,h
-2023	4b 	ld c,e	ld c,e
-2024	ed 52 	sbc hl,de	sbc hl,de
-2026	39 	add hl,sp	add hl,sp
-2027	f9 	ld sp,hl	ld sp,hl
-2028	47 	ld b,a	ld b,a
-2029	c5 	push bc	push bc
-202a	28 09 	jr z,$+$0b	jr z,$+$00
-202c	eb 	ex de,hl	ex de,hl
-202d	06 00 	ld b,$00	ld b,$00
-202f	68 	ld l,b	ld l,b
-2030	ed b0 	ldir	ldir
-2032	cd 86 32 	call $3286	call $0000
-2035	dd e9 	jp (ix)	jp (ix)
-2037	dd e1 	pop ix	pop ix
-2039	21 00 00 	ld hl,$0000	ld hl,$0000
-203c	44 	ld b,h	ld b,h
-203d	39 	add hl,sp	add hl,sp
-203e	11 00 52 	ld de,$5200	ld de,$0000
-2041	0c 	inc c	inc c
-2042	0d 	dec c	dec c
-2043	28 02 	jr z,$+$04	jr z,$+$00
-2045	ed b0 	ldir	ldir
-2047	f9 	ld sp,hl	ld sp,hl
-2048	dd e9 	jp (ix)	jp (ix)
-204a	fd 7e 00 	ld a,(iy)	ld a,(iy)
-204d	fe 30 	cp $30	cp $00
-204f	d8 	ret c	ret c
-2050	fe 32 	cp $32	cp $00
-2052	3f 	ccf	ccf
-2053	d8 	ret c	ret c
-2054	d6 30 	sub $30	sub $00
-2056	c9 	ret	ret
-2057	fd 7e 00 	ld a,(iy)	ld a,(iy)
-205a	fe 30 	cp $30	cp $00
-205c	d8 	ret c	ret c
-205d	fe 3a 	cp $3a	cp $00
-205f	3f 	ccf	ccf
-2060	d0 	ret nc	ret nc
-2061	fe 41 	cp $41	cp $00
-2063	d8 	ret c	ret c
-2064	d6 37 	sub $37	sub $00
-2066	fe 10 	cp $10	cp $00
-2068	3f 	ccf	ccf
-2069	c9 	ret	ret
-206a	fe 3e 	cp $3e	cp $00
-206c	d0 	ret nc	ret nc
-206d	fe 3d 	cp $3d	cp $00
-206f	d0 	ret nc	ret nc
-2070	fe 3c 	cp $3c	cp $00
-2072	c9 	ret	ret
-2073	fd 23 	inc iy	inc iy
-2075	e6 0f 	and $0f	and $00
-2077	08 	ex af,af'	ex af,af'
-2078	fa 6e 18 	jp m,$186e	jp m,$0000
-207b	08 	ex af,af'	ex af,af'
-207c	e3 	ex (sp),hl	ex (sp),hl
-207d	d9 	exx	exx
-207e	e5 	push hl	push hl
-207f	d9 	exx	exx
-2080	f5 	push af	push af
-2081	c5 	push bc	push bc
-2082	e9 	jp (hl)	jp (hl)
-2083	08 	ex af,af'	ex af,af'
-2084	fa 6e 18 	jp m,$186e	jp m,$0000
-2087	d9 	exx	exx
-2088	c1 	pop bc	pop bc
-2089	d9 	exx	exx
-208a	79 	ld a,c	ld a,c
-208b	c1 	pop bc	pop bc
-208c	47 	ld b,a	ld b,a
-208d	f1 	pop af	pop af
-208e	d9 	exx	exx
-208f	eb 	ex de,hl	ex de,hl
-2090	e1 	pop hl	pop hl
-2091	d9 	exx	exx
-2092	eb 	ex de,hl	ex de,hl
-2093	e1 	pop hl	pop hl
-2094	d9 	exx	exx
-2095	c5 	push bc	push bc
-2096	d9 	exx	exx
-2097	cd 15 45 	call $4515	call $0000
-209a	38 1c 	jr c,$+$1e	jr c,$+$00
-209c	af 	xor a	xor a
-209d	08 	ex af,af'	ex af,af'
-209e	fd 7e 00 	ld a,(iy)	ld a,(iy)
-20a1	c9 	ret	ret
-20a2	cd 0b 45 	call $450b	call $0000
-20a5	fd 23 	inc iy	inc iy
-20a7	fe 2c 	cp $2c	cp $00
-20a9	c8 	ret z	ret z
-20aa	3e 05 	ld a,$05	ld a,$00
-20ac	18 0a 	jr $+$0c	jr $+$00
-20ae	cd 0b 45 	call $450b	call $0000
-20b1	fd 23 	inc iy	inc iy
-20b3	fe 29 	cp $29	cp $00
-20b5	c8 	ret z	ret z
-20b6	3e 1b 	ld a,$1b	ld a,$00
-20b8	c3 44 3f 	jp $3f44	jp $0000
-20bb	e5 	push hl	push hl
-20bc	21 f6 16 	ld hl,$16f6	ld hl,$0000
-20bf	18 06 	jr $+$08	jr $+$00
-20c1	e5 	push hl	push hl
-20c2	d6 8d 	sub $8d	sub $00
-20c4	21 82 16 	ld hl,$1682	ld hl,$0000
-20c7	c5 	push bc	push bc
-20c8	87 	add a,a	add a,a
-20c9	4f 	ld c,a	ld c,a
+1f7d	29 	add hl,hl	add hl,hl
+1f7e	d9 	exx	exx
+1f7f	ed 6a 	adc hl,hl	adc hl,hl
+1f81	17 	rla	rla
+1f82	10 f8 	djnz $-$06	djnz $-$00
+1f84	c1 	pop bc	pop bc
+1f85	0d 	dec c	dec c
+1f86	f8 	ret m	ret m
+1f87	28 06 	jr z,$+$08	jr z,$+$00
+1f89	b7 	or a	or a
+1f8a	20 03 	jr nz,$+$05	jr nz,$+$00
+1f8c	b8 	cp b	cp b
+1f8d	28 e9 	jr z,$-$15	jr z,$-$00
+1f8f	c6 90 	add a,$90	add a,$00
+1f91	27 	daa	daa
+1f92	ce 40 	adc a,$40	adc a,$00
+1f94	27 	daa	daa
+1f95	12 	ld (de),a	ld (de),a
+1f96	13 	inc de	inc de
+1f97	47 	ld b,a	ld b,a
+1f98	18 de 	jr $-$20	jr $-$00
+1f9a	cd ed 44 	call $44ed	call $0000
+1f9d	fe 7e 	cp $7e	cp $00
+1f9f	28 c3 	jr z,$-$3b	jr z,$-$00
+1fa1	cd 5c 18 	call $185c	call $0000
+1fa4	dd 21 00 54 	ld ix,$5400	ld ix,$0000
+1fa8	dd 7e 03 	ld a,(ix+$03)	ld a,(ix+$00)
+1fab	b7 	or a	or a
+1fac	dd 21 d4 1f 	ld ix,$1fd4	ld ix,$0000
+1fb0	28 04 	jr z,$+$06	jr z,$+$00
+1fb2	dd 21 00 54 	ld ix,$5400	ld ix,$0000
+1fb6	11 00 52 	ld de,$5200	ld de,$0000
+1fb9	3e 25 	ld a,$25	ld a,$00
+1fbb	cd f7 44 	call $44f7	call $0000
+1fbe	da 26 3f 	jp c,$3f26	jp c,$0000
+1fc1	dd cb 02 46 	bit 0,(ix+$02)	bit 0,(ix+$00)
+1fc5	3e 80 	ld a,$80	ld a,$00
+1fc7	c8 	ret z	ret z
+1fc8	79 	ld a,c	ld a,c
+1fc9	c6 04 	add a,$04	add a,$00
+1fcb	bb 	cp e	cp e
+1fcc	28 f7 	jr z,$-$07	jr z,$-$00
+1fce	eb 	ex de,hl	ex de,hl
+1fcf	36 20 	ld (hl),$20	ld (hl),$00
+1fd1	23 	inc hl	inc hl
+1fd2	eb 	ex de,hl	ex de,hl
+1fd3	18 f6 	jr $-$08	jr $-$00
+1fd5	09 	add hl,bc	add hl,bc
+1fd6	00 	nop	nop
+1fd7	cd e4 1f 	call $1fe4	call $0000
+1fda	3e 00 	ld a,$00	ld a,$00
+1fdc	d9 	exx	exx
+1fdd	67 	ld h,a	ld h,a
+1fde	6f 	ld l,a	ld l,a
+1fdf	d9 	exx	exx
+1fe0	67 	ld h,a	ld h,a
+1fe1	6f 	ld l,a	ld l,a
+1fe2	4f 	ld c,a	ld c,a
+1fe3	c9 	ret	ret
+1fe4	04 	inc b	inc b
+1fe5	0c 	inc c	inc c
+1fe6	05 	dec b	dec b
+1fe7	28 0a 	jr z,$+$0c	jr z,$+$00
+1fe9	0d 	dec c	dec c
+1fea	28 0c 	jr z,$+$0e	jr z,$+$00
+1fec	1a 	ld a,(de)	ld a,(de)
+1fed	be 	cp (hl)	cp (hl)
+1fee	c0 	ret nz	ret nz
+1fef	13 	inc de	inc de
+1ff0	23 	inc hl	inc hl
+1ff1	18 f3 	jr $-$0b	jr $-$00
+1ff3	b7 	or a	or a
+1ff4	0d 	dec c	dec c
+1ff5	c8 	ret z	ret z
+1ff6	37 	scf	scf
+1ff7	c9 	ret	ret
+1ff8	b7 	or a	or a
+1ff9	0c 	inc c	inc c
+1ffa	c9 	ret	ret
+1ffb	21 00 52 	ld hl,$5200	ld hl,$0000
+1ffe	cd 68 32 	call $3268	call $0000
+2001	dd e1 	pop ix	pop ix
+2003	b7 	or a	or a
+2004	54 	ld d,h	ld d,h
+2005	4b 	ld c,e	ld c,e
+2006	ed 52 	sbc hl,de	sbc hl,de
+2008	39 	add hl,sp	add hl,sp
+2009	f9 	ld sp,hl	ld sp,hl
+200a	47 	ld b,a	ld b,a
+200b	c5 	push bc	push bc
+200c	28 09 	jr z,$+$0b	jr z,$+$00
+200e	eb 	ex de,hl	ex de,hl
+200f	06 00 	ld b,$00	ld b,$00
+2011	68 	ld l,b	ld l,b
+2012	ed b0 	ldir	ldir
+2014	cd 68 32 	call $3268	call $0000
+2017	dd e9 	jp (ix)	jp (ix)
+2019	dd e1 	pop ix	pop ix
+201b	21 00 00 	ld hl,$0000	ld hl,$0000
+201e	44 	ld b,h	ld b,h
+201f	39 	add hl,sp	add hl,sp
+2020	11 00 52 	ld de,$5200	ld de,$0000
+2023	0c 	inc c	inc c
+2024	0d 	dec c	dec c
+2025	28 02 	jr z,$+$04	jr z,$+$00
+2027	ed b0 	ldir	ldir
+2029	f9 	ld sp,hl	ld sp,hl
+202a	dd e9 	jp (ix)	jp (ix)
+202c	fd 7e 00 	ld a,(iy)	ld a,(iy)
+202f	fe 30 	cp $30	cp $00
+2031	d8 	ret c	ret c
+2032	fe 32 	cp $32	cp $00
+2034	3f 	ccf	ccf
+2035	d8 	ret c	ret c
+2036	d6 30 	sub $30	sub $00
+2038	c9 	ret	ret
+2039	fd 7e 00 	ld a,(iy)	ld a,(iy)
+203c	fe 30 	cp $30	cp $00
+203e	d8 	ret c	ret c
+203f	fe 3a 	cp $3a	cp $00
+2041	3f 	ccf	ccf
+2042	d0 	ret nc	ret nc
+2043	fe 41 	cp $41	cp $00
+2045	d8 	ret c	ret c
+2046	d6 37 	sub $37	sub $00
+2048	fe 10 	cp $10	cp $00
+204a	3f 	ccf	ccf
+204b	c9 	ret	ret
+204c	fe 3e 	cp $3e	cp $00
+204e	d0 	ret nc	ret nc
+204f	fe 3d 	cp $3d	cp $00
+2051	d0 	ret nc	ret nc
+2052	fe 3c 	cp $3c	cp $00
+2054	c9 	ret	ret
+2055	fd 23 	inc iy	inc iy
+2057	e6 0f 	and $0f	and $00
+2059	08 	ex af,af'	ex af,af'
+205a	fa 50 18 	jp m,$1850	jp m,$0000
+205d	08 	ex af,af'	ex af,af'
+205e	e3 	ex (sp),hl	ex (sp),hl
+205f	d9 	exx	exx
+2060	e5 	push hl	push hl
+2061	d9 	exx	exx
+2062	f5 	push af	push af
+2063	c5 	push bc	push bc
+2064	e9 	jp (hl)	jp (hl)
+2065	08 	ex af,af'	ex af,af'
+2066	fa 50 18 	jp m,$1850	jp m,$0000
+2069	d9 	exx	exx
+206a	c1 	pop bc	pop bc
+206b	d9 	exx	exx
+206c	79 	ld a,c	ld a,c
+206d	c1 	pop bc	pop bc
+206e	47 	ld b,a	ld b,a
+206f	f1 	pop af	pop af
+2070	d9 	exx	exx
+2071	eb 	ex de,hl	ex de,hl
+2072	e1 	pop hl	pop hl
+2073	d9 	exx	exx
+2074	eb 	ex de,hl	ex de,hl
+2075	e1 	pop hl	pop hl
+2076	d9 	exx	exx
+2077	c5 	push bc	push bc
+2078	d9 	exx	exx
+2079	cd f7 44 	call $44f7	call $0000
+207c	38 1c 	jr c,$+$1e	jr c,$+$00
+207e	af 	xor a	xor a
+207f	08 	ex af,af'	ex af,af'
+2080	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2083	c9 	ret	ret
+2084	cd ed 44 	call $44ed	call $0000
+2087	fd 23 	inc iy	inc iy
+2089	fe 2c 	cp $2c	cp $00
+208b	c8 	ret z	ret z
+208c	3e 05 	ld a,$05	ld a,$00
+208e	18 0a 	jr $+$0c	jr $+$00
+2090	cd ed 44 	call $44ed	call $0000
+2093	fd 23 	inc iy	inc iy
+2095	fe 29 	cp $29	cp $00
+2097	c8 	ret z	ret z
+2098	3e 1b 	ld a,$1b	ld a,$00
+209a	c3 26 3f 	jp $3f26	jp $0000
+209d	e5 	push hl	push hl
+209e	21 d8 16 	ld hl,$16d8	ld hl,$0000
+20a1	18 06 	jr $+$08	jr $+$00
+20a3	e5 	push hl	push hl
+20a4	d6 8d 	sub $8d	sub $00
+20a6	21 64 16 	ld hl,$1664	ld hl,$0000
+20a9	c5 	push bc	push bc
+20aa	87 	add a,a	add a,a
+20ab	4f 	ld c,a	ld c,a
+20ac	06 00 	ld b,$00	ld b,$00
+20ae	09 	add hl,bc	add hl,bc
+20af	7e 	ld a,(hl)	ld a,(hl)
+20b0	23 	inc hl	inc hl
+20b1	66 	ld h,(hl)	ld h,(hl)
+20b2	6f 	ld l,a	ld l,a
+20b3	c1 	pop bc	pop bc
+20b4	e3 	ex (sp),hl	ex (sp),hl
+20b5	c9 	ret	ret
+20b6	7a 	ld a,d	ld a,d
+20b7	d5 	push de	push de
+20b8	e5 	push hl	push hl
+20b9	dd e3 	ex (sp),ix	ex (sp),ix
+20bb	b7 	or a	or a
+20bc	fa cd 20 	jp m,$20cd	jp m,$0000
+20bf	cd 07 19 	call $1907	call $0000
+20c2	dd e3 	ex (sp),ix	ex (sp),ix
+20c4	cd b0 31 	call $31b0	call $0000
+20c7	e1 	pop hl	pop hl
+20c8	d1 	pop de	pop de
+20c9	4a 	ld c,d	ld c,d
 20ca	06 00 	ld b,$00	ld b,$00
-20cc	09 	add hl,bc	add hl,bc
-20cd	7e 	ld a,(hl)	ld a,(hl)
-20ce	23 	inc hl	inc hl
-20cf	66 	ld h,(hl)	ld h,(hl)
-20d0	6f 	ld l,a	ld l,a
-20d1	c1 	pop bc	pop bc
-20d2	e3 	ex (sp),hl	ex (sp),hl
-20d3	c9 	ret	ret
-20d4	7a 	ld a,d	ld a,d
-20d5	d5 	push de	push de
-20d6	e5 	push hl	push hl
-20d7	dd e3 	ex (sp),ix	ex (sp),ix
-20d9	b7 	or a	or a
-20da	fa eb 20 	jp m,$20eb	jp m,$0000
-20dd	cd 25 19 	call $1925	call $0000
-20e0	dd e3 	ex (sp),ix	ex (sp),ix
-20e2	cd ce 31 	call $31ce	call $0000
-20e5	e1 	pop hl	pop hl
-20e6	d1 	pop de	pop de
-20e7	4a 	ld c,d	ld c,d
-20e8	06 00 	ld b,$00	ld b,$00
-20ea	c9 	ret	ret
-20eb	d5 	push de	push de
-20ec	cd 0e 1a 	call $1a0e	call $0000
-20ef	e1 	pop hl	pop hl
-20f0	dd e3 	ex (sp),ix	ex (sp),ix
-20f2	cd 18 32 	call $3218	call $0000
-20f5	e1 	pop hl	pop hl
-20f6	d1 	pop de	pop de
-20f7	01 04 00 	ld bc,$0004	ld bc,$0000
-20fa	c9 	ret	ret
-20fb	cb b2 	res 6,d	res 6,d
-20fd	d5 	push de	push de
-20fe	cd cd 19 	call $19cd	call $0000
-2101	cd a4 19 	call $19a4	call $0000
+20cc	c9 	ret	ret
+20cd	d5 	push de	push de
+20ce	cd f0 19 	call $19f0	call $0000
+20d1	e1 	pop hl	pop hl
+20d2	dd e3 	ex (sp),ix	ex (sp),ix
+20d4	cd fa 31 	call $31fa	call $0000
+20d7	e1 	pop hl	pop hl
+20d8	d1 	pop de	pop de
+20d9	01 04 00 	ld bc,$0004	ld bc,$0000
+20dc	c9 	ret	ret
+20dd	cb b2 	res 6,d	res 6,d
+20df	d5 	push de	push de
+20e0	cd af 19 	call $19af	call $0000
+20e3	cd 86 19 	call $1986	call $0000
+20e6	c1 	pop bc	pop bc
+20e7	78 	ld a,b	ld a,b
+20e8	d5 	push de	push de
+20e9	c5 	push bc	push bc
+20ea	e5 	push hl	push hl
+20eb	cd 8f 36 	call $368f	call $0000
+20ee	42 	ld b,d	ld b,d
+20ef	4b 	ld c,e	ld c,e
+20f0	dd e1 	pop ix	pop ix
+20f2	d1 	pop de	pop de
+20f3	af 	xor a	xor a
+20f4	ed 62 	sbc hl,hl	sbc hl,hl
+20f6	39 	add hl,sp	add hl,sp
+20f7	ed 42 	sbc hl,bc	sbc hl,bc
+20f9	38 9f 	jr c,$-$5f	jr c,$-$00
+20fb	c5 	push bc	push bc
+20fc	ed 4b e0 54 	ld bc,($54e0)	ld bc,($0000)
+2100	04 	inc b	inc b
+2101	ed 42 	sbc hl,bc	sbc hl,bc
+2103	09 	add hl,bc	add hl,bc
 2104	c1 	pop bc	pop bc
-2105	78 	ld a,b	ld a,b
-2106	d5 	push de	push de
-2107	c5 	push bc	push bc
-2108	e5 	push hl	push hl
-2109	cd ad 36 	call $36ad	call $0000
-210c	42 	ld b,d	ld b,d
-210d	4b 	ld c,e	ld c,e
-210e	dd e1 	pop ix	pop ix
-2110	d1 	pop de	pop de
-2111	af 	xor a	xor a
-2112	ed 62 	sbc hl,hl	sbc hl,hl
-2114	39 	add hl,sp	add hl,sp
-2115	ed 42 	sbc hl,bc	sbc hl,bc
-2117	38 9f 	jr c,$-$5f	jr c,$-$00
-2119	c5 	push bc	push bc
-211a	ed 4b e0 54 	ld bc,($54e0)	ld bc,($0000)
-211e	04 	inc b	inc b
-211f	ed 42 	sbc hl,bc	sbc hl,bc
-2121	09 	add hl,bc	add hl,bc
-2122	c1 	pop bc	pop bc
-2123	38 93 	jr c,$-$6b	jr c,$-$00
-2125	f9 	ld sp,hl	ld sp,hl
-2126	36 00 	ld (hl),$00	ld (hl),$00
-2128	23 	inc hl	inc hl
-2129	0b 	dec bc	dec bc
-212a	78 	ld a,b	ld a,b
-212b	b1 	or c	or c
-212c	20 f8 	jr nz,$-$06	jr nz,$-$00
-212e	4e 	ld c,(hl)	ld c,(hl)
-212f	23 	inc hl	inc hl
-2130	46 	ld b,(hl)	ld b,(hl)
-2131	67 	ld h,a	ld h,a
-2132	6f 	ld l,a	ld l,a
-2133	39 	add hl,sp	add hl,sp
-2134	cd 3c 21 	call $213c	call $0000
-2137	f9 	ld sp,hl	ld sp,hl
-2138	c1 	pop bc	pop bc
-2139	c3 99 24 	jp $2499	jp $0000
-213c	3e 3d 	ld a,$3d	ld a,$00
-213e	fd 2b 	dec iy	dec iy
-2140	fd 23 	inc iy	inc iy
-2142	d5 	push de	push de
-2143	c5 	push bc	push bc
-2144	e5 	push hl	push hl
-2145	dd e5 	push ix	push ix
-2147	5f 	ld e,a	ld e,a
-2148	cd b6 21 	call $21b6	call $0000
-214b	dd e1 	pop ix	pop ix
-214d	e1 	pop hl	pop hl
-214e	c1 	pop bc	pop bc
-214f	d1 	pop de	pop de
-2150	cd 0b 45 	call $450b	call $0000
-2153	fe 2c 	cp $2c	cp $00
-2155	28 13 	jr z,$+$15	jr z,$+$00
-2157	cd 36 35 	call $3536	call $0000
-215a	20 e4 	jr nz,$-$1a	jr nz,$-$00
-215c	c5 	push bc	push bc
-215d	cd d4 20 	call $20d4	call $0000
-2160	09 	add hl,bc	add hl,bc
-2161	dd 09 	add ix,bc	add ix,bc
-2163	c1 	pop bc	pop bc
-2164	0b 	dec bc	dec bc
-2165	78 	ld a,b	ld a,b
-2166	b1 	or c	or c
-2167	20 f3 	jr nz,$-$0b	jr nz,$-$00
-2169	c9 	ret	ret
-216a	c5 	push bc	push bc
-216b	cd d4 20 	call $20d4	call $0000
-216e	fd 23 	inc iy	inc iy
-2170	09 	add hl,bc	add hl,bc
-2171	dd 09 	add ix,bc	add ix,bc
-2173	c1 	pop bc	pop bc
-2174	0b 	dec bc	dec bc
-2175	78 	ld a,b	ld a,b
-2176	b1 	or c	or c
-2177	c8 	ret z	ret z
-2178	c5 	push bc	push bc
-2179	d5 	push de	push de
-217a	e5 	push hl	push hl
-217b	dd e5 	push ix	push ix
-217d	cb 7a 	bit 7,d	bit 7,d
-217f	20 0e 	jr nz,$+$10	jr nz,$+$00
-2181	d5 	push de	push de
-2182	cd 2c 18 	call $182c	call $0000
-2185	d1 	pop de	pop de
-2186	dd e1 	pop ix	pop ix
-2188	dd e5 	push ix	push ix
-218a	cd ce 31 	call $31ce	call $0000
-218d	18 0c 	jr $+$0e	jr $+$00
-218f	d5 	push de	push de
-2190	cd 3c 18 	call $183c	call $0000
-2193	e1 	pop hl	pop hl
-2194	dd e1 	pop ix	pop ix
-2196	dd e5 	push ix	push ix
-2198	cd 18 32 	call $3218	call $0000
-219b	dd e1 	pop ix	pop ix
-219d	e1 	pop hl	pop hl
-219e	d1 	pop de	pop de
-219f	01 04 00 	ld bc,$0004	ld bc,$0000
-21a2	cb 7a 	bit 7,d	bit 7,d
-21a4	20 01 	jr nz,$+$03	jr nz,$+$00
-21a6	4a 	ld c,d	ld c,d
-21a7	cd 0b 45 	call $450b	call $0000
-21aa	fe 2c 	cp $2c	cp $00
-21ac	28 c0 	jr z,$-$3e	jr z,$-$00
-21ae	d1 	pop de	pop de
-21af	09 	add hl,bc	add hl,bc
-21b0	1b 	dec de	dec de
-21b1	7a 	ld a,d	ld a,d
-21b2	b3 	or e	or e
-21b3	20 fa 	jr nz,$-$04	jr nz,$-$00
-21b5	c9 	ret	ret
-21b6	cd 0b 45 	call $450b	call $0000
-21b9	e5 	push hl	push hl
-21ba	c5 	push bc	push bc
-21bb	fd e5 	push iy	push iy
-21bd	d5 	push de	push de
-21be	fe 2d 	cp $2d	cp $00
-21c0	20 0c 	jr nz,$+$0e	jr nz,$+$00
-21c2	7b 	ld a,e	ld a,e
-21c3	fe 3d 	cp $3d	cp $00
-21c5	20 07 	jr nz,$+$09	jr nz,$+$00
-21c7	fd 23 	inc iy	inc iy
-21c9	cd 0b 45 	call $450b	call $0000
-21cc	1e 2d 	ld e,$2d	ld e,$00
-21ce	d5 	push de	push de
-21cf	cd e3 41 	call $41e3	call $0000
-21d2	d1 	pop de	pop de
-21d3	20 56 	jr nz,$+$58	jr nz,$+$00
-21d5	cb 77 	bit 6,a	bit 6,a
-21d7	28 52 	jr z,$+$54	jr z,$+$00
-21d9	c1 	pop bc	pop bc
-21da	c1 	pop bc	pop bc
-21db	cb b7 	res 6,a	res 6,a
-21dd	ba 	cp d	cp d
-21de	c2 6e 18 	jp nz,$186e	jp nz,$0000
-21e1	d5 	push de	push de
-21e2	cd cd 19 	call $19cd	call $0000
-21e5	cd a4 19 	call $19a4	call $0000
-21e8	42 	ld b,d	ld b,d
-21e9	4b 	ld c,e	ld c,e
-21ea	d1 	pop de	pop de
-21eb	e3 	ex (sp),hl	ex (sp),hl
-21ec	cd 0b 45 	call $450b	call $0000
-21ef	dd e1 	pop ix	pop ix
-21f1	fe 2e 	cp $2e	cp $00
-21f3	ca 83 22 	jp z,$2283	jp z,$0000
-21f6	b7 	or a	or a
-21f7	ed 42 	sbc hl,bc	sbc hl,bc
-21f9	c2 6e 18 	jp nz,$186e	jp nz,$0000
-21fc	e1 	pop hl	pop hl
-21fd	cb 7a 	bit 7,d	bit 7,d
-21ff	20 1d 	jr nz,$+$1f	jr nz,$+$00
-2201	c5 	push bc	push bc
-2202	e5 	push hl	push hl
-2203	7a 	ld a,d	ld a,d
-2204	cd 25 19 	call $1925	call $0000
-2207	dd e3 	ex (sp),ix	ex (sp),ix
-2209	d5 	push de	push de
-220a	cd ce 31 	call $31ce	call $0000
+2105	38 93 	jr c,$-$6b	jr c,$-$00
+2107	f9 	ld sp,hl	ld sp,hl
+2108	36 00 	ld (hl),$00	ld (hl),$00
+210a	23 	inc hl	inc hl
+210b	0b 	dec bc	dec bc
+210c	78 	ld a,b	ld a,b
+210d	b1 	or c	or c
+210e	20 f8 	jr nz,$-$06	jr nz,$-$00
+2110	4e 	ld c,(hl)	ld c,(hl)
+2111	23 	inc hl	inc hl
+2112	46 	ld b,(hl)	ld b,(hl)
+2113	67 	ld h,a	ld h,a
+2114	6f 	ld l,a	ld l,a
+2115	39 	add hl,sp	add hl,sp
+2116	cd 1e 21 	call $211e	call $0000
+2119	f9 	ld sp,hl	ld sp,hl
+211a	c1 	pop bc	pop bc
+211b	c3 7b 24 	jp $247b	jp $0000
+211e	3e 3d 	ld a,$3d	ld a,$00
+2120	fd 2b 	dec iy	dec iy
+2122	fd 23 	inc iy	inc iy
+2124	d5 	push de	push de
+2125	c5 	push bc	push bc
+2126	e5 	push hl	push hl
+2127	dd e5 	push ix	push ix
+2129	5f 	ld e,a	ld e,a
+212a	cd 98 21 	call $2198	call $0000
+212d	dd e1 	pop ix	pop ix
+212f	e1 	pop hl	pop hl
+2130	c1 	pop bc	pop bc
+2131	d1 	pop de	pop de
+2132	cd ed 44 	call $44ed	call $0000
+2135	fe 2c 	cp $2c	cp $00
+2137	28 13 	jr z,$+$15	jr z,$+$00
+2139	cd 18 35 	call $3518	call $0000
+213c	20 e4 	jr nz,$-$1a	jr nz,$-$00
+213e	c5 	push bc	push bc
+213f	cd b6 20 	call $20b6	call $0000
+2142	09 	add hl,bc	add hl,bc
+2143	dd 09 	add ix,bc	add ix,bc
+2145	c1 	pop bc	pop bc
+2146	0b 	dec bc	dec bc
+2147	78 	ld a,b	ld a,b
+2148	b1 	or c	or c
+2149	20 f3 	jr nz,$-$0b	jr nz,$-$00
+214b	c9 	ret	ret
+214c	c5 	push bc	push bc
+214d	cd b6 20 	call $20b6	call $0000
+2150	fd 23 	inc iy	inc iy
+2152	09 	add hl,bc	add hl,bc
+2153	dd 09 	add ix,bc	add ix,bc
+2155	c1 	pop bc	pop bc
+2156	0b 	dec bc	dec bc
+2157	78 	ld a,b	ld a,b
+2158	b1 	or c	or c
+2159	c8 	ret z	ret z
+215a	c5 	push bc	push bc
+215b	d5 	push de	push de
+215c	e5 	push hl	push hl
+215d	dd e5 	push ix	push ix
+215f	cb 7a 	bit 7,d	bit 7,d
+2161	20 0e 	jr nz,$+$10	jr nz,$+$00
+2163	d5 	push de	push de
+2164	cd 0e 18 	call $180e	call $0000
+2167	d1 	pop de	pop de
+2168	dd e1 	pop ix	pop ix
+216a	dd e5 	push ix	push ix
+216c	cd b0 31 	call $31b0	call $0000
+216f	18 0c 	jr $+$0e	jr $+$00
+2171	d5 	push de	push de
+2172	cd 1e 18 	call $181e	call $0000
+2175	e1 	pop hl	pop hl
+2176	dd e1 	pop ix	pop ix
+2178	dd e5 	push ix	push ix
+217a	cd fa 31 	call $31fa	call $0000
+217d	dd e1 	pop ix	pop ix
+217f	e1 	pop hl	pop hl
+2180	d1 	pop de	pop de
+2181	01 04 00 	ld bc,$0004	ld bc,$0000
+2184	cb 7a 	bit 7,d	bit 7,d
+2186	20 01 	jr nz,$+$03	jr nz,$+$00
+2188	4a 	ld c,d	ld c,d
+2189	cd ed 44 	call $44ed	call $0000
+218c	fe 2c 	cp $2c	cp $00
+218e	28 c0 	jr z,$-$3e	jr z,$-$00
+2190	d1 	pop de	pop de
+2191	09 	add hl,bc	add hl,bc
+2192	1b 	dec de	dec de
+2193	7a 	ld a,d	ld a,d
+2194	b3 	or e	or e
+2195	20 fa 	jr nz,$-$04	jr nz,$-$00
+2197	c9 	ret	ret
+2198	cd ed 44 	call $44ed	call $0000
+219b	e5 	push hl	push hl
+219c	c5 	push bc	push bc
+219d	fd e5 	push iy	push iy
+219f	d5 	push de	push de
+21a0	fe 2d 	cp $2d	cp $00
+21a2	20 0c 	jr nz,$+$0e	jr nz,$+$00
+21a4	7b 	ld a,e	ld a,e
+21a5	fe 3d 	cp $3d	cp $00
+21a7	20 07 	jr nz,$+$09	jr nz,$+$00
+21a9	fd 23 	inc iy	inc iy
+21ab	cd ed 44 	call $44ed	call $0000
+21ae	1e 2d 	ld e,$2d	ld e,$00
+21b0	d5 	push de	push de
+21b1	cd c5 41 	call $41c5	call $0000
+21b4	d1 	pop de	pop de
+21b5	20 56 	jr nz,$+$58	jr nz,$+$00
+21b7	cb 77 	bit 6,a	bit 6,a
+21b9	28 52 	jr z,$+$54	jr z,$+$00
+21bb	c1 	pop bc	pop bc
+21bc	c1 	pop bc	pop bc
+21bd	cb b7 	res 6,a	res 6,a
+21bf	ba 	cp d	cp d
+21c0	c2 50 18 	jp nz,$1850	jp nz,$0000
+21c3	d5 	push de	push de
+21c4	cd af 19 	call $19af	call $0000
+21c7	cd 86 19 	call $1986	call $0000
+21ca	42 	ld b,d	ld b,d
+21cb	4b 	ld c,e	ld c,e
+21cc	d1 	pop de	pop de
+21cd	e3 	ex (sp),hl	ex (sp),hl
+21ce	cd ed 44 	call $44ed	call $0000
+21d1	dd e1 	pop ix	pop ix
+21d3	fe 2e 	cp $2e	cp $00
+21d5	ca 65 22 	jp z,$2265	jp z,$0000
+21d8	b7 	or a	or a
+21d9	ed 42 	sbc hl,bc	sbc hl,bc
+21db	c2 50 18 	jp nz,$1850	jp nz,$0000
+21de	e1 	pop hl	pop hl
+21df	cb 7a 	bit 7,d	bit 7,d
+21e1	20 1d 	jr nz,$+$1f	jr nz,$+$00
+21e3	c5 	push bc	push bc
+21e4	e5 	push hl	push hl
+21e5	7a 	ld a,d	ld a,d
+21e6	cd 07 19 	call $1907	call $0000
+21e9	dd e3 	ex (sp),ix	ex (sp),ix
+21eb	d5 	push de	push de
+21ec	cd b0 31 	call $31b0	call $0000
+21ef	d1 	pop de	pop de
+21f0	dd e3 	ex (sp),ix	ex (sp),ix
+21f2	e1 	pop hl	pop hl
+21f3	4a 	ld c,d	ld c,d
+21f4	06 00 	ld b,$00	ld b,$00
+21f6	dd 09 	add ix,bc	add ix,bc
+21f8	09 	add hl,bc	add hl,bc
+21f9	c1 	pop bc	pop bc
+21fa	0b 	dec bc	dec bc
+21fb	78 	ld a,b	ld a,b
+21fc	b1 	or c	or c
+21fd	20 e4 	jr nz,$-$1a	jr nz,$-$00
+21ff	c9 	ret	ret
+2200	eb 	ex de,hl	ex de,hl
+2201	60 	ld h,b	ld h,b
+2202	69 	ld l,c	ld l,c
+2203	29 	add hl,hl	add hl,hl
+2204	29 	add hl,hl	add hl,hl
+2205	44 	ld b,h	ld b,h
+2206	4d 	ld c,l	ld c,l
+2207	dd e5 	push ix	push ix
+2209	e1 	pop hl	pop hl
+220a	ed b0 	ldir	ldir
+220c	c9 	ret	ret
 220d	d1 	pop de	pop de
-220e	dd e3 	ex (sp),ix	ex (sp),ix
-2210	e1 	pop hl	pop hl
-2211	4a 	ld c,d	ld c,d
-2212	06 00 	ld b,$00	ld b,$00
-2214	dd 09 	add ix,bc	add ix,bc
-2216	09 	add hl,bc	add hl,bc
-2217	c1 	pop bc	pop bc
-2218	0b 	dec bc	dec bc
-2219	78 	ld a,b	ld a,b
-221a	b1 	or c	or c
-221b	20 e4 	jr nz,$-$1a	jr nz,$-$00
-221d	c9 	ret	ret
-221e	eb 	ex de,hl	ex de,hl
-221f	60 	ld h,b	ld h,b
-2220	69 	ld l,c	ld l,c
-2221	29 	add hl,hl	add hl,hl
-2222	29 	add hl,hl	add hl,hl
-2223	44 	ld b,h	ld b,h
-2224	4d 	ld c,l	ld c,l
-2225	dd e5 	push ix	push ix
-2227	e1 	pop hl	pop hl
-2228	ed b0 	ldir	ldir
-222a	c9 	ret	ret
-222b	d1 	pop de	pop de
-222c	fd e1 	pop iy	pop iy
-222e	cb 7a 	bit 7,d	bit 7,d
-2230	20 28 	jr nz,$+$2a	jr nz,$+$00
-2232	d5 	push de	push de
-2233	cd 0b 18 	call $180b	call $0000
-2236	79 	ld a,c	ld a,c
-2237	d1 	pop de	pop de
-2238	c1 	pop bc	pop bc
-2239	dd e1 	pop ix	pop ix
-223b	e5 	push hl	push hl
-223c	c5 	push bc	push bc
-223d	d5 	push de	push de
-223e	d9 	exx	exx
-223f	e5 	push hl	push hl
-2240	d9 	exx	exx
-2241	f5 	push af	push af
-2242	4f 	ld c,a	ld c,a
-2243	cd ce 31 	call $31ce	call $0000
-2246	f1 	pop af	pop af
-2247	d9 	exx	exx
-2248	e1 	pop hl	pop hl
-2249	d9 	exx	exx
-224a	d1 	pop de	pop de
-224b	4a 	ld c,d	ld c,d
-224c	06 00 	ld b,$00	ld b,$00
-224e	dd 09 	add ix,bc	add ix,bc
-2250	c1 	pop bc	pop bc
-2251	0b 	dec bc	dec bc
-2252	ed 62 	sbc hl,hl	sbc hl,hl
-2254	ed 42 	sbc hl,bc	sbc hl,bc
-2256	e1 	pop hl	pop hl
-2257	20 e2 	jr nz,$-$1c	jr nz,$-$00
-2259	c9 	ret	ret
-225a	cd 3c 18 	call $183c	call $0000
-225d	7b 	ld a,e	ld a,e
-225e	b7 	or a	or a
-225f	28 0b 	jr z,$+$0d	jr z,$+$00
-2261	21 00 52 	ld hl,$5200	ld hl,$0000
-2264	11 00 53 	ld de,$5300	ld de,$0000
-2267	4f 	ld c,a	ld c,a
-2268	06 00 	ld b,$00	ld b,$00
-226a	ed b0 	ldir	ldir
-226c	c1 	pop bc	pop bc
-226d	dd e1 	pop ix	pop ix
-226f	d9 	exx	exx
-2270	6f 	ld l,a	ld l,a
-2271	d9 	exx	exx
-2272	11 04 00 	ld de,$0004	ld de,$0000
-2275	21 00 53 	ld hl,$5300	ld hl,$0000
-2278	cd 09 32 	call $3209	call $0000
-227b	dd 19 	add ix,de	add ix,de
-227d	0b 	dec bc	dec bc
-227e	78 	ld a,b	ld a,b
-227f	b1 	or c	or c
-2280	20 f6 	jr nz,$-$08	jr nz,$-$00
-2282	c9 	ret	ret
-2283	fd 23 	inc iy	inc iy
-2285	7a 	ld a,d	ld a,d
-2286	b7 	or a	or a
-2287	fa 6e 18 	jp m,$186e	jp m,$0000
-228a	eb 	ex de,hl	ex de,hl
-228b	e1 	pop hl	pop hl
-228c	d5 	push de	push de
-228d	e5 	push hl	push hl
-228e	dd e5 	push ix	push ix
-2290	f5 	push af	push af
-2291	cd bd 19 	call $19bd	call $0000
-2294	cd a4 19 	call $19a4	call $0000
-2297	f1 	pop af	pop af
-2298	eb 	ex de,hl	ex de,hl
-2299	dd 6e 00 	ld l,(ix)	ld l,(ix)
-229c	dd 66 01 	ld h,(ix+$01)	ld h,(ix+$00)
-229f	6e 	ld l,(hl)	ld l,(hl)
-22a0	2d 	dec l	dec l
-22a1	eb 	ex de,hl	ex de,hl
-22a2	dd e1 	pop ix	pop ix
-22a4	c1 	pop bc	pop bc
-22a5	d1 	pop de	pop de
-22a6	fd e5 	push iy	push iy
-22a8	c5 	push bc	push bc
-22a9	e5 	push hl	push hl
-22aa	fd e1 	pop iy	pop iy
-22ac	21 01 00 	ld hl,$0001	ld hl,$0000
-22af	28 06 	jr z,$+$08	jr z,$+$00
-22b1	fd 66 ff 	ld h,(iy-$01)	ld h,(iy-$00)
-22b4	fd 6e fe 	ld l,(iy-$02)	ld l,(iy-$00)
-22b7	d5 	push de	push de
-22b8	eb 	ex de,hl	ex de,hl
-22b9	cd ad 36 	call $36ad	call $0000
-22bc	eb 	ex de,hl	ex de,hl
-22bd	d1 	pop de	pop de
-22be	dd 46 ff 	ld b,(ix-$01)	ld b,(ix-$00)
-22c1	dd 4e fe 	ld c,(ix-$02)	ld c,(ix-$00)
-22c4	c5 	push bc	push bc
-22c5	d5 	push de	push de
-22c6	e5 	push hl	push hl
-22c7	dd e5 	push ix	push ix
-22c9	fd e5 	push iy	push iy
-22cb	50 	ld d,b	ld d,b
-22cc	59 	ld e,c	ld e,c
-22cd	f5 	push af	push af
-22ce	cd f8 1f 	call $1ff8	call $0000
-22d1	f1 	pop af	pop af
-22d2	d5 	push de	push de
-22d3	c5 	push bc	push bc
-22d4	e5 	push hl	push hl
-22d5	d9 	exx	exx
-22d6	e5 	push hl	push hl
-22d7	d9 	exx	exx
-22d8	cd 25 19 	call $1925	call $0000
-22db	dd e5 	push ix	push ix
-22dd	fd e3 	ex (sp),iy	ex (sp),iy
-22df	dd e1 	pop ix	pop ix
-22e1	cd e7 19 	call $19e7	call $0000
-22e4	dd e5 	push ix	push ix
-22e6	fd e3 	ex (sp),iy	ex (sp),iy
-22e8	dd e1 	pop ix	pop ix
-22ea	f5 	push af	push af
-22eb	3e 0a 	ld a,$0a	ld a,$00
-22ed	cd 15 45 	call $4515	call $0000
-22f0	da 44 3f 	jp c,$3f44	jp c,$0000
-22f3	f1 	pop af	pop af
-22f4	d9 	exx	exx
+220e	fd e1 	pop iy	pop iy
+2210	cb 7a 	bit 7,d	bit 7,d
+2212	20 28 	jr nz,$+$2a	jr nz,$+$00
+2214	d5 	push de	push de
+2215	cd ed 17 	call $17ed	call $0000
+2218	79 	ld a,c	ld a,c
+2219	d1 	pop de	pop de
+221a	c1 	pop bc	pop bc
+221b	dd e1 	pop ix	pop ix
+221d	e5 	push hl	push hl
+221e	c5 	push bc	push bc
+221f	d5 	push de	push de
+2220	d9 	exx	exx
+2221	e5 	push hl	push hl
+2222	d9 	exx	exx
+2223	f5 	push af	push af
+2224	4f 	ld c,a	ld c,a
+2225	cd b0 31 	call $31b0	call $0000
+2228	f1 	pop af	pop af
+2229	d9 	exx	exx
+222a	e1 	pop hl	pop hl
+222b	d9 	exx	exx
+222c	d1 	pop de	pop de
+222d	4a 	ld c,d	ld c,d
+222e	06 00 	ld b,$00	ld b,$00
+2230	dd 09 	add ix,bc	add ix,bc
+2232	c1 	pop bc	pop bc
+2233	0b 	dec bc	dec bc
+2234	ed 62 	sbc hl,hl	sbc hl,hl
+2236	ed 42 	sbc hl,bc	sbc hl,bc
+2238	e1 	pop hl	pop hl
+2239	20 e2 	jr nz,$-$1c	jr nz,$-$00
+223b	c9 	ret	ret
+223c	cd 1e 18 	call $181e	call $0000
+223f	7b 	ld a,e	ld a,e
+2240	b7 	or a	or a
+2241	28 0b 	jr z,$+$0d	jr z,$+$00
+2243	21 00 52 	ld hl,$5200	ld hl,$0000
+2246	11 00 53 	ld de,$5300	ld de,$0000
+2249	4f 	ld c,a	ld c,a
+224a	06 00 	ld b,$00	ld b,$00
+224c	ed b0 	ldir	ldir
+224e	c1 	pop bc	pop bc
+224f	dd e1 	pop ix	pop ix
+2251	d9 	exx	exx
+2252	6f 	ld l,a	ld l,a
+2253	d9 	exx	exx
+2254	11 04 00 	ld de,$0004	ld de,$0000
+2257	21 00 53 	ld hl,$5300	ld hl,$0000
+225a	cd eb 31 	call $31eb	call $0000
+225d	dd 19 	add ix,de	add ix,de
+225f	0b 	dec bc	dec bc
+2260	78 	ld a,b	ld a,b
+2261	b1 	or c	or c
+2262	20 f6 	jr nz,$-$08	jr nz,$-$00
+2264	c9 	ret	ret
+2265	fd 23 	inc iy	inc iy
+2267	7a 	ld a,d	ld a,d
+2268	b7 	or a	or a
+2269	fa 50 18 	jp m,$1850	jp m,$0000
+226c	eb 	ex de,hl	ex de,hl
+226d	e1 	pop hl	pop hl
+226e	d5 	push de	push de
+226f	e5 	push hl	push hl
+2270	dd e5 	push ix	push ix
+2272	f5 	push af	push af
+2273	cd 9f 19 	call $199f	call $0000
+2276	cd 86 19 	call $1986	call $0000
+2279	f1 	pop af	pop af
+227a	eb 	ex de,hl	ex de,hl
+227b	dd 6e 00 	ld l,(ix)	ld l,(ix)
+227e	dd 66 01 	ld h,(ix+$01)	ld h,(ix+$00)
+2281	6e 	ld l,(hl)	ld l,(hl)
+2282	2d 	dec l	dec l
+2283	eb 	ex de,hl	ex de,hl
+2284	dd e1 	pop ix	pop ix
+2286	c1 	pop bc	pop bc
+2287	d1 	pop de	pop de
+2288	fd e5 	push iy	push iy
+228a	c5 	push bc	push bc
+228b	e5 	push hl	push hl
+228c	fd e1 	pop iy	pop iy
+228e	21 01 00 	ld hl,$0001	ld hl,$0000
+2291	28 06 	jr z,$+$08	jr z,$+$00
+2293	fd 66 ff 	ld h,(iy-$01)	ld h,(iy-$00)
+2296	fd 6e fe 	ld l,(iy-$02)	ld l,(iy-$00)
+2299	d5 	push de	push de
+229a	eb 	ex de,hl	ex de,hl
+229b	cd 8f 36 	call $368f	call $0000
+229e	eb 	ex de,hl	ex de,hl
+229f	d1 	pop de	pop de
+22a0	dd 46 ff 	ld b,(ix-$01)	ld b,(ix-$00)
+22a3	dd 4e fe 	ld c,(ix-$02)	ld c,(ix-$00)
+22a6	c5 	push bc	push bc
+22a7	d5 	push de	push de
+22a8	e5 	push hl	push hl
+22a9	dd e5 	push ix	push ix
+22ab	fd e5 	push iy	push iy
+22ad	50 	ld d,b	ld d,b
+22ae	59 	ld e,c	ld e,c
+22af	f5 	push af	push af
+22b0	cd da 1f 	call $1fda	call $0000
+22b3	f1 	pop af	pop af
+22b4	d5 	push de	push de
+22b5	c5 	push bc	push bc
+22b6	e5 	push hl	push hl
+22b7	d9 	exx	exx
+22b8	e5 	push hl	push hl
+22b9	d9 	exx	exx
+22ba	cd 07 19 	call $1907	call $0000
+22bd	dd e5 	push ix	push ix
+22bf	fd e3 	ex (sp),iy	ex (sp),iy
+22c1	dd e1 	pop ix	pop ix
+22c3	cd c9 19 	call $19c9	call $0000
+22c6	dd e5 	push ix	push ix
+22c8	fd e3 	ex (sp),iy	ex (sp),iy
+22ca	dd e1 	pop ix	pop ix
+22cc	f5 	push af	push af
+22cd	3e 0a 	ld a,$0a	ld a,$00
+22cf	cd f7 44 	call $44f7	call $0000
+22d2	da 26 3f 	jp c,$3f26	jp c,$0000
+22d5	f1 	pop af	pop af
+22d6	d9 	exx	exx
+22d7	eb 	ex de,hl	ex de,hl
+22d8	e1 	pop hl	pop hl
+22d9	d9 	exx	exx
+22da	eb 	ex de,hl	ex de,hl
+22db	e1 	pop hl	pop hl
+22dc	08 	ex af,af'	ex af,af'
+22dd	79 	ld a,c	ld a,c
+22de	c1 	pop bc	pop bc
+22df	47 	ld b,a	ld b,a
+22e0	08 	ex af,af'	ex af,af'
+22e1	f5 	push af	push af
+22e2	3e 0b 	ld a,$0b	ld a,$00
+22e4	cd f7 44 	call $44f7	call $0000
+22e7	da 26 3f 	jp c,$3f26	jp c,$0000
+22ea	f1 	pop af	pop af
+22eb	d1 	pop de	pop de
+22ec	d9 	exx	exx
+22ed	4f 	ld c,a	ld c,a
+22ee	06 00 	ld b,$00	ld b,$00
+22f0	dd 09 	add ix,bc	add ix,bc
+22f2	d1 	pop de	pop de
+22f3	c1 	pop bc	pop bc
+22f4	e3 	ex (sp),hl	ex (sp),hl
 22f5	eb 	ex de,hl	ex de,hl
-22f6	e1 	pop hl	pop hl
-22f7	d9 	exx	exx
+22f6	fd 19 	add iy,de	add iy,de
 22f8	eb 	ex de,hl	ex de,hl
-22f9	e1 	pop hl	pop hl
-22fa	08 	ex af,af'	ex af,af'
-22fb	79 	ld a,c	ld a,c
-22fc	c1 	pop bc	pop bc
-22fd	47 	ld b,a	ld b,a
-22fe	08 	ex af,af'	ex af,af'
-22ff	f5 	push af	push af
-2300	3e 0b 	ld a,$0b	ld a,$00
-2302	cd 15 45 	call $4515	call $0000
-2305	da 44 3f 	jp c,$3f44	jp c,$0000
-2308	f1 	pop af	pop af
-2309	d1 	pop de	pop de
+22f9	e3 	ex (sp),hl	ex (sp),hl
+22fa	c5 	push bc	push bc
+22fb	d5 	push de	push de
+22fc	d9 	exx	exx
+22fd	1b 	dec de	dec de
+22fe	1c 	inc e	inc e
+22ff	1d 	dec e	dec e
+2300	20 b2 	jr nz,$-$4c	jr nz,$-$00
+2302	14 	inc d	inc d
+2303	15 	dec d	dec d
+2304	20 ae 	jr nz,$-$50	jr nz,$-$00
+2306	fd e1 	pop iy	pop iy
+2308	dd e1 	pop ix	pop ix
 230a	d9 	exx	exx
-230b	4f 	ld c,a	ld c,a
-230c	06 00 	ld b,$00	ld b,$00
-230e	dd 09 	add ix,bc	add ix,bc
-2310	d1 	pop de	pop de
-2311	c1 	pop bc	pop bc
-2312	e3 	ex (sp),hl	ex (sp),hl
-2313	eb 	ex de,hl	ex de,hl
-2314	fd 19 	add iy,de	add iy,de
-2316	eb 	ex de,hl	ex de,hl
-2317	e3 	ex (sp),hl	ex (sp),hl
-2318	c5 	push bc	push bc
-2319	d5 	push de	push de
-231a	d9 	exx	exx
-231b	1b 	dec de	dec de
-231c	1c 	inc e	inc e
-231d	1d 	dec e	dec e
-231e	20 b2 	jr nz,$-$4c	jr nz,$-$00
-2320	14 	inc d	inc d
-2321	15 	dec d	dec d
-2322	20 ae 	jr nz,$-$50	jr nz,$-$00
-2324	fd e1 	pop iy	pop iy
-2326	dd e1 	pop ix	pop ix
-2328	d9 	exx	exx
-2329	08 	ex af,af'	ex af,af'
-232a	f1 	pop af	pop af
-232b	c1 	pop bc	pop bc
-232c	d1 	pop de	pop de
-232d	dd e3 	ex (sp),ix	ex (sp),ix
-232f	d5 	push de	push de
-2330	c5 	push bc	push bc
-2331	f5 	push af	push af
-2332	08 	ex af,af'	ex af,af'
-2333	d9 	exx	exx
-2334	f5 	push af	push af
-2335	d5 	push de	push de
-2336	cd f0 31 	call $31f0	call $0000
-2339	d1 	pop de	pop de
-233a	f1 	pop af	pop af
-233b	4f 	ld c,a	ld c,a
-233c	06 00 	ld b,$00	ld b,$00
-233e	dd 09 	add ix,bc	add ix,bc
-2340	d9 	exx	exx
-2341	08 	ex af,af'	ex af,af'
-2342	f1 	pop af	pop af
-2343	c1 	pop bc	pop bc
-2344	d1 	pop de	pop de
-2345	dd e3 	ex (sp),ix	ex (sp),ix
-2347	d5 	push de	push de
-2348	c5 	push bc	push bc
-2349	f5 	push af	push af
-234a	08 	ex af,af'	ex af,af'
-234b	d9 	exx	exx
-234c	e1 	pop hl	pop hl
-234d	d1 	pop de	pop de
-234e	c1 	pop bc	pop bc
-234f	1b 	dec de	dec de
-2350	c5 	push bc	push bc
-2351	d5 	push de	push de
-2352	e5 	push hl	push hl
-2353	4f 	ld c,a	ld c,a
-2354	06 00 	ld b,$00	ld b,$00
-2356	fd 09 	add iy,bc	add iy,bc
-2358	f5 	push af	push af
-2359	e5 	push hl	push hl
-235a	cd ad 36 	call $36ad	call $0000
-235d	c1 	pop bc	pop bc
-235e	cd 90 23 	call $2390	call $0000
-2361	f1 	pop af	pop af
-2362	b7 	or a	or a
-2363	01 00 00 	ld bc,$0000	ld bc,$0000
-2366	ed 42 	sbc hl,bc	sbc hl,bc
-2368	e1 	pop hl	pop hl
-2369	d1 	pop de	pop de
-236a	c1 	pop bc	pop bc
-236b	20 15 	jr nz,$+$17	jr nz,$+$00
-236d	d5 	push de	push de
-236e	e5 	push hl	push hl
-236f	eb 	ex de,hl	ex de,hl
-2370	fd e5 	push iy	push iy
-2372	e1 	pop hl	pop hl
-2373	b7 	or a	or a
-2374	ed 52 	sbc hl,de	sbc hl,de
-2376	e5 	push hl	push hl
-2377	fd e1 	pop iy	pop iy
-2379	50 	ld d,b	ld d,b
-237a	59 	ld e,c	ld e,c
-237b	cd ad 36 	call $36ad	call $0000
-237e	dd 19 	add ix,de	add ix,de
-2380	e1 	pop hl	pop hl
-2381	d1 	pop de	pop de
-2382	1c 	inc e	inc e
-2383	1d 	dec e	dec e
-2384	c2 c4 22 	jp nz,$22c4	jp nz,$0000
-2387	14 	inc d	inc d
-2388	15 	dec d	dec d
-2389	c2 c4 22 	jp nz,$22c4	jp nz,$0000
-238c	e1 	pop hl	pop hl
-238d	fd e1 	pop iy	pop iy
-238f	c9 	ret	ret
-2390	af 	xor a	xor a
-2391	67 	ld h,a	ld h,a
-2392	6f 	ld l,a	ld l,a
-2393	3e 11 	ld a,$11	ld a,$00
-2395	ed 42 	sbc hl,bc	sbc hl,bc
-2397	30 01 	jr nc,$+$03	jr nc,$+$00
-2399	09 	add hl,bc	add hl,bc
-239a	3f 	ccf	ccf
-239b	cb 13 	rl e	rl e
-239d	cb 12 	rl d	rl d
-239f	3d 	dec a	dec a
-23a0	c8 	ret z	ret z
-23a1	ed 6a 	adc hl,hl	adc hl,hl
-23a3	18 f0 	jr $-$0e	jr $-$00
-23a5	77 	ld (hl),a	ld (hl),a
-23a6	30 8b 	jr nc,$-$73	jr nc,$-$00
-23a8	30 81 	jr nc,$-$7d	jr nc,$-$00
-23aa	30 e0 	jr nc,$-$1e	jr nc,$-$00
-23ac	25 	dec h	dec h
-23ad	e0 	ret po	ret po
-23ae	25 	dec h	dec h
-23af	e0 	ret po	ret po
-23b0	25 	dec h	dec h
-23b1	e0 	ret po	ret po
-23b2	25 	dec h	dec h
-23b3	26 2e 	ld h,$2e	ld h,$00
-23b5	57 	ld d,a	ld d,a
-23b6	2d 	dec l	dec l
-23b7	e0 	ret po	ret po
-23b8	25 	dec h	dec h
-23b9	e0 	ret po	ret po
-23ba	25 	dec h	dec h
-23bb	99 	sbc a,c	sbc a,c
-23bc	24 	inc h	inc h
-23bd	e0 	ret po	ret po
-23be	25 	dec h	dec h
-23bf	99 	sbc a,c	sbc a,c
-23c0	24 	inc h	inc h
-23c1	43 	ld b,e	ld b,e
-23c2	2e 01 	ld l,$01	ld l,$00
-23c4	2f 	cpl	cpl
-23c5	15 	dec d	dec d
-23c6	2f 	cpl	cpl
-23c7	23 	inc hl	inc hl
-23c8	2f 	cpl	cpl
-23c9	42 	ld b,d	ld b,d
-23ca	2f 	cpl	cpl
-23cb	54 	ld d,h	ld d,h
-23cc	2f 	cpl	cpl
-23cd	31 0e d3 	ld sp,$d30e	ld sp,$0000
-23d0	2f 	cpl	cpl
-23d1	0c 	inc c	inc c
-23d2	30 4c 	jr nc,$+$4e	jr nc,$+$00
-23d4	24 	inc h	inc h
-23d5	96 	sub (hl)	sub (hl)
-23d6	2e cb 	ld l,$cb	ld l,$00
-23d8	2f 	cpl	cpl
-23d9	75 	ld (hl),l	ld (hl),l
-23da	0e 75 	ld c,$75	ld c,$00
-23dc	2e 31 	ld l,$31	ld l,$00
-23de	25 	dec h	dec h
-23df	31 25 3e 	ld sp,$3e25	ld sp,$0000
-23e2	26 7c 	ld h,$7c	ld h,$00
-23e4	0f 	rrca	rrca
-23e5	d3 24 	out ($24),a	out ($00),a
-23e7	7d 	ld a,l	ld a,l
-23e8	2b 	dec hl	dec hl
-23e9	03 	inc bc	inc bc
-23ea	0e 14 	ld c,$14	ld c,$00
+230b	08 	ex af,af'	ex af,af'
+230c	f1 	pop af	pop af
+230d	c1 	pop bc	pop bc
+230e	d1 	pop de	pop de
+230f	dd e3 	ex (sp),ix	ex (sp),ix
+2311	d5 	push de	push de
+2312	c5 	push bc	push bc
+2313	f5 	push af	push af
+2314	08 	ex af,af'	ex af,af'
+2315	d9 	exx	exx
+2316	f5 	push af	push af
+2317	d5 	push de	push de
+2318	cd d2 31 	call $31d2	call $0000
+231b	d1 	pop de	pop de
+231c	f1 	pop af	pop af
+231d	4f 	ld c,a	ld c,a
+231e	06 00 	ld b,$00	ld b,$00
+2320	dd 09 	add ix,bc	add ix,bc
+2322	d9 	exx	exx
+2323	08 	ex af,af'	ex af,af'
+2324	f1 	pop af	pop af
+2325	c1 	pop bc	pop bc
+2326	d1 	pop de	pop de
+2327	dd e3 	ex (sp),ix	ex (sp),ix
+2329	d5 	push de	push de
+232a	c5 	push bc	push bc
+232b	f5 	push af	push af
+232c	08 	ex af,af'	ex af,af'
+232d	d9 	exx	exx
+232e	e1 	pop hl	pop hl
+232f	d1 	pop de	pop de
+2330	c1 	pop bc	pop bc
+2331	1b 	dec de	dec de
+2332	c5 	push bc	push bc
+2333	d5 	push de	push de
+2334	e5 	push hl	push hl
+2335	4f 	ld c,a	ld c,a
+2336	06 00 	ld b,$00	ld b,$00
+2338	fd 09 	add iy,bc	add iy,bc
+233a	f5 	push af	push af
+233b	e5 	push hl	push hl
+233c	cd 8f 36 	call $368f	call $0000
+233f	c1 	pop bc	pop bc
+2340	cd 72 23 	call $2372	call $0000
+2343	f1 	pop af	pop af
+2344	b7 	or a	or a
+2345	01 00 00 	ld bc,$0000	ld bc,$0000
+2348	ed 42 	sbc hl,bc	sbc hl,bc
+234a	e1 	pop hl	pop hl
+234b	d1 	pop de	pop de
+234c	c1 	pop bc	pop bc
+234d	20 15 	jr nz,$+$17	jr nz,$+$00
+234f	d5 	push de	push de
+2350	e5 	push hl	push hl
+2351	eb 	ex de,hl	ex de,hl
+2352	fd e5 	push iy	push iy
+2354	e1 	pop hl	pop hl
+2355	b7 	or a	or a
+2356	ed 52 	sbc hl,de	sbc hl,de
+2358	e5 	push hl	push hl
+2359	fd e1 	pop iy	pop iy
+235b	50 	ld d,b	ld d,b
+235c	59 	ld e,c	ld e,c
+235d	cd 8f 36 	call $368f	call $0000
+2360	dd 19 	add ix,de	add ix,de
+2362	e1 	pop hl	pop hl
+2363	d1 	pop de	pop de
+2364	1c 	inc e	inc e
+2365	1d 	dec e	dec e
+2366	c2 a6 22 	jp nz,$22a6	jp nz,$0000
+2369	14 	inc d	inc d
+236a	15 	dec d	dec d
+236b	c2 a6 22 	jp nz,$22a6	jp nz,$0000
+236e	e1 	pop hl	pop hl
+236f	fd e1 	pop iy	pop iy
+2371	c9 	ret	ret
+2372	af 	xor a	xor a
+2373	67 	ld h,a	ld h,a
+2374	6f 	ld l,a	ld l,a
+2375	3e 11 	ld a,$11	ld a,$00
+2377	ed 42 	sbc hl,bc	sbc hl,bc
+2379	30 01 	jr nc,$+$03	jr nc,$+$00
+237b	09 	add hl,bc	add hl,bc
+237c	3f 	ccf	ccf
+237d	cb 13 	rl e	rl e
+237f	cb 12 	rl d	rl d
+2381	3d 	dec a	dec a
+2382	c8 	ret z	ret z
+2383	ed 6a 	adc hl,hl	adc hl,hl
+2385	18 f0 	jr $-$0e	jr $-$00
+2387	59 	ld e,c	ld e,c
+2388	30 6d 	jr nc,$+$6f	jr nc,$+$00
+238a	30 63 	jr nc,$+$65	jr nc,$+$00
+238c	30 c2 	jr nc,$-$3c	jr nc,$-$00
+238e	25 	dec h	dec h
+238f	c2 25 c2 	jp nz,$c225	jp nz,$0000
+2392	25 	dec h	dec h
+2393	c2 25 08 	jp nz,$0825	jp nz,$0000
+2396	2e 39 	ld l,$39	ld l,$00
+2398	2d 	dec l	dec l
+2399	c2 25 c2 	jp nz,$c225	jp nz,$0000
+239c	25 	dec h	dec h
+239d	7b 	ld a,e	ld a,e
+239e	24 	inc h	inc h
+239f	c2 25 7b 	jp nz,$7b25	jp nz,$0000
+23a2	24 	inc h	inc h
+23a3	25 	dec h	dec h
+23a4	2e e3 	ld l,$e3	ld l,$00
+23a6	2e f7 	ld l,$f7	ld l,$00
+23a8	2e 05 	ld l,$05	ld l,$00
+23aa	2f 	cpl	cpl
+23ab	24 	inc h	inc h
+23ac	2f 	cpl	cpl
+23ad	36 2f 	ld (hl),$2f	ld (hl),$00
+23af	13 	inc de	inc de
+23b0	0e b5 	ld c,$b5	ld c,$00
+23b2	2f 	cpl	cpl
+23b3	ee 2f 	xor $2f	xor $00
+23b5	2e 24 	ld l,$24	ld l,$00
+23b7	78 	ld a,b	ld a,b
+23b8	2e ad 	ld l,$ad	ld l,$00
+23ba	2f 	cpl	cpl
+23bb	57 	ld d,a	ld d,a
+23bc	0e 57 	ld c,$57	ld c,$00
+23be	2e 13 	ld l,$13	ld l,$00
+23c0	25 	dec h	dec h
+23c1	13 	inc de	inc de
+23c2	25 	dec h	dec h
+23c3	20 26 	jr nz,$+$28	jr nz,$+$00
+23c5	5e 	ld e,(hl)	ld e,(hl)
+23c6	0f 	rrca	rrca
+23c7	b5 	or l	or l
+23c8	24 	inc h	inc h
+23c9	5f 	ld e,a	ld e,a
+23ca	2b 	dec hl	dec hl
+23cb	e5 	push hl	push hl
+23cc	0d 	dec c	dec c
+23cd	f6 28 	or $28	or $00
+23cf	ad 	xor l	xor l
+23d0	28 96 	jr z,$-$68	jr z,$-$00
+23d2	28 af 	jr z,$-$4f	jr z,$-$00
+23d4	0e ab 	ld c,$ab	ld c,$00
+23d6	2c 	inc l	inc l
+23d7	c4 2b 83 	call nz,$832b	call nz,$0000
+23da	25 	dec h	dec h
+23db	f5 	push af	push af
+23dc	2a 47 0e 	ld hl,($0e47)	ld hl,($0000)
+23df	5a 	ld e,d	ld e,d
+23e0	0f 	rrca	rrca
+23e1	43 	ld b,e	ld b,e
+23e2	29 	add hl,hl	add hl,hl
+23e3	1c 	inc e	inc e
+23e4	28 7e 	jr z,$+$80	jr z,$+$00
+23e6	2f 	cpl	cpl
+23e7	66 	ld h,(hl)	ld h,(hl)
+23e8	0f 	rrca	rrca
+23e9	28 27 	jr z,$+$29	jr z,$+$00
+23eb	c9 	ret	ret
 23ec	29 	add hl,hl	add hl,hl
-23ed	cb 28 	sra b	sra b
-23ef	b4 	or h	or h
-23f0	28 cd 	jr z,$-$31	jr z,$-$00
-23f2	0e c9 	ld c,$c9	ld c,$00
-23f4	2c 	inc l	inc l
-23f5	e2 2b a1 	jp po,$a12b	jp po,$0000
-23f8	25 	dec h	dec h
-23f9	13 	inc de	inc de
-23fa	2b 	dec hl	dec hl
-23fb	65 	ld h,l	ld h,l
-23fc	0e 78 	ld c,$78	ld c,$00
-23fe	0f 	rrca	rrca
-23ff	61 	ld h,c	ld h,c
-2400	29 	add hl,hl	add hl,hl
-2401	3a 28 9c 	ld a,($9c28)	ld a,($0000)
+23ed	62 	ld h,d	ld h,d
+23ee	2c 	inc l	inc l
+23ef	13 	inc de	inc de
+23f0	25 	dec h	dec h
+23f1	c7 	rst $00	rst $00
+23f2	28 73 	jr z,$+$75	jr z,$+$00
+23f4	2e 9e 	ld l,$9e	ld l,$00
+23f6	2e b8 	ld l,$b8	ld l,$00
+23f8	28 29 	jr z,$+$2b	jr z,$+$00
+23fa	24 	inc h	inc h
+23fb	60 	ld h,b	ld h,b
+23fc	2e 6f 	ld l,$6f	ld l,$00
+23fe	0e 65 	ld c,$65	ld c,$00
+2400	2f 	cpl	cpl
+2401	cf 	rst $08	rst $00
+2402	28 5b 	jr z,$+$5d	jr z,$+$00
 2404	2f 	cpl	cpl
-2405	84 	add a,h	add a,h
-2406	0f 	rrca	rrca
-2407	46 	ld b,(hl)	ld b,(hl)
-2408	27 	daa	daa
-2409	e7 	rst $20	rst $00
-240a	29 	add hl,hl	add hl,hl
-240b	80 	add a,b	add a,b
-240c	2c 	inc l	inc l
-240d	31 25 e5 	ld sp,$e525	ld sp,$0000
-2410	28 91 	jr z,$-$6d	jr z,$-$00
-2412	2e bc 	ld l,$bc	ld l,$00
-2414	2e d6 	ld l,$d6	ld l,$00
-2416	28 47 	jr z,$+$49	jr z,$+$00
-2418	24 	inc h	inc h
-2419	7e 	ld a,(hl)	ld a,(hl)
-241a	2e 8d 	ld l,$8d	ld l,$00
-241c	0e 83 	ld c,$83	ld c,$00
-241e	2f 	cpl	cpl
-241f	ed 28 79 	in0 l,($79)	in0 l,($00)
-2422	2f 	cpl	cpl
-2423	08 	ex af,af'	ex af,af'
-2424	25 	dec h	dec h
-2425	31 25 1b 	ld sp,$1b25	ld sp,$0000
-2428	0f 	rrca	rrca
-2429	47 	ld b,a	ld b,a
-242a	0f 	rrca	rrca
-242b	80 	add a,b	add a,b
-242c	0f 	rrca	rrca
-242d	3a 10 7c 	ld a,($7c10)	ld a,($0000)
-2430	0e 2c 	ld c,$2c	ld c,$00
-2432	0a 	ld a,(bc)	ld a,(bc)
-2433	b9 	cp c	cp c
-2434	0f 	rrca	rrca
-2435	5e 	ld e,(hl)	ld e,(hl)
-2436	25 	dec h	dec h
-2437	11 11 11 	ld de,$1111	ld de,$0000
-243a	11 79 10 	ld de,$1079	ld de,$0000
-243d	e0 	ret po	ret po
-243e	25 	dec h	dec h
-243f	31 25 9d 	ld sp,$9d25	ld sp,$0000
-2442	31 e0 25 	ld sp,$25e0	ld sp,$0000
-2445	23 	inc hl	inc hl
-2446	31 cd 36 	ld sp,$36cd	ld sp,$0000
-2449	35 	dec (hl)	dec (hl)
-244a	28 0d 	jr z,$+$0f	jr z,$+$00
-244c	cd 3c 18 	call $183c	call $0000
-244f	3e 0d 	ld a,$0d	ld a,$00
-2451	12 	ld (de),a	ld (de),a
-2452	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
-2456	cd 00 40 	call $4000	call $0000
-2459	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
-245d	dd 21 f6 54 	ld ix,$54f6	ld ix,$0000
-2461	ed 5f 	ld a,r	ld a,r
-2463	28 fc 	jr z,$-$02	jr z,$-$00
-2465	07 	rlca	rlca
-2466	07 	rlca	rlca
-2467	dd 77 03 	ld (ix+$03),a	ld (ix+$00),a
-246a	9f 	sbc a,a	sbc a,a
-246b	dd 77 04 	ld (ix+$04),a	ld (ix+$00),a
-246e	cd 43 40 	call $4043	call $0000
-2471	21 00 00 	ld hl,$0000	ld hl,$0000
-2474	22 ea 54 	ld ($54ea),hl	ld ($0000),hl
-2477	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-247a	cd f9 35 	call $35f9	call $0000
-247d	22 f0 54 	ld ($54f0),hl	ld ($0000),hl
-2480	fd 2a dc 54 	ld iy,($54dc)	ld iy,($0000)
-2484	cd db 24 	call $24db	call $0000
-2487	fd 7e 00 	ld a,(iy)	ld a,(iy)
-248a	fe 8b 	cp $8b	cp $00
-248c	ca 30 2d 	jp z,$2d30	jp z,$0000
-248f	fe c9 	cp $c9	cp $00
-2491	ca 43 2d 	jp z,$2d43	jp z,$0000
-2494	fe cc 	cp $cc	cp $00
-2496	ca 43 2d 	jp z,$2d43	jp z,$0000
-2499	fd 22 f4 54 	ld ($54f4),iy	ld ($0000),iy
-249d	cd 33 06 	call $0633	call $0000
-24a0	cd 0b 45 	call $450b	call $0000
-24a3	fd 23 	inc iy	inc iy
-24a5	fe 3a 	cp $3a	cp $00
-24a7	28 f7 	jr z,$-$07	jr z,$-$00
-24a9	fe 0d 	cp $0d	cp $00
-24ab	28 d7 	jr z,$-$27	jr z,$-$00
-24ad	fe 98 	cp $98	cp $00
-24af	ea 93 25 	jp pe,$2593	jp pe,$0000
-24b2	d6 c7 	sub $c7	sub $00
-24b4	fa 16 25 	jp m,$2516	jp m,$0000
-24b7	87 	add a,a	add a,a
-24b8	4f 	ld c,a	ld c,a
-24b9	06 00 	ld b,$00	ld b,$00
-24bb	21 a5 23 	ld hl,$23a5	ld hl,$0000
-24be	09 	add hl,bc	add hl,bc
-24bf	7e 	ld a,(hl)	ld a,(hl)
-24c0	23 	inc hl	inc hl
-24c1	66 	ld h,(hl)	ld h,(hl)
-24c2	6f 	ld l,a	ld l,a
-24c3	cd 0b 45 	call $450b	call $0000
-24c6	e9 	jp (hl)	jp (hl)
-24c7	fd e5 	push iy	push iy
-24c9	e1 	pop hl	pop hl
-24ca	ed 4b dc 54 	ld bc,($54dc)	ld bc,($0000)
-24ce	ed 42 	sbc hl,bc	sbc hl,bc
-24d0	da b0 37 	jp c,$37b0	jp c,$0000
-24d3	1e 00 	ld e,$00	ld e,$00
-24d5	cd 53 06 	call $0653	call $0000
-24d8	c3 af 37 	jp $37af	jp $0000
-24db	fd 7e 00 	ld a,(iy)	ld a,(iy)
-24de	01 03 00 	ld bc,$0003	ld bc,$0000
-24e1	fd 09 	add iy,bc	add iy,bc
-24e3	b7 	or a	or a
-24e4	28 e1 	jr z,$-$1d	jr z,$-$00
-24e6	2a e6 54 	ld hl,($54e6)	ld hl,($0000)
-24e9	7c 	ld a,h	ld a,h
-24ea	b5 	or l	or l
-24eb	c8 	ret z	ret z
-24ec	fd 56 ff 	ld d,(iy-$01)	ld d,(iy-$00)
-24ef	fd 5e fe 	ld e,(iy-$02)	ld e,(iy-$00)
-24f2	ed 52 	sbc hl,de	sbc hl,de
-24f4	d8 	ret c	ret c
-24f5	eb 	ex de,hl	ex de,hl
-24f6	3e 5b 	ld a,$5b	ld a,$00
-24f8	cd 02 41 	call $4102	call $0000
-24fb	cd 92 41 	call $4192	call $0000
-24fe	3e 5d 	ld a,$5d	ld a,$00
-2500	cd 02 41 	call $4102	call $0000
-2503	3e 20 	ld a,$20	ld a,$00
-2505	c3 02 41 	jp $4102	jp $0000
-2508	cd 3c 18 	call $183c	call $0000
-250b	3e 0d 	ld a,$0d	ld a,$00
-250d	12 	ld (de),a	ld (de),a
-250e	21 00 52 	ld hl,$5200	ld hl,$0000
-2511	cd b3 09 	call $09b3	call $0000
-2514	18 83 	jr $-$7b	jr $-$00
-2516	fe c4 	cp $c4	cp $00
-2518	28 17 	jr z,$+$19	jr z,$+$00
-251a	fe be 	cp $be	cp $00
-251c	28 21 	jr z,$+$23	jr z,$+$00
-251e	fe bf 	cp $bf	cp $00
-2520	ca 05 0f 	jp z,$0f05	jp z,$0000
-2523	fe c0 	cp $c0	cp $00
-2525	ca ee 0e 	jp z,$0eee	jp z,$0000
-2528	c3 e0 25 	jp $25e0	jp $0000
-252b	fd e5 	push iy	push iy
+2405	ea 24 13 	jp pe,$1324	jp pe,$0000
+2408	25 	dec h	dec h
+2409	fd 0e 	trap	trap
+240b	29 	add hl,hl	add hl,hl
+240c	0f 	rrca	rrca
+240d	62 	ld h,d	ld h,d
+240e	0f 	rrca	rrca
+240f	1c 	inc e	inc e
+2410	10 5e 	djnz $+$60	djnz $+$00
+2412	0e 0e 	ld c,$0e	ld c,$00
+2414	0a 	ld a,(bc)	ld a,(bc)
+2415	9b 	sbc a,e	sbc a,e
+2416	0f 	rrca	rrca
+2417	40 25 	dec.sis h	dec.sis h
+2419	f3 	di	di
+241a	10 f3 	djnz $-$0b	djnz $-$00
+241c	10 5b 	djnz $+$5d	djnz $+$00
+241e	10 c2 	djnz $-$3c	djnz $-$00
+2420	25 	dec h	dec h
+2421	13 	inc de	inc de
+2422	25 	dec h	dec h
+2423	7f 	ld a,a	ld a,a
+2424	31 c2 25 	ld sp,$25c2	ld sp,$0000
+2427	05 	dec b	dec b
+2428	31 cd 18 	ld sp,$18cd	ld sp,$0000
+242b	35 	dec (hl)	dec (hl)
+242c	28 0d 	jr z,$+$0f	jr z,$+$00
+242e	cd 1e 18 	call $181e	call $0000
+2431	3e 0d 	ld a,$0d	ld a,$00
+2433	12 	ld (de),a	ld (de),a
+2434	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
+2438	cd e2 3f 	call $3fe2	call $0000
+243b	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
+243f	dd 21 f6 54 	ld ix,$54f6	ld ix,$0000
+2443	ed 5f 	ld a,r	ld a,r
+2445	28 fc 	jr z,$-$02	jr z,$-$00
+2447	07 	rlca	rlca
+2448	07 	rlca	rlca
+2449	dd 77 03 	ld (ix+$03),a	ld (ix+$00),a
+244c	9f 	sbc a,a	sbc a,a
+244d	dd 77 04 	ld (ix+$04),a	ld (ix+$00),a
+2450	cd 25 40 	call $4025	call $0000
+2453	21 00 00 	ld hl,$0000	ld hl,$0000
+2456	22 ea 54 	ld ($54ea),hl	ld ($0000),hl
+2459	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+245c	cd db 35 	call $35db	call $0000
+245f	22 f0 54 	ld ($54f0),hl	ld ($0000),hl
+2462	fd 2a dc 54 	ld iy,($54dc)	ld iy,($0000)
+2466	cd bd 24 	call $24bd	call $0000
+2469	fd 7e 00 	ld a,(iy)	ld a,(iy)
+246c	fe 8b 	cp $8b	cp $00
+246e	ca 12 2d 	jp z,$2d12	jp z,$0000
+2471	fe c9 	cp $c9	cp $00
+2473	ca 25 2d 	jp z,$2d25	jp z,$0000
+2476	fe cc 	cp $cc	cp $00
+2478	ca 25 2d 	jp z,$2d25	jp z,$0000
+247b	fd 22 f4 54 	ld ($54f4),iy	ld ($0000),iy
+247f	cd 15 06 	call $0615	call $0000
+2482	cd ed 44 	call $44ed	call $0000
+2485	fd 23 	inc iy	inc iy
+2487	fe 3a 	cp $3a	cp $00
+2489	28 f7 	jr z,$-$07	jr z,$-$00
+248b	fe 0d 	cp $0d	cp $00
+248d	28 d7 	jr z,$-$27	jr z,$-$00
+248f	fe 98 	cp $98	cp $00
+2491	ea 75 25 	jp pe,$2575	jp pe,$0000
+2494	d6 c7 	sub $c7	sub $00
+2496	fa f8 24 	jp m,$24f8	jp m,$0000
+2499	87 	add a,a	add a,a
+249a	4f 	ld c,a	ld c,a
+249b	06 00 	ld b,$00	ld b,$00
+249d	21 87 23 	ld hl,$2387	ld hl,$0000
+24a0	09 	add hl,bc	add hl,bc
+24a1	7e 	ld a,(hl)	ld a,(hl)
+24a2	23 	inc hl	inc hl
+24a3	66 	ld h,(hl)	ld h,(hl)
+24a4	6f 	ld l,a	ld l,a
+24a5	cd ed 44 	call $44ed	call $0000
+24a8	e9 	jp (hl)	jp (hl)
+24a9	fd e5 	push iy	push iy
+24ab	e1 	pop hl	pop hl
+24ac	ed 4b dc 54 	ld bc,($54dc)	ld bc,($0000)
+24b0	ed 42 	sbc hl,bc	sbc hl,bc
+24b2	da 92 37 	jp c,$3792	jp c,$0000
+24b5	1e 00 	ld e,$00	ld e,$00
+24b7	cd 35 06 	call $0635	call $0000
+24ba	c3 91 37 	jp $3791	jp $0000
+24bd	fd 7e 00 	ld a,(iy)	ld a,(iy)
+24c0	01 03 00 	ld bc,$0003	ld bc,$0000
+24c3	fd 09 	add iy,bc	add iy,bc
+24c5	b7 	or a	or a
+24c6	28 e1 	jr z,$-$1d	jr z,$-$00
+24c8	2a e6 54 	ld hl,($54e6)	ld hl,($0000)
+24cb	7c 	ld a,h	ld a,h
+24cc	b5 	or l	or l
+24cd	c8 	ret z	ret z
+24ce	fd 56 ff 	ld d,(iy-$01)	ld d,(iy-$00)
+24d1	fd 5e fe 	ld e,(iy-$02)	ld e,(iy-$00)
+24d4	ed 52 	sbc hl,de	sbc hl,de
+24d6	d8 	ret c	ret c
+24d7	eb 	ex de,hl	ex de,hl
+24d8	3e 5b 	ld a,$5b	ld a,$00
+24da	cd e4 40 	call $40e4	call $0000
+24dd	cd 74 41 	call $4174	call $0000
+24e0	3e 5d 	ld a,$5d	ld a,$00
+24e2	cd e4 40 	call $40e4	call $0000
+24e5	3e 20 	ld a,$20	ld a,$00
+24e7	c3 e4 40 	jp $40e4	jp $0000
+24ea	cd 1e 18 	call $181e	call $0000
+24ed	3e 0d 	ld a,$0d	ld a,$00
+24ef	12 	ld (de),a	ld (de),a
+24f0	21 00 52 	ld hl,$5200	ld hl,$0000
+24f3	cd 95 09 	call $0995	call $0000
+24f6	18 83 	jr $-$7b	jr $-$00
+24f8	fe c4 	cp $c4	cp $00
+24fa	28 17 	jr z,$+$19	jr z,$+$00
+24fc	fe be 	cp $be	cp $00
+24fe	28 21 	jr z,$+$23	jr z,$+$00
+2500	fe bf 	cp $bf	cp $00
+2502	ca e7 0e 	jp z,$0ee7	jp z,$0000
+2505	fe c0 	cp $c0	cp $00
+2507	ca d0 0e 	jp z,$0ed0	jp z,$0000
+250a	c3 c2 25 	jp $25c2	jp $0000
+250d	fd e5 	push iy	push iy
+250f	e1 	pop hl	pop hl
+2510	cd 95 09 	call $0995	call $0000
+2513	fd e5 	push iy	push iy
+2515	e1 	pop hl	pop hl
+2516	3e 0d 	ld a,$0d	ld a,$00
+2518	47 	ld b,a	ld b,a
+2519	ed b1 	cpir	cpir
+251b	e5 	push hl	push hl
+251c	fd e1 	pop iy	pop iy
+251e	c3 66 24 	jp $2466	jp $0000
+2521	cd 15 18 	call $1815	call $0000
+2524	d9 	exx	exx
+2525	e5 	push hl	push hl
+2526	d9 	exx	exx
+2527	cd 84 20 	call $2084	call $0000
+252a	cd 1e 18 	call $181e	call $0000
 252d	e1 	pop hl	pop hl
-252e	cd b3 09 	call $09b3	call $0000
-2531	fd e5 	push iy	push iy
-2533	e1 	pop hl	pop hl
-2534	3e 0d 	ld a,$0d	ld a,$00
-2536	47 	ld b,a	ld b,a
-2537	ed b1 	cpir	cpir
-2539	e5 	push hl	push hl
-253a	fd e1 	pop iy	pop iy
-253c	c3 84 24 	jp $2484	jp $0000
-253f	cd 33 18 	call $1833	call $0000
-2542	d9 	exx	exx
-2543	e5 	push hl	push hl
-2544	d9 	exx	exx
-2545	cd a2 20 	call $20a2	call $0000
-2548	cd 3c 18 	call $183c	call $0000
-254b	e1 	pop hl	pop hl
-254c	af 	xor a	xor a
-254d	12 	ld (de),a	ld (de),a
-254e	7d 	ld a,l	ld a,l
-254f	21 00 52 	ld hl,$5200	ld hl,$0000
-2552	11 00 53 	ld de,$5300	ld de,$0000
-2555	d5 	push de	push de
-2556	01 00 01 	ld bc,$0100	ld bc,$0000
-2559	ed b0 	ldir	ldir
-255b	c3 55 3f 	jp $3f55	jp $0000
-255e	cd e3 41 	call $41e3	call $0000
-2561	20 0b 	jr nz,$+$0d	jr nz,$+$00
-2563	f5 	push af	push af
-2564	e5 	push hl	push hl
-2565	cd a2 20 	call $20a2	call $0000
-2568	cd 0b 45 	call $450b	call $0000
-256b	cd e3 41 	call $41e3	call $0000
-256e	20 6d 	jr nz,$+$6f	jr nz,$+$00
-2570	d1 	pop de	pop de
-2571	c1 	pop bc	pop bc
-2572	b8 	cp b	cp b
-2573	20 74 	jr nz,$+$76	jr nz,$+$00
-2575	e6 0f 	and $0f	and $00
-2577	28 70 	jr z,$+$72	jr z,$+$00
-2579	78 	ld a,b	ld a,b
-257a	e6 c0 	and $c0	and $00
-257c	28 0a 	jr z,$+$0c	jr z,$+$00
-257e	06 02 	ld b,$02	ld b,$00
-2580	f2 88 25 	jp p,$2588	jp p,$0000
-2583	ea 88 25 	jp pe,$2588	jp pe,$0000
-2586	06 04 	ld b,$04	ld b,$00
-2588	4e 	ld c,(hl)	ld c,(hl)
-2589	1a 	ld a,(de)	ld a,(de)
-258a	77 	ld (hl),a	ld (hl),a
-258b	79 	ld a,c	ld a,c
-258c	12 	ld (de),a	ld (de),a
-258d	13 	inc de	inc de
-258e	23 	inc hl	inc hl
-258f	10 f7 	djnz $-$07	djnz $-$00
-2591	18 28 	jr $+$2a	jr $+$00
-2593	fe 2a 	cp $2a	cp $00
-2595	28 94 	jr z,$-$6a	jr z,$-$00
-2597	fe 3d 	cp $3d	cp $00
-2599	28 71 	jr z,$+$73	jr z,$+$00
-259b	fe 5b 	cp $5b	cp $00
-259d	28 52 	jr z,$+$54	jr z,$+$00
-259f	fd 2b 	dec iy	dec iy
-25a1	cd af 31 	call $31af	call $0000
-25a4	ca 99 24 	jp z,$2499	jp z,$0000
-25a7	38 37 	jr c,$+$39	jr c,$+$00
-25a9	f2 fb 20 	jp p,$20fb	jp p,$0000
-25ac	ea fb 20 	jp pe,$20fb	jp pe,$0000
-25af	7a 	ld a,d	ld a,d
-25b0	d5 	push de	push de
-25b1	e5 	push hl	push hl
-25b2	cd 3c 18 	call $183c	call $0000
-25b5	dd e1 	pop ix	pop ix
-25b7	e1 	pop hl	pop hl
-25b8	cd 18 32 	call $3218	call $0000
-25bb	c3 99 24 	jp $2499	jp $0000
-25be	cd e3 41 	call $41e3	call $0000
-25c1	20 1a 	jr nz,$+$1c	jr nz,$+$00
-25c3	47 	ld b,a	ld b,a
-25c4	e6 c0 	and $c0	and $00
-25c6	f2 e9 25 	jp p,$25e9	jp p,$0000
-25c9	ea e6 25 	jp pe,$25e6	jp pe,$0000
-25cc	cb 40 	bit 0,b	bit 0,b
-25ce	28 19 	jr z,$+$1b	jr z,$+$00
-25d0	cd 0b 45 	call $450b	call $0000
-25d3	fe 2c 	cp $2c	cp $00
-25d5	c9 	ret	ret
-25d6	cd e3 41 	call $41e3	call $0000
-25d9	c8 	ret z	ret z
-25da	d2 cd 41 	jp nc,$41cd	jp nc,$0000
-25dd	3e 1a 	ld a,$1a	ld a,$00
-25df	21 3e 10 	ld hl,$103e	ld hl,$0000
-25e2	21 3e 11 	ld hl,$113e	ld hl,$0000
-25e5	21 3e 0e 	ld hl,$0e3e	ld hl,$0000
-25e8	21 3e 06 	ld hl,$063e	ld hl,$0000
-25eb	c3 44 3f 	jp $3f44	jp $0000
-25ee	cd db 24 	call $24db	call $0000
-25f1	fd 22 f4 54 	ld ($54f4),iy	ld ($0000),iy
-25f5	cd 33 06 	call $0633	call $0000
-25f8	cd 1b 11 	call $111b	call $0000
-25fb	38 e3 	jr c,$-$1b	jr c,$-$00
-25fd	fe 0d 	cp $0d	cp $00
-25ff	28 ed 	jr z,$-$11	jr z,$-$00
-2601	21 fe 54 	ld hl,$54fe	ld hl,$0000
-2604	7e 	ld a,(hl)	ld a,(hl)
-2605	e6 0f 	and $0f	and $00
-2607	f6 30 	or $30	or $00
-2609	77 	ld (hl),a	ld (hl),a
-260a	18 af 	jr $-$4f	jr $-$00
-260c	cd 02 17 	call $1702	call $0000
-260f	08 	ex af,af'	ex af,af'
-2610	87 	add a,a	add a,a
-2611	7b 	ld a,e	ld a,e
-2612	38 01 	jr c,$+$03	jr c,$+$00
-2614	79 	ld a,c	ld a,c
-2615	08 	ex af,af'	ex af,af'
-2616	e5 	push hl	push hl
-2617	d9 	exx	exx
-2618	c1 	pop bc	pop bc
-2619	eb 	ex de,hl	ex de,hl
-261a	d9 	exx	exx
-261b	c1 	pop bc	pop bc
-261c	21 e7 29 	ld hl,$29e7	ld hl,$0000
-261f	af 	xor a	xor a
-2620	ed 42 	sbc hl,bc	sbc hl,bc
-2622	28 0a 	jr z,$+$0c	jr z,$+$00
-2624	c5 	push bc	push bc
-2625	cd 31 34 	call $3431	call $0000
-2628	20 f1 	jr nz,$-$0d	jr nz,$-$00
-262a	3e 07 	ld a,$07	ld a,$00
-262c	18 bd 	jr $-$41	jr $-$00
-262e	fd e1 	pop iy	pop iy
-2630	fd 22 f4 54 	ld ($54f4),iy	ld ($0000),iy
-2634	d9 	exx	exx
-2635	eb 	ex de,hl	ex de,hl
-2636	c5 	push bc	push bc
-2637	d9 	exx	exx
-2638	e1 	pop hl	pop hl
-2639	08 	ex af,af'	ex af,af'
-263a	5f 	ld e,a	ld e,a
-263b	4f 	ld c,a	ld c,a
-263c	1f 	rra	rra
-263d	c9 	ret	ret
-263e	fd e5 	push iy	push iy
-2640	fe 21 	cp $21	cp $00
-2642	ca 0f 27 	jp z,$270f	jp z,$0000
-2645	cd b0 42 	call $42b0	call $0000
-2648	da f9 26 	jp c,$26f9	jp c,$0000
-264b	c4 3c 43 	call nz,$433c	call nz,$0000
-264e	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2651	fe 28 	cp $28	cp $00
-2653	c2 0f 27 	jp nz,$270f	jp nz,$0000
-2656	e5 	push hl	push hl
-2657	dd e1 	pop ix	pop ix
-2659	7e 	ld a,(hl)	ld a,(hl)
-265a	e6 fe 	and $fe	and $00
-265c	23 	inc hl	inc hl
-265d	b6 	or (hl)	or (hl)
-265e	c2 0f 27 	jp nz,$270f	jp nz,$0000
-2661	c1 	pop bc	pop bc
-2662	7a 	ld a,d	ld a,d
-2663	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
-2666	e5 	push hl	push hl
-2667	dd e3 	ex (sp),ix	ex (sp),ix
-2669	e5 	push hl	push hl
-266a	f5 	push af	push af
-266b	11 01 00 	ld de,$0001	ld de,$0000
-266e	42 	ld b,d	ld b,d
-266f	fd 23 	inc iy	inc iy
-2671	c5 	push bc	push bc
-2672	d5 	push de	push de
-2673	dd e5 	push ix	push ix
-2675	cd 33 18 	call $1833	call $0000
-2678	cb 7c 	bit 7,h	bit 7,h
-267a	20 7d 	jr nz,$+$7f	jr nz,$+$00
-267c	d9 	exx	exx
-267d	23 	inc hl	inc hl
-267e	dd e1 	pop ix	pop ix
-2680	dd 23 	inc ix	inc ix
-2682	dd 75 00 	ld (ix),l	ld (ix),l
-2685	dd 23 	inc ix	inc ix
-2687	dd 74 00 	ld (ix),h	ld (ix),h
-268a	c1 	pop bc	pop bc
-268b	cd bd 36 	call $36bd	call $0000
-268e	38 6c 	jr c,$+$6e	jr c,$+$00
-2690	eb 	ex de,hl	ex de,hl
-2691	c1 	pop bc	pop bc
-2692	04 	inc b	inc b
-2693	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2696	fe 2c 	cp $2c	cp $00
-2698	28 d5 	jr z,$-$29	jr z,$-$00
-269a	dd 23 	inc ix	inc ix
-269c	cd ae 20 	call $20ae	call $0000
-269f	f1 	pop af	pop af
-26a0	cd ad 36 	call $36ad	call $0000
-26a3	38 57 	jr c,$+$59	jr c,$+$00
+252e	af 	xor a	xor a
+252f	12 	ld (de),a	ld (de),a
+2530	7d 	ld a,l	ld a,l
+2531	21 00 52 	ld hl,$5200	ld hl,$0000
+2534	11 00 53 	ld de,$5300	ld de,$0000
+2537	d5 	push de	push de
+2538	01 00 01 	ld bc,$0100	ld bc,$0000
+253b	ed b0 	ldir	ldir
+253d	c3 37 3f 	jp $3f37	jp $0000
+2540	cd c5 41 	call $41c5	call $0000
+2543	20 0b 	jr nz,$+$0d	jr nz,$+$00
+2545	f5 	push af	push af
+2546	e5 	push hl	push hl
+2547	cd 84 20 	call $2084	call $0000
+254a	cd ed 44 	call $44ed	call $0000
+254d	cd c5 41 	call $41c5	call $0000
+2550	20 6d 	jr nz,$+$6f	jr nz,$+$00
+2552	d1 	pop de	pop de
+2553	c1 	pop bc	pop bc
+2554	b8 	cp b	cp b
+2555	20 74 	jr nz,$+$76	jr nz,$+$00
+2557	e6 0f 	and $0f	and $00
+2559	28 70 	jr z,$+$72	jr z,$+$00
+255b	78 	ld a,b	ld a,b
+255c	e6 c0 	and $c0	and $00
+255e	28 0a 	jr z,$+$0c	jr z,$+$00
+2560	06 02 	ld b,$02	ld b,$00
+2562	f2 6a 25 	jp p,$256a	jp p,$0000
+2565	ea 6a 25 	jp pe,$256a	jp pe,$0000
+2568	06 04 	ld b,$04	ld b,$00
+256a	4e 	ld c,(hl)	ld c,(hl)
+256b	1a 	ld a,(de)	ld a,(de)
+256c	77 	ld (hl),a	ld (hl),a
+256d	79 	ld a,c	ld a,c
+256e	12 	ld (de),a	ld (de),a
+256f	13 	inc de	inc de
+2570	23 	inc hl	inc hl
+2571	10 f7 	djnz $-$07	djnz $-$00
+2573	18 28 	jr $+$2a	jr $+$00
+2575	fe 2a 	cp $2a	cp $00
+2577	28 94 	jr z,$-$6a	jr z,$-$00
+2579	fe 3d 	cp $3d	cp $00
+257b	28 71 	jr z,$+$73	jr z,$+$00
+257d	fe 5b 	cp $5b	cp $00
+257f	28 52 	jr z,$+$54	jr z,$+$00
+2581	fd 2b 	dec iy	dec iy
+2583	cd 91 31 	call $3191	call $0000
+2586	ca 7b 24 	jp z,$247b	jp z,$0000
+2589	38 37 	jr c,$+$39	jr c,$+$00
+258b	f2 dd 20 	jp p,$20dd	jp p,$0000
+258e	ea dd 20 	jp pe,$20dd	jp pe,$0000
+2591	7a 	ld a,d	ld a,d
+2592	d5 	push de	push de
+2593	e5 	push hl	push hl
+2594	cd 1e 18 	call $181e	call $0000
+2597	dd e1 	pop ix	pop ix
+2599	e1 	pop hl	pop hl
+259a	cd fa 31 	call $31fa	call $0000
+259d	c3 7b 24 	jp $247b	jp $0000
+25a0	cd c5 41 	call $41c5	call $0000
+25a3	20 1a 	jr nz,$+$1c	jr nz,$+$00
+25a5	47 	ld b,a	ld b,a
+25a6	e6 c0 	and $c0	and $00
+25a8	f2 cb 25 	jp p,$25cb	jp p,$0000
+25ab	ea c8 25 	jp pe,$25c8	jp pe,$0000
+25ae	cb 40 	bit 0,b	bit 0,b
+25b0	28 19 	jr z,$+$1b	jr z,$+$00
+25b2	cd ed 44 	call $44ed	call $0000
+25b5	fe 2c 	cp $2c	cp $00
+25b7	c9 	ret	ret
+25b8	cd c5 41 	call $41c5	call $0000
+25bb	c8 	ret z	ret z
+25bc	d2 af 41 	jp nc,$41af	jp nc,$0000
+25bf	3e 1a 	ld a,$1a	ld a,$00
+25c1	21 3e 10 	ld hl,$103e	ld hl,$0000
+25c4	21 3e 11 	ld hl,$113e	ld hl,$0000
+25c7	21 3e 0e 	ld hl,$0e3e	ld hl,$0000
+25ca	21 3e 06 	ld hl,$063e	ld hl,$0000
+25cd	c3 26 3f 	jp $3f26	jp $0000
+25d0	cd bd 24 	call $24bd	call $0000
+25d3	fd 22 f4 54 	ld ($54f4),iy	ld ($0000),iy
+25d7	cd 15 06 	call $0615	call $0000
+25da	cd fd 10 	call $10fd	call $0000
+25dd	38 e3 	jr c,$-$1b	jr c,$-$00
+25df	fe 0d 	cp $0d	cp $00
+25e1	28 ed 	jr z,$-$11	jr z,$-$00
+25e3	21 fe 54 	ld hl,$54fe	ld hl,$0000
+25e6	7e 	ld a,(hl)	ld a,(hl)
+25e7	e6 0f 	and $0f	and $00
+25e9	f6 30 	or $30	or $00
+25eb	77 	ld (hl),a	ld (hl),a
+25ec	18 af 	jr $-$4f	jr $-$00
+25ee	cd e4 16 	call $16e4	call $0000
+25f1	08 	ex af,af'	ex af,af'
+25f2	87 	add a,a	add a,a
+25f3	7b 	ld a,e	ld a,e
+25f4	38 01 	jr c,$+$03	jr c,$+$00
+25f6	79 	ld a,c	ld a,c
+25f7	08 	ex af,af'	ex af,af'
+25f8	e5 	push hl	push hl
+25f9	d9 	exx	exx
+25fa	c1 	pop bc	pop bc
+25fb	eb 	ex de,hl	ex de,hl
+25fc	d9 	exx	exx
+25fd	c1 	pop bc	pop bc
+25fe	21 c9 29 	ld hl,$29c9	ld hl,$0000
+2601	af 	xor a	xor a
+2602	ed 42 	sbc hl,bc	sbc hl,bc
+2604	28 0a 	jr z,$+$0c	jr z,$+$00
+2606	c5 	push bc	push bc
+2607	cd 13 34 	call $3413	call $0000
+260a	20 f1 	jr nz,$-$0d	jr nz,$-$00
+260c	3e 07 	ld a,$07	ld a,$00
+260e	18 bd 	jr $-$41	jr $-$00
+2610	fd e1 	pop iy	pop iy
+2612	fd 22 f4 54 	ld ($54f4),iy	ld ($0000),iy
+2616	d9 	exx	exx
+2617	eb 	ex de,hl	ex de,hl
+2618	c5 	push bc	push bc
+2619	d9 	exx	exx
+261a	e1 	pop hl	pop hl
+261b	08 	ex af,af'	ex af,af'
+261c	5f 	ld e,a	ld e,a
+261d	4f 	ld c,a	ld c,a
+261e	1f 	rra	rra
+261f	c9 	ret	ret
+2620	fd e5 	push iy	push iy
+2622	fe 21 	cp $21	cp $00
+2624	ca f1 26 	jp z,$26f1	jp z,$0000
+2627	cd 92 42 	call $4292	call $0000
+262a	da db 26 	jp c,$26db	jp c,$0000
+262d	c4 1e 43 	call nz,$431e	call nz,$0000
+2630	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2633	fe 28 	cp $28	cp $00
+2635	c2 f1 26 	jp nz,$26f1	jp nz,$0000
+2638	e5 	push hl	push hl
+2639	dd e1 	pop ix	pop ix
+263b	7e 	ld a,(hl)	ld a,(hl)
+263c	e6 fe 	and $fe	and $00
+263e	23 	inc hl	inc hl
+263f	b6 	or (hl)	or (hl)
+2640	c2 f1 26 	jp nz,$26f1	jp nz,$0000
+2643	c1 	pop bc	pop bc
+2644	7a 	ld a,d	ld a,d
+2645	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
+2648	e5 	push hl	push hl
+2649	dd e3 	ex (sp),ix	ex (sp),ix
+264b	e5 	push hl	push hl
+264c	f5 	push af	push af
+264d	11 01 00 	ld de,$0001	ld de,$0000
+2650	42 	ld b,d	ld b,d
+2651	fd 23 	inc iy	inc iy
+2653	c5 	push bc	push bc
+2654	d5 	push de	push de
+2655	dd e5 	push ix	push ix
+2657	cd 15 18 	call $1815	call $0000
+265a	cb 7c 	bit 7,h	bit 7,h
+265c	20 7d 	jr nz,$+$7f	jr nz,$+$00
+265e	d9 	exx	exx
+265f	23 	inc hl	inc hl
+2660	dd e1 	pop ix	pop ix
+2662	dd 23 	inc ix	inc ix
+2664	dd 75 00 	ld (ix),l	ld (ix),l
+2667	dd 23 	inc ix	inc ix
+2669	dd 74 00 	ld (ix),h	ld (ix),h
+266c	c1 	pop bc	pop bc
+266d	cd 9f 36 	call $369f	call $0000
+2670	38 6c 	jr c,$+$6e	jr c,$+$00
+2672	eb 	ex de,hl	ex de,hl
+2673	c1 	pop bc	pop bc
+2674	04 	inc b	inc b
+2675	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2678	fe 2c 	cp $2c	cp $00
+267a	28 d5 	jr z,$-$29	jr z,$-$00
+267c	dd 23 	inc ix	inc ix
+267e	cd 90 20 	call $2090	call $0000
+2681	f1 	pop af	pop af
+2682	cd 8f 36 	call $368f	call $0000
+2685	38 57 	jr c,$+$59	jr c,$+$00
+2687	e1 	pop hl	pop hl
+2688	70 	ld (hl),b	ld (hl),b
+2689	dd e3 	ex (sp),ix	ex (sp),ix
+268b	e1 	pop hl	pop hl
+268c	e6 80 	and $80	and $00
+268e	dd b6 00 	or (ix)	or (ix)
+2691	e5 	push hl	push hl
+2692	24 	inc h	inc h
+2693	19 	add hl,de	add hl,de
+2694	38 48 	jr c,$+$4a	jr c,$+$00
+2696	ed 72 	sbc hl,sp	sbc hl,sp
+2698	30 44 	jr nc,$+$46	jr nc,$+$00
+269a	e1 	pop hl	pop hl
+269b	e5 	push hl	push hl
+269c	ed 4b e0 54 	ld bc,($54e0)	ld bc,($0000)
+26a0	b7 	or a	or a
+26a1	ed 42 	sbc hl,bc	sbc hl,bc
+26a3	44 	ld b,h	ld b,h
+26a4	4d 	ld c,l	ld c,l
 26a5	e1 	pop hl	pop hl
-26a6	70 	ld (hl),b	ld (hl),b
-26a7	dd e3 	ex (sp),ix	ex (sp),ix
-26a9	e1 	pop hl	pop hl
-26aa	e6 80 	and $80	and $00
-26ac	dd b6 00 	or (ix)	or (ix)
-26af	e5 	push hl	push hl
-26b0	24 	inc h	inc h
-26b1	19 	add hl,de	add hl,de
-26b2	38 48 	jr c,$+$4a	jr c,$+$00
-26b4	ed 72 	sbc hl,sp	sbc hl,sp
-26b6	30 44 	jr nc,$+$46	jr nc,$+$00
-26b8	e1 	pop hl	pop hl
-26b9	e5 	push hl	push hl
-26ba	ed 4b e0 54 	ld bc,($54e0)	ld bc,($0000)
-26be	b7 	or a	or a
-26bf	ed 42 	sbc hl,bc	sbc hl,bc
-26c1	44 	ld b,h	ld b,h
-26c2	4d 	ld c,l	ld c,l
-26c3	e1 	pop hl	pop hl
-26c4	ed 42 	sbc hl,bc	sbc hl,bc
-26c6	cb 47 	bit 0,a	bit 0,a
-26c8	28 12 	jr z,$+$14	jr z,$+$00
-26ca	21 00 00 	ld hl,$0000	ld hl,$0000
-26cd	ed 52 	sbc hl,de	sbc hl,de
-26cf	b7 	or a	or a
-26d0	ed 42 	sbc hl,bc	sbc hl,bc
-26d2	39 	add hl,sp	add hl,sp
-26d3	28 07 	jr z,$+$09	jr z,$+$00
-26d5	f9 	ld sp,hl	ld sp,hl
-26d6	d5 	push de	push de
-26d7	c5 	push bc	push bc
-26d8	f5 	push af	push af
-26d9	cd dc 26 	call $26dc	call $0000
-26dc	dd 75 00 	ld (ix),l	ld (ix),l
-26df	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
-26e2	78 	ld a,b	ld a,b
-26e3	b1 	or c	or c
-26e4	28 09 	jr z,$+$0b	jr z,$+$00
-26e6	d5 	push de	push de
-26e7	eb 	ex de,hl	ex de,hl
-26e8	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
-26eb	ed b0 	ldir	ldir
-26ed	eb 	ex de,hl	ex de,hl
-26ee	d1 	pop de	pop de
-26ef	7a 	ld a,d	ld a,d
-26f0	b3 	or e	or e
-26f1	28 0e 	jr z,$+$10	jr z,$+$00
-26f3	36 00 	ld (hl),$00	ld (hl),$00
-26f5	23 	inc hl	inc hl
-26f6	1b 	dec de	dec de
-26f7	18 f6 	jr $-$08	jr $-$00
-26f9	3e 0a 	ld a,$0a	ld a,$00
-26fb	21 3e 0b 	ld hl,$0b3e	ld hl,$0000
-26fe	c3 44 3f 	jp $3f44	jp $0000
-2701	ed 72 	sbc hl,sp	sbc hl,sp
-2703	30 04 	jr nc,$+$06	jr nc,$+$00
-2705	39 	add hl,sp	add hl,sp
-2706	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
-2709	cd 00 45 	call $4500	call $0000
-270c	c3 3e 26 	jp $263e	jp $0000
-270f	fd e1 	pop iy	pop iy
-2711	cd d6 25 	call $25d6	call $0000
-2714	b7 	or a	or a
-2715	28 e2 	jr z,$-$1c	jr z,$-$00
-2717	fa f9 26 	jp m,$26f9	jp m,$0000
-271a	cb 77 	bit 6,a	bit 6,a
-271c	20 db 	jr nz,$-$23	jr nz,$-$00
-271e	47 	ld b,a	ld b,a
-271f	cd 0b 45 	call $450b	call $0000
-2722	fe ea 	cp $ea	cp $00
-2724	3e 00 	ld a,$00	ld a,$00
-2726	20 03 	jr nz,$+$05	jr nz,$+$00
-2728	fd 23 	inc iy	inc iy
-272a	3c 	inc a	inc a
-272b	f5 	push af	push af
-272c	78 	ld a,b	ld a,b
-272d	d9 	exx	exx
-272e	21 00 00 	ld hl,$0000	ld hl,$0000
-2731	4c 	ld c,h	ld c,h
-2732	cd f0 31 	call $31f0	call $0000
-2735	dd e5 	push ix	push ix
-2737	cd 33 18 	call $1833	call $0000
-273a	dd e1 	pop ix	pop ix
+26a6	ed 42 	sbc hl,bc	sbc hl,bc
+26a8	cb 47 	bit 0,a	bit 0,a
+26aa	28 12 	jr z,$+$14	jr z,$+$00
+26ac	21 00 00 	ld hl,$0000	ld hl,$0000
+26af	ed 52 	sbc hl,de	sbc hl,de
+26b1	b7 	or a	or a
+26b2	ed 42 	sbc hl,bc	sbc hl,bc
+26b4	39 	add hl,sp	add hl,sp
+26b5	28 07 	jr z,$+$09	jr z,$+$00
+26b7	f9 	ld sp,hl	ld sp,hl
+26b8	d5 	push de	push de
+26b9	c5 	push bc	push bc
+26ba	f5 	push af	push af
+26bb	cd be 26 	call $26be	call $0000
+26be	dd 75 00 	ld (ix),l	ld (ix),l
+26c1	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
+26c4	78 	ld a,b	ld a,b
+26c5	b1 	or c	or c
+26c6	28 09 	jr z,$+$0b	jr z,$+$00
+26c8	d5 	push de	push de
+26c9	eb 	ex de,hl	ex de,hl
+26ca	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
+26cd	ed b0 	ldir	ldir
+26cf	eb 	ex de,hl	ex de,hl
+26d0	d1 	pop de	pop de
+26d1	7a 	ld a,d	ld a,d
+26d2	b3 	or e	or e
+26d3	28 0e 	jr z,$+$10	jr z,$+$00
+26d5	36 00 	ld (hl),$00	ld (hl),$00
+26d7	23 	inc hl	inc hl
+26d8	1b 	dec de	dec de
+26d9	18 f6 	jr $-$08	jr $-$00
+26db	3e 0a 	ld a,$0a	ld a,$00
+26dd	21 3e 0b 	ld hl,$0b3e	ld hl,$0000
+26e0	c3 26 3f 	jp $3f26	jp $0000
+26e3	ed 72 	sbc hl,sp	sbc hl,sp
+26e5	30 04 	jr nc,$+$06	jr nc,$+$00
+26e7	39 	add hl,sp	add hl,sp
+26e8	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
+26eb	cd e2 44 	call $44e2	call $0000
+26ee	c3 20 26 	jp $2620	jp $0000
+26f1	fd e1 	pop iy	pop iy
+26f3	cd b8 25 	call $25b8	call $0000
+26f6	b7 	or a	or a
+26f7	28 e2 	jr z,$-$1c	jr z,$-$00
+26f9	fa db 26 	jp m,$26db	jp m,$0000
+26fc	cb 77 	bit 6,a	bit 6,a
+26fe	20 db 	jr nz,$-$23	jr nz,$-$00
+2700	47 	ld b,a	ld b,a
+2701	cd ed 44 	call $44ed	call $0000
+2704	fe ea 	cp $ea	cp $00
+2706	3e 00 	ld a,$00	ld a,$00
+2708	20 03 	jr nz,$+$05	jr nz,$+$00
+270a	fd 23 	inc iy	inc iy
+270c	3c 	inc a	inc a
+270d	f5 	push af	push af
+270e	78 	ld a,b	ld a,b
+270f	d9 	exx	exx
+2710	21 00 00 	ld hl,$0000	ld hl,$0000
+2713	4c 	ld c,h	ld c,h
+2714	cd d2 31 	call $31d2	call $0000
+2717	dd e5 	push ix	push ix
+2719	cd 15 18 	call $1815	call $0000
+271c	dd e1 	pop ix	pop ix
+271e	d9 	exx	exx
+271f	23 	inc hl	inc hl
+2720	eb 	ex de,hl	ex de,hl
+2721	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
+2724	f1 	pop af	pop af
+2725	c3 91 26 	jp $2691	jp $0000
+2728	fe 23 	cp $23	cp $00
+272a	20 64 	jr nz,$+$66	jr nz,$+$00
+272c	cd bd 36 	call $36bd	call $0000
+272f	cd e2 44 	call $44e2	call $0000
+2732	d5 	push de	push de
+2733	cd e4 16 	call $16e4	call $0000
+2736	08 	ex af,af'	ex af,af'
+2737	fa 57 27 	jp m,$2757	jp m,$0000
+273a	d1 	pop de	pop de
+273b	c5 	push bc	push bc
 273c	d9 	exx	exx
-273d	23 	inc hl	inc hl
-273e	eb 	ex de,hl	ex de,hl
-273f	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
-2742	f1 	pop af	pop af
-2743	c3 af 26 	jp $26af	jp $0000
-2746	fe 23 	cp $23	cp $00
-2748	20 64 	jr nz,$+$66	jr nz,$+$00
-274a	cd db 36 	call $36db	call $0000
-274d	cd 00 45 	call $4500	call $0000
-2750	d5 	push de	push de
-2751	cd 02 17 	call $1702	call $0000
-2754	08 	ex af,af'	ex af,af'
-2755	fa 75 27 	jp m,$2775	jp m,$0000
+273d	7d 	ld a,l	ld a,l
+273e	d9 	exx	exx
+273f	cd 45 06 	call $0645	call $0000
+2742	d9 	exx	exx
+2743	7c 	ld a,h	ld a,h
+2744	d9 	exx	exx
+2745	cd 45 06 	call $0645	call $0000
+2748	7d 	ld a,l	ld a,l
+2749	cd 45 06 	call $0645	call $0000
+274c	7c 	ld a,h	ld a,h
+274d	cd 45 06 	call $0645	call $0000
+2750	c1 	pop bc	pop bc
+2751	79 	ld a,c	ld a,c
+2752	cd 45 06 	call $0645	call $0000
+2755	18 d8 	jr $-$26	jr $-$00
+2757	4b 	ld c,e	ld c,e
 2758	d1 	pop de	pop de
-2759	c5 	push bc	push bc
-275a	d9 	exx	exx
-275b	7d 	ld a,l	ld a,l
-275c	d9 	exx	exx
-275d	cd 63 06 	call $0663	call $0000
-2760	d9 	exx	exx
-2761	7c 	ld a,h	ld a,h
-2762	d9 	exx	exx
-2763	cd 63 06 	call $0663	call $0000
-2766	7d 	ld a,l	ld a,l
-2767	cd 63 06 	call $0663	call $0000
-276a	7c 	ld a,h	ld a,h
-276b	cd 63 06 	call $0663	call $0000
-276e	c1 	pop bc	pop bc
-276f	79 	ld a,c	ld a,c
-2770	cd 63 06 	call $0663	call $0000
-2773	18 d8 	jr $-$26	jr $-$00
-2775	4b 	ld c,e	ld c,e
-2776	d1 	pop de	pop de
-2777	21 00 52 	ld hl,$5200	ld hl,$0000
-277a	0c 	inc c	inc c
-277b	0d 	dec c	dec c
-277c	28 09 	jr z,$+$0b	jr z,$+$00
-277e	7e 	ld a,(hl)	ld a,(hl)
-277f	23 	inc hl	inc hl
-2780	c5 	push bc	push bc
-2781	cd 63 06 	call $0663	call $0000
-2784	c1 	pop bc	pop bc
-2785	18 f4 	jr $-$0a	jr $-$00
-2787	3e 0d 	ld a,$0d	ld a,$00
-2789	cd 63 06 	call $0663	call $0000
-278c	18 bf 	jr $-$3f	jr $-$00
-278e	06 02 	ld b,$02	ld b,$00
-2790	18 22 	jr $+$24	jr $+$00
-2792	01 00 01 	ld bc,$0100	ld bc,$0000
-2795	18 1d 	jr $+$1f	jr $+$00
-2797	21 00 54 	ld hl,$5400	ld hl,$0000
-279a	af 	xor a	xor a
-279b	be 	cp (hl)	cp (hl)
-279c	28 10 	jr z,$+$12	jr z,$+$00
-279e	3a fb 54 	ld a,($54fb)	ld a,($0000)
-27a1	b7 	or a	or a
-27a2	28 0a 	jr z,$+$0c	jr z,$+$00
-27a4	96 	sub (hl)	sub (hl)
-27a5	28 07 	jr z,$+$09	jr z,$+$00
-27a7	30 fb 	jr nc,$-$03	jr nc,$-$00
-27a9	ed 44 	neg	neg
-27ab	cd a3 35 	call $35a3	call $0000
-27ae	3a 00 54 	ld a,($5400)	ld a,($0000)
-27b1	4f 	ld c,a	ld c,a
-27b2	06 00 	ld b,$00	ld b,$00
-27b4	cd 36 35 	call $3536	call $0000
-27b7	28 38 	jr z,$+$3a	jr z,$+$00
-27b9	cb 80 	res 0,b	res 0,b
-27bb	fd 23 	inc iy	inc iy
-27bd	fe 7e 	cp $7e	cp $00
-27bf	28 cd 	jr z,$-$31	jr z,$-$00
-27c1	fe 3b 	cp $3b	cp $00
-27c3	28 cd 	jr z,$-$31	jr z,$-$00
-27c5	fe 2c 	cp $2c	cp $00
-27c7	28 ce 	jr z,$-$30	jr z,$-$00
-27c9	cd 5c 35 	call $355c	call $0000
-27cc	28 e6 	jr z,$-$18	jr z,$-$00
-27ce	fd 2b 	dec iy	dec iy
-27d0	c5 	push bc	push bc
-27d1	cd 02 17 	call $1702	call $0000
-27d4	08 	ex af,af'	ex af,af'
-27d5	fa eb 27 	jp m,$27eb	jp m,$0000
-27d8	d1 	pop de	pop de
-27d9	d5 	push de	push de
-27da	cb 4a 	bit 1,d	bit 1,d
-27dc	f5 	push af	push af
-27dd	cc d0 1f 	call z,$1fd0	call z,$0000
-27e0	f1 	pop af	pop af
-27e1	c4 8d 1f 	call nz,$1f8d	call nz,$0000
-27e4	c1 	pop bc	pop bc
-27e5	c5 	push bc	push bc
-27e6	79 	ld a,c	ld a,c
-27e7	93 	sub e	sub e
-27e8	d4 a3 35 	call nc,$35a3	call nc,$0000
-27eb	c1 	pop bc	pop bc
-27ec	cd b1 35 	call $35b1	call $0000
-27ef	18 c3 	jr $-$3b	jr $-$00
-27f1	cb 40 	bit 0,b	bit 0,b
-27f3	cc fb 40 	call z,$40fb	call z,$0000
-27f6	18 3f 	jr $+$41	jr $+$00
-27f8	fd 23 	inc iy	inc iy
-27fa	cd 0b 45 	call $450b	call $0000
-27fd	21 00 00 	ld hl,$0000	ld hl,$0000
-2800	fe ea 	cp $ea	cp $00
-2802	20 1d 	jr nz,$+$1f	jr nz,$+$00
-2804	fd 23 	inc iy	inc iy
-2806	2a ea 54 	ld hl,($54ea)	ld hl,($0000)
-2809	e5 	push hl	push hl
-280a	2a ec 54 	ld hl,($54ec)	ld hl,($0000)
-280d	e5 	push hl	push hl
-280e	21 00 04 	ld hl,$0400	ld hl,$0000
-2811	e5 	push hl	push hl
-2812	21 ea 54 	ld hl,$54ea	ld hl,$0000
-2815	e5 	push hl	push hl
-2816	21 2a 35 	ld hl,$352a	ld hl,$0000
-2819	e5 	push hl	push hl
-281a	21 00 00 	ld hl,$0000	ld hl,$0000
-281d	39 	add hl,sp	add hl,sp
-281e	cd 0b 45 	call $450b	call $0000
-2821	22 ec 54 	ld ($54ec),hl	ld ($0000),hl
-2824	fd 22 ea 54 	ld ($54ea),iy	ld ($0000),iy
-2828	fe 87 	cp $87	cp $00
-282a	c2 31 25 	jp nz,$2531	jp nz,$0000
-282d	fd 23 	inc iy	inc iy
-282f	ed 62 	sbc hl,hl	sbc hl,hl
-2831	22 ec 54 	ld ($54ec),hl	ld ($0000),hl
-2834	22 ea 54 	ld ($54ea),hl	ld ($0000),hl
-2837	c3 99 24 	jp $2499	jp $0000
-283a	cd 36 35 	call $3536	call $0000
-283d	ca ea 0e 	jp z,$0eea	jp z,$0000
-2840	fe 85 	cp $85	cp $00
-2842	28 b4 	jr z,$-$4a	jr z,$-$00
-2844	cd 33 18 	call $1833	call $0000
-2847	fd 7e 00 	ld a,(iy)	ld a,(iy)
-284a	fd 23 	inc iy	inc iy
-284c	1e 2c 	ld e,$2c	ld e,$00
-284e	fe e5 	cp $e5	cp $00
-2850	28 0b 	jr z,$+$0d	jr z,$+$00
-2852	fe e4 	cp $e4	cp $00
-2854	28 07 	jr z,$+$09	jr z,$+$00
-2856	1e f2 	ld e,$f2	ld e,$00
-2858	bb 	cp e	cp e
-2859	3e 27 	ld a,$27	ld a,$00
-285b	20 4f 	jr nz,$+$51	jr nz,$+$00
-285d	57 	ld d,a	ld d,a
-285e	d9 	exx	exx
-285f	e5 	push hl	push hl
-2860	d9 	exx	exx
-2861	c1 	pop bc	pop bc
-2862	78 	ld a,b	ld a,b
-2863	b4 	or h	or h
-2864	b5 	or l	or l
-2865	20 32 	jr nz,$+$34	jr nz,$+$00
-2867	b1 	or c	or c
-2868	28 2f 	jr z,$+$31	jr z,$+$00
-286a	0d 	dec c	dec c
-286b	28 11 	jr z,$+$13	jr z,$+$00
-286d	cd 36 35 	call $3536	call $0000
-2870	28 27 	jr z,$+$29	jr z,$+$00
-2872	fd 23 	inc iy	inc iy
-2874	fe 22 	cp $22	cp $00
-2876	28 1a 	jr z,$+$1c	jr z,$+$00
-2878	bb 	cp e	cp e
-2879	20 f2 	jr nz,$-$0c	jr nz,$-$00
-287b	0d 	dec c	dec c
-287c	20 ef 	jr nz,$-$0f	jr nz,$-$00
-287e	7b 	ld a,e	ld a,e
-287f	fe f2 	cp $f2	cp $00
-2881	28 2c 	jr z,$+$2e	jr z,$+$00
-2883	d5 	push de	push de
-2884	cd 60 18 	call $1860	call $0000
-2887	d1 	pop de	pop de
-2888	7a 	ld a,d	ld a,d
-2889	fe e5 	cp $e5	cp $00
-288b	28 30 	jr z,$+$32	jr z,$+$00
-288d	cd 42 35 	call $3542	call $0000
-2890	18 3c 	jr $+$3e	jr $+$00
-2892	cd 99 36 	call $3699	call $0000
-2895	fd 23 	inc iy	inc iy
-2897	18 d4 	jr $-$2a	jr $-$00
-2899	fd 7e 00 	ld a,(iy)	ld a,(iy)
-289c	fd 23 	inc iy	inc iy
-289e	fe 8b 	cp $8b	cp $00
-28a0	ca e2 2c 	jp z,$2ce2	jp z,$0000
-28a3	fe 0d 	cp $0d	cp $00
-28a5	20 f2 	jr nz,$-$0c	jr nz,$-$00
-28a7	3e 28 	ld a,$28	ld a,$00
-28a9	21 3e 22 	ld hl,$223e	ld hl,$0000
-28ac	c3 44 3f 	jp $3f44	jp $0000
-28af	3e ee 	ld a,$ee	ld a,$00
-28b1	c3 e7 29 	jp $29e7	jp $0000
-28b4	cd 60 18 	call $1860	call $0000
-28b7	cd 36 35 	call $3536	call $0000
-28ba	c2 e0 25 	jp nz,$25e0	jp nz,$0000
-28bd	d9 	exx	exx
-28be	cd 43 41 	call $4143	call $0000
-28c1	e5 	push hl	push hl
-28c2	fd e1 	pop iy	pop iy
-28c4	ca 84 24 	jp z,$2484	jp z,$0000
-28c7	3e 29 	ld a,$29	ld a,$00
-28c9	18 e1 	jr $-$1d	jr $-$00
-28cb	cd 60 18 	call $1860	call $0000
-28ce	fd e5 	push iy	push iy
-28d0	cd 86 32 	call $3286	call $0000
-28d3	cd b7 28 	call $28b7	call $0000
-28d6	d1 	pop de	pop de
-28d7	21 d6 28 	ld hl,$28d6	ld hl,$0000
-28da	b7 	or a	or a
-28db	ed 52 	sbc hl,de	sbc hl,de
-28dd	fd e1 	pop iy	pop iy
-28df	28 30 	jr z,$+$32	jr z,$+$00
-28e1	3e 26 	ld a,$26	ld a,$00
-28e3	18 c7 	jr $-$37	jr $-$00
-28e5	fd e5 	push iy	push iy
-28e7	cd 86 32 	call $3286	call $0000
-28ea	cd 99 24 	call $2499	call $0000
-28ed	c1 	pop bc	pop bc
-28ee	c5 	push bc	push bc
-28ef	21 ed 28 	ld hl,$28ed	ld hl,$0000
-28f2	b7 	or a	or a
-28f3	ed 42 	sbc hl,bc	sbc hl,bc
-28f5	28 0b 	jr z,$+$0d	jr z,$+$00
-28f7	3e 03 	ld a,$03	ld a,$00
-28f9	cd 31 34 	call $3431	call $0000
-28fc	20 ef 	jr nz,$-$0f	jr nz,$-$00
-28fe	3e 2b 	ld a,$2b	ld a,$00
-2900	18 aa 	jr $-$54	jr $-$00
-2902	cd 33 18 	call $1833	call $0000
-2905	cd 59 1f 	call $1f59	call $0000
-2908	c1 	pop bc	pop bc
-2909	d1 	pop de	pop de
-290a	20 05 	jr nz,$+$07	jr nz,$+$00
-290c	d5 	push de	push de
-290d	c5 	push bc	push bc
-290e	d5 	push de	push de
-290f	fd e1 	pop iy	pop iy
-2911	c3 99 24 	jp $2499	jp $0000
-2914	cd af 31 	call $31af	call $0000
-2917	20 91 	jr nz,$-$6d	jr nz,$-$00
-2919	f5 	push af	push af
-291a	fd 7e 00 	ld a,(iy)	ld a,(iy)
-291d	fe b8 	cp $b8	cp $00
-291f	3e 24 	ld a,$24	ld a,$00
-2921	20 89 	jr nz,$-$75	jr nz,$-$00
+2759	21 00 52 	ld hl,$5200	ld hl,$0000
+275c	0c 	inc c	inc c
+275d	0d 	dec c	dec c
+275e	28 09 	jr z,$+$0b	jr z,$+$00
+2760	7e 	ld a,(hl)	ld a,(hl)
+2761	23 	inc hl	inc hl
+2762	c5 	push bc	push bc
+2763	cd 45 06 	call $0645	call $0000
+2766	c1 	pop bc	pop bc
+2767	18 f4 	jr $-$0a	jr $-$00
+2769	3e 0d 	ld a,$0d	ld a,$00
+276b	cd 45 06 	call $0645	call $0000
+276e	18 bf 	jr $-$3f	jr $-$00
+2770	06 02 	ld b,$02	ld b,$00
+2772	18 22 	jr $+$24	jr $+$00
+2774	01 00 01 	ld bc,$0100	ld bc,$0000
+2777	18 1d 	jr $+$1f	jr $+$00
+2779	21 00 54 	ld hl,$5400	ld hl,$0000
+277c	af 	xor a	xor a
+277d	be 	cp (hl)	cp (hl)
+277e	28 10 	jr z,$+$12	jr z,$+$00
+2780	3a fb 54 	ld a,($54fb)	ld a,($0000)
+2783	b7 	or a	or a
+2784	28 0a 	jr z,$+$0c	jr z,$+$00
+2786	96 	sub (hl)	sub (hl)
+2787	28 07 	jr z,$+$09	jr z,$+$00
+2789	30 fb 	jr nc,$-$03	jr nc,$-$00
+278b	ed 44 	neg	neg
+278d	cd 85 35 	call $3585	call $0000
+2790	3a 00 54 	ld a,($5400)	ld a,($0000)
+2793	4f 	ld c,a	ld c,a
+2794	06 00 	ld b,$00	ld b,$00
+2796	cd 18 35 	call $3518	call $0000
+2799	28 38 	jr z,$+$3a	jr z,$+$00
+279b	cb 80 	res 0,b	res 0,b
+279d	fd 23 	inc iy	inc iy
+279f	fe 7e 	cp $7e	cp $00
+27a1	28 cd 	jr z,$-$31	jr z,$-$00
+27a3	fe 3b 	cp $3b	cp $00
+27a5	28 cd 	jr z,$-$31	jr z,$-$00
+27a7	fe 2c 	cp $2c	cp $00
+27a9	28 ce 	jr z,$-$30	jr z,$-$00
+27ab	cd 3e 35 	call $353e	call $0000
+27ae	28 e6 	jr z,$-$18	jr z,$-$00
+27b0	fd 2b 	dec iy	dec iy
+27b2	c5 	push bc	push bc
+27b3	cd e4 16 	call $16e4	call $0000
+27b6	08 	ex af,af'	ex af,af'
+27b7	fa cd 27 	jp m,$27cd	jp m,$0000
+27ba	d1 	pop de	pop de
+27bb	d5 	push de	push de
+27bc	cb 4a 	bit 1,d	bit 1,d
+27be	f5 	push af	push af
+27bf	cc b2 1f 	call z,$1fb2	call z,$0000
+27c2	f1 	pop af	pop af
+27c3	c4 6f 1f 	call nz,$1f6f	call nz,$0000
+27c6	c1 	pop bc	pop bc
+27c7	c5 	push bc	push bc
+27c8	79 	ld a,c	ld a,c
+27c9	93 	sub e	sub e
+27ca	d4 85 35 	call nc,$3585	call nc,$0000
+27cd	c1 	pop bc	pop bc
+27ce	cd 93 35 	call $3593	call $0000
+27d1	18 c3 	jr $-$3b	jr $-$00
+27d3	cb 40 	bit 0,b	bit 0,b
+27d5	cc dd 40 	call z,$40dd	call z,$0000
+27d8	18 3f 	jr $+$41	jr $+$00
+27da	fd 23 	inc iy	inc iy
+27dc	cd ed 44 	call $44ed	call $0000
+27df	21 00 00 	ld hl,$0000	ld hl,$0000
+27e2	fe ea 	cp $ea	cp $00
+27e4	20 1d 	jr nz,$+$1f	jr nz,$+$00
+27e6	fd 23 	inc iy	inc iy
+27e8	2a ea 54 	ld hl,($54ea)	ld hl,($0000)
+27eb	e5 	push hl	push hl
+27ec	2a ec 54 	ld hl,($54ec)	ld hl,($0000)
+27ef	e5 	push hl	push hl
+27f0	21 00 04 	ld hl,$0400	ld hl,$0000
+27f3	e5 	push hl	push hl
+27f4	21 ea 54 	ld hl,$54ea	ld hl,$0000
+27f7	e5 	push hl	push hl
+27f8	21 0c 35 	ld hl,$350c	ld hl,$0000
+27fb	e5 	push hl	push hl
+27fc	21 00 00 	ld hl,$0000	ld hl,$0000
+27ff	39 	add hl,sp	add hl,sp
+2800	cd ed 44 	call $44ed	call $0000
+2803	22 ec 54 	ld ($54ec),hl	ld ($0000),hl
+2806	fd 22 ea 54 	ld ($54ea),iy	ld ($0000),iy
+280a	fe 87 	cp $87	cp $00
+280c	c2 13 25 	jp nz,$2513	jp nz,$0000
+280f	fd 23 	inc iy	inc iy
+2811	ed 62 	sbc hl,hl	sbc hl,hl
+2813	22 ec 54 	ld ($54ec),hl	ld ($0000),hl
+2816	22 ea 54 	ld ($54ea),hl	ld ($0000),hl
+2819	c3 7b 24 	jp $247b	jp $0000
+281c	cd 18 35 	call $3518	call $0000
+281f	ca cc 0e 	jp z,$0ecc	jp z,$0000
+2822	fe 85 	cp $85	cp $00
+2824	28 b4 	jr z,$-$4a	jr z,$-$00
+2826	cd 15 18 	call $1815	call $0000
+2829	fd 7e 00 	ld a,(iy)	ld a,(iy)
+282c	fd 23 	inc iy	inc iy
+282e	1e 2c 	ld e,$2c	ld e,$00
+2830	fe e5 	cp $e5	cp $00
+2832	28 0b 	jr z,$+$0d	jr z,$+$00
+2834	fe e4 	cp $e4	cp $00
+2836	28 07 	jr z,$+$09	jr z,$+$00
+2838	1e f2 	ld e,$f2	ld e,$00
+283a	bb 	cp e	cp e
+283b	3e 27 	ld a,$27	ld a,$00
+283d	20 4f 	jr nz,$+$51	jr nz,$+$00
+283f	57 	ld d,a	ld d,a
+2840	d9 	exx	exx
+2841	e5 	push hl	push hl
+2842	d9 	exx	exx
+2843	c1 	pop bc	pop bc
+2844	78 	ld a,b	ld a,b
+2845	b4 	or h	or h
+2846	b5 	or l	or l
+2847	20 32 	jr nz,$+$34	jr nz,$+$00
+2849	b1 	or c	or c
+284a	28 2f 	jr z,$+$31	jr z,$+$00
+284c	0d 	dec c	dec c
+284d	28 11 	jr z,$+$13	jr z,$+$00
+284f	cd 18 35 	call $3518	call $0000
+2852	28 27 	jr z,$+$29	jr z,$+$00
+2854	fd 23 	inc iy	inc iy
+2856	fe 22 	cp $22	cp $00
+2858	28 1a 	jr z,$+$1c	jr z,$+$00
+285a	bb 	cp e	cp e
+285b	20 f2 	jr nz,$-$0c	jr nz,$-$00
+285d	0d 	dec c	dec c
+285e	20 ef 	jr nz,$-$0f	jr nz,$-$00
+2860	7b 	ld a,e	ld a,e
+2861	fe f2 	cp $f2	cp $00
+2863	28 2c 	jr z,$+$2e	jr z,$+$00
+2865	d5 	push de	push de
+2866	cd 42 18 	call $1842	call $0000
+2869	d1 	pop de	pop de
+286a	7a 	ld a,d	ld a,d
+286b	fe e5 	cp $e5	cp $00
+286d	28 30 	jr z,$+$32	jr z,$+$00
+286f	cd 24 35 	call $3524	call $0000
+2872	18 3c 	jr $+$3e	jr $+$00
+2874	cd 7b 36 	call $367b	call $0000
+2877	fd 23 	inc iy	inc iy
+2879	18 d4 	jr $-$2a	jr $-$00
+287b	fd 7e 00 	ld a,(iy)	ld a,(iy)
+287e	fd 23 	inc iy	inc iy
+2880	fe 8b 	cp $8b	cp $00
+2882	ca c4 2c 	jp z,$2cc4	jp z,$0000
+2885	fe 0d 	cp $0d	cp $00
+2887	20 f2 	jr nz,$-$0c	jr nz,$-$00
+2889	3e 28 	ld a,$28	ld a,$00
+288b	21 3e 22 	ld hl,$223e	ld hl,$0000
+288e	c3 26 3f 	jp $3f26	jp $0000
+2891	3e ee 	ld a,$ee	ld a,$00
+2893	c3 c9 29 	jp $29c9	jp $0000
+2896	cd 42 18 	call $1842	call $0000
+2899	cd 18 35 	call $3518	call $0000
+289c	c2 c2 25 	jp nz,$25c2	jp nz,$0000
+289f	d9 	exx	exx
+28a0	cd 25 41 	call $4125	call $0000
+28a3	e5 	push hl	push hl
+28a4	fd e1 	pop iy	pop iy
+28a6	ca 66 24 	jp z,$2466	jp z,$0000
+28a9	3e 29 	ld a,$29	ld a,$00
+28ab	18 e1 	jr $-$1d	jr $-$00
+28ad	cd 42 18 	call $1842	call $0000
+28b0	fd e5 	push iy	push iy
+28b2	cd 68 32 	call $3268	call $0000
+28b5	cd 99 28 	call $2899	call $0000
+28b8	d1 	pop de	pop de
+28b9	21 b8 28 	ld hl,$28b8	ld hl,$0000
+28bc	b7 	or a	or a
+28bd	ed 52 	sbc hl,de	sbc hl,de
+28bf	fd e1 	pop iy	pop iy
+28c1	28 30 	jr z,$+$32	jr z,$+$00
+28c3	3e 26 	ld a,$26	ld a,$00
+28c5	18 c7 	jr $-$37	jr $-$00
+28c7	fd e5 	push iy	push iy
+28c9	cd 68 32 	call $3268	call $0000
+28cc	cd 7b 24 	call $247b	call $0000
+28cf	c1 	pop bc	pop bc
+28d0	c5 	push bc	push bc
+28d1	21 cf 28 	ld hl,$28cf	ld hl,$0000
+28d4	b7 	or a	or a
+28d5	ed 42 	sbc hl,bc	sbc hl,bc
+28d7	28 0b 	jr z,$+$0d	jr z,$+$00
+28d9	3e 03 	ld a,$03	ld a,$00
+28db	cd 13 34 	call $3413	call $0000
+28de	20 ef 	jr nz,$-$0f	jr nz,$-$00
+28e0	3e 2b 	ld a,$2b	ld a,$00
+28e2	18 aa 	jr $-$54	jr $-$00
+28e4	cd 15 18 	call $1815	call $0000
+28e7	cd 3b 1f 	call $1f3b	call $0000
+28ea	c1 	pop bc	pop bc
+28eb	d1 	pop de	pop de
+28ec	20 05 	jr nz,$+$07	jr nz,$+$00
+28ee	d5 	push de	push de
+28ef	c5 	push bc	push bc
+28f0	d5 	push de	push de
+28f1	fd e1 	pop iy	pop iy
+28f3	c3 7b 24 	jp $247b	jp $0000
+28f6	cd 91 31 	call $3191	call $0000
+28f9	20 91 	jr nz,$-$6d	jr nz,$-$00
+28fb	f5 	push af	push af
+28fc	fd 7e 00 	ld a,(iy)	ld a,(iy)
+28ff	fe b8 	cp $b8	cp $00
+2901	3e 24 	ld a,$24	ld a,$00
+2903	20 89 	jr nz,$-$75	jr nz,$-$00
+2905	fd 23 	inc iy	inc iy
+2907	dd e5 	push ix	push ix
+2909	cd 0e 18 	call $180e	call $0000
+290c	dd e1 	pop ix	pop ix
+290e	f1 	pop af	pop af
+290f	47 	ld b,a	ld b,a
+2910	c5 	push bc	push bc
+2911	e5 	push hl	push hl
+2912	21 00 00 	ld hl,$0000	ld hl,$0000
+2915	4c 	ld c,h	ld c,h
+2916	d9 	exx	exx
+2917	e5 	push hl	push hl
+2918	21 01 00 	ld hl,$0001	ld hl,$0000
+291b	d9 	exx	exx
+291c	fd 7e 00 	ld a,(iy)	ld a,(iy)
+291f	fe 88 	cp $88	cp $00
+2921	20 09 	jr nz,$+$0b	jr nz,$+$00
 2923	fd 23 	inc iy	inc iy
 2925	dd e5 	push ix	push ix
-2927	cd 2c 18 	call $182c	call $0000
+2927	cd 0e 18 	call $180e	call $0000
 292a	dd e1 	pop ix	pop ix
-292c	f1 	pop af	pop af
-292d	47 	ld b,a	ld b,a
-292e	c5 	push bc	push bc
-292f	e5 	push hl	push hl
-2930	21 00 00 	ld hl,$0000	ld hl,$0000
-2933	4c 	ld c,h	ld c,h
-2934	d9 	exx	exx
+292c	06 08 	ld b,$08	ld b,$00
+292e	cb 7c 	bit 7,h	bit 7,h
+2930	20 02 	jr nz,$+$04	jr nz,$+$00
+2932	06 0c 	ld b,$0c	ld b,$00
+2934	c5 	push bc	push bc
 2935	e5 	push hl	push hl
-2936	21 01 00 	ld hl,$0001	ld hl,$0000
-2939	d9 	exx	exx
-293a	fd 7e 00 	ld a,(iy)	ld a,(iy)
-293d	fe 88 	cp $88	cp $00
-293f	20 09 	jr nz,$+$0b	jr nz,$+$00
-2941	fd 23 	inc iy	inc iy
-2943	dd e5 	push ix	push ix
-2945	cd 2c 18 	call $182c	call $0000
-2948	dd e1 	pop ix	pop ix
-294a	06 08 	ld b,$08	ld b,$00
-294c	cb 7c 	bit 7,h	bit 7,h
-294e	20 02 	jr nz,$+$04	jr nz,$+$00
-2950	06 0c 	ld b,$0c	ld b,$00
-2952	c5 	push bc	push bc
-2953	e5 	push hl	push hl
-2954	d9 	exx	exx
-2955	e5 	push hl	push hl
-2956	d9 	exx	exx
-2957	fd e5 	push iy	push iy
-2959	dd e5 	push ix	push ix
-295b	cd 86 32 	call $3286	call $0000
-295e	cd 99 24 	call $2499	call $0000
-2961	c1 	pop bc	pop bc
-2962	21 61 29 	ld hl,$2961	ld hl,$0000
-2965	b7 	or a	or a
-2966	ed 42 	sbc hl,bc	sbc hl,bc
-2968	28 0c 	jr z,$+$0e	jr z,$+$00
-296a	c5 	push bc	push bc
-296b	3e 03 	ld a,$03	ld a,$00
-296d	cd 31 34 	call $3431	call $0000
-2970	20 ef 	jr nz,$-$0f	jr nz,$-$00
-2972	3e 20 	ld a,$20	ld a,$00
-2974	18 6a 	jr $+$6c	jr $+$00
-2976	cd 36 35 	call $3536	call $0000
-2979	e1 	pop hl	pop hl
-297a	e5 	push hl	push hl
-297b	c5 	push bc	push bc
-297c	e5 	push hl	push hl
-297d	c4 e3 41 	call nz,$41e3	call nz,$0000
-2980	d1 	pop de	pop de
-2981	eb 	ex de,hl	ex de,hl
-2982	b7 	or a	or a
-2983	ed 52 	sbc hl,de	sbc hl,de
-2985	20 47 	jr nz,$+$49	jr nz,$+$00
-2987	d5 	push de	push de
-2988	dd 21 08 00 	ld ix,$0008	ld ix,$0000
-298c	dd 39 	add ix,sp	add ix,sp
-298e	cd f1 19 	call $19f1	call $0000
-2991	dd 7e 0b 	ld a,(ix+$0b)	ld a,(ix+$00)
-2994	dd e1 	pop ix	pop ix
-2996	cd 25 19 	call $1925	call $0000
-2999	f5 	push af	push af
-299a	3e 0b 	ld a,$0b	ld a,$00
-299c	cd 15 45 	call $4515	call $0000
-299f	38 3f 	jr c,$+$41	jr c,$+$00
-29a1	f1 	pop af	pop af
-29a2	cd f0 31 	call $31f0	call $0000
-29a5	dd 21 0c 00 	ld ix,$000c	ld ix,$0000
-29a9	dd 39 	add ix,sp	add ix,sp
-29ab	cd f1 19 	call $19f1	call $0000
-29ae	dd 7e ff 	ld a,(ix-$01)	ld a,(ix-$00)
-29b1	cd 15 45 	call $4515	call $0000
-29b4	38 2a 	jr c,$+$2c	jr c,$+$00
-29b6	24 	inc h	inc h
-29b7	20 0a 	jr nz,$+$0c	jr nz,$+$00
-29b9	21 12 00 	ld hl,$0012	ld hl,$0000
-29bc	39 	add hl,sp	add hl,sp
-29bd	f9 	ld sp,hl	ld sp,hl
-29be	cd 00 45 	call $4500	call $0000
-29c1	18 9e 	jr $-$60	jr $-$00
-29c3	c1 	pop bc	pop bc
-29c4	d1 	pop de	pop de
-29c5	fd e1 	pop iy	pop iy
-29c7	fd e5 	push iy	push iy
-29c9	d5 	push de	push de
-29ca	c5 	push bc	push bc
-29cb	c3 99 24 	jp $2499	jp $0000
-29ce	21 12 00 	ld hl,$0012	ld hl,$0000
-29d1	39 	add hl,sp	add hl,sp
-29d2	f9 	ld sp,hl	ld sp,hl
-29d3	c1 	pop bc	pop bc
-29d4	21 61 29 	ld hl,$2961	ld hl,$0000
-29d7	ed 42 	sbc hl,bc	sbc hl,bc
-29d9	e1 	pop hl	pop hl
-29da	e5 	push hl	push hl
-29db	c5 	push bc	push bc
-29dc	28 a5 	jr z,$-$59	jr z,$-$00
-29de	3e 21 	ld a,$21	ld a,$00
-29e0	c3 44 3f 	jp $3f44	jp $0000
-29e3	f5 	push af	push af
-29e4	cd eb 29 	call $29eb	call $0000
-29e7	f5 	push af	push af
-29e8	cd eb 29 	call $29eb	call $0000
-29eb	cd 86 32 	call $3286	call $0000
-29ee	fd 2b 	dec iy	dec iy
-29f0	fd e5 	push iy	push iy
-29f2	cd 96 42 	call $4296	call $0000
-29f5	c1 	pop bc	pop bc
-29f6	28 39 	jr z,$+$3b	jr z,$+$00
-29f8	3e 1e 	ld a,$1e	ld a,$00
-29fa	38 e4 	jr c,$-$1a	jr c,$-$00
-29fc	c5 	push bc	push bc
-29fd	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-2a00	3e dd 	ld a,$dd	ld a,$00
-2a02	cd fb 35 	call $35fb	call $0000
-2a05	38 21 	jr c,$+$23	jr c,$+$00
-2a07	e5 	push hl	push hl
-2a08	fd e1 	pop iy	pop iy
-2a0a	fd 23 	inc iy	inc iy
-2a0c	cd 0b 45 	call $450b	call $0000
-2a0f	cd 96 42 	call $4296	call $0000
-2a12	fd e5 	push iy	push iy
-2a14	d1 	pop de	pop de
-2a15	38 09 	jr c,$+$0b	jr c,$+$00
-2a17	c4 3c 43 	call nz,$433c	call nz,$0000
-2a1a	fd e5 	push iy	push iy
-2a1c	d1 	pop de	pop de
-2a1d	73 	ld (hl),e	ld (hl),e
-2a1e	23 	inc hl	inc hl
-2a1f	72 	ld (hl),d	ld (hl),d
-2a20	eb 	ex de,hl	ex de,hl
-2a21	3e 0d 	ld a,$0d	ld a,$00
-2a23	47 	ld b,a	ld b,a
-2a24	ed b1 	cpir	cpir
-2a26	18 d8 	jr $-$26	jr $-$00
-2a28	fd e1 	pop iy	pop iy
-2a2a	cd 96 42 	call $4296	call $0000
-2a2d	3e 1d 	ld a,$1d	ld a,$00
-2a2f	20 af 	jr nz,$-$4f	jr nz,$-$00
-2a31	5e 	ld e,(hl)	ld e,(hl)
-2a32	23 	inc hl	inc hl
-2a33	56 	ld d,(hl)	ld d,(hl)
-2a34	21 02 00 	ld hl,$0002	ld hl,$0000
-2a37	39 	add hl,sp	add hl,sp
-2a38	cd 0b 45 	call $450b	call $0000
-2a3b	d5 	push de	push de
-2a3c	fd e3 	ex (sp),iy	ex (sp),iy
-2a3e	d1 	pop de	pop de
-2a3f	fe 28 	cp $28	cp $00
-2a41	c2 e5 2a 	jp nz,$2ae5	jp nz,$0000
-2a44	cd 0b 45 	call $450b	call $0000
-2a47	fe 28 	cp $28	cp $00
-2a49	c2 e0 25 	jp nz,$25e0	jp nz,$0000
-2a4c	fd e5 	push iy	push iy
-2a4e	c1 	pop bc	pop bc
-2a4f	d9 	exx	exx
-2a50	08 	ex af,af'	ex af,af'
-2a51	af 	xor a	xor a
+2936	d9 	exx	exx
+2937	e5 	push hl	push hl
+2938	d9 	exx	exx
+2939	fd e5 	push iy	push iy
+293b	dd e5 	push ix	push ix
+293d	cd 68 32 	call $3268	call $0000
+2940	cd 7b 24 	call $247b	call $0000
+2943	c1 	pop bc	pop bc
+2944	21 43 29 	ld hl,$2943	ld hl,$0000
+2947	b7 	or a	or a
+2948	ed 42 	sbc hl,bc	sbc hl,bc
+294a	28 0c 	jr z,$+$0e	jr z,$+$00
+294c	c5 	push bc	push bc
+294d	3e 03 	ld a,$03	ld a,$00
+294f	cd 13 34 	call $3413	call $0000
+2952	20 ef 	jr nz,$-$0f	jr nz,$-$00
+2954	3e 20 	ld a,$20	ld a,$00
+2956	18 6a 	jr $+$6c	jr $+$00
+2958	cd 18 35 	call $3518	call $0000
+295b	e1 	pop hl	pop hl
+295c	e5 	push hl	push hl
+295d	c5 	push bc	push bc
+295e	e5 	push hl	push hl
+295f	c4 c5 41 	call nz,$41c5	call nz,$0000
+2962	d1 	pop de	pop de
+2963	eb 	ex de,hl	ex de,hl
+2964	b7 	or a	or a
+2965	ed 52 	sbc hl,de	sbc hl,de
+2967	20 47 	jr nz,$+$49	jr nz,$+$00
+2969	d5 	push de	push de
+296a	dd 21 08 00 	ld ix,$0008	ld ix,$0000
+296e	dd 39 	add ix,sp	add ix,sp
+2970	cd d3 19 	call $19d3	call $0000
+2973	dd 7e 0b 	ld a,(ix+$0b)	ld a,(ix+$00)
+2976	dd e1 	pop ix	pop ix
+2978	cd 07 19 	call $1907	call $0000
+297b	f5 	push af	push af
+297c	3e 0b 	ld a,$0b	ld a,$00
+297e	cd f7 44 	call $44f7	call $0000
+2981	38 3f 	jr c,$+$41	jr c,$+$00
+2983	f1 	pop af	pop af
+2984	cd d2 31 	call $31d2	call $0000
+2987	dd 21 0c 00 	ld ix,$000c	ld ix,$0000
+298b	dd 39 	add ix,sp	add ix,sp
+298d	cd d3 19 	call $19d3	call $0000
+2990	dd 7e ff 	ld a,(ix-$01)	ld a,(ix-$00)
+2993	cd f7 44 	call $44f7	call $0000
+2996	38 2a 	jr c,$+$2c	jr c,$+$00
+2998	24 	inc h	inc h
+2999	20 0a 	jr nz,$+$0c	jr nz,$+$00
+299b	21 12 00 	ld hl,$0012	ld hl,$0000
+299e	39 	add hl,sp	add hl,sp
+299f	f9 	ld sp,hl	ld sp,hl
+29a0	cd e2 44 	call $44e2	call $0000
+29a3	18 9e 	jr $-$60	jr $-$00
+29a5	c1 	pop bc	pop bc
+29a6	d1 	pop de	pop de
+29a7	fd e1 	pop iy	pop iy
+29a9	fd e5 	push iy	push iy
+29ab	d5 	push de	push de
+29ac	c5 	push bc	push bc
+29ad	c3 7b 24 	jp $247b	jp $0000
+29b0	21 12 00 	ld hl,$0012	ld hl,$0000
+29b3	39 	add hl,sp	add hl,sp
+29b4	f9 	ld sp,hl	ld sp,hl
+29b5	c1 	pop bc	pop bc
+29b6	21 43 29 	ld hl,$2943	ld hl,$0000
+29b9	ed 42 	sbc hl,bc	sbc hl,bc
+29bb	e1 	pop hl	pop hl
+29bc	e5 	push hl	push hl
+29bd	c5 	push bc	push bc
+29be	28 a5 	jr z,$-$59	jr z,$-$00
+29c0	3e 21 	ld a,$21	ld a,$00
+29c2	c3 26 3f 	jp $3f26	jp $0000
+29c5	f5 	push af	push af
+29c6	cd cd 29 	call $29cd	call $0000
+29c9	f5 	push af	push af
+29ca	cd cd 29 	call $29cd	call $0000
+29cd	cd 68 32 	call $3268	call $0000
+29d0	fd 2b 	dec iy	dec iy
+29d2	fd e5 	push iy	push iy
+29d4	cd 78 42 	call $4278	call $0000
+29d7	c1 	pop bc	pop bc
+29d8	28 39 	jr z,$+$3b	jr z,$+$00
+29da	3e 1e 	ld a,$1e	ld a,$00
+29dc	38 e4 	jr c,$-$1a	jr c,$-$00
+29de	c5 	push bc	push bc
+29df	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+29e2	3e dd 	ld a,$dd	ld a,$00
+29e4	cd dd 35 	call $35dd	call $0000
+29e7	38 21 	jr c,$+$23	jr c,$+$00
+29e9	e5 	push hl	push hl
+29ea	fd e1 	pop iy	pop iy
+29ec	fd 23 	inc iy	inc iy
+29ee	cd ed 44 	call $44ed	call $0000
+29f1	cd 78 42 	call $4278	call $0000
+29f4	fd e5 	push iy	push iy
+29f6	d1 	pop de	pop de
+29f7	38 09 	jr c,$+$0b	jr c,$+$00
+29f9	c4 1e 43 	call nz,$431e	call nz,$0000
+29fc	fd e5 	push iy	push iy
+29fe	d1 	pop de	pop de
+29ff	73 	ld (hl),e	ld (hl),e
+2a00	23 	inc hl	inc hl
+2a01	72 	ld (hl),d	ld (hl),d
+2a02	eb 	ex de,hl	ex de,hl
+2a03	3e 0d 	ld a,$0d	ld a,$00
+2a05	47 	ld b,a	ld b,a
+2a06	ed b1 	cpir	cpir
+2a08	18 d8 	jr $-$26	jr $-$00
+2a0a	fd e1 	pop iy	pop iy
+2a0c	cd 78 42 	call $4278	call $0000
+2a0f	3e 1d 	ld a,$1d	ld a,$00
+2a11	20 af 	jr nz,$-$4f	jr nz,$-$00
+2a13	5e 	ld e,(hl)	ld e,(hl)
+2a14	23 	inc hl	inc hl
+2a15	56 	ld d,(hl)	ld d,(hl)
+2a16	21 02 00 	ld hl,$0002	ld hl,$0000
+2a19	39 	add hl,sp	add hl,sp
+2a1a	cd ed 44 	call $44ed	call $0000
+2a1d	d5 	push de	push de
+2a1e	fd e3 	ex (sp),iy	ex (sp),iy
+2a20	d1 	pop de	pop de
+2a21	fe 28 	cp $28	cp $00
+2a23	c2 c7 2a 	jp nz,$2ac7	jp nz,$0000
+2a26	cd ed 44 	call $44ed	call $0000
+2a29	fe 28 	cp $28	cp $00
+2a2b	c2 c2 25 	jp nz,$25c2	jp nz,$0000
+2a2e	fd e5 	push iy	push iy
+2a30	c1 	pop bc	pop bc
+2a31	d9 	exx	exx
+2a32	08 	ex af,af'	ex af,af'
+2a33	af 	xor a	xor a
+2a34	08 	ex af,af'	ex af,af'
+2a35	cd a0 34 	call $34a0	call $0000
+2a38	08 	ex af,af'	ex af,af'
+2a39	b7 	or a	or a
+2a3a	28 16 	jr z,$+$18	jr z,$+$00
+2a3c	e5 	push hl	push hl
+2a3d	ed 44 	neg	neg
+2a3f	6f 	ld l,a	ld l,a
+2a40	ed 44 	neg	neg
+2a42	26 ff 	ld h,$ff	ld h,$00
+2a44	29 	add hl,hl	add hl,hl
+2a45	29 	add hl,hl	add hl,hl
+2a46	29 	add hl,hl	add hl,hl
+2a47	e3 	ex (sp),hl	ex (sp),hl
+2a48	dd e1 	pop ix	pop ix
+2a4a	dd 39 	add ix,sp	add ix,sp
+2a4c	dd f9 	ld sp,ix	ld sp,ix
+2a4e	f5 	push af	push af
+2a4f	cd 52 2a 	call $2a52	call $0000
 2a52	08 	ex af,af'	ex af,af'
-2a53	cd be 34 	call $34be	call $0000
-2a56	08 	ex af,af'	ex af,af'
-2a57	b7 	or a	or a
-2a58	28 16 	jr z,$+$18	jr z,$+$00
+2a53	cd 90 20 	call $2090	call $0000
+2a56	d9 	exx	exx
+2a57	c5 	push bc	push bc
+2a58	fd e1 	pop iy	pop iy
 2a5a	e5 	push hl	push hl
-2a5b	ed 44 	neg	neg
-2a5d	6f 	ld l,a	ld l,a
-2a5e	ed 44 	neg	neg
-2a60	26 ff 	ld h,$ff	ld h,$00
-2a62	29 	add hl,hl	add hl,hl
-2a63	29 	add hl,hl	add hl,hl
-2a64	29 	add hl,hl	add hl,hl
-2a65	e3 	ex (sp),hl	ex (sp),hl
-2a66	dd e1 	pop ix	pop ix
-2a68	dd 39 	add ix,sp	add ix,sp
-2a6a	dd f9 	ld sp,ix	ld sp,ix
-2a6c	f5 	push af	push af
-2a6d	cd 70 2a 	call $2a70	call $0000
-2a70	08 	ex af,af'	ex af,af'
-2a71	cd ae 20 	call $20ae	call $0000
-2a74	d9 	exx	exx
-2a75	c5 	push bc	push bc
-2a76	fd e1 	pop iy	pop iy
-2a78	e5 	push hl	push hl
-2a79	cd cd 32 	call $32cd	call $0000
-2a7c	e1 	pop hl	pop hl
-2a7d	e3 	ex (sp),hl	ex (sp),hl
-2a7e	b7 	or a	or a
-2a7f	01 70 2a 	ld bc,$2a70	ld bc,$0000
-2a82	ed 42 	sbc hl,bc	sbc hl,bc
-2a84	09 	add hl,bc	add hl,bc
-2a85	e3 	ex (sp),hl	ex (sp),hl
-2a86	20 5d 	jr nz,$+$5f	jr nz,$+$00
-2a88	d5 	push de	push de
-2a89	e5 	push hl	push hl
-2a8a	21 07 00 	ld hl,$0007	ld hl,$0000
-2a8d	39 	add hl,sp	add hl,sp
-2a8e	7e 	ld a,(hl)	ld a,(hl)
-2a8f	23 	inc hl	inc hl
-2a90	e5 	push hl	push hl
-2a91	dd e1 	pop ix	pop ix
-2a93	5f 	ld e,a	ld e,a
-2a94	16 00 	ld d,$00	ld d,$00
+2a5b	cd af 32 	call $32af	call $0000
+2a5e	e1 	pop hl	pop hl
+2a5f	e3 	ex (sp),hl	ex (sp),hl
+2a60	b7 	or a	or a
+2a61	01 52 2a 	ld bc,$2a52	ld bc,$0000
+2a64	ed 42 	sbc hl,bc	sbc hl,bc
+2a66	09 	add hl,bc	add hl,bc
+2a67	e3 	ex (sp),hl	ex (sp),hl
+2a68	20 5d 	jr nz,$+$5f	jr nz,$+$00
+2a6a	d5 	push de	push de
+2a6b	e5 	push hl	push hl
+2a6c	21 07 00 	ld hl,$0007	ld hl,$0000
+2a6f	39 	add hl,sp	add hl,sp
+2a70	7e 	ld a,(hl)	ld a,(hl)
+2a71	23 	inc hl	inc hl
+2a72	e5 	push hl	push hl
+2a73	dd e1 	pop ix	pop ix
+2a75	5f 	ld e,a	ld e,a
+2a76	16 00 	ld d,$00	ld d,$00
+2a78	eb 	ex de,hl	ex de,hl
+2a79	29 	add hl,hl	add hl,hl
+2a7a	29 	add hl,hl	add hl,hl
+2a7b	29 	add hl,hl	add hl,hl
+2a7c	19 	add hl,de	add hl,de
+2a7d	23 	inc hl	inc hl
+2a7e	23 	inc hl	inc hl
+2a7f	5e 	ld e,(hl)	ld e,(hl)
+2a80	23 	inc hl	inc hl
+2a81	56 	ld d,(hl)	ld d,(hl)
+2a82	23 	inc hl	inc hl
+2a83	4e 	ld c,(hl)	ld c,(hl)
+2a84	23 	inc hl	inc hl
+2a85	46 	ld b,(hl)	ld b,(hl)
+2a86	c5 	push bc	push bc
+2a87	e5 	push hl	push hl
+2a88	dd e5 	push ix	push ix
+2a8a	47 	ld b,a	ld b,a
+2a8b	dd 6e 04 	ld l,(ix+$04)	ld l,(ix+$00)
+2a8e	dd 66 05 	ld h,(ix+$05)	ld h,(ix+$00)
+2a91	b7 	or a	or a
+2a92	ed 52 	sbc hl,de	sbc hl,de
+2a94	28 09 	jr z,$+$0b	jr z,$+$00
 2a96	eb 	ex de,hl	ex de,hl
-2a97	29 	add hl,hl	add hl,hl
-2a98	29 	add hl,hl	add hl,hl
-2a99	29 	add hl,hl	add hl,hl
-2a9a	19 	add hl,de	add hl,de
-2a9b	23 	inc hl	inc hl
-2a9c	23 	inc hl	inc hl
-2a9d	5e 	ld e,(hl)	ld e,(hl)
-2a9e	23 	inc hl	inc hl
-2a9f	56 	ld d,(hl)	ld d,(hl)
-2aa0	23 	inc hl	inc hl
-2aa1	4e 	ld c,(hl)	ld c,(hl)
-2aa2	23 	inc hl	inc hl
-2aa3	46 	ld b,(hl)	ld b,(hl)
-2aa4	c5 	push bc	push bc
-2aa5	e5 	push hl	push hl
-2aa6	dd e5 	push ix	push ix
-2aa8	47 	ld b,a	ld b,a
-2aa9	dd 6e 04 	ld l,(ix+$04)	ld l,(ix+$00)
-2aac	dd 66 05 	ld h,(ix+$05)	ld h,(ix+$00)
-2aaf	b7 	or a	or a
-2ab0	ed 52 	sbc hl,de	sbc hl,de
-2ab2	28 09 	jr z,$+$0b	jr z,$+$00
-2ab4	eb 	ex de,hl	ex de,hl
-2ab5	11 08 00 	ld de,$0008	ld de,$0000
-2ab8	dd 19 	add ix,de	add ix,de
-2aba	eb 	ex de,hl	ex de,hl
-2abb	10 ec 	djnz $-$12	djnz $-$00
-2abd	dd e1 	pop ix	pop ix
-2abf	e1 	pop hl	pop hl
-2ac0	c1 	pop bc	pop bc
-2ac1	20 02 	jr nz,$+$04	jr nz,$+$00
-2ac3	cb e6 	set 4,(hl)	set 4,(hl)
-2ac5	11 03 00 	ld de,$0003	ld de,$0000
-2ac8	cb 70 	bit 6,b	bit 6,b
-2aca	20 08 	jr nz,$+$0a	jr nz,$+$00
-2acc	1e 05 	ld e,$05	ld e,$00
-2ace	cb 78 	bit 7,b	bit 7,b
-2ad0	28 02 	jr z,$+$04	jr z,$+$00
-2ad2	59 	ld e,c	ld e,c
-2ad3	13 	inc de	inc de
-2ad4	19 	add hl,de	add hl,de
-2ad5	4e 	ld c,(hl)	ld c,(hl)
-2ad6	23 	inc hl	inc hl
-2ad7	46 	ld b,(hl)	ld b,(hl)
-2ad8	23 	inc hl	inc hl
-2ad9	eb 	ex de,hl	ex de,hl
-2ada	21 2a 35 	ld hl,$352a	ld hl,$0000
-2add	b7 	or a	or a
-2ade	ed 42 	sbc hl,bc	sbc hl,bc
-2ae0	eb 	ex de,hl	ex de,hl
-2ae1	28 ba 	jr z,$-$44	jr z,$-$00
-2ae3	e1 	pop hl	pop hl
-2ae4	d1 	pop de	pop de
-2ae5	73 	ld (hl),e	ld (hl),e
-2ae6	23 	inc hl	inc hl
-2ae7	7e 	ld a,(hl)	ld a,(hl)
-2ae8	72 	ld (hl),d	ld (hl),d
-2ae9	fe ee 	cp $ee	cp $00
-2aeb	20 0c 	jr nz,$+$0e	jr nz,$+$00
-2aed	d5 	push de	push de
-2aee	fd e3 	ex (sp),iy	ex (sp),iy
-2af0	cd 42 35 	call $3542	call $0000
-2af3	fd e3 	ex (sp),iy	ex (sp),iy
-2af5	d1 	pop de	pop de
-2af6	72 	ld (hl),d	ld (hl),d
-2af7	2b 	dec hl	dec hl
-2af8	73 	ld (hl),e	ld (hl),e
-2af9	c3 99 24 	jp $2499	jp $0000
-2afc	fd 23 	inc iy	inc iy
-2afe	18 f9 	jr $-$05	jr $-$00
-2b00	fd 23 	inc iy	inc iy
-2b02	2a f0 54 	ld hl,($54f0)	ld hl,($0000)
-2b05	e5 	push hl	push hl
-2b06	3e 40 	ld a,$40	ld a,$00
-2b08	f5 	push af	push af
-2b09	21 f0 54 	ld hl,$54f0	ld hl,$0000
-2b0c	e5 	push hl	push hl
-2b0d	21 2a 35 	ld hl,$352a	ld hl,$0000
-2b10	e5 	push hl	push hl
-2b11	18 e6 	jr $-$18	jr $-$00
-2b13	fe 85 	cp $85	cp $00
-2b15	28 e5 	jr z,$-$19	jr z,$-$00
-2b17	fe dc 	cp $dc	cp $00
-2b19	28 e5 	jr z,$-$19	jr z,$-$00
-2b1b	c1 	pop bc	pop bc
-2b1c	c5 	push bc	push bc
-2b1d	21 e7 29 	ld hl,$29e7	ld hl,$0000
-2b20	b7 	or a	or a
-2b21	ed 42 	sbc hl,bc	sbc hl,bc
-2b23	28 23 	jr z,$+$25	jr z,$+$00
-2b25	21 eb 29 	ld hl,$29eb	ld hl,$0000
-2b28	b7 	or a	or a
-2b29	ed 42 	sbc hl,bc	sbc hl,bc
-2b2b	28 1b 	jr z,$+$1d	jr z,$+$00
-2b2d	21 2a 35 	ld hl,$352a	ld hl,$0000
-2b30	b7 	or a	or a
-2b31	ed 42 	sbc hl,bc	sbc hl,bc
-2b33	28 13 	jr z,$+$15	jr z,$+$00
-2b35	21 dc 26 	ld hl,$26dc	ld hl,$0000
-2b38	b7 	or a	or a
-2b39	ed 42 	sbc hl,bc	sbc hl,bc
-2b3b	28 0b 	jr z,$+$0d	jr z,$+$00
-2b3d	21 70 2a 	ld hl,$2a70	ld hl,$0000
-2b40	b7 	or a	or a
-2b41	ed 42 	sbc hl,bc	sbc hl,bc
-2b43	3e 0c 	ld a,$0c	ld a,$00
-2b45	c2 44 3f 	jp nz,$3f44	jp nz,$0000
-2b48	fd e5 	push iy	push iy
-2b4a	c1 	pop bc	pop bc
-2b4b	d9 	exx	exx
-2b4c	fd 2b 	dec iy	dec iy
-2b4e	cd be 34 	call $34be	call $0000
-2b51	d9 	exx	exx
-2b52	c5 	push bc	push bc
-2b53	fd e1 	pop iy	pop iy
-2b55	cd e3 41 	call $41e3	call $0000
-2b58	c2 e0 25 	jp nz,$25e0	jp nz,$0000
-2b5b	cb 77 	bit 6,a	bit 6,a
-2b5d	20 14 	jr nz,$+$16	jr nz,$+$00
-2b5f	b7 	or a	or a
-2b60	08 	ex af,af'	ex af,af'
-2b61	cd f8 1f 	call $1ff8	call $0000
-2b64	08 	ex af,af'	ex af,af'
-2b65	f5 	push af	push af
-2b66	f4 f0 31 	call p,$31f0	call p,$0000
-2b69	f1 	pop af	pop af
-2b6a	59 	ld e,c	ld e,c
-2b6b	fc 41 32 	call m,$3241	call m,$0000
-2b6e	cd 00 45 	call $4500	call $0000
-2b71	18 e2 	jr $-$1c	jr $-$00
-2b73	dd 36 00 01 	ld (ix),$01	ld (ix),$00
-2b77	dd 36 01 00 	ld (ix+$01),$00	ld (ix+$00),$00
-2b7b	18 f1 	jr $-$0d	jr $-$00
-2b7d	c1 	pop bc	pop bc
-2b7e	21 eb 29 	ld hl,$29eb	ld hl,$0000
-2b81	af 	xor a	xor a
-2b82	ed 42 	sbc hl,bc	sbc hl,bc
-2b84	28 0b 	jr z,$+$0d	jr z,$+$00
-2b86	c5 	push bc	push bc
-2b87	cd 31 34 	call $3431	call $0000
-2b8a	20 f1 	jr nz,$-$0d	jr nz,$-$00
-2b8c	3e 0d 	ld a,$0d	ld a,$00
-2b8e	c3 44 3f 	jp $3f44	jp $0000
-2b91	fd e1 	pop iy	pop iy
-2b93	c3 99 24 	jp $2499	jp $0000
-2b96	cd db 36 	call $36db	call $0000
-2b99	cd 00 45 	call $4500	call $0000
-2b9c	d5 	push de	push de
-2b9d	cd d6 25 	call $25d6	call $0000
-2ba0	d1 	pop de	pop de
-2ba1	f5 	push af	push af
-2ba2	e5 	push hl	push hl
-2ba3	b7 	or a	or a
-2ba4	fa c9 2b 	jp m,$2bc9	jp m,$0000
-2ba7	cd 5b 06 	call $065b	call $0000
-2baa	d9 	exx	exx
-2bab	6f 	ld l,a	ld l,a
-2bac	d9 	exx	exx
-2bad	cd 5b 06 	call $065b	call $0000
-2bb0	d9 	exx	exx
-2bb1	67 	ld h,a	ld h,a
-2bb2	d9 	exx	exx
-2bb3	cd 5b 06 	call $065b	call $0000
-2bb6	6f 	ld l,a	ld l,a
-2bb7	cd 5b 06 	call $065b	call $0000
-2bba	67 	ld h,a	ld h,a
-2bbb	cd 5b 06 	call $065b	call $0000
-2bbe	4f 	ld c,a	ld c,a
-2bbf	dd e1 	pop ix	pop ix
-2bc1	f1 	pop af	pop af
-2bc2	d5 	push de	push de
-2bc3	cd f0 31 	call $31f0	call $0000
-2bc6	d1 	pop de	pop de
-2bc7	18 d0 	jr $-$2e	jr $-$00
-2bc9	21 00 52 	ld hl,$5200	ld hl,$0000
-2bcc	cd 5b 06 	call $065b	call $0000
-2bcf	fe 0d 	cp $0d	cp $00
-2bd1	28 04 	jr z,$+$06	jr z,$+$00
-2bd3	77 	ld (hl),a	ld (hl),a
-2bd4	2c 	inc l	inc l
-2bd5	20 f5 	jr nz,$-$09	jr nz,$-$00
-2bd7	dd e1 	pop ix	pop ix
-2bd9	f1 	pop af	pop af
-2bda	d5 	push de	push de
-2bdb	eb 	ex de,hl	ex de,hl
-2bdc	cd 3e 32 	call $323e	call $0000
-2bdf	d1 	pop de	pop de
-2be0	18 b7 	jr $-$47	jr $-$00
-2be2	fe 23 	cp $23	cp $00
-2be4	28 b0 	jr z,$-$4e	jr z,$-$00
-2be6	0e 00 	ld c,$00	ld c,$00
-2be8	fe 86 	cp $86	cp $00
-2bea	20 04 	jr nz,$+$06	jr nz,$+$00
-2bec	fd 23 	inc iy	inc iy
-2bee	0e 80 	ld c,$80	ld c,$00
-2bf0	21 00 53 	ld hl,$5300	ld hl,$0000
-2bf3	36 0d 	ld (hl),$0d	ld (hl),$00
-2bf5	cd 36 35 	call $3536	call $0000
-2bf8	28 99 	jr z,$-$65	jr z,$-$00
-2bfa	fd 23 	inc iy	inc iy
-2bfc	fe 2c 	cp $2c	cp $00
-2bfe	28 51 	jr z,$+$53	jr z,$+$00
-2c00	fe 3b 	cp $3b	cp $00
-2c02	28 4d 	jr z,$+$4f	jr z,$+$00
-2c04	e5 	push hl	push hl
-2c05	fe 22 	cp $22	cp $00
-2c07	20 0a 	jr nz,$+$0c	jr nz,$+$00
-2c09	c5 	push bc	push bc
-2c0a	cd 7a 19 	call $197a	call $0000
-2c0d	c1 	pop bc	pop bc
-2c0e	cd b1 35 	call $35b1	call $0000
-2c11	18 05 	jr $+$07	jr $+$00
-2c13	cd 5c 35 	call $355c	call $0000
-2c16	20 05 	jr nz,$+$07	jr nz,$+$00
-2c18	e1 	pop hl	pop hl
-2c19	cb c1 	set 0,c	set 0,c
-2c1b	18 d3 	jr $-$2b	jr $-$00
-2c1d	fd 2b 	dec iy	dec iy
-2c1f	c5 	push bc	push bc
-2c20	cd d6 25 	call $25d6	call $0000
-2c23	c1 	pop bc	pop bc
-2c24	e1 	pop hl	pop hl
-2c25	f5 	push af	push af
-2c26	7e 	ld a,(hl)	ld a,(hl)
-2c27	23 	inc hl	inc hl
-2c28	fe 0d 	cp $0d	cp $00
-2c2a	cc 55 2c 	call z,$2c55	call z,$0000
-2c2d	cb 79 	bit 7,c	bit 7,c
-2c2f	f5 	push af	push af
-2c30	c4 cf 35 	call nz,$35cf	call nz,$0000
-2c33	f1 	pop af	pop af
-2c34	cc be 35 	call z,$35be	call z,$0000
-2c37	f1 	pop af	pop af
-2c38	c5 	push bc	push bc
-2c39	e5 	push hl	push hl
-2c3a	b7 	or a	or a
-2c3b	fa 4c 2c 	jp m,$2c4c	jp m,$0000
-2c3e	f5 	push af	push af
-2c3f	dd e5 	push ix	push ix
-2c41	cd 22 1c 	call $1c22	call $0000
-2c44	dd e1 	pop ix	pop ix
-2c46	f1 	pop af	pop af
-2c47	cd f0 31 	call $31f0	call $0000
-2c4a	18 03 	jr $+$05	jr $+$00
-2c4c	cd 3e 32 	call $323e	call $0000
-2c4f	e1 	pop hl	pop hl
-2c50	c1 	pop bc	pop bc
-2c51	cb 81 	res 0,c	res 0,c
-2c53	18 a0 	jr $-$5e	jr $-$00
-2c55	cb 41 	bit 0,c	bit 0,c
-2c57	20 0a 	jr nz,$+$0c	jr nz,$+$00
-2c59	3e 3f 	ld a,$3f	ld a,$00
-2c5b	cd 02 41 	call $4102	call $0000
-2c5e	3e 20 	ld a,$20	ld a,$00
-2c60	cd 02 41 	call $4102	call $0000
-2c63	21 00 53 	ld hl,$5300	ld hl,$0000
-2c66	c5 	push bc	push bc
-2c67	e5 	push hl	push hl
-2c68	dd e5 	push ix	push ix
-2c6a	cd e7 05 	call $05e7	call $0000
-2c6d	dd e1 	pop ix	pop ix
-2c6f	e1 	pop hl	pop hl
-2c70	c1 	pop bc	pop bc
-2c71	47 	ld b,a	ld b,a
-2c72	af 	xor a	xor a
-2c73	32 fb 54 	ld ($54fb),a	ld ($0000),a
-2c76	b8 	cp b	cp b
-2c77	c8 	ret z	ret z
-2c78	7e 	ld a,(hl)	ld a,(hl)
-2c79	fe 0d 	cp $0d	cp $00
-2c7b	c8 	ret z	ret z
-2c7c	23 	inc hl	inc hl
-2c7d	10 f9 	djnz $-$05	djnz $-$00
-2c7f	c9 	ret	ret
-2c80	fe 23 	cp $23	cp $00
-2c82	ca 96 2b 	jp z,$2b96	jp z,$0000
-2c85	2a f0 54 	ld hl,($54f0)	ld hl,($0000)
-2c88	7e 	ld a,(hl)	ld a,(hl)
-2c89	fe 3a 	cp $3a	cp $00
-2c8b	cc 78 2c 	call z,$2c78	call z,$0000
-2c8e	23 	inc hl	inc hl
-2c8f	fe 0d 	cp $0d	cp $00
-2c91	cc c0 2c 	call z,$2cc0	call z,$0000
-2c94	e5 	push hl	push hl
-2c95	cd d6 25 	call $25d6	call $0000
-2c98	e1 	pop hl	pop hl
-2c99	b7 	or a	or a
-2c9a	fa b0 2c 	jp m,$2cb0	jp m,$0000
-2c9d	e5 	push hl	push hl
-2c9e	fd e3 	ex (sp),iy	ex (sp),iy
-2ca0	f5 	push af	push af
-2ca1	dd e5 	push ix	push ix
-2ca3	cd 2c 18 	call $182c	call $0000
-2ca6	dd e1 	pop ix	pop ix
-2ca8	f1 	pop af	pop af
-2ca9	cd f0 31 	call $31f0	call $0000
-2cac	fd e3 	ex (sp),iy	ex (sp),iy
-2cae	18 07 	jr $+$09	jr $+$00
-2cb0	cd be 35 	call $35be	call $0000
-2cb3	e5 	push hl	push hl
-2cb4	cd 3e 32 	call $323e	call $0000
-2cb7	e1 	pop hl	pop hl
-2cb8	22 f0 54 	ld ($54f0),hl	ld ($0000),hl
-2cbb	cd 00 45 	call $4500	call $0000
-2cbe	18 c8 	jr $-$36	jr $-$00
-2cc0	cd f9 35 	call $35f9	call $0000
-2cc3	23 	inc hl	inc hl
-2cc4	d0 	ret nc	ret nc
-2cc5	3e 2a 	ld a,$2a	ld a,$00
-2cc7	18 64 	jr $+$66	jr $+$00
-2cc9	cd 33 18 	call $1833	call $0000
-2ccc	cd 59 1f 	call $1f59	call $0000
-2ccf	28 2a 	jr z,$+$2c	jr z,$+$00
-2cd1	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2cd4	fe 8c 	cp $8c	cp $00
-2cd6	c2 99 24 	jp nz,$2499	jp nz,$0000
-2cd9	fd 23 	inc iy	inc iy
-2cdb	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2cde	fe 3b 	cp $3b	cp $00
-2ce0	28 f7 	jr z,$-$07	jr z,$-$00
-2ce2	cd 0b 45 	call $450b	call $0000
-2ce5	fe 8d 	cp $8d	cp $00
-2ce7	c2 99 24 	jp nz,$2499	jp nz,$0000
-2cea	c3 b4 28 	jp $28b4	jp $0000
-2ced	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2cf0	fd 23 	inc iy	inc iy
-2cf2	fe 3b 	cp $3b	cp $00
-2cf4	20 0a 	jr nz,$+$0c	jr nz,$+$00
-2cf6	18 1e 	jr $+$20	jr $+$00
-2cf8	cd 99 36 	call $3699	call $0000
-2cfb	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2cfe	fd 23 	inc iy	inc iy
-2d00	fe 22 	cp $22	cp $00
-2d02	28 f4 	jr z,$-$0a	jr z,$-$00
-2d04	fe f4 	cp $f4	cp $00
-2d06	ca 31 25 	jp z,$2531	jp z,$0000
-2d09	fe 0d 	cp $0d	cp $00
-2d0b	ca 84 24 	jp z,$2484	jp z,$0000
-2d0e	fe 8b 	cp $8b	cp $00
-2d10	28 d0 	jr z,$-$2e	jr z,$-$00
-2d12	fe 8c 	cp $8c	cp $00
-2d14	20 e5 	jr nz,$-$19	jr nz,$-$00
-2d16	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2d19	fe 0d 	cp $0d	cp $00
-2d1b	20 d0 	jr nz,$-$2e	jr nz,$-$00
-2d1d	01 8b 00 	ld bc,$008b	ld bc,$0000
-2d20	11 8c cd 	ld de,$cd8c	ld de,$0000
-2d23	fd 23 	inc iy	inc iy
-2d25	cd 11 36 	call $3611	call $0000
-2d28	ca a0 24 	jp z,$24a0	jp z,$0000
-2d2b	3e 31 	ld a,$31	ld a,$00
-2d2d	c3 44 3f 	jp $3f44	jp $0000
-2d30	01 fd ff 	ld bc,$fffd	ld bc,$0000
-2d33	fd 09 	add iy,bc	add iy,bc
-2d35	01 cd 00 	ld bc,$00cd	ld bc,$0000
-2d38	11 8c cd 	ld de,$cd8c	ld de,$0000
-2d3b	cd 11 36 	call $3611	call $0000
-2d3e	20 eb 	jr nz,$-$13	jr nz,$-$00
-2d40	c3 99 24 	jp $2499	jp $0000
-2d43	01 fd ff 	ld bc,$fffd	ld bc,$0000
-2d46	fd 09 	add iy,bc	add iy,bc
-2d48	01 cb 00 	ld bc,$00cb	ld bc,$0000
-2d4b	11 ca cb 	ld de,$cbca	ld de,$0000
-2d4e	cd 11 36 	call $3611	call $0000
-2d51	28 ed 	jr z,$-$11	jr z,$-$00
-2d53	3e 2f 	ld a,$2f	ld a,$00
-2d55	18 d6 	jr $-$28	jr $-$00
-2d57	cd 02 17 	call $1702	call $0000
-2d5a	08 	ex af,af'	ex af,af'
-2d5b	06 00 	ld b,$00	ld b,$00
-2d5d	f2 66 2d 	jp p,$2d66	jp p,$0000
-2d60	cd 19 20 	call $2019	call $0000
-2d63	c1 	pop bc	pop bc
-2d64	06 01 	ld b,$01	ld b,$00
-2d66	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2d69	fd 23 	inc iy	inc iy
-2d6b	fe ca 	cp $ca	cp $00
-2d6d	3e 25 	ld a,$25	ld a,$00
-2d6f	20 bc 	jr nz,$-$42	jr nz,$-$00
-2d71	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2d74	fd 23 	inc iy	inc iy
-2d76	fe 0d 	cp $0d	cp $00
-2d78	3e 30 	ld a,$30	ld a,$00
-2d7a	20 b1 	jr nz,$-$4d	jr nz,$-$00
-2d7c	af 	xor a	xor a
-2d7d	d9 	exx	exx
-2d7e	e5 	push hl	push hl
-2d7f	d9 	exx	exx
-2d80	e5 	push hl	push hl
-2d81	c5 	push bc	push bc
-2d82	6f 	ld l,a	ld l,a
-2d83	01 c9 cc 	ld bc,$ccc9	ld bc,$0000
-2d86	11 ca cb 	ld de,$cbca	ld de,$0000
-2d89	cd 13 36 	call $3613	call $0000
-2d8c	c1 	pop bc	pop bc
-2d8d	e1 	pop hl	pop hl
-2d8e	d9 	exx	exx
-2d8f	e1 	pop hl	pop hl
-2d90	d9 	exx	exx
-2d91	3e 2f 	ld a,$2f	ld a,$00
-2d93	c2 44 3f 	jp nz,$3f44	jp nz,$0000
-2d96	fd 7e ff 	ld a,(iy-$01)	ld a,(iy-$00)
-2d99	fe cb 	cp $cb	cp $00
-2d9b	28 56 	jr z,$+$58	jr z,$+$00
-2d9d	fe cc 	cp $cc	cp $00
-2d9f	28 52 	jr z,$+$54	jr z,$+$00
-2da1	cb 40 	bit 0,b	bit 0,b
-2da3	20 69 	jr nz,$+$6b	jr nz,$+$00
-2da5	c5 	push bc	push bc
-2da6	e5 	push hl	push hl
-2da7	d9 	exx	exx
-2da8	e5 	push hl	push hl
-2da9	d9 	exx	exx
-2daa	cd 2c 18 	call $182c	call $0000
-2dad	dd 21 00 00 	ld ix,$0000	ld ix,$0000
-2db1	dd 39 	add ix,sp	add ix,sp
-2db3	d9 	exx	exx
-2db4	dd 5e 00 	ld e,(ix)	ld e,(ix)
-2db7	dd 56 01 	ld d,(ix+$01)	ld d,(ix+$00)
-2dba	d9 	exx	exx
-2dbb	dd 5e 02 	ld e,(ix+$02)	ld e,(ix+$00)
-2dbe	dd 56 03 	ld d,(ix+$03)	ld d,(ix+$00)
-2dc1	dd 46 04 	ld b,(ix+$04)	ld b,(ix+$00)
-2dc4	3e 09 	ld a,$09	ld a,$00
-2dc6	cd 15 45 	call $4515	call $0000
-2dc9	7d 	ld a,l	ld a,l
-2dca	b7 	or a	or a
-2dcb	d9 	exx	exx
-2dcc	e1 	pop hl	pop hl
-2dcd	d9 	exx	exx
-2dce	e1 	pop hl	pop hl
-2dcf	c1 	pop bc	pop bc
-2dd0	20 2c 	jr nz,$+$2e	jr nz,$+$00
-2dd2	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2dd5	fd 23 	inc iy	inc iy
-2dd7	fe 2c 	cp $2c	cp $00
-2dd9	28 c6 	jr z,$-$38	jr z,$-$00
-2ddb	d9 	exx	exx
-2ddc	fd e5 	push iy	push iy
-2dde	e3 	ex (sp),hl	ex (sp),hl
-2ddf	3e 0d 	ld a,$0d	ld a,$00
-2de1	47 	ld b,a	ld b,a
-2de2	ed b1 	cpir	cpir
-2de4	e3 	ex (sp),hl	ex (sp),hl
-2de5	fd e1 	pop iy	pop iy
-2de7	d9 	exx	exx
-2de8	fd 7e fe 	ld a,(iy-$02)	ld a,(iy-$00)
-2deb	fe ca 	cp $ca	cp $00
-2ded	20 8d 	jr nz,$-$71	jr nz,$-$00
-2def	3e 01 	ld a,$01	ld a,$00
-2df1	18 8a 	jr $-$74	jr $-$00
-2df3	cb 40 	bit 0,b	bit 0,b
-2df5	28 49 	jr z,$+$4b	jr z,$+$00
-2df7	26 00 	ld h,$00	ld h,$00
-2df9	69 	ld l,c	ld l,c
-2dfa	39 	add hl,sp	add hl,sp
-2dfb	f9 	ld sp,hl	ld sp,hl
-2dfc	18 42 	jr $+$44	jr $+$00
-2dfe	cd 0b 45 	call $450b	call $0000
-2e01	fe 2c 	cp $2c	cp $00
-2e03	20 ee 	jr nz,$-$10	jr nz,$-$00
-2e05	fd 23 	inc iy	inc iy
-2e07	c5 	push bc	push bc
-2e08	cd 02 17 	call $1702	call $0000
-2e0b	c1 	pop bc	pop bc
-2e0c	18 f0 	jr $-$0e	jr $-$00
-2e0e	c5 	push bc	push bc
-2e0f	cd 3c 18 	call $183c	call $0000
-2e12	c1 	pop bc	pop bc
-2e13	21 00 00 	ld hl,$0000	ld hl,$0000
-2e16	39 	add hl,sp	add hl,sp
-2e17	43 	ld b,e	ld b,e
-2e18	11 00 52 	ld de,$5200	ld de,$0000
-2e1b	c5 	push bc	push bc
-2e1c	cd f5 1f 	call $1ff5	call $0000
-2e1f	c1 	pop bc	pop bc
-2e20	06 01 	ld b,$01	ld b,$00
-2e22	20 ae 	jr nz,$-$50	jr nz,$-$00
-2e24	18 d8 	jr $-$26	jr $-$00
-2e26	fd e5 	push iy	push iy
-2e28	cd 86 32 	call $3286	call $0000
-2e2b	cd 2e 2e 	call $2e2e	call $0000
-2e2e	cd 33 18 	call $1833	call $0000
-2e31	cd 59 1f 	call $1f59	call $0000
-2e34	20 0a 	jr nz,$+$0c	jr nz,$+$00
-2e36	c1 	pop bc	pop bc
-2e37	c1 	pop bc	pop bc
-2e38	01 00 95 	ld bc,$9500	ld bc,$0000
-2e3b	16 01 	ld d,$01	ld d,$00
-2e3d	cd 50 36 	call $3650	call $0000
-2e40	c3 99 24 	jp $2499	jp $0000
-2e43	c1 	pop bc	pop bc
-2e44	d1 	pop de	pop de
-2e45	d5 	push de	push de
-2e46	c5 	push bc	push bc
-2e47	b7 	or a	or a
-2e48	21 2e 2e 	ld hl,$2e2e	ld hl,$0000
-2e4b	ed 42 	sbc hl,bc	sbc hl,bc
-2e4d	28 0b 	jr z,$+$0d	jr z,$+$00
-2e4f	3e 03 	ld a,$03	ld a,$00
-2e51	cd 31 34 	call $3431	call $0000
-2e54	20 ed 	jr nz,$-$11	jr nz,$-$00
-2e56	3e 2e 	ld a,$2e	ld a,$00
-2e58	18 4f 	jr $+$51	jr $+$00
-2e5a	fd e5 	push iy	push iy
-2e5c	fd 21 00 00 	ld iy,$0000	ld iy,$0000
-2e60	fd 19 	add iy,de	add iy,de
-2e62	cd 33 18 	call $1833	call $0000
-2e65	cd 59 1f 	call $1f59	call $0000
-2e68	d1 	pop de	pop de
-2e69	20 d5 	jr nz,$-$29	jr nz,$-$00
-2e6b	c1 	pop bc	pop bc
-2e6c	c1 	pop bc	pop bc
-2e6d	fd 21 00 00 	ld iy,$0000	ld iy,$0000
-2e71	fd 19 	add iy,de	add iy,de
-2e73	18 cb 	jr $-$33	jr $-$00
-2e75	cd 8c 0d 	call $0d8c	call $0000
-2e78	af 	xor a	xor a
-2e79	32 fb 54 	ld ($54fb),a	ld ($0000),a
-2e7c	18 c2 	jr $-$3c	jr $-$00
-2e7e	cd fa 44 	call $44fa	call $0000
-2e81	0d 	dec c	dec c
-2e82	0a 	ld a,(bc)	ld a,(bc)
-2e83	fa 00 cd 	jp m,$cd00	jp m,$0000
-2e86	5b 41 	ld.lil b,c	ld.lil b,c
-2e88	cd 82 41 	call $4182	call $0000
-2e8b	cd fb 40 	call $40fb	call $0000
-2e8e	c3 b0 37 	jp $37b0	jp $0000
-2e91	cd e5 44 	call $44e5	call $0000
-2e94	18 aa 	jr $-$54	jr $-$00
-2e96	cd 43 40 	call $4043	call $0000
-2e99	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-2e9c	18 3b 	jr $+$3d	jr $+$00
-2e9e	fd 23 	inc iy	inc iy
-2ea0	3e 02 	ld a,$02	ld a,$00
-2ea2	cd 31 34 	call $3431	call $0000
-2ea5	20 99 	jr nz,$-$65	jr nz,$-$00
-2ea7	3e 35 	ld a,$35	ld a,$00
-2ea9	c3 44 3f 	jp $3f44	jp $0000
-2eac	fd 23 	inc iy	inc iy
-2eae	3e 01 	ld a,$01	ld a,$00
-2eb0	cd 31 34 	call $3431	call $0000
-2eb3	20 8b 	jr nz,$-$73	jr nz,$-$00
-2eb5	3e 36 	ld a,$36	ld a,$00
-2eb7	21 3e 29 	ld hl,$293e	ld hl,$0000
-2eba	18 ed 	jr $-$11	jr $-$00
-2ebc	fe 85 	cp $85	cp $00
-2ebe	28 de 	jr z,$-$20	jr z,$-$00
-2ec0	fe dc 	cp $dc	cp $00
-2ec2	28 e8 	jr z,$-$16	jr z,$-$00
-2ec4	fe 2b 	cp $2b	cp $00
-2ec6	28 1a 	jr z,$+$1c	jr z,$+$00
-2ec8	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-2ecb	cd 36 35 	call $3536	call $0000
-2ece	28 09 	jr z,$+$0b	jr z,$+$00
-2ed0	cd 60 18 	call $1860	call $0000
-2ed3	d9 	exx	exx
-2ed4	cd 43 41 	call $4143	call $0000
-2ed7	20 df 	jr nz,$-$1f	jr nz,$-$00
-2ed9	cd f9 35 	call $35f9	call $0000
-2edc	22 f0 54 	ld ($54f0),hl	ld ($0000),hl
-2edf	c3 99 24 	jp $2499	jp $0000
-2ee2	cd 33 18 	call $1833	call $0000
-2ee5	d9 	exx	exx
-2ee6	eb 	ex de,hl	ex de,hl
-2ee7	fd e5 	push iy	push iy
-2ee9	e1 	pop hl	pop hl
-2eea	3e 0d 	ld a,$0d	ld a,$00
-2eec	47 	ld b,a	ld b,a
-2eed	ed b1 	cpir	cpir
-2eef	1d 	dec e	dec e
-2ef0	28 e7 	jr z,$-$17	jr z,$-$00
-2ef2	fa d9 2e 	jp m,$2ed9	jp m,$0000
-2ef5	af 	xor a	xor a
-2ef6	47 	ld b,a	ld b,a
-2ef7	4e 	ld c,(hl)	ld c,(hl)
-2ef8	b9 	cp c	cp c
-2ef9	28 bd 	jr z,$-$41	jr z,$-$00
-2efb	09 	add hl,bc	add hl,bc
-2efc	1d 	dec e	dec e
-2efd	20 f8 	jr nz,$-$06	jr nz,$-$00
-2eff	18 d8 	jr $-$26	jr $-$00
-2f01	cd d1 36 	call $36d1	call $0000
-2f04	cd 4f 35 	call $354f	call $0000
-2f07	7b 	ld a,e	ld a,e
-2f08	f5 	push af	push af
-2f09	cd 33 18 	call $1833	call $0000
-2f0c	e5 	push hl	push hl
-2f0d	d9 	exx	exx
-2f0e	d1 	pop de	pop de
-2f0f	f1 	pop af	pop af
-2f10	cd 95 06 	call $0695	call $0000
-2f13	18 61 	jr $+$63	jr $+$00
-2f15	cd 4f 35 	call $354f	call $0000
-2f18	cd 33 18 	call $1833	call $0000
-2f1b	d9 	exx	exx
-2f1c	2e 00 	ld l,$00	ld l,$00
-2f1e	22 dc 54 	ld ($54dc),hl	ld ($0000),hl
-2f21	18 53 	jr $+$55	jr $+$00
-2f23	fe 24 	cp $24	cp $00
-2f25	28 0e 	jr z,$+$10	jr z,$+$00
-2f27	cd 4f 35 	call $354f	call $0000
-2f2a	cd 33 18 	call $1833	call $0000
-2f2d	e5 	push hl	push hl
-2f2e	d9 	exx	exx
-2f2f	d1 	pop de	pop de
-2f30	cd 57 0d 	call $0d57	call $0000
-2f33	18 41 	jr $+$43	jr $+$00
-2f35	fd 23 	inc iy	inc iy
-2f37	cd 4f 35 	call $354f	call $0000
-2f3a	cd 3c 18 	call $183c	call $0000
-2f3d	cd 74 0d 	call $0d74	call $0000
-2f40	18 34 	jr $+$36	jr $+$00
-2f42	cd 4f 35 	call $354f	call $0000
-2f45	cd 33 18 	call $1833	call $0000
-2f48	cd 43 40 	call $4043	call $0000
-2f4b	d9 	exx	exx
-2f4c	22 de 54 	ld ($54de),hl	ld ($0000),hl
-2f4f	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
-2f52	18 22 	jr $+$24	jr $+$00
-2f54	cd 4f 35 	call $354f	call $0000
-2f57	cd 33 18 	call $1833	call $0000
-2f5a	d9 	exx	exx
-2f5b	ed 5b e0 54 	ld de,($54e0)	ld de,($0000)
-2f5f	14 	inc d	inc d
-2f60	af 	xor a	xor a
-2f61	ed 52 	sbc hl,de	sbc hl,de
-2f63	19 	add hl,de	add hl,de
-2f64	da 44 3f 	jp c,$3f44	jp c,$0000
-2f67	ed 5b e2 54 	ld de,($54e2)	ld de,($0000)
-2f6b	22 e2 54 	ld ($54e2),hl	ld ($0000),hl
-2f6e	eb 	ex de,hl	ex de,hl
-2f6f	ed 72 	sbc hl,sp	sbc hl,sp
-2f71	c2 99 24 	jp nz,$2499	jp nz,$0000
-2f74	eb 	ex de,hl	ex de,hl
-2f75	f9 	ld sp,hl	ld sp,hl
-2f76	c3 99 24 	jp $2499	jp $0000
-2f79	cd 33 18 	call $1833	call $0000
-2f7c	d9 	exx	exx
-2f7d	7d 	ld a,l	ld a,l
-2f7e	32 fc 54 	ld ($54fc),a	ld ($0000),a
-2f81	18 f3 	jr $-$0b	jr $-$00
-2f83	fd 23 	inc iy	inc iy
-2f85	21 00 00 	ld hl,$0000	ld hl,$0000
-2f88	fe ee 	cp $ee	cp $00
-2f8a	28 0a 	jr z,$+$0c	jr z,$+$00
-2f8c	fe 87 	cp $87	cp $00
-2f8e	28 07 	jr z,$+$09	jr z,$+$00
-2f90	fd 2b 	dec iy	dec iy
-2f92	cd 33 18 	call $1833	call $0000
-2f95	d9 	exx	exx
-2f96	2b 	dec hl	dec hl
-2f97	22 e6 54 	ld ($54e6),hl	ld ($0000),hl
-2f9a	18 da 	jr $-$24	jr $-$00
-2f9c	cd 33 18 	call $1833	call $0000
-2f9f	d9 	exx	exx
-2fa0	7d 	ld a,l	ld a,l
-2fa1	06 01 	ld b,$01	ld b,$00
-2fa3	cd b1 05 	call $05b1	call $0000
-2fa6	10 fb 	djnz $-$03	djnz $-$00
-2fa8	fd 7e 00 	ld a,(iy)	ld a,(iy)
-2fab	fe 7c 	cp $7c	cp $00
-2fad	28 15 	jr z,$+$17	jr z,$+$00
-2faf	fe 2c 	cp $2c	cp $00
-2fb1	28 08 	jr z,$+$0a	jr z,$+$00
-2fb3	fe 3b 	cp $3b	cp $00
-2fb5	20 06 	jr nz,$+$08	jr nz,$+$00
-2fb7	7c 	ld a,h	ld a,h
-2fb8	cd b1 05 	call $05b1	call $0000
-2fbb	fd 23 	inc iy	inc iy
-2fbd	cd 36 35 	call $3536	call $0000
-2fc0	20 da 	jr nz,$-$24	jr nz,$-$00
-2fc2	18 b2 	jr $-$4c	jr $-$00
-2fc4	fd 23 	inc iy	inc iy
-2fc6	af 	xor a	xor a
-2fc7	06 09 	ld b,$09	ld b,$00
-2fc9	18 d8 	jr $-$26	jr $-$00
-2fcb	cd d1 36 	call $36d1	call $0000
-2fce	cd 53 06 	call $0653	call $0000
-2fd1	18 a3 	jr $-$5b	jr $-$00
-2fd3	cd d1 36 	call $36d1	call $0000
-2fd6	d5 	push de	push de
-2fd7	cd a2 20 	call $20a2	call $0000
-2fda	cd 02 17 	call $1702	call $0000
-2fdd	08 	ex af,af'	ex af,af'
-2fde	fa ec 2f 	jp m,$2fec	jp m,$0000
-2fe1	cd 17 1c 	call $1c17	call $0000
-2fe4	d9 	exx	exx
-2fe5	7d 	ld a,l	ld a,l
-2fe6	d1 	pop de	pop de
-2fe7	cd 63 06 	call $0663	call $0000
-2fea	18 8a 	jr $-$74	jr $-$00
-2fec	7b 	ld a,e	ld a,e
-2fed	d1 	pop de	pop de
-2fee	57 	ld d,a	ld d,a
-2fef	21 00 52 	ld hl,$5200	ld hl,$0000
-2ff2	7e 	ld a,(hl)	ld a,(hl)
-2ff3	23 	inc hl	inc hl
-2ff4	cd 63 06 	call $0663	call $0000
-2ff7	15 	dec d	dec d
-2ff8	20 f8 	jr nz,$-$06	jr nz,$-$00
-2ffa	cd 0b 45 	call $450b	call $0000
-2ffd	fe 3b 	cp $3b	cp $00
+2a97	11 08 00 	ld de,$0008	ld de,$0000
+2a9a	dd 19 	add ix,de	add ix,de
+2a9c	eb 	ex de,hl	ex de,hl
+2a9d	10 ec 	djnz $-$12	djnz $-$00
+2a9f	dd e1 	pop ix	pop ix
+2aa1	e1 	pop hl	pop hl
+2aa2	c1 	pop bc	pop bc
+2aa3	20 02 	jr nz,$+$04	jr nz,$+$00
+2aa5	cb e6 	set 4,(hl)	set 4,(hl)
+2aa7	11 03 00 	ld de,$0003	ld de,$0000
+2aaa	cb 70 	bit 6,b	bit 6,b
+2aac	20 08 	jr nz,$+$0a	jr nz,$+$00
+2aae	1e 05 	ld e,$05	ld e,$00
+2ab0	cb 78 	bit 7,b	bit 7,b
+2ab2	28 02 	jr z,$+$04	jr z,$+$00
+2ab4	59 	ld e,c	ld e,c
+2ab5	13 	inc de	inc de
+2ab6	19 	add hl,de	add hl,de
+2ab7	4e 	ld c,(hl)	ld c,(hl)
+2ab8	23 	inc hl	inc hl
+2ab9	46 	ld b,(hl)	ld b,(hl)
+2aba	23 	inc hl	inc hl
+2abb	eb 	ex de,hl	ex de,hl
+2abc	21 0c 35 	ld hl,$350c	ld hl,$0000
+2abf	b7 	or a	or a
+2ac0	ed 42 	sbc hl,bc	sbc hl,bc
+2ac2	eb 	ex de,hl	ex de,hl
+2ac3	28 ba 	jr z,$-$44	jr z,$-$00
+2ac5	e1 	pop hl	pop hl
+2ac6	d1 	pop de	pop de
+2ac7	73 	ld (hl),e	ld (hl),e
+2ac8	23 	inc hl	inc hl
+2ac9	7e 	ld a,(hl)	ld a,(hl)
+2aca	72 	ld (hl),d	ld (hl),d
+2acb	fe ee 	cp $ee	cp $00
+2acd	20 0c 	jr nz,$+$0e	jr nz,$+$00
+2acf	d5 	push de	push de
+2ad0	fd e3 	ex (sp),iy	ex (sp),iy
+2ad2	cd 24 35 	call $3524	call $0000
+2ad5	fd e3 	ex (sp),iy	ex (sp),iy
+2ad7	d1 	pop de	pop de
+2ad8	72 	ld (hl),d	ld (hl),d
+2ad9	2b 	dec hl	dec hl
+2ada	73 	ld (hl),e	ld (hl),e
+2adb	c3 7b 24 	jp $247b	jp $0000
+2ade	fd 23 	inc iy	inc iy
+2ae0	18 f9 	jr $-$05	jr $-$00
+2ae2	fd 23 	inc iy	inc iy
+2ae4	2a f0 54 	ld hl,($54f0)	ld hl,($0000)
+2ae7	e5 	push hl	push hl
+2ae8	3e 40 	ld a,$40	ld a,$00
+2aea	f5 	push af	push af
+2aeb	21 f0 54 	ld hl,$54f0	ld hl,$0000
+2aee	e5 	push hl	push hl
+2aef	21 0c 35 	ld hl,$350c	ld hl,$0000
+2af2	e5 	push hl	push hl
+2af3	18 e6 	jr $-$18	jr $-$00
+2af5	fe 85 	cp $85	cp $00
+2af7	28 e5 	jr z,$-$19	jr z,$-$00
+2af9	fe dc 	cp $dc	cp $00
+2afb	28 e5 	jr z,$-$19	jr z,$-$00
+2afd	c1 	pop bc	pop bc
+2afe	c5 	push bc	push bc
+2aff	21 c9 29 	ld hl,$29c9	ld hl,$0000
+2b02	b7 	or a	or a
+2b03	ed 42 	sbc hl,bc	sbc hl,bc
+2b05	28 23 	jr z,$+$25	jr z,$+$00
+2b07	21 cd 29 	ld hl,$29cd	ld hl,$0000
+2b0a	b7 	or a	or a
+2b0b	ed 42 	sbc hl,bc	sbc hl,bc
+2b0d	28 1b 	jr z,$+$1d	jr z,$+$00
+2b0f	21 0c 35 	ld hl,$350c	ld hl,$0000
+2b12	b7 	or a	or a
+2b13	ed 42 	sbc hl,bc	sbc hl,bc
+2b15	28 13 	jr z,$+$15	jr z,$+$00
+2b17	21 be 26 	ld hl,$26be	ld hl,$0000
+2b1a	b7 	or a	or a
+2b1b	ed 42 	sbc hl,bc	sbc hl,bc
+2b1d	28 0b 	jr z,$+$0d	jr z,$+$00
+2b1f	21 52 2a 	ld hl,$2a52	ld hl,$0000
+2b22	b7 	or a	or a
+2b23	ed 42 	sbc hl,bc	sbc hl,bc
+2b25	3e 0c 	ld a,$0c	ld a,$00
+2b27	c2 26 3f 	jp nz,$3f26	jp nz,$0000
+2b2a	fd e5 	push iy	push iy
+2b2c	c1 	pop bc	pop bc
+2b2d	d9 	exx	exx
+2b2e	fd 2b 	dec iy	dec iy
+2b30	cd a0 34 	call $34a0	call $0000
+2b33	d9 	exx	exx
+2b34	c5 	push bc	push bc
+2b35	fd e1 	pop iy	pop iy
+2b37	cd c5 41 	call $41c5	call $0000
+2b3a	c2 c2 25 	jp nz,$25c2	jp nz,$0000
+2b3d	cb 77 	bit 6,a	bit 6,a
+2b3f	20 14 	jr nz,$+$16	jr nz,$+$00
+2b41	b7 	or a	or a
+2b42	08 	ex af,af'	ex af,af'
+2b43	cd da 1f 	call $1fda	call $0000
+2b46	08 	ex af,af'	ex af,af'
+2b47	f5 	push af	push af
+2b48	f4 d2 31 	call p,$31d2	call p,$0000
+2b4b	f1 	pop af	pop af
+2b4c	59 	ld e,c	ld e,c
+2b4d	fc 23 32 	call m,$3223	call m,$0000
+2b50	cd e2 44 	call $44e2	call $0000
+2b53	18 e2 	jr $-$1c	jr $-$00
+2b55	dd 36 00 01 	ld (ix),$01	ld (ix),$00
+2b59	dd 36 01 00 	ld (ix+$01),$00	ld (ix+$00),$00
+2b5d	18 f1 	jr $-$0d	jr $-$00
+2b5f	c1 	pop bc	pop bc
+2b60	21 cd 29 	ld hl,$29cd	ld hl,$0000
+2b63	af 	xor a	xor a
+2b64	ed 42 	sbc hl,bc	sbc hl,bc
+2b66	28 0b 	jr z,$+$0d	jr z,$+$00
+2b68	c5 	push bc	push bc
+2b69	cd 13 34 	call $3413	call $0000
+2b6c	20 f1 	jr nz,$-$0d	jr nz,$-$00
+2b6e	3e 0d 	ld a,$0d	ld a,$00
+2b70	c3 26 3f 	jp $3f26	jp $0000
+2b73	fd e1 	pop iy	pop iy
+2b75	c3 7b 24 	jp $247b	jp $0000
+2b78	cd bd 36 	call $36bd	call $0000
+2b7b	cd e2 44 	call $44e2	call $0000
+2b7e	d5 	push de	push de
+2b7f	cd b8 25 	call $25b8	call $0000
+2b82	d1 	pop de	pop de
+2b83	f5 	push af	push af
+2b84	e5 	push hl	push hl
+2b85	b7 	or a	or a
+2b86	fa ab 2b 	jp m,$2bab	jp m,$0000
+2b89	cd 3d 06 	call $063d	call $0000
+2b8c	d9 	exx	exx
+2b8d	6f 	ld l,a	ld l,a
+2b8e	d9 	exx	exx
+2b8f	cd 3d 06 	call $063d	call $0000
+2b92	d9 	exx	exx
+2b93	67 	ld h,a	ld h,a
+2b94	d9 	exx	exx
+2b95	cd 3d 06 	call $063d	call $0000
+2b98	6f 	ld l,a	ld l,a
+2b99	cd 3d 06 	call $063d	call $0000
+2b9c	67 	ld h,a	ld h,a
+2b9d	cd 3d 06 	call $063d	call $0000
+2ba0	4f 	ld c,a	ld c,a
+2ba1	dd e1 	pop ix	pop ix
+2ba3	f1 	pop af	pop af
+2ba4	d5 	push de	push de
+2ba5	cd d2 31 	call $31d2	call $0000
+2ba8	d1 	pop de	pop de
+2ba9	18 d0 	jr $-$2e	jr $-$00
+2bab	21 00 52 	ld hl,$5200	ld hl,$0000
+2bae	cd 3d 06 	call $063d	call $0000
+2bb1	fe 0d 	cp $0d	cp $00
+2bb3	28 04 	jr z,$+$06	jr z,$+$00
+2bb5	77 	ld (hl),a	ld (hl),a
+2bb6	2c 	inc l	inc l
+2bb7	20 f5 	jr nz,$-$09	jr nz,$-$00
+2bb9	dd e1 	pop ix	pop ix
+2bbb	f1 	pop af	pop af
+2bbc	d5 	push de	push de
+2bbd	eb 	ex de,hl	ex de,hl
+2bbe	cd 20 32 	call $3220	call $0000
+2bc1	d1 	pop de	pop de
+2bc2	18 b7 	jr $-$47	jr $-$00
+2bc4	fe 23 	cp $23	cp $00
+2bc6	28 b0 	jr z,$-$4e	jr z,$-$00
+2bc8	0e 00 	ld c,$00	ld c,$00
+2bca	fe 86 	cp $86	cp $00
+2bcc	20 04 	jr nz,$+$06	jr nz,$+$00
+2bce	fd 23 	inc iy	inc iy
+2bd0	0e 80 	ld c,$80	ld c,$00
+2bd2	21 00 53 	ld hl,$5300	ld hl,$0000
+2bd5	36 0d 	ld (hl),$0d	ld (hl),$00
+2bd7	cd 18 35 	call $3518	call $0000
+2bda	28 99 	jr z,$-$65	jr z,$-$00
+2bdc	fd 23 	inc iy	inc iy
+2bde	fe 2c 	cp $2c	cp $00
+2be0	28 51 	jr z,$+$53	jr z,$+$00
+2be2	fe 3b 	cp $3b	cp $00
+2be4	28 4d 	jr z,$+$4f	jr z,$+$00
+2be6	e5 	push hl	push hl
+2be7	fe 22 	cp $22	cp $00
+2be9	20 0a 	jr nz,$+$0c	jr nz,$+$00
+2beb	c5 	push bc	push bc
+2bec	cd 5c 19 	call $195c	call $0000
+2bef	c1 	pop bc	pop bc
+2bf0	cd 93 35 	call $3593	call $0000
+2bf3	18 05 	jr $+$07	jr $+$00
+2bf5	cd 3e 35 	call $353e	call $0000
+2bf8	20 05 	jr nz,$+$07	jr nz,$+$00
+2bfa	e1 	pop hl	pop hl
+2bfb	cb c1 	set 0,c	set 0,c
+2bfd	18 d3 	jr $-$2b	jr $-$00
+2bff	fd 2b 	dec iy	dec iy
+2c01	c5 	push bc	push bc
+2c02	cd b8 25 	call $25b8	call $0000
+2c05	c1 	pop bc	pop bc
+2c06	e1 	pop hl	pop hl
+2c07	f5 	push af	push af
+2c08	7e 	ld a,(hl)	ld a,(hl)
+2c09	23 	inc hl	inc hl
+2c0a	fe 0d 	cp $0d	cp $00
+2c0c	cc 37 2c 	call z,$2c37	call z,$0000
+2c0f	cb 79 	bit 7,c	bit 7,c
+2c11	f5 	push af	push af
+2c12	c4 b1 35 	call nz,$35b1	call nz,$0000
+2c15	f1 	pop af	pop af
+2c16	cc a0 35 	call z,$35a0	call z,$0000
+2c19	f1 	pop af	pop af
+2c1a	c5 	push bc	push bc
+2c1b	e5 	push hl	push hl
+2c1c	b7 	or a	or a
+2c1d	fa 2e 2c 	jp m,$2c2e	jp m,$0000
+2c20	f5 	push af	push af
+2c21	dd e5 	push ix	push ix
+2c23	cd 04 1c 	call $1c04	call $0000
+2c26	dd e1 	pop ix	pop ix
+2c28	f1 	pop af	pop af
+2c29	cd d2 31 	call $31d2	call $0000
+2c2c	18 03 	jr $+$05	jr $+$00
+2c2e	cd 20 32 	call $3220	call $0000
+2c31	e1 	pop hl	pop hl
+2c32	c1 	pop bc	pop bc
+2c33	cb 81 	res 0,c	res 0,c
+2c35	18 a0 	jr $-$5e	jr $-$00
+2c37	cb 41 	bit 0,c	bit 0,c
+2c39	20 0a 	jr nz,$+$0c	jr nz,$+$00
+2c3b	3e 3f 	ld a,$3f	ld a,$00
+2c3d	cd e4 40 	call $40e4	call $0000
+2c40	3e 20 	ld a,$20	ld a,$00
+2c42	cd e4 40 	call $40e4	call $0000
+2c45	21 00 53 	ld hl,$5300	ld hl,$0000
+2c48	c5 	push bc	push bc
+2c49	e5 	push hl	push hl
+2c4a	dd e5 	push ix	push ix
+2c4c	cd c9 05 	call $05c9	call $0000
+2c4f	dd e1 	pop ix	pop ix
+2c51	e1 	pop hl	pop hl
+2c52	c1 	pop bc	pop bc
+2c53	47 	ld b,a	ld b,a
+2c54	af 	xor a	xor a
+2c55	32 fb 54 	ld ($54fb),a	ld ($0000),a
+2c58	b8 	cp b	cp b
+2c59	c8 	ret z	ret z
+2c5a	7e 	ld a,(hl)	ld a,(hl)
+2c5b	fe 0d 	cp $0d	cp $00
+2c5d	c8 	ret z	ret z
+2c5e	23 	inc hl	inc hl
+2c5f	10 f9 	djnz $-$05	djnz $-$00
+2c61	c9 	ret	ret
+2c62	fe 23 	cp $23	cp $00
+2c64	ca 78 2b 	jp z,$2b78	jp z,$0000
+2c67	2a f0 54 	ld hl,($54f0)	ld hl,($0000)
+2c6a	7e 	ld a,(hl)	ld a,(hl)
+2c6b	fe 3a 	cp $3a	cp $00
+2c6d	cc 5a 2c 	call z,$2c5a	call z,$0000
+2c70	23 	inc hl	inc hl
+2c71	fe 0d 	cp $0d	cp $00
+2c73	cc a2 2c 	call z,$2ca2	call z,$0000
+2c76	e5 	push hl	push hl
+2c77	cd b8 25 	call $25b8	call $0000
+2c7a	e1 	pop hl	pop hl
+2c7b	b7 	or a	or a
+2c7c	fa 92 2c 	jp m,$2c92	jp m,$0000
+2c7f	e5 	push hl	push hl
+2c80	fd e3 	ex (sp),iy	ex (sp),iy
+2c82	f5 	push af	push af
+2c83	dd e5 	push ix	push ix
+2c85	cd 0e 18 	call $180e	call $0000
+2c88	dd e1 	pop ix	pop ix
+2c8a	f1 	pop af	pop af
+2c8b	cd d2 31 	call $31d2	call $0000
+2c8e	fd e3 	ex (sp),iy	ex (sp),iy
+2c90	18 07 	jr $+$09	jr $+$00
+2c92	cd a0 35 	call $35a0	call $0000
+2c95	e5 	push hl	push hl
+2c96	cd 20 32 	call $3220	call $0000
+2c99	e1 	pop hl	pop hl
+2c9a	22 f0 54 	ld ($54f0),hl	ld ($0000),hl
+2c9d	cd e2 44 	call $44e2	call $0000
+2ca0	18 c8 	jr $-$36	jr $-$00
+2ca2	cd db 35 	call $35db	call $0000
+2ca5	23 	inc hl	inc hl
+2ca6	d0 	ret nc	ret nc
+2ca7	3e 2a 	ld a,$2a	ld a,$00
+2ca9	18 64 	jr $+$66	jr $+$00
+2cab	cd 15 18 	call $1815	call $0000
+2cae	cd 3b 1f 	call $1f3b	call $0000
+2cb1	28 2a 	jr z,$+$2c	jr z,$+$00
+2cb3	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2cb6	fe 8c 	cp $8c	cp $00
+2cb8	c2 7b 24 	jp nz,$247b	jp nz,$0000
+2cbb	fd 23 	inc iy	inc iy
+2cbd	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2cc0	fe 3b 	cp $3b	cp $00
+2cc2	28 f7 	jr z,$-$07	jr z,$-$00
+2cc4	cd ed 44 	call $44ed	call $0000
+2cc7	fe 8d 	cp $8d	cp $00
+2cc9	c2 7b 24 	jp nz,$247b	jp nz,$0000
+2ccc	c3 96 28 	jp $2896	jp $0000
+2ccf	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2cd2	fd 23 	inc iy	inc iy
+2cd4	fe 3b 	cp $3b	cp $00
+2cd6	20 0a 	jr nz,$+$0c	jr nz,$+$00
+2cd8	18 1e 	jr $+$20	jr $+$00
+2cda	cd 7b 36 	call $367b	call $0000
+2cdd	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2ce0	fd 23 	inc iy	inc iy
+2ce2	fe 22 	cp $22	cp $00
+2ce4	28 f4 	jr z,$-$0a	jr z,$-$00
+2ce6	fe f4 	cp $f4	cp $00
+2ce8	ca 13 25 	jp z,$2513	jp z,$0000
+2ceb	fe 0d 	cp $0d	cp $00
+2ced	ca 66 24 	jp z,$2466	jp z,$0000
+2cf0	fe 8b 	cp $8b	cp $00
+2cf2	28 d0 	jr z,$-$2e	jr z,$-$00
+2cf4	fe 8c 	cp $8c	cp $00
+2cf6	20 e5 	jr nz,$-$19	jr nz,$-$00
+2cf8	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2cfb	fe 0d 	cp $0d	cp $00
+2cfd	20 d0 	jr nz,$-$2e	jr nz,$-$00
+2cff	01 8b 00 	ld bc,$008b	ld bc,$0000
+2d02	11 8c cd 	ld de,$cd8c	ld de,$0000
+2d05	fd 23 	inc iy	inc iy
+2d07	cd f3 35 	call $35f3	call $0000
+2d0a	ca 82 24 	jp z,$2482	jp z,$0000
+2d0d	3e 31 	ld a,$31	ld a,$00
+2d0f	c3 26 3f 	jp $3f26	jp $0000
+2d12	01 fd ff 	ld bc,$fffd	ld bc,$0000
+2d15	fd 09 	add iy,bc	add iy,bc
+2d17	01 cd 00 	ld bc,$00cd	ld bc,$0000
+2d1a	11 8c cd 	ld de,$cd8c	ld de,$0000
+2d1d	cd f3 35 	call $35f3	call $0000
+2d20	20 eb 	jr nz,$-$13	jr nz,$-$00
+2d22	c3 7b 24 	jp $247b	jp $0000
+2d25	01 fd ff 	ld bc,$fffd	ld bc,$0000
+2d28	fd 09 	add iy,bc	add iy,bc
+2d2a	01 cb 00 	ld bc,$00cb	ld bc,$0000
+2d2d	11 ca cb 	ld de,$cbca	ld de,$0000
+2d30	cd f3 35 	call $35f3	call $0000
+2d33	28 ed 	jr z,$-$11	jr z,$-$00
+2d35	3e 2f 	ld a,$2f	ld a,$00
+2d37	18 d6 	jr $-$28	jr $-$00
+2d39	cd e4 16 	call $16e4	call $0000
+2d3c	08 	ex af,af'	ex af,af'
+2d3d	06 00 	ld b,$00	ld b,$00
+2d3f	f2 48 2d 	jp p,$2d48	jp p,$0000
+2d42	cd fb 1f 	call $1ffb	call $0000
+2d45	c1 	pop bc	pop bc
+2d46	06 01 	ld b,$01	ld b,$00
+2d48	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2d4b	fd 23 	inc iy	inc iy
+2d4d	fe ca 	cp $ca	cp $00
+2d4f	3e 25 	ld a,$25	ld a,$00
+2d51	20 bc 	jr nz,$-$42	jr nz,$-$00
+2d53	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2d56	fd 23 	inc iy	inc iy
+2d58	fe 0d 	cp $0d	cp $00
+2d5a	3e 30 	ld a,$30	ld a,$00
+2d5c	20 b1 	jr nz,$-$4d	jr nz,$-$00
+2d5e	af 	xor a	xor a
+2d5f	d9 	exx	exx
+2d60	e5 	push hl	push hl
+2d61	d9 	exx	exx
+2d62	e5 	push hl	push hl
+2d63	c5 	push bc	push bc
+2d64	6f 	ld l,a	ld l,a
+2d65	01 c9 cc 	ld bc,$ccc9	ld bc,$0000
+2d68	11 ca cb 	ld de,$cbca	ld de,$0000
+2d6b	cd f5 35 	call $35f5	call $0000
+2d6e	c1 	pop bc	pop bc
+2d6f	e1 	pop hl	pop hl
+2d70	d9 	exx	exx
+2d71	e1 	pop hl	pop hl
+2d72	d9 	exx	exx
+2d73	3e 2f 	ld a,$2f	ld a,$00
+2d75	c2 26 3f 	jp nz,$3f26	jp nz,$0000
+2d78	fd 7e ff 	ld a,(iy-$01)	ld a,(iy-$00)
+2d7b	fe cb 	cp $cb	cp $00
+2d7d	28 56 	jr z,$+$58	jr z,$+$00
+2d7f	fe cc 	cp $cc	cp $00
+2d81	28 52 	jr z,$+$54	jr z,$+$00
+2d83	cb 40 	bit 0,b	bit 0,b
+2d85	20 69 	jr nz,$+$6b	jr nz,$+$00
+2d87	c5 	push bc	push bc
+2d88	e5 	push hl	push hl
+2d89	d9 	exx	exx
+2d8a	e5 	push hl	push hl
+2d8b	d9 	exx	exx
+2d8c	cd 0e 18 	call $180e	call $0000
+2d8f	dd 21 00 00 	ld ix,$0000	ld ix,$0000
+2d93	dd 39 	add ix,sp	add ix,sp
+2d95	d9 	exx	exx
+2d96	dd 5e 00 	ld e,(ix)	ld e,(ix)
+2d99	dd 56 01 	ld d,(ix+$01)	ld d,(ix+$00)
+2d9c	d9 	exx	exx
+2d9d	dd 5e 02 	ld e,(ix+$02)	ld e,(ix+$00)
+2da0	dd 56 03 	ld d,(ix+$03)	ld d,(ix+$00)
+2da3	dd 46 04 	ld b,(ix+$04)	ld b,(ix+$00)
+2da6	3e 09 	ld a,$09	ld a,$00
+2da8	cd f7 44 	call $44f7	call $0000
+2dab	7d 	ld a,l	ld a,l
+2dac	b7 	or a	or a
+2dad	d9 	exx	exx
+2dae	e1 	pop hl	pop hl
+2daf	d9 	exx	exx
+2db0	e1 	pop hl	pop hl
+2db1	c1 	pop bc	pop bc
+2db2	20 2c 	jr nz,$+$2e	jr nz,$+$00
+2db4	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2db7	fd 23 	inc iy	inc iy
+2db9	fe 2c 	cp $2c	cp $00
+2dbb	28 c6 	jr z,$-$38	jr z,$-$00
+2dbd	d9 	exx	exx
+2dbe	fd e5 	push iy	push iy
+2dc0	e3 	ex (sp),hl	ex (sp),hl
+2dc1	3e 0d 	ld a,$0d	ld a,$00
+2dc3	47 	ld b,a	ld b,a
+2dc4	ed b1 	cpir	cpir
+2dc6	e3 	ex (sp),hl	ex (sp),hl
+2dc7	fd e1 	pop iy	pop iy
+2dc9	d9 	exx	exx
+2dca	fd 7e fe 	ld a,(iy-$02)	ld a,(iy-$00)
+2dcd	fe ca 	cp $ca	cp $00
+2dcf	20 8d 	jr nz,$-$71	jr nz,$-$00
+2dd1	3e 01 	ld a,$01	ld a,$00
+2dd3	18 8a 	jr $-$74	jr $-$00
+2dd5	cb 40 	bit 0,b	bit 0,b
+2dd7	28 49 	jr z,$+$4b	jr z,$+$00
+2dd9	26 00 	ld h,$00	ld h,$00
+2ddb	69 	ld l,c	ld l,c
+2ddc	39 	add hl,sp	add hl,sp
+2ddd	f9 	ld sp,hl	ld sp,hl
+2dde	18 42 	jr $+$44	jr $+$00
+2de0	cd ed 44 	call $44ed	call $0000
+2de3	fe 2c 	cp $2c	cp $00
+2de5	20 ee 	jr nz,$-$10	jr nz,$-$00
+2de7	fd 23 	inc iy	inc iy
+2de9	c5 	push bc	push bc
+2dea	cd e4 16 	call $16e4	call $0000
+2ded	c1 	pop bc	pop bc
+2dee	18 f0 	jr $-$0e	jr $-$00
+2df0	c5 	push bc	push bc
+2df1	cd 1e 18 	call $181e	call $0000
+2df4	c1 	pop bc	pop bc
+2df5	21 00 00 	ld hl,$0000	ld hl,$0000
+2df8	39 	add hl,sp	add hl,sp
+2df9	43 	ld b,e	ld b,e
+2dfa	11 00 52 	ld de,$5200	ld de,$0000
+2dfd	c5 	push bc	push bc
+2dfe	cd d7 1f 	call $1fd7	call $0000
+2e01	c1 	pop bc	pop bc
+2e02	06 01 	ld b,$01	ld b,$00
+2e04	20 ae 	jr nz,$-$50	jr nz,$-$00
+2e06	18 d8 	jr $-$26	jr $-$00
+2e08	fd e5 	push iy	push iy
+2e0a	cd 68 32 	call $3268	call $0000
+2e0d	cd 10 2e 	call $2e10	call $0000
+2e10	cd 15 18 	call $1815	call $0000
+2e13	cd 3b 1f 	call $1f3b	call $0000
+2e16	20 0a 	jr nz,$+$0c	jr nz,$+$00
+2e18	c1 	pop bc	pop bc
+2e19	c1 	pop bc	pop bc
+2e1a	01 00 95 	ld bc,$9500	ld bc,$0000
+2e1d	16 01 	ld d,$01	ld d,$00
+2e1f	cd 32 36 	call $3632	call $0000
+2e22	c3 7b 24 	jp $247b	jp $0000
+2e25	c1 	pop bc	pop bc
+2e26	d1 	pop de	pop de
+2e27	d5 	push de	push de
+2e28	c5 	push bc	push bc
+2e29	b7 	or a	or a
+2e2a	21 10 2e 	ld hl,$2e10	ld hl,$0000
+2e2d	ed 42 	sbc hl,bc	sbc hl,bc
+2e2f	28 0b 	jr z,$+$0d	jr z,$+$00
+2e31	3e 03 	ld a,$03	ld a,$00
+2e33	cd 13 34 	call $3413	call $0000
+2e36	20 ed 	jr nz,$-$11	jr nz,$-$00
+2e38	3e 2e 	ld a,$2e	ld a,$00
+2e3a	18 4f 	jr $+$51	jr $+$00
+2e3c	fd e5 	push iy	push iy
+2e3e	fd 21 00 00 	ld iy,$0000	ld iy,$0000
+2e42	fd 19 	add iy,de	add iy,de
+2e44	cd 15 18 	call $1815	call $0000
+2e47	cd 3b 1f 	call $1f3b	call $0000
+2e4a	d1 	pop de	pop de
+2e4b	20 d5 	jr nz,$-$29	jr nz,$-$00
+2e4d	c1 	pop bc	pop bc
+2e4e	c1 	pop bc	pop bc
+2e4f	fd 21 00 00 	ld iy,$0000	ld iy,$0000
+2e53	fd 19 	add iy,de	add iy,de
+2e55	18 cb 	jr $-$33	jr $-$00
+2e57	cd 6e 0d 	call $0d6e	call $0000
+2e5a	af 	xor a	xor a
+2e5b	32 fb 54 	ld ($54fb),a	ld ($0000),a
+2e5e	18 c2 	jr $-$3c	jr $-$00
+2e60	cd dc 44 	call $44dc	call $0000
+2e63	0d 	dec c	dec c
+2e64	0a 	ld a,(bc)	ld a,(bc)
+2e65	fa 00 cd 	jp m,$cd00	jp m,$0000
+2e68	3d 	dec a	dec a
+2e69	41 	ld b,c	ld b,c
+2e6a	cd 64 41 	call $4164	call $0000
+2e6d	cd dd 40 	call $40dd	call $0000
+2e70	c3 92 37 	jp $3792	jp $0000
+2e73	cd c7 44 	call $44c7	call $0000
+2e76	18 aa 	jr $-$54	jr $-$00
+2e78	cd 25 40 	call $4025	call $0000
+2e7b	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+2e7e	18 3b 	jr $+$3d	jr $+$00
+2e80	fd 23 	inc iy	inc iy
+2e82	3e 02 	ld a,$02	ld a,$00
+2e84	cd 13 34 	call $3413	call $0000
+2e87	20 99 	jr nz,$-$65	jr nz,$-$00
+2e89	3e 35 	ld a,$35	ld a,$00
+2e8b	c3 26 3f 	jp $3f26	jp $0000
+2e8e	fd 23 	inc iy	inc iy
+2e90	3e 01 	ld a,$01	ld a,$00
+2e92	cd 13 34 	call $3413	call $0000
+2e95	20 8b 	jr nz,$-$73	jr nz,$-$00
+2e97	3e 36 	ld a,$36	ld a,$00
+2e99	21 3e 29 	ld hl,$293e	ld hl,$0000
+2e9c	18 ed 	jr $-$11	jr $-$00
+2e9e	fe 85 	cp $85	cp $00
+2ea0	28 de 	jr z,$-$20	jr z,$-$00
+2ea2	fe dc 	cp $dc	cp $00
+2ea4	28 e8 	jr z,$-$16	jr z,$-$00
+2ea6	fe 2b 	cp $2b	cp $00
+2ea8	28 1a 	jr z,$+$1c	jr z,$+$00
+2eaa	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+2ead	cd 18 35 	call $3518	call $0000
+2eb0	28 09 	jr z,$+$0b	jr z,$+$00
+2eb2	cd 42 18 	call $1842	call $0000
+2eb5	d9 	exx	exx
+2eb6	cd 25 41 	call $4125	call $0000
+2eb9	20 df 	jr nz,$-$1f	jr nz,$-$00
+2ebb	cd db 35 	call $35db	call $0000
+2ebe	22 f0 54 	ld ($54f0),hl	ld ($0000),hl
+2ec1	c3 7b 24 	jp $247b	jp $0000
+2ec4	cd 15 18 	call $1815	call $0000
+2ec7	d9 	exx	exx
+2ec8	eb 	ex de,hl	ex de,hl
+2ec9	fd e5 	push iy	push iy
+2ecb	e1 	pop hl	pop hl
+2ecc	3e 0d 	ld a,$0d	ld a,$00
+2ece	47 	ld b,a	ld b,a
+2ecf	ed b1 	cpir	cpir
+2ed1	1d 	dec e	dec e
+2ed2	28 e7 	jr z,$-$17	jr z,$-$00
+2ed4	fa bb 2e 	jp m,$2ebb	jp m,$0000
+2ed7	af 	xor a	xor a
+2ed8	47 	ld b,a	ld b,a
+2ed9	4e 	ld c,(hl)	ld c,(hl)
+2eda	b9 	cp c	cp c
+2edb	28 bd 	jr z,$-$41	jr z,$-$00
+2edd	09 	add hl,bc	add hl,bc
+2ede	1d 	dec e	dec e
+2edf	20 f8 	jr nz,$-$06	jr nz,$-$00
+2ee1	18 d8 	jr $-$26	jr $-$00
+2ee3	cd b3 36 	call $36b3	call $0000
+2ee6	cd 31 35 	call $3531	call $0000
+2ee9	7b 	ld a,e	ld a,e
+2eea	f5 	push af	push af
+2eeb	cd 15 18 	call $1815	call $0000
+2eee	e5 	push hl	push hl
+2eef	d9 	exx	exx
+2ef0	d1 	pop de	pop de
+2ef1	f1 	pop af	pop af
+2ef2	cd 77 06 	call $0677	call $0000
+2ef5	18 61 	jr $+$63	jr $+$00
+2ef7	cd 31 35 	call $3531	call $0000
+2efa	cd 15 18 	call $1815	call $0000
+2efd	d9 	exx	exx
+2efe	2e 00 	ld l,$00	ld l,$00
+2f00	22 dc 54 	ld ($54dc),hl	ld ($0000),hl
+2f03	18 53 	jr $+$55	jr $+$00
+2f05	fe 24 	cp $24	cp $00
+2f07	28 0e 	jr z,$+$10	jr z,$+$00
+2f09	cd 31 35 	call $3531	call $0000
+2f0c	cd 15 18 	call $1815	call $0000
+2f0f	e5 	push hl	push hl
+2f10	d9 	exx	exx
+2f11	d1 	pop de	pop de
+2f12	cd 39 0d 	call $0d39	call $0000
+2f15	18 41 	jr $+$43	jr $+$00
+2f17	fd 23 	inc iy	inc iy
+2f19	cd 31 35 	call $3531	call $0000
+2f1c	cd 1e 18 	call $181e	call $0000
+2f1f	cd 56 0d 	call $0d56	call $0000
+2f22	18 34 	jr $+$36	jr $+$00
+2f24	cd 31 35 	call $3531	call $0000
+2f27	cd 15 18 	call $1815	call $0000
+2f2a	cd 25 40 	call $4025	call $0000
+2f2d	d9 	exx	exx
+2f2e	22 de 54 	ld ($54de),hl	ld ($0000),hl
+2f31	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
+2f34	18 22 	jr $+$24	jr $+$00
+2f36	cd 31 35 	call $3531	call $0000
+2f39	cd 15 18 	call $1815	call $0000
+2f3c	d9 	exx	exx
+2f3d	ed 5b e0 54 	ld de,($54e0)	ld de,($0000)
+2f41	14 	inc d	inc d
+2f42	af 	xor a	xor a
+2f43	ed 52 	sbc hl,de	sbc hl,de
+2f45	19 	add hl,de	add hl,de
+2f46	da 26 3f 	jp c,$3f26	jp c,$0000
+2f49	ed 5b e2 54 	ld de,($54e2)	ld de,($0000)
+2f4d	22 e2 54 	ld ($54e2),hl	ld ($0000),hl
+2f50	eb 	ex de,hl	ex de,hl
+2f51	ed 72 	sbc hl,sp	sbc hl,sp
+2f53	c2 7b 24 	jp nz,$247b	jp nz,$0000
+2f56	eb 	ex de,hl	ex de,hl
+2f57	f9 	ld sp,hl	ld sp,hl
+2f58	c3 7b 24 	jp $247b	jp $0000
+2f5b	cd 15 18 	call $1815	call $0000
+2f5e	d9 	exx	exx
+2f5f	7d 	ld a,l	ld a,l
+2f60	32 fc 54 	ld ($54fc),a	ld ($0000),a
+2f63	18 f3 	jr $-$0b	jr $-$00
+2f65	fd 23 	inc iy	inc iy
+2f67	21 00 00 	ld hl,$0000	ld hl,$0000
+2f6a	fe ee 	cp $ee	cp $00
+2f6c	28 0a 	jr z,$+$0c	jr z,$+$00
+2f6e	fe 87 	cp $87	cp $00
+2f70	28 07 	jr z,$+$09	jr z,$+$00
+2f72	fd 2b 	dec iy	dec iy
+2f74	cd 15 18 	call $1815	call $0000
+2f77	d9 	exx	exx
+2f78	2b 	dec hl	dec hl
+2f79	22 e6 54 	ld ($54e6),hl	ld ($0000),hl
+2f7c	18 da 	jr $-$24	jr $-$00
+2f7e	cd 15 18 	call $1815	call $0000
+2f81	d9 	exx	exx
+2f82	7d 	ld a,l	ld a,l
+2f83	06 01 	ld b,$01	ld b,$00
+2f85	cd 93 05 	call $0593	call $0000
+2f88	10 fb 	djnz $-$03	djnz $-$00
+2f8a	fd 7e 00 	ld a,(iy)	ld a,(iy)
+2f8d	fe 7c 	cp $7c	cp $00
+2f8f	28 15 	jr z,$+$17	jr z,$+$00
+2f91	fe 2c 	cp $2c	cp $00
+2f93	28 08 	jr z,$+$0a	jr z,$+$00
+2f95	fe 3b 	cp $3b	cp $00
+2f97	20 06 	jr nz,$+$08	jr nz,$+$00
+2f99	7c 	ld a,h	ld a,h
+2f9a	cd 93 05 	call $0593	call $0000
+2f9d	fd 23 	inc iy	inc iy
+2f9f	cd 18 35 	call $3518	call $0000
+2fa2	20 da 	jr nz,$-$24	jr nz,$-$00
+2fa4	18 b2 	jr $-$4c	jr $-$00
+2fa6	fd 23 	inc iy	inc iy
+2fa8	af 	xor a	xor a
+2fa9	06 09 	ld b,$09	ld b,$00
+2fab	18 d8 	jr $-$26	jr $-$00
+2fad	cd b3 36 	call $36b3	call $0000
+2fb0	cd 35 06 	call $0635	call $0000
+2fb3	18 a3 	jr $-$5b	jr $-$00
+2fb5	cd b3 36 	call $36b3	call $0000
+2fb8	d5 	push de	push de
+2fb9	cd 84 20 	call $2084	call $0000
+2fbc	cd e4 16 	call $16e4	call $0000
+2fbf	08 	ex af,af'	ex af,af'
+2fc0	fa ce 2f 	jp m,$2fce	jp m,$0000
+2fc3	cd f9 1b 	call $1bf9	call $0000
+2fc6	d9 	exx	exx
+2fc7	7d 	ld a,l	ld a,l
+2fc8	d1 	pop de	pop de
+2fc9	cd 45 06 	call $0645	call $0000
+2fcc	18 8a 	jr $-$74	jr $-$00
+2fce	7b 	ld a,e	ld a,e
+2fcf	d1 	pop de	pop de
+2fd0	57 	ld d,a	ld d,a
+2fd1	21 00 52 	ld hl,$5200	ld hl,$0000
+2fd4	7e 	ld a,(hl)	ld a,(hl)
+2fd5	23 	inc hl	inc hl
+2fd6	cd 45 06 	call $0645	call $0000
+2fd9	15 	dec d	dec d
+2fda	20 f8 	jr nz,$-$06	jr nz,$-$00
+2fdc	cd ed 44 	call $44ed	call $0000
+2fdf	fe 3b 	cp $3b	cp $00
+2fe1	fd 23 	inc iy	inc iy
+2fe3	28 e7 	jr z,$-$17	jr z,$-$00
+2fe5	3e 0a 	ld a,$0a	ld a,$00
+2fe7	cd 45 06 	call $0645	call $0000
+2fea	fd 2b 	dec iy	dec iy
+2fec	18 de 	jr $-$20	jr $-$00
+2fee	cd 15 18 	call $1815	call $0000
+2ff1	d9 	exx	exx
+2ff2	e5 	push hl	push hl
+2ff3	06 00 	ld b,$00	ld b,$00
+2ff5	11 00 53 	ld de,$5300	ld de,$0000
+2ff8	cd ed 44 	call $44ed	call $0000
+2ffb	fe 2c 	cp $2c	cp $00
+2ffd	20 17 	jr nz,$+$19	jr nz,$+$00
 2fff	fd 23 	inc iy	inc iy
-3001	28 e7 	jr z,$-$17	jr z,$-$00
-3003	3e 0a 	ld a,$0a	ld a,$00
-3005	cd 63 06 	call $0663	call $0000
-3008	fd 2b 	dec iy	dec iy
-300a	18 de 	jr $-$20	jr $-$00
-300c	cd 33 18 	call $1833	call $0000
-300f	d9 	exx	exx
-3010	e5 	push hl	push hl
-3011	06 00 	ld b,$00	ld b,$00
-3013	11 00 53 	ld de,$5300	ld de,$0000
-3016	cd 0b 45 	call $450b	call $0000
-3019	fe 2c 	cp $2c	cp $00
-301b	20 17 	jr nz,$+$19	jr nz,$+$00
-301d	fd 23 	inc iy	inc iy
-301f	04 	inc b	inc b
-3020	cd 0b 45 	call $450b	call $0000
-3023	c5 	push bc	push bc
-3024	d5 	push de	push de
-3025	cd d6 25 	call $25d6	call $0000
-3028	d1 	pop de	pop de
-3029	c1 	pop bc	pop bc
-302a	13 	inc de	inc de
-302b	12 	ld (de),a	ld (de),a
-302c	13 	inc de	inc de
-302d	eb 	ex de,hl	ex de,hl
-302e	73 	ld (hl),e	ld (hl),e
-302f	23 	inc hl	inc hl
-3030	72 	ld (hl),d	ld (hl),d
-3031	eb 	ex de,hl	ex de,hl
-3032	18 e2 	jr $-$1c	jr $-$00
-3034	78 	ld a,b	ld a,b
-3035	32 00 53 	ld ($5300),a	ld ($0000),a
-3038	e1 	pop hl	pop hl
-3039	cd 43 30 	call $3043	call $0000
-303c	c3 99 24 	jp $2499	jp $0000
-303f	cd 60 18 	call $1860	call $0000
-3042	d9 	exx	exx
-3043	e5 	push hl	push hl
-3044	fd e3 	ex (sp),iy	ex (sp),iy
-3046	24 	inc h	inc h
-3047	21 72 30 	ld hl,$3072	ld hl,$0000
-304a	e5 	push hl	push hl
-304b	dd 21 00 54 	ld ix,$5400	ld ix,$0000
-304f	cc a8 10 	call z,$10a8	call z,$0000
-3052	dd 4e 18 	ld c,(ix+$18)	ld c,(ix+$00)
-3055	c5 	push bc	push bc
-3056	f1 	pop af	pop af
-3057	dd 7e 04 	ld a,(ix+$04)	ld a,(ix+$00)
-305a	dd 46 08 	ld b,(ix+$08)	ld b,(ix+$00)
-305d	dd 4e 0c 	ld c,(ix+$0c)	ld c,(ix+$00)
-3060	dd 56 10 	ld d,(ix+$10)	ld d,(ix+$00)
-3063	dd 5e 14 	ld e,(ix+$14)	ld e,(ix+$00)
-3066	dd 66 20 	ld h,(ix+$20)	ld h,(ix+$00)
-3069	dd 6e 30 	ld l,(ix+$30)	ld l,(ix+$00)
-306c	dd 21 00 53 	ld ix,$5300	ld ix,$0000
-3070	fd e9 	jp (iy)	jp (iy)
-3072	fd e1 	pop iy	pop iy
-3074	af 	xor a	xor a
-3075	4f 	ld c,a	ld c,a
-3076	c9 	ret	ret
-3077	cd be 25 	call $25be	call $0000
-307a	21 00 ff 	ld hl,$ff00	ld hl,$0000
-307d	20 48 	jr nz,$+$4a	jr nz,$+$00
-307f	18 26 	jr $+$28	jr $+$00
-3081	cd be 25 	call $25be	call $0000
-3084	21 ff ff 	ld hl,$ffff	ld hl,$0000
-3087	20 3e 	jr nz,$+$40	jr nz,$+$00
-3089	18 1c 	jr $+$1e	jr $+$00
-308b	cd be 25 	call $25be	call $0000
-308e	3e 05 	ld a,$05	ld a,$00
-3090	c2 44 3f 	jp nz,$3f44	jp nz,$0000
-3093	fd 23 	inc iy	inc iy
-3095	dd e5 	push ix	push ix
-3097	cd 33 18 	call $1833	call $0000
-309a	dd e1 	pop ix	pop ix
-309c	d9 	exx	exx
-309d	cd 0b 45 	call $450b	call $0000
-30a0	2d 	dec l	dec l
-30a1	26 fe 	ld h,$fe	ld h,$00
-30a3	fe 2c 	cp $2c	cp $00
-30a5	20 20 	jr nz,$+$22	jr nz,$+$00
-30a7	fd 23 	inc iy	inc iy
-30a9	e5 	push hl	push hl
-30aa	dd e5 	push ix	push ix
-30ac	cd 33 18 	call $1833	call $0000
-30af	dd e1 	pop ix	pop ix
-30b1	d9 	exx	exx
-30b2	7d 	ld a,l	ld a,l
-30b3	e1 	pop hl	pop hl
-30b4	b7 	or a	or a
-30b5	28 0d 	jr z,$+$0f	jr z,$+$00
-30b7	3d 	dec a	dec a
-30b8	85 	add a,l	add a,l
-30b9	67 	ld h,a	ld h,a
-30ba	30 0b 	jr nc,$+$0d	jr nc,$+$00
-30bc	7d 	ld a,l	ld a,l
-30bd	3c 	inc a	inc a
-30be	28 07 	jr z,$+$09	jr z,$+$00
-30c0	26 fe 	ld h,$fe	ld h,$00
-30c2	18 03 	jr $+$05	jr $+$00
-30c4	21 01 00 	ld hl,$0001	ld hl,$0000
-30c7	cd ae 20 	call $20ae	call $0000
-30ca	cd 4f 35 	call $354f	call $0000
-30cd	e5 	push hl	push hl
-30ce	dd e5 	push ix	push ix
-30d0	cd 3c 18 	call $183c	call $0000
-30d3	dd e1 	pop ix	pop ix
-30d5	e1 	pop hl	pop hl
-30d6	4b 	ld c,e	ld c,e
-30d7	dd 46 00 	ld b,(ix)	ld b,(ix)
-30da	dd 5e 02 	ld e,(ix+$02)	ld e,(ix+$00)
-30dd	dd 56 03 	ld d,(ix+$03)	ld d,(ix+$00)
-30e0	7d 	ld a,l	ld a,l
-30e1	3c 	inc a	inc a
-30e2	20 0f 	jr nz,$+$11	jr nz,$+$00
-30e4	24 	inc h	inc h
-30e5	24 	inc h	inc h
-30e6	79 	ld a,c	ld a,c
-30e7	bc 	cp h	cp h
-30e8	30 01 	jr nc,$+$03	jr nc,$+$00
-30ea	67 	ld h,a	ld h,a
-30eb	78 	ld a,b	ld a,b
-30ec	94 	sub h	sub h
-30ed	30 01 	jr nc,$+$03	jr nc,$+$00
-30ef	af 	xor a	xor a
-30f0	6f 	ld l,a	ld l,a
-30f1	18 12 	jr $+$14	jr $+$00
-30f3	7c 	ld a,h	ld a,h
-30f4	3c 	inc a	inc a
-30f5	20 06 	jr nz,$+$08	jr nz,$+$00
-30f7	78 	ld a,b	ld a,b
-30f8	d6 02 	sub $02	sub $00
-30fa	38 24 	jr c,$+$26	jr c,$+$00
-30fc	67 	ld h,a	ld h,a
-30fd	7d 	ld a,l	ld a,l
-30fe	b8 	cp b	cp b
-30ff	30 1f 	jr nc,$+$21	jr nc,$+$00
-3101	7c 	ld a,h	ld a,h
-3102	b8 	cp b	cp b
-3103	38 03 	jr c,$+$05	jr c,$+$00
-3105	78 	ld a,b	ld a,b
-3106	3d 	dec a	dec a
-3107	67 	ld h,a	ld h,a
-3108	7c 	ld a,h	ld a,h
-3109	95 	sub l	sub l
-310a	38 14 	jr c,$+$16	jr c,$+$00
-310c	3c 	inc a	inc a
-310d	b9 	cp c	cp c
-310e	38 01 	jr c,$+$03	jr c,$+$00
-3110	79 	ld a,c	ld a,c
-3111	06 00 	ld b,$00	ld b,$00
-3113	60 	ld h,b	ld h,b
-3114	4f 	ld c,a	ld c,a
-3115	b7 	or a	or a
-3116	28 08 	jr z,$+$0a	jr z,$+$00
-3118	eb 	ex de,hl	ex de,hl
-3119	19 	add hl,de	add hl,de
-311a	eb 	ex de,hl	ex de,hl
-311b	21 00 52 	ld hl,$5200	ld hl,$0000
-311e	ed b0 	ldir	ldir
-3120	c3 99 24 	jp $2499	jp $0000
-3123	fd 23 	inc iy	inc iy
-3125	fe e3 	cp $e3	cp $00
-3127	20 0c 	jr nz,$+$0e	jr nz,$+$00
-3129	dd 21 00 00 	ld ix,$0000	ld ix,$0000
-312d	cd 36 35 	call $3536	call $0000
-3130	c4 e3 41 	call nz,$41e3	call nz,$0000
-3133	3e e3 	ld a,$e3	ld a,$00
-3135	16 01 	ld d,$01	ld d,$00
-3137	5f 	ld e,a	ld e,a
-3138	7b 	ld a,e	ld a,e
-3139	c1 	pop bc	pop bc
-313a	21 61 29 	ld hl,$2961	ld hl,$0000
-313d	b7 	or a	or a
-313e	ed 42 	sbc hl,bc	sbc hl,bc
-3140	28 25 	jr z,$+$27	jr z,$+$00
-3142	21 ed 28 	ld hl,$28ed	ld hl,$0000
-3145	b7 	or a	or a
-3146	ed 42 	sbc hl,bc	sbc hl,bc
-3148	28 38 	jr z,$+$3a	jr z,$+$00
-314a	21 2e 2e 	ld hl,$2e2e	ld hl,$0000
-314d	b7 	or a	or a
-314e	ed 42 	sbc hl,bc	sbc hl,bc
-3150	28 3a 	jr z,$+$3c	jr z,$+$00
-3152	c5 	push bc	push bc
+3001	04 	inc b	inc b
+3002	cd ed 44 	call $44ed	call $0000
+3005	c5 	push bc	push bc
+3006	d5 	push de	push de
+3007	cd b8 25 	call $25b8	call $0000
+300a	d1 	pop de	pop de
+300b	c1 	pop bc	pop bc
+300c	13 	inc de	inc de
+300d	12 	ld (de),a	ld (de),a
+300e	13 	inc de	inc de
+300f	eb 	ex de,hl	ex de,hl
+3010	73 	ld (hl),e	ld (hl),e
+3011	23 	inc hl	inc hl
+3012	72 	ld (hl),d	ld (hl),d
+3013	eb 	ex de,hl	ex de,hl
+3014	18 e2 	jr $-$1c	jr $-$00
+3016	78 	ld a,b	ld a,b
+3017	32 00 53 	ld ($5300),a	ld ($0000),a
+301a	e1 	pop hl	pop hl
+301b	cd 25 30 	call $3025	call $0000
+301e	c3 7b 24 	jp $247b	jp $0000
+3021	cd 42 18 	call $1842	call $0000
+3024	d9 	exx	exx
+3025	e5 	push hl	push hl
+3026	fd e3 	ex (sp),iy	ex (sp),iy
+3028	24 	inc h	inc h
+3029	21 54 30 	ld hl,$3054	ld hl,$0000
+302c	e5 	push hl	push hl
+302d	dd 21 00 54 	ld ix,$5400	ld ix,$0000
+3031	cc 8a 10 	call z,$108a	call z,$0000
+3034	dd 4e 18 	ld c,(ix+$18)	ld c,(ix+$00)
+3037	c5 	push bc	push bc
+3038	f1 	pop af	pop af
+3039	dd 7e 04 	ld a,(ix+$04)	ld a,(ix+$00)
+303c	dd 46 08 	ld b,(ix+$08)	ld b,(ix+$00)
+303f	dd 4e 0c 	ld c,(ix+$0c)	ld c,(ix+$00)
+3042	dd 56 10 	ld d,(ix+$10)	ld d,(ix+$00)
+3045	dd 5e 14 	ld e,(ix+$14)	ld e,(ix+$00)
+3048	dd 66 20 	ld h,(ix+$20)	ld h,(ix+$00)
+304b	dd 6e 30 	ld l,(ix+$30)	ld l,(ix+$00)
+304e	dd 21 00 53 	ld ix,$5300	ld ix,$0000
+3052	fd e9 	jp (iy)	jp (iy)
+3054	fd e1 	pop iy	pop iy
+3056	af 	xor a	xor a
+3057	4f 	ld c,a	ld c,a
+3058	c9 	ret	ret
+3059	cd a0 25 	call $25a0	call $0000
+305c	21 00 ff 	ld hl,$ff00	ld hl,$0000
+305f	20 48 	jr nz,$+$4a	jr nz,$+$00
+3061	18 26 	jr $+$28	jr $+$00
+3063	cd a0 25 	call $25a0	call $0000
+3066	21 ff ff 	ld hl,$ffff	ld hl,$0000
+3069	20 3e 	jr nz,$+$40	jr nz,$+$00
+306b	18 1c 	jr $+$1e	jr $+$00
+306d	cd a0 25 	call $25a0	call $0000
+3070	3e 05 	ld a,$05	ld a,$00
+3072	c2 26 3f 	jp nz,$3f26	jp nz,$0000
+3075	fd 23 	inc iy	inc iy
+3077	dd e5 	push ix	push ix
+3079	cd 15 18 	call $1815	call $0000
+307c	dd e1 	pop ix	pop ix
+307e	d9 	exx	exx
+307f	cd ed 44 	call $44ed	call $0000
+3082	2d 	dec l	dec l
+3083	26 fe 	ld h,$fe	ld h,$00
+3085	fe 2c 	cp $2c	cp $00
+3087	20 20 	jr nz,$+$22	jr nz,$+$00
+3089	fd 23 	inc iy	inc iy
+308b	e5 	push hl	push hl
+308c	dd e5 	push ix	push ix
+308e	cd 15 18 	call $1815	call $0000
+3091	dd e1 	pop ix	pop ix
+3093	d9 	exx	exx
+3094	7d 	ld a,l	ld a,l
+3095	e1 	pop hl	pop hl
+3096	b7 	or a	or a
+3097	28 0d 	jr z,$+$0f	jr z,$+$00
+3099	3d 	dec a	dec a
+309a	85 	add a,l	add a,l
+309b	67 	ld h,a	ld h,a
+309c	30 0b 	jr nc,$+$0d	jr nc,$+$00
+309e	7d 	ld a,l	ld a,l
+309f	3c 	inc a	inc a
+30a0	28 07 	jr z,$+$09	jr z,$+$00
+30a2	26 fe 	ld h,$fe	ld h,$00
+30a4	18 03 	jr $+$05	jr $+$00
+30a6	21 01 00 	ld hl,$0001	ld hl,$0000
+30a9	cd 90 20 	call $2090	call $0000
+30ac	cd 31 35 	call $3531	call $0000
+30af	e5 	push hl	push hl
+30b0	dd e5 	push ix	push ix
+30b2	cd 1e 18 	call $181e	call $0000
+30b5	dd e1 	pop ix	pop ix
+30b7	e1 	pop hl	pop hl
+30b8	4b 	ld c,e	ld c,e
+30b9	dd 46 00 	ld b,(ix)	ld b,(ix)
+30bc	dd 5e 02 	ld e,(ix+$02)	ld e,(ix+$00)
+30bf	dd 56 03 	ld d,(ix+$03)	ld d,(ix+$00)
+30c2	7d 	ld a,l	ld a,l
+30c3	3c 	inc a	inc a
+30c4	20 0f 	jr nz,$+$11	jr nz,$+$00
+30c6	24 	inc h	inc h
+30c7	24 	inc h	inc h
+30c8	79 	ld a,c	ld a,c
+30c9	bc 	cp h	cp h
+30ca	30 01 	jr nc,$+$03	jr nc,$+$00
+30cc	67 	ld h,a	ld h,a
+30cd	78 	ld a,b	ld a,b
+30ce	94 	sub h	sub h
+30cf	30 01 	jr nc,$+$03	jr nc,$+$00
+30d1	af 	xor a	xor a
+30d2	6f 	ld l,a	ld l,a
+30d3	18 12 	jr $+$14	jr $+$00
+30d5	7c 	ld a,h	ld a,h
+30d6	3c 	inc a	inc a
+30d7	20 06 	jr nz,$+$08	jr nz,$+$00
+30d9	78 	ld a,b	ld a,b
+30da	d6 02 	sub $02	sub $00
+30dc	38 24 	jr c,$+$26	jr c,$+$00
+30de	67 	ld h,a	ld h,a
+30df	7d 	ld a,l	ld a,l
+30e0	b8 	cp b	cp b
+30e1	30 1f 	jr nc,$+$21	jr nc,$+$00
+30e3	7c 	ld a,h	ld a,h
+30e4	b8 	cp b	cp b
+30e5	38 03 	jr c,$+$05	jr c,$+$00
+30e7	78 	ld a,b	ld a,b
+30e8	3d 	dec a	dec a
+30e9	67 	ld h,a	ld h,a
+30ea	7c 	ld a,h	ld a,h
+30eb	95 	sub l	sub l
+30ec	38 14 	jr c,$+$16	jr c,$+$00
+30ee	3c 	inc a	inc a
+30ef	b9 	cp c	cp c
+30f0	38 01 	jr c,$+$03	jr c,$+$00
+30f2	79 	ld a,c	ld a,c
+30f3	06 00 	ld b,$00	ld b,$00
+30f5	60 	ld h,b	ld h,b
+30f6	4f 	ld c,a	ld c,a
+30f7	b7 	or a	or a
+30f8	28 08 	jr z,$+$0a	jr z,$+$00
+30fa	eb 	ex de,hl	ex de,hl
+30fb	19 	add hl,de	add hl,de
+30fc	eb 	ex de,hl	ex de,hl
+30fd	21 00 52 	ld hl,$5200	ld hl,$0000
+3100	ed b0 	ldir	ldir
+3102	c3 7b 24 	jp $247b	jp $0000
+3105	fd 23 	inc iy	inc iy
+3107	fe e3 	cp $e3	cp $00
+3109	20 0c 	jr nz,$+$0e	jr nz,$+$00
+310b	dd 21 00 00 	ld ix,$0000	ld ix,$0000
+310f	cd 18 35 	call $3518	call $0000
+3112	c4 c5 41 	call nz,$41c5	call nz,$0000
+3115	3e e3 	ld a,$e3	ld a,$00
+3117	16 01 	ld d,$01	ld d,$00
+3119	5f 	ld e,a	ld e,a
+311a	7b 	ld a,e	ld a,e
+311b	c1 	pop bc	pop bc
+311c	21 43 29 	ld hl,$2943	ld hl,$0000
+311f	b7 	or a	or a
+3120	ed 42 	sbc hl,bc	sbc hl,bc
+3122	28 25 	jr z,$+$27	jr z,$+$00
+3124	21 cf 28 	ld hl,$28cf	ld hl,$0000
+3127	b7 	or a	or a
+3128	ed 42 	sbc hl,bc	sbc hl,bc
+312a	28 38 	jr z,$+$3a	jr z,$+$00
+312c	21 10 2e 	ld hl,$2e10	ld hl,$0000
+312f	b7 	or a	or a
+3130	ed 42 	sbc hl,bc	sbc hl,bc
+3132	28 3a 	jr z,$+$3c	jr z,$+$00
+3134	c5 	push bc	push bc
+3135	dd e5 	push ix	push ix
+3137	c1 	pop bc	pop bc
+3138	d9 	exx	exx
+3139	3e 03 	ld a,$03	ld a,$00
+313b	cd 13 34 	call $3413	call $0000
+313e	d9 	exx	exx
+313f	c5 	push bc	push bc
+3140	dd e1 	pop ix	pop ix
+3142	20 d6 	jr nz,$-$28	jr nz,$-$00
+3144	3e 2c 	ld a,$2c	ld a,$00
+3146	c3 26 3f 	jp $3f26	jp $0000
+3149	c1 	pop bc	pop bc
+314a	21 0e 00 	ld hl,$000e	ld hl,$0000
+314d	39 	add hl,sp	add hl,sp
+314e	f9 	ld sp,hl	ld sp,hl
+314f	fe e3 	cp $e3	cp $00
+3151	20 c7 	jr nz,$-$37	jr nz,$-$00
 3153	dd e5 	push ix	push ix
-3155	c1 	pop bc	pop bc
-3156	d9 	exx	exx
-3157	3e 03 	ld a,$03	ld a,$00
-3159	cd 31 34 	call $3431	call $0000
-315c	d9 	exx	exx
-315d	c5 	push bc	push bc
-315e	dd e1 	pop ix	pop ix
-3160	20 d6 	jr nz,$-$28	jr nz,$-$00
-3162	3e 2c 	ld a,$2c	ld a,$00
-3164	c3 44 3f 	jp $3f44	jp $0000
-3167	c1 	pop bc	pop bc
-3168	21 0e 00 	ld hl,$000e	ld hl,$0000
-316b	39 	add hl,sp	add hl,sp
-316c	f9 	ld sp,hl	ld sp,hl
-316d	fe e3 	cp $e3	cp $00
-316f	20 c7 	jr nz,$-$37	jr nz,$-$00
-3171	dd e5 	push ix	push ix
-3173	e1 	pop hl	pop hl
-3174	7c 	ld a,h	ld a,h
-3175	b5 	or l	or l
-3176	28 02 	jr z,$+$04	jr z,$+$00
-3178	ed 42 	sbc hl,bc	sbc hl,bc
-317a	01 00 d0 	ld bc,$d000	ld bc,$0000
-317d	28 15 	jr z,$+$17	jr z,$+$00
-317f	14 	inc d	inc d
-3180	18 b6 	jr $-$48	jr $-$00
-3182	c1 	pop bc	pop bc
-3183	fe f5 	cp $f5	cp $00
-3185	20 b1 	jr nz,$-$4d	jr nz,$-$00
-3187	01 00 f2 	ld bc,$f200	ld bc,$0000
-318a	18 08 	jr $+$0a	jr $+$00
-318c	c1 	pop bc	pop bc
-318d	fe c7 	cp $c7	cp $00
-318f	20 a7 	jr nz,$-$57	jr nz,$-$00
-3191	01 00 95 	ld bc,$9500	ld bc,$0000
-3194	cd 50 36 	call $3650	call $0000
-3197	cd 42 35 	call $3542	call $0000
-319a	c3 99 24 	jp $2499	jp $0000
-319d	cd 33 18 	call $1833	call $0000
-31a0	d9 	exx	exx
-31a1	e5 	push hl	push hl
-31a2	cd a2 20 	call $20a2	call $0000
-31a5	cd 33 18 	call $1833	call $0000
-31a8	d9 	exx	exx
-31a9	c1 	pop bc	pop bc
-31aa	ed 69 	out (bc),l	out (bc),l
-31ac	c3 99 24 	jp $2499	jp $0000
-31af	cd e3 41 	call $41e3	call $0000
-31b2	d8 	ret c	ret c
-31b3	c4 cd 41 	call nz,$41cd	call nz,$0000
-31b6	57 	ld d,a	ld d,a
-31b7	cd 0b 45 	call $450b	call $0000
-31ba	fd 23 	inc iy	inc iy
-31bc	5f 	ld e,a	ld e,a
-31bd	fe 3d 	cp $3d	cp $00
-31bf	c4 4f 35 	call nz,$354f	call nz,$0000
-31c2	7a 	ld a,d	ld a,d
-31c3	e6 c0 	and $c0	and $00
-31c5	c0 	ret nz	ret nz
-31c6	d5 	push de	push de
-31c7	e5 	push hl	push hl
-31c8	cd 2c 18 	call $182c	call $0000
+3155	e1 	pop hl	pop hl
+3156	7c 	ld a,h	ld a,h
+3157	b5 	or l	or l
+3158	28 02 	jr z,$+$04	jr z,$+$00
+315a	ed 42 	sbc hl,bc	sbc hl,bc
+315c	01 00 d0 	ld bc,$d000	ld bc,$0000
+315f	28 15 	jr z,$+$17	jr z,$+$00
+3161	14 	inc d	inc d
+3162	18 b6 	jr $-$48	jr $-$00
+3164	c1 	pop bc	pop bc
+3165	fe f5 	cp $f5	cp $00
+3167	20 b1 	jr nz,$-$4d	jr nz,$-$00
+3169	01 00 f2 	ld bc,$f200	ld bc,$0000
+316c	18 08 	jr $+$0a	jr $+$00
+316e	c1 	pop bc	pop bc
+316f	fe c7 	cp $c7	cp $00
+3171	20 a7 	jr nz,$-$57	jr nz,$-$00
+3173	01 00 95 	ld bc,$9500	ld bc,$0000
+3176	cd 32 36 	call $3632	call $0000
+3179	cd 24 35 	call $3524	call $0000
+317c	c3 7b 24 	jp $247b	jp $0000
+317f	cd 15 18 	call $1815	call $0000
+3182	d9 	exx	exx
+3183	e5 	push hl	push hl
+3184	cd 84 20 	call $2084	call $0000
+3187	cd 15 18 	call $1815	call $0000
+318a	d9 	exx	exx
+318b	c1 	pop bc	pop bc
+318c	ed 69 	out (bc),l	out (bc),l
+318e	c3 7b 24 	jp $247b	jp $0000
+3191	cd c5 41 	call $41c5	call $0000
+3194	d8 	ret c	ret c
+3195	c4 af 41 	call nz,$41af	call nz,$0000
+3198	57 	ld d,a	ld d,a
+3199	cd ed 44 	call $44ed	call $0000
+319c	fd 23 	inc iy	inc iy
+319e	5f 	ld e,a	ld e,a
+319f	fe 3d 	cp $3d	cp $00
+31a1	c4 31 35 	call nz,$3531	call nz,$0000
+31a4	7a 	ld a,d	ld a,d
+31a5	e6 c0 	and $c0	and $00
+31a7	c0 	ret nz	ret nz
+31a8	d5 	push de	push de
+31a9	e5 	push hl	push hl
+31aa	cd 0e 18 	call $180e	call $0000
+31ad	dd e1 	pop ix	pop ix
+31af	d1 	pop de	pop de
+31b0	7b 	ld a,e	ld a,e
+31b1	fe 3d 	cp $3d	cp $00
+31b3	28 1c 	jr z,$+$1e	jr z,$+$00
+31b5	d5 	push de	push de
+31b6	d9 	exx	exx
+31b7	eb 	ex de,hl	ex de,hl
+31b8	d9 	exx	exx
+31b9	eb 	ex de,hl	ex de,hl
+31ba	41 	ld b,c	ld b,c
+31bb	e3 	ex (sp),hl	ex (sp),hl
+31bc	7c 	ld a,h	ld a,h
+31bd	e3 	ex (sp),hl	ex (sp),hl
+31be	cd 07 19 	call $1907	call $0000
+31c1	e3 	ex (sp),hl	ex (sp),hl
+31c2	7d 	ld a,l	ld a,l
+31c3	e3 	ex (sp),hl	ex (sp),hl
+31c4	e6 0f 	and $0f	and $00
+31c6	dd e5 	push ix	push ix
+31c8	cd f7 44 	call $44f7	call $0000
 31cb	dd e1 	pop ix	pop ix
 31cd	d1 	pop de	pop de
-31ce	7b 	ld a,e	ld a,e
-31cf	fe 3d 	cp $3d	cp $00
-31d1	28 1c 	jr z,$+$1e	jr z,$+$00
-31d3	d5 	push de	push de
-31d4	d9 	exx	exx
-31d5	eb 	ex de,hl	ex de,hl
-31d6	d9 	exx	exx
-31d7	eb 	ex de,hl	ex de,hl
-31d8	41 	ld b,c	ld b,c
-31d9	e3 	ex (sp),hl	ex (sp),hl
-31da	7c 	ld a,h	ld a,h
-31db	e3 	ex (sp),hl	ex (sp),hl
-31dc	cd 25 19 	call $1925	call $0000
-31df	e3 	ex (sp),hl	ex (sp),hl
-31e0	7d 	ld a,l	ld a,l
-31e1	e3 	ex (sp),hl	ex (sp),hl
-31e2	e6 0f 	and $0f	and $00
-31e4	dd e5 	push ix	push ix
-31e6	cd 15 45 	call $4515	call $0000
-31e9	dd e1 	pop ix	pop ix
-31eb	d1 	pop de	pop de
-31ec	da 44 3f 	jp c,$3f44	jp c,$0000
-31ef	7a 	ld a,d	ld a,d
-31f0	fe 05 	cp $05	cp $00
-31f2	28 12 	jr z,$+$14	jr z,$+$00
-31f4	f5 	push af	push af
-31f5	0c 	inc c	inc c
-31f6	0d 	dec c	dec c
-31f7	c4 17 1c 	call nz,$1c17	call nz,$0000
-31fa	f1 	pop af	pop af
-31fb	fe 04 	cp $04	cp $00
-31fd	28 0a 	jr z,$+$0c	jr z,$+$00
-31ff	bf 	cp a	cp a
-3200	d9 	exx	exx
-3201	dd 75 00 	ld (ix),l	ld (ix),l
-3204	d9 	exx	exx
-3205	c9 	ret	ret
-3206	dd 71 04 	ld (ix+$04),c	ld (ix+$00),c
-3209	d9 	exx	exx
-320a	dd 75 00 	ld (ix),l	ld (ix),l
-320d	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
-3210	d9 	exx	exx
-3211	dd 75 02 	ld (ix+$02),l	ld (ix+$00),l
-3214	dd 74 03 	ld (ix+$03),h	ld (ix+$00),h
-3217	c9 	ret	ret
-3218	7d 	ld a,l	ld a,l
-3219	fe 2b 	cp $2b	cp $00
-321b	7c 	ld a,h	ld a,h
-321c	20 20 	jr nz,$+$22	jr nz,$+$00
-321e	fd e5 	push iy	push iy
-3220	dd e5 	push ix	push ix
-3222	fd e1 	pop iy	pop iy
-3224	cd 19 20 	call $2019	call $0000
-3227	fd e5 	push iy	push iy
-3229	dd e1 	pop ix	pop ix
-322b	cd 0e 1a 	call $1a0e	call $0000
-322e	c1 	pop bc	pop bc
-322f	78 	ld a,b	ld a,b
-3230	0c 	inc c	inc c
-3231	0d 	dec c	dec c
-3232	28 08 	jr z,$+$0a	jr z,$+$00
-3234	21 00 00 	ld hl,$0000	ld hl,$0000
-3237	44 	ld b,h	ld b,h
-3238	39 	add hl,sp	add hl,sp
-3239	ed b0 	ldir	ldir
-323b	f9 	ld sp,hl	ld sp,hl
-323c	fd e1 	pop iy	pop iy
-323e	21 00 52 	ld hl,$5200	ld hl,$0000
-3241	1f 	rra	rra
-3242	30 4f 	jr nc,$+$51	jr nc,$+$00
-3244	e5 	push hl	push hl
-3245	cd 32 19 	call $1932	call $0000
+31ce	da 26 3f 	jp c,$3f26	jp c,$0000
+31d1	7a 	ld a,d	ld a,d
+31d2	fe 05 	cp $05	cp $00
+31d4	28 12 	jr z,$+$14	jr z,$+$00
+31d6	f5 	push af	push af
+31d7	0c 	inc c	inc c
+31d8	0d 	dec c	dec c
+31d9	c4 f9 1b 	call nz,$1bf9	call nz,$0000
+31dc	f1 	pop af	pop af
+31dd	fe 04 	cp $04	cp $00
+31df	28 0a 	jr z,$+$0c	jr z,$+$00
+31e1	bf 	cp a	cp a
+31e2	d9 	exx	exx
+31e3	dd 75 00 	ld (ix),l	ld (ix),l
+31e6	d9 	exx	exx
+31e7	c9 	ret	ret
+31e8	dd 71 04 	ld (ix+$04),c	ld (ix+$00),c
+31eb	d9 	exx	exx
+31ec	dd 75 00 	ld (ix),l	ld (ix),l
+31ef	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
+31f2	d9 	exx	exx
+31f3	dd 75 02 	ld (ix+$02),l	ld (ix+$00),l
+31f6	dd 74 03 	ld (ix+$03),h	ld (ix+$00),h
+31f9	c9 	ret	ret
+31fa	7d 	ld a,l	ld a,l
+31fb	fe 2b 	cp $2b	cp $00
+31fd	7c 	ld a,h	ld a,h
+31fe	20 20 	jr nz,$+$22	jr nz,$+$00
+3200	fd e5 	push iy	push iy
+3202	dd e5 	push ix	push ix
+3204	fd e1 	pop iy	pop iy
+3206	cd fb 1f 	call $1ffb	call $0000
+3209	fd e5 	push iy	push iy
+320b	dd e1 	pop ix	pop ix
+320d	cd f0 19 	call $19f0	call $0000
+3210	c1 	pop bc	pop bc
+3211	78 	ld a,b	ld a,b
+3212	0c 	inc c	inc c
+3213	0d 	dec c	dec c
+3214	28 08 	jr z,$+$0a	jr z,$+$00
+3216	21 00 00 	ld hl,$0000	ld hl,$0000
+3219	44 	ld b,h	ld b,h
+321a	39 	add hl,sp	add hl,sp
+321b	ed b0 	ldir	ldir
+321d	f9 	ld sp,hl	ld sp,hl
+321e	fd e1 	pop iy	pop iy
+3220	21 00 52 	ld hl,$5200	ld hl,$0000
+3223	1f 	rra	rra
+3224	30 4f 	jr nc,$+$51	jr nc,$+$00
+3226	e5 	push hl	push hl
+3227	cd 14 19 	call $1914	call $0000
+322a	7b 	ld a,e	ld a,e
+322b	d9 	exx	exx
+322c	6f 	ld l,a	ld l,a
+322d	7c 	ld a,h	ld a,h
+322e	d9 	exx	exx
+322f	bb 	cp e	cp e
+3230	30 24 	jr nc,$+$26	jr nc,$+$00
+3232	d9 	exx	exx
+3233	65 	ld h,l	ld h,l
+3234	d9 	exx	exx
+3235	e5 	push hl	push hl
+3236	06 00 	ld b,$00	ld b,$00
+3238	4f 	ld c,a	ld c,a
+3239	09 	add hl,bc	add hl,bc
+323a	ed 4b e0 54 	ld bc,($54e0)	ld bc,($0000)
+323e	ed 42 	sbc hl,bc	sbc hl,bc
+3240	e1 	pop hl	pop hl
+3241	28 12 	jr z,$+$14	jr z,$+$00
+3243	60 	ld h,b	ld h,b
+3244	69 	ld l,c	ld l,c
+3245	b7 	or a	or a
+3246	28 0d 	jr z,$+$0f	jr z,$+$00
 3248	7b 	ld a,e	ld a,e
-3249	d9 	exx	exx
-324a	6f 	ld l,a	ld l,a
-324b	7c 	ld a,h	ld a,h
-324c	d9 	exx	exx
-324d	bb 	cp e	cp e
-324e	30 24 	jr nc,$+$26	jr nc,$+$00
-3250	d9 	exx	exx
-3251	65 	ld h,l	ld h,l
+3249	5f 	ld e,a	ld e,a
+324a	1d 	dec e	dec e
+324b	a3 	and e	and e
+324c	20 fb 	jr nz,$-$03	jr nz,$-$00
+324e	37 	scf	scf
+324f	cb 13 	rl e	rl e
+3251	7b 	ld a,e	ld a,e
 3252	d9 	exx	exx
-3253	e5 	push hl	push hl
-3254	06 00 	ld b,$00	ld b,$00
-3256	4f 	ld c,a	ld c,a
-3257	09 	add hl,bc	add hl,bc
-3258	ed 4b e0 54 	ld bc,($54e0)	ld bc,($0000)
-325c	ed 42 	sbc hl,bc	sbc hl,bc
-325e	e1 	pop hl	pop hl
-325f	28 12 	jr z,$+$14	jr z,$+$00
-3261	60 	ld h,b	ld h,b
-3262	69 	ld l,c	ld l,c
-3263	b7 	or a	or a
-3264	28 0d 	jr z,$+$0f	jr z,$+$00
-3266	7b 	ld a,e	ld a,e
-3267	5f 	ld e,a	ld e,a
-3268	1d 	dec e	dec e
-3269	a3 	and e	and e
-326a	20 fb 	jr nz,$-$03	jr nz,$-$00
-326c	37 	scf	scf
-326d	cb 13 	rl e	rl e
-326f	7b 	ld a,e	ld a,e
-3270	d9 	exx	exx
-3271	67 	ld h,a	ld h,a
-3272	d9 	exx	exx
-3273	37 	scf	scf
-3274	cd 09 32 	call $3209	call $0000
-3277	06 00 	ld b,$00	ld b,$00
-3279	4b 	ld c,e	ld c,e
-327a	eb 	ex de,hl	ex de,hl
-327b	e1 	pop hl	pop hl
-327c	0d 	dec c	dec c
-327d	0c 	inc c	inc c
-327e	c8 	ret z	ret z
-327f	ed b0 	ldir	ldir
-3281	d0 	ret nc	ret nc
-3282	ed 53 e0 54 	ld ($54e0),de	ld ($0000),de
-3286	e5 	push hl	push hl
-3287	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
-328a	24 	inc h	inc h
-328b	ed 72 	sbc hl,sp	sbc hl,sp
-328d	e1 	pop hl	pop hl
-328e	d8 	ret c	ret c
-328f	af 	xor a	xor a
-3290	c3 44 3f 	jp $3f44	jp $0000
-3293	4b 	ld c,e	ld c,e
-3294	dd e5 	push ix	push ix
-3296	d1 	pop de	pop de
-3297	af 	xor a	xor a
-3298	47 	ld b,a	ld b,a
-3299	b9 	cp c	cp c
-329a	28 02 	jr z,$+$04	jr z,$+$00
-329c	ed b0 	ldir	ldir
-329e	3e 0d 	ld a,$0d	ld a,$00
-32a0	12 	ld (de),a	ld (de),a
-32a1	c9 	ret	ret
-32a2	dd 75 00 	ld (ix),l	ld (ix),l
-32a5	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
-32a8	dd 77 02 	ld (ix+$02),a	ld (ix+$00),a
-32ab	fd e3 	ex (sp),iy	ex (sp),iy
-32ad	f5 	push af	push af
-32ae	fd e5 	push iy	push iy
-32b0	dd e5 	push ix	push ix
-32b2	cd 0b 45 	call $450b	call $0000
-32b5	cd d6 25 	call $25d6	call $0000
-32b8	dd e1 	pop ix	pop ix
-32ba	dd 75 04 	ld (ix+$04),l	ld (ix+$00),l
-32bd	dd 74 05 	ld (ix+$05),h	ld (ix+$00),h
-32c0	dd 77 06 	ld (ix+$06),a	ld (ix+$00),a
-32c3	fd e1 	pop iy	pop iy
-32c5	f1 	pop af	pop af
-32c6	01 08 00 	ld bc,$0008	ld bc,$0000
-32c9	dd 09 	add ix,bc	add ix,bc
-32cb	18 2d 	jr $+$2f	jr $+$00
-32cd	3e ff 	ld a,$ff	ld a,$00
-32cf	f5 	push af	push af
-32d0	fd 23 	inc iy	inc iy
-32d2	13 	inc de	inc de
-32d3	d5 	push de	push de
-32d4	06 00 	ld b,$00	ld b,$00
-32d6	cd 0b 45 	call $450b	call $0000
-32d9	fe f8 	cp $f8	cp $00
-32db	20 06 	jr nz,$+$08	jr nz,$+$00
-32dd	fd 23 	inc iy	inc iy
-32df	cd 0b 45 	call $450b	call $0000
-32e2	04 	inc b	inc b
-32e3	c5 	push bc	push bc
+3253	67 	ld h,a	ld h,a
+3254	d9 	exx	exx
+3255	37 	scf	scf
+3256	cd eb 31 	call $31eb	call $0000
+3259	06 00 	ld b,$00	ld b,$00
+325b	4b 	ld c,e	ld c,e
+325c	eb 	ex de,hl	ex de,hl
+325d	e1 	pop hl	pop hl
+325e	0d 	dec c	dec c
+325f	0c 	inc c	inc c
+3260	c8 	ret z	ret z
+3261	ed b0 	ldir	ldir
+3263	d0 	ret nc	ret nc
+3264	ed 53 e0 54 	ld ($54e0),de	ld ($0000),de
+3268	e5 	push hl	push hl
+3269	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
+326c	24 	inc h	inc h
+326d	ed 72 	sbc hl,sp	sbc hl,sp
+326f	e1 	pop hl	pop hl
+3270	d8 	ret c	ret c
+3271	af 	xor a	xor a
+3272	c3 26 3f 	jp $3f26	jp $0000
+3275	4b 	ld c,e	ld c,e
+3276	dd e5 	push ix	push ix
+3278	d1 	pop de	pop de
+3279	af 	xor a	xor a
+327a	47 	ld b,a	ld b,a
+327b	b9 	cp c	cp c
+327c	28 02 	jr z,$+$04	jr z,$+$00
+327e	ed b0 	ldir	ldir
+3280	3e 0d 	ld a,$0d	ld a,$00
+3282	12 	ld (de),a	ld (de),a
+3283	c9 	ret	ret
+3284	dd 75 00 	ld (ix),l	ld (ix),l
+3287	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
+328a	dd 77 02 	ld (ix+$02),a	ld (ix+$00),a
+328d	fd e3 	ex (sp),iy	ex (sp),iy
+328f	f5 	push af	push af
+3290	fd e5 	push iy	push iy
+3292	dd e5 	push ix	push ix
+3294	cd ed 44 	call $44ed	call $0000
+3297	cd b8 25 	call $25b8	call $0000
+329a	dd e1 	pop ix	pop ix
+329c	dd 75 04 	ld (ix+$04),l	ld (ix+$00),l
+329f	dd 74 05 	ld (ix+$05),h	ld (ix+$00),h
+32a2	dd 77 06 	ld (ix+$06),a	ld (ix+$00),a
+32a5	fd e1 	pop iy	pop iy
+32a7	f1 	pop af	pop af
+32a8	01 08 00 	ld bc,$0008	ld bc,$0000
+32ab	dd 09 	add ix,bc	add ix,bc
+32ad	18 2d 	jr $+$2f	jr $+$00
+32af	3e ff 	ld a,$ff	ld a,$00
+32b1	f5 	push af	push af
+32b2	fd 23 	inc iy	inc iy
+32b4	13 	inc de	inc de
+32b5	d5 	push de	push de
+32b6	06 00 	ld b,$00	ld b,$00
+32b8	cd ed 44 	call $44ed	call $0000
+32bb	fe f8 	cp $f8	cp $00
+32bd	20 06 	jr nz,$+$08	jr nz,$+$00
+32bf	fd 23 	inc iy	inc iy
+32c1	cd ed 44 	call $44ed	call $0000
+32c4	04 	inc b	inc b
+32c5	c5 	push bc	push bc
+32c6	dd e5 	push ix	push ix
+32c8	cd c5 41 	call $41c5	call $0000
+32cb	38 49 	jr c,$+$4b	jr c,$+$00
+32cd	c4 af 41 	call nz,$41af	call nz,$0000
+32d0	dd e1 	pop ix	pop ix
+32d2	c1 	pop bc	pop bc
+32d3	d1 	pop de	pop de
+32d4	e5 	push hl	push hl
+32d5	f5 	push af	push af
+32d6	d5 	push de	push de
+32d7	05 	dec b	dec b
+32d8	28 aa 	jr z,$-$54	jr z,$-$00
+32da	fd e3 	ex (sp),iy	ex (sp),iy
+32dc	cb 77 	bit 6,a	bit 6,a
+32de	20 3b 	jr nz,$+$3d	jr nz,$+$00
+32e0	b7 	or a	or a
+32e1	fa f7 32 	jp m,$32f7	jp m,$0000
 32e4	dd e5 	push ix	push ix
-32e6	cd e3 41 	call $41e3	call $0000
-32e9	38 49 	jr c,$+$4b	jr c,$+$00
-32eb	c4 cd 41 	call nz,$41cd	call nz,$0000
-32ee	dd e1 	pop ix	pop ix
-32f0	c1 	pop bc	pop bc
-32f1	d1 	pop de	pop de
+32e6	cd 0e 18 	call $180e	call $0000
+32e9	dd e1 	pop ix	pop ix
+32eb	fd e3 	ex (sp),iy	ex (sp),iy
+32ed	d1 	pop de	pop de
+32ee	f1 	pop af	pop af
+32ef	d9 	exx	exx
+32f0	e5 	push hl	push hl
+32f1	d9 	exx	exx
 32f2	e5 	push hl	push hl
-32f3	f5 	push af	push af
-32f4	d5 	push de	push de
-32f5	05 	dec b	dec b
-32f6	28 aa 	jr z,$-$54	jr z,$-$00
-32f8	fd e3 	ex (sp),iy	ex (sp),iy
-32fa	cb 77 	bit 6,a	bit 6,a
-32fc	20 3b 	jr nz,$+$3d	jr nz,$+$00
-32fe	b7 	or a	or a
-32ff	fa 15 33 	jp m,$3315	jp m,$0000
-3302	dd e5 	push ix	push ix
-3304	cd 2c 18 	call $182c	call $0000
-3307	dd e1 	pop ix	pop ix
-3309	fd e3 	ex (sp),iy	ex (sp),iy
-330b	d1 	pop de	pop de
-330c	f1 	pop af	pop af
-330d	d9 	exx	exx
-330e	e5 	push hl	push hl
-330f	d9 	exx	exx
-3310	e5 	push hl	push hl
-3311	47 	ld b,a	ld b,a
-3312	c5 	push bc	push bc
-3313	18 13 	jr $+$15	jr $+$00
-3315	dd e5 	push ix	push ix
-3317	cd 3c 18 	call $183c	call $0000
-331a	d9 	exx	exx
-331b	c1 	pop bc	pop bc
-331c	fd e3 	ex (sp),iy	ex (sp),iy
-331e	d1 	pop de	pop de
-331f	d9 	exx	exx
-3320	f1 	pop af	pop af
-3321	cd 19 20 	call $2019	call $0000
-3324	d9 	exx	exx
-3325	c5 	push bc	push bc
-3326	dd e1 	pop ix	pop ix
-3328	cd 0b 45 	call $450b	call $0000
-332b	fe 2c 	cp $2c	cp $00
-332d	20 27 	jr nz,$+$29	jr nz,$+$00
-332f	1a 	ld a,(de)	ld a,(de)
-3330	fe 2c 	cp $2c	cp $00
-3332	28 9c 	jr z,$-$62	jr z,$-$00
-3334	3e 1f 	ld a,$1f	ld a,$00
-3336	c3 44 3f 	jp $3f44	jp $0000
-3339	dd e5 	push ix	push ix
-333b	cd 0b 45 	call $450b	call $0000
-333e	cd e3 41 	call $41e3	call $0000
-3341	38 f1 	jr c,$-$0d	jr c,$-$00
-3343	dd 4e 00 	ld c,(ix)	ld c,(ix)
-3346	dd 46 01 	ld b,(ix+$01)	ld b,(ix+$00)
-3349	dd e1 	pop ix	pop ix
-334b	cd 0b 45 	call $450b	call $0000
-334e	fd e3 	ex (sp),iy	ex (sp),iy
-3350	d1 	pop de	pop de
-3351	f1 	pop af	pop af
-3352	c5 	push bc	push bc
-3353	f5 	push af	push af
-3354	18 d2 	jr $-$2c	jr $-$00
-3356	cd ae 20 	call $20ae	call $0000
-3359	1a 	ld a,(de)	ld a,(de)
-335a	fe 29 	cp $29	cp $00
-335c	20 d6 	jr nz,$-$28	jr nz,$-$00
-335e	13 	inc de	inc de
-335f	d9 	exx	exx
-3360	c1 	pop bc	pop bc
-3361	78 	ld a,b	ld a,b
-3362	3c 	inc a	inc a
-3363	d9 	exx	exx
-3364	c8 	ret z	ret z
-3365	d9 	exx	exx
-3366	3d 	dec a	dec a
-3367	cb 77 	bit 6,a	bit 6,a
-3369	20 19 	jr nz,$+$1b	jr nz,$+$00
-336b	b7 	or a	or a
-336c	fa 7a 33 	jp m,$337a	jp m,$0000
-336f	e1 	pop hl	pop hl
-3370	d9 	exx	exx
-3371	e1 	pop hl	pop hl
-3372	d9 	exx	exx
-3373	dd e1 	pop ix	pop ix
-3375	cd f0 31 	call $31f0	call $0000
-3378	18 e6 	jr $-$18	jr $-$00
-337a	cd 37 20 	call $2037	call $0000
-337d	dd e1 	pop ix	pop ix
-337f	cd 3e 32 	call $323e	call $0000
-3382	18 dc 	jr $-$22	jr $-$00
-3384	c1 	pop bc	pop bc
-3385	dd e1 	pop ix	pop ix
-3387	dd 71 00 	ld (ix),c	ld (ix),c
-338a	dd 70 01 	ld (ix+$01),b	ld (ix+$00),b
-338d	18 d1 	jr $-$2d	jr $-$00
-338f	3e ff 	ld a,$ff	ld a,$00
-3391	f5 	push af	push af
-3392	d9 	exx	exx
-3393	dd 6e 04 	ld l,(ix+$04)	ld l,(ix+$00)
-3396	dd 66 05 	ld h,(ix+$05)	ld h,(ix+$00)
-3399	e5 	push hl	push hl
-339a	dd 6e 00 	ld l,(ix)	ld l,(ix)
-339d	dd 66 01 	ld h,(ix+$01)	ld h,(ix+$00)
-33a0	dd 7e 02 	ld a,(ix+$02)	ld a,(ix+$00)
-33a3	cb 77 	bit 6,a	bit 6,a
-33a5	20 19 	jr nz,$+$1b	jr nz,$+$00
-33a7	b7 	or a	or a
-33a8	fa c6 33 	jp m,$33c6	jp m,$0000
-33ab	e5 	push hl	push hl
-33ac	dd e3 	ex (sp),ix	ex (sp),ix
-33ae	cd 25 19 	call $1925	call $0000
-33b1	dd e1 	pop ix	pop ix
+32f3	47 	ld b,a	ld b,a
+32f4	c5 	push bc	push bc
+32f5	18 13 	jr $+$15	jr $+$00
+32f7	dd e5 	push ix	push ix
+32f9	cd 1e 18 	call $181e	call $0000
+32fc	d9 	exx	exx
+32fd	c1 	pop bc	pop bc
+32fe	fd e3 	ex (sp),iy	ex (sp),iy
+3300	d1 	pop de	pop de
+3301	d9 	exx	exx
+3302	f1 	pop af	pop af
+3303	cd fb 1f 	call $1ffb	call $0000
+3306	d9 	exx	exx
+3307	c5 	push bc	push bc
+3308	dd e1 	pop ix	pop ix
+330a	cd ed 44 	call $44ed	call $0000
+330d	fe 2c 	cp $2c	cp $00
+330f	20 27 	jr nz,$+$29	jr nz,$+$00
+3311	1a 	ld a,(de)	ld a,(de)
+3312	fe 2c 	cp $2c	cp $00
+3314	28 9c 	jr z,$-$62	jr z,$-$00
+3316	3e 1f 	ld a,$1f	ld a,$00
+3318	c3 26 3f 	jp $3f26	jp $0000
+331b	dd e5 	push ix	push ix
+331d	cd ed 44 	call $44ed	call $0000
+3320	cd c5 41 	call $41c5	call $0000
+3323	38 f1 	jr c,$-$0d	jr c,$-$00
+3325	dd 4e 00 	ld c,(ix)	ld c,(ix)
+3328	dd 46 01 	ld b,(ix+$01)	ld b,(ix+$00)
+332b	dd e1 	pop ix	pop ix
+332d	cd ed 44 	call $44ed	call $0000
+3330	fd e3 	ex (sp),iy	ex (sp),iy
+3332	d1 	pop de	pop de
+3333	f1 	pop af	pop af
+3334	c5 	push bc	push bc
+3335	f5 	push af	push af
+3336	18 d2 	jr $-$2c	jr $-$00
+3338	cd 90 20 	call $2090	call $0000
+333b	1a 	ld a,(de)	ld a,(de)
+333c	fe 29 	cp $29	cp $00
+333e	20 d6 	jr nz,$-$28	jr nz,$-$00
+3340	13 	inc de	inc de
+3341	d9 	exx	exx
+3342	c1 	pop bc	pop bc
+3343	78 	ld a,b	ld a,b
+3344	3c 	inc a	inc a
+3345	d9 	exx	exx
+3346	c8 	ret z	ret z
+3347	d9 	exx	exx
+3348	3d 	dec a	dec a
+3349	cb 77 	bit 6,a	bit 6,a
+334b	20 19 	jr nz,$+$1b	jr nz,$+$00
+334d	b7 	or a	or a
+334e	fa 5c 33 	jp m,$335c	jp m,$0000
+3351	e1 	pop hl	pop hl
+3352	d9 	exx	exx
+3353	e1 	pop hl	pop hl
+3354	d9 	exx	exx
+3355	dd e1 	pop ix	pop ix
+3357	cd d2 31 	call $31d2	call $0000
+335a	18 e6 	jr $-$18	jr $-$00
+335c	cd 19 20 	call $2019	call $0000
+335f	dd e1 	pop ix	pop ix
+3361	cd 20 32 	call $3220	call $0000
+3364	18 dc 	jr $-$22	jr $-$00
+3366	c1 	pop bc	pop bc
+3367	dd e1 	pop ix	pop ix
+3369	dd 71 00 	ld (ix),c	ld (ix),c
+336c	dd 70 01 	ld (ix+$01),b	ld (ix+$00),b
+336f	18 d1 	jr $-$2d	jr $-$00
+3371	3e ff 	ld a,$ff	ld a,$00
+3373	f5 	push af	push af
+3374	d9 	exx	exx
+3375	dd 6e 04 	ld l,(ix+$04)	ld l,(ix+$00)
+3378	dd 66 05 	ld h,(ix+$05)	ld h,(ix+$00)
+337b	e5 	push hl	push hl
+337c	dd 6e 00 	ld l,(ix)	ld l,(ix)
+337f	dd 66 01 	ld h,(ix+$01)	ld h,(ix+$00)
+3382	dd 7e 02 	ld a,(ix+$02)	ld a,(ix+$00)
+3385	cb 77 	bit 6,a	bit 6,a
+3387	20 19 	jr nz,$+$1b	jr nz,$+$00
+3389	b7 	or a	or a
+338a	fa a8 33 	jp m,$33a8	jp m,$0000
+338d	e5 	push hl	push hl
+338e	dd e3 	ex (sp),ix	ex (sp),ix
+3390	cd 07 19 	call $1907	call $0000
+3393	dd e1 	pop ix	pop ix
+3395	d9 	exx	exx
+3396	e5 	push hl	push hl
+3397	d9 	exx	exx
+3398	e5 	push hl	push hl
+3399	dd 46 06 	ld b,(ix+$06)	ld b,(ix+$00)
+339c	c5 	push bc	push bc
+339d	cd 68 32 	call $3268	call $0000
+33a0	18 1e 	jr $+$20	jr $+$00
+33a2	5e 	ld e,(hl)	ld e,(hl)
+33a3	23 	inc hl	inc hl
+33a4	56 	ld d,(hl)	ld d,(hl)
+33a5	d5 	push de	push de
+33a6	18 f1 	jr $-$0d	jr $-$00
+33a8	e5 	push hl	push hl
+33a9	dd e3 	ex (sp),ix	ex (sp),ix
+33ab	cd f0 19 	call $19f0	call $0000
+33ae	dd e1 	pop ix	pop ix
+33b0	dd 7e 06 	ld a,(ix+$06)	ld a,(ix+$00)
 33b3	d9 	exx	exx
-33b4	e5 	push hl	push hl
-33b5	d9 	exx	exx
-33b6	e5 	push hl	push hl
-33b7	dd 46 06 	ld b,(ix+$06)	ld b,(ix+$00)
-33ba	c5 	push bc	push bc
-33bb	cd 86 32 	call $3286	call $0000
-33be	18 1e 	jr $+$20	jr $+$00
-33c0	5e 	ld e,(hl)	ld e,(hl)
-33c1	23 	inc hl	inc hl
-33c2	56 	ld d,(hl)	ld d,(hl)
-33c3	d5 	push de	push de
-33c4	18 f1 	jr $-$0d	jr $-$00
-33c6	e5 	push hl	push hl
-33c7	dd e3 	ex (sp),ix	ex (sp),ix
-33c9	cd 0e 1a 	call $1a0e	call $0000
-33cc	dd e1 	pop ix	pop ix
-33ce	dd 7e 06 	ld a,(ix+$06)	ld a,(ix+$00)
-33d1	d9 	exx	exx
-33d2	dd e5 	push ix	push ix
-33d4	e1 	pop hl	pop hl
-33d5	d9 	exx	exx
-33d6	cd 19 20 	call $2019	call $0000
-33d9	d9 	exx	exx
-33da	e5 	push hl	push hl
-33db	dd e1 	pop ix	pop ix
-33dd	d9 	exx	exx
-33de	11 08 00 	ld de,$0008	ld de,$0000
-33e1	dd 19 	add ix,de	add ix,de
-33e3	d9 	exx	exx
-33e4	10 ac 	djnz $-$52	djnz $-$00
-33e6	c3 5f 33 	jp $335f	jp $0000
-33e9	c1 	pop bc	pop bc
-33ea	26 00 	ld h,$00	ld h,$00
-33ec	68 	ld l,b	ld l,b
-33ed	29 	add hl,hl	add hl,hl
-33ee	29 	add hl,hl	add hl,hl
-33ef	29 	add hl,hl	add hl,hl
-33f0	39 	add hl,sp	add hl,sp
-33f1	dd 21 00 00 	ld ix,$0000	ld ix,$0000
-33f5	dd 39 	add ix,sp	add ix,sp
-33f7	f5 	push af	push af
-33f8	d5 	push de	push de
-33f9	e5 	push hl	push hl
-33fa	d9 	exx	exx
-33fb	c5 	push bc	push bc
-33fc	d5 	push de	push de
-33fd	d9 	exx	exx
-33fe	78 	ld a,b	ld a,b
-33ff	21 00 52 	ld hl,$5200	ld hl,$0000
-3402	11 00 53 	ld de,$5300	ld de,$0000
-3405	01 ff 00 	ld bc,$00ff	ld bc,$0000
-3408	ed b0 	ldir	ldir
-340a	47 	ld b,a	ld b,a
-340b	cd 8f 33 	call $338f	call $0000
-340e	21 00 53 	ld hl,$5300	ld hl,$0000
-3411	11 00 52 	ld de,$5200	ld de,$0000
-3414	01 ff 00 	ld bc,$00ff	ld bc,$0000
-3417	ed b0 	ldir	ldir
-3419	d9 	exx	exx
-341a	d1 	pop de	pop de
-341b	c1 	pop bc	pop bc
-341c	d9 	exx	exx
-341d	e1 	pop hl	pop hl
-341e	d1 	pop de	pop de
-341f	f1 	pop af	pop af
-3420	18 0a 	jr $+$0c	jr $+$00
-3422	c1 	pop bc	pop bc
-3423	cb 78 	bit 7,b	bit 7,b
-3425	e1 	pop hl	pop hl
-3426	c1 	pop bc	pop bc
-3427	09 	add hl,bc	add hl,bc
-3428	39 	add hl,sp	add hl,sp
-3429	c4 e3 36 	call nz,$36e3	call nz,$0000
-342c	f9 	ld sp,hl	ld sp,hl
-342d	dd 23 	inc ix	inc ix
-342f	18 05 	jr $+$07	jr $+$00
-3431	d1 	pop de	pop de
-3432	dd 21 00 00 	ld ix,$0000	ld ix,$0000
-3436	c1 	pop bc	pop bc
-3437	21 2a 35 	ld hl,$352a	ld hl,$0000
-343a	b7 	or a	or a
-343b	ed 42 	sbc hl,bc	sbc hl,bc
-343d	28 1a 	jr z,$+$1c	jr z,$+$00
-343f	b7 	or a	or a
-3440	20 0f 	jr nz,$+$11	jr nz,$+$00
-3442	21 70 2a 	ld hl,$2a70	ld hl,$0000
-3445	ed 42 	sbc hl,bc	sbc hl,bc
-3447	28 a0 	jr z,$-$5e	jr z,$-$00
-3449	21 dc 26 	ld hl,$26dc	ld hl,$0000
-344c	b7 	or a	or a
-344d	ed 42 	sbc hl,bc	sbc hl,bc
-344f	28 d1 	jr z,$-$2d	jr z,$-$00
-3451	dd e5 	push ix	push ix
-3453	e1 	pop hl	pop hl
-3454	7c 	ld a,h	ld a,h
-3455	b5 	or l	or l
-3456	c5 	push bc	push bc
-3457	eb 	ex de,hl	ex de,hl
-3458	e9 	jp (hl)	jp (hl)
-3459	dd e1 	pop ix	pop ix
-345b	b7 	or a	or a
-345c	28 20 	jr z,$+$22	jr z,$+$00
-345e	dd e5 	push ix	push ix
+33b4	dd e5 	push ix	push ix
+33b6	e1 	pop hl	pop hl
+33b7	d9 	exx	exx
+33b8	cd fb 1f 	call $1ffb	call $0000
+33bb	d9 	exx	exx
+33bc	e5 	push hl	push hl
+33bd	dd e1 	pop ix	pop ix
+33bf	d9 	exx	exx
+33c0	11 08 00 	ld de,$0008	ld de,$0000
+33c3	dd 19 	add ix,de	add ix,de
+33c5	d9 	exx	exx
+33c6	10 ac 	djnz $-$52	djnz $-$00
+33c8	c3 41 33 	jp $3341	jp $0000
+33cb	c1 	pop bc	pop bc
+33cc	26 00 	ld h,$00	ld h,$00
+33ce	68 	ld l,b	ld l,b
+33cf	29 	add hl,hl	add hl,hl
+33d0	29 	add hl,hl	add hl,hl
+33d1	29 	add hl,hl	add hl,hl
+33d2	39 	add hl,sp	add hl,sp
+33d3	dd 21 00 00 	ld ix,$0000	ld ix,$0000
+33d7	dd 39 	add ix,sp	add ix,sp
+33d9	f5 	push af	push af
+33da	d5 	push de	push de
+33db	e5 	push hl	push hl
+33dc	d9 	exx	exx
+33dd	c5 	push bc	push bc
+33de	d5 	push de	push de
+33df	d9 	exx	exx
+33e0	78 	ld a,b	ld a,b
+33e1	21 00 52 	ld hl,$5200	ld hl,$0000
+33e4	11 00 53 	ld de,$5300	ld de,$0000
+33e7	01 ff 00 	ld bc,$00ff	ld bc,$0000
+33ea	ed b0 	ldir	ldir
+33ec	47 	ld b,a	ld b,a
+33ed	cd 71 33 	call $3371	call $0000
+33f0	21 00 53 	ld hl,$5300	ld hl,$0000
+33f3	11 00 52 	ld de,$5200	ld de,$0000
+33f6	01 ff 00 	ld bc,$00ff	ld bc,$0000
+33f9	ed b0 	ldir	ldir
+33fb	d9 	exx	exx
+33fc	d1 	pop de	pop de
+33fd	c1 	pop bc	pop bc
+33fe	d9 	exx	exx
+33ff	e1 	pop hl	pop hl
+3400	d1 	pop de	pop de
+3401	f1 	pop af	pop af
+3402	18 0a 	jr $+$0c	jr $+$00
+3404	c1 	pop bc	pop bc
+3405	cb 78 	bit 7,b	bit 7,b
+3407	e1 	pop hl	pop hl
+3408	c1 	pop bc	pop bc
+3409	09 	add hl,bc	add hl,bc
+340a	39 	add hl,sp	add hl,sp
+340b	c4 c5 36 	call nz,$36c5	call nz,$0000
+340e	f9 	ld sp,hl	ld sp,hl
+340f	dd 23 	inc ix	inc ix
+3411	18 05 	jr $+$07	jr $+$00
+3413	d1 	pop de	pop de
+3414	dd 21 00 00 	ld ix,$0000	ld ix,$0000
+3418	c1 	pop bc	pop bc
+3419	21 0c 35 	ld hl,$350c	ld hl,$0000
+341c	b7 	or a	or a
+341d	ed 42 	sbc hl,bc	sbc hl,bc
+341f	28 1a 	jr z,$+$1c	jr z,$+$00
+3421	b7 	or a	or a
+3422	20 0f 	jr nz,$+$11	jr nz,$+$00
+3424	21 52 2a 	ld hl,$2a52	ld hl,$0000
+3427	ed 42 	sbc hl,bc	sbc hl,bc
+3429	28 a0 	jr z,$-$5e	jr z,$-$00
+342b	21 be 26 	ld hl,$26be	ld hl,$0000
+342e	b7 	or a	or a
+342f	ed 42 	sbc hl,bc	sbc hl,bc
+3431	28 d1 	jr z,$-$2d	jr z,$-$00
+3433	dd e5 	push ix	push ix
+3435	e1 	pop hl	pop hl
+3436	7c 	ld a,h	ld a,h
+3437	b5 	or l	or l
+3438	c5 	push bc	push bc
+3439	eb 	ex de,hl	ex de,hl
+343a	e9 	jp (hl)	jp (hl)
+343b	dd e1 	pop ix	pop ix
+343d	b7 	or a	or a
+343e	28 20 	jr z,$+$22	jr z,$+$00
+3440	dd e5 	push ix	push ix
+3442	c1 	pop bc	pop bc
+3443	cb 47 	bit 0,a	bit 0,a
+3445	28 07 	jr z,$+$09	jr z,$+$00
+3447	21 f0 54 	ld hl,$54f0	ld hl,$0000
+344a	ed 42 	sbc hl,bc	sbc hl,bc
+344c	28 12 	jr z,$+$14	jr z,$+$00
+344e	b7 	or a	or a
+344f	cb 4f 	bit 1,a	bit 1,a
+3451	28 07 	jr z,$+$09	jr z,$+$00
+3453	21 ea 54 	ld hl,$54ea	ld hl,$0000
+3456	ed 42 	sbc hl,bc	sbc hl,bc
+3458	28 06 	jr z,$+$08	jr z,$+$00
+345a	c5 	push bc	push bc
+345b	01 0c 35 	ld bc,$350c	ld bc,$0000
+345e	18 d8 	jr $-$26	jr $-$00
 3460	c1 	pop bc	pop bc
-3461	cb 47 	bit 0,a	bit 0,a
-3463	28 07 	jr z,$+$09	jr z,$+$00
-3465	21 f0 54 	ld hl,$54f0	ld hl,$0000
-3468	ed 42 	sbc hl,bc	sbc hl,bc
-346a	28 12 	jr z,$+$14	jr z,$+$00
-346c	b7 	or a	or a
-346d	cb 4f 	bit 1,a	bit 1,a
-346f	28 07 	jr z,$+$09	jr z,$+$00
-3471	21 ea 54 	ld hl,$54ea	ld hl,$0000
-3474	ed 42 	sbc hl,bc	sbc hl,bc
-3476	28 06 	jr z,$+$08	jr z,$+$00
-3478	c5 	push bc	push bc
-3479	01 2a 35 	ld bc,$352a	ld bc,$0000
-347c	18 d8 	jr $-$26	jr $-$00
-347e	c1 	pop bc	pop bc
-347f	cb 70 	bit 6,b	bit 6,b
-3481	20 14 	jr nz,$+$16	jr nz,$+$00
-3483	cb 78 	bit 7,b	bit 7,b
-3485	20 23 	jr nz,$+$25	jr nz,$+$00
-3487	e1 	pop hl	pop hl
-3488	d9 	exx	exx
-3489	e1 	pop hl	pop hl
-348a	d9 	exx	exx
-348b	cb 60 	bit 4,b	bit 4,b
-348d	20 a7 	jr nz,$-$57	jr nz,$-$00
-348f	f5 	push af	push af
-3490	78 	ld a,b	ld a,b
-3491	cd f0 31 	call $31f0	call $0000
-3494	f1 	pop af	pop af
-3495	18 9f 	jr $-$5f	jr $-$00
-3497	e1 	pop hl	pop hl
-3498	cb 60 	bit 4,b	bit 4,b
-349a	20 9a 	jr nz,$-$64	jr nz,$-$00
-349c	dd 75 00 	ld (ix),l	ld (ix),l
-349f	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
-34a2	18 92 	jr $-$6c	jr $-$00
-34a4	06 00 	ld b,$00	ld b,$00
-34a6	09 	add hl,bc	add hl,bc
-34a7	f9 	ld sp,hl	ld sp,hl
-34a8	18 8c 	jr $-$72	jr $-$00
-34aa	21 00 00 	ld hl,$0000	ld hl,$0000
-34ad	39 	add hl,sp	add hl,sp
-34ae	cb 60 	bit 4,b	bit 4,b
-34b0	20 f2 	jr nz,$-$0c	jr nz,$-$00
-34b2	f5 	push af	push af
-34b3	d5 	push de	push de
-34b4	59 	ld e,c	ld e,c
-34b5	78 	ld a,b	ld a,b
-34b6	cd 41 32 	call $3241	call $0000
-34b9	d1 	pop de	pop de
-34ba	f1 	pop af	pop af
-34bb	f9 	ld sp,hl	ld sp,hl
-34bc	18 ea 	jr $-$14	jr $-$00
-34be	d1 	pop de	pop de
-34bf	fd 23 	inc iy	inc iy
-34c1	cd 0b 45 	call $450b	call $0000
-34c4	fe f8 	cp $f8	cp $00
-34c6	20 08 	jr nz,$+$0a	jr nz,$+$00
-34c8	08 	ex af,af'	ex af,af'
-34c9	3c 	inc a	inc a
-34ca	08 	ex af,af'	ex af,af'
-34cb	fd 23 	inc iy	inc iy
-34cd	cd 0b 45 	call $450b	call $0000
-34d0	d5 	push de	push de
-34d1	d9 	exx	exx
-34d2	c5 	push bc	push bc
-34d3	d5 	push de	push de
-34d4	e5 	push hl	push hl
-34d5	d9 	exx	exx
-34d6	cd d6 25 	call $25d6	call $0000
-34d9	d9 	exx	exx
-34da	e1 	pop hl	pop hl
-34db	d1 	pop de	pop de
-34dc	c1 	pop bc	pop bc
-34dd	d9 	exx	exx
-34de	d1 	pop de	pop de
-34df	cb 77 	bit 6,a	bit 6,a
-34e1	20 12 	jr nz,$+$14	jr nz,$+$00
-34e3	b7 	or a	or a
-34e4	fa ff 34 	jp m,$34ff	jp m,$0000
-34e7	d9 	exx	exx
-34e8	e5 	push hl	push hl
+3461	cb 70 	bit 6,b	bit 6,b
+3463	20 14 	jr nz,$+$16	jr nz,$+$00
+3465	cb 78 	bit 7,b	bit 7,b
+3467	20 23 	jr nz,$+$25	jr nz,$+$00
+3469	e1 	pop hl	pop hl
+346a	d9 	exx	exx
+346b	e1 	pop hl	pop hl
+346c	d9 	exx	exx
+346d	cb 60 	bit 4,b	bit 4,b
+346f	20 a7 	jr nz,$-$57	jr nz,$-$00
+3471	f5 	push af	push af
+3472	78 	ld a,b	ld a,b
+3473	cd d2 31 	call $31d2	call $0000
+3476	f1 	pop af	pop af
+3477	18 9f 	jr $-$5f	jr $-$00
+3479	e1 	pop hl	pop hl
+347a	cb 60 	bit 4,b	bit 4,b
+347c	20 9a 	jr nz,$-$64	jr nz,$-$00
+347e	dd 75 00 	ld (ix),l	ld (ix),l
+3481	dd 74 01 	ld (ix+$01),h	ld (ix+$00),h
+3484	18 92 	jr $-$6c	jr $-$00
+3486	06 00 	ld b,$00	ld b,$00
+3488	09 	add hl,bc	add hl,bc
+3489	f9 	ld sp,hl	ld sp,hl
+348a	18 8c 	jr $-$72	jr $-$00
+348c	21 00 00 	ld hl,$0000	ld hl,$0000
+348f	39 	add hl,sp	add hl,sp
+3490	cb 60 	bit 4,b	bit 4,b
+3492	20 f2 	jr nz,$-$0c	jr nz,$-$00
+3494	f5 	push af	push af
+3495	d5 	push de	push de
+3496	59 	ld e,c	ld e,c
+3497	78 	ld a,b	ld a,b
+3498	cd 23 32 	call $3223	call $0000
+349b	d1 	pop de	pop de
+349c	f1 	pop af	pop af
+349d	f9 	ld sp,hl	ld sp,hl
+349e	18 ea 	jr $-$14	jr $-$00
+34a0	d1 	pop de	pop de
+34a1	fd 23 	inc iy	inc iy
+34a3	cd ed 44 	call $44ed	call $0000
+34a6	fe f8 	cp $f8	cp $00
+34a8	20 08 	jr nz,$+$0a	jr nz,$+$00
+34aa	08 	ex af,af'	ex af,af'
+34ab	3c 	inc a	inc a
+34ac	08 	ex af,af'	ex af,af'
+34ad	fd 23 	inc iy	inc iy
+34af	cd ed 44 	call $44ed	call $0000
+34b2	d5 	push de	push de
+34b3	d9 	exx	exx
+34b4	c5 	push bc	push bc
+34b5	d5 	push de	push de
+34b6	e5 	push hl	push hl
+34b7	d9 	exx	exx
+34b8	cd b8 25 	call $25b8	call $0000
+34bb	d9 	exx	exx
+34bc	e1 	pop hl	pop hl
+34bd	d1 	pop de	pop de
+34be	c1 	pop bc	pop bc
+34bf	d9 	exx	exx
+34c0	d1 	pop de	pop de
+34c1	cb 77 	bit 6,a	bit 6,a
+34c3	20 12 	jr nz,$+$14	jr nz,$+$00
+34c5	b7 	or a	or a
+34c6	fa e1 34 	jp m,$34e1	jp m,$0000
+34c9	d9 	exx	exx
+34ca	e5 	push hl	push hl
+34cb	d9 	exx	exx
+34cc	47 	ld b,a	ld b,a
+34cd	cd 07 19 	call $1907	call $0000
+34d0	d9 	exx	exx
+34d1	e3 	ex (sp),hl	ex (sp),hl
+34d2	d9 	exx	exx
+34d3	e5 	push hl	push hl
+34d4	c5 	push bc	push bc
+34d5	18 30 	jr $+$32	jr $+$00
+34d7	dd 4e 00 	ld c,(ix)	ld c,(ix)
+34da	dd 46 01 	ld b,(ix+$01)	ld b,(ix+$00)
+34dd	c5 	push bc	push bc
+34de	f5 	push af	push af
+34df	18 26 	jr $+$28	jr $+$00
+34e1	f5 	push af	push af
+34e2	d5 	push de	push de
+34e3	d9 	exx	exx
+34e4	e5 	push hl	push hl
+34e5	d9 	exx	exx
+34e6	cd f0 19 	call $19f0	call $0000
 34e9	d9 	exx	exx
-34ea	47 	ld b,a	ld b,a
-34eb	cd 25 19 	call $1925	call $0000
-34ee	d9 	exx	exx
-34ef	e3 	ex (sp),hl	ex (sp),hl
-34f0	d9 	exx	exx
-34f1	e5 	push hl	push hl
-34f2	c5 	push bc	push bc
-34f3	18 30 	jr $+$32	jr $+$00
-34f5	dd 4e 00 	ld c,(ix)	ld c,(ix)
-34f8	dd 46 01 	ld b,(ix+$01)	ld b,(ix+$00)
+34ea	e1 	pop hl	pop hl
+34eb	d9 	exx	exx
+34ec	4b 	ld c,e	ld c,e
+34ed	d1 	pop de	pop de
+34ee	cd 68 32 	call $3268	call $0000
+34f1	f1 	pop af	pop af
+34f2	21 00 00 	ld hl,$0000	ld hl,$0000
+34f5	45 	ld b,l	ld b,l
+34f6	ed 42 	sbc hl,bc	sbc hl,bc
+34f8	39 	add hl,sp	add hl,sp
+34f9	f9 	ld sp,hl	ld sp,hl
+34fa	47 	ld b,a	ld b,a
 34fb	c5 	push bc	push bc
-34fc	f5 	push af	push af
-34fd	18 26 	jr $+$28	jr $+$00
-34ff	f5 	push af	push af
-3500	d5 	push de	push de
-3501	d9 	exx	exx
-3502	e5 	push hl	push hl
-3503	d9 	exx	exx
-3504	cd 0e 1a 	call $1a0e	call $0000
-3507	d9 	exx	exx
-3508	e1 	pop hl	pop hl
-3509	d9 	exx	exx
-350a	4b 	ld c,e	ld c,e
-350b	d1 	pop de	pop de
-350c	cd 86 32 	call $3286	call $0000
-350f	f1 	pop af	pop af
-3510	21 00 00 	ld hl,$0000	ld hl,$0000
-3513	45 	ld b,l	ld b,l
-3514	ed 42 	sbc hl,bc	sbc hl,bc
-3516	39 	add hl,sp	add hl,sp
-3517	f9 	ld sp,hl	ld sp,hl
-3518	47 	ld b,a	ld b,a
-3519	c5 	push bc	push bc
-351a	28 09 	jr z,$+$0b	jr z,$+$00
-351c	d5 	push de	push de
-351d	11 00 52 	ld de,$5200	ld de,$0000
-3520	eb 	ex de,hl	ex de,hl
-3521	45 	ld b,l	ld b,l
-3522	ed b0 	ldir	ldir
-3524	d1 	pop de	pop de
-3525	dd e5 	push ix	push ix
-3527	cd 2a 35 	call $352a	call $0000
-352a	cd 86 32 	call $3286	call $0000
-352d	cd 0b 45 	call $450b	call $0000
-3530	fe 2c 	cp $2c	cp $00
-3532	28 8b 	jr z,$-$73	jr z,$-$00
-3534	eb 	ex de,hl	ex de,hl
-3535	e9 	jp (hl)	jp (hl)
-3536	cd 0b 45 	call $450b	call $0000
-3539	fe 8b 	cp $8b	cp $00
-353b	d0 	ret nc	ret nc
-353c	fe 3a 	cp $3a	cp $00
-353e	d0 	ret nc	ret nc
-353f	fe 0d 	cp $0d	cp $00
-3541	c9 	ret	ret
-3542	cd 36 35 	call $3536	call $0000
-3545	c8 	ret z	ret z
-3546	fd 23 	inc iy	inc iy
-3548	fe 22 	cp $22	cp $00
-354a	cc 99 36 	call z,$3699	call z,$0000
-354d	18 f3 	jr $-$0b	jr $-$00
-354f	cd 0b 45 	call $450b	call $0000
-3552	fd 23 	inc iy	inc iy
-3554	fe 3d 	cp $3d	cp $00
-3556	c8 	ret z	ret z
-3557	3e 04 	ld a,$04	ld a,$00
-3559	c3 44 3f 	jp $3f44	jp $0000
-355c	fe 8a 	cp $8a	cp $00
-355e	28 0c 	jr z,$+$0e	jr z,$+$00
-3560	fe 89 	cp $89	cp $00
-3562	28 38 	jr z,$+$3a	jr z,$+$00
-3564	fe 27 	cp $27	cp $00
-3566	c0 	ret nz	ret nz
-3567	cd fb 40 	call $40fb	call $0000
-356a	af 	xor a	xor a
-356b	c9 	ret	ret
-356c	c5 	push bc	push bc
-356d	cd 33 18 	call $1833	call $0000
-3570	d9 	exx	exx
-3571	c1 	pop bc	pop bc
-3572	fd 7e 00 	ld a,(iy)	ld a,(iy)
-3575	fe 2c 	cp $2c	cp $00
-3577	28 11 	jr z,$+$13	jr z,$+$00
-3579	cd ae 20 	call $20ae	call $0000
-357c	7d 	ld a,l	ld a,l
-357d	21 fb 54 	ld hl,$54fb	ld hl,$0000
-3580	be 	cp (hl)	cp (hl)
-3581	c8 	ret z	ret z
-3582	f5 	push af	push af
-3583	dc fb 40 	call c,$40fb	call c,$0000
-3586	f1 	pop af	pop af
-3587	96 	sub (hl)	sub (hl)
-3588	18 19 	jr $+$1b	jr $+$00
-358a	fd 23 	inc iy	inc iy
-358c	c5 	push bc	push bc
-358d	e5 	push hl	push hl
-358e	cd 33 18 	call $1833	call $0000
-3591	d9 	exx	exx
-3592	d1 	pop de	pop de
-3593	c1 	pop bc	pop bc
-3594	cd ae 20 	call $20ae	call $0000
-3597	cd 9c 0d 	call $0d9c	call $0000
-359a	af 	xor a	xor a
-359b	c9 	ret	ret
-359c	c5 	push bc	push bc
-359d	cd 60 18 	call $1860	call $0000
-35a0	d9 	exx	exx
-35a1	7d 	ld a,l	ld a,l
-35a2	c1 	pop bc	pop bc
-35a3	b7 	or a	or a
-35a4	c8 	ret z	ret z
-35a5	c5 	push bc	push bc
-35a6	47 	ld b,a	ld b,a
-35a7	3e 20 	ld a,$20	ld a,$00
-35a9	cd 02 41 	call $4102	call $0000
-35ac	10 f9 	djnz $-$05	djnz $-$00
+34fc	28 09 	jr z,$+$0b	jr z,$+$00
+34fe	d5 	push de	push de
+34ff	11 00 52 	ld de,$5200	ld de,$0000
+3502	eb 	ex de,hl	ex de,hl
+3503	45 	ld b,l	ld b,l
+3504	ed b0 	ldir	ldir
+3506	d1 	pop de	pop de
+3507	dd e5 	push ix	push ix
+3509	cd 0c 35 	call $350c	call $0000
+350c	cd 68 32 	call $3268	call $0000
+350f	cd ed 44 	call $44ed	call $0000
+3512	fe 2c 	cp $2c	cp $00
+3514	28 8b 	jr z,$-$73	jr z,$-$00
+3516	eb 	ex de,hl	ex de,hl
+3517	e9 	jp (hl)	jp (hl)
+3518	cd ed 44 	call $44ed	call $0000
+351b	fe 8b 	cp $8b	cp $00
+351d	d0 	ret nc	ret nc
+351e	fe 3a 	cp $3a	cp $00
+3520	d0 	ret nc	ret nc
+3521	fe 0d 	cp $0d	cp $00
+3523	c9 	ret	ret
+3524	cd 18 35 	call $3518	call $0000
+3527	c8 	ret z	ret z
+3528	fd 23 	inc iy	inc iy
+352a	fe 22 	cp $22	cp $00
+352c	cc 7b 36 	call z,$367b	call z,$0000
+352f	18 f3 	jr $-$0b	jr $-$00
+3531	cd ed 44 	call $44ed	call $0000
+3534	fd 23 	inc iy	inc iy
+3536	fe 3d 	cp $3d	cp $00
+3538	c8 	ret z	ret z
+3539	3e 04 	ld a,$04	ld a,$00
+353b	c3 26 3f 	jp $3f26	jp $0000
+353e	fe 8a 	cp $8a	cp $00
+3540	28 0c 	jr z,$+$0e	jr z,$+$00
+3542	fe 89 	cp $89	cp $00
+3544	28 38 	jr z,$+$3a	jr z,$+$00
+3546	fe 27 	cp $27	cp $00
+3548	c0 	ret nz	ret nz
+3549	cd dd 40 	call $40dd	call $0000
+354c	af 	xor a	xor a
+354d	c9 	ret	ret
+354e	c5 	push bc	push bc
+354f	cd 15 18 	call $1815	call $0000
+3552	d9 	exx	exx
+3553	c1 	pop bc	pop bc
+3554	fd 7e 00 	ld a,(iy)	ld a,(iy)
+3557	fe 2c 	cp $2c	cp $00
+3559	28 11 	jr z,$+$13	jr z,$+$00
+355b	cd 90 20 	call $2090	call $0000
+355e	7d 	ld a,l	ld a,l
+355f	21 fb 54 	ld hl,$54fb	ld hl,$0000
+3562	be 	cp (hl)	cp (hl)
+3563	c8 	ret z	ret z
+3564	f5 	push af	push af
+3565	dc dd 40 	call c,$40dd	call c,$0000
+3568	f1 	pop af	pop af
+3569	96 	sub (hl)	sub (hl)
+356a	18 19 	jr $+$1b	jr $+$00
+356c	fd 23 	inc iy	inc iy
+356e	c5 	push bc	push bc
+356f	e5 	push hl	push hl
+3570	cd 15 18 	call $1815	call $0000
+3573	d9 	exx	exx
+3574	d1 	pop de	pop de
+3575	c1 	pop bc	pop bc
+3576	cd 90 20 	call $2090	call $0000
+3579	cd 7e 0d 	call $0d7e	call $0000
+357c	af 	xor a	xor a
+357d	c9 	ret	ret
+357e	c5 	push bc	push bc
+357f	cd 42 18 	call $1842	call $0000
+3582	d9 	exx	exx
+3583	7d 	ld a,l	ld a,l
+3584	c1 	pop bc	pop bc
+3585	b7 	or a	or a
+3586	c8 	ret z	ret z
+3587	c5 	push bc	push bc
+3588	47 	ld b,a	ld b,a
+3589	3e 20 	ld a,$20	ld a,$00
+358b	cd e4 40 	call $40e4	call $0000
+358e	10 f9 	djnz $-$05	djnz $-$00
+3590	c1 	pop bc	pop bc
+3591	af 	xor a	xor a
+3592	c9 	ret	ret
+3593	21 00 52 	ld hl,$5200	ld hl,$0000
+3596	1c 	inc e	inc e
+3597	1d 	dec e	dec e
+3598	c8 	ret z	ret z
+3599	7e 	ld a,(hl)	ld a,(hl)
+359a	23 	inc hl	inc hl
+359b	cd e4 40 	call $40e4	call $0000
+359e	18 f7 	jr $-$07	jr $-$00
+35a0	f5 	push af	push af
+35a1	c5 	push bc	push bc
+35a2	e5 	push hl	push hl
+35a3	fd e3 	ex (sp),iy	ex (sp),iy
+35a5	cd bd 35 	call $35bd	call $0000
+35a8	cd ed 44 	call $44ed	call $0000
+35ab	fd e3 	ex (sp),iy	ex (sp),iy
+35ad	e1 	pop hl	pop hl
 35ae	c1 	pop bc	pop bc
-35af	af 	xor a	xor a
+35af	f1 	pop af	pop af
 35b0	c9 	ret	ret
-35b1	21 00 52 	ld hl,$5200	ld hl,$0000
-35b4	1c 	inc e	inc e
-35b5	1d 	dec e	dec e
-35b6	c8 	ret z	ret z
-35b7	7e 	ld a,(hl)	ld a,(hl)
-35b8	23 	inc hl	inc hl
-35b9	cd 02 41 	call $4102	call $0000
-35bc	18 f7 	jr $-$07	jr $-$00
-35be	f5 	push af	push af
-35bf	c5 	push bc	push bc
-35c0	e5 	push hl	push hl
-35c1	fd e3 	ex (sp),iy	ex (sp),iy
-35c3	cd db 35 	call $35db	call $0000
-35c6	cd 0b 45 	call $450b	call $0000
-35c9	fd e3 	ex (sp),iy	ex (sp),iy
-35cb	e1 	pop hl	pop hl
-35cc	c1 	pop bc	pop bc
-35cd	f1 	pop af	pop af
-35ce	c9 	ret	ret
-35cf	11 00 52 	ld de,$5200	ld de,$0000
-35d2	7e 	ld a,(hl)	ld a,(hl)
-35d3	12 	ld (de),a	ld (de),a
-35d4	fe 0d 	cp $0d	cp $00
-35d6	c8 	ret z	ret z
-35d7	23 	inc hl	inc hl
+35b1	11 00 52 	ld de,$5200	ld de,$0000
+35b4	7e 	ld a,(hl)	ld a,(hl)
+35b5	12 	ld (de),a	ld (de),a
+35b6	fe 0d 	cp $0d	cp $00
+35b8	c8 	ret z	ret z
+35b9	23 	inc hl	inc hl
+35ba	1c 	inc e	inc e
+35bb	18 f7 	jr $-$07	jr $-$00
+35bd	cd ed 44 	call $44ed	call $0000
+35c0	fe 22 	cp $22	cp $00
+35c2	fd 23 	inc iy	inc iy
+35c4	ca 5c 19 	jp z,$195c	jp z,$0000
+35c7	fd 2b 	dec iy	dec iy
+35c9	11 00 52 	ld de,$5200	ld de,$0000
+35cc	fd 7e 00 	ld a,(iy)	ld a,(iy)
+35cf	12 	ld (de),a	ld (de),a
+35d0	fe 2c 	cp $2c	cp $00
+35d2	c8 	ret z	ret z
+35d3	fe 0d 	cp $0d	cp $00
+35d5	c8 	ret z	ret z
+35d6	fd 23 	inc iy	inc iy
 35d8	1c 	inc e	inc e
-35d9	18 f7 	jr $-$07	jr $-$00
-35db	cd 0b 45 	call $450b	call $0000
-35de	fe 22 	cp $22	cp $00
-35e0	fd 23 	inc iy	inc iy
-35e2	ca 7a 19 	jp z,$197a	jp z,$0000
-35e5	fd 2b 	dec iy	dec iy
-35e7	11 00 52 	ld de,$5200	ld de,$0000
-35ea	fd 7e 00 	ld a,(iy)	ld a,(iy)
-35ed	12 	ld (de),a	ld (de),a
-35ee	fe 2c 	cp $2c	cp $00
-35f0	c8 	ret z	ret z
-35f1	fe 0d 	cp $0d	cp $00
-35f3	c8 	ret z	ret z
-35f4	fd 23 	inc iy	inc iy
-35f6	1c 	inc e	inc e
-35f7	18 f1 	jr $-$0d	jr $-$00
-35f9	3e dc 	ld a,$dc	ld a,$00
-35fb	06 00 	ld b,$00	ld b,$00
-35fd	4e 	ld c,(hl)	ld c,(hl)
-35fe	0c 	inc c	inc c
-35ff	0d 	dec c	dec c
-3600	28 0c 	jr z,$+$0e	jr z,$+$00
-3602	23 	inc hl	inc hl
-3603	23 	inc hl	inc hl
-3604	23 	inc hl	inc hl
-3605	be 	cp (hl)	cp (hl)
-3606	c8 	ret z	ret z
-3607	0d 	dec c	dec c
-3608	0d 	dec c	dec c
-3609	0d 	dec c	dec c
-360a	09 	add hl,bc	add hl,bc
-360b	c3 fd 35 	jp $35fd	jp $0000
-360e	2b 	dec hl	dec hl
-360f	37 	scf	scf
-3610	c9 	ret	ret
-3611	2e 00 	ld l,$00	ld l,$00
-3613	fd 7e 00 	ld a,(iy)	ld a,(iy)
-3616	b7 	or a	or a
-3617	28 34 	jr z,$+$36	jr z,$+$00
-3619	fd 7e 03 	ld a,(iy+$03)	ld a,(iy+$00)
-361c	b8 	cp b	cp b
-361d	28 1d 	jr z,$+$1f	jr z,$+$00
-361f	b9 	cp c	cp c
-3620	28 1a 	jr z,$+$1c	jr z,$+$00
-3622	ba 	cp d	cp d
-3623	28 22 	jr z,$+$24	jr z,$+$00
-3625	c5 	push bc	push bc
-3626	06 00 	ld b,$00	ld b,$00
-3628	fd 4e 00 	ld c,(iy)	ld c,(iy)
-362b	fd 09 	add iy,bc	add iy,bc
-362d	fd 7e fe 	ld a,(iy-$02)	ld a,(iy-$00)
-3630	bb 	cp e	cp e
-3631	79 	ld a,c	ld a,c
-3632	c1 	pop bc	pop bc
-3633	20 de 	jr nz,$-$20	jr nz,$-$00
-3635	fe 05 	cp $05	cp $00
-3637	38 da 	jr c,$-$24	jr c,$-$00
-3639	2c 	inc l	inc l
-363a	18 d7 	jr $-$27	jr $-$00
-363c	2c 	inc l	inc l
-363d	2d 	dec l	dec l
-363e	20 e2 	jr nz,$-$1c	jr nz,$-$00
-3640	01 04 00 	ld bc,$0004	ld bc,$0000
-3643	fd 09 	add iy,bc	add iy,bc
-3645	af 	xor a	xor a
-3646	c9 	ret	ret
-3647	2d 	dec l	dec l
-3648	f2 25 36 	jp p,$3625	jp p,$0000
-364b	18 f3 	jr $-$0b	jr $-$00
-364d	f6 01 	or $01	or $00
-364f	c9 	ret	ret
-3650	fd 7e 00 	ld a,(iy)	ld a,(iy)
-3653	fd 23 	inc iy	inc iy
-3655	fe 22 	cp $22	cp $00
-3657	cc 99 36 	call z,$3699	call z,$0000
-365a	fe f4 	cp $f4	cp $00
-365c	28 22 	jr z,$+$24	jr z,$+$00
-365e	fe 10 	cp $10	cp $00
-3660	28 30 	jr z,$+$32	jr z,$+$00
-3662	b8 	cp b	cp b
-3663	28 29 	jr z,$+$2b	jr z,$+$00
-3665	b9 	cp c	cp c
-3666	28 23 	jr z,$+$25	jr z,$+$00
-3668	fe 0d 	cp $0d	cp $00
-366a	20 e4 	jr nz,$-$1a	jr nz,$-$00
-366c	fd 7e 00 	ld a,(iy)	ld a,(iy)
-366f	fd 23 	inc iy	inc iy
-3671	b7 	or a	or a
-3672	ca d3 24 	jp z,$24d3	jp z,$0000
-3675	fd 23 	inc iy	inc iy
+35d9	18 f1 	jr $-$0d	jr $-$00
+35db	3e dc 	ld a,$dc	ld a,$00
+35dd	06 00 	ld b,$00	ld b,$00
+35df	4e 	ld c,(hl)	ld c,(hl)
+35e0	0c 	inc c	inc c
+35e1	0d 	dec c	dec c
+35e2	28 0c 	jr z,$+$0e	jr z,$+$00
+35e4	23 	inc hl	inc hl
+35e5	23 	inc hl	inc hl
+35e6	23 	inc hl	inc hl
+35e7	be 	cp (hl)	cp (hl)
+35e8	c8 	ret z	ret z
+35e9	0d 	dec c	dec c
+35ea	0d 	dec c	dec c
+35eb	0d 	dec c	dec c
+35ec	09 	add hl,bc	add hl,bc
+35ed	c3 df 35 	jp $35df	jp $0000
+35f0	2b 	dec hl	dec hl
+35f1	37 	scf	scf
+35f2	c9 	ret	ret
+35f3	2e 00 	ld l,$00	ld l,$00
+35f5	fd 7e 00 	ld a,(iy)	ld a,(iy)
+35f8	b7 	or a	or a
+35f9	28 34 	jr z,$+$36	jr z,$+$00
+35fb	fd 7e 03 	ld a,(iy+$03)	ld a,(iy+$00)
+35fe	b8 	cp b	cp b
+35ff	28 1d 	jr z,$+$1f	jr z,$+$00
+3601	b9 	cp c	cp c
+3602	28 1a 	jr z,$+$1c	jr z,$+$00
+3604	ba 	cp d	cp d
+3605	28 22 	jr z,$+$24	jr z,$+$00
+3607	c5 	push bc	push bc
+3608	06 00 	ld b,$00	ld b,$00
+360a	fd 4e 00 	ld c,(iy)	ld c,(iy)
+360d	fd 09 	add iy,bc	add iy,bc
+360f	fd 7e fe 	ld a,(iy-$02)	ld a,(iy-$00)
+3612	bb 	cp e	cp e
+3613	79 	ld a,c	ld a,c
+3614	c1 	pop bc	pop bc
+3615	20 de 	jr nz,$-$20	jr nz,$-$00
+3617	fe 05 	cp $05	cp $00
+3619	38 da 	jr c,$-$24	jr c,$-$00
+361b	2c 	inc l	inc l
+361c	18 d7 	jr $-$27	jr $-$00
+361e	2c 	inc l	inc l
+361f	2d 	dec l	dec l
+3620	20 e2 	jr nz,$-$1c	jr nz,$-$00
+3622	01 04 00 	ld bc,$0004	ld bc,$0000
+3625	fd 09 	add iy,bc	add iy,bc
+3627	af 	xor a	xor a
+3628	c9 	ret	ret
+3629	2d 	dec l	dec l
+362a	f2 07 36 	jp p,$3607	jp p,$0000
+362d	18 f3 	jr $-$0b	jr $-$00
+362f	f6 01 	or $01	or $00
+3631	c9 	ret	ret
+3632	fd 7e 00 	ld a,(iy)	ld a,(iy)
+3635	fd 23 	inc iy	inc iy
+3637	fe 22 	cp $22	cp $00
+3639	cc 7b 36 	call z,$367b	call z,$0000
+363c	fe f4 	cp $f4	cp $00
+363e	28 22 	jr z,$+$24	jr z,$+$00
+3640	fe 10 	cp $10	cp $00
+3642	28 30 	jr z,$+$32	jr z,$+$00
+3644	b8 	cp b	cp b
+3645	28 29 	jr z,$+$2b	jr z,$+$00
+3647	b9 	cp c	cp c
+3648	28 23 	jr z,$+$25	jr z,$+$00
+364a	fe 0d 	cp $0d	cp $00
+364c	20 e4 	jr nz,$-$1a	jr nz,$-$00
+364e	fd 7e 00 	ld a,(iy)	ld a,(iy)
+3651	fd 23 	inc iy	inc iy
+3653	b7 	or a	or a
+3654	ca b5 24 	jp z,$24b5	jp z,$0000
+3657	fd 23 	inc iy	inc iy
+3659	fd 23 	inc iy	inc iy
+365b	fd 7e 00 	ld a,(iy)	ld a,(iy)
+365e	fe dc 	cp $dc	cp $00
+3660	20 d0 	jr nz,$-$2e	jr nz,$-$00
+3662	fd 7e 00 	ld a,(iy)	ld a,(iy)
+3665	fd 23 	inc iy	inc iy
+3667	fe 0d 	cp $0d	cp $00
+3669	20 f7 	jr nz,$-$07	jr nz,$-$00
+366b	18 e1 	jr $-$1d	jr $-$00
+366d	14 	inc d	inc d
+366e	18 c2 	jr $-$3c	jr $-$00
+3670	15 	dec d	dec d
+3671	20 bf 	jr nz,$-$3f	jr nz,$-$00
+3673	c9 	ret	ret
+3674	cd ed 44 	call $44ed	call $0000
 3677	fd 23 	inc iy	inc iy
-3679	fd 7e 00 	ld a,(iy)	ld a,(iy)
-367c	fe dc 	cp $dc	cp $00
-367e	20 d0 	jr nz,$-$2e	jr nz,$-$00
-3680	fd 7e 00 	ld a,(iy)	ld a,(iy)
-3683	fd 23 	inc iy	inc iy
-3685	fe 0d 	cp $0d	cp $00
-3687	20 f7 	jr nz,$-$07	jr nz,$-$00
-3689	18 e1 	jr $-$1d	jr $-$00
-368b	14 	inc d	inc d
-368c	18 c2 	jr $-$3c	jr $-$00
-368e	15 	dec d	dec d
-368f	20 bf 	jr nz,$-$3f	jr nz,$-$00
-3691	c9 	ret	ret
-3692	cd 0b 45 	call $450b	call $0000
-3695	fd 23 	inc iy	inc iy
-3697	18 b7 	jr $-$47	jr $-$00
-3699	fd 7e 00 	ld a,(iy)	ld a,(iy)
-369c	fd 23 	inc iy	inc iy
-369e	fe 0d 	cp $0d	cp $00
-36a0	ca a8 36 	jp z,$36a8	jp z,$0000
-36a3	fe 22 	cp $22	cp $00
-36a5	20 f2 	jr nz,$-$0c	jr nz,$-$00
-36a7	c9 	ret	ret
-36a8	3e 09 	ld a,$09	ld a,$00
-36aa	c3 44 3f 	jp $3f44	jp $0000
-36ad	62 	ld h,d	ld h,d
-36ae	6b 	ld l,e	ld l,e
-36af	fe 01 	cp $01	cp $00
-36b1	c8 	ret z	ret z
-36b2	fe 05 	cp $05	cp $00
-36b4	29 	add hl,hl	add hl,hl
-36b5	d8 	ret c	ret c
-36b6	29 	add hl,hl	add hl,hl
-36b7	d8 	ret c	ret c
-36b8	eb 	ex de,hl	ex de,hl
-36b9	c0 	ret nz	ret nz
-36ba	19 	add hl,de	add hl,de
-36bb	eb 	ex de,hl	ex de,hl
-36bc	c9 	ret	ret
-36bd	eb 	ex de,hl	ex de,hl
-36be	21 00 00 	ld hl,$0000	ld hl,$0000
-36c1	3e 10 	ld a,$10	ld a,$00
-36c3	29 	add hl,hl	add hl,hl
-36c4	d8 	ret c	ret c
-36c5	cb 23 	sla e	sla e
-36c7	cb 12 	rl d	rl d
-36c9	30 02 	jr nc,$+$04	jr nc,$+$00
-36cb	09 	add hl,bc	add hl,bc
-36cc	d8 	ret c	ret c
-36cd	3d 	dec a	dec a
-36ce	20 f3 	jr nz,$-$0b	jr nz,$-$00
-36d0	c9 	ret	ret
-36d1	cd 0b 45 	call $450b	call $0000
-36d4	fe 23 	cp $23	cp $00
-36d6	3e 2d 	ld a,$2d	ld a,$00
-36d8	c2 44 3f 	jp nz,$3f44	jp nz,$0000
-36db	fd 23 	inc iy	inc iy
-36dd	cd 60 18 	call $1860	call $0000
-36e0	d9 	exx	exx
-36e1	eb 	ex de,hl	ex de,hl
-36e2	c9 	ret	ret
-36e3	f5 	push af	push af
-36e4	c5 	push bc	push bc
-36e5	d5 	push de	push de
-36e6	e5 	push hl	push hl
-36e7	af 	xor a	xor a
-36e8	50 	ld d,b	ld d,b
-36e9	59 	ld e,c	ld e,c
-36ea	47 	ld b,a	ld b,a
-36eb	d5 	push de	push de
-36ec	2b 	dec hl	dec hl
-36ed	56 	ld d,(hl)	ld d,(hl)
-36ee	2b 	dec hl	dec hl
-36ef	5e 	ld e,(hl)	ld e,(hl)
-36f0	2b 	dec hl	dec hl
-36f1	4e 	ld c,(hl)	ld c,(hl)
-36f2	2b 	dec hl	dec hl
-36f3	e5 	push hl	push hl
-36f4	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
-36f7	eb 	ex de,hl	ex de,hl
-36f8	09 	add hl,bc	add hl,bc
-36f9	ed 52 	sbc hl,de	sbc hl,de
-36fb	20 07 	jr nz,$+$09	jr nz,$+$00
-36fd	19 	add hl,de	add hl,de
-36fe	ed 42 	sbc hl,bc	sbc hl,bc
-3700	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
-3703	b4 	or h	or h
-3704	d1 	pop de	pop de
-3705	e1 	pop hl	pop hl
-3706	0e 04 	ld c,$04	ld c,$00
-3708	b7 	or a	or a
-3709	ed 42 	sbc hl,bc	sbc hl,bc
-370b	eb 	ex de,hl	ex de,hl
-370c	20 dd 	jr nz,$-$21	jr nz,$-$00
-370e	b7 	or a	or a
-370f	e1 	pop hl	pop hl
-3710	d1 	pop de	pop de
-3711	c1 	pop bc	pop bc
-3712	b7 	or a	or a
-3713	20 cf 	jr nz,$-$2f	jr nz,$-$00
-3715	f1 	pop af	pop af
-3716	c9 	ret	ret
-3717	c3 41 37 	jp $3741	jp $0000
-371a	c3 af 37 	jp $37af	jp $0000
-371d	c3 e3 25 	jp $25e3	jp $0000
-3720	c3 55 3f 	jp $3f55	jp $0000
-3723	c3 fa 44 	jp $44fa	jp $0000
-3726	c3 e8 44 	jp $44e8	jp $0000
-3729	c3 60 18 	jp $1860	jp $0000
-372c	c3 33 18 	jp $1833	jp $0000
-372f	c3 3c 18 	jp $183c	jp $0000
-3732	c3 b3 09 	jp $09b3	jp $0000
-3735	c3 5b 06 	jp $065b	jp $0000
-3738	c3 63 06 	jp $0663	jp $0000
-373b	c3 6c 06 	jp $066c	jp $0000
-373e	c3 53 06 	jp $0653	jp $0000
-3741	21 00 54 	ld hl,$5400	ld hl,$0000
-3744	f9 	ld sp,hl	ld sp,hl
-3745	36 0a 	ld (hl),$0a	ld (hl),$00
-3747	2c 	inc l	inc l
-3748	36 09 	ld (hl),$09	ld (hl),$00
-374a	2c 	inc l	inc l
-374b	af 	xor a	xor a
-374c	77 	ld (hl),a	ld (hl),a
-374d	2c 	inc l	inc l
-374e	20 fc 	jr nz,$-$02	jr nz,$-$00
-3750	3e 37 	ld a,$37	ld a,$00
-3752	32 fe 54 	ld ($54fe),a	ld ($0000),a
-3755	21 8e 37 	ld hl,$378e	ld hl,$0000
-3758	22 ee 54 	ld ($54ee),hl	ld ($0000),hl
-375b	cd a0 05 	call $05a0	call $0000
-375e	ed 53 e2 54 	ld ($54e2),de	ld ($0000),de
-3762	22 dc 54 	ld ($54dc),hl	ld ($0000),hl
-3765	cd 3e 40 	call $403e	call $0000
-3768	c2 52 24 	jp nz,$2452	jp nz,$0000
-376b	cd fa 44 	call $44fa	call $0000
-376e	42 	ld b,d	ld b,d
-376f	42 	ld b,d	ld b,d
-3770	43 	ld b,e	ld b,e
-3771	20 42 	jr nz,$+$44	jr nz,$+$00
-3773	41 	ld b,c	ld b,c
-3774	53 	ld d,e	ld d,e
-3775	49 43 	ld.lis b,e	ld.lis b,e
-3777	20 28 	jr nz,$+$2a	jr nz,$+$00
-3779	5a 	ld e,d	ld e,d
-377a	38 30 	jr c,$+$32	jr c,$+$00
-377c	29 	add hl,hl	add hl,hl
-377d	20 56 	jr nz,$+$58	jr nz,$+$00
-377f	65 	ld h,l	ld h,l
-3780	72 	ld (hl),d	ld (hl),d
-3781	73 	ld (hl),e	ld (hl),e
-3782	69 	ld l,c	ld l,c
-3783	6f 	ld l,a	ld l,a
-3784	6e 	ld l,(hl)	ld l,(hl)
-3785	20 35 	jr nz,$+$37	jr nz,$+$00
-3787	2e 30 	ld l,$30	ld l,$00
-3789	30 20 	jr nc,$+$22	jr nc,$+$00
-378b	20 0d 	jr nz,$+$0f	jr nz,$+$00
-378d	0a 	ld a,(bc)	ld a,(bc)
-378e	28 43 	jr z,$+$45	jr z,$+$00
-3790	29 	add hl,hl	add hl,hl
-3791	20 43 	jr nz,$+$45	jr nz,$+$00
-3793	6f 	ld l,a	ld l,a
-3794	70 	ld (hl),b	ld (hl),b
-3795	79 	ld a,c	ld a,c
-3796	72 	ld (hl),d	ld (hl),d
-3797	69 	ld l,c	ld l,c
-3798	67 	ld h,a	ld h,a
-3799	68 	ld l,b	ld l,b
-379a	74 	ld (hl),h	ld (hl),h
-379b	20 52 	jr nz,$+$54	jr nz,$+$00
-379d	2e 54 	ld l,$54	ld l,$00
-379f	2e 52 	ld l,$52	ld l,$00
-37a1	75 	ld (hl),l	ld (hl),l
-37a2	73 	ld (hl),e	ld (hl),e
-37a3	73 	ld (hl),e	ld (hl),e
-37a4	65 	ld h,l	ld h,l
-37a5	6c 	ld l,h	ld l,h
-37a6	6c 	ld l,h	ld l,h
-37a7	20 32 	jr nz,$+$34	jr nz,$+$00
-37a9	30 32 	jr nc,$+$34	jr nc,$+$00
-37ab	34 	inc (hl)	inc (hl)
-37ac	0d 	dec c	dec c
-37ad	0a 	ld a,(bc)	ld a,(bc)
-37ae	00 	nop	nop
-37af	f6 37 	or $37	or $00
-37b1	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
-37b5	cd af 05 	call $05af	call $0000
-37b8	21 fe 54 	ld hl,$54fe	ld hl,$0000
-37bb	7e 	ld a,(hl)	ld a,(hl)
-37bc	e6 0f 	and $0f	and $00
-37be	f6 30 	or $30	or $00
-37c0	77 	ld (hl),a	ld (hl),a
-37c1	ed 62 	sbc hl,hl	sbc hl,hl
-37c3	22 ea 54 	ld ($54ea),hl	ld ($0000),hl
-37c6	22 ec 54 	ld ($54ec),hl	ld ($0000),hl
-37c9	22 f4 54 	ld ($54f4),hl	ld ($0000),hl
-37cc	2a e8 54 	ld hl,($54e8)	ld hl,($0000)
-37cf	e5 	push hl	push hl
-37d0	7c 	ld a,h	ld a,h
-37d1	b5 	or l	or l
-37d2	28 17 	jr z,$+$19	jr z,$+$00
-37d4	e5 	push hl	push hl
-37d5	cd 96 41 	call $4196	call $0000
-37d8	e1 	pop hl	pop hl
-37d9	ed 4b ff 54 	ld bc,($54ff)	ld bc,($0000)
-37dd	06 00 	ld b,$00	ld b,$00
-37df	09 	add hl,bc	add hl,bc
-37e0	da af 43 	jp c,$43af	jp c,$0000
-37e3	22 e8 54 	ld ($54e8),hl	ld ($0000),hl
-37e6	3e 20 	ld a,$20	ld a,$00
-37e8	cd 02 41 	call $4102	call $0000
-37eb	21 00 52 	ld hl,$5200	ld hl,$0000
-37ee	cd e7 05 	call $05e7	call $0000
-37f1	af 	xor a	xor a
-37f2	32 fb 54 	ld ($54fb),a	ld ($0000),a
-37f5	fd 21 00 52 	ld iy,$5200	ld iy,$0000
-37f9	21 e1 3b 	ld hl,$3be1	ld hl,$0000
-37fc	cd a6 3f 	call $3fa6	call $0000
-37ff	e1 	pop hl	pop hl
-3800	20 19 	jr nz,$+$1b	jr nz,$+$00
-3802	87 	add a,a	add a,a
-3803	4f 	ld c,a	ld c,a
-3804	7c 	ld a,h	ld a,h
-3805	b5 	or l	or l
-3806	20 0f 	jr nz,$+$11	jr nz,$+$00
-3808	47 	ld b,a	ld b,a
-3809	21 11 3c 	ld hl,$3c11	ld hl,$0000
-380c	09 	add hl,bc	add hl,bc
-380d	7e 	ld a,(hl)	ld a,(hl)
-380e	23 	inc hl	inc hl
-380f	66 	ld h,(hl)	ld h,(hl)
-3810	6f 	ld l,a	ld l,a
-3811	fd 23 	inc iy	inc iy
-3813	cd 0b 45 	call $450b	call $0000
-3816	e9 	jp (hl)	jp (hl)
-3817	fd 21 00 52 	ld iy,$5200	ld iy,$0000
-381b	7c 	ld a,h	ld a,h
-381c	b5 	or l	or l
-381d	cc 8a 43 	call z,$438a	call z,$0000
-3820	cd 0b 45 	call $450b	call $0000
-3823	11 00 53 	ld de,$5300	ld de,$0000
-3826	0e 01 	ld c,$01	ld c,$00
-3828	e5 	push hl	push hl
-3829	cd 18 44 	call $4418	call $0000
-382c	e1 	pop hl	pop hl
-382d	12 	ld (de),a	ld (de),a
-382e	af 	xor a	xor a
-382f	47 	ld b,a	ld b,a
-3830	4b 	ld c,e	ld c,e
-3831	13 	inc de	inc de
-3832	12 	ld (de),a	ld (de),a
-3833	7c 	ld a,h	ld a,h
-3834	b5 	or l	or l
-3835	fd 21 00 53 	ld iy,$5300	ld iy,$0000
-3839	ca 99 24 	jp z,$2499	jp z,$0000
-383c	c5 	push bc	push bc
-383d	cd 43 41 	call $4143	call $0000
-3840	cc e9 3f 	call z,$3fe9	call z,$0000
-3843	c1 	pop bc	pop bc
-3844	79 	ld a,c	ld a,c
-3845	b7 	or a	or a
-3846	28 39 	jr z,$+$3b	jr z,$+$00
-3848	c6 04 	add a,$04	add a,$00
-384a	4f 	ld c,a	ld c,a
-384b	d5 	push de	push de
-384c	c5 	push bc	push bc
-384d	eb 	ex de,hl	ex de,hl
-384e	c5 	push bc	push bc
-384f	cd 25 40 	call $4025	call $0000
-3852	c1 	pop bc	pop bc
-3853	e5 	push hl	push hl
-3854	09 	add hl,bc	add hl,bc
-3855	e5 	push hl	push hl
-3856	24 	inc h	inc h
-3857	af 	xor a	xor a
-3858	ed 72 	sbc hl,sp	sbc hl,sp
-385a	e1 	pop hl	pop hl
-385b	d2 44 3f 	jp nc,$3f44	jp nc,$0000
-385e	e3 	ex (sp),hl	ex (sp),hl
-385f	e5 	push hl	push hl
-3860	23 	inc hl	inc hl
-3861	b7 	or a	or a
-3862	ed 52 	sbc hl,de	sbc hl,de
-3864	44 	ld b,h	ld b,h
-3865	4d 	ld c,l	ld c,l
-3866	e1 	pop hl	pop hl
-3867	d1 	pop de	pop de
-3868	28 02 	jr z,$+$04	jr z,$+$00
-386a	ed b8 	lddr	lddr
-386c	c1 	pop bc	pop bc
-386d	d1 	pop de	pop de
-386e	23 	inc hl	inc hl
-386f	71 	ld (hl),c	ld (hl),c
-3870	23 	inc hl	inc hl
-3871	73 	ld (hl),e	ld (hl),e
-3872	23 	inc hl	inc hl
-3873	72 	ld (hl),d	ld (hl),d
-3874	23 	inc hl	inc hl
-3875	11 00 53 	ld de,$5300	ld de,$0000
-3878	eb 	ex de,hl	ex de,hl
-3879	0d 	dec c	dec c
-387a	0d 	dec c	dec c
-387b	0d 	dec c	dec c
-387c	ed b0 	ldir	ldir
-387e	cd 1a 40 	call $401a	call $0000
-3881	c3 b0 37 	jp $37b0	jp $0000
-3884	80 	add a,b	add a,b
-3885	41 	ld b,c	ld b,c
-3886	4e 	ld c,(hl)	ld c,(hl)
-3887	44 	ld b,h	ld b,h
-3888	94 	sub h	sub h
-3889	41 	ld b,c	ld b,c
-388a	42 	ld b,d	ld b,d
-388b	53 	ld d,e	ld d,e
-388c	95 	sub l	sub l
-388d	41 	ld b,c	ld b,c
-388e	43 	ld b,e	ld b,e
-388f	53 	ld d,e	ld d,e
-3890	96 	sub (hl)	sub (hl)
-3891	41 	ld b,c	ld b,c
-3892	44 	ld b,h	ld b,h
-3893	56 	ld d,(hl)	ld d,(hl)
-3894	41 	ld b,c	ld b,c
-3895	4c 	ld c,h	ld c,h
-3896	97 	sub a	sub a
-3897	41 	ld b,c	ld b,c
-3898	53 	ld d,e	ld d,e
-3899	43 	ld b,e	ld b,e
-389a	98 	sbc a,b	sbc a,b
-389b	41 	ld b,c	ld b,c
-389c	53 	ld d,e	ld d,e
-389d	4e 	ld c,(hl)	ld c,(hl)
-389e	99 	sbc a,c	sbc a,c
-389f	41 	ld b,c	ld b,c
-38a0	54 	ld d,h	ld d,h
-38a1	4e 	ld c,(hl)	ld c,(hl)
-38a2	9a 	sbc a,d	sbc a,d
-38a3	42 	ld b,d	ld b,d
-38a4	47 	ld b,a	ld b,a
-38a5	45 	ld b,l	ld b,l
-38a6	54 	ld d,h	ld d,h
-38a7	20 d5 	jr nz,$-$29	jr nz,$-$00
-38a9	42 	ld b,d	ld b,d
-38aa	50 	ld d,b	ld d,b
-38ab	55 	ld d,l	ld d,l
-38ac	54 	ld d,h	ld d,h
-38ad	20 0f 	jr nz,$+$11	jr nz,$+$00
-38af	42 	ld b,d	ld b,d
-38b0	59 	ld e,c	ld e,c
-38b1	20 fb 	jr nz,$-$03	jr nz,$-$00
-38b3	43 	ld b,e	ld b,e
-38b4	4f 	ld c,a	ld c,a
-38b5	4c 	ld c,h	ld c,h
-38b6	4f 	ld c,a	ld c,a
-38b7	55 	ld d,l	ld d,l
-38b8	52 fb 	ei.sil	ei.sil
-38ba	43 	ld b,e	ld b,e
-38bb	4f 	ld c,a	ld c,a
-38bc	4c 	ld c,h	ld c,h
-38bd	4f 	ld c,a	ld c,a
-38be	52 d6 43 	sub.sil $43	sub.sil $00
-38c1	41 	ld b,c	ld b,c
-38c2	4c 	ld c,h	ld c,h
-38c3	4c 	ld c,h	ld c,h
-38c4	c8 	ret z	ret z
+3679	18 b7 	jr $-$47	jr $-$00
+367b	fd 7e 00 	ld a,(iy)	ld a,(iy)
+367e	fd 23 	inc iy	inc iy
+3680	fe 0d 	cp $0d	cp $00
+3682	ca 8a 36 	jp z,$368a	jp z,$0000
+3685	fe 22 	cp $22	cp $00
+3687	20 f2 	jr nz,$-$0c	jr nz,$-$00
+3689	c9 	ret	ret
+368a	3e 09 	ld a,$09	ld a,$00
+368c	c3 26 3f 	jp $3f26	jp $0000
+368f	62 	ld h,d	ld h,d
+3690	6b 	ld l,e	ld l,e
+3691	fe 01 	cp $01	cp $00
+3693	c8 	ret z	ret z
+3694	fe 05 	cp $05	cp $00
+3696	29 	add hl,hl	add hl,hl
+3697	d8 	ret c	ret c
+3698	29 	add hl,hl	add hl,hl
+3699	d8 	ret c	ret c
+369a	eb 	ex de,hl	ex de,hl
+369b	c0 	ret nz	ret nz
+369c	19 	add hl,de	add hl,de
+369d	eb 	ex de,hl	ex de,hl
+369e	c9 	ret	ret
+369f	eb 	ex de,hl	ex de,hl
+36a0	21 00 00 	ld hl,$0000	ld hl,$0000
+36a3	3e 10 	ld a,$10	ld a,$00
+36a5	29 	add hl,hl	add hl,hl
+36a6	d8 	ret c	ret c
+36a7	cb 23 	sla e	sla e
+36a9	cb 12 	rl d	rl d
+36ab	30 02 	jr nc,$+$04	jr nc,$+$00
+36ad	09 	add hl,bc	add hl,bc
+36ae	d8 	ret c	ret c
+36af	3d 	dec a	dec a
+36b0	20 f3 	jr nz,$-$0b	jr nz,$-$00
+36b2	c9 	ret	ret
+36b3	cd ed 44 	call $44ed	call $0000
+36b6	fe 23 	cp $23	cp $00
+36b8	3e 2d 	ld a,$2d	ld a,$00
+36ba	c2 26 3f 	jp nz,$3f26	jp nz,$0000
+36bd	fd 23 	inc iy	inc iy
+36bf	cd 42 18 	call $1842	call $0000
+36c2	d9 	exx	exx
+36c3	eb 	ex de,hl	ex de,hl
+36c4	c9 	ret	ret
+36c5	f5 	push af	push af
+36c6	c5 	push bc	push bc
+36c7	d5 	push de	push de
+36c8	e5 	push hl	push hl
+36c9	af 	xor a	xor a
+36ca	50 	ld d,b	ld d,b
+36cb	59 	ld e,c	ld e,c
+36cc	47 	ld b,a	ld b,a
+36cd	d5 	push de	push de
+36ce	2b 	dec hl	dec hl
+36cf	56 	ld d,(hl)	ld d,(hl)
+36d0	2b 	dec hl	dec hl
+36d1	5e 	ld e,(hl)	ld e,(hl)
+36d2	2b 	dec hl	dec hl
+36d3	4e 	ld c,(hl)	ld c,(hl)
+36d4	2b 	dec hl	dec hl
+36d5	e5 	push hl	push hl
+36d6	2a e0 54 	ld hl,($54e0)	ld hl,($0000)
+36d9	eb 	ex de,hl	ex de,hl
+36da	09 	add hl,bc	add hl,bc
+36db	ed 52 	sbc hl,de	sbc hl,de
+36dd	20 07 	jr nz,$+$09	jr nz,$+$00
+36df	19 	add hl,de	add hl,de
+36e0	ed 42 	sbc hl,bc	sbc hl,bc
+36e2	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
+36e5	b4 	or h	or h
+36e6	d1 	pop de	pop de
+36e7	e1 	pop hl	pop hl
+36e8	0e 04 	ld c,$04	ld c,$00
+36ea	b7 	or a	or a
+36eb	ed 42 	sbc hl,bc	sbc hl,bc
+36ed	eb 	ex de,hl	ex de,hl
+36ee	20 dd 	jr nz,$-$21	jr nz,$-$00
+36f0	b7 	or a	or a
+36f1	e1 	pop hl	pop hl
+36f2	d1 	pop de	pop de
+36f3	c1 	pop bc	pop bc
+36f4	b7 	or a	or a
+36f5	20 cf 	jr nz,$-$2f	jr nz,$-$00
+36f7	f1 	pop af	pop af
+36f8	c9 	ret	ret
+36f9	c3 23 37 	jp $3723	jp $0000
+36fc	c3 91 37 	jp $3791	jp $0000
+36ff	c3 c5 25 	jp $25c5	jp $0000
+3702	c3 37 3f 	jp $3f37	jp $0000
+3705	c3 dc 44 	jp $44dc	jp $0000
+3708	c3 ca 44 	jp $44ca	jp $0000
+370b	c3 42 18 	jp $1842	jp $0000
+370e	c3 15 18 	jp $1815	jp $0000
+3711	c3 1e 18 	jp $181e	jp $0000
+3714	c3 95 09 	jp $0995	jp $0000
+3717	c3 3d 06 	jp $063d	jp $0000
+371a	c3 45 06 	jp $0645	jp $0000
+371d	c3 4e 06 	jp $064e	jp $0000
+3720	c3 35 06 	jp $0635	jp $0000
+3723	21 00 54 	ld hl,$5400	ld hl,$0000
+3726	f9 	ld sp,hl	ld sp,hl
+3727	36 0a 	ld (hl),$0a	ld (hl),$00
+3729	2c 	inc l	inc l
+372a	36 09 	ld (hl),$09	ld (hl),$00
+372c	2c 	inc l	inc l
+372d	af 	xor a	xor a
+372e	77 	ld (hl),a	ld (hl),a
+372f	2c 	inc l	inc l
+3730	20 fc 	jr nz,$-$02	jr nz,$-$00
+3732	3e 37 	ld a,$37	ld a,$00
+3734	32 fe 54 	ld ($54fe),a	ld ($0000),a
+3737	21 70 37 	ld hl,$3770	ld hl,$0000
+373a	22 ee 54 	ld ($54ee),hl	ld ($0000),hl
+373d	cd 82 05 	call $0582	call $0000
+3740	ed 53 e2 54 	ld ($54e2),de	ld ($0000),de
+3744	22 dc 54 	ld ($54dc),hl	ld ($0000),hl
+3747	cd 20 40 	call $4020	call $0000
+374a	c2 34 24 	jp nz,$2434	jp nz,$0000
+374d	cd dc 44 	call $44dc	call $0000
+3750	42 	ld b,d	ld b,d
+3751	42 	ld b,d	ld b,d
+3752	43 	ld b,e	ld b,e
+3753	20 42 	jr nz,$+$44	jr nz,$+$00
+3755	41 	ld b,c	ld b,c
+3756	53 	ld d,e	ld d,e
+3757	49 43 	ld.lis b,e	ld.lis b,e
+3759	20 28 	jr nz,$+$2a	jr nz,$+$00
+375b	5a 	ld e,d	ld e,d
+375c	38 30 	jr c,$+$32	jr c,$+$00
+375e	29 	add hl,hl	add hl,hl
+375f	20 56 	jr nz,$+$58	jr nz,$+$00
+3761	65 	ld h,l	ld h,l
+3762	72 	ld (hl),d	ld (hl),d
+3763	73 	ld (hl),e	ld (hl),e
+3764	69 	ld l,c	ld l,c
+3765	6f 	ld l,a	ld l,a
+3766	6e 	ld l,(hl)	ld l,(hl)
+3767	20 35 	jr nz,$+$37	jr nz,$+$00
+3769	2e 30 	ld l,$30	ld l,$00
+376b	30 20 	jr nc,$+$22	jr nc,$+$00
+376d	20 0d 	jr nz,$+$0f	jr nz,$+$00
+376f	0a 	ld a,(bc)	ld a,(bc)
+3770	28 43 	jr z,$+$45	jr z,$+$00
+3772	29 	add hl,hl	add hl,hl
+3773	20 43 	jr nz,$+$45	jr nz,$+$00
+3775	6f 	ld l,a	ld l,a
+3776	70 	ld (hl),b	ld (hl),b
+3777	79 	ld a,c	ld a,c
+3778	72 	ld (hl),d	ld (hl),d
+3779	69 	ld l,c	ld l,c
+377a	67 	ld h,a	ld h,a
+377b	68 	ld l,b	ld l,b
+377c	74 	ld (hl),h	ld (hl),h
+377d	20 52 	jr nz,$+$54	jr nz,$+$00
+377f	2e 54 	ld l,$54	ld l,$00
+3781	2e 52 	ld l,$52	ld l,$00
+3783	75 	ld (hl),l	ld (hl),l
+3784	73 	ld (hl),e	ld (hl),e
+3785	73 	ld (hl),e	ld (hl),e
+3786	65 	ld h,l	ld h,l
+3787	6c 	ld l,h	ld l,h
+3788	6c 	ld l,h	ld l,h
+3789	20 32 	jr nz,$+$34	jr nz,$+$00
+378b	30 32 	jr nc,$+$34	jr nc,$+$00
+378d	34 	inc (hl)	inc (hl)
+378e	0d 	dec c	dec c
+378f	0a 	ld a,(bc)	ld a,(bc)
+3790	00 	nop	nop
+3791	f6 37 	or $37	or $00
+3793	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
+3797	cd 91 05 	call $0591	call $0000
+379a	21 fe 54 	ld hl,$54fe	ld hl,$0000
+379d	7e 	ld a,(hl)	ld a,(hl)
+379e	e6 0f 	and $0f	and $00
+37a0	f6 30 	or $30	or $00
+37a2	77 	ld (hl),a	ld (hl),a
+37a3	ed 62 	sbc hl,hl	sbc hl,hl
+37a5	22 ea 54 	ld ($54ea),hl	ld ($0000),hl
+37a8	22 ec 54 	ld ($54ec),hl	ld ($0000),hl
+37ab	22 f4 54 	ld ($54f4),hl	ld ($0000),hl
+37ae	2a e8 54 	ld hl,($54e8)	ld hl,($0000)
+37b1	e5 	push hl	push hl
+37b2	7c 	ld a,h	ld a,h
+37b3	b5 	or l	or l
+37b4	28 17 	jr z,$+$19	jr z,$+$00
+37b6	e5 	push hl	push hl
+37b7	cd 78 41 	call $4178	call $0000
+37ba	e1 	pop hl	pop hl
+37bb	ed 4b ff 54 	ld bc,($54ff)	ld bc,($0000)
+37bf	06 00 	ld b,$00	ld b,$00
+37c1	09 	add hl,bc	add hl,bc
+37c2	da 91 43 	jp c,$4391	jp c,$0000
+37c5	22 e8 54 	ld ($54e8),hl	ld ($0000),hl
+37c8	3e 20 	ld a,$20	ld a,$00
+37ca	cd e4 40 	call $40e4	call $0000
+37cd	21 00 52 	ld hl,$5200	ld hl,$0000
+37d0	cd c9 05 	call $05c9	call $0000
+37d3	af 	xor a	xor a
+37d4	32 fb 54 	ld ($54fb),a	ld ($0000),a
+37d7	fd 21 00 52 	ld iy,$5200	ld iy,$0000
+37db	21 c3 3b 	ld hl,$3bc3	ld hl,$0000
+37de	cd 88 3f 	call $3f88	call $0000
+37e1	e1 	pop hl	pop hl
+37e2	20 19 	jr nz,$+$1b	jr nz,$+$00
+37e4	87 	add a,a	add a,a
+37e5	4f 	ld c,a	ld c,a
+37e6	7c 	ld a,h	ld a,h
+37e7	b5 	or l	or l
+37e8	20 0f 	jr nz,$+$11	jr nz,$+$00
+37ea	47 	ld b,a	ld b,a
+37eb	21 f3 3b 	ld hl,$3bf3	ld hl,$0000
+37ee	09 	add hl,bc	add hl,bc
+37ef	7e 	ld a,(hl)	ld a,(hl)
+37f0	23 	inc hl	inc hl
+37f1	66 	ld h,(hl)	ld h,(hl)
+37f2	6f 	ld l,a	ld l,a
+37f3	fd 23 	inc iy	inc iy
+37f5	cd ed 44 	call $44ed	call $0000
+37f8	e9 	jp (hl)	jp (hl)
+37f9	fd 21 00 52 	ld iy,$5200	ld iy,$0000
+37fd	7c 	ld a,h	ld a,h
+37fe	b5 	or l	or l
+37ff	cc 6c 43 	call z,$436c	call z,$0000
+3802	cd ed 44 	call $44ed	call $0000
+3805	11 00 53 	ld de,$5300	ld de,$0000
+3808	0e 01 	ld c,$01	ld c,$00
+380a	e5 	push hl	push hl
+380b	cd fa 43 	call $43fa	call $0000
+380e	e1 	pop hl	pop hl
+380f	12 	ld (de),a	ld (de),a
+3810	af 	xor a	xor a
+3811	47 	ld b,a	ld b,a
+3812	4b 	ld c,e	ld c,e
+3813	13 	inc de	inc de
+3814	12 	ld (de),a	ld (de),a
+3815	7c 	ld a,h	ld a,h
+3816	b5 	or l	or l
+3817	fd 21 00 53 	ld iy,$5300	ld iy,$0000
+381b	ca 7b 24 	jp z,$247b	jp z,$0000
+381e	c5 	push bc	push bc
+381f	cd 25 41 	call $4125	call $0000
+3822	cc cb 3f 	call z,$3fcb	call z,$0000
+3825	c1 	pop bc	pop bc
+3826	79 	ld a,c	ld a,c
+3827	b7 	or a	or a
+3828	28 39 	jr z,$+$3b	jr z,$+$00
+382a	c6 04 	add a,$04	add a,$00
+382c	4f 	ld c,a	ld c,a
+382d	d5 	push de	push de
+382e	c5 	push bc	push bc
+382f	eb 	ex de,hl	ex de,hl
+3830	c5 	push bc	push bc
+3831	cd 07 40 	call $4007	call $0000
+3834	c1 	pop bc	pop bc
+3835	e5 	push hl	push hl
+3836	09 	add hl,bc	add hl,bc
+3837	e5 	push hl	push hl
+3838	24 	inc h	inc h
+3839	af 	xor a	xor a
+383a	ed 72 	sbc hl,sp	sbc hl,sp
+383c	e1 	pop hl	pop hl
+383d	d2 26 3f 	jp nc,$3f26	jp nc,$0000
+3840	e3 	ex (sp),hl	ex (sp),hl
+3841	e5 	push hl	push hl
+3842	23 	inc hl	inc hl
+3843	b7 	or a	or a
+3844	ed 52 	sbc hl,de	sbc hl,de
+3846	44 	ld b,h	ld b,h
+3847	4d 	ld c,l	ld c,l
+3848	e1 	pop hl	pop hl
+3849	d1 	pop de	pop de
+384a	28 02 	jr z,$+$04	jr z,$+$00
+384c	ed b8 	lddr	lddr
+384e	c1 	pop bc	pop bc
+384f	d1 	pop de	pop de
+3850	23 	inc hl	inc hl
+3851	71 	ld (hl),c	ld (hl),c
+3852	23 	inc hl	inc hl
+3853	73 	ld (hl),e	ld (hl),e
+3854	23 	inc hl	inc hl
+3855	72 	ld (hl),d	ld (hl),d
+3856	23 	inc hl	inc hl
+3857	11 00 53 	ld de,$5300	ld de,$0000
+385a	eb 	ex de,hl	ex de,hl
+385b	0d 	dec c	dec c
+385c	0d 	dec c	dec c
+385d	0d 	dec c	dec c
+385e	ed b0 	ldir	ldir
+3860	cd fc 3f 	call $3ffc	call $0000
+3863	c3 92 37 	jp $3792	jp $0000
+3866	80 	add a,b	add a,b
+3867	41 	ld b,c	ld b,c
+3868	4e 	ld c,(hl)	ld c,(hl)
+3869	44 	ld b,h	ld b,h
+386a	94 	sub h	sub h
+386b	41 	ld b,c	ld b,c
+386c	42 	ld b,d	ld b,d
+386d	53 	ld d,e	ld d,e
+386e	95 	sub l	sub l
+386f	41 	ld b,c	ld b,c
+3870	43 	ld b,e	ld b,e
+3871	53 	ld d,e	ld d,e
+3872	96 	sub (hl)	sub (hl)
+3873	41 	ld b,c	ld b,c
+3874	44 	ld b,h	ld b,h
+3875	56 	ld d,(hl)	ld d,(hl)
+3876	41 	ld b,c	ld b,c
+3877	4c 	ld c,h	ld c,h
+3878	97 	sub a	sub a
+3879	41 	ld b,c	ld b,c
+387a	53 	ld d,e	ld d,e
+387b	43 	ld b,e	ld b,e
+387c	98 	sbc a,b	sbc a,b
+387d	41 	ld b,c	ld b,c
+387e	53 	ld d,e	ld d,e
+387f	4e 	ld c,(hl)	ld c,(hl)
+3880	99 	sbc a,c	sbc a,c
+3881	41 	ld b,c	ld b,c
+3882	54 	ld d,h	ld d,h
+3883	4e 	ld c,(hl)	ld c,(hl)
+3884	9a 	sbc a,d	sbc a,d
+3885	42 	ld b,d	ld b,d
+3886	47 	ld b,a	ld b,a
+3887	45 	ld b,l	ld b,l
+3888	54 	ld d,h	ld d,h
+3889	20 d5 	jr nz,$-$29	jr nz,$-$00
+388b	42 	ld b,d	ld b,d
+388c	50 	ld d,b	ld d,b
+388d	55 	ld d,l	ld d,l
+388e	54 	ld d,h	ld d,h
+388f	20 0f 	jr nz,$+$11	jr nz,$+$00
+3891	42 	ld b,d	ld b,d
+3892	59 	ld e,c	ld e,c
+3893	20 fb 	jr nz,$-$03	jr nz,$-$00
+3895	43 	ld b,e	ld b,e
+3896	4f 	ld c,a	ld c,a
+3897	4c 	ld c,h	ld c,h
+3898	4f 	ld c,a	ld c,a
+3899	55 	ld d,l	ld d,l
+389a	52 fb 	ei.sil	ei.sil
+389c	43 	ld b,e	ld b,e
+389d	4f 	ld c,a	ld c,a
+389e	4c 	ld c,h	ld c,h
+389f	4f 	ld c,a	ld c,a
+38a0	52 d6 43 	sub.sil $43	sub.sil $00
+38a3	41 	ld b,c	ld b,c
+38a4	4c 	ld c,h	ld c,h
+38a5	4c 	ld c,h	ld c,h
+38a6	c8 	ret z	ret z
+38a7	43 	ld b,e	ld b,e
+38a8	41 	ld b,c	ld b,c
+38a9	53 	ld d,e	ld d,e
+38aa	45 	ld b,l	ld b,l
+38ab	d7 	rst $10	rst $00
+38ac	43 	ld b,e	ld b,e
+38ad	48 	ld c,b	ld c,b
+38ae	41 	ld b,c	ld b,c
+38af	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+38b1	bd 	cp l	cp l
+38b2	43 	ld b,e	ld b,e
+38b3	48 	ld c,b	ld c,b
+38b4	52 24 	inc.sil h	inc.sil h
+38b6	d8 	ret c	ret c
+38b7	43 	ld b,e	ld b,e
+38b8	4c 	ld c,h	ld c,h
+38b9	45 	ld b,l	ld b,l
+38ba	41 	ld b,c	ld b,c
+38bb	52 20 d9 	jr.sil nz,$-$24	jr.sil nz,$-$00
+38be	43 	ld b,e	ld b,e
+38bf	4c 	ld c,h	ld c,h
+38c0	4f 	ld c,a	ld c,a
+38c1	53 	ld d,e	ld d,e
+38c2	45 	ld b,l	ld b,l
+38c3	20 da 	jr nz,$-$24	jr nz,$-$00
 38c5	43 	ld b,e	ld b,e
-38c6	41 	ld b,c	ld b,c
-38c7	53 	ld d,e	ld d,e
-38c8	45 	ld b,l	ld b,l
-38c9	d7 	rst $10	rst $00
+38c6	4c 	ld c,h	ld c,h
+38c7	47 	ld b,a	ld b,a
+38c8	20 db 	jr nz,$-$23	jr nz,$-$00
 38ca	43 	ld b,e	ld b,e
-38cb	48 	ld c,b	ld c,b
-38cc	41 	ld b,c	ld b,c
-38cd	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-38cf	bd 	cp l	cp l
-38d0	43 	ld b,e	ld b,e
-38d1	48 	ld c,b	ld c,b
-38d2	52 24 	inc.sil h	inc.sil h
-38d4	d8 	ret c	ret c
-38d5	43 	ld b,e	ld b,e
-38d6	4c 	ld c,h	ld c,h
-38d7	45 	ld b,l	ld b,l
-38d8	41 	ld b,c	ld b,c
-38d9	52 20 d9 	jr.sil nz,$-$24	jr.sil nz,$-$00
-38dc	43 	ld b,e	ld b,e
-38dd	4c 	ld c,h	ld c,h
-38de	4f 	ld c,a	ld c,a
-38df	53 	ld d,e	ld d,e
-38e0	45 	ld b,l	ld b,l
-38e1	20 da 	jr nz,$-$24	jr nz,$-$00
-38e3	43 	ld b,e	ld b,e
-38e4	4c 	ld c,h	ld c,h
-38e5	47 	ld b,a	ld b,a
-38e6	20 db 	jr nz,$-$23	jr nz,$-$00
-38e8	43 	ld b,e	ld b,e
-38e9	4c 	ld c,h	ld c,h
-38ea	53 	ld d,e	ld d,e
-38eb	20 9b 	jr nz,$-$63	jr nz,$-$00
-38ed	43 	ld b,e	ld b,e
-38ee	4f 	ld c,a	ld c,a
-38ef	53 	ld d,e	ld d,e
-38f0	9c 	sbc a,h	sbc a,h
-38f1	43 	ld b,e	ld b,e
-38f2	4f 	ld c,a	ld c,a
-38f3	55 	ld d,l	ld d,l
-38f4	4e 	ld c,(hl)	ld c,(hl)
-38f5	54 	ld d,h	ld d,h
-38f6	20 01 	jr nz,$+$03	jr nz,$+$00
-38f8	43 	ld b,e	ld b,e
-38f9	49 	noni.lis	noni.lis
-38fa	52 43 	ld.sil b,e	ld.sil b,e
-38fc	4c 	ld c,h	ld c,h
-38fd	45 	ld b,l	ld b,l
-38fe	dc 44 41 	call c,$4144	call c,$0000
-3901	54 	ld d,h	ld d,h
-3902	41 	ld b,c	ld b,c
-3903	9d 	sbc a,l	sbc a,l
-3904	44 	ld b,h	ld b,h
-3905	45 	ld b,l	ld b,l
-3906	47 	ld b,a	ld b,a
-3907	dd 44 	ld b,ixh	ld b,ixh
-3909	45 	ld b,l	ld b,l
-390a	46 	ld b,(hl)	ld b,(hl)
-390b	81 	add a,c	add a,c
-390c	44 	ld b,h	ld b,h
-390d	49 56 	ld.lis d,(hl)	ld.lis d,(hl)
-390f	de 44 	sbc a,$44	sbc a,$00
-3911	49 4d 	ld.lis c,l	ld.lis c,l
-3913	df 	rst $18	rst $00
-3914	44 	ld b,h	ld b,h
-3915	52 41 	ld.sil b,c	ld.sil b,c
-3917	57 	ld d,a	ld d,a
-3918	e1 	pop hl	pop hl
-3919	45 	ld b,l	ld b,l
-391a	4e 	ld c,(hl)	ld c,(hl)
-391b	44 	ld b,h	ld b,h
-391c	50 	ld d,b	ld d,b
-391d	52 4f 	ld.sil c,a	ld.sil c,a
-391f	43 	ld b,e	ld b,e
-3920	20 ce 	jr nz,$-$30	jr nz,$-$00
-3922	45 	ld b,l	ld b,l
-3923	4e 	ld c,(hl)	ld c,(hl)
-3924	44 	ld b,h	ld b,h
-3925	57 	ld d,a	ld d,a
-3926	48 	ld c,b	ld c,b
-3927	49 4c 	ld.lis c,h	ld.lis c,h
-3929	45 	ld b,l	ld b,l
-392a	20 cb 	jr nz,$-$33	jr nz,$-$00
+38cb	4c 	ld c,h	ld c,h
+38cc	53 	ld d,e	ld d,e
+38cd	20 9b 	jr nz,$-$63	jr nz,$-$00
+38cf	43 	ld b,e	ld b,e
+38d0	4f 	ld c,a	ld c,a
+38d1	53 	ld d,e	ld d,e
+38d2	9c 	sbc a,h	sbc a,h
+38d3	43 	ld b,e	ld b,e
+38d4	4f 	ld c,a	ld c,a
+38d5	55 	ld d,l	ld d,l
+38d6	4e 	ld c,(hl)	ld c,(hl)
+38d7	54 	ld d,h	ld d,h
+38d8	20 01 	jr nz,$+$03	jr nz,$+$00
+38da	43 	ld b,e	ld b,e
+38db	49 	noni.lis	noni.lis
+38dc	52 43 	ld.sil b,e	ld.sil b,e
+38de	4c 	ld c,h	ld c,h
+38df	45 	ld b,l	ld b,l
+38e0	dc 44 41 	call c,$4144	call c,$0000
+38e3	54 	ld d,h	ld d,h
+38e4	41 	ld b,c	ld b,c
+38e5	9d 	sbc a,l	sbc a,l
+38e6	44 	ld b,h	ld b,h
+38e7	45 	ld b,l	ld b,l
+38e8	47 	ld b,a	ld b,a
+38e9	dd 44 	ld b,ixh	ld b,ixh
+38eb	45 	ld b,l	ld b,l
+38ec	46 	ld b,(hl)	ld b,(hl)
+38ed	81 	add a,c	add a,c
+38ee	44 	ld b,h	ld b,h
+38ef	49 56 	ld.lis d,(hl)	ld.lis d,(hl)
+38f1	de 44 	sbc a,$44	sbc a,$00
+38f3	49 4d 	ld.lis c,l	ld.lis c,l
+38f5	df 	rst $18	rst $00
+38f6	44 	ld b,h	ld b,h
+38f7	52 41 	ld.sil b,c	ld.sil b,c
+38f9	57 	ld d,a	ld d,a
+38fa	e1 	pop hl	pop hl
+38fb	45 	ld b,l	ld b,l
+38fc	4e 	ld c,(hl)	ld c,(hl)
+38fd	44 	ld b,h	ld b,h
+38fe	50 	ld d,b	ld d,b
+38ff	52 4f 	ld.sil c,a	ld.sil c,a
+3901	43 	ld b,e	ld b,e
+3902	20 ce 	jr nz,$-$30	jr nz,$-$00
+3904	45 	ld b,l	ld b,l
+3905	4e 	ld c,(hl)	ld c,(hl)
+3906	44 	ld b,h	ld b,h
+3907	57 	ld d,a	ld d,a
+3908	48 	ld c,b	ld c,b
+3909	49 4c 	ld.lis c,h	ld.lis c,h
+390b	45 	ld b,l	ld b,l
+390c	20 cb 	jr nz,$-$33	jr nz,$-$00
+390e	45 	ld b,l	ld b,l
+390f	4e 	ld c,(hl)	ld c,(hl)
+3910	44 	ld b,h	ld b,h
+3911	43 	ld b,e	ld b,e
+3912	41 	ld b,c	ld b,c
+3913	53 	ld d,e	ld d,e
+3914	45 	ld b,l	ld b,l
+3915	20 cd 	jr nz,$-$31	jr nz,$-$00
+3917	45 	ld b,l	ld b,l
+3918	4e 	ld c,(hl)	ld c,(hl)
+3919	44 	ld b,h	ld b,h
+391a	49 46 	ld.lis b,(hl)	ld.lis b,(hl)
+391c	20 e0 	jr nz,$-$1e	jr nz,$-$00
+391e	45 	ld b,l	ld b,l
+391f	4e 	ld c,(hl)	ld c,(hl)
+3920	44 	ld b,h	ld b,h
+3921	20 e2 	jr nz,$-$1c	jr nz,$-$00
+3923	45 	ld b,l	ld b,l
+3924	4e 	ld c,(hl)	ld c,(hl)
+3925	56 	ld d,(hl)	ld d,(hl)
+3926	45 	ld b,l	ld b,l
+3927	4c 	ld c,h	ld c,h
+3928	4f 	ld c,a	ld c,a
+3929	50 	ld d,b	ld d,b
+392a	45 	ld b,l	ld b,l
+392b	8b 	adc a,e	adc a,e
 392c	45 	ld b,l	ld b,l
-392d	4e 	ld c,(hl)	ld c,(hl)
-392e	44 	ld b,h	ld b,h
-392f	43 	ld b,e	ld b,e
-3930	41 	ld b,c	ld b,c
-3931	53 	ld d,e	ld d,e
-3932	45 	ld b,l	ld b,l
-3933	20 cd 	jr nz,$-$31	jr nz,$-$00
-3935	45 	ld b,l	ld b,l
-3936	4e 	ld c,(hl)	ld c,(hl)
-3937	44 	ld b,h	ld b,h
-3938	49 46 	ld.lis b,(hl)	ld.lis b,(hl)
-393a	20 e0 	jr nz,$-$1e	jr nz,$-$00
-393c	45 	ld b,l	ld b,l
-393d	4e 	ld c,(hl)	ld c,(hl)
-393e	44 	ld b,h	ld b,h
-393f	20 e2 	jr nz,$-$1c	jr nz,$-$00
+392d	4c 	ld c,h	ld c,h
+392e	53 	ld d,e	ld d,e
+392f	45 	ld b,l	ld b,l
+3930	a0 	and b	and b
+3931	45 	ld b,l	ld b,l
+3932	56 	ld d,(hl)	ld d,(hl)
+3933	41 	ld b,c	ld b,c
+3934	4c 	ld c,h	ld c,h
+3935	9e 	sbc a,(hl)	sbc a,(hl)
+3936	45 	ld b,l	ld b,l
+3937	52 4c 	ld.sil c,h	ld.sil c,h
+3939	20 85 	jr nz,$-$79	jr nz,$-$00
+393b	45 	ld b,l	ld b,l
+393c	52 	noni.sil	noni.sil
+393d	52 4f 	ld.sil c,a	ld.sil c,a
+393f	52 c5 	push.sil bc	push.sil bc
 3941	45 	ld b,l	ld b,l
-3942	4e 	ld c,(hl)	ld c,(hl)
-3943	56 	ld d,(hl)	ld d,(hl)
-3944	45 	ld b,l	ld b,l
-3945	4c 	ld c,h	ld c,h
-3946	4f 	ld c,a	ld c,a
-3947	50 	ld d,b	ld d,b
-3948	45 	ld b,l	ld b,l
-3949	8b 	adc a,e	adc a,e
+3942	4f 	ld c,a	ld c,a
+3943	46 	ld b,(hl)	ld b,(hl)
+3944	20 82 	jr nz,$-$7c	jr nz,$-$00
+3946	45 	ld b,l	ld b,l
+3947	4f 	ld c,a	ld c,a
+3948	52 9f 	sbc.sil a,a	sbc.sil a,a
 394a	45 	ld b,l	ld b,l
-394b	4c 	ld c,h	ld c,h
-394c	53 	ld d,e	ld d,e
-394d	45 	ld b,l	ld b,l
-394e	a0 	and b	and b
+394b	52 	noni.sil	noni.sil
+394c	52 20 10 	jr.sil nz,$+$13	jr.sil nz,$+$00
 394f	45 	ld b,l	ld b,l
-3950	56 	ld d,(hl)	ld d,(hl)
-3951	41 	ld b,c	ld b,c
-3952	4c 	ld c,h	ld c,h
-3953	9e 	sbc a,(hl)	sbc a,(hl)
-3954	45 	ld b,l	ld b,l
-3955	52 4c 	ld.sil c,h	ld.sil c,h
-3957	20 85 	jr nz,$-$79	jr nz,$-$00
+3950	58 	ld e,b	ld e,b
+3951	49 54 	ld.lis d,h	ld.lis d,h
+3953	20 a1 	jr nz,$-$5d	jr nz,$-$00
+3955	45 	ld b,l	ld b,l
+3956	58 	ld e,b	ld e,b
+3957	50 	ld d,b	ld d,b
+3958	a2 	and d	and d
 3959	45 	ld b,l	ld b,l
-395a	52 	noni.sil	noni.sil
-395b	52 4f 	ld.sil c,a	ld.sil c,a
-395d	52 c5 	push.sil bc	push.sil bc
-395f	45 	ld b,l	ld b,l
-3960	4f 	ld c,a	ld c,a
-3961	46 	ld b,(hl)	ld b,(hl)
-3962	20 82 	jr nz,$-$7c	jr nz,$-$00
+395a	58 	ld e,b	ld e,b
+395b	54 	ld d,h	ld d,h
+395c	20 02 	jr nz,$+$04	jr nz,$+$00
+395e	45 	ld b,l	ld b,l
+395f	4c 	ld c,h	ld c,h
+3960	4c 	ld c,h	ld c,h
+3961	49 50 	ld.lis d,b	ld.lis d,b
+3963	53 	ld d,e	ld d,e
 3964	45 	ld b,l	ld b,l
-3965	4f 	ld c,a	ld c,a
-3966	52 9f 	sbc.sil a,a	sbc.sil a,a
-3968	45 	ld b,l	ld b,l
-3969	52 	noni.sil	noni.sil
-396a	52 20 10 	jr.sil nz,$+$13	jr.sil nz,$+$00
-396d	45 	ld b,l	ld b,l
-396e	58 	ld e,b	ld e,b
-396f	49 54 	ld.lis d,h	ld.lis d,h
-3971	20 a1 	jr nz,$-$5d	jr nz,$-$00
-3973	45 	ld b,l	ld b,l
-3974	58 	ld e,b	ld e,b
-3975	50 	ld d,b	ld d,b
-3976	a2 	and d	and d
-3977	45 	ld b,l	ld b,l
-3978	58 	ld e,b	ld e,b
-3979	54 	ld d,h	ld d,h
-397a	20 02 	jr nz,$+$04	jr nz,$+$00
-397c	45 	ld b,l	ld b,l
-397d	4c 	ld c,h	ld c,h
-397e	4c 	ld c,h	ld c,h
-397f	49 50 	ld.lis d,b	ld.lis d,b
-3981	53 	ld d,e	ld d,e
-3982	45 	ld b,l	ld b,l
-3983	e3 	ex (sp),hl	ex (sp),hl
-3984	46 	ld b,(hl)	ld b,(hl)
-3985	4f 	ld c,a	ld c,a
-3986	52 a3 	and.sil e	and.sil e
-3988	46 	ld b,(hl)	ld b,(hl)
-3989	41 	ld b,c	ld b,c
-398a	4c 	ld c,h	ld c,h
-398b	53 	ld d,e	ld d,e
-398c	45 	ld b,l	ld b,l
-398d	20 03 	jr nz,$+$05	jr nz,$+$00
-398f	46 	ld b,(hl)	ld b,(hl)
-3990	49 4c 	ld.lis c,h	ld.lis c,h
-3992	4c 	ld c,h	ld c,h
-3993	a4 	and h	and h
-3994	46 	ld b,(hl)	ld b,(hl)
-3995	4e 	ld c,(hl)	ld c,(hl)
-3996	e5 	push hl	push hl
-3997	47 	ld b,a	ld b,a
-3998	4f 	ld c,a	ld c,a
-3999	54 	ld d,h	ld d,h
-399a	4f 	ld c,a	ld c,a
-399b	be 	cp (hl)	cp (hl)
-399c	47 	ld b,a	ld b,a
-399d	45 	ld b,l	ld b,l
-399e	54 	ld d,h	ld d,h
-399f	24 	inc h	inc h
-39a0	a5 	and l	and l
-39a1	47 	ld b,a	ld b,a
-39a2	45 	ld b,l	ld b,l
-39a3	54 	ld d,h	ld d,h
-39a4	e4 47 4f 	call po,$4f47	call po,$0000
-39a7	53 	ld d,e	ld d,e
-39a8	55 	ld d,l	ld d,l
-39a9	42 	ld b,d	ld b,d
-39aa	e6 47 	and $47	and $00
-39ac	43 	ld b,e	ld b,e
-39ad	4f 	ld c,a	ld c,a
-39ae	4c 	ld c,h	ld c,h
-39af	93 	sub e	sub e
-39b0	48 	ld c,b	ld c,b
-39b1	49 4d 	ld.lis c,l	ld.lis c,l
-39b3	45 	ld b,l	ld b,l
-39b4	4d 	ld c,l	ld c,l
-39b5	20 e8 	jr nz,$-$16	jr nz,$-$00
-39b7	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-39b9	50 	ld d,b	ld d,b
-39ba	55 	ld d,l	ld d,l
-39bb	54 	ld d,h	ld d,h
-39bc	e7 	rst $20	rst $00
-39bd	49 46 	ld.lis b,(hl)	ld.lis b,(hl)
-39bf	bf 	cp a	cp a
-39c0	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-39c2	4b 	ld c,e	ld c,e
-39c3	45 	ld b,l	ld b,l
-39c4	59 	ld e,c	ld e,c
-39c5	24 	inc h	inc h
-39c6	a6 	and (hl)	and (hl)
-39c7	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-39c9	4b 	ld c,e	ld c,e
+3965	e3 	ex (sp),hl	ex (sp),hl
+3966	46 	ld b,(hl)	ld b,(hl)
+3967	4f 	ld c,a	ld c,a
+3968	52 a3 	and.sil e	and.sil e
+396a	46 	ld b,(hl)	ld b,(hl)
+396b	41 	ld b,c	ld b,c
+396c	4c 	ld c,h	ld c,h
+396d	53 	ld d,e	ld d,e
+396e	45 	ld b,l	ld b,l
+396f	20 03 	jr nz,$+$05	jr nz,$+$00
+3971	46 	ld b,(hl)	ld b,(hl)
+3972	49 4c 	ld.lis c,h	ld.lis c,h
+3974	4c 	ld c,h	ld c,h
+3975	a4 	and h	and h
+3976	46 	ld b,(hl)	ld b,(hl)
+3977	4e 	ld c,(hl)	ld c,(hl)
+3978	e5 	push hl	push hl
+3979	47 	ld b,a	ld b,a
+397a	4f 	ld c,a	ld c,a
+397b	54 	ld d,h	ld d,h
+397c	4f 	ld c,a	ld c,a
+397d	be 	cp (hl)	cp (hl)
+397e	47 	ld b,a	ld b,a
+397f	45 	ld b,l	ld b,l
+3980	54 	ld d,h	ld d,h
+3981	24 	inc h	inc h
+3982	a5 	and l	and l
+3983	47 	ld b,a	ld b,a
+3984	45 	ld b,l	ld b,l
+3985	54 	ld d,h	ld d,h
+3986	e4 47 4f 	call po,$4f47	call po,$0000
+3989	53 	ld d,e	ld d,e
+398a	55 	ld d,l	ld d,l
+398b	42 	ld b,d	ld b,d
+398c	e6 47 	and $47	and $00
+398e	43 	ld b,e	ld b,e
+398f	4f 	ld c,a	ld c,a
+3990	4c 	ld c,h	ld c,h
+3991	93 	sub e	sub e
+3992	48 	ld c,b	ld c,b
+3993	49 4d 	ld.lis c,l	ld.lis c,l
+3995	45 	ld b,l	ld b,l
+3996	4d 	ld c,l	ld c,l
+3997	20 e8 	jr nz,$-$16	jr nz,$-$00
+3999	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+399b	50 	ld d,b	ld d,b
+399c	55 	ld d,l	ld d,l
+399d	54 	ld d,h	ld d,h
+399e	e7 	rst $20	rst $00
+399f	49 46 	ld.lis b,(hl)	ld.lis b,(hl)
+39a1	bf 	cp a	cp a
+39a2	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+39a4	4b 	ld c,e	ld c,e
+39a5	45 	ld b,l	ld b,l
+39a6	59 	ld e,c	ld e,c
+39a7	24 	inc h	inc h
+39a8	a6 	and (hl)	and (hl)
+39a9	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+39ab	4b 	ld c,e	ld c,e
+39ac	45 	ld b,l	ld b,l
+39ad	59 	ld e,c	ld e,c
+39ae	a8 	xor b	xor b
+39af	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+39b1	54 	ld d,h	ld d,h
+39b2	a7 	and a	and a
+39b3	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+39b5	53 	ld d,e	ld d,e
+39b6	54 	ld d,h	ld d,h
+39b7	52 28 0c 	jr.sil z,$+$0f	jr.sil z,$+$00
+39ba	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+39bc	53 	ld d,e	ld d,e
+39bd	54 	ld d,h	ld d,h
+39be	41 	ld b,c	ld b,c
+39bf	4c 	ld c,h	ld c,h
+39c0	4c 	ld c,h	ld c,h
+39c1	86 	add a,(hl)	add a,(hl)
+39c2	4c 	ld c,h	ld c,h
+39c3	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+39c5	45 	ld b,l	ld b,l
+39c6	92 	sub d	sub d
+39c7	4c 	ld c,h	ld c,h
+39c8	4f 	ld c,a	ld c,a
+39c9	4d 	ld c,l	ld c,l
 39ca	45 	ld b,l	ld b,l
-39cb	59 	ld e,c	ld e,c
-39cc	a8 	xor b	xor b
-39cd	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-39cf	54 	ld d,h	ld d,h
-39d0	a7 	and a	and a
-39d1	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-39d3	53 	ld d,e	ld d,e
-39d4	54 	ld d,h	ld d,h
-39d5	52 28 0c 	jr.sil z,$+$0f	jr.sil z,$+$00
-39d8	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-39da	53 	ld d,e	ld d,e
-39db	54 	ld d,h	ld d,h
-39dc	41 	ld b,c	ld b,c
-39dd	4c 	ld c,h	ld c,h
-39de	4c 	ld c,h	ld c,h
-39df	86 	add a,(hl)	add a,(hl)
-39e0	4c 	ld c,h	ld c,h
-39e1	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-39e3	45 	ld b,l	ld b,l
-39e4	92 	sub d	sub d
-39e5	4c 	ld c,h	ld c,h
-39e6	4f 	ld c,a	ld c,a
-39e7	4d 	ld c,l	ld c,l
-39e8	45 	ld b,l	ld b,l
-39e9	4d 	ld c,l	ld c,l
-39ea	20 ea 	jr nz,$-$14	jr nz,$-$00
-39ec	4c 	ld c,h	ld c,h
-39ed	4f 	ld c,a	ld c,a
-39ee	43 	ld b,e	ld b,e
-39ef	41 	ld b,c	ld b,c
-39f0	4c 	ld c,h	ld c,h
-39f1	c0 	ret nz	ret nz
-39f2	4c 	ld c,h	ld c,h
+39cb	4d 	ld c,l	ld c,l
+39cc	20 ea 	jr nz,$-$14	jr nz,$-$00
+39ce	4c 	ld c,h	ld c,h
+39cf	4f 	ld c,a	ld c,a
+39d0	43 	ld b,e	ld b,e
+39d1	41 	ld b,c	ld b,c
+39d2	4c 	ld c,h	ld c,h
+39d3	c0 	ret nz	ret nz
+39d4	4c 	ld c,h	ld c,h
+39d5	45 	ld b,l	ld b,l
+39d6	46 	ld b,(hl)	ld b,(hl)
+39d7	54 	ld d,h	ld d,h
+39d8	24 	inc h	inc h
+39d9	28 a9 	jr z,$-$55	jr z,$-$00
+39db	4c 	ld c,h	ld c,h
+39dc	45 	ld b,l	ld b,l
+39dd	4e 	ld c,(hl)	ld c,(hl)
+39de	e9 	jp (hl)	jp (hl)
+39df	4c 	ld c,h	ld c,h
+39e0	45 	ld b,l	ld b,l
+39e1	54 	ld d,h	ld d,h
+39e2	ab 	xor e	xor e
+39e3	4c 	ld c,h	ld c,h
+39e4	4f 	ld c,a	ld c,a
+39e5	47 	ld b,a	ld b,a
+39e6	aa 	xor d	xor d
+39e7	4c 	ld c,h	ld c,h
+39e8	4e 	ld c,(hl)	ld c,(hl)
+39e9	c1 	pop bc	pop bc
+39ea	4d 	ld c,l	ld c,l
+39eb	49 44 	ld.lis b,h	ld.lis b,h
+39ed	24 	inc h	inc h
+39ee	28 eb 	jr z,$-$13	jr z,$-$00
+39f0	4d 	ld c,l	ld c,l
+39f1	4f 	ld c,a	ld c,a
+39f2	44 	ld b,h	ld b,h
 39f3	45 	ld b,l	ld b,l
-39f4	46 	ld b,(hl)	ld b,(hl)
-39f5	54 	ld d,h	ld d,h
-39f6	24 	inc h	inc h
-39f7	28 a9 	jr z,$-$55	jr z,$-$00
-39f9	4c 	ld c,h	ld c,h
-39fa	45 	ld b,l	ld b,l
-39fb	4e 	ld c,(hl)	ld c,(hl)
-39fc	e9 	jp (hl)	jp (hl)
-39fd	4c 	ld c,h	ld c,h
-39fe	45 	ld b,l	ld b,l
-39ff	54 	ld d,h	ld d,h
-3a00	ab 	xor e	xor e
-3a01	4c 	ld c,h	ld c,h
-3a02	4f 	ld c,a	ld c,a
-3a03	47 	ld b,a	ld b,a
-3a04	aa 	xor d	xor d
-3a05	4c 	ld c,h	ld c,h
-3a06	4e 	ld c,(hl)	ld c,(hl)
-3a07	c1 	pop bc	pop bc
-3a08	4d 	ld c,l	ld c,l
-3a09	49 44 	ld.lis b,h	ld.lis b,h
-3a0b	24 	inc h	inc h
-3a0c	28 eb 	jr z,$-$13	jr z,$-$00
-3a0e	4d 	ld c,l	ld c,l
-3a0f	4f 	ld c,a	ld c,a
-3a10	44 	ld b,h	ld b,h
-3a11	45 	ld b,l	ld b,l
-3a12	83 	add a,e	add a,e
-3a13	4d 	ld c,l	ld c,l
-3a14	4f 	ld c,a	ld c,a
-3a15	44 	ld b,h	ld b,h
-3a16	ec 4d 4f 	call pe,$4f4d	call pe,$0000
-3a19	56 	ld d,(hl)	ld d,(hl)
-3a1a	45 	ld b,l	ld b,l
-3a1b	04 	inc b	inc b
-3a1c	4d 	ld c,l	ld c,l
-3a1d	4f 	ld c,a	ld c,a
-3a1e	55 	ld d,l	ld d,l
-3a1f	53 	ld d,e	ld d,e
-3a20	45 	ld b,l	ld b,l
-3a21	ed 4e 	trap	trap
-3a23	45 	ld b,l	ld b,l
-3a24	58 	ld e,b	ld e,b
-3a25	54 	ld d,h	ld d,h
-3a26	ac 	xor h	xor h
-3a27	4e 	ld c,(hl)	ld c,(hl)
-3a28	4f 	ld c,a	ld c,a
-3a29	54 	ld d,h	ld d,h
-3a2a	ee 4f 	xor $4f	xor $00
-3a2c	4e 	ld c,(hl)	ld c,(hl)
-3a2d	87 	add a,a	add a,a
+39f4	83 	add a,e	add a,e
+39f5	4d 	ld c,l	ld c,l
+39f6	4f 	ld c,a	ld c,a
+39f7	44 	ld b,h	ld b,h
+39f8	ec 4d 4f 	call pe,$4f4d	call pe,$0000
+39fb	56 	ld d,(hl)	ld d,(hl)
+39fc	45 	ld b,l	ld b,l
+39fd	04 	inc b	inc b
+39fe	4d 	ld c,l	ld c,l
+39ff	4f 	ld c,a	ld c,a
+3a00	55 	ld d,l	ld d,l
+3a01	53 	ld d,e	ld d,e
+3a02	45 	ld b,l	ld b,l
+3a03	ed 4e 	trap	trap
+3a05	45 	ld b,l	ld b,l
+3a06	58 	ld e,b	ld e,b
+3a07	54 	ld d,h	ld d,h
+3a08	ac 	xor h	xor h
+3a09	4e 	ld c,(hl)	ld c,(hl)
+3a0a	4f 	ld c,a	ld c,a
+3a0b	54 	ld d,h	ld d,h
+3a0c	ee 4f 	xor $4f	xor $00
+3a0e	4e 	ld c,(hl)	ld c,(hl)
+3a0f	87 	add a,a	add a,a
+3a10	4f 	ld c,a	ld c,a
+3a11	46 	ld b,(hl)	ld b,(hl)
+3a12	46 	ld b,(hl)	ld b,(hl)
+3a13	20 ca 	jr nz,$-$34	jr nz,$-$00
+3a15	4f 	ld c,a	ld c,a
+3a16	46 	ld b,(hl)	ld b,(hl)
+3a17	20 05 	jr nz,$+$07	jr nz,$+$00
+3a19	4f 	ld c,a	ld c,a
+3a1a	52 	noni.sil	noni.sil
+3a1b	49 47 	ld.lis b,a	ld.lis b,a
+3a1d	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+3a1f	84 	add a,h	add a,h
+3a20	4f 	ld c,a	ld c,a
+3a21	52 8e 	adc.sil a,(hl)	adc.sil a,(hl)
+3a23	4f 	ld c,a	ld c,a
+3a24	50 	ld d,b	ld d,b
+3a25	45 	ld b,l	ld b,l
+3a26	4e 	ld c,(hl)	ld c,(hl)
+3a27	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+3a29	ae 	xor (hl)	xor (hl)
+3a2a	4f 	ld c,a	ld c,a
+3a2b	50 	ld d,b	ld d,b
+3a2c	45 	ld b,l	ld b,l
+3a2d	4e 	ld c,(hl)	ld c,(hl)
 3a2e	4f 	ld c,a	ld c,a
-3a2f	46 	ld b,(hl)	ld b,(hl)
-3a30	46 	ld b,(hl)	ld b,(hl)
-3a31	20 ca 	jr nz,$-$34	jr nz,$-$00
-3a33	4f 	ld c,a	ld c,a
-3a34	46 	ld b,(hl)	ld b,(hl)
-3a35	20 05 	jr nz,$+$07	jr nz,$+$00
-3a37	4f 	ld c,a	ld c,a
-3a38	52 	noni.sil	noni.sil
-3a39	49 47 	ld.lis b,a	ld.lis b,a
-3a3b	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-3a3d	84 	add a,h	add a,h
-3a3e	4f 	ld c,a	ld c,a
-3a3f	52 8e 	adc.sil a,(hl)	adc.sil a,(hl)
-3a41	4f 	ld c,a	ld c,a
-3a42	50 	ld d,b	ld d,b
-3a43	45 	ld b,l	ld b,l
-3a44	4e 	ld c,(hl)	ld c,(hl)
-3a45	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-3a47	ae 	xor (hl)	xor (hl)
-3a48	4f 	ld c,a	ld c,a
+3a2f	55 	ld d,l	ld d,l
+3a30	54 	ld d,h	ld d,h
+3a31	ad 	xor l	xor l
+3a32	4f 	ld c,a	ld c,a
+3a33	50 	ld d,b	ld d,b
+3a34	45 	ld b,l	ld b,l
+3a35	4e 	ld c,(hl)	ld c,(hl)
+3a36	55 	ld d,l	ld d,l
+3a37	50 	ld d,b	ld d,b
+3a38	ff 	rst $38	rst $00
+3a39	4f 	ld c,a	ld c,a
+3a3a	53 	ld d,e	ld d,e
+3a3b	43 	ld b,e	ld b,e
+3a3c	4c 	ld c,h	ld c,h
+3a3d	49 cc 4f 54 	call.lis z,$544f	call.lis z,$0000
+3a41	48 	ld c,b	ld c,b
+3a42	45 	ld b,l	ld b,l
+3a43	52 57 	ld.sil d,a	ld.sil d,a
+3a45	49 53 	ld.lis d,e	ld.lis d,e
+3a47	45 	ld b,l	ld b,l
+3a48	f1 	pop af	pop af
 3a49	50 	ld d,b	ld d,b
-3a4a	45 	ld b,l	ld b,l
-3a4b	4e 	ld c,(hl)	ld c,(hl)
-3a4c	4f 	ld c,a	ld c,a
-3a4d	55 	ld d,l	ld d,l
-3a4e	54 	ld d,h	ld d,h
-3a4f	ad 	xor l	xor l
-3a50	4f 	ld c,a	ld c,a
-3a51	50 	ld d,b	ld d,b
+3a4a	52 	noni.sil	noni.sil
+3a4b	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+3a4d	54 	ld d,h	ld d,h
+3a4e	90 	sub b	sub b
+3a4f	50 	ld d,b	ld d,b
+3a50	41 	ld b,c	ld b,c
+3a51	47 	ld b,a	ld b,a
 3a52	45 	ld b,l	ld b,l
-3a53	4e 	ld c,(hl)	ld c,(hl)
-3a54	55 	ld d,l	ld d,l
+3a53	20 8f 	jr nz,$-$6f	jr nz,$-$00
 3a55	50 	ld d,b	ld d,b
-3a56	ff 	rst $38	rst $00
-3a57	4f 	ld c,a	ld c,a
-3a58	53 	ld d,e	ld d,e
-3a59	43 	ld b,e	ld b,e
-3a5a	4c 	ld c,h	ld c,h
-3a5b	49 cc 4f 54 	call.lis z,$544f	call.lis z,$0000
-3a5f	48 	ld c,b	ld c,b
-3a60	45 	ld b,l	ld b,l
-3a61	52 57 	ld.sil d,a	ld.sil d,a
-3a63	49 53 	ld.lis d,e	ld.lis d,e
-3a65	45 	ld b,l	ld b,l
-3a66	f1 	pop af	pop af
-3a67	50 	ld d,b	ld d,b
-3a68	52 	noni.sil	noni.sil
-3a69	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-3a6b	54 	ld d,h	ld d,h
-3a6c	90 	sub b	sub b
-3a6d	50 	ld d,b	ld d,b
-3a6e	41 	ld b,c	ld b,c
-3a6f	47 	ld b,a	ld b,a
-3a70	45 	ld b,l	ld b,l
-3a71	20 8f 	jr nz,$-$6f	jr nz,$-$00
-3a73	50 	ld d,b	ld d,b
-3a74	54 	ld d,h	ld d,h
-3a75	52 20 af 	jr.sil nz,$-$4e	jr.sil nz,$-$00
-3a78	50 	ld d,b	ld d,b
-3a79	49 20 f0 	jr.lis nz,$-$0d	jr.lis nz,$-$00
-3a7c	50 	ld d,b	ld d,b
-3a7d	4c 	ld c,h	ld c,h
-3a7e	4f 	ld c,a	ld c,a
-3a7f	54 	ld d,h	ld d,h
-3a80	b0 	or b	or b
-3a81	50 	ld d,b	ld d,b
-3a82	4f 	ld c,a	ld c,a
-3a83	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-3a85	54 	ld d,h	ld d,h
-3a86	28 f2 	jr z,$-$0c	jr z,$-$00
+3a56	54 	ld d,h	ld d,h
+3a57	52 20 af 	jr.sil nz,$-$4e	jr.sil nz,$-$00
+3a5a	50 	ld d,b	ld d,b
+3a5b	49 20 f0 	jr.lis nz,$-$0d	jr.lis nz,$-$00
+3a5e	50 	ld d,b	ld d,b
+3a5f	4c 	ld c,h	ld c,h
+3a60	4f 	ld c,a	ld c,a
+3a61	54 	ld d,h	ld d,h
+3a62	b0 	or b	or b
+3a63	50 	ld d,b	ld d,b
+3a64	4f 	ld c,a	ld c,a
+3a65	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+3a67	54 	ld d,h	ld d,h
+3a68	28 f2 	jr z,$-$0c	jr z,$-$00
+3a6a	50 	ld d,b	ld d,b
+3a6b	52 4f 	ld.sil c,a	ld.sil c,a
+3a6d	43 	ld b,e	ld b,e
+3a6e	b1 	or c	or c
+3a6f	50 	ld d,b	ld d,b
+3a70	4f 	ld c,a	ld c,a
+3a71	53 	ld d,e	ld d,e
+3a72	20 0e 	jr nz,$+$10	jr nz,$+$00
+3a74	50 	ld d,b	ld d,b
+3a75	55 	ld d,l	ld d,l
+3a76	54 	ld d,h	ld d,h
+3a77	06 51 	ld b,$51	ld b,$00
+3a79	55 	ld d,l	ld d,l
+3a7a	49 54 	ld.lis d,h	ld.lis d,h
+3a7c	20 f8 	jr nz,$-$06	jr nz,$-$00
+3a7e	52 45 	ld.sil b,l	ld.sil b,l
+3a80	54 	ld d,h	ld d,h
+3a81	55 	ld d,l	ld d,l
+3a82	52 4e 	ld.sil c,(hl)	ld.sil c,(hl)
+3a84	20 f5 	jr nz,$-$09	jr nz,$-$00
+3a86	52 45 	ld.sil b,l	ld.sil b,l
 3a88	50 	ld d,b	ld d,b
-3a89	52 4f 	ld.sil c,a	ld.sil c,a
-3a8b	43 	ld b,e	ld b,e
-3a8c	b1 	or c	or c
-3a8d	50 	ld d,b	ld d,b
-3a8e	4f 	ld c,a	ld c,a
-3a8f	53 	ld d,e	ld d,e
-3a90	20 0e 	jr nz,$+$10	jr nz,$+$00
-3a92	50 	ld d,b	ld d,b
-3a93	55 	ld d,l	ld d,l
-3a94	54 	ld d,h	ld d,h
-3a95	06 51 	ld b,$51	ld b,$00
-3a97	55 	ld d,l	ld d,l
-3a98	49 54 	ld.lis d,h	ld.lis d,h
-3a9a	20 f8 	jr nz,$-$06	jr nz,$-$00
-3a9c	52 45 	ld.sil b,l	ld.sil b,l
-3a9e	54 	ld d,h	ld d,h
-3a9f	55 	ld d,l	ld d,l
-3aa0	52 4e 	ld.sil c,(hl)	ld.sil c,(hl)
-3aa2	20 f5 	jr nz,$-$09	jr nz,$-$00
-3aa4	52 45 	ld.sil b,l	ld.sil b,l
-3aa6	50 	ld d,b	ld d,b
-3aa7	45 	ld b,l	ld b,l
-3aa8	41 	ld b,c	ld b,c
-3aa9	54 	ld d,h	ld d,h
-3aaa	f6 52 	or $52	or $00
-3aac	45 	ld b,l	ld b,l
-3aad	50 	ld d,b	ld d,b
-3aae	4f 	ld c,a	ld c,a
-3aaf	52 54 	ld.sil d,h	ld.sil d,h
-3ab1	20 f3 	jr nz,$-$0b	jr nz,$-$00
-3ab3	52 45 	ld.sil b,l	ld.sil b,l
-3ab5	41 	ld b,c	ld b,c
-3ab6	44 	ld b,h	ld b,h
-3ab7	f4 52 45 	call p,$4552	call p,$0000
-3aba	4d 	ld c,l	ld c,l
-3abb	f9 	ld sp,hl	ld sp,hl
-3abc	52 55 	ld.sil d,l	ld.sil d,l
-3abe	4e 	ld c,(hl)	ld c,(hl)
-3abf	20 b2 	jr nz,$-$4c	jr nz,$-$00
-3ac1	52 41 	ld.sil b,c	ld.sil b,c
-3ac3	44 	ld b,h	ld b,h
-3ac4	f7 	rst $30	rst $00
-3ac5	52 45 	ld.sil b,l	ld.sil b,l
-3ac7	53 	ld d,e	ld d,e
-3ac8	54 	ld d,h	ld d,h
-3ac9	4f 	ld c,a	ld c,a
-3aca	52 45 	ld.sil b,l	ld.sil b,l
-3acc	c2 52 49 	jp nz,$4952	jp nz,$0000
-3acf	47 	ld b,a	ld b,a
-3ad0	48 	ld c,b	ld c,b
-3ad1	54 	ld d,h	ld d,h
-3ad2	24 	inc h	inc h
-3ad3	28 b3 	jr z,$-$4b	jr z,$-$00
-3ad5	52 4e 	ld.sil c,(hl)	ld.sil c,(hl)
-3ad7	44 	ld b,h	ld b,h
-3ad8	20 07 	jr nz,$+$09	jr nz,$+$00
-3ada	52 45 	ld.sil b,l	ld.sil b,l
-3adc	43 	ld b,e	ld b,e
-3add	54 	ld d,h	ld d,h
-3ade	41 	ld b,c	ld b,c
-3adf	4e 	ld c,(hl)	ld c,(hl)
-3ae0	47 	ld b,a	ld b,a
-3ae1	4c 	ld c,h	ld c,h
-3ae2	45 	ld b,l	ld b,l
-3ae3	88 	adc a,b	adc a,b
-3ae4	53 	ld d,e	ld d,e
-3ae5	54 	ld d,h	ld d,h
-3ae6	45 	ld b,l	ld b,l
-3ae7	50 	ld d,b	ld d,b
-3ae8	b4 	or h	or h
+3a89	45 	ld b,l	ld b,l
+3a8a	41 	ld b,c	ld b,c
+3a8b	54 	ld d,h	ld d,h
+3a8c	f6 52 	or $52	or $00
+3a8e	45 	ld b,l	ld b,l
+3a8f	50 	ld d,b	ld d,b
+3a90	4f 	ld c,a	ld c,a
+3a91	52 54 	ld.sil d,h	ld.sil d,h
+3a93	20 f3 	jr nz,$-$0b	jr nz,$-$00
+3a95	52 45 	ld.sil b,l	ld.sil b,l
+3a97	41 	ld b,c	ld b,c
+3a98	44 	ld b,h	ld b,h
+3a99	f4 52 45 	call p,$4552	call p,$0000
+3a9c	4d 	ld c,l	ld c,l
+3a9d	f9 	ld sp,hl	ld sp,hl
+3a9e	52 55 	ld.sil d,l	ld.sil d,l
+3aa0	4e 	ld c,(hl)	ld c,(hl)
+3aa1	20 b2 	jr nz,$-$4c	jr nz,$-$00
+3aa3	52 41 	ld.sil b,c	ld.sil b,c
+3aa5	44 	ld b,h	ld b,h
+3aa6	f7 	rst $30	rst $00
+3aa7	52 45 	ld.sil b,l	ld.sil b,l
+3aa9	53 	ld d,e	ld d,e
+3aaa	54 	ld d,h	ld d,h
+3aab	4f 	ld c,a	ld c,a
+3aac	52 45 	ld.sil b,l	ld.sil b,l
+3aae	c2 52 49 	jp nz,$4952	jp nz,$0000
+3ab1	47 	ld b,a	ld b,a
+3ab2	48 	ld c,b	ld c,b
+3ab3	54 	ld d,h	ld d,h
+3ab4	24 	inc h	inc h
+3ab5	28 b3 	jr z,$-$4b	jr z,$-$00
+3ab7	52 4e 	ld.sil c,(hl)	ld.sil c,(hl)
+3ab9	44 	ld b,h	ld b,h
+3aba	20 07 	jr nz,$+$09	jr nz,$+$00
+3abc	52 45 	ld.sil b,l	ld.sil b,l
+3abe	43 	ld b,e	ld b,e
+3abf	54 	ld d,h	ld d,h
+3ac0	41 	ld b,c	ld b,c
+3ac1	4e 	ld c,(hl)	ld c,(hl)
+3ac2	47 	ld b,a	ld b,a
+3ac3	4c 	ld c,h	ld c,h
+3ac4	45 	ld b,l	ld b,l
+3ac5	88 	adc a,b	adc a,b
+3ac6	53 	ld d,e	ld d,e
+3ac7	54 	ld d,h	ld d,h
+3ac8	45 	ld b,l	ld b,l
+3ac9	50 	ld d,b	ld d,b
+3aca	b4 	or h	or h
+3acb	53 	ld d,e	ld d,e
+3acc	47 	ld b,a	ld b,a
+3acd	4e 	ld c,(hl)	ld c,(hl)
+3ace	b5 	or l	or l
+3acf	53 	ld d,e	ld d,e
+3ad0	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+3ad2	b6 	or (hl)	or (hl)
+3ad3	53 	ld d,e	ld d,e
+3ad4	51 	ld d,c	ld d,c
+3ad5	52 89 	adc.sil a,c	adc.sil a,c
+3ad7	53 	ld d,e	ld d,e
+3ad8	50 	ld d,b	ld d,b
+3ad9	43 	ld b,e	ld b,e
+3ada	c3 53 54 	jp $5453	jp $0000
+3add	52 24 	inc.sil h	inc.sil h
+3adf	c4 53 54 	call nz,$5453	call nz,$0000
+3ae2	52 	noni.sil	noni.sil
+3ae3	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+3ae5	47 	ld b,a	ld b,a
+3ae6	24 	inc h	inc h
+3ae7	28 d4 	jr z,$-$2a	jr z,$-$00
 3ae9	53 	ld d,e	ld d,e
-3aea	47 	ld b,a	ld b,a
-3aeb	4e 	ld c,(hl)	ld c,(hl)
-3aec	b5 	or l	or l
-3aed	53 	ld d,e	ld d,e
-3aee	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-3af0	b6 	or (hl)	or (hl)
-3af1	53 	ld d,e	ld d,e
-3af2	51 	ld d,c	ld d,c
-3af3	52 89 	adc.sil a,c	adc.sil a,c
+3aea	4f 	ld c,a	ld c,a
+3aeb	55 	ld d,l	ld d,l
+3aec	4e 	ld c,(hl)	ld c,(hl)
+3aed	44 	ld b,h	ld b,h
+3aee	fa 53 54 	jp m,$5453	jp m,$0000
+3af1	4f 	ld c,a	ld c,a
+3af2	50 	ld d,b	ld d,b
+3af3	20 c6 	jr nz,$-$38	jr nz,$-$00
 3af5	53 	ld d,e	ld d,e
-3af6	50 	ld d,b	ld d,b
-3af7	43 	ld b,e	ld b,e
-3af8	c3 53 54 	jp $5453	jp $0000
-3afb	52 24 	inc.sil h	inc.sil h
-3afd	c4 53 54 	call nz,$5453	call nz,$0000
-3b00	52 	noni.sil	noni.sil
-3b01	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-3b03	47 	ld b,a	ld b,a
-3b04	24 	inc h	inc h
-3b05	28 d4 	jr z,$-$2a	jr z,$-$00
-3b07	53 	ld d,e	ld d,e
-3b08	4f 	ld c,a	ld c,a
-3b09	55 	ld d,l	ld d,l
-3b0a	4e 	ld c,(hl)	ld c,(hl)
-3b0b	44 	ld b,h	ld b,h
-3b0c	fa 53 54 	jp m,$5453	jp m,$0000
-3b0f	4f 	ld c,a	ld c,a
-3b10	50 	ld d,b	ld d,b
-3b11	20 c6 	jr nz,$-$38	jr nz,$-$00
-3b13	53 	ld d,e	ld d,e
-3b14	55 	ld d,l	ld d,l
-3b15	4d 	ld c,l	ld c,l
-3b16	08 	ex af,af'	ex af,af'
-3b17	53 	ld d,e	ld d,e
-3b18	57 	ld d,a	ld d,a
-3b19	41 	ld b,c	ld b,c
-3b1a	50 	ld d,b	ld d,b
-3b1b	09 	add hl,bc	add hl,bc
-3b1c	53 	ld d,e	ld d,e
-3b1d	59 	ld e,c	ld e,c
-3b1e	53 	ld d,e	ld d,e
-3b1f	b7 	or a	or a
-3b20	54 	ld d,h	ld d,h
-3b21	41 	ld b,c	ld b,c
-3b22	4e 	ld c,(hl)	ld c,(hl)
-3b23	8a 	adc a,d	adc a,d
+3af6	55 	ld d,l	ld d,l
+3af7	4d 	ld c,l	ld c,l
+3af8	08 	ex af,af'	ex af,af'
+3af9	53 	ld d,e	ld d,e
+3afa	57 	ld d,a	ld d,a
+3afb	41 	ld b,c	ld b,c
+3afc	50 	ld d,b	ld d,b
+3afd	09 	add hl,bc	add hl,bc
+3afe	53 	ld d,e	ld d,e
+3aff	59 	ld e,c	ld e,c
+3b00	53 	ld d,e	ld d,e
+3b01	b7 	or a	or a
+3b02	54 	ld d,h	ld d,h
+3b03	41 	ld b,c	ld b,c
+3b04	4e 	ld c,(hl)	ld c,(hl)
+3b05	8a 	adc a,d	adc a,d
+3b06	54 	ld d,h	ld d,h
+3b07	41 	ld b,c	ld b,c
+3b08	42 	ld b,d	ld b,d
+3b09	28 8c 	jr z,$-$72	jr z,$-$00
+3b0b	54 	ld d,h	ld d,h
+3b0c	48 	ld c,b	ld c,b
+3b0d	45 	ld b,l	ld b,l
+3b0e	4e 	ld c,(hl)	ld c,(hl)
+3b0f	91 	sub c	sub c
+3b10	54 	ld d,h	ld d,h
+3b11	49 4d 	ld.lis c,l	ld.lis c,l
+3b13	45 	ld b,l	ld b,l
+3b14	20 0a 	jr nz,$+$0c	jr nz,$+$00
+3b16	54 	ld d,h	ld d,h
+3b17	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
+3b19	54 	ld d,h	ld d,h
+3b1a	b8 	cp b	cp b
+3b1b	54 	ld d,h	ld d,h
+3b1c	4f 	ld c,a	ld c,a
+3b1d	fc 54 52 	call m,$5254	call m,$0000
+3b20	41 	ld b,c	ld b,c
+3b21	43 	ld b,e	ld b,e
+3b22	45 	ld b,l	ld b,l
+3b23	b9 	cp c	cp c
 3b24	54 	ld d,h	ld d,h
-3b25	41 	ld b,c	ld b,c
-3b26	42 	ld b,d	ld b,d
-3b27	28 8c 	jr z,$-$72	jr z,$-$00
-3b29	54 	ld d,h	ld d,h
-3b2a	48 	ld c,b	ld c,b
-3b2b	45 	ld b,l	ld b,l
-3b2c	4e 	ld c,(hl)	ld c,(hl)
-3b2d	91 	sub c	sub c
-3b2e	54 	ld d,h	ld d,h
-3b2f	49 4d 	ld.lis c,l	ld.lis c,l
-3b31	45 	ld b,l	ld b,l
-3b32	20 0a 	jr nz,$+$0c	jr nz,$+$00
-3b34	54 	ld d,h	ld d,h
-3b35	49 4e 	ld.lis c,(hl)	ld.lis c,(hl)
-3b37	54 	ld d,h	ld d,h
-3b38	b8 	cp b	cp b
-3b39	54 	ld d,h	ld d,h
-3b3a	4f 	ld c,a	ld c,a
-3b3b	fc 54 52 	call m,$5254	call m,$0000
-3b3e	41 	ld b,c	ld b,c
-3b3f	43 	ld b,e	ld b,e
-3b40	45 	ld b,l	ld b,l
-3b41	b9 	cp c	cp c
-3b42	54 	ld d,h	ld d,h
-3b43	52 55 	ld.sil d,l	ld.sil d,l
-3b45	45 	ld b,l	ld b,l
-3b46	20 fd 	jr nz,$-$01	jr nz,$-$00
-3b48	55 	ld d,l	ld d,l
-3b49	4e 	ld c,(hl)	ld c,(hl)
-3b4a	54 	ld d,h	ld d,h
-3b4b	49 4c 	ld.lis c,h	ld.lis c,h
-3b4d	ba 	cp d	cp d
-3b4e	55 	ld d,l	ld d,l
-3b4f	53 	ld d,e	ld d,e
-3b50	52 ef 	rst.sil $28	rst.sil $00
-3b52	56 	ld d,(hl)	ld d,(hl)
-3b53	44 	ld b,h	ld b,h
-3b54	55 	ld d,l	ld d,l
-3b55	bb 	cp e	cp e
-3b56	56 	ld d,(hl)	ld d,(hl)
-3b57	41 	ld b,c	ld b,c
-3b58	4c 	ld c,h	ld c,h
-3b59	bc 	cp h	cp h
-3b5a	56 	ld d,(hl)	ld d,(hl)
-3b5b	50 	ld d,b	ld d,b
-3b5c	4f 	ld c,a	ld c,a
-3b5d	53 	ld d,e	ld d,e
-3b5e	20 c7 	jr nz,$-$37	jr nz,$-$00
-3b60	57 	ld d,a	ld d,a
-3b61	48 	ld c,b	ld c,b
-3b62	49 4c 	ld.lis c,h	ld.lis c,h
-3b64	45 	ld b,l	ld b,l
-3b65	c9 	ret	ret
-3b66	57 	ld d,a	ld d,a
-3b67	48 	ld c,b	ld c,b
-3b68	45 	ld b,l	ld b,l
-3b69	4e 	ld c,(hl)	ld c,(hl)
-3b6a	0b 	dec bc	dec bc
-3b6b	57 	ld d,a	ld d,a
-3b6c	41 	ld b,c	ld b,c
-3b6d	49 54 	ld.lis d,h	ld.lis d,h
-3b6f	20 fe 	jr nz,$	jr nz,$
-3b71	57 	ld d,a	ld d,a
-3b72	49 44 	ld.lis b,h	ld.lis b,h
-3b74	54 	ld d,h	ld d,h
-3b75	48 	ld c,b	ld c,b
-3b76	cf 	rst $08	rst $00
-3b77	50 	ld d,b	ld d,b
-3b78	54 	ld d,h	ld d,h
-3b79	52 d1 	pop.sil de	pop.sil de
-3b7b	54 	ld d,h	ld d,h
-3b7c	49 4d 	ld.lis c,l	ld.lis c,l
-3b7e	45 	ld b,l	ld b,l
-3b7f	d3 48 	out ($48),a	out ($00),a
-3b81	49 4d 	ld.lis c,l	ld.lis c,l
-3b83	45 	ld b,l	ld b,l
-3b84	4d 	ld c,l	ld c,l
-3b85	d2 4c 4f 	jp nc,$4f4c	jp nc,$0000
-3b88	4d 	ld c,l	ld c,l
-3b89	45 	ld b,l	ld b,l
-3b8a	4d 	ld c,l	ld c,l
-3b8b	d0 	ret nc	ret nc
-3b8c	50 	ld d,b	ld d,b
-3b8d	41 	ld b,c	ld b,c
-3b8e	47 	ld b,a	ld b,a
-3b8f	45 	ld b,l	ld b,l
-3b90	11 4d 69 	ld de,$694d	ld de,$0000
-3b93	73 	ld (hl),e	ld (hl),e
-3b94	73 	ld (hl),e	ld (hl),e
-3b95	69 	ld l,c	ld l,c
-3b96	6e 	ld l,(hl)	ld l,(hl)
-3b97	67 	ld h,a	ld h,a
-3b98	20 12 	jr nz,$+$14	jr nz,$+$00
-3b9a	4e 	ld c,(hl)	ld c,(hl)
-3b9b	6f 	ld l,a	ld l,a
-3b9c	20 73 	jr nz,$+$75	jr nz,$+$00
-3b9e	75 	ld (hl),l	ld (hl),l
-3b9f	63 	ld h,e	ld h,e
-3ba0	68 	ld l,b	ld l,b
-3ba1	20 13 	jr nz,$+$15	jr nz,$+$00
-3ba3	42 	ld b,d	ld b,d
-3ba4	61 	ld h,c	ld h,c
-3ba5	64 	ld h,h	ld h,h
-3ba6	20 14 	jr nz,$+$16	jr nz,$+$00
-3ba8	20 72 	jr nz,$+$74	jr nz,$+$00
-3baa	61 	ld h,c	ld h,c
-3bab	6e 	ld l,(hl)	ld l,(hl)
-3bac	67 	ld h,a	ld h,a
-3bad	65 	ld h,l	ld h,l
-3bae	15 	dec d	dec d
-3baf	76 	halt	halt
-3bb0	61 	ld h,c	ld h,c
-3bb1	72 	ld (hl),d	ld (hl),d
-3bb2	69 	ld l,c	ld l,c
-3bb3	61 	ld h,c	ld h,c
-3bb4	62 	ld h,d	ld h,d
-3bb5	6c 	ld l,h	ld l,h
-3bb6	65 	ld h,l	ld h,l
-3bb7	16 4f 	ld d,$4f	ld d,$00
-3bb9	75 	ld (hl),l	ld (hl),l
-3bba	74 	ld (hl),h	ld (hl),h
-3bbb	20 6f 	jr nz,$+$71	jr nz,$+$00
-3bbd	66 	ld h,(hl)	ld h,(hl)
-3bbe	17 	rla	rla
-3bbf	4e 	ld c,(hl)	ld c,(hl)
-3bc0	6f 	ld l,a	ld l,a
-3bc1	20 18 	jr nz,$+$1a	jr nz,$+$00
-3bc3	20 73 	jr nz,$+$75	jr nz,$+$00
-3bc5	70 	ld (hl),b	ld (hl),b
-3bc6	61 	ld h,c	ld h,c
-3bc7	63 	ld h,e	ld h,e
-3bc8	65 	ld h,l	ld h,l
-3bc9	19 	add hl,de	add hl,de
-3bca	4e 	ld c,(hl)	ld c,(hl)
-3bcb	6f 	ld l,a	ld l,a
-3bcc	74 	ld (hl),h	ld (hl),h
-3bcd	20 69 	jr nz,$+$6b	jr nz,$+$00
-3bcf	6e 	ld l,(hl)	ld l,(hl)
-3bd0	20 61 	jr nz,$+$63	jr nz,$+$00
-3bd2	20 1a 	jr nz,$+$1c	jr nz,$+$00
-3bd4	20 6c 	jr nz,$+$6e	jr nz,$+$00
-3bd6	6f 	ld l,a	ld l,a
-3bd7	6f 	ld l,a	ld l,a
-3bd8	70 	ld (hl),b	ld (hl),b
-3bd9	1b 	dec de	dec de
-3bda	20 6e 	jr nz,$+$70	jr nz,$+$00
-3bdc	6f 	ld l,a	ld l,a
-3bdd	74 	ld (hl),h	ld (hl),h
-3bde	20 ff 	jr nz,$+$01	jr nz,$+$00
-3be0	ff 	rst $38	rst $00
-3be1	80 	add a,b	add a,b
-3be2	41 	ld b,c	ld b,c
-3be3	55 	ld d,l	ld d,l
-3be4	54 	ld d,h	ld d,h
-3be5	4f 	ld c,a	ld c,a
-3be6	81 	add a,c	add a,c
-3be7	44 	ld b,h	ld b,h
-3be8	45 	ld b,l	ld b,l
-3be9	4c 	ld c,h	ld c,h
+3b25	52 55 	ld.sil d,l	ld.sil d,l
+3b27	45 	ld b,l	ld b,l
+3b28	20 fd 	jr nz,$-$01	jr nz,$-$00
+3b2a	55 	ld d,l	ld d,l
+3b2b	4e 	ld c,(hl)	ld c,(hl)
+3b2c	54 	ld d,h	ld d,h
+3b2d	49 4c 	ld.lis c,h	ld.lis c,h
+3b2f	ba 	cp d	cp d
+3b30	55 	ld d,l	ld d,l
+3b31	53 	ld d,e	ld d,e
+3b32	52 ef 	rst.sil $28	rst.sil $00
+3b34	56 	ld d,(hl)	ld d,(hl)
+3b35	44 	ld b,h	ld b,h
+3b36	55 	ld d,l	ld d,l
+3b37	bb 	cp e	cp e
+3b38	56 	ld d,(hl)	ld d,(hl)
+3b39	41 	ld b,c	ld b,c
+3b3a	4c 	ld c,h	ld c,h
+3b3b	bc 	cp h	cp h
+3b3c	56 	ld d,(hl)	ld d,(hl)
+3b3d	50 	ld d,b	ld d,b
+3b3e	4f 	ld c,a	ld c,a
+3b3f	53 	ld d,e	ld d,e
+3b40	20 c7 	jr nz,$-$37	jr nz,$-$00
+3b42	57 	ld d,a	ld d,a
+3b43	48 	ld c,b	ld c,b
+3b44	49 4c 	ld.lis c,h	ld.lis c,h
+3b46	45 	ld b,l	ld b,l
+3b47	c9 	ret	ret
+3b48	57 	ld d,a	ld d,a
+3b49	48 	ld c,b	ld c,b
+3b4a	45 	ld b,l	ld b,l
+3b4b	4e 	ld c,(hl)	ld c,(hl)
+3b4c	0b 	dec bc	dec bc
+3b4d	57 	ld d,a	ld d,a
+3b4e	41 	ld b,c	ld b,c
+3b4f	49 54 	ld.lis d,h	ld.lis d,h
+3b51	20 fe 	jr nz,$	jr nz,$
+3b53	57 	ld d,a	ld d,a
+3b54	49 44 	ld.lis b,h	ld.lis b,h
+3b56	54 	ld d,h	ld d,h
+3b57	48 	ld c,b	ld c,b
+3b58	cf 	rst $08	rst $00
+3b59	50 	ld d,b	ld d,b
+3b5a	54 	ld d,h	ld d,h
+3b5b	52 d1 	pop.sil de	pop.sil de
+3b5d	54 	ld d,h	ld d,h
+3b5e	49 4d 	ld.lis c,l	ld.lis c,l
+3b60	45 	ld b,l	ld b,l
+3b61	d3 48 	out ($48),a	out ($00),a
+3b63	49 4d 	ld.lis c,l	ld.lis c,l
+3b65	45 	ld b,l	ld b,l
+3b66	4d 	ld c,l	ld c,l
+3b67	d2 4c 4f 	jp nc,$4f4c	jp nc,$0000
+3b6a	4d 	ld c,l	ld c,l
+3b6b	45 	ld b,l	ld b,l
+3b6c	4d 	ld c,l	ld c,l
+3b6d	d0 	ret nc	ret nc
+3b6e	50 	ld d,b	ld d,b
+3b6f	41 	ld b,c	ld b,c
+3b70	47 	ld b,a	ld b,a
+3b71	45 	ld b,l	ld b,l
+3b72	11 4d 69 	ld de,$694d	ld de,$0000
+3b75	73 	ld (hl),e	ld (hl),e
+3b76	73 	ld (hl),e	ld (hl),e
+3b77	69 	ld l,c	ld l,c
+3b78	6e 	ld l,(hl)	ld l,(hl)
+3b79	67 	ld h,a	ld h,a
+3b7a	20 12 	jr nz,$+$14	jr nz,$+$00
+3b7c	4e 	ld c,(hl)	ld c,(hl)
+3b7d	6f 	ld l,a	ld l,a
+3b7e	20 73 	jr nz,$+$75	jr nz,$+$00
+3b80	75 	ld (hl),l	ld (hl),l
+3b81	63 	ld h,e	ld h,e
+3b82	68 	ld l,b	ld l,b
+3b83	20 13 	jr nz,$+$15	jr nz,$+$00
+3b85	42 	ld b,d	ld b,d
+3b86	61 	ld h,c	ld h,c
+3b87	64 	ld h,h	ld h,h
+3b88	20 14 	jr nz,$+$16	jr nz,$+$00
+3b8a	20 72 	jr nz,$+$74	jr nz,$+$00
+3b8c	61 	ld h,c	ld h,c
+3b8d	6e 	ld l,(hl)	ld l,(hl)
+3b8e	67 	ld h,a	ld h,a
+3b8f	65 	ld h,l	ld h,l
+3b90	15 	dec d	dec d
+3b91	76 	halt	halt
+3b92	61 	ld h,c	ld h,c
+3b93	72 	ld (hl),d	ld (hl),d
+3b94	69 	ld l,c	ld l,c
+3b95	61 	ld h,c	ld h,c
+3b96	62 	ld h,d	ld h,d
+3b97	6c 	ld l,h	ld l,h
+3b98	65 	ld h,l	ld h,l
+3b99	16 4f 	ld d,$4f	ld d,$00
+3b9b	75 	ld (hl),l	ld (hl),l
+3b9c	74 	ld (hl),h	ld (hl),h
+3b9d	20 6f 	jr nz,$+$71	jr nz,$+$00
+3b9f	66 	ld h,(hl)	ld h,(hl)
+3ba0	17 	rla	rla
+3ba1	4e 	ld c,(hl)	ld c,(hl)
+3ba2	6f 	ld l,a	ld l,a
+3ba3	20 18 	jr nz,$+$1a	jr nz,$+$00
+3ba5	20 73 	jr nz,$+$75	jr nz,$+$00
+3ba7	70 	ld (hl),b	ld (hl),b
+3ba8	61 	ld h,c	ld h,c
+3ba9	63 	ld h,e	ld h,e
+3baa	65 	ld h,l	ld h,l
+3bab	19 	add hl,de	add hl,de
+3bac	4e 	ld c,(hl)	ld c,(hl)
+3bad	6f 	ld l,a	ld l,a
+3bae	74 	ld (hl),h	ld (hl),h
+3baf	20 69 	jr nz,$+$6b	jr nz,$+$00
+3bb1	6e 	ld l,(hl)	ld l,(hl)
+3bb2	20 61 	jr nz,$+$63	jr nz,$+$00
+3bb4	20 1a 	jr nz,$+$1c	jr nz,$+$00
+3bb6	20 6c 	jr nz,$+$6e	jr nz,$+$00
+3bb8	6f 	ld l,a	ld l,a
+3bb9	6f 	ld l,a	ld l,a
+3bba	70 	ld (hl),b	ld (hl),b
+3bbb	1b 	dec de	dec de
+3bbc	20 6e 	jr nz,$+$70	jr nz,$+$00
+3bbe	6f 	ld l,a	ld l,a
+3bbf	74 	ld (hl),h	ld (hl),h
+3bc0	20 ff 	jr nz,$+$01	jr nz,$+$00
+3bc2	ff 	rst $38	rst $00
+3bc3	80 	add a,b	add a,b
+3bc4	41 	ld b,c	ld b,c
+3bc5	55 	ld d,l	ld d,l
+3bc6	54 	ld d,h	ld d,h
+3bc7	4f 	ld c,a	ld c,a
+3bc8	81 	add a,c	add a,c
+3bc9	44 	ld b,h	ld b,h
+3bca	45 	ld b,l	ld b,l
+3bcb	4c 	ld c,h	ld c,h
+3bcc	45 	ld b,l	ld b,l
+3bcd	54 	ld d,h	ld d,h
+3bce	45 	ld b,l	ld b,l
+3bcf	82 	add a,d	add a,d
+3bd0	4c 	ld c,h	ld c,h
+3bd1	49 53 	ld.lis d,e	ld.lis d,e
+3bd3	54 	ld d,h	ld d,h
+3bd4	83 	add a,e	add a,e
+3bd5	4c 	ld c,h	ld c,h
+3bd6	4f 	ld c,a	ld c,a
+3bd7	41 	ld b,c	ld b,c
+3bd8	44 	ld b,h	ld b,h
+3bd9	84 	add a,h	add a,h
+3bda	4e 	ld c,(hl)	ld c,(hl)
+3bdb	45 	ld b,l	ld b,l
+3bdc	57 	ld d,a	ld d,a
+3bdd	20 85 	jr nz,$-$79	jr nz,$-$00
+3bdf	4f 	ld c,a	ld c,a
+3be0	4c 	ld c,h	ld c,h
+3be1	44 	ld b,h	ld b,h
+3be2	20 86 	jr nz,$-$78	jr nz,$-$00
+3be4	52 45 	ld.sil b,l	ld.sil b,l
+3be6	4e 	ld c,(hl)	ld c,(hl)
+3be7	55 	ld d,l	ld d,l
+3be8	4d 	ld c,l	ld c,l
+3be9	42 	ld b,d	ld b,d
 3bea	45 	ld b,l	ld b,l
-3beb	54 	ld d,h	ld d,h
-3bec	45 	ld b,l	ld b,l
-3bed	82 	add a,d	add a,d
-3bee	4c 	ld c,h	ld c,h
-3bef	49 53 	ld.lis d,e	ld.lis d,e
-3bf1	54 	ld d,h	ld d,h
-3bf2	83 	add a,e	add a,e
-3bf3	4c 	ld c,h	ld c,h
-3bf4	4f 	ld c,a	ld c,a
-3bf5	41 	ld b,c	ld b,c
-3bf6	44 	ld b,h	ld b,h
-3bf7	84 	add a,h	add a,h
-3bf8	4e 	ld c,(hl)	ld c,(hl)
-3bf9	45 	ld b,l	ld b,l
-3bfa	57 	ld d,a	ld d,a
-3bfb	20 85 	jr nz,$-$79	jr nz,$-$00
-3bfd	4f 	ld c,a	ld c,a
-3bfe	4c 	ld c,h	ld c,h
-3bff	44 	ld b,h	ld b,h
-3c00	20 86 	jr nz,$-$78	jr nz,$-$00
-3c02	52 45 	ld.sil b,l	ld.sil b,l
-3c04	4e 	ld c,(hl)	ld c,(hl)
-3c05	55 	ld d,l	ld d,l
-3c06	4d 	ld c,l	ld c,l
-3c07	42 	ld b,d	ld b,d
-3c08	45 	ld b,l	ld b,l
-3c09	52 87 	add.sil a,a	add.sil a,a
-3c0b	53 	ld d,e	ld d,e
-3c0c	41 	ld b,c	ld b,c
-3c0d	56 	ld d,(hl)	ld d,(hl)
-3c0e	45 	ld b,l	ld b,l
-3c0f	ff 	rst $38	rst $00
-3c10	ff 	rst $38	rst $00
-3c11	e3 	ex (sp),hl	ex (sp),hl
-3c12	3e 86 	ld a,$86	ld a,$00
-3c14	3d 	dec a	dec a
-3c15	ae 	xor (hl)	xor (hl)
-3c16	3d 	dec a	dec a
-3c17	02 	ld (bc),a	ld (bc),a
-3c18	3f 	ccf	ccf
-3c19	fd 3e 10 	ld (iy+$10),ix	ld (iy+$00),ix
-3c1c	3f 	ccf	ccf
-3c1d	33 	inc sp	inc sp
-3c1e	3e 29 	ld a,$29	ld a,$00
-3c20	3f 	ccf	ccf
-3c21	17 	rla	rla
-3c22	72 	ld (hl),d	ld (hl),d
-3c23	6f 	ld l,a	ld l,a
-3c24	6f 	ld l,a	ld l,a
-3c25	6d 	ld l,l	ld l,l
-3c26	00 	nop	nop
-3c27	16 14 	ld d,$14	ld d,$00
-3c29	00 	nop	nop
-3c2a	00 	nop	nop
-3c2b	4d 	ld c,l	ld c,l
-3c2c	75 	ld (hl),l	ld (hl),l
-3c2d	6c 	ld l,h	ld l,h
-3c2e	74 	ld (hl),h	ld (hl),h
-3c2f	69 	ld l,c	ld l,c
-3c30	70 	ld (hl),b	ld (hl),b
-3c31	6c 	ld l,h	ld l,h
-3c32	65 	ld h,l	ld h,l
-3c33	20 6c 	jr nz,$+$6e	jr nz,$+$00
-3c35	61 	ld h,c	ld h,c
-3c36	62 	ld h,d	ld h,d
-3c37	65 	ld h,l	ld h,l
-3c38	6c 	ld l,h	ld l,h
-3c39	00 	nop	nop
-3c3a	4d 	ld c,l	ld c,l
-3c3b	69 	ld l,c	ld l,c
-3c3c	73 	ld (hl),e	ld (hl),e
-3c3d	74 	ld (hl),h	ld (hl),h
-3c3e	61 	ld h,c	ld h,c
-3c3f	6b 	ld l,e	ld l,e
-3c40	65 	ld h,l	ld h,l
+3beb	52 87 	add.sil a,a	add.sil a,a
+3bed	53 	ld d,e	ld d,e
+3bee	41 	ld b,c	ld b,c
+3bef	56 	ld d,(hl)	ld d,(hl)
+3bf0	45 	ld b,l	ld b,l
+3bf1	ff 	rst $38	rst $00
+3bf2	ff 	rst $38	rst $00
+3bf3	c5 	push bc	push bc
+3bf4	3e 68 	ld a,$68	ld a,$00
+3bf6	3d 	dec a	dec a
+3bf7	90 	sub b	sub b
+3bf8	3d 	dec a	dec a
+3bf9	e4 3e df 	call po,$df3e	call po,$0000
+3bfc	3e f2 	ld a,$f2	ld a,$00
+3bfe	3e 15 	ld a,$15	ld a,$00
+3c00	3e 0b 	ld a,$0b	ld a,$00
+3c02	3f 	ccf	ccf
+3c03	17 	rla	rla
+3c04	72 	ld (hl),d	ld (hl),d
+3c05	6f 	ld l,a	ld l,a
+3c06	6f 	ld l,a	ld l,a
+3c07	6d 	ld l,l	ld l,l
+3c08	00 	nop	nop
+3c09	16 14 	ld d,$14	ld d,$00
+3c0b	00 	nop	nop
+3c0c	00 	nop	nop
+3c0d	4d 	ld c,l	ld c,l
+3c0e	75 	ld (hl),l	ld (hl),l
+3c0f	6c 	ld l,h	ld l,h
+3c10	74 	ld (hl),h	ld (hl),h
+3c11	69 	ld l,c	ld l,c
+3c12	70 	ld (hl),b	ld (hl),b
+3c13	6c 	ld l,h	ld l,h
+3c14	65 	ld h,l	ld h,l
+3c15	20 6c 	jr nz,$+$6e	jr nz,$+$00
+3c17	61 	ld h,c	ld h,c
+3c18	62 	ld h,d	ld h,d
+3c19	65 	ld h,l	ld h,l
+3c1a	6c 	ld l,h	ld l,h
+3c1b	00 	nop	nop
+3c1c	4d 	ld c,l	ld c,l
+3c1d	69 	ld l,c	ld l,c
+3c1e	73 	ld (hl),e	ld (hl),e
+3c1f	74 	ld (hl),h	ld (hl),h
+3c20	61 	ld h,c	ld h,c
+3c21	6b 	ld l,e	ld l,e
+3c22	65 	ld h,l	ld h,l
+3c23	00 	nop	nop
+3c24	11 2c 00 	ld de,$002c	ld de,$0000
+3c27	54 	ld d,h	ld d,h
+3c28	79 	ld a,c	ld a,c
+3c29	70 	ld (hl),b	ld (hl),b
+3c2a	65 	ld h,l	ld h,l
+3c2b	20 6d 	jr nz,$+$6f	jr nz,$+$00
+3c2d	69 	ld l,c	ld l,c
+3c2e	73 	ld (hl),e	ld (hl),e
+3c2f	6d 	ld l,l	ld l,l
+3c30	61 	ld h,c	ld h,c
+3c31	74 	ld (hl),h	ld (hl),h
+3c32	63 	ld h,e	ld h,e
+3c33	68 	ld l,b	ld l,b
+3c34	00 	nop	nop
+3c35	19 	add hl,de	add hl,de
+3c36	a4 	and h	and h
+3c37	00 	nop	nop
+3c38	00 	nop	nop
+3c39	11 22 00 	ld de,$0022	ld de,$0000
+3c3c	13 	inc de	inc de
+3c3d	de 00 	sbc a,$00	sbc a,$00
+3c3f	de 18 	sbc a,$18	sbc a,$00
 3c41	00 	nop	nop
-3c42	11 2c 00 	ld de,$002c	ld de,$0000
-3c45	54 	ld d,h	ld d,h
-3c46	79 	ld a,c	ld a,c
-3c47	70 	ld (hl),b	ld (hl),b
-3c48	65 	ld h,l	ld h,l
-3c49	20 6d 	jr nz,$+$6f	jr nz,$+$00
-3c4b	69 	ld l,c	ld l,c
-3c4c	73 	ld (hl),e	ld (hl),e
-3c4d	6d 	ld l,l	ld l,l
-3c4e	61 	ld h,c	ld h,c
-3c4f	74 	ld (hl),h	ld (hl),h
-3c50	63 	ld h,e	ld h,e
-3c51	68 	ld l,b	ld l,b
-3c52	00 	nop	nop
-3c53	19 	add hl,de	add hl,de
-3c54	a4 	and h	and h
-3c55	00 	nop	nop
-3c56	00 	nop	nop
-3c57	11 22 00 	ld de,$0022	ld de,$0000
-3c5a	13 	inc de	inc de
-3c5b	de 00 	sbc a,$00	sbc a,$00
-3c5d	de 18 	sbc a,$18	sbc a,$00
-3c5f	00 	nop	nop
-3c60	19 	add hl,de	add hl,de
-3c61	a4 	and h	and h
-3c62	20 6f 	jr nz,$+$71	jr nz,$+$00
-3c64	72 	ld (hl),d	ld (hl),d
-3c65	20 f2 	jr nz,$-$0c	jr nz,$-$00
-3c67	00 	nop	nop
-3c68	19 	add hl,de	add hl,de
-3c69	f2 00 13 	jp p,$1300	jp p,$0000
-3c6c	75 	ld (hl),l	ld (hl),l
-3c6d	73 	ld (hl),e	ld (hl),e
-3c6e	65 	ld h,l	ld h,l
-3c6f	20 6f 	jr nz,$+$71	jr nz,$+$00
-3c71	66 	ld h,(hl)	ld h,(hl)
-3c72	20 61 	jr nz,$+$63	jr nz,$+$00
-3c74	72 	ld (hl),d	ld (hl),d
-3c75	72 	ld (hl),d	ld (hl),d
+3c42	19 	add hl,de	add hl,de
+3c43	a4 	and h	and h
+3c44	20 6f 	jr nz,$+$71	jr nz,$+$00
+3c46	72 	ld (hl),d	ld (hl),d
+3c47	20 f2 	jr nz,$-$0c	jr nz,$-$00
+3c49	00 	nop	nop
+3c4a	19 	add hl,de	add hl,de
+3c4b	f2 00 13 	jp p,$1300	jp p,$0000
+3c4e	75 	ld (hl),l	ld (hl),l
+3c4f	73 	ld (hl),e	ld (hl),e
+3c50	65 	ld h,l	ld h,l
+3c51	20 6f 	jr nz,$+$71	jr nz,$+$00
+3c53	66 	ld h,(hl)	ld h,(hl)
+3c54	20 61 	jr nz,$+$63	jr nz,$+$00
+3c56	72 	ld (hl),d	ld (hl),d
+3c57	72 	ld (hl),d	ld (hl),d
+3c58	61 	ld h,c	ld h,c
+3c59	79 	ld a,c	ld a,c
+3c5a	00 	nop	nop
+3c5b	13 	inc de	inc de
+3c5c	73 	ld (hl),e	ld (hl),e
+3c5d	75 	ld (hl),l	ld (hl),l
+3c5e	62 	ld h,d	ld h,d
+3c5f	73 	ld (hl),e	ld (hl),e
+3c60	63 	ld h,e	ld h,e
+3c61	72 	ld (hl),d	ld (hl),d
+3c62	69 	ld l,c	ld l,c
+3c63	70 	ld (hl),b	ld (hl),b
+3c64	74 	ld (hl),h	ld (hl),h
+3c65	00 	nop	nop
+3c66	53 	ld d,e	ld d,e
+3c67	79 	ld a,c	ld a,c
+3c68	6e 	ld l,(hl)	ld l,(hl)
+3c69	74 	ld (hl),h	ld (hl),h
+3c6a	61 	ld h,c	ld h,c
+3c6b	78 	ld a,b	ld a,b
+3c6c	20 65 	jr nz,$+$67	jr nz,$+$00
+3c6e	72 	ld (hl),d	ld (hl),d
+3c6f	72 	ld (hl),d	ld (hl),d
+3c70	6f 	ld l,a	ld l,a
+3c71	72 	ld (hl),d	ld (hl),d
+3c72	00 	nop	nop
+3c73	45 	ld b,l	ld b,l
+3c74	73 	ld (hl),e	ld (hl),e
+3c75	63 	ld h,e	ld h,e
 3c76	61 	ld h,c	ld h,c
-3c77	79 	ld a,c	ld a,c
-3c78	00 	nop	nop
-3c79	13 	inc de	inc de
-3c7a	73 	ld (hl),e	ld (hl),e
-3c7b	75 	ld (hl),l	ld (hl),l
-3c7c	62 	ld h,d	ld h,d
-3c7d	73 	ld (hl),e	ld (hl),e
-3c7e	63 	ld h,e	ld h,e
-3c7f	72 	ld (hl),d	ld (hl),d
-3c80	69 	ld l,c	ld l,c
-3c81	70 	ld (hl),b	ld (hl),b
-3c82	74 	ld (hl),h	ld (hl),h
-3c83	00 	nop	nop
-3c84	53 	ld d,e	ld d,e
-3c85	79 	ld a,c	ld a,c
-3c86	6e 	ld l,(hl)	ld l,(hl)
-3c87	74 	ld (hl),h	ld (hl),h
-3c88	61 	ld h,c	ld h,c
-3c89	78 	ld a,b	ld a,b
-3c8a	20 65 	jr nz,$+$67	jr nz,$+$00
-3c8c	72 	ld (hl),d	ld (hl),d
+3c77	70 	ld (hl),b	ld (hl),b
+3c78	65 	ld h,l	ld h,l
+3c79	00 	nop	nop
+3c7a	44 	ld b,h	ld b,h
+3c7b	69 	ld l,c	ld l,c
+3c7c	76 	halt	halt
+3c7d	69 	ld l,c	ld l,c
+3c7e	73 	ld (hl),e	ld (hl),e
+3c7f	69 	ld l,c	ld l,c
+3c80	6f 	ld l,a	ld l,a
+3c81	6e 	ld l,(hl)	ld l,(hl)
+3c82	20 62 	jr nz,$+$64	jr nz,$+$00
+3c84	79 	ld a,c	ld a,c
+3c85	20 7a 	jr nz,$+$7c	jr nz,$+$00
+3c87	65 	ld h,l	ld h,l
+3c88	72 	ld (hl),d	ld (hl),d
+3c89	6f 	ld l,a	ld l,a
+3c8a	00 	nop	nop
+3c8b	53 	ld d,e	ld d,e
+3c8c	74 	ld (hl),h	ld (hl),h
 3c8d	72 	ld (hl),d	ld (hl),d
-3c8e	6f 	ld l,a	ld l,a
-3c8f	72 	ld (hl),d	ld (hl),d
-3c90	00 	nop	nop
-3c91	45 	ld b,l	ld b,l
-3c92	73 	ld (hl),e	ld (hl),e
-3c93	63 	ld h,e	ld h,e
-3c94	61 	ld h,c	ld h,c
-3c95	70 	ld (hl),b	ld (hl),b
-3c96	65 	ld h,l	ld h,l
-3c97	00 	nop	nop
-3c98	44 	ld b,h	ld b,h
-3c99	69 	ld l,c	ld l,c
-3c9a	76 	halt	halt
-3c9b	69 	ld l,c	ld l,c
-3c9c	73 	ld (hl),e	ld (hl),e
-3c9d	69 	ld l,c	ld l,c
-3c9e	6f 	ld l,a	ld l,a
-3c9f	6e 	ld l,(hl)	ld l,(hl)
-3ca0	20 62 	jr nz,$+$64	jr nz,$+$00
-3ca2	79 	ld a,c	ld a,c
-3ca3	20 7a 	jr nz,$+$7c	jr nz,$+$00
-3ca5	65 	ld h,l	ld h,l
-3ca6	72 	ld (hl),d	ld (hl),d
-3ca7	6f 	ld l,a	ld l,a
-3ca8	00 	nop	nop
-3ca9	53 	ld d,e	ld d,e
-3caa	74 	ld (hl),h	ld (hl),h
-3cab	72 	ld (hl),d	ld (hl),d
-3cac	69 	ld l,c	ld l,c
-3cad	6e 	ld l,(hl)	ld l,(hl)
-3cae	67 	ld h,a	ld h,a
-3caf	20 74 	jr nz,$+$76	jr nz,$+$00
-3cb1	6f 	ld l,a	ld l,a
-3cb2	6f 	ld l,a	ld l,a
-3cb3	20 6c 	jr nz,$+$6e	jr nz,$+$00
-3cb5	6f 	ld l,a	ld l,a
-3cb6	6e 	ld l,(hl)	ld l,(hl)
-3cb7	67 	ld h,a	ld h,a
-3cb8	00 	nop	nop
-3cb9	4e 	ld c,(hl)	ld c,(hl)
-3cba	75 	ld (hl),l	ld (hl),l
-3cbb	6d 	ld l,l	ld l,l
-3cbc	62 	ld h,d	ld h,d
-3cbd	65 	ld h,l	ld h,l
-3cbe	72 	ld (hl),d	ld (hl),d
-3cbf	20 74 	jr nz,$+$76	jr nz,$+$00
-3cc1	6f 	ld l,a	ld l,a
+3c8e	69 	ld l,c	ld l,c
+3c8f	6e 	ld l,(hl)	ld l,(hl)
+3c90	67 	ld h,a	ld h,a
+3c91	20 74 	jr nz,$+$76	jr nz,$+$00
+3c93	6f 	ld l,a	ld l,a
+3c94	6f 	ld l,a	ld l,a
+3c95	20 6c 	jr nz,$+$6e	jr nz,$+$00
+3c97	6f 	ld l,a	ld l,a
+3c98	6e 	ld l,(hl)	ld l,(hl)
+3c99	67 	ld h,a	ld h,a
+3c9a	00 	nop	nop
+3c9b	4e 	ld c,(hl)	ld c,(hl)
+3c9c	75 	ld (hl),l	ld (hl),l
+3c9d	6d 	ld l,l	ld l,l
+3c9e	62 	ld h,d	ld h,d
+3c9f	65 	ld h,l	ld h,l
+3ca0	72 	ld (hl),d	ld (hl),d
+3ca1	20 74 	jr nz,$+$76	jr nz,$+$00
+3ca3	6f 	ld l,a	ld l,a
+3ca4	6f 	ld l,a	ld l,a
+3ca5	20 62 	jr nz,$+$64	jr nz,$+$00
+3ca7	69 	ld l,c	ld l,c
+3ca8	67 	ld h,a	ld h,a
+3ca9	00 	nop	nop
+3caa	2d 	dec l	dec l
+3cab	76 	halt	halt
+3cac	65 	ld h,l	ld h,l
+3cad	20 72 	jr nz,$+$74	jr nz,$+$00
+3caf	6f 	ld l,a	ld l,a
+3cb0	6f 	ld l,a	ld l,a
+3cb1	74 	ld (hl),h	ld (hl),h
+3cb2	00 	nop	nop
+3cb3	4c 	ld c,h	ld c,h
+3cb4	6f 	ld l,a	ld l,a
+3cb5	67 	ld h,a	ld h,a
+3cb6	14 	inc d	inc d
+3cb7	00 	nop	nop
+3cb8	41 	ld b,c	ld b,c
+3cb9	63 	ld h,e	ld h,e
+3cba	63 	ld h,e	ld h,e
+3cbb	75 	ld (hl),l	ld (hl),l
+3cbc	72 	ld (hl),d	ld (hl),d
+3cbd	61 	ld h,c	ld h,c
+3cbe	63 	ld h,e	ld h,e
+3cbf	79 	ld a,c	ld a,c
+3cc0	20 6c 	jr nz,$+$6e	jr nz,$+$00
 3cc2	6f 	ld l,a	ld l,a
-3cc3	20 62 	jr nz,$+$64	jr nz,$+$00
-3cc5	69 	ld l,c	ld l,c
-3cc6	67 	ld h,a	ld h,a
-3cc7	00 	nop	nop
-3cc8	2d 	dec l	dec l
-3cc9	76 	halt	halt
-3cca	65 	ld h,l	ld h,l
-3ccb	20 72 	jr nz,$+$74	jr nz,$+$00
-3ccd	6f 	ld l,a	ld l,a
-3cce	6f 	ld l,a	ld l,a
-3ccf	74 	ld (hl),h	ld (hl),h
+3cc3	73 	ld (hl),e	ld (hl),e
+3cc4	74 	ld (hl),h	ld (hl),h
+3cc5	00 	nop	nop
+3cc6	45 	ld b,l	ld b,l
+3cc7	78 	ld a,b	ld a,b
+3cc8	70 	ld (hl),b	ld (hl),b
+3cc9	6f 	ld l,a	ld l,a
+3cca	6e 	ld l,(hl)	ld l,(hl)
+3ccb	65 	ld h,l	ld h,l
+3ccc	6e 	ld l,(hl)	ld l,(hl)
+3ccd	74 	ld (hl),h	ld (hl),h
+3cce	14 	inc d	inc d
+3ccf	00 	nop	nop
 3cd0	00 	nop	nop
-3cd1	4c 	ld c,h	ld c,h
-3cd2	6f 	ld l,a	ld l,a
-3cd3	67 	ld h,a	ld h,a
-3cd4	14 	inc d	inc d
-3cd5	00 	nop	nop
-3cd6	41 	ld b,c	ld b,c
-3cd7	63 	ld h,e	ld h,e
-3cd8	63 	ld h,e	ld h,e
-3cd9	75 	ld (hl),l	ld (hl),l
-3cda	72 	ld (hl),d	ld (hl),d
-3cdb	61 	ld h,c	ld h,c
-3cdc	63 	ld h,e	ld h,e
-3cdd	79 	ld a,c	ld a,c
-3cde	20 6c 	jr nz,$+$6e	jr nz,$+$00
-3ce0	6f 	ld l,a	ld l,a
-3ce1	73 	ld (hl),e	ld (hl),e
-3ce2	74 	ld (hl),h	ld (hl),h
-3ce3	00 	nop	nop
-3ce4	45 	ld b,l	ld b,l
-3ce5	78 	ld a,b	ld a,b
-3ce6	70 	ld (hl),b	ld (hl),b
-3ce7	6f 	ld l,a	ld l,a
-3ce8	6e 	ld l,(hl)	ld l,(hl)
-3ce9	65 	ld h,l	ld h,l
-3cea	6e 	ld l,(hl)	ld l,(hl)
-3ceb	74 	ld (hl),h	ld (hl),h
-3cec	14 	inc d	inc d
-3ced	00 	nop	nop
-3cee	00 	nop	nop
-3cef	12 	ld (de),a	ld (de),a
-3cf0	15 	dec d	dec d
-3cf1	00 	nop	nop
-3cf2	11 29 00 	ld de,$0029	ld de,$0000
-3cf5	13 	inc de	inc de
-3cf6	68 	ld l,b	ld l,b
+3cd1	12 	ld (de),a	ld (de),a
+3cd2	15 	dec d	dec d
+3cd3	00 	nop	nop
+3cd4	11 29 00 	ld de,$0029	ld de,$0000
+3cd7	13 	inc de	inc de
+3cd8	68 	ld l,b	ld l,b
+3cd9	65 	ld h,l	ld h,l
+3cda	78 	ld a,b	ld a,b
+3cdb	20 6f 	jr nz,$+$71	jr nz,$+$00
+3cdd	72 	ld (hl),d	ld (hl),d
+3cde	20 62 	jr nz,$+$64	jr nz,$+$00
+3ce0	69 	ld l,c	ld l,c
+3ce1	6e 	ld l,(hl)	ld l,(hl)
+3ce2	61 	ld h,c	ld h,c
+3ce3	72 	ld (hl),d	ld (hl),d
+3ce4	79 	ld a,c	ld a,c
+3ce5	00 	nop	nop
+3ce6	12 	ld (de),a	ld (de),a
+3ce7	a4 	and h	and h
+3ce8	2f 	cpl	cpl
+3ce9	f2 00 13 	jp p,$1300	jp p,$0000
+3cec	63 	ld h,e	ld h,e
+3ced	61 	ld h,c	ld h,c
+3cee	6c 	ld l,h	ld l,h
+3cef	6c 	ld l,h	ld l,h
+3cf0	00 	nop	nop
+3cf1	13 	inc de	inc de
+3cf2	61 	ld h,c	ld h,c
+3cf3	72 	ld (hl),d	ld (hl),d
+3cf4	67 	ld h,a	ld h,a
+3cf5	75 	ld (hl),l	ld (hl),l
+3cf6	6d 	ld l,l	ld l,l
 3cf7	65 	ld h,l	ld h,l
-3cf8	78 	ld a,b	ld a,b
-3cf9	20 6f 	jr nz,$+$71	jr nz,$+$00
-3cfb	72 	ld (hl),d	ld (hl),d
-3cfc	20 62 	jr nz,$+$64	jr nz,$+$00
-3cfe	69 	ld l,c	ld l,c
-3cff	6e 	ld l,(hl)	ld l,(hl)
-3d00	61 	ld h,c	ld h,c
-3d01	72 	ld (hl),d	ld (hl),d
-3d02	79 	ld a,c	ld a,c
-3d03	00 	nop	nop
-3d04	12 	ld (de),a	ld (de),a
-3d05	a4 	and h	and h
-3d06	2f 	cpl	cpl
-3d07	f2 00 13 	jp p,$1300	jp p,$0000
-3d0a	63 	ld h,e	ld h,e
-3d0b	61 	ld h,c	ld h,c
-3d0c	6c 	ld l,h	ld l,h
-3d0d	6c 	ld l,h	ld l,h
-3d0e	00 	nop	nop
-3d0f	13 	inc de	inc de
-3d10	61 	ld h,c	ld h,c
-3d11	72 	ld (hl),d	ld (hl),d
-3d12	67 	ld h,a	ld h,a
-3d13	75 	ld (hl),l	ld (hl),l
-3d14	6d 	ld l,l	ld l,l
-3d15	65 	ld h,l	ld h,l
-3d16	6e 	ld l,(hl)	ld l,(hl)
-3d17	74 	ld (hl),h	ld (hl),h
-3d18	73 	ld (hl),e	ld (hl),e
-3d19	00 	nop	nop
-3d1a	19 	add hl,de	add hl,de
-3d1b	e3 	ex (sp),hl	ex (sp),hl
-3d1c	1a 	ld a,(de)	ld a,(de)
-3d1d	00 	nop	nop
-3d1e	43 	ld b,e	ld b,e
-3d1f	61 	ld h,c	ld h,c
-3d20	6e 	ld l,(hl)	ld l,(hl)
-3d21	27 	daa	daa
-3d22	74 	ld (hl),h	ld (hl),h
-3d23	20 6d 	jr nz,$+$6f	jr nz,$+$00
-3d25	61 	ld h,c	ld h,c
-3d26	74 	ld (hl),h	ld (hl),h
-3d27	63 	ld h,e	ld h,e
-3d28	68 	ld l,b	ld l,b
-3d29	20 e3 	jr nz,$-$1b	jr nz,$-$00
-3d2b	00 	nop	nop
-3d2c	13 	inc de	inc de
-3d2d	e3 	ex (sp),hl	ex (sp),hl
-3d2e	20 15 	jr nz,$+$17	jr nz,$+$00
-3d30	00 	nop	nop
-3d31	00 	nop	nop
-3d32	11 b8 00 	ld de,$00b8	ld de,$0000
-3d35	00 	nop	nop
-3d36	17 	rla	rla
-3d37	e4 00 ee 	call po,$ee00	call po,$0000
-3d3a	20 73 	jr nz,$+$75	jr nz,$+$00
-3d3c	79 	ld a,c	ld a,c
-3d3d	6e 	ld l,(hl)	ld l,(hl)
-3d3e	74 	ld (hl),h	ld (hl),h
-3d3f	61 	ld h,c	ld h,c
-3d40	78 	ld a,b	ld a,b
-3d41	00 	nop	nop
-3d42	ee 14 	xor $14	xor $00
-3d44	00 	nop	nop
-3d45	12 	ld (de),a	ld (de),a
-3d46	6c 	ld l,h	ld l,h
-3d47	69 	ld l,c	ld l,c
-3d48	6e 	ld l,(hl)	ld l,(hl)
-3d49	65 	ld h,l	ld h,l
-3d4a	00 	nop	nop
-3d4b	16 20 	ld d,$20	ld d,$00
-3d4d	dc 00 19 	call c,$1900	call c,$0000
-3d50	f5 	push af	push af
-3d51	1a 	ld a,(de)	ld a,(de)
-3d52	00 	nop	nop
-3d53	13 	inc de	inc de
-3d54	10 00 	djnz $+$02	djnz $+$00
-3d56	11 23 00 	ld de,$0023	ld de,$0000
-3d59	19 	add hl,de	add hl,de
-3d5a	c7 	rst $00	rst $00
-3d5b	1a 	ld a,(de)	ld a,(de)
-3d5c	00 	nop	nop
-3d5d	11 cb 00 	ld de,$00cb	ld de,$0000
-3d60	ca 1b 6c 	jp z,$6c1b	jp z,$0000
-3d63	61 	ld h,c	ld h,c
-3d64	73 	ld (hl),e	ld (hl),e
-3d65	74 	ld (hl),h	ld (hl),h
-3d66	00 	nop	nop
-3d67	11 cd 00 	ld de,$00cd	ld de,$0000
-3d6a	00 	nop	nop
-3d6b	00 	nop	nop
-3d6c	00 	nop	nop
-3d6d	ee 20 	xor $20	xor $00
-3d6f	85 	add a,l	add a,l
-3d70	1b 	dec de	dec de
-3d71	ea 00 dc 	jp pe,$dc00	jp pe,$0000
-3d74	1b 	dec de	dec de
-3d75	ea 00 e3 	jp pe,$e300	jp pe,$0000
-3d78	f5 	push af	push af
-3d79	c7 	rst $00	rst $00
-3d7a	c8 	ret z	ret z
-3d7b	8b 	adc a,e	adc a,e
-3d7c	c9 	ret	ret
-3d7d	cc ed fd 	call z,$fded	call z,$0000
-3d80	ce cb 	adc a,$cb	adc a,$00
-3d82	cd 8b c9 	call $c98b	call $0000
-3d85	cc cd d7 	call z,$d7cd	call z,$0000
-3d88	43 	ld b,e	ld b,e
-3d89	7e 	ld a,(hl)	ld a,(hl)
-3d8a	b7 	or a	or a
-3d8b	28 79 	jr z,$+$7b	jr z,$+$00
-3d8d	23 	inc hl	inc hl
-3d8e	5e 	ld e,(hl)	ld e,(hl)
-3d8f	23 	inc hl	inc hl
-3d90	56 	ld d,(hl)	ld d,(hl)
-3d91	2b 	dec hl	dec hl
-3d92	2b 	dec hl	dec hl
-3d93	eb 	ex de,hl	ex de,hl
-3d94	37 	scf	scf
-3d95	ed 42 	sbc hl,bc	sbc hl,bc
-3d97	eb 	ex de,hl	ex de,hl
-3d98	30 6c 	jr nc,$+$6e	jr nc,$+$00
-3d9a	c5 	push bc	push bc
-3d9b	cd e9 3f 	call $3fe9	call $0000
-3d9e	c1 	pop bc	pop bc
-3d9f	18 e8 	jr $-$16	jr $-$00
-3da1	fd 23 	inc iy	inc iy
-3da3	cd 33 18 	call $1833	call $0000
-3da6	d9 	exx	exx
-3da7	7d 	ld a,l	ld a,l
-3da8	32 fe 54 	ld ($54fe),a	ld ($0000),a
-3dab	c3 b0 37 	jp $37b0	jp $0000
-3dae	fe 4f 	cp $4f	cp $00
-3db0	28 ef 	jr z,$-$0f	jr z,$-$00
-3db2	0e 01 	ld c,$01	ld c,$00
-3db4	11 00 53 	ld de,$5300	ld de,$0000
-3db7	cd 18 44 	call $4418	call $0000
-3dba	12 	ld (de),a	ld (de),a
-3dbb	fd 21 00 53 	ld iy,$5300	ld iy,$0000
-3dbf	cd d7 43 	call $43d7	call $0000
-3dc2	cd 0b 45 	call $450b	call $0000
-3dc5	fe e7 	cp $e7	cp $00
-3dc7	3e 00 	ld a,$00	ld a,$00
-3dc9	20 15 	jr nz,$+$17	jr nz,$+$00
-3dcb	fd 23 	inc iy	inc iy
-3dcd	cd 0b 45 	call $450b	call $0000
-3dd0	eb 	ex de,hl	ex de,hl
-3dd1	fd e5 	push iy	push iy
-3dd3	e1 	pop hl	pop hl
-3dd4	3e 0d 	ld a,$0d	ld a,$00
-3dd6	c5 	push bc	push bc
-3dd7	01 00 01 	ld bc,$0100	ld bc,$0000
-3dda	ed b1 	cpir	cpir
-3ddc	79 	ld a,c	ld a,c
-3ddd	2f 	cpl	cpl
-3dde	c1 	pop bc	pop bc
-3ddf	eb 	ex de,hl	ex de,hl
-3de0	5f 	ld e,a	ld e,a
-3de1	78 	ld a,b	ld a,b
-3de2	b1 	or c	or c
-3de3	20 01 	jr nz,$+$03	jr nz,$+$00
-3de5	0b 	dec bc	dec bc
-3de6	d9 	exx	exx
-3de7	dd 21 fe 54 	ld ix,$54fe	ld ix,$0000
-3deb	1e 00 	ld e,$00	ld e,$00
-3ded	d9 	exx	exx
-3dee	3e 14 	ld a,$14	ld a,$00
-3df0	c5 	push bc	push bc
-3df1	d5 	push de	push de
-3df2	e5 	push hl	push hl
-3df3	08 	ex af,af'	ex af,af'
-3df4	7e 	ld a,(hl)	ld a,(hl)
-3df5	b7 	or a	or a
-3df6	28 0e 	jr z,$+$10	jr z,$+$00
-3df8	7b 	ld a,e	ld a,e
-3df9	23 	inc hl	inc hl
-3dfa	5e 	ld e,(hl)	ld e,(hl)
-3dfb	23 	inc hl	inc hl
-3dfc	56 	ld d,(hl)	ld d,(hl)
-3dfd	2b 	dec hl	dec hl
-3dfe	2b 	dec hl	dec hl
-3dff	d5 	push de	push de
-3e00	eb 	ex de,hl	ex de,hl
-3e01	37 	scf	scf
-3e02	ed 42 	sbc hl,bc	sbc hl,bc
-3e04	eb 	ex de,hl	ex de,hl
-3e05	d1 	pop de	pop de
-3e06	d2 af 37 	jp nc,$37af	jp nc,$0000
-3e09	4e 	ld c,(hl)	ld c,(hl)
-3e0a	47 	ld b,a	ld b,a
-3e0b	23 	inc hl	inc hl
-3e0c	23 	inc hl	inc hl
-3e0d	23 	inc hl	inc hl
-3e0e	0d 	dec c	dec c
-3e0f	0d 	dec c	dec c
-3e10	0d 	dec c	dec c
-3e11	0d 	dec c	dec c
-3e12	d5 	push de	push de
-3e13	e5 	push hl	push hl
-3e14	af 	xor a	xor a
-3e15	b8 	cp b	cp b
-3e16	fd e5 	push iy	push iy
-3e18	d1 	pop de	pop de
-3e19	c4 f2 1d 	call nz,$1df2	call nz,$0000
-3e1c	e1 	pop hl	pop hl
-3e1d	d1 	pop de	pop de
-3e1e	fd e5 	push iy	push iy
-3e20	cc 5d 40 	call z,$405d	call z,$0000
-3e23	fd e1 	pop iy	pop iy
-3e25	08 	ex af,af'	ex af,af'
-3e26	3d 	dec a	dec a
-3e27	cd 36 06 	call $0636	call $0000
-3e2a	e1 	pop hl	pop hl
-3e2b	5e 	ld e,(hl)	ld e,(hl)
-3e2c	16 00 	ld d,$00	ld d,$00
-3e2e	19 	add hl,de	add hl,de
-3e2f	d1 	pop de	pop de
-3e30	c1 	pop bc	pop bc
-3e31	18 bd 	jr $-$41	jr $-$00
-3e33	cd 43 40 	call $4043	call $0000
-3e36	cd b4 43 	call $43b4	call $0000
-3e39	d9 	exx	exx
-3e3a	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-3e3d	ed 5b de 54 	ld de,($54de)	ld de,($0000)
-3e41	7e 	ld a,(hl)	ld a,(hl)
-3e42	b7 	or a	or a
-3e43	28 28 	jr z,$+$2a	jr z,$+$00
-3e45	23 	inc hl	inc hl
-3e46	4e 	ld c,(hl)	ld c,(hl)
-3e47	23 	inc hl	inc hl
-3e48	46 	ld b,(hl)	ld b,(hl)
+3cf8	6e 	ld l,(hl)	ld l,(hl)
+3cf9	74 	ld (hl),h	ld (hl),h
+3cfa	73 	ld (hl),e	ld (hl),e
+3cfb	00 	nop	nop
+3cfc	19 	add hl,de	add hl,de
+3cfd	e3 	ex (sp),hl	ex (sp),hl
+3cfe	1a 	ld a,(de)	ld a,(de)
+3cff	00 	nop	nop
+3d00	43 	ld b,e	ld b,e
+3d01	61 	ld h,c	ld h,c
+3d02	6e 	ld l,(hl)	ld l,(hl)
+3d03	27 	daa	daa
+3d04	74 	ld (hl),h	ld (hl),h
+3d05	20 6d 	jr nz,$+$6f	jr nz,$+$00
+3d07	61 	ld h,c	ld h,c
+3d08	74 	ld (hl),h	ld (hl),h
+3d09	63 	ld h,e	ld h,e
+3d0a	68 	ld l,b	ld l,b
+3d0b	20 e3 	jr nz,$-$1b	jr nz,$-$00
+3d0d	00 	nop	nop
+3d0e	13 	inc de	inc de
+3d0f	e3 	ex (sp),hl	ex (sp),hl
+3d10	20 15 	jr nz,$+$17	jr nz,$+$00
+3d12	00 	nop	nop
+3d13	00 	nop	nop
+3d14	11 b8 00 	ld de,$00b8	ld de,$0000
+3d17	00 	nop	nop
+3d18	17 	rla	rla
+3d19	e4 00 ee 	call po,$ee00	call po,$0000
+3d1c	20 73 	jr nz,$+$75	jr nz,$+$00
+3d1e	79 	ld a,c	ld a,c
+3d1f	6e 	ld l,(hl)	ld l,(hl)
+3d20	74 	ld (hl),h	ld (hl),h
+3d21	61 	ld h,c	ld h,c
+3d22	78 	ld a,b	ld a,b
+3d23	00 	nop	nop
+3d24	ee 14 	xor $14	xor $00
+3d26	00 	nop	nop
+3d27	12 	ld (de),a	ld (de),a
+3d28	6c 	ld l,h	ld l,h
+3d29	69 	ld l,c	ld l,c
+3d2a	6e 	ld l,(hl)	ld l,(hl)
+3d2b	65 	ld h,l	ld h,l
+3d2c	00 	nop	nop
+3d2d	16 20 	ld d,$20	ld d,$00
+3d2f	dc 00 19 	call c,$1900	call c,$0000
+3d32	f5 	push af	push af
+3d33	1a 	ld a,(de)	ld a,(de)
+3d34	00 	nop	nop
+3d35	13 	inc de	inc de
+3d36	10 00 	djnz $+$02	djnz $+$00
+3d38	11 23 00 	ld de,$0023	ld de,$0000
+3d3b	19 	add hl,de	add hl,de
+3d3c	c7 	rst $00	rst $00
+3d3d	1a 	ld a,(de)	ld a,(de)
+3d3e	00 	nop	nop
+3d3f	11 cb 00 	ld de,$00cb	ld de,$0000
+3d42	ca 1b 6c 	jp z,$6c1b	jp z,$0000
+3d45	61 	ld h,c	ld h,c
+3d46	73 	ld (hl),e	ld (hl),e
+3d47	74 	ld (hl),h	ld (hl),h
+3d48	00 	nop	nop
+3d49	11 cd 00 	ld de,$00cd	ld de,$0000
+3d4c	00 	nop	nop
+3d4d	00 	nop	nop
+3d4e	00 	nop	nop
+3d4f	ee 20 	xor $20	xor $00
+3d51	85 	add a,l	add a,l
+3d52	1b 	dec de	dec de
+3d53	ea 00 dc 	jp pe,$dc00	jp pe,$0000
+3d56	1b 	dec de	dec de
+3d57	ea 00 e3 	jp pe,$e300	jp pe,$0000
+3d5a	f5 	push af	push af
+3d5b	c7 	rst $00	rst $00
+3d5c	c8 	ret z	ret z
+3d5d	8b 	adc a,e	adc a,e
+3d5e	c9 	ret	ret
+3d5f	cc ed fd 	call z,$fded	call z,$0000
+3d62	ce cb 	adc a,$cb	adc a,$00
+3d64	cd 8b c9 	call $c98b	call $0000
+3d67	cc cd b9 	call z,$b9cd	call z,$0000
+3d6a	43 	ld b,e	ld b,e
+3d6b	7e 	ld a,(hl)	ld a,(hl)
+3d6c	b7 	or a	or a
+3d6d	28 79 	jr z,$+$7b	jr z,$+$00
+3d6f	23 	inc hl	inc hl
+3d70	5e 	ld e,(hl)	ld e,(hl)
+3d71	23 	inc hl	inc hl
+3d72	56 	ld d,(hl)	ld d,(hl)
+3d73	2b 	dec hl	dec hl
+3d74	2b 	dec hl	dec hl
+3d75	eb 	ex de,hl	ex de,hl
+3d76	37 	scf	scf
+3d77	ed 42 	sbc hl,bc	sbc hl,bc
+3d79	eb 	ex de,hl	ex de,hl
+3d7a	30 6c 	jr nc,$+$6e	jr nc,$+$00
+3d7c	c5 	push bc	push bc
+3d7d	cd cb 3f 	call $3fcb	call $0000
+3d80	c1 	pop bc	pop bc
+3d81	18 e8 	jr $-$16	jr $-$00
+3d83	fd 23 	inc iy	inc iy
+3d85	cd 15 18 	call $1815	call $0000
+3d88	d9 	exx	exx
+3d89	7d 	ld a,l	ld a,l
+3d8a	32 fe 54 	ld ($54fe),a	ld ($0000),a
+3d8d	c3 92 37 	jp $3792	jp $0000
+3d90	fe 4f 	cp $4f	cp $00
+3d92	28 ef 	jr z,$-$0f	jr z,$-$00
+3d94	0e 01 	ld c,$01	ld c,$00
+3d96	11 00 53 	ld de,$5300	ld de,$0000
+3d99	cd fa 43 	call $43fa	call $0000
+3d9c	12 	ld (de),a	ld (de),a
+3d9d	fd 21 00 53 	ld iy,$5300	ld iy,$0000
+3da1	cd b9 43 	call $43b9	call $0000
+3da4	cd ed 44 	call $44ed	call $0000
+3da7	fe e7 	cp $e7	cp $00
+3da9	3e 00 	ld a,$00	ld a,$00
+3dab	20 15 	jr nz,$+$17	jr nz,$+$00
+3dad	fd 23 	inc iy	inc iy
+3daf	cd ed 44 	call $44ed	call $0000
+3db2	eb 	ex de,hl	ex de,hl
+3db3	fd e5 	push iy	push iy
+3db5	e1 	pop hl	pop hl
+3db6	3e 0d 	ld a,$0d	ld a,$00
+3db8	c5 	push bc	push bc
+3db9	01 00 01 	ld bc,$0100	ld bc,$0000
+3dbc	ed b1 	cpir	cpir
+3dbe	79 	ld a,c	ld a,c
+3dbf	2f 	cpl	cpl
+3dc0	c1 	pop bc	pop bc
+3dc1	eb 	ex de,hl	ex de,hl
+3dc2	5f 	ld e,a	ld e,a
+3dc3	78 	ld a,b	ld a,b
+3dc4	b1 	or c	or c
+3dc5	20 01 	jr nz,$+$03	jr nz,$+$00
+3dc7	0b 	dec bc	dec bc
+3dc8	d9 	exx	exx
+3dc9	dd 21 fe 54 	ld ix,$54fe	ld ix,$0000
+3dcd	1e 00 	ld e,$00	ld e,$00
+3dcf	d9 	exx	exx
+3dd0	3e 14 	ld a,$14	ld a,$00
+3dd2	c5 	push bc	push bc
+3dd3	d5 	push de	push de
+3dd4	e5 	push hl	push hl
+3dd5	08 	ex af,af'	ex af,af'
+3dd6	7e 	ld a,(hl)	ld a,(hl)
+3dd7	b7 	or a	or a
+3dd8	28 0e 	jr z,$+$10	jr z,$+$00
+3dda	7b 	ld a,e	ld a,e
+3ddb	23 	inc hl	inc hl
+3ddc	5e 	ld e,(hl)	ld e,(hl)
+3ddd	23 	inc hl	inc hl
+3dde	56 	ld d,(hl)	ld d,(hl)
+3ddf	2b 	dec hl	dec hl
+3de0	2b 	dec hl	dec hl
+3de1	d5 	push de	push de
+3de2	eb 	ex de,hl	ex de,hl
+3de3	37 	scf	scf
+3de4	ed 42 	sbc hl,bc	sbc hl,bc
+3de6	eb 	ex de,hl	ex de,hl
+3de7	d1 	pop de	pop de
+3de8	d2 91 37 	jp nc,$3791	jp nc,$0000
+3deb	4e 	ld c,(hl)	ld c,(hl)
+3dec	47 	ld b,a	ld b,a
+3ded	23 	inc hl	inc hl
+3dee	23 	inc hl	inc hl
+3def	23 	inc hl	inc hl
+3df0	0d 	dec c	dec c
+3df1	0d 	dec c	dec c
+3df2	0d 	dec c	dec c
+3df3	0d 	dec c	dec c
+3df4	d5 	push de	push de
+3df5	e5 	push hl	push hl
+3df6	af 	xor a	xor a
+3df7	b8 	cp b	cp b
+3df8	fd e5 	push iy	push iy
+3dfa	d1 	pop de	pop de
+3dfb	c4 d4 1d 	call nz,$1dd4	call nz,$0000
+3dfe	e1 	pop hl	pop hl
+3dff	d1 	pop de	pop de
+3e00	fd e5 	push iy	push iy
+3e02	cc 3f 40 	call z,$403f	call z,$0000
+3e05	fd e1 	pop iy	pop iy
+3e07	08 	ex af,af'	ex af,af'
+3e08	3d 	dec a	dec a
+3e09	cd 18 06 	call $0618	call $0000
+3e0c	e1 	pop hl	pop hl
+3e0d	5e 	ld e,(hl)	ld e,(hl)
+3e0e	16 00 	ld d,$00	ld d,$00
+3e10	19 	add hl,de	add hl,de
+3e11	d1 	pop de	pop de
+3e12	c1 	pop bc	pop bc
+3e13	18 bd 	jr $-$41	jr $-$00
+3e15	cd 25 40 	call $4025	call $0000
+3e18	cd 96 43 	call $4396	call $0000
+3e1b	d9 	exx	exx
+3e1c	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+3e1f	ed 5b de 54 	ld de,($54de)	ld de,($0000)
+3e23	7e 	ld a,(hl)	ld a,(hl)
+3e24	b7 	or a	or a
+3e25	28 28 	jr z,$+$2a	jr z,$+$00
+3e27	23 	inc hl	inc hl
+3e28	4e 	ld c,(hl)	ld c,(hl)
+3e29	23 	inc hl	inc hl
+3e2a	46 	ld b,(hl)	ld b,(hl)
+3e2b	eb 	ex de,hl	ex de,hl
+3e2c	71 	ld (hl),c	ld (hl),c
+3e2d	23 	inc hl	inc hl
+3e2e	70 	ld (hl),b	ld (hl),b
+3e2f	23 	inc hl	inc hl
+3e30	d9 	exx	exx
+3e31	e5 	push hl	push hl
+3e32	09 	add hl,bc	add hl,bc
+3e33	da 91 43 	jp c,$4391	jp c,$0000
+3e36	d9 	exx	exx
+3e37	c1 	pop bc	pop bc
+3e38	71 	ld (hl),c	ld (hl),c
+3e39	23 	inc hl	inc hl
+3e3a	70 	ld (hl),b	ld (hl),b
+3e3b	23 	inc hl	inc hl
+3e3c	eb 	ex de,hl	ex de,hl
+3e3d	2b 	dec hl	dec hl
+3e3e	2b 	dec hl	dec hl
+3e3f	af 	xor a	xor a
+3e40	47 	ld b,a	ld b,a
+3e41	4e 	ld c,(hl)	ld c,(hl)
+3e42	09 	add hl,bc	add hl,bc
+3e43	eb 	ex de,hl	ex de,hl
+3e44	e5 	push hl	push hl
+3e45	24 	inc h	inc h
+3e46	ed 72 	sbc hl,sp	sbc hl,sp
+3e48	e1 	pop hl	pop hl
 3e49	eb 	ex de,hl	ex de,hl
-3e4a	71 	ld (hl),c	ld (hl),c
-3e4b	23 	inc hl	inc hl
-3e4c	70 	ld (hl),b	ld (hl),b
-3e4d	23 	inc hl	inc hl
-3e4e	d9 	exx	exx
-3e4f	e5 	push hl	push hl
-3e50	09 	add hl,bc	add hl,bc
-3e51	da af 43 	jp c,$43af	jp c,$0000
-3e54	d9 	exx	exx
-3e55	c1 	pop bc	pop bc
-3e56	71 	ld (hl),c	ld (hl),c
-3e57	23 	inc hl	inc hl
-3e58	70 	ld (hl),b	ld (hl),b
-3e59	23 	inc hl	inc hl
-3e5a	eb 	ex de,hl	ex de,hl
-3e5b	2b 	dec hl	dec hl
-3e5c	2b 	dec hl	dec hl
-3e5d	af 	xor a	xor a
-3e5e	47 	ld b,a	ld b,a
-3e5f	4e 	ld c,(hl)	ld c,(hl)
-3e60	09 	add hl,bc	add hl,bc
-3e61	eb 	ex de,hl	ex de,hl
-3e62	e5 	push hl	push hl
-3e63	24 	inc h	inc h
-3e64	ed 72 	sbc hl,sp	sbc hl,sp
-3e66	e1 	pop hl	pop hl
-3e67	eb 	ex de,hl	ex de,hl
-3e68	38 d7 	jr c,$-$27	jr c,$-$00
-3e6a	c3 44 3f 	jp $3f44	jp $0000
-3e6d	eb 	ex de,hl	ex de,hl
-3e6e	36 ff 	ld (hl),$ff	ld (hl),$00
+3e4a	38 d7 	jr c,$-$27	jr c,$-$00
+3e4c	c3 26 3f 	jp $3f26	jp $0000
+3e4f	eb 	ex de,hl	ex de,hl
+3e50	36 ff 	ld (hl),$ff	ld (hl),$00
+3e52	23 	inc hl	inc hl
+3e53	36 ff 	ld (hl),$ff	ld (hl),$00
+3e55	ed 5b de 54 	ld de,($54de)	ld de,($0000)
+3e59	d9 	exx	exx
+3e5a	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+3e5d	4e 	ld c,(hl)	ld c,(hl)
+3e5e	79 	ld a,c	ld a,c
+3e5f	b7 	or a	or a
+3e60	28 86 	jr z,$-$78	jr z,$-$00
+3e62	d9 	exx	exx
+3e63	eb 	ex de,hl	ex de,hl
+3e64	23 	inc hl	inc hl
+3e65	23 	inc hl	inc hl
+3e66	5e 	ld e,(hl)	ld e,(hl)
+3e67	23 	inc hl	inc hl
+3e68	56 	ld d,(hl)	ld d,(hl)
+3e69	23 	inc hl	inc hl
+3e6a	d5 	push de	push de
+3e6b	eb 	ex de,hl	ex de,hl
+3e6c	d9 	exx	exx
+3e6d	d1 	pop de	pop de
+3e6e	23 	inc hl	inc hl
+3e6f	73 	ld (hl),e	ld (hl),e
 3e70	23 	inc hl	inc hl
-3e71	36 ff 	ld (hl),$ff	ld (hl),$00
-3e73	ed 5b de 54 	ld de,($54de)	ld de,($0000)
-3e77	d9 	exx	exx
-3e78	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-3e7b	4e 	ld c,(hl)	ld c,(hl)
-3e7c	79 	ld a,c	ld a,c
-3e7d	b7 	or a	or a
-3e7e	28 86 	jr z,$-$78	jr z,$-$00
-3e80	d9 	exx	exx
-3e81	eb 	ex de,hl	ex de,hl
-3e82	23 	inc hl	inc hl
-3e83	23 	inc hl	inc hl
-3e84	5e 	ld e,(hl)	ld e,(hl)
-3e85	23 	inc hl	inc hl
-3e86	56 	ld d,(hl)	ld d,(hl)
-3e87	23 	inc hl	inc hl
-3e88	d5 	push de	push de
-3e89	eb 	ex de,hl	ex de,hl
-3e8a	d9 	exx	exx
-3e8b	d1 	pop de	pop de
-3e8c	23 	inc hl	inc hl
-3e8d	73 	ld (hl),e	ld (hl),e
-3e8e	23 	inc hl	inc hl
-3e8f	72 	ld (hl),d	ld (hl),d
+3e71	72 	ld (hl),d	ld (hl),d
+3e72	23 	inc hl	inc hl
+3e73	0d 	dec c	dec c
+3e74	0d 	dec c	dec c
+3e75	0d 	dec c	dec c
+3e76	06 00 	ld b,$00	ld b,$00
+3e78	3e 8d 	ld a,$8d	ld a,$00
+3e7a	ed b1 	cpir	cpir
+3e7c	20 df 	jr nz,$-$1f	jr nz,$-$00
+3e7e	c5 	push bc	push bc
+3e7f	e5 	push hl	push hl
+3e80	e5 	push hl	push hl
+3e81	fd e1 	pop iy	pop iy
+3e83	d9 	exx	exx
+3e84	e5 	push hl	push hl
+3e85	cd 42 1f 	call $1f42	call $0000
+3e88	e1 	pop hl	pop hl
+3e89	d9 	exx	exx
+3e8a	44 	ld b,h	ld b,h
+3e8b	4d 	ld c,l	ld c,l
+3e8c	2a de 54 	ld hl,($54de)	ld hl,($0000)
+3e8f	5e 	ld e,(hl)	ld e,(hl)
 3e90	23 	inc hl	inc hl
-3e91	0d 	dec c	dec c
-3e92	0d 	dec c	dec c
-3e93	0d 	dec c	dec c
-3e94	06 00 	ld b,$00	ld b,$00
-3e96	3e 8d 	ld a,$8d	ld a,$00
-3e98	ed b1 	cpir	cpir
-3e9a	20 df 	jr nz,$-$1f	jr nz,$-$00
-3e9c	c5 	push bc	push bc
-3e9d	e5 	push hl	push hl
-3e9e	e5 	push hl	push hl
-3e9f	fd e1 	pop iy	pop iy
-3ea1	d9 	exx	exx
-3ea2	e5 	push hl	push hl
-3ea3	cd 60 1f 	call $1f60	call $0000
-3ea6	e1 	pop hl	pop hl
-3ea7	d9 	exx	exx
-3ea8	44 	ld b,h	ld b,h
-3ea9	4d 	ld c,l	ld c,l
-3eaa	2a de 54 	ld hl,($54de)	ld hl,($0000)
-3ead	5e 	ld e,(hl)	ld e,(hl)
-3eae	23 	inc hl	inc hl
-3eaf	56 	ld d,(hl)	ld d,(hl)
-3eb0	23 	inc hl	inc hl
-3eb1	eb 	ex de,hl	ex de,hl
-3eb2	b7 	or a	or a
-3eb3	ed 42 	sbc hl,bc	sbc hl,bc
-3eb5	eb 	ex de,hl	ex de,hl
-3eb6	5e 	ld e,(hl)	ld e,(hl)
-3eb7	23 	inc hl	inc hl
-3eb8	56 	ld d,(hl)	ld d,(hl)
-3eb9	23 	inc hl	inc hl
-3eba	38 f1 	jr c,$-$0d	jr c,$-$00
-3ebc	eb 	ex de,hl	ex de,hl
-3ebd	28 1a 	jr z,$+$1c	jr z,$+$00
-3ebf	cd fa 44 	call $44fa	call $0000
-3ec2	46 	ld b,(hl)	ld b,(hl)
-3ec3	61 	ld h,c	ld h,c
-3ec4	69 	ld l,c	ld l,c
-3ec5	6c 	ld l,h	ld l,h
-3ec6	65 	ld h,l	ld h,l
-3ec7	64 	ld h,h	ld h,h
-3ec8	20 61 	jr nz,$+$63	jr nz,$+$00
-3eca	74 	ld (hl),h	ld (hl),h
-3ecb	20 00 	jr nz,$+$02	jr nz,$+$00
-3ecd	d9 	exx	exx
-3ece	e5 	push hl	push hl
-3ecf	d9 	exx	exx
-3ed0	e1 	pop hl	pop hl
-3ed1	cd 92 41 	call $4192	call $0000
-3ed4	cd fb 40 	call $40fb	call $0000
-3ed7	18 06 	jr $+$08	jr $+$00
-3ed9	d1 	pop de	pop de
-3eda	d5 	push de	push de
-3edb	1b 	dec de	dec de
-3edc	cd bf 44 	call $44bf	call $0000
-3edf	e1 	pop hl	pop hl
-3ee0	c1 	pop bc	pop bc
-3ee1	18 b3 	jr $-$4b	jr $-$00
-3ee3	cd b4 43 	call $43b4	call $0000
-3ee6	22 e8 54 	ld ($54e8),hl	ld ($0000),hl
-3ee9	79 	ld a,c	ld a,c
-3eea	32 ff 54 	ld ($54ff),a	ld ($0000),a
-3eed	18 37 	jr $+$39	jr $+$00
-3eef	cd fa 44 	call $44fa	call $0000
-3ef2	13 	inc de	inc de
-3ef3	70 	ld (hl),b	ld (hl),b
-3ef4	72 	ld (hl),d	ld (hl),d
-3ef5	6f 	ld l,a	ld l,a
-3ef6	67 	ld h,a	ld h,a
-3ef7	72 	ld (hl),d	ld (hl),d
-3ef8	61 	ld h,c	ld h,c
-3ef9	6d 	ld l,l	ld l,l
-3efa	0d 	dec c	dec c
-3efb	0a 	ld a,(bc)	ld a,(bc)
-3efc	00 	nop	nop
-3efd	cd 3e 40 	call $403e	call $0000
-3f00	18 24 	jr $+$26	jr $+$00
-3f02	cd 3c 18 	call $183c	call $0000
-3f05	3e 0d 	ld a,$0d	ld a,$00
-3f07	12 	ld (de),a	ld (de),a
-3f08	cd 00 40 	call $4000	call $0000
-3f0b	cd 43 40 	call $4043	call $0000
-3f0e	18 31 	jr $+$33	jr $+$00
-3f10	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-3f13	e5 	push hl	push hl
-3f14	23 	inc hl	inc hl
-3f15	23 	inc hl	inc hl
-3f16	23 	inc hl	inc hl
-3f17	01 fc 00 	ld bc,$00fc	ld bc,$0000
-3f1a	3e 0d 	ld a,$0d	ld a,$00
-3f1c	ed b1 	cpir	cpir
-3f1e	20 cf 	jr nz,$-$2f	jr nz,$-$00
-3f20	7d 	ld a,l	ld a,l
-3f21	e1 	pop hl	pop hl
-3f22	77 	ld (hl),a	ld (hl),a
-3f23	cd 1a 40 	call $401a	call $0000
-3f26	c3 b0 37 	jp $37b0	jp $0000
-3f29	cd 3c 18 	call $183c	call $0000
-3f2c	3e 0d 	ld a,$0d	ld a,$00
-3f2e	12 	ld (de),a	ld (de),a
-3f2f	ed 5b dc 54 	ld de,($54dc)	ld de,($0000)
-3f33	cd 25 40 	call $4025	call $0000
-3f36	b7 	or a	or a
-3f37	ed 52 	sbc hl,de	sbc hl,de
-3f39	44 	ld b,h	ld b,h
-3f3a	4d 	ld c,l	ld c,l
-3f3b	21 00 52 	ld hl,$5200	ld hl,$0000
-3f3e	cd c2 07 	call $07c2	call $0000
-3f41	c3 af 37 	jp $37af	jp $0000
-3f44	21 21 3c 	ld hl,$3c21	ld hl,$0000
-3f47	4f 	ld c,a	ld c,a
-3f48	b7 	or a	or a
-3f49	28 0c 	jr z,$+$0e	jr z,$+$00
-3f4b	47 	ld b,a	ld b,a
-3f4c	af 	xor a	xor a
-3f4d	be 	cp (hl)	cp (hl)
-3f4e	23 	inc hl	inc hl
-3f4f	20 fc 	jr nz,$-$02	jr nz,$-$00
-3f51	10 fa 	djnz $-$04	djnz $-$00
-3f53	18 02 	jr $+$04	jr $+$00
-3f55	e1 	pop hl	pop hl
-3f56	4f 	ld c,a	ld c,a
-3f57	22 ee 54 	ld ($54ee),hl	ld ($0000),hl
-3f5a	2a ec 54 	ld hl,($54ec)	ld hl,($0000)
-3f5d	7c 	ld a,h	ld a,h
-3f5e	b5 	or l	or l
-3f5f	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
-3f63	28 01 	jr z,$+$03	jr z,$+$00
-3f65	f9 	ld sp,hl	ld sp,hl
-3f66	79 	ld a,c	ld a,c
-3f67	cd 5b 41 	call $415b	call $0000
-3f6a	32 fd 54 	ld ($54fd),a	ld ($0000),a
-3f6d	22 f2 54 	ld ($54f2),hl	ld ($0000),hl
-3f70	b7 	or a	or a
-3f71	28 0b 	jr z,$+$0d	jr z,$+$00
-3f73	2a ea 54 	ld hl,($54ea)	ld hl,($0000)
-3f76	7c 	ld a,h	ld a,h
-3f77	b5 	or l	or l
-3f78	e5 	push hl	push hl
-3f79	fd e1 	pop iy	pop iy
-3f7b	c2 99 24 	jp nz,$2499	jp nz,$0000
-3f7e	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
-3f82	ed 62 	sbc hl,hl	sbc hl,hl
-3f84	22 e8 54 	ld ($54e8),hl	ld ($0000),hl
-3f87	22 e6 54 	ld ($54e6),hl	ld ($0000),hl
-3f8a	cd 43 06 	call $0643	call $0000
-3f8d	cd fb 40 	call $40fb	call $0000
-3f90	cd e5 44 	call $44e5	call $0000
-3f93	2a f2 54 	ld hl,($54f2)	ld hl,($0000)
-3f96	cd 82 41 	call $4182	call $0000
-3f99	1e 00 	ld e,$00	ld e,$00
-3f9b	dc 53 06 	call c,$0653	call c,$0000
-3f9e	cd fb 40 	call $40fb	call $0000
-3fa1	18 83 	jr $-$7b	jr $-$00
-3fa3	21 84 38 	ld hl,$3884	ld hl,$0000
-3fa6	fd 7e 00 	ld a,(iy)	ld a,(iy)
-3fa9	46 	ld b,(hl)	ld b,(hl)
-3faa	23 	inc hl	inc hl
-3fab	be 	cp (hl)	cp (hl)
-3fac	28 0a 	jr z,$+$0c	jr z,$+$00
-3fae	d8 	ret c	ret c
-3faf	23 	inc hl	inc hl
-3fb0	7e 	ld a,(hl)	ld a,(hl)
-3fb1	fe a0 	cp $a0	cp $00
-3fb3	ea af 3f 	jp pe,$3faf	jp pe,$0000
-3fb6	18 ee 	jr $-$10	jr $-$00
-3fb8	fd e5 	push iy	push iy
-3fba	23 	inc hl	inc hl
-3fbb	7e 	ld a,(hl)	ld a,(hl)
-3fbc	fe a0 	cp $a0	cp $00
-3fbe	e2 e5 3f 	jp po,$3fe5	jp po,$0000
-3fc1	fd 23 	inc iy	inc iy
-3fc3	fd 7e 00 	ld a,(iy)	ld a,(iy)
-3fc6	be 	cp (hl)	cp (hl)
-3fc7	20 05 	jr nz,$+$07	jr nz,$+$00
-3fc9	fe a1 	cp $a1	cp $00
-3fcb	ea ba 3f 	jp pe,$3fba	jp pe,$0000
-3fce	fd 7e 00 	ld a,(iy)	ld a,(iy)
-3fd1	fe 2e 	cp $2e	cp $00
-3fd3	28 10 	jr z,$+$12	jr z,$+$00
-3fd5	cd fc 43 	call $43fc	call $0000
-3fd8	38 04 	jr c,$+$06	jr c,$+$00
-3fda	fd e1 	pop iy	pop iy
-3fdc	18 d1 	jr $-$2d	jr $-$00
-3fde	7e 	ld a,(hl)	ld a,(hl)
-3fdf	fe 20 	cp $20	cp $00
-3fe1	20 f7 	jr nz,$-$07	jr nz,$-$00
-3fe3	fd 2b 	dec iy	dec iy
-3fe5	f1 	pop af	pop af
-3fe6	af 	xor a	xor a
-3fe7	78 	ld a,b	ld a,b
-3fe8	c9 	ret	ret
-3fe9	d5 	push de	push de
-3fea	e5 	push hl	push hl
-3feb	e5 	push hl	push hl
-3fec	06 00 	ld b,$00	ld b,$00
-3fee	4e 	ld c,(hl)	ld c,(hl)
-3fef	09 	add hl,bc	add hl,bc
-3ff0	e5 	push hl	push hl
-3ff1	eb 	ex de,hl	ex de,hl
-3ff2	cd 25 40 	call $4025	call $0000
-3ff5	ed 52 	sbc hl,de	sbc hl,de
-3ff7	44 	ld b,h	ld b,h
-3ff8	4d 	ld c,l	ld c,l
-3ff9	e1 	pop hl	pop hl
-3ffa	d1 	pop de	pop de
-3ffb	ed b0 	ldir	ldir
-3ffd	e1 	pop hl	pop hl
-3ffe	d1 	pop de	pop de
-3fff	c9 	ret	ret
-4000	ed 5b dc 54 	ld de,($54dc)	ld de,($0000)
-4004	21 00 ff 	ld hl,$ff00	ld hl,$0000
-4007	39 	add hl,sp	add hl,sp
-4008	ed 52 	sbc hl,de	sbc hl,de
-400a	44 	ld b,h	ld b,h
-400b	4d 	ld c,l	ld c,l
-400c	21 00 52 	ld hl,$5200	ld hl,$0000
-400f	cd cc 06 	call $06cc	call $0000
-4012	d4 3e 40 	call nc,$403e	call nc,$0000
-4015	3e 00 	ld a,$00	ld a,$00
-4017	d2 44 3f 	jp nc,$3f44	jp nc,$0000
-401a	cd 25 40 	call $4025	call $0000
-401d	2b 	dec hl	dec hl
-401e	36 ff 	ld (hl),$ff	ld (hl),$00
-4020	2b 	dec hl	dec hl
-4021	36 ff 	ld (hl),$ff	ld (hl),$00
-4023	18 1e 	jr $+$20	jr $+$00
-4025	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-4028	06 00 	ld b,$00	ld b,$00
-402a	3e 0d 	ld a,$0d	ld a,$00
-402c	4e 	ld c,(hl)	ld c,(hl)
-402d	0c 	inc c	inc c
-402e	0d 	dec c	dec c
-402f	28 09 	jr z,$+$0b	jr z,$+$00
-4031	09 	add hl,bc	add hl,bc
-4032	2b 	dec hl	dec hl
-4033	be 	cp (hl)	cp (hl)
-4034	23 	inc hl	inc hl
-4035	28 f5 	jr z,$-$09	jr z,$-$00
-4037	c3 ef 3e 	jp $3eef	jp $0000
-403a	23 	inc hl	inc hl
-403b	23 	inc hl	inc hl
-403c	23 	inc hl	inc hl
-403d	c9 	ret	ret
-403e	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-4041	36 00 	ld (hl),$00	ld (hl),$00
-4043	e5 	push hl	push hl
-4044	c5 	push bc	push bc
-4045	f5 	push af	push af
-4046	cd 25 40 	call $4025	call $0000
-4049	22 de 54 	ld ($54de),hl	ld ($0000),hl
-404c	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
-404f	21 6c 54 	ld hl,$546c	ld hl,$0000
-4052	06 70 	ld b,$70	ld b,$00
-4054	36 00 	ld (hl),$00	ld (hl),$00
-4056	23 	inc hl	inc hl
-4057	10 fb 	djnz $-$03	djnz $-$00
-4059	f1 	pop af	pop af
-405a	c1 	pop bc	pop bc
-405b	e1 	pop hl	pop hl
-405c	c9 	ret	ret
-405d	e5 	push hl	push hl
-405e	eb 	ex de,hl	ex de,hl
-405f	c5 	push bc	push bc
-4060	cd 96 41 	call $4196	call $0000
-4063	c1 	pop bc	pop bc
-4064	e1 	pop hl	pop hl
-4065	7e 	ld a,(hl)	ld a,(hl)
-4066	d9 	exx	exx
-4067	21 7e 3d 	ld hl,$3d7e	ld hl,$0000
-406a	01 08 00 	ld bc,$0008	ld bc,$0000
-406d	ed b1 	cpir	cpir
-406f	cc f5 40 	call z,$40f5	call z,$0000
-4072	fe cb 	cp $cb	cp $00
-4074	cc f5 40 	call z,$40f5	call z,$0000
-4077	3e 20 	ld a,$20	ld a,$00
-4079	dd cb 00 46 	bit 0,(ix)	bit 0,(ix)
-407d	c4 02 41 	call nz,$4102	call nz,$0000
-4080	7b 	ld a,e	ld a,e
-4081	87 	add a,a	add a,a
-4082	dd cb 00 4e 	bit 1,(ix)	bit 1,(ix)
-4086	c4 a3 35 	call nz,$35a3	call nz,$0000
-4089	d9 	exx	exx
-408a	7e 	ld a,(hl)	ld a,(hl)
-408b	1e 00 	ld e,$00	ld e,$00
-408d	d9 	exx	exx
-408e	01 07 00 	ld bc,$0007	ld bc,$0000
-4091	21 77 3d 	ld hl,$3d77	ld hl,$0000
-4094	ed b1 	cpir	cpir
-4096	cc f9 40 	call z,$40f9	call z,$0000
-4099	fe c8 	cp $c8	cp $00
-409b	cc f9 40 	call z,$40f9	call z,$0000
-409e	d9 	exx	exx
-409f	7e 	ld a,(hl)	ld a,(hl)
-40a0	23 	inc hl	inc hl
-40a1	fe 0d 	cp $0d	cp $00
-40a3	28 25 	jr z,$+$27	jr z,$+$00
-40a5	57 	ld d,a	ld d,a
-40a6	fe 10 	cp $10	cp $00
-40a8	20 02 	jr nz,$+$04	jr nz,$+$00
-40aa	cb fb 	set 7,e	set 7,e
-40ac	fe 22 	cp $22	cp $00
-40ae	20 01 	jr nz,$+$03	jr nz,$+$00
-40b0	1c 	inc e	inc e
-40b1	cd e9 40 	call $40e9	call $0000
-40b4	7b 	ld a,e	ld a,e
-40b5	e6 81 	and $81	and $00
-40b7	20 e6 	jr nz,$-$18	jr nz,$-$00
-40b9	7e 	ld a,(hl)	ld a,(hl)
-40ba	d9 	exx	exx
-40bb	21 7e 3d 	ld hl,$3d7e	ld hl,$0000
-40be	01 03 00 	ld bc,$0003	ld bc,$0000
-40c1	ed b1 	cpir	cpir
-40c3	cc f5 40 	call z,$40f5	call z,$0000
-40c6	0e 04 	ld c,$04	ld c,$00
-40c8	18 c7 	jr $-$37	jr $-$00
-40ca	7a 	ld a,d	ld a,d
-40cb	fe 8c 	cp $8c	cp $00
-40cd	d9 	exx	exx
-40ce	cc f9 40 	call z,$40f9	call z,$0000
-40d1	d9 	exx	exx
-40d2	18 27 	jr $+$29	jr $+$00
-40d4	e5 	push hl	push hl
-40d5	fd e1 	pop iy	pop iy
-40d7	c5 	push bc	push bc
-40d8	cd 60 1f 	call $1f60	call $0000
-40db	c1 	pop bc	pop bc
-40dc	d9 	exx	exx
-40dd	c5 	push bc	push bc
-40de	d5 	push de	push de
-40df	cd 92 41 	call $4192	call $0000
-40e2	d1 	pop de	pop de
-40e3	c1 	pop bc	pop bc
-40e4	d9 	exx	exx
-40e5	fd e5 	push iy	push iy
-40e7	e1 	pop hl	pop hl
-40e8	c9 	ret	ret
-40e9	cb 43 	bit 0,e	bit 0,e
-40eb	20 15 	jr nz,$+$17	jr nz,$+$00
-40ed	fe 8d 	cp $8d	cp $00
-40ef	28 e3 	jr z,$-$1b	jr z,$-$00
-40f1	cd 1b 41 	call $411b	call $0000
-40f4	c9 	ret	ret
-40f5	1d 	dec e	dec e
-40f6	f2 fa 40 	jp p,$40fa	jp p,$0000
-40f9	1c 	inc e	inc e
-40fa	c9 	ret	ret
-40fb	3e 0d 	ld a,$0d	ld a,$00
-40fd	cd 02 41 	call $4102	call $0000
-4100	3e 0a 	ld a,$0a	ld a,$00
-4102	cd b1 05 	call $05b1	call $0000
-4105	d6 0d 	sub $0d	sub $00
-4107	28 05 	jr z,$+$07	jr z,$+$00
-4109	d8 	ret c	ret c
-410a	3a fb 54 	ld a,($54fb)	ld a,($0000)
-410d	3c 	inc a	inc a
-410e	32 fb 54 	ld ($54fb),a	ld ($0000),a
-4111	c8 	ret z	ret z
-4112	e5 	push hl	push hl
-4113	2a fc 54 	ld hl,($54fc)	ld hl,($0000)
-4116	bd 	cp l	cp l
-4117	e1 	pop hl	pop hl
-4118	c0 	ret nz	ret nz
-4119	18 e0 	jr $-$1e	jr $-$00
-411b	fe a0 	cp $a0	cp $00
-411d	ea 02 41 	jp pe,$4102	jp pe,$0000
-4120	c5 	push bc	push bc
-4121	e5 	push hl	push hl
-4122	21 84 38 	ld hl,$3884	ld hl,$0000
-4125	01 5b 03 	ld bc,$035b	ld bc,$0000
-4128	ed b1 	cpir	cpir
-412a	c4 02 41 	call nz,$4102	call nz,$0000
-412d	06 a0 	ld b,$a0	ld b,$00
-412f	fe 91 	cp $91	cp $00
-4131	ea 35 41 	jp pe,$4135	jp pe,$0000
-4134	04 	inc b	inc b
-4135	7e 	ld a,(hl)	ld a,(hl)
-4136	23 	inc hl	inc hl
-4137	b8 	cp b	cp b
-4138	f5 	push af	push af
-4139	ec 02 41 	call pe,$4102	call pe,$0000
-413c	f1 	pop af	pop af
-413d	ea 35 41 	jp pe,$4135	jp pe,$0000
-4140	e1 	pop hl	pop hl
-4141	c1 	pop bc	pop bc
-4142	c9 	ret	ret
-4143	eb 	ex de,hl	ex de,hl
-4144	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-4147	af 	xor a	xor a
-4148	be 	cp (hl)	cp (hl)
-4149	3c 	inc a	inc a
-414a	d0 	ret nc	ret nc
-414b	af 	xor a	xor a
-414c	47 	ld b,a	ld b,a
-414d	4e 	ld c,(hl)	ld c,(hl)
-414e	e5 	push hl	push hl
-414f	23 	inc hl	inc hl
-4150	7e 	ld a,(hl)	ld a,(hl)
-4151	23 	inc hl	inc hl
-4152	66 	ld h,(hl)	ld h,(hl)
-4153	6f 	ld l,a	ld l,a
-4154	ed 52 	sbc hl,de	sbc hl,de
-4156	e1 	pop hl	pop hl
-4157	d0 	ret nc	ret nc
-4158	09 	add hl,bc	add hl,bc
-4159	18 f2 	jr $-$0c	jr $-$00
-415b	06 00 	ld b,$00	ld b,$00
-415d	ed 5b f4 54 	ld de,($54f4)	ld de,($0000)
-4161	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
-4164	b7 	or a	or a
-4165	ed 52 	sbc hl,de	sbc hl,de
-4167	19 	add hl,de	add hl,de
-4168	30 13 	jr nc,$+$15	jr nc,$+$00
-416a	4e 	ld c,(hl)	ld c,(hl)
-416b	0c 	inc c	inc c
-416c	0d 	dec c	dec c
-416d	28 0e 	jr z,$+$10	jr z,$+$00
-416f	09 	add hl,bc	add hl,bc
-4170	ed 52 	sbc hl,de	sbc hl,de
-4172	19 	add hl,de	add hl,de
-4173	38 f5 	jr c,$-$09	jr c,$-$00
-4175	ed 42 	sbc hl,bc	sbc hl,bc
-4177	23 	inc hl	inc hl
-4178	5e 	ld e,(hl)	ld e,(hl)
-4179	23 	inc hl	inc hl
-417a	56 	ld d,(hl)	ld d,(hl)
-417b	eb 	ex de,hl	ex de,hl
-417c	c9 	ret	ret
-417d	21 00 00 	ld hl,$0000	ld hl,$0000
-4180	18 fa 	jr $-$04	jr $-$00
-4182	7c 	ld a,h	ld a,h
-4183	b5 	or l	or l
-4184	c8 	ret z	ret z
-4185	cd fa 44 	call $44fa	call $0000
-4188	20 61 	jr nz,$+$63	jr nz,$+$00
-418a	74 	ld (hl),h	ld (hl),h
-418b	20 6c 	jr nz,$+$6e	jr nz,$+$00
-418d	69 	ld l,c	ld l,c
-418e	6e 	ld l,(hl)	ld l,(hl)
-418f	65 	ld h,l	ld h,l
-4190	20 00 	jr nz,$+$02	jr nz,$+$00
-4192	0e 00 	ld c,$00	ld c,$00
-4194	18 02 	jr $+$04	jr $+$00
-4196	0e 20 	ld c,$20	ld c,$00
-4198	06 05 	ld b,$05	ld b,$00
-419a	11 10 27 	ld de,$2710	ld de,$0000
-419d	af 	xor a	xor a
-419e	ed 52 	sbc hl,de	sbc hl,de
-41a0	3c 	inc a	inc a
-41a1	30 fb 	jr nc,$-$03	jr nc,$-$00
-41a3	19 	add hl,de	add hl,de
-41a4	3d 	dec a	dec a
-41a5	28 04 	jr z,$+$06	jr z,$+$00
-41a7	cb e1 	set 4,c	set 4,c
-41a9	cb e9 	set 5,c	set 5,c
-41ab	b1 	or c	or c
-41ac	c4 02 41 	call nz,$4102	call nz,$0000
-41af	78 	ld a,b	ld a,b
-41b0	fe 05 	cp $05	cp $00
-41b2	28 06 	jr z,$+$08	jr z,$+$00
-41b4	29 	add hl,hl	add hl,hl
-41b5	54 	ld d,h	ld d,h
-41b6	5d 	ld e,l	ld e,l
-41b7	29 	add hl,hl	add hl,hl
-41b8	29 	add hl,hl	add hl,hl
-41b9	19 	add hl,de	add hl,de
-41ba	11 e8 03 	ld de,$03e8	ld de,$0000
-41bd	10 de 	djnz $-$20	djnz $-$00
-41bf	37 	scf	scf
-41c0	c9 	ret	ret
-41c1	fd 23 	inc iy	inc iy
-41c3	fd 23 	inc iy	inc iy
-41c5	e5 	push hl	push hl
-41c6	dd e1 	pop ix	pop ix
-41c8	7a 	ld a,d	ld a,d
-41c9	f6 40 	or $40	or $00
-41cb	bf 	cp a	cp a
-41cc	c9 	ret	ret
-41cd	cd 3c 43 	call $433c	call $0000
-41d0	fd 7e 00 	ld a,(iy)	ld a,(iy)
-41d3	fe 28 	cp $28	cp $00
-41d5	20 7d 	jr nz,$+$7f	jr nz,$+$00
-41d7	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
-41da	fe 29 	cp $29	cp $00
-41dc	28 e3 	jr z,$-$1b	jr z,$-$00
-41de	3e 0e 	ld a,$0e	ld a,$00
-41e0	c3 44 3f 	jp $3f44	jp $0000
-41e3	fd 7e 00 	ld a,(iy)	ld a,(iy)
-41e6	fe 21 	cp $21	cp $00
-41e8	28 76 	jr z,$+$78	jr z,$+$00
-41ea	fe 3f 	cp $3f	cp $00
-41ec	28 76 	jr z,$+$78	jr z,$+$00
-41ee	fe 7c 	cp $7c	cp $00
-41f0	28 75 	jr z,$+$77	jr z,$+$00
-41f2	fe 24 	cp $24	cp $00
-41f4	28 75 	jr z,$+$77	jr z,$+$00
-41f6	cd b0 42 	call $42b0	call $0000
-41f9	c0 	ret nz	ret nz
-41fa	fd 7e 00 	ld a,(iy)	ld a,(iy)
-41fd	fe 28 	cp $28	cp $00
-41ff	20 4b 	jr nz,$+$4d	jr nz,$+$00
-4201	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
-4204	fe 29 	cp $29	cp $00
-4206	28 b9 	jr z,$-$45	jr z,$-$00
-4208	d5 	push de	push de
-4209	7e 	ld a,(hl)	ld a,(hl)
+3e91	56 	ld d,(hl)	ld d,(hl)
+3e92	23 	inc hl	inc hl
+3e93	eb 	ex de,hl	ex de,hl
+3e94	b7 	or a	or a
+3e95	ed 42 	sbc hl,bc	sbc hl,bc
+3e97	eb 	ex de,hl	ex de,hl
+3e98	5e 	ld e,(hl)	ld e,(hl)
+3e99	23 	inc hl	inc hl
+3e9a	56 	ld d,(hl)	ld d,(hl)
+3e9b	23 	inc hl	inc hl
+3e9c	38 f1 	jr c,$-$0d	jr c,$-$00
+3e9e	eb 	ex de,hl	ex de,hl
+3e9f	28 1a 	jr z,$+$1c	jr z,$+$00
+3ea1	cd dc 44 	call $44dc	call $0000
+3ea4	46 	ld b,(hl)	ld b,(hl)
+3ea5	61 	ld h,c	ld h,c
+3ea6	69 	ld l,c	ld l,c
+3ea7	6c 	ld l,h	ld l,h
+3ea8	65 	ld h,l	ld h,l
+3ea9	64 	ld h,h	ld h,h
+3eaa	20 61 	jr nz,$+$63	jr nz,$+$00
+3eac	74 	ld (hl),h	ld (hl),h
+3ead	20 00 	jr nz,$+$02	jr nz,$+$00
+3eaf	d9 	exx	exx
+3eb0	e5 	push hl	push hl
+3eb1	d9 	exx	exx
+3eb2	e1 	pop hl	pop hl
+3eb3	cd 74 41 	call $4174	call $0000
+3eb6	cd dd 40 	call $40dd	call $0000
+3eb9	18 06 	jr $+$08	jr $+$00
+3ebb	d1 	pop de	pop de
+3ebc	d5 	push de	push de
+3ebd	1b 	dec de	dec de
+3ebe	cd a1 44 	call $44a1	call $0000
+3ec1	e1 	pop hl	pop hl
+3ec2	c1 	pop bc	pop bc
+3ec3	18 b3 	jr $-$4b	jr $-$00
+3ec5	cd 96 43 	call $4396	call $0000
+3ec8	22 e8 54 	ld ($54e8),hl	ld ($0000),hl
+3ecb	79 	ld a,c	ld a,c
+3ecc	32 ff 54 	ld ($54ff),a	ld ($0000),a
+3ecf	18 37 	jr $+$39	jr $+$00
+3ed1	cd dc 44 	call $44dc	call $0000
+3ed4	13 	inc de	inc de
+3ed5	70 	ld (hl),b	ld (hl),b
+3ed6	72 	ld (hl),d	ld (hl),d
+3ed7	6f 	ld l,a	ld l,a
+3ed8	67 	ld h,a	ld h,a
+3ed9	72 	ld (hl),d	ld (hl),d
+3eda	61 	ld h,c	ld h,c
+3edb	6d 	ld l,l	ld l,l
+3edc	0d 	dec c	dec c
+3edd	0a 	ld a,(bc)	ld a,(bc)
+3ede	00 	nop	nop
+3edf	cd 20 40 	call $4020	call $0000
+3ee2	18 24 	jr $+$26	jr $+$00
+3ee4	cd 1e 18 	call $181e	call $0000
+3ee7	3e 0d 	ld a,$0d	ld a,$00
+3ee9	12 	ld (de),a	ld (de),a
+3eea	cd e2 3f 	call $3fe2	call $0000
+3eed	cd 25 40 	call $4025	call $0000
+3ef0	18 31 	jr $+$33	jr $+$00
+3ef2	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+3ef5	e5 	push hl	push hl
+3ef6	23 	inc hl	inc hl
+3ef7	23 	inc hl	inc hl
+3ef8	23 	inc hl	inc hl
+3ef9	01 fc 00 	ld bc,$00fc	ld bc,$0000
+3efc	3e 0d 	ld a,$0d	ld a,$00
+3efe	ed b1 	cpir	cpir
+3f00	20 cf 	jr nz,$-$2f	jr nz,$-$00
+3f02	7d 	ld a,l	ld a,l
+3f03	e1 	pop hl	pop hl
+3f04	77 	ld (hl),a	ld (hl),a
+3f05	cd fc 3f 	call $3ffc	call $0000
+3f08	c3 92 37 	jp $3792	jp $0000
+3f0b	cd 1e 18 	call $181e	call $0000
+3f0e	3e 0d 	ld a,$0d	ld a,$00
+3f10	12 	ld (de),a	ld (de),a
+3f11	ed 5b dc 54 	ld de,($54dc)	ld de,($0000)
+3f15	cd 07 40 	call $4007	call $0000
+3f18	b7 	or a	or a
+3f19	ed 52 	sbc hl,de	sbc hl,de
+3f1b	44 	ld b,h	ld b,h
+3f1c	4d 	ld c,l	ld c,l
+3f1d	21 00 52 	ld hl,$5200	ld hl,$0000
+3f20	cd a4 07 	call $07a4	call $0000
+3f23	c3 91 37 	jp $3791	jp $0000
+3f26	21 03 3c 	ld hl,$3c03	ld hl,$0000
+3f29	4f 	ld c,a	ld c,a
+3f2a	b7 	or a	or a
+3f2b	28 0c 	jr z,$+$0e	jr z,$+$00
+3f2d	47 	ld b,a	ld b,a
+3f2e	af 	xor a	xor a
+3f2f	be 	cp (hl)	cp (hl)
+3f30	23 	inc hl	inc hl
+3f31	20 fc 	jr nz,$-$02	jr nz,$-$00
+3f33	10 fa 	djnz $-$04	djnz $-$00
+3f35	18 02 	jr $+$04	jr $+$00
+3f37	e1 	pop hl	pop hl
+3f38	4f 	ld c,a	ld c,a
+3f39	22 ee 54 	ld ($54ee),hl	ld ($0000),hl
+3f3c	2a ec 54 	ld hl,($54ec)	ld hl,($0000)
+3f3f	7c 	ld a,h	ld a,h
+3f40	b5 	or l	or l
+3f41	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
+3f45	28 01 	jr z,$+$03	jr z,$+$00
+3f47	f9 	ld sp,hl	ld sp,hl
+3f48	79 	ld a,c	ld a,c
+3f49	cd 3d 41 	call $413d	call $0000
+3f4c	32 fd 54 	ld ($54fd),a	ld ($0000),a
+3f4f	22 f2 54 	ld ($54f2),hl	ld ($0000),hl
+3f52	b7 	or a	or a
+3f53	28 0b 	jr z,$+$0d	jr z,$+$00
+3f55	2a ea 54 	ld hl,($54ea)	ld hl,($0000)
+3f58	7c 	ld a,h	ld a,h
+3f59	b5 	or l	or l
+3f5a	e5 	push hl	push hl
+3f5b	fd e1 	pop iy	pop iy
+3f5d	c2 7b 24 	jp nz,$247b	jp nz,$0000
+3f60	ed 7b e2 54 	ld sp,($54e2)	ld sp,($0000)
+3f64	ed 62 	sbc hl,hl	sbc hl,hl
+3f66	22 e8 54 	ld ($54e8),hl	ld ($0000),hl
+3f69	22 e6 54 	ld ($54e6),hl	ld ($0000),hl
+3f6c	cd 25 06 	call $0625	call $0000
+3f6f	cd dd 40 	call $40dd	call $0000
+3f72	cd c7 44 	call $44c7	call $0000
+3f75	2a f2 54 	ld hl,($54f2)	ld hl,($0000)
+3f78	cd 64 41 	call $4164	call $0000
+3f7b	1e 00 	ld e,$00	ld e,$00
+3f7d	dc 35 06 	call c,$0635	call c,$0000
+3f80	cd dd 40 	call $40dd	call $0000
+3f83	18 83 	jr $-$7b	jr $-$00
+3f85	21 66 38 	ld hl,$3866	ld hl,$0000
+3f88	fd 7e 00 	ld a,(iy)	ld a,(iy)
+3f8b	46 	ld b,(hl)	ld b,(hl)
+3f8c	23 	inc hl	inc hl
+3f8d	be 	cp (hl)	cp (hl)
+3f8e	28 0a 	jr z,$+$0c	jr z,$+$00
+3f90	d8 	ret c	ret c
+3f91	23 	inc hl	inc hl
+3f92	7e 	ld a,(hl)	ld a,(hl)
+3f93	fe a0 	cp $a0	cp $00
+3f95	ea 91 3f 	jp pe,$3f91	jp pe,$0000
+3f98	18 ee 	jr $-$10	jr $-$00
+3f9a	fd e5 	push iy	push iy
+3f9c	23 	inc hl	inc hl
+3f9d	7e 	ld a,(hl)	ld a,(hl)
+3f9e	fe a0 	cp $a0	cp $00
+3fa0	e2 c7 3f 	jp po,$3fc7	jp po,$0000
+3fa3	fd 23 	inc iy	inc iy
+3fa5	fd 7e 00 	ld a,(iy)	ld a,(iy)
+3fa8	be 	cp (hl)	cp (hl)
+3fa9	20 05 	jr nz,$+$07	jr nz,$+$00
+3fab	fe a1 	cp $a1	cp $00
+3fad	ea 9c 3f 	jp pe,$3f9c	jp pe,$0000
+3fb0	fd 7e 00 	ld a,(iy)	ld a,(iy)
+3fb3	fe 2e 	cp $2e	cp $00
+3fb5	28 10 	jr z,$+$12	jr z,$+$00
+3fb7	cd de 43 	call $43de	call $0000
+3fba	38 04 	jr c,$+$06	jr c,$+$00
+3fbc	fd e1 	pop iy	pop iy
+3fbe	18 d1 	jr $-$2d	jr $-$00
+3fc0	7e 	ld a,(hl)	ld a,(hl)
+3fc1	fe 20 	cp $20	cp $00
+3fc3	20 f7 	jr nz,$-$07	jr nz,$-$00
+3fc5	fd 2b 	dec iy	dec iy
+3fc7	f1 	pop af	pop af
+3fc8	af 	xor a	xor a
+3fc9	78 	ld a,b	ld a,b
+3fca	c9 	ret	ret
+3fcb	d5 	push de	push de
+3fcc	e5 	push hl	push hl
+3fcd	e5 	push hl	push hl
+3fce	06 00 	ld b,$00	ld b,$00
+3fd0	4e 	ld c,(hl)	ld c,(hl)
+3fd1	09 	add hl,bc	add hl,bc
+3fd2	e5 	push hl	push hl
+3fd3	eb 	ex de,hl	ex de,hl
+3fd4	cd 07 40 	call $4007	call $0000
+3fd7	ed 52 	sbc hl,de	sbc hl,de
+3fd9	44 	ld b,h	ld b,h
+3fda	4d 	ld c,l	ld c,l
+3fdb	e1 	pop hl	pop hl
+3fdc	d1 	pop de	pop de
+3fdd	ed b0 	ldir	ldir
+3fdf	e1 	pop hl	pop hl
+3fe0	d1 	pop de	pop de
+3fe1	c9 	ret	ret
+3fe2	ed 5b dc 54 	ld de,($54dc)	ld de,($0000)
+3fe6	21 00 ff 	ld hl,$ff00	ld hl,$0000
+3fe9	39 	add hl,sp	add hl,sp
+3fea	ed 52 	sbc hl,de	sbc hl,de
+3fec	44 	ld b,h	ld b,h
+3fed	4d 	ld c,l	ld c,l
+3fee	21 00 52 	ld hl,$5200	ld hl,$0000
+3ff1	cd ae 06 	call $06ae	call $0000
+3ff4	d4 20 40 	call nc,$4020	call nc,$0000
+3ff7	3e 00 	ld a,$00	ld a,$00
+3ff9	d2 26 3f 	jp nc,$3f26	jp nc,$0000
+3ffc	cd 07 40 	call $4007	call $0000
+3fff	2b 	dec hl	dec hl
+4000	36 ff 	ld (hl),$ff	ld (hl),$00
+4002	2b 	dec hl	dec hl
+4003	36 ff 	ld (hl),$ff	ld (hl),$00
+4005	18 1e 	jr $+$20	jr $+$00
+4007	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+400a	06 00 	ld b,$00	ld b,$00
+400c	3e 0d 	ld a,$0d	ld a,$00
+400e	4e 	ld c,(hl)	ld c,(hl)
+400f	0c 	inc c	inc c
+4010	0d 	dec c	dec c
+4011	28 09 	jr z,$+$0b	jr z,$+$00
+4013	09 	add hl,bc	add hl,bc
+4014	2b 	dec hl	dec hl
+4015	be 	cp (hl)	cp (hl)
+4016	23 	inc hl	inc hl
+4017	28 f5 	jr z,$-$09	jr z,$-$00
+4019	c3 d1 3e 	jp $3ed1	jp $0000
+401c	23 	inc hl	inc hl
+401d	23 	inc hl	inc hl
+401e	23 	inc hl	inc hl
+401f	c9 	ret	ret
+4020	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+4023	36 00 	ld (hl),$00	ld (hl),$00
+4025	e5 	push hl	push hl
+4026	c5 	push bc	push bc
+4027	f5 	push af	push af
+4028	cd 07 40 	call $4007	call $0000
+402b	22 de 54 	ld ($54de),hl	ld ($0000),hl
+402e	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
+4031	21 6c 54 	ld hl,$546c	ld hl,$0000
+4034	06 70 	ld b,$70	ld b,$00
+4036	36 00 	ld (hl),$00	ld (hl),$00
+4038	23 	inc hl	inc hl
+4039	10 fb 	djnz $-$03	djnz $-$00
+403b	f1 	pop af	pop af
+403c	c1 	pop bc	pop bc
+403d	e1 	pop hl	pop hl
+403e	c9 	ret	ret
+403f	e5 	push hl	push hl
+4040	eb 	ex de,hl	ex de,hl
+4041	c5 	push bc	push bc
+4042	cd 78 41 	call $4178	call $0000
+4045	c1 	pop bc	pop bc
+4046	e1 	pop hl	pop hl
+4047	7e 	ld a,(hl)	ld a,(hl)
+4048	d9 	exx	exx
+4049	21 60 3d 	ld hl,$3d60	ld hl,$0000
+404c	01 08 00 	ld bc,$0008	ld bc,$0000
+404f	ed b1 	cpir	cpir
+4051	cc d7 40 	call z,$40d7	call z,$0000
+4054	fe cb 	cp $cb	cp $00
+4056	cc d7 40 	call z,$40d7	call z,$0000
+4059	3e 20 	ld a,$20	ld a,$00
+405b	dd cb 00 46 	bit 0,(ix)	bit 0,(ix)
+405f	c4 e4 40 	call nz,$40e4	call nz,$0000
+4062	7b 	ld a,e	ld a,e
+4063	87 	add a,a	add a,a
+4064	dd cb 00 4e 	bit 1,(ix)	bit 1,(ix)
+4068	c4 85 35 	call nz,$3585	call nz,$0000
+406b	d9 	exx	exx
+406c	7e 	ld a,(hl)	ld a,(hl)
+406d	1e 00 	ld e,$00	ld e,$00
+406f	d9 	exx	exx
+4070	01 07 00 	ld bc,$0007	ld bc,$0000
+4073	21 59 3d 	ld hl,$3d59	ld hl,$0000
+4076	ed b1 	cpir	cpir
+4078	cc db 40 	call z,$40db	call z,$0000
+407b	fe c8 	cp $c8	cp $00
+407d	cc db 40 	call z,$40db	call z,$0000
+4080	d9 	exx	exx
+4081	7e 	ld a,(hl)	ld a,(hl)
+4082	23 	inc hl	inc hl
+4083	fe 0d 	cp $0d	cp $00
+4085	28 25 	jr z,$+$27	jr z,$+$00
+4087	57 	ld d,a	ld d,a
+4088	fe 10 	cp $10	cp $00
+408a	20 02 	jr nz,$+$04	jr nz,$+$00
+408c	cb fb 	set 7,e	set 7,e
+408e	fe 22 	cp $22	cp $00
+4090	20 01 	jr nz,$+$03	jr nz,$+$00
+4092	1c 	inc e	inc e
+4093	cd cb 40 	call $40cb	call $0000
+4096	7b 	ld a,e	ld a,e
+4097	e6 81 	and $81	and $00
+4099	20 e6 	jr nz,$-$18	jr nz,$-$00
+409b	7e 	ld a,(hl)	ld a,(hl)
+409c	d9 	exx	exx
+409d	21 60 3d 	ld hl,$3d60	ld hl,$0000
+40a0	01 03 00 	ld bc,$0003	ld bc,$0000
+40a3	ed b1 	cpir	cpir
+40a5	cc d7 40 	call z,$40d7	call z,$0000
+40a8	0e 04 	ld c,$04	ld c,$00
+40aa	18 c7 	jr $-$37	jr $-$00
+40ac	7a 	ld a,d	ld a,d
+40ad	fe 8c 	cp $8c	cp $00
+40af	d9 	exx	exx
+40b0	cc db 40 	call z,$40db	call z,$0000
+40b3	d9 	exx	exx
+40b4	18 27 	jr $+$29	jr $+$00
+40b6	e5 	push hl	push hl
+40b7	fd e1 	pop iy	pop iy
+40b9	c5 	push bc	push bc
+40ba	cd 42 1f 	call $1f42	call $0000
+40bd	c1 	pop bc	pop bc
+40be	d9 	exx	exx
+40bf	c5 	push bc	push bc
+40c0	d5 	push de	push de
+40c1	cd 74 41 	call $4174	call $0000
+40c4	d1 	pop de	pop de
+40c5	c1 	pop bc	pop bc
+40c6	d9 	exx	exx
+40c7	fd e5 	push iy	push iy
+40c9	e1 	pop hl	pop hl
+40ca	c9 	ret	ret
+40cb	cb 43 	bit 0,e	bit 0,e
+40cd	20 15 	jr nz,$+$17	jr nz,$+$00
+40cf	fe 8d 	cp $8d	cp $00
+40d1	28 e3 	jr z,$-$1b	jr z,$-$00
+40d3	cd fd 40 	call $40fd	call $0000
+40d6	c9 	ret	ret
+40d7	1d 	dec e	dec e
+40d8	f2 dc 40 	jp p,$40dc	jp p,$0000
+40db	1c 	inc e	inc e
+40dc	c9 	ret	ret
+40dd	3e 0d 	ld a,$0d	ld a,$00
+40df	cd e4 40 	call $40e4	call $0000
+40e2	3e 0a 	ld a,$0a	ld a,$00
+40e4	cd 93 05 	call $0593	call $0000
+40e7	d6 0d 	sub $0d	sub $00
+40e9	28 05 	jr z,$+$07	jr z,$+$00
+40eb	d8 	ret c	ret c
+40ec	3a fb 54 	ld a,($54fb)	ld a,($0000)
+40ef	3c 	inc a	inc a
+40f0	32 fb 54 	ld ($54fb),a	ld ($0000),a
+40f3	c8 	ret z	ret z
+40f4	e5 	push hl	push hl
+40f5	2a fc 54 	ld hl,($54fc)	ld hl,($0000)
+40f8	bd 	cp l	cp l
+40f9	e1 	pop hl	pop hl
+40fa	c0 	ret nz	ret nz
+40fb	18 e0 	jr $-$1e	jr $-$00
+40fd	fe a0 	cp $a0	cp $00
+40ff	ea e4 40 	jp pe,$40e4	jp pe,$0000
+4102	c5 	push bc	push bc
+4103	e5 	push hl	push hl
+4104	21 66 38 	ld hl,$3866	ld hl,$0000
+4107	01 5b 03 	ld bc,$035b	ld bc,$0000
+410a	ed b1 	cpir	cpir
+410c	c4 e4 40 	call nz,$40e4	call nz,$0000
+410f	06 a0 	ld b,$a0	ld b,$00
+4111	fe 91 	cp $91	cp $00
+4113	ea 17 41 	jp pe,$4117	jp pe,$0000
+4116	04 	inc b	inc b
+4117	7e 	ld a,(hl)	ld a,(hl)
+4118	23 	inc hl	inc hl
+4119	b8 	cp b	cp b
+411a	f5 	push af	push af
+411b	ec e4 40 	call pe,$40e4	call pe,$0000
+411e	f1 	pop af	pop af
+411f	ea 17 41 	jp pe,$4117	jp pe,$0000
+4122	e1 	pop hl	pop hl
+4123	c1 	pop bc	pop bc
+4124	c9 	ret	ret
+4125	eb 	ex de,hl	ex de,hl
+4126	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+4129	af 	xor a	xor a
+412a	be 	cp (hl)	cp (hl)
+412b	3c 	inc a	inc a
+412c	d0 	ret nc	ret nc
+412d	af 	xor a	xor a
+412e	47 	ld b,a	ld b,a
+412f	4e 	ld c,(hl)	ld c,(hl)
+4130	e5 	push hl	push hl
+4131	23 	inc hl	inc hl
+4132	7e 	ld a,(hl)	ld a,(hl)
+4133	23 	inc hl	inc hl
+4134	66 	ld h,(hl)	ld h,(hl)
+4135	6f 	ld l,a	ld l,a
+4136	ed 52 	sbc hl,de	sbc hl,de
+4138	e1 	pop hl	pop hl
+4139	d0 	ret nc	ret nc
+413a	09 	add hl,bc	add hl,bc
+413b	18 f2 	jr $-$0c	jr $-$00
+413d	06 00 	ld b,$00	ld b,$00
+413f	ed 5b f4 54 	ld de,($54f4)	ld de,($0000)
+4143	2a dc 54 	ld hl,($54dc)	ld hl,($0000)
+4146	b7 	or a	or a
+4147	ed 52 	sbc hl,de	sbc hl,de
+4149	19 	add hl,de	add hl,de
+414a	30 13 	jr nc,$+$15	jr nc,$+$00
+414c	4e 	ld c,(hl)	ld c,(hl)
+414d	0c 	inc c	inc c
+414e	0d 	dec c	dec c
+414f	28 0e 	jr z,$+$10	jr z,$+$00
+4151	09 	add hl,bc	add hl,bc
+4152	ed 52 	sbc hl,de	sbc hl,de
+4154	19 	add hl,de	add hl,de
+4155	38 f5 	jr c,$-$09	jr c,$-$00
+4157	ed 42 	sbc hl,bc	sbc hl,bc
+4159	23 	inc hl	inc hl
+415a	5e 	ld e,(hl)	ld e,(hl)
+415b	23 	inc hl	inc hl
+415c	56 	ld d,(hl)	ld d,(hl)
+415d	eb 	ex de,hl	ex de,hl
+415e	c9 	ret	ret
+415f	21 00 00 	ld hl,$0000	ld hl,$0000
+4162	18 fa 	jr $-$04	jr $-$00
+4164	7c 	ld a,h	ld a,h
+4165	b5 	or l	or l
+4166	c8 	ret z	ret z
+4167	cd dc 44 	call $44dc	call $0000
+416a	20 61 	jr nz,$+$63	jr nz,$+$00
+416c	74 	ld (hl),h	ld (hl),h
+416d	20 6c 	jr nz,$+$6e	jr nz,$+$00
+416f	69 	ld l,c	ld l,c
+4170	6e 	ld l,(hl)	ld l,(hl)
+4171	65 	ld h,l	ld h,l
+4172	20 00 	jr nz,$+$02	jr nz,$+$00
+4174	0e 00 	ld c,$00	ld c,$00
+4176	18 02 	jr $+$04	jr $+$00
+4178	0e 20 	ld c,$20	ld c,$00
+417a	06 05 	ld b,$05	ld b,$00
+417c	11 10 27 	ld de,$2710	ld de,$0000
+417f	af 	xor a	xor a
+4180	ed 52 	sbc hl,de	sbc hl,de
+4182	3c 	inc a	inc a
+4183	30 fb 	jr nc,$-$03	jr nc,$-$00
+4185	19 	add hl,de	add hl,de
+4186	3d 	dec a	dec a
+4187	28 04 	jr z,$+$06	jr z,$+$00
+4189	cb e1 	set 4,c	set 4,c
+418b	cb e9 	set 5,c	set 5,c
+418d	b1 	or c	or c
+418e	c4 e4 40 	call nz,$40e4	call nz,$0000
+4191	78 	ld a,b	ld a,b
+4192	fe 05 	cp $05	cp $00
+4194	28 06 	jr z,$+$08	jr z,$+$00
+4196	29 	add hl,hl	add hl,hl
+4197	54 	ld d,h	ld d,h
+4198	5d 	ld e,l	ld e,l
+4199	29 	add hl,hl	add hl,hl
+419a	29 	add hl,hl	add hl,hl
+419b	19 	add hl,de	add hl,de
+419c	11 e8 03 	ld de,$03e8	ld de,$0000
+419f	10 de 	djnz $-$20	djnz $-$00
+41a1	37 	scf	scf
+41a2	c9 	ret	ret
+41a3	fd 23 	inc iy	inc iy
+41a5	fd 23 	inc iy	inc iy
+41a7	e5 	push hl	push hl
+41a8	dd e1 	pop ix	pop ix
+41aa	7a 	ld a,d	ld a,d
+41ab	f6 40 	or $40	or $00
+41ad	bf 	cp a	cp a
+41ae	c9 	ret	ret
+41af	cd 1e 43 	call $431e	call $0000
+41b2	fd 7e 00 	ld a,(iy)	ld a,(iy)
+41b5	fe 28 	cp $28	cp $00
+41b7	20 7d 	jr nz,$+$7f	jr nz,$+$00
+41b9	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
+41bc	fe 29 	cp $29	cp $00
+41be	28 e3 	jr z,$-$1b	jr z,$-$00
+41c0	3e 0e 	ld a,$0e	ld a,$00
+41c2	c3 26 3f 	jp $3f26	jp $0000
+41c5	fd 7e 00 	ld a,(iy)	ld a,(iy)
+41c8	fe 21 	cp $21	cp $00
+41ca	28 76 	jr z,$+$78	jr z,$+$00
+41cc	fe 3f 	cp $3f	cp $00
+41ce	28 76 	jr z,$+$78	jr z,$+$00
+41d0	fe 7c 	cp $7c	cp $00
+41d2	28 75 	jr z,$+$77	jr z,$+$00
+41d4	fe 24 	cp $24	cp $00
+41d6	28 75 	jr z,$+$77	jr z,$+$00
+41d8	cd 92 42 	call $4292	call $0000
+41db	c0 	ret nz	ret nz
+41dc	fd 7e 00 	ld a,(iy)	ld a,(iy)
+41df	fe 28 	cp $28	cp $00
+41e1	20 4b 	jr nz,$+$4d	jr nz,$+$00
+41e3	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
+41e6	fe 29 	cp $29	cp $00
+41e8	28 b9 	jr z,$-$45	jr z,$-$00
+41ea	d5 	push de	push de
+41eb	7e 	ld a,(hl)	ld a,(hl)
+41ec	23 	inc hl	inc hl
+41ed	66 	ld h,(hl)	ld h,(hl)
+41ee	6f 	ld l,a	ld l,a
+41ef	e6 fe 	and $fe	and $00
+41f1	b4 	or h	or h
+41f2	28 cc 	jr z,$-$32	jr z,$-$00
+41f4	7e 	ld a,(hl)	ld a,(hl)
+41f5	b7 	or a	or a
+41f6	28 c8 	jr z,$-$36	jr z,$-$00
+41f8	23 	inc hl	inc hl
+41f9	11 00 00 	ld de,$0000	ld de,$0000
+41fc	f5 	push af	push af
+41fd	fd 23 	inc iy	inc iy
+41ff	e5 	push hl	push hl
+4200	d5 	push de	push de
+4201	cd 15 18 	call $1815	call $0000
+4204	d9 	exx	exx
+4205	d1 	pop de	pop de
+4206	e3 	ex (sp),hl	ex (sp),hl
+4207	4e 	ld c,(hl)	ld c,(hl)
+4208	23 	inc hl	inc hl
+4209	46 	ld b,(hl)	ld b,(hl)
 420a	23 	inc hl	inc hl
-420b	66 	ld h,(hl)	ld h,(hl)
-420c	6f 	ld l,a	ld l,a
-420d	e6 fe 	and $fe	and $00
-420f	b4 	or h	or h
-4210	28 cc 	jr z,$-$32	jr z,$-$00
-4212	7e 	ld a,(hl)	ld a,(hl)
-4213	b7 	or a	or a
-4214	28 c8 	jr z,$-$36	jr z,$-$00
-4216	23 	inc hl	inc hl
-4217	11 00 00 	ld de,$0000	ld de,$0000
-421a	f5 	push af	push af
-421b	fd 23 	inc iy	inc iy
-421d	e5 	push hl	push hl
-421e	d5 	push de	push de
-421f	cd 33 18 	call $1833	call $0000
-4222	d9 	exx	exx
-4223	d1 	pop de	pop de
-4224	e3 	ex (sp),hl	ex (sp),hl
-4225	4e 	ld c,(hl)	ld c,(hl)
-4226	23 	inc hl	inc hl
-4227	46 	ld b,(hl)	ld b,(hl)
-4228	23 	inc hl	inc hl
-4229	e3 	ex (sp),hl	ex (sp),hl
-422a	eb 	ex de,hl	ex de,hl
-422b	d5 	push de	push de
-422c	cd bd 36 	call $36bd	call $0000
-422f	d1 	pop de	pop de
-4230	19 	add hl,de	add hl,de
-4231	eb 	ex de,hl	ex de,hl
-4232	b7 	or a	or a
-4233	ed 42 	sbc hl,bc	sbc hl,bc
-4235	3e 0f 	ld a,$0f	ld a,$00
-4237	30 a7 	jr nc,$-$57	jr nc,$-$00
-4239	e1 	pop hl	pop hl
-423a	f1 	pop af	pop af
-423b	3d 	dec a	dec a
-423c	20 1c 	jr nz,$+$1e	jr nz,$+$00
-423e	cd ae 20 	call $20ae	call $0000
-4241	f1 	pop af	pop af
-4242	e5 	push hl	push hl
-4243	cd ad 36 	call $36ad	call $0000
-4246	e1 	pop hl	pop hl
-4247	19 	add hl,de	add hl,de
-4248	57 	ld d,a	ld d,a
-4249	fd 7e 00 	ld a,(iy)	ld a,(iy)
-424c	fe 3f 	cp $3f	cp $00
-424e	28 26 	jr z,$+$28	jr z,$+$00
-4250	fe 21 	cp $21	cp $00
-4252	28 1e 	jr z,$+$20	jr z,$+$00
-4254	e5 	push hl	push hl
-4255	dd e1 	pop ix	pop ix
-4257	7a 	ld a,d	ld a,d
-4258	bf 	cp a	cp a
-4259	c9 	ret	ret
-425a	f5 	push af	push af
-425b	cd a2 20 	call $20a2	call $0000
-425e	18 bd 	jr $-$41	jr $-$00
-4260	3e 04 	ld a,$04	ld a,$00
-4262	18 09 	jr $+$0b	jr $+$00
-4264	af 	xor a	xor a
-4265	18 06 	jr $+$08	jr $+$00
-4267	3e 05 	ld a,$05	ld a,$00
-4269	18 02 	jr $+$04	jr $+$00
-426b	3e 80 	ld a,$80	ld a,$00
-426d	ed 62 	sbc hl,hl	sbc hl,hl
-426f	f5 	push af	push af
-4270	18 15 	jr $+$17	jr $+$00
-4272	06 04 	ld b,$04	ld b,$00
-4274	18 02 	jr $+$04	jr $+$00
-4276	06 00 	ld b,$00	ld b,$00
-4278	e5 	push hl	push hl
-4279	dd e1 	pop ix	pop ix
-427b	7a 	ld a,d	ld a,d
-427c	fe 81 	cp $81	cp $00
-427e	c8 	ret z	ret z
-427f	c5 	push bc	push bc
-4280	cd 25 19 	call $1925	call $0000
-4283	cd 17 1c 	call $1c17	call $0000
-4286	d9 	exx	exx
-4287	e5 	push hl	push hl
-4288	fd 23 	inc iy	inc iy
-428a	cd 60 18 	call $1860	call $0000
-428d	d9 	exx	exx
-428e	d1 	pop de	pop de
-428f	f1 	pop af	pop af
-4290	19 	add hl,de	add hl,de
-4291	e5 	push hl	push hl
-4292	dd e1 	pop ix	pop ix
-4294	bf 	cp a	cp a
-4295	c9 	ret	ret
-4296	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
-4299	cd fc 43 	call $43fc	call $0000
-429c	d8 	ret c	ret c
-429d	fd 7e 00 	ld a,(iy)	ld a,(iy)
-42a0	21 d8 54 	ld hl,$54d8	ld hl,$0000
-42a3	fe a4 	cp $a4	cp $00
-42a5	28 43 	jr z,$+$45	jr z,$+$00
-42a7	21 da 54 	ld hl,$54da	ld hl,$0000
-42aa	fe f2 	cp $f2	cp $00
-42ac	28 3c 	jr z,$+$3e	jr z,$+$00
-42ae	37 	scf	scf
-42af	c9 	ret	ret
-42b0	d6 40 	sub $40	sub $00
-42b2	d8 	ret c	ret c
-42b3	26 00 	ld h,$00	ld h,$00
-42b5	fe 1b 	cp $1b	cp $00
-42b7	30 1d 	jr nc,$+$1f	jr nc,$+$00
-42b9	87 	add a,a	add a,a
-42ba	6f 	ld l,a	ld l,a
-42bb	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
-42be	fe 25 	cp $25	cp $00
-42c0	20 20 	jr nz,$+$22	jr nz,$+$00
-42c2	fd 7e 02 	ld a,(iy+$02)	ld a,(iy+$00)
-42c5	fe 28 	cp $28	cp $00
-42c7	28 19 	jr z,$+$1b	jr z,$+$00
-42c9	29 	add hl,hl	add hl,hl
-42ca	11 00 54 	ld de,$5400	ld de,$0000
-42cd	19 	add hl,de	add hl,de
-42ce	fd 23 	inc iy	inc iy
-42d0	fd 23 	inc iy	inc iy
-42d2	16 04 	ld d,$04	ld d,$00
-42d4	af 	xor a	xor a
-42d5	c9 	ret	ret
-42d6	fe 1f 	cp $1f	cp $00
-42d8	d8 	ret c	ret c
-42d9	fe 3b 	cp $3b	cp $00
-42db	3f 	ccf	ccf
-42dc	3d 	dec a	dec a
-42dd	d8 	ret c	ret c
-42de	d6 03 	sub $03	sub $00
-42e0	87 	add a,a	add a,a
-42e1	6f 	ld l,a	ld l,a
-42e2	11 6c 54 	ld de,$546c	ld de,$0000
-42e5	2d 	dec l	dec l
-42e6	2d 	dec l	dec l
-42e7	37 	scf	scf
-42e8	f8 	ret m	ret m
-42e9	19 	add hl,de	add hl,de
-42ea	5e 	ld e,(hl)	ld e,(hl)
-42eb	23 	inc hl	inc hl
-42ec	56 	ld d,(hl)	ld d,(hl)
-42ed	7a 	ld a,d	ld a,d
-42ee	b3 	or e	or e
-42ef	28 49 	jr z,$+$4b	jr z,$+$00
-42f1	62 	ld h,d	ld h,d
-42f2	6b 	ld l,e	ld l,e
-42f3	23 	inc hl	inc hl
-42f4	23 	inc hl	inc hl
-42f5	fd e5 	push iy	push iy
-42f7	7e 	ld a,(hl)	ld a,(hl)
-42f8	23 	inc hl	inc hl
-42f9	fd 23 	inc iy	inc iy
-42fb	fd be 00 	cp (iy)	cp (iy)
-42fe	28 f7 	jr z,$-$07	jr z,$-$00
-4300	b7 	or a	or a
-4301	28 05 	jr z,$+$07	jr z,$+$00
-4303	fd e1 	pop iy	pop iy
-4305	eb 	ex de,hl	ex de,hl
-4306	18 e2 	jr $-$1c	jr $-$00
-4308	fd 2b 	dec iy	dec iy
-430a	fd 7e 00 	ld a,(iy)	ld a,(iy)
-430d	fe 28 	cp $28	cp $00
-430f	28 13 	jr z,$+$15	jr z,$+$00
-4311	fd 23 	inc iy	inc iy
-4313	cd ef 43 	call $43ef	call $0000
-4316	38 0c 	jr c,$+$0e	jr c,$+$00
-4318	fe 28 	cp $28	cp $00
-431a	28 e7 	jr z,$-$17	jr z,$-$00
-431c	fd 7e ff 	ld a,(iy-$01)	ld a,(iy-$00)
-431f	cd fc 43 	call $43fc	call $0000
-4322	30 df 	jr nc,$-$1f	jr nc,$-$00
-4324	d1 	pop de	pop de
-4325	fd 7e ff 	ld a,(iy-$01)	ld a,(iy-$00)
-4328	fe 24 	cp $24	cp $00
-432a	16 81 	ld d,$81	ld d,$00
-432c	c8 	ret z	ret z
-432d	fe 26 	cp $26	cp $00
-432f	16 01 	ld d,$01	ld d,$00
-4331	c8 	ret z	ret z
-4332	fe 25 	cp $25	cp $00
-4334	16 04 	ld d,$04	ld d,$00
-4336	c8 	ret z	ret z
-4337	14 	inc d	inc d
-4338	bf 	cp a	cp a
-4339	c9 	ret	ret
-433a	3c 	inc a	inc a
-433b	c9 	ret	ret
-433c	af 	xor a	xor a
-433d	ed 5b e0 54 	ld de,($54e0)	ld de,($0000)
-4341	72 	ld (hl),d	ld (hl),d
-4342	2b 	dec hl	dec hl
-4343	73 	ld (hl),e	ld (hl),e
-4344	eb 	ex de,hl	ex de,hl
-4345	77 	ld (hl),a	ld (hl),a
-4346	23 	inc hl	inc hl
-4347	77 	ld (hl),a	ld (hl),a
+420b	e3 	ex (sp),hl	ex (sp),hl
+420c	eb 	ex de,hl	ex de,hl
+420d	d5 	push de	push de
+420e	cd 9f 36 	call $369f	call $0000
+4211	d1 	pop de	pop de
+4212	19 	add hl,de	add hl,de
+4213	eb 	ex de,hl	ex de,hl
+4214	b7 	or a	or a
+4215	ed 42 	sbc hl,bc	sbc hl,bc
+4217	3e 0f 	ld a,$0f	ld a,$00
+4219	30 a7 	jr nc,$-$57	jr nc,$-$00
+421b	e1 	pop hl	pop hl
+421c	f1 	pop af	pop af
+421d	3d 	dec a	dec a
+421e	20 1c 	jr nz,$+$1e	jr nz,$+$00
+4220	cd 90 20 	call $2090	call $0000
+4223	f1 	pop af	pop af
+4224	e5 	push hl	push hl
+4225	cd 8f 36 	call $368f	call $0000
+4228	e1 	pop hl	pop hl
+4229	19 	add hl,de	add hl,de
+422a	57 	ld d,a	ld d,a
+422b	fd 7e 00 	ld a,(iy)	ld a,(iy)
+422e	fe 3f 	cp $3f	cp $00
+4230	28 26 	jr z,$+$28	jr z,$+$00
+4232	fe 21 	cp $21	cp $00
+4234	28 1e 	jr z,$+$20	jr z,$+$00
+4236	e5 	push hl	push hl
+4237	dd e1 	pop ix	pop ix
+4239	7a 	ld a,d	ld a,d
+423a	bf 	cp a	cp a
+423b	c9 	ret	ret
+423c	f5 	push af	push af
+423d	cd 84 20 	call $2084	call $0000
+4240	18 bd 	jr $-$41	jr $-$00
+4242	3e 04 	ld a,$04	ld a,$00
+4244	18 09 	jr $+$0b	jr $+$00
+4246	af 	xor a	xor a
+4247	18 06 	jr $+$08	jr $+$00
+4249	3e 05 	ld a,$05	ld a,$00
+424b	18 02 	jr $+$04	jr $+$00
+424d	3e 80 	ld a,$80	ld a,$00
+424f	ed 62 	sbc hl,hl	sbc hl,hl
+4251	f5 	push af	push af
+4252	18 15 	jr $+$17	jr $+$00
+4254	06 04 	ld b,$04	ld b,$00
+4256	18 02 	jr $+$04	jr $+$00
+4258	06 00 	ld b,$00	ld b,$00
+425a	e5 	push hl	push hl
+425b	dd e1 	pop ix	pop ix
+425d	7a 	ld a,d	ld a,d
+425e	fe 81 	cp $81	cp $00
+4260	c8 	ret z	ret z
+4261	c5 	push bc	push bc
+4262	cd 07 19 	call $1907	call $0000
+4265	cd f9 1b 	call $1bf9	call $0000
+4268	d9 	exx	exx
+4269	e5 	push hl	push hl
+426a	fd 23 	inc iy	inc iy
+426c	cd 42 18 	call $1842	call $0000
+426f	d9 	exx	exx
+4270	d1 	pop de	pop de
+4271	f1 	pop af	pop af
+4272	19 	add hl,de	add hl,de
+4273	e5 	push hl	push hl
+4274	dd e1 	pop ix	pop ix
+4276	bf 	cp a	cp a
+4277	c9 	ret	ret
+4278	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
+427b	cd de 43 	call $43de	call $0000
+427e	d8 	ret c	ret c
+427f	fd 7e 00 	ld a,(iy)	ld a,(iy)
+4282	21 d8 54 	ld hl,$54d8	ld hl,$0000
+4285	fe a4 	cp $a4	cp $00
+4287	28 43 	jr z,$+$45	jr z,$+$00
+4289	21 da 54 	ld hl,$54da	ld hl,$0000
+428c	fe f2 	cp $f2	cp $00
+428e	28 3c 	jr z,$+$3e	jr z,$+$00
+4290	37 	scf	scf
+4291	c9 	ret	ret
+4292	d6 40 	sub $40	sub $00
+4294	d8 	ret c	ret c
+4295	26 00 	ld h,$00	ld h,$00
+4297	fe 1b 	cp $1b	cp $00
+4299	30 1d 	jr nc,$+$1f	jr nc,$+$00
+429b	87 	add a,a	add a,a
+429c	6f 	ld l,a	ld l,a
+429d	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
+42a0	fe 25 	cp $25	cp $00
+42a2	20 20 	jr nz,$+$22	jr nz,$+$00
+42a4	fd 7e 02 	ld a,(iy+$02)	ld a,(iy+$00)
+42a7	fe 28 	cp $28	cp $00
+42a9	28 19 	jr z,$+$1b	jr z,$+$00
+42ab	29 	add hl,hl	add hl,hl
+42ac	11 00 54 	ld de,$5400	ld de,$0000
+42af	19 	add hl,de	add hl,de
+42b0	fd 23 	inc iy	inc iy
+42b2	fd 23 	inc iy	inc iy
+42b4	16 04 	ld d,$04	ld d,$00
+42b6	af 	xor a	xor a
+42b7	c9 	ret	ret
+42b8	fe 1f 	cp $1f	cp $00
+42ba	d8 	ret c	ret c
+42bb	fe 3b 	cp $3b	cp $00
+42bd	3f 	ccf	ccf
+42be	3d 	dec a	dec a
+42bf	d8 	ret c	ret c
+42c0	d6 03 	sub $03	sub $00
+42c2	87 	add a,a	add a,a
+42c3	6f 	ld l,a	ld l,a
+42c4	11 6c 54 	ld de,$546c	ld de,$0000
+42c7	2d 	dec l	dec l
+42c8	2d 	dec l	dec l
+42c9	37 	scf	scf
+42ca	f8 	ret m	ret m
+42cb	19 	add hl,de	add hl,de
+42cc	5e 	ld e,(hl)	ld e,(hl)
+42cd	23 	inc hl	inc hl
+42ce	56 	ld d,(hl)	ld d,(hl)
+42cf	7a 	ld a,d	ld a,d
+42d0	b3 	or e	or e
+42d1	28 49 	jr z,$+$4b	jr z,$+$00
+42d3	62 	ld h,d	ld h,d
+42d4	6b 	ld l,e	ld l,e
+42d5	23 	inc hl	inc hl
+42d6	23 	inc hl	inc hl
+42d7	fd e5 	push iy	push iy
+42d9	7e 	ld a,(hl)	ld a,(hl)
+42da	23 	inc hl	inc hl
+42db	fd 23 	inc iy	inc iy
+42dd	fd be 00 	cp (iy)	cp (iy)
+42e0	28 f7 	jr z,$-$07	jr z,$-$00
+42e2	b7 	or a	or a
+42e3	28 05 	jr z,$+$07	jr z,$+$00
+42e5	fd e1 	pop iy	pop iy
+42e7	eb 	ex de,hl	ex de,hl
+42e8	18 e2 	jr $-$1c	jr $-$00
+42ea	fd 2b 	dec iy	dec iy
+42ec	fd 7e 00 	ld a,(iy)	ld a,(iy)
+42ef	fe 28 	cp $28	cp $00
+42f1	28 13 	jr z,$+$15	jr z,$+$00
+42f3	fd 23 	inc iy	inc iy
+42f5	cd d1 43 	call $43d1	call $0000
+42f8	38 0c 	jr c,$+$0e	jr c,$+$00
+42fa	fe 28 	cp $28	cp $00
+42fc	28 e7 	jr z,$-$17	jr z,$-$00
+42fe	fd 7e ff 	ld a,(iy-$01)	ld a,(iy-$00)
+4301	cd de 43 	call $43de	call $0000
+4304	30 df 	jr nc,$-$1f	jr nc,$-$00
+4306	d1 	pop de	pop de
+4307	fd 7e ff 	ld a,(iy-$01)	ld a,(iy-$00)
+430a	fe 24 	cp $24	cp $00
+430c	16 81 	ld d,$81	ld d,$00
+430e	c8 	ret z	ret z
+430f	fe 26 	cp $26	cp $00
+4311	16 01 	ld d,$01	ld d,$00
+4313	c8 	ret z	ret z
+4314	fe 25 	cp $25	cp $00
+4316	16 04 	ld d,$04	ld d,$00
+4318	c8 	ret z	ret z
+4319	14 	inc d	inc d
+431a	bf 	cp a	cp a
+431b	c9 	ret	ret
+431c	3c 	inc a	inc a
+431d	c9 	ret	ret
+431e	af 	xor a	xor a
+431f	ed 5b e0 54 	ld de,($54e0)	ld de,($0000)
+4323	72 	ld (hl),d	ld (hl),d
+4324	2b 	dec hl	dec hl
+4325	73 	ld (hl),e	ld (hl),e
+4326	eb 	ex de,hl	ex de,hl
+4327	77 	ld (hl),a	ld (hl),a
+4328	23 	inc hl	inc hl
+4329	77 	ld (hl),a	ld (hl),a
+432a	23 	inc hl	inc hl
+432b	fd 23 	inc iy	inc iy
+432d	cd d1 43 	call $43d1	call $0000
+4330	38 14 	jr c,$+$16	jr c,$+$00
+4332	77 	ld (hl),a	ld (hl),a
+4333	23 	inc hl	inc hl
+4334	cd de 43 	call $43de	call $0000
+4337	30 f2 	jr nc,$-$0c	jr nc,$-$00
+4339	fe 28 	cp $28	cp $00
+433b	28 09 	jr z,$+$0b	jr z,$+$00
+433d	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
+4340	fe 28 	cp $28	cp $00
+4342	28 e7 	jr z,$-$17	jr z,$-$00
+4344	fd 23 	inc iy	inc iy
+4346	36 00 	ld (hl),$00	ld (hl),$00
 4348	23 	inc hl	inc hl
-4349	fd 23 	inc iy	inc iy
-434b	cd ef 43 	call $43ef	call $0000
-434e	38 14 	jr c,$+$16	jr c,$+$00
-4350	77 	ld (hl),a	ld (hl),a
-4351	23 	inc hl	inc hl
-4352	cd fc 43 	call $43fc	call $0000
-4355	30 f2 	jr nc,$-$0c	jr nc,$-$00
-4357	fe 28 	cp $28	cp $00
-4359	28 09 	jr z,$+$0b	jr z,$+$00
-435b	fd 7e 01 	ld a,(iy+$01)	ld a,(iy+$00)
-435e	fe 28 	cp $28	cp $00
-4360	28 e7 	jr z,$-$17	jr z,$-$00
-4362	fd 23 	inc iy	inc iy
-4364	36 00 	ld (hl),$00	ld (hl),$00
-4366	23 	inc hl	inc hl
-4367	e5 	push hl	push hl
-4368	cd 25 43 	call $4325	call $0000
-436b	fd 7e 00 	ld a,(iy)	ld a,(iy)
-436e	fe 28 	cp $28	cp $00
-4370	3e 02 	ld a,$02	ld a,$00
-4372	28 07 	jr z,$+$09	jr z,$+$00
-4374	7a 	ld a,d	ld a,d
-4375	b7 	or a	or a
-4376	f2 7b 43 	jp p,$437b	jp p,$0000
-4379	3e 04 	ld a,$04	ld a,$00
-437b	36 00 	ld (hl),$00	ld (hl),$00
-437d	23 	inc hl	inc hl
-437e	3d 	dec a	dec a
-437f	20 fa 	jr nz,$-$04	jr nz,$-$00
-4381	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
-4384	cd 86 32 	call $3286	call $0000
-4387	e1 	pop hl	pop hl
-4388	af 	xor a	xor a
-4389	c9 	ret	ret
-438a	cd 0b 45 	call $450b	call $0000
-438d	21 00 00 	ld hl,$0000	ld hl,$0000
-4390	fd 7e 00 	ld a,(iy)	ld a,(iy)
-4393	d6 30 	sub $30	sub $00
-4395	d8 	ret c	ret c
-4396	fe 0a 	cp $0a	cp $00
-4398	d0 	ret nc	ret nc
-4399	fd 23 	inc iy	inc iy
-439b	54 	ld d,h	ld d,h
-439c	5d 	ld e,l	ld e,l
-439d	29 	add hl,hl	add hl,hl
-439e	38 0f 	jr c,$+$11	jr c,$+$00
-43a0	29 	add hl,hl	add hl,hl
-43a1	38 0c 	jr c,$+$0e	jr c,$+$00
-43a3	19 	add hl,de	add hl,de
-43a4	38 09 	jr c,$+$0b	jr c,$+$00
-43a6	29 	add hl,hl	add hl,hl
-43a7	38 06 	jr c,$+$08	jr c,$+$00
-43a9	5f 	ld e,a	ld e,a
-43aa	16 00 	ld d,$00	ld d,$00
-43ac	19 	add hl,de	add hl,de
-43ad	30 e1 	jr nc,$-$1d	jr nc,$-$00
-43af	3e 14 	ld a,$14	ld a,$00
-43b1	c3 44 3f 	jp $3f44	jp $0000
-43b4	cd 8a 43 	call $438a	call $0000
-43b7	7c 	ld a,h	ld a,h
-43b8	b5 	or l	or l
-43b9	20 02 	jr nz,$+$04	jr nz,$+$00
-43bb	2e 0a 	ld l,$0a	ld l,$00
-43bd	cd 36 35 	call $3536	call $0000
-43c0	fd 23 	inc iy	inc iy
-43c2	e5 	push hl	push hl
-43c3	21 0a 00 	ld hl,$000a	ld hl,$0000
-43c6	c4 8a 43 	call nz,$438a	call nz,$0000
-43c9	e3 	ex (sp),hl	ex (sp),hl
-43ca	c1 	pop bc	pop bc
-43cb	78 	ld a,b	ld a,b
-43cc	b1 	or c	or c
-43cd	c0 	ret nz	ret nz
-43ce	cd 55 3f 	call $3f55	call $0000
-43d1	53 	ld d,e	ld d,e
-43d2	69 	ld l,c	ld l,c
-43d3	6c 	ld l,h	ld l,h
-43d4	6c 	ld l,h	ld l,h
-43d5	79 	ld a,c	ld a,c
-43d6	00 	nop	nop
-43d7	cd 8a 43 	call $438a	call $0000
-43da	e5 	push hl	push hl
-43db	cd 36 35 	call $3536	call $0000
-43de	28 09 	jr z,$+$0b	jr z,$+$00
-43e0	fe e7 	cp $e7	cp $00
-43e2	28 05 	jr z,$+$07	jr z,$+$00
-43e4	fd 23 	inc iy	inc iy
-43e6	cd 8a 43 	call $438a	call $0000
-43e9	e3 	ex (sp),hl	ex (sp),hl
-43ea	cd 43 41 	call $4143	call $0000
-43ed	c1 	pop bc	pop bc
-43ee	c9 	ret	ret
-43ef	fd 7e 00 	ld a,(iy)	ld a,(iy)
-43f2	fe 24 	cp $24	cp $00
-43f4	d8 	ret c	ret c
-43f5	fe 27 	cp $27	cp $00
-43f7	3f 	ccf	ccf
-43f8	d0 	ret nc	ret nc
-43f9	fe 28 	cp $28	cp $00
-43fb	c8 	ret z	ret z
-43fc	fe 30 	cp $30	cp $00
-43fe	d8 	ret c	ret c
-43ff	fe 3a 	cp $3a	cp $00
-4401	3f 	ccf	ccf
-4402	d0 	ret nc	ret nc
-4403	fe 40 	cp $40	cp $00
-4405	c8 	ret z	ret z
-4406	fe 41 	cp $41	cp $00
-4408	d8 	ret c	ret c
-4409	fe 5b 	cp $5b	cp $00
-440b	3f 	ccf	ccf
-440c	d0 	ret nc	ret nc
-440d	fe 5f 	cp $5f	cp $00
-440f	d8 	ret c	ret c
-4410	fe 7b 	cp $7b	cp $00
-4412	3f 	ccf	ccf
-4413	c9 	ret	ret
-4414	12 	ld (de),a	ld (de),a
-4415	13 	inc de	inc de
-4416	fd 23 	inc iy	inc iy
-4418	7b 	ld a,e	ld a,e
-4419	fe fc 	cp $fc	cp $00
-441b	3e 13 	ld a,$13	ld a,$00
-441d	d2 44 3f 	jp nc,$3f44	jp nc,$0000
-4420	fd 7e 00 	ld a,(iy)	ld a,(iy)
-4423	fe 0d 	cp $0d	cp $00
-4425	c8 	ret z	ret z
-4426	cd fc 43 	call $43fc	call $0000
-4429	30 04 	jr nc,$+$06	jr nc,$+$00
-442b	cb a9 	res 5,c	res 5,c
-442d	cb 99 	res 3,c	res 3,c
-442f	fe 20 	cp $20	cp $00
-4431	28 e1 	jr z,$-$1d	jr z,$-$00
-4433	fe 2c 	cp $2c	cp $00
-4435	28 dd 	jr z,$-$21	jr z,$-$00
-4437	fe 47 	cp $47	cp $00
-4439	38 02 	jr c,$+$04	jr c,$+$00
-443b	cb 99 	res 3,c	res 3,c
-443d	fe 22 	cp $22	cp $00
-443f	20 05 	jr nz,$+$07	jr nz,$+$00
-4441	cb 11 	rl c	rl c
-4443	3f 	ccf	ccf
-4444	cb 19 	rr c	rr c
-4446	cb 61 	bit 4,c	bit 4,c
-4448	28 10 	jr z,$+$12	jr z,$+$00
-444a	cb a1 	res 4,c	res 4,c
-444c	c5 	push bc	push bc
-444d	d5 	push de	push de
-444e	cd 8a 43 	call $438a	call $0000
-4451	d1 	pop de	pop de
-4452	c1 	pop bc	pop bc
-4453	7c 	ld a,h	ld a,h
-4454	b5 	or l	or l
-4455	c4 bf 44 	call nz,$44bf	call nz,$0000
-4458	18 be 	jr $-$40	jr $-$00
-445a	0d 	dec c	dec c
-445b	28 09 	jr z,$+$0b	jr z,$+$00
-445d	0c 	inc c	inc c
-445e	20 b4 	jr nz,$-$4a	jr nz,$-$00
-4460	b7 	or a	or a
-4461	f4 a3 3f 	call p,$3fa3	call p,$0000
-4464	18 12 	jr $+$14	jr $+$00
-4466	fe 2a 	cp $2a	cp $00
-4468	28 16 	jr z,$+$18	jr z,$+$00
-446a	b7 	or a	or a
-446b	f4 a3 3f 	call p,$3fa3	call p,$0000
-446e	fe 8f 	cp $8f	cp $00
-4470	38 06 	jr c,$+$08	jr c,$+$00
-4472	fe 94 	cp $94	cp $00
-4474	30 02 	jr nc,$+$04	jr nc,$+$00
-4476	c6 40 	add a,$40	add a,$00
-4478	fe f4 	cp $f4	cp $00
-447a	28 04 	jr z,$+$06	jr z,$+$00
-447c	fe dc 	cp $dc	cp $00
-447e	20 02 	jr nz,$+$04	jr nz,$+$00
-4480	cb f1 	set 6,c	set 6,c
-4482	fe a4 	cp $a4	cp $00
-4484	28 09 	jr z,$+$0b	jr z,$+$00
-4486	fe f2 	cp $f2	cp $00
-4488	28 05 	jr z,$+$07	jr z,$+$00
-448a	cd 06 44 	call $4406	call $0000
-448d	38 02 	jr c,$+$04	jr c,$+$00
-448f	cb e9 	set 5,c	set 5,c
-4491	fe 26 	cp $26	cp $00
-4493	20 02 	jr nz,$+$04	jr nz,$+$00
-4495	cb d9 	set 3,c	set 3,c
-4497	21 b6 44 	ld hl,$44b6	ld hl,$0000
-449a	c5 	push bc	push bc
-449b	01 06 00 	ld bc,$0006	ld bc,$0000
-449e	ed b1 	cpir	cpir
-44a0	c1 	pop bc	pop bc
-44a1	20 02 	jr nz,$+$04	jr nz,$+$00
-44a3	cb e1 	set 4,c	set 4,c
-44a5	21 ba 44 	ld hl,$44ba	ld hl,$0000
-44a8	c5 	push bc	push bc
-44a9	01 05 00 	ld bc,$0005	ld bc,$0000
-44ac	ed b1 	cpir	cpir
-44ae	c1 	pop bc	pop bc
-44af	20 02 	jr nz,$+$04	jr nz,$+$00
-44b1	cb c1 	set 0,c	set 0,c
-44b3	c3 14 44 	jp $4414	jp $0000
-44b6	e5 	push hl	push hl
-44b7	e4 f7 fc 	call po,$fcf7	call po,$0000
-44ba	8c 	adc a,h	adc a,h
-44bb	8b 	adc a,e	adc a,e
-44bc	f5 	push af	push af
-44bd	85 	add a,l	add a,l
-44be	3a cb e1 	ld a,($e1cb)	ld a,($0000)
-44c1	eb 	ex de,hl	ex de,hl
-44c2	36 8d 	ld (hl),$8d	ld (hl),$00
+4349	e5 	push hl	push hl
+434a	cd 07 43 	call $4307	call $0000
+434d	fd 7e 00 	ld a,(iy)	ld a,(iy)
+4350	fe 28 	cp $28	cp $00
+4352	3e 02 	ld a,$02	ld a,$00
+4354	28 07 	jr z,$+$09	jr z,$+$00
+4356	7a 	ld a,d	ld a,d
+4357	b7 	or a	or a
+4358	f2 5d 43 	jp p,$435d	jp p,$0000
+435b	3e 04 	ld a,$04	ld a,$00
+435d	36 00 	ld (hl),$00	ld (hl),$00
+435f	23 	inc hl	inc hl
+4360	3d 	dec a	dec a
+4361	20 fa 	jr nz,$-$04	jr nz,$-$00
+4363	22 e0 54 	ld ($54e0),hl	ld ($0000),hl
+4366	cd 68 32 	call $3268	call $0000
+4369	e1 	pop hl	pop hl
+436a	af 	xor a	xor a
+436b	c9 	ret	ret
+436c	cd ed 44 	call $44ed	call $0000
+436f	21 00 00 	ld hl,$0000	ld hl,$0000
+4372	fd 7e 00 	ld a,(iy)	ld a,(iy)
+4375	d6 30 	sub $30	sub $00
+4377	d8 	ret c	ret c
+4378	fe 0a 	cp $0a	cp $00
+437a	d0 	ret nc	ret nc
+437b	fd 23 	inc iy	inc iy
+437d	54 	ld d,h	ld d,h
+437e	5d 	ld e,l	ld e,l
+437f	29 	add hl,hl	add hl,hl
+4380	38 0f 	jr c,$+$11	jr c,$+$00
+4382	29 	add hl,hl	add hl,hl
+4383	38 0c 	jr c,$+$0e	jr c,$+$00
+4385	19 	add hl,de	add hl,de
+4386	38 09 	jr c,$+$0b	jr c,$+$00
+4388	29 	add hl,hl	add hl,hl
+4389	38 06 	jr c,$+$08	jr c,$+$00
+438b	5f 	ld e,a	ld e,a
+438c	16 00 	ld d,$00	ld d,$00
+438e	19 	add hl,de	add hl,de
+438f	30 e1 	jr nc,$-$1d	jr nc,$-$00
+4391	3e 14 	ld a,$14	ld a,$00
+4393	c3 26 3f 	jp $3f26	jp $0000
+4396	cd 6c 43 	call $436c	call $0000
+4399	7c 	ld a,h	ld a,h
+439a	b5 	or l	or l
+439b	20 02 	jr nz,$+$04	jr nz,$+$00
+439d	2e 0a 	ld l,$0a	ld l,$00
+439f	cd 18 35 	call $3518	call $0000
+43a2	fd 23 	inc iy	inc iy
+43a4	e5 	push hl	push hl
+43a5	21 0a 00 	ld hl,$000a	ld hl,$0000
+43a8	c4 6c 43 	call nz,$436c	call nz,$0000
+43ab	e3 	ex (sp),hl	ex (sp),hl
+43ac	c1 	pop bc	pop bc
+43ad	78 	ld a,b	ld a,b
+43ae	b1 	or c	or c
+43af	c0 	ret nz	ret nz
+43b0	cd 37 3f 	call $3f37	call $0000
+43b3	53 	ld d,e	ld d,e
+43b4	69 	ld l,c	ld l,c
+43b5	6c 	ld l,h	ld l,h
+43b6	6c 	ld l,h	ld l,h
+43b7	79 	ld a,c	ld a,c
+43b8	00 	nop	nop
+43b9	cd 6c 43 	call $436c	call $0000
+43bc	e5 	push hl	push hl
+43bd	cd 18 35 	call $3518	call $0000
+43c0	28 09 	jr z,$+$0b	jr z,$+$00
+43c2	fe e7 	cp $e7	cp $00
+43c4	28 05 	jr z,$+$07	jr z,$+$00
+43c6	fd 23 	inc iy	inc iy
+43c8	cd 6c 43 	call $436c	call $0000
+43cb	e3 	ex (sp),hl	ex (sp),hl
+43cc	cd 25 41 	call $4125	call $0000
+43cf	c1 	pop bc	pop bc
+43d0	c9 	ret	ret
+43d1	fd 7e 00 	ld a,(iy)	ld a,(iy)
+43d4	fe 24 	cp $24	cp $00
+43d6	d8 	ret c	ret c
+43d7	fe 27 	cp $27	cp $00
+43d9	3f 	ccf	ccf
+43da	d0 	ret nc	ret nc
+43db	fe 28 	cp $28	cp $00
+43dd	c8 	ret z	ret z
+43de	fe 30 	cp $30	cp $00
+43e0	d8 	ret c	ret c
+43e1	fe 3a 	cp $3a	cp $00
+43e3	3f 	ccf	ccf
+43e4	d0 	ret nc	ret nc
+43e5	fe 40 	cp $40	cp $00
+43e7	c8 	ret z	ret z
+43e8	fe 41 	cp $41	cp $00
+43ea	d8 	ret c	ret c
+43eb	fe 5b 	cp $5b	cp $00
+43ed	3f 	ccf	ccf
+43ee	d0 	ret nc	ret nc
+43ef	fe 5f 	cp $5f	cp $00
+43f1	d8 	ret c	ret c
+43f2	fe 7b 	cp $7b	cp $00
+43f4	3f 	ccf	ccf
+43f5	c9 	ret	ret
+43f6	12 	ld (de),a	ld (de),a
+43f7	13 	inc de	inc de
+43f8	fd 23 	inc iy	inc iy
+43fa	7b 	ld a,e	ld a,e
+43fb	fe fc 	cp $fc	cp $00
+43fd	3e 13 	ld a,$13	ld a,$00
+43ff	d2 26 3f 	jp nc,$3f26	jp nc,$0000
+4402	fd 7e 00 	ld a,(iy)	ld a,(iy)
+4405	fe 0d 	cp $0d	cp $00
+4407	c8 	ret z	ret z
+4408	cd de 43 	call $43de	call $0000
+440b	30 04 	jr nc,$+$06	jr nc,$+$00
+440d	cb a9 	res 5,c	res 5,c
+440f	cb 99 	res 3,c	res 3,c
+4411	fe 20 	cp $20	cp $00
+4413	28 e1 	jr z,$-$1d	jr z,$-$00
+4415	fe 2c 	cp $2c	cp $00
+4417	28 dd 	jr z,$-$21	jr z,$-$00
+4419	fe 47 	cp $47	cp $00
+441b	38 02 	jr c,$+$04	jr c,$+$00
+441d	cb 99 	res 3,c	res 3,c
+441f	fe 22 	cp $22	cp $00
+4421	20 05 	jr nz,$+$07	jr nz,$+$00
+4423	cb 11 	rl c	rl c
+4425	3f 	ccf	ccf
+4426	cb 19 	rr c	rr c
+4428	cb 61 	bit 4,c	bit 4,c
+442a	28 10 	jr z,$+$12	jr z,$+$00
+442c	cb a1 	res 4,c	res 4,c
+442e	c5 	push bc	push bc
+442f	d5 	push de	push de
+4430	cd 6c 43 	call $436c	call $0000
+4433	d1 	pop de	pop de
+4434	c1 	pop bc	pop bc
+4435	7c 	ld a,h	ld a,h
+4436	b5 	or l	or l
+4437	c4 a1 44 	call nz,$44a1	call nz,$0000
+443a	18 be 	jr $-$40	jr $-$00
+443c	0d 	dec c	dec c
+443d	28 09 	jr z,$+$0b	jr z,$+$00
+443f	0c 	inc c	inc c
+4440	20 b4 	jr nz,$-$4a	jr nz,$-$00
+4442	b7 	or a	or a
+4443	f4 85 3f 	call p,$3f85	call p,$0000
+4446	18 12 	jr $+$14	jr $+$00
+4448	fe 2a 	cp $2a	cp $00
+444a	28 16 	jr z,$+$18	jr z,$+$00
+444c	b7 	or a	or a
+444d	f4 85 3f 	call p,$3f85	call p,$0000
+4450	fe 8f 	cp $8f	cp $00
+4452	38 06 	jr c,$+$08	jr c,$+$00
+4454	fe 94 	cp $94	cp $00
+4456	30 02 	jr nc,$+$04	jr nc,$+$00
+4458	c6 40 	add a,$40	add a,$00
+445a	fe f4 	cp $f4	cp $00
+445c	28 04 	jr z,$+$06	jr z,$+$00
+445e	fe dc 	cp $dc	cp $00
+4460	20 02 	jr nz,$+$04	jr nz,$+$00
+4462	cb f1 	set 6,c	set 6,c
+4464	fe a4 	cp $a4	cp $00
+4466	28 09 	jr z,$+$0b	jr z,$+$00
+4468	fe f2 	cp $f2	cp $00
+446a	28 05 	jr z,$+$07	jr z,$+$00
+446c	cd e8 43 	call $43e8	call $0000
+446f	38 02 	jr c,$+$04	jr c,$+$00
+4471	cb e9 	set 5,c	set 5,c
+4473	fe 26 	cp $26	cp $00
+4475	20 02 	jr nz,$+$04	jr nz,$+$00
+4477	cb d9 	set 3,c	set 3,c
+4479	21 98 44 	ld hl,$4498	ld hl,$0000
+447c	c5 	push bc	push bc
+447d	01 06 00 	ld bc,$0006	ld bc,$0000
+4480	ed b1 	cpir	cpir
+4482	c1 	pop bc	pop bc
+4483	20 02 	jr nz,$+$04	jr nz,$+$00
+4485	cb e1 	set 4,c	set 4,c
+4487	21 9c 44 	ld hl,$449c	ld hl,$0000
+448a	c5 	push bc	push bc
+448b	01 05 00 	ld bc,$0005	ld bc,$0000
+448e	ed b1 	cpir	cpir
+4490	c1 	pop bc	pop bc
+4491	20 02 	jr nz,$+$04	jr nz,$+$00
+4493	cb c1 	set 0,c	set 0,c
+4495	c3 f6 43 	jp $43f6	jp $0000
+4498	e5 	push hl	push hl
+4499	e4 f7 fc 	call po,$fcf7	call po,$0000
+449c	8c 	adc a,h	adc a,h
+449d	8b 	adc a,e	adc a,e
+449e	f5 	push af	push af
+449f	85 	add a,l	add a,l
+44a0	3a cb e1 	ld a,($e1cb)	ld a,($0000)
+44a3	eb 	ex de,hl	ex de,hl
+44a4	36 8d 	ld (hl),$8d	ld (hl),$00
+44a6	23 	inc hl	inc hl
+44a7	7a 	ld a,d	ld a,d
+44a8	e6 c0 	and $c0	and $00
+44aa	0f 	rrca	rrca
+44ab	0f 	rrca	rrca
+44ac	47 	ld b,a	ld b,a
+44ad	7b 	ld a,e	ld a,e
+44ae	e6 c0 	and $c0	and $00
+44b0	b0 	or b	or b
+44b1	0f 	rrca	rrca
+44b2	0f 	rrca	rrca
+44b3	ee 54 	xor $54	xor $00
+44b5	77 	ld (hl),a	ld (hl),a
+44b6	23 	inc hl	inc hl
+44b7	7b 	ld a,e	ld a,e
+44b8	e6 3f 	and $3f	and $00
+44ba	f6 40 	or $40	or $00
+44bc	77 	ld (hl),a	ld (hl),a
+44bd	23 	inc hl	inc hl
+44be	7a 	ld a,d	ld a,d
+44bf	e6 3f 	and $3f	and $00
+44c1	f6 40 	or $40	or $00
+44c3	77 	ld (hl),a	ld (hl),a
 44c4	23 	inc hl	inc hl
-44c5	7a 	ld a,d	ld a,d
-44c6	e6 c0 	and $c0	and $00
-44c8	0f 	rrca	rrca
-44c9	0f 	rrca	rrca
-44ca	47 	ld b,a	ld b,a
-44cb	7b 	ld a,e	ld a,e
-44cc	e6 c0 	and $c0	and $00
-44ce	b0 	or b	or b
-44cf	0f 	rrca	rrca
-44d0	0f 	rrca	rrca
-44d1	ee 54 	xor $54	xor $00
-44d3	77 	ld (hl),a	ld (hl),a
-44d4	23 	inc hl	inc hl
-44d5	7b 	ld a,e	ld a,e
-44d6	e6 3f 	and $3f	and $00
-44d8	f6 40 	or $40	or $00
-44da	77 	ld (hl),a	ld (hl),a
-44db	23 	inc hl	inc hl
-44dc	7a 	ld a,d	ld a,d
-44dd	e6 3f 	and $3f	and $00
-44df	f6 40 	or $40	or $00
-44e1	77 	ld (hl),a	ld (hl),a
-44e2	23 	inc hl	inc hl
-44e3	eb 	ex de,hl	ex de,hl
-44e4	c9 	ret	ret
-44e5	2a ee 54 	ld hl,($54ee)	ld hl,($0000)
-44e8	7e 	ld a,(hl)	ld a,(hl)
-44e9	23 	inc hl	inc hl
-44ea	b7 	or a	or a
-44eb	c8 	ret z	ret z
-44ec	fe 0a 	cp $0a	cp $00
-44ee	28 05 	jr z,$+$07	jr z,$+$00
-44f0	cd 1b 41 	call $411b	call $0000
-44f3	18 f3 	jr $-$0b	jr $-$00
-44f5	cd 02 41 	call $4102	call $0000
-44f8	18 ee 	jr $-$10	jr $-$00
-44fa	e3 	ex (sp),hl	ex (sp),hl
-44fb	cd e8 44 	call $44e8	call $0000
-44fe	e3 	ex (sp),hl	ex (sp),hl
-44ff	c9 	ret	ret
-4500	cd 0b 45 	call $450b	call $0000
-4503	fe 2c 	cp $2c	cp $00
-4505	28 0a 	jr z,$+$0c	jr z,$+$00
-4507	c1 	pop bc	pop bc
-4508	c3 99 24 	jp $2499	jp $0000
-450b	fd 7e 00 	ld a,(iy)	ld a,(iy)
-450e	fe 20 	cp $20	cp $00
-4510	c0 	ret nz	ret nz
-4511	fd 23 	inc iy	inc iy
-4513	18 f6 	jr $-$08	jr $-$00
-4515	fd e5 	push iy	push iy
-4517	fd 21 00 00 	ld iy,$0000	ld iy,$0000
-451b	fd 39 	add iy,sp	add iy,sp
-451d	cd 2c 45 	call $452c	call $0000
-4520	bf 	cp a	cp a
-4521	fd e1 	pop iy	pop iy
-4523	c9 	ret	ret
-4524	3e 01 	ld a,$01	ld a,$00
-4526	fd f9 	ld sp,iy	ld sp,iy
-4528	b7 	or a	or a
-4529	37 	scf	scf
-452a	18 f5 	jr $-$09	jr $-$00
-452c	fe 2e 	cp $2e	cp $00
-452e	30 f4 	jr nc,$-$0a	jr nc,$-$00
-4530	fe 10 	cp $10	cp $00
-4532	30 07 	jr nc,$+$09	jr nc,$+$00
-4534	08 	ex af,af'	ex af,af'
-4535	78 	ld a,b	ld a,b
-4536	b1 	or c	or c
-4537	c4 a5 4e 	call nz,$4ea5	call nz,$0000
-453a	08 	ex af,af'	ex af,af'
-453b	e5 	push hl	push hl
-453c	21 4c 45 	ld hl,$454c	ld hl,$0000
-453f	c5 	push bc	push bc
-4540	87 	add a,a	add a,a
-4541	4f 	ld c,a	ld c,a
-4542	06 00 	ld b,$00	ld b,$00
-4544	09 	add hl,bc	add hl,bc
-4545	7e 	ld a,(hl)	ld a,(hl)
-4546	23 	inc hl	inc hl
-4547	66 	ld h,(hl)	ld h,(hl)
-4548	6f 	ld l,a	ld l,a
-4549	c1 	pop bc	pop bc
-454a	e3 	ex (sp),hl	ex (sp),hl
-454b	c9 	ret	ret
-454c	cb 45 	bit 0,l	bit 0,l
-454e	18 46 	jr $+$48	jr $+$00
-4550	dd 45 	ld b,ixl	ld b,ixl
-4552	01 46 ef 	ld bc,$ef46	ld bc,$0000
-4555	45 	ld b,l	ld b,l
-4556	16 48 	ld d,$48	ld d,$00
-4558	23 	inc hl	inc hl
+44c5	eb 	ex de,hl	ex de,hl
+44c6	c9 	ret	ret
+44c7	2a ee 54 	ld hl,($54ee)	ld hl,($0000)
+44ca	7e 	ld a,(hl)	ld a,(hl)
+44cb	23 	inc hl	inc hl
+44cc	b7 	or a	or a
+44cd	c8 	ret z	ret z
+44ce	fe 0a 	cp $0a	cp $00
+44d0	28 05 	jr z,$+$07	jr z,$+$00
+44d2	cd fd 40 	call $40fd	call $0000
+44d5	18 f3 	jr $-$0b	jr $-$00
+44d7	cd e4 40 	call $40e4	call $0000
+44da	18 ee 	jr $-$10	jr $-$00
+44dc	e3 	ex (sp),hl	ex (sp),hl
+44dd	cd ca 44 	call $44ca	call $0000
+44e0	e3 	ex (sp),hl	ex (sp),hl
+44e1	c9 	ret	ret
+44e2	cd ed 44 	call $44ed	call $0000
+44e5	fe 2c 	cp $2c	cp $00
+44e7	28 0a 	jr z,$+$0c	jr z,$+$00
+44e9	c1 	pop bc	pop bc
+44ea	c3 7b 24 	jp $247b	jp $0000
+44ed	fd 7e 00 	ld a,(iy)	ld a,(iy)
+44f0	fe 20 	cp $20	cp $00
+44f2	c0 	ret nz	ret nz
+44f3	fd 23 	inc iy	inc iy
+44f5	18 f6 	jr $-$08	jr $-$00
+44f7	fd e5 	push iy	push iy
+44f9	fd 21 00 00 	ld iy,$0000	ld iy,$0000
+44fd	fd 39 	add iy,sp	add iy,sp
+44ff	cd 0e 45 	call $450e	call $0000
+4502	bf 	cp a	cp a
+4503	fd e1 	pop iy	pop iy
+4505	c9 	ret	ret
+4506	3e 01 	ld a,$01	ld a,$00
+4508	fd f9 	ld sp,iy	ld sp,iy
+450a	b7 	or a	or a
+450b	37 	scf	scf
+450c	18 f5 	jr $-$09	jr $-$00
+450e	fe 2e 	cp $2e	cp $00
+4510	30 f4 	jr nc,$-$0a	jr nc,$-$00
+4512	fe 10 	cp $10	cp $00
+4514	30 07 	jr nc,$+$09	jr nc,$+$00
+4516	08 	ex af,af'	ex af,af'
+4517	78 	ld a,b	ld a,b
+4518	b1 	or c	or c
+4519	c4 87 4e 	call nz,$4e87	call nz,$0000
+451c	08 	ex af,af'	ex af,af'
+451d	e5 	push hl	push hl
+451e	21 2e 45 	ld hl,$452e	ld hl,$0000
+4521	c5 	push bc	push bc
+4522	87 	add a,a	add a,a
+4523	4f 	ld c,a	ld c,a
+4524	06 00 	ld b,$00	ld b,$00
+4526	09 	add hl,bc	add hl,bc
+4527	7e 	ld a,(hl)	ld a,(hl)
+4528	23 	inc hl	inc hl
+4529	66 	ld h,(hl)	ld h,(hl)
+452a	6f 	ld l,a	ld l,a
+452b	c1 	pop bc	pop bc
+452c	e3 	ex (sp),hl	ex (sp),hl
+452d	c9 	ret	ret
+452e	ad 	xor l	xor l
+452f	45 	ld b,l	ld b,l
+4530	fa 45 bf 	jp m,$bf45	jp m,$0000
+4533	45 	ld b,l	ld b,l
+4534	e3 	ex (sp),hl	ex (sp),hl
+4535	45 	ld b,l	ld b,l
+4536	d1 	pop de	pop de
+4537	45 	ld b,l	ld b,l
+4538	f8 	ret m	ret m
+4539	47 	ld b,a	ld b,a
+453a	05 	dec b	dec b
+453b	48 	ld c,b	ld c,b
+453c	ed 47 	ld i,a	ld i,a
+453e	d6 47 	sub $47	sub $00
+4540	10 48 	djnz $+$4a	djnz $+$00
+4542	c4 46 1d 	call nz,$1d46	call nz,$0000
+4545	46 	ld b,(hl)	ld b,(hl)
+4546	e1 	pop hl	pop hl
+4547	47 	ld b,a	ld b,a
+4548	07 	rlca	rlca
+4549	46 	ld b,(hl)	ld b,(hl)
+454a	3f 	ccf	ccf
+454b	47 	ld b,a	ld b,a
+454c	7c 	ld a,h	ld a,h
+454d	46 	ld b,(hl)	ld b,(hl)
+454e	60 	ld h,b	ld h,b
+454f	48 	ld c,b	ld c,b
+4550	bc 	cp h	cp h
+4551	4b 	ld c,e	ld c,e
+4552	18 4b 	jr $+$4d	jr $+$00
+4554	3d 	dec a	dec a
+4555	4b 	ld c,e	ld c,e
+4556	56 	ld d,(hl)	ld d,(hl)
+4557	49 8a 	adc.lis a,d	adc.lis a,d
 4559	48 	ld c,b	ld c,b
-455a	0b 	dec bc	dec bc
-455b	48 	ld c,b	ld c,b
-455c	f4 47 2e 	call p,$2e47	call p,$0000
-455f	48 	ld c,b	ld c,b
-4560	e2 46 3b 	jp po,$3b46	jp po,$0000
-4563	46 	ld b,(hl)	ld b,(hl)
-4564	ff 	rst $38	rst $00
-4565	47 	ld b,a	ld b,a
-4566	25 	dec h	dec h
-4567	46 	ld b,(hl)	ld b,(hl)
-4568	5d 	ld e,l	ld e,l
-4569	47 	ld b,a	ld b,a
-456a	9a 	sbc a,d	sbc a,d
-456b	46 	ld b,(hl)	ld b,(hl)
-456c	7e 	ld a,(hl)	ld a,(hl)
-456d	48 	ld c,b	ld c,b
-456e	da 4b 36 	jp c,$364b	jp c,$0000
-4571	4b 	ld c,e	ld c,e
-4572	5b 4b 	ld.lil c,e	ld.lil c,e
-4574	74 	ld (hl),h	ld (hl),h
-4575	49 a8 	xor.lis b	xor.lis b
+455a	fb 	ei	ei
+455b	49 d0 	ret.lis nc	ret.lis nc
+455d	48 	ld c,b	ld c,b
+455e	86 	add a,(hl)	add a,(hl)
+455f	4a 	ld c,d	ld c,d
+4560	06 4b 	ld b,$4b	ld b,$00
+4562	6b 	ld l,e	ld l,e
+4563	48 	ld c,b	ld c,b
+4564	92 	sub d	sub d
+4565	48 	ld c,b	ld c,b
+4566	a8 	xor b	xor b
+4567	48 	ld c,b	ld c,b
+4568	61 	ld h,c	ld h,c
+4569	49 e6 48 	and.lis $48	and.lis $00
+456c	39 	add hl,sp	add hl,sp
+456d	49 03 	inc.lis bc	inc.lis bc
+456f	4f 	ld c,a	ld c,a
+4570	da 49 14 	jp c,$1449	jp c,$0000
+4573	48 	ld c,b	ld c,b
+4574	7e 	ld a,(hl)	ld a,(hl)
+4575	48 	ld c,b	ld c,b
+4576	b8 	cp b	cp b
 4577	48 	ld c,b	ld c,b
-4578	19 	add hl,de	add hl,de
-4579	4a 	ld c,d	ld c,d
-457a	ee 48 	xor $48	xor $00
-457c	a4 	and h	and h
-457d	4a 	ld c,d	ld c,d
-457e	24 	inc h	inc h
-457f	4b 	ld c,e	ld c,e
-4580	89 	adc a,c	adc a,c
-4581	48 	ld c,b	ld c,b
-4582	b0 	or b	or b
+4578	c4 4b d9 	call nz,$d94b	call nz,$0000
+457b	4d 	ld c,l	ld c,l
+457c	94 	sub h	sub h
+457d	4e 	ld c,(hl)	ld c,(hl)
+457e	d9 	exx	exx
+457f	4e 	ld c,(hl)	ld c,(hl)
+4580	ea 4e 1f 	jp pe,$1f4e	jp pe,$0000
 4583	48 	ld c,b	ld c,b
-4584	c6 48 	add a,$48	add a,$00
-4586	7f 	ld a,a	ld a,a
-4587	49 04 	inc.lis b	inc.lis b
-4589	49 57 	ld.lis d,a	ld.lis d,a
-458b	49 21 4f f8 	ld.lis hl,$f84f	ld.lis hl,$0000
-458f	49 32 48 9c 	ld.lis ($9c48),a	ld.lis ($0000),a
-4593	48 	ld c,b	ld c,b
-4594	d6 48 	sub $48	sub $00
-4596	e2 4b f7 	jp po,$f74b	jp po,$0000
-4599	4d 	ld c,l	ld c,l
-459a	b2 	or d	or d
-459b	4e 	ld c,(hl)	ld c,(hl)
-459c	f7 	rst $30	rst $00
-459d	4e 	ld c,(hl)	ld c,(hl)
-459e	08 	ex af,af'	ex af,af'
-459f	4f 	ld c,a	ld c,a
-45a0	3d 	dec a	dec a
-45a1	48 	ld c,b	ld c,b
-45a2	3d 	dec a	dec a
-45a3	48 	ld c,b	ld c,b
-45a4	4a 	ld c,d	ld c,d
-45a5	48 	ld c,b	ld c,b
-45a6	5c 	ld e,h	ld e,h
-45a7	48 	ld c,b	ld c,b
-45a8	c8 	ret z	ret z
-45a9	45 	ld b,l	ld b,l
-45aa	15 	dec d	dec d
-45ab	46 	ld b,(hl)	ld b,(hl)
-45ac	da 45 fe 	jp c,$fe45	jp c,$0000
-45af	45 	ld b,l	ld b,l
-45b0	ec 45 11 	call pe,$1145	call pe,$0000
-45b3	48 	ld c,b	ld c,b
-45b4	1e 48 	ld e,$48	ld e,$00
-45b6	06 48 	ld b,$48	ld b,$00
-45b8	ef 	rst $28	rst $00
-45b9	47 	ld b,a	ld b,a
-45ba	29 	add hl,hl	add hl,hl
-45bb	48 	ld c,b	ld c,b
-45bc	0d 	dec c	dec c
-45bd	47 	ld b,a	ld b,a
-45be	45 	ld b,l	ld b,l
-45bf	46 	ld b,(hl)	ld b,(hl)
-45c0	fa 47 2f 	jp m,$2f47	jp m,$0000
-45c3	46 	ld b,(hl)	ld b,(hl)
-45c4	c5 	push bc	push bc
-45c5	47 	ld b,a	ld b,a
-45c6	9d 	sbc a,l	sbc a,l
-45c7	46 	ld b,(hl)	ld b,(hl)
-45c8	cd ee 4d 	call $4dee	call $0000
-45cb	7c 	ld a,h	ld a,h
-45cc	a2 	and d	and d
-45cd	67 	ld h,a	ld h,a
-45ce	7d 	ld a,l	ld a,l
-45cf	a3 	and e	and e
-45d0	6f 	ld l,a	ld l,a
-45d1	d9 	exx	exx
-45d2	7c 	ld a,h	ld a,h
-45d3	a2 	and d	and d
-45d4	67 	ld h,a	ld h,a
-45d5	7d 	ld a,l	ld a,l
-45d6	a3 	and e	and e
-45d7	6f 	ld l,a	ld l,a
-45d8	d9 	exx	exx
-45d9	c9 	ret	ret
-45da	cd ee 4d 	call $4dee	call $0000
-45dd	7c 	ld a,h	ld a,h
-45de	aa 	xor d	xor d
-45df	67 	ld h,a	ld h,a
-45e0	7d 	ld a,l	ld a,l
-45e1	ab 	xor e	xor e
-45e2	6f 	ld l,a	ld l,a
-45e3	d9 	exx	exx
-45e4	7c 	ld a,h	ld a,h
-45e5	aa 	xor d	xor d
-45e6	67 	ld h,a	ld h,a
-45e7	7d 	ld a,l	ld a,l
-45e8	ab 	xor e	xor e
-45e9	6f 	ld l,a	ld l,a
-45ea	d9 	exx	exx
-45eb	c9 	ret	ret
-45ec	cd ee 4d 	call $4dee	call $0000
-45ef	7c 	ld a,h	ld a,h
-45f0	b2 	or d	or d
-45f1	67 	ld h,a	ld h,a
-45f2	7d 	ld a,l	ld a,l
-45f3	b3 	or e	or e
-45f4	6f 	ld l,a	ld l,a
-45f5	d9 	exx	exx
-45f6	7c 	ld a,h	ld a,h
-45f7	b2 	or d	or d
-45f8	67 	ld h,a	ld h,a
-45f9	7d 	ld a,l	ld a,l
-45fa	b3 	or e	or e
-45fb	6f 	ld l,a	ld l,a
-45fc	d9 	exx	exx
-45fd	c9 	ret	ret
-45fe	cd ee 4d 	call $4dee	call $0000
-4601	7c 	ld a,h	ld a,h
-4602	aa 	xor d	xor d
-4603	cb 7c 	bit 7,h	bit 7,h
-4605	cd f5 50 	call $50f5	call $0000
-4608	3e df 	ld a,$df	ld a,$00
-460a	cd 31 50 	call $5031	call $0000
-460d	d9 	exx	exx
-460e	0e 00 	ld c,$00	ld c,$00
-4610	08 	ex af,af'	ex af,af'
-4611	c8 	ret z	ret z
-4612	c3 06 4e 	jp $4e06	jp $0000
-4615	cd ee 4d 	call $4dee	call $0000
-4618	cd 01 46 	call $4601	call $0000
-461b	b7 	or a	or a
-461c	cd dc 4e 	call $4edc	call $0000
-461f	0e 00 	ld c,$00	ld c,$00
-4621	f0 	ret p	ret p
-4622	c3 06 4e 	jp $4e06	jp $0000
-4625	cd 64 4f 	call $4f64	call $0000
-4628	e0 	ret po	ret po
-4629	cd 5e 4f 	call $4f5e	call $0000
-462c	cd a9 4e 	call $4ea9	call $0000
-462f	7a 	ld a,d	ld a,d
-4630	ee 80 	xor $80	xor $00
-4632	57 	ld d,a	ld d,a
-4633	18 10 	jr $+$12	jr $+$00
-4635	7c 	ld a,h	ld a,h
-4636	ee 80 	xor $80	xor $00
-4638	67 	ld h,a	ld h,a
-4639	18 0a 	jr $+$0c	jr $+$00
-463b	cd 5e 4f 	call $4f5e	call $0000
-463e	e0 	ret po	ret po
-463f	cd 64 4f 	call $4f64	call $0000
-4642	cd a9 4e 	call $4ea9	call $0000
-4645	05 	dec b	dec b
-4646	04 	inc b	inc b
-4647	c8 	ret z	ret z
-4648	0d 	dec c	dec c
-4649	0c 	inc c	inc c
-464a	ca dc 4e 	jp z,$4edc	jp z,$0000
-464d	d9 	exx	exx
-464e	01 00 00 	ld bc,$0000	ld bc,$0000
-4651	d9 	exx	exx
-4652	7c 	ld a,h	ld a,h
-4653	aa 	xor d	xor d
-4654	f5 	push af	push af
-4655	78 	ld a,b	ld a,b
-4656	b9 	cp c	cp c
-4657	dc dc 4e 	call c,$4edc	call c,$0000
-465a	78 	ld a,b	ld a,b
-465b	cb fc 	set 7,h	set 7,h
-465d	c4 de 4d 	call nz,$4dde	call nz,$0000
-4660	f1 	pop af	pop af
-4661	7a 	ld a,d	ld a,d
-4662	cb fa 	set 7,d	set 7,d
-4664	fa 71 46 	jp m,$4671	jp m,$0000
-4667	cd 5e 4f 	call $4f5e	call $0000
-466a	dc e4 4e 	call c,$4ee4	call c,$0000
-466d	cb fc 	set 7,h	set 7,h
-466f	18 0a 	jr $+$0c	jr $+$00
-4671	cd 64 4f 	call $4f64	call $0000
-4674	dc 1a 4e 	call c,$4e1a	call c,$0000
-4677	cd 86 4e 	call $4e86	call $0000
-467a	2f 	cpl	cpl
-467b	d9 	exx	exx
-467c	eb 	ex de,hl	ex de,hl
-467d	21 00 80 	ld hl,$8000	ld hl,$0000
-4680	b7 	or a	or a
-4681	ed 42 	sbc hl,bc	sbc hl,bc
-4683	eb 	ex de,hl	ex de,hl
-4684	d9 	exx	exx
-4685	cc d6 4e 	call z,$4ed6	call z,$0000
-4688	dc c8 4e 	call c,$4ec8	call c,$0000
-468b	dc f0 4e 	call c,$4ef0	call c,$0000
-468e	cb bc 	res 7,h	res 7,h
-4690	0d 	dec c	dec c
-4691	0c 	inc c	inc c
-4692	ca 21 4f 	jp z,$4f21	jp z,$0000
-4695	b7 	or a	or a
-4696	f0 	ret p	ret p
-4697	cb fc 	set 7,h	set 7,h
-4699	c9 	ret	ret
-469a	cd a9 4e 	call $4ea9	call $0000
-469d	05 	dec b	dec b
-469e	04 	inc b	inc b
-469f	3e 12 	ld a,$12	ld a,$00
-46a1	ca 26 45 	jp z,$4526	jp z,$0000
-46a4	0d 	dec c	dec c
-46a5	0c 	inc c	inc c
-46a6	c8 	ret z	ret z
-46a7	7c 	ld a,h	ld a,h
-46a8	aa 	xor d	xor d
-46a9	08 	ex af,af'	ex af,af'
-46aa	cb fa 	set 7,d	set 7,d
-46ac	cb fc 	set 7,h	set 7,h
-46ae	c5 	push bc	push bc
-46af	42 	ld b,d	ld b,d
-46b0	4b 	ld c,e	ld c,e
-46b1	11 00 00 	ld de,$0000	ld de,$0000
-46b4	d9 	exx	exx
-46b5	42 	ld b,d	ld b,d
-46b6	4b 	ld c,e	ld c,e
-46b7	11 00 00 	ld de,$0000	ld de,$0000
-46ba	3e e0 	ld a,$e0	ld a,$00
-46bc	cd 31 50 	call $5031	call $0000
-46bf	d9 	exx	exx
-46c0	cb 7a 	bit 7,d	bit 7,d
-46c2	d9 	exx	exx
-46c3	cc 4c 50 	call z,$504c	call z,$0000
-46c6	eb 	ex de,hl	ex de,hl
-46c7	d9 	exx	exx
-46c8	cb 38 	srl b	srl b
-46ca	cb 19 	rr c	rr c
-46cc	b7 	or a	or a
-46cd	ed 42 	sbc hl,bc	sbc hl,bc
-46cf	3f 	ccf	ccf
-46d0	eb 	ex de,hl	ex de,hl
-46d1	cc d6 4e 	call z,$4ed6	call z,$0000
-46d4	dc c8 4e 	call c,$4ec8	call c,$0000
-46d7	c1 	pop bc	pop bc
-46d8	dc f0 4e 	call c,$4ef0	call c,$0000
-46db	1f 	rra	rra
-46dc	79 	ld a,c	ld a,c
-46dd	98 	sbc a,b	sbc a,b
-46de	3f 	ccf	ccf
-46df	c3 46 47 	jp $4746	jp $0000
-46e2	7c 	ld a,h	ld a,h
-46e3	aa 	xor d	xor d
-46e4	cd f5 50 	call $50f5	call $0000
-46e7	3e df 	ld a,$df	ld a,$00
-46e9	cd 5f 50 	call $505f	call $0000
-46ec	d9 	exx	exx
-46ed	0e bf 	ld c,$bf	ld c,$00
-46ef	cd 01 4f 	call $4f01	call $0000
-46f2	20 0d 	jr nz,$+$0f	jr nz,$+$00
-46f4	cb 7a 	bit 7,d	bit 7,d
-46f6	20 09 	jr nz,$+$0b	jr nz,$+$00
-46f8	cd dc 4e 	call $4edc	call $0000
-46fb	4a 	ld c,d	ld c,d
-46fc	08 	ex af,af'	ex af,af'
-46fd	f0 	ret p	ret p
-46fe	c3 06 4e 	jp $4e06	jp $0000
-4701	0d 	dec c	dec c
-4702	cd c8 50 	call $50c8	call $0000
-4705	f2 01 47 	jp p,$4701	jp p,$0000
-4708	08 	ex af,af'	ex af,af'
-4709	f8 	ret m	ret m
-470a	cb bc 	res 7,h	res 7,h
-470c	c9 	ret	ret
-470d	05 	dec b	dec b
-470e	04 	inc b	inc b
-470f	ca 21 4f 	jp z,$4f21	jp z,$0000
-4712	0d 	dec c	dec c
-4713	0c 	inc c	inc c
-4714	c8 	ret z	ret z
-4715	7c 	ld a,h	ld a,h
-4716	aa 	xor d	xor d
-4717	08 	ex af,af'	ex af,af'
-4718	cb fa 	set 7,d	set 7,d
-471a	cb fc 	set 7,h	set 7,h
-471c	c5 	push bc	push bc
-471d	44 	ld b,h	ld b,h
-471e	4d 	ld c,l	ld c,l
-471f	21 00 00 	ld hl,$0000	ld hl,$0000
-4722	d9 	exx	exx
-4723	44 	ld b,h	ld b,h
-4724	4d 	ld c,l	ld c,l
-4725	21 00 00 	ld hl,$0000	ld hl,$0000
-4728	3e e0 	ld a,$e0	ld a,$00
-472a	cd 5f 50 	call $505f	call $0000
-472d	dc 73 50 	call c,$5073	call c,$0000
-4730	d9 	exx	exx
-4731	e5 	push hl	push hl
-4732	21 00 80 	ld hl,$8000	ld hl,$0000
-4735	b7 	or a	or a
-4736	ed 52 	sbc hl,de	sbc hl,de
-4738	e1 	pop hl	pop hl
-4739	cc d6 4e 	call z,$4ed6	call z,$0000
-473c	dc c8 4e 	call c,$4ec8	call c,$0000
-473f	c1 	pop bc	pop bc
-4740	dc f0 4e 	call c,$4ef0	call c,$0000
-4743	1f 	rra	rra
-4744	79 	ld a,c	ld a,c
-4745	88 	adc a,b	adc a,b
-4746	38 05 	jr c,$+$07	jr c,$+$00
-4748	f2 21 4f 	jp p,$4f21	jp p,$0000
-474b	18 03 	jr $+$05	jr $+$00
-474d	fa f2 4e 	jp m,$4ef2	jp m,$0000
-4750	c6 80 	add a,$80	add a,$00
-4752	4f 	ld c,a	ld c,a
-4753	ca 21 4f 	jp z,$4f21	jp z,$0000
-4756	08 	ex af,af'	ex af,af'
-4757	cb bc 	res 7,h	res 7,h
-4759	f0 	ret p	ret p
-475a	cb fc 	set 7,h	set 7,h
-475c	c9 	ret	ret
-475d	cd dc 4e 	call $4edc	call $0000
-4760	cb 7c 	bit 7,h	bit 7,h
-4762	f5 	push af	push af
-4763	c4 06 4e 	call nz,$4e06	call nz,$0000
-4766	48 	ld c,b	ld c,b
-4767	06 20 	ld b,$20	ld b,$00
-4769	cd 7b 4f 	call $4f7b	call $0000
-476c	38 08 	jr c,$+$0a	jr c,$+$00
-476e	10 f9 	djnz $-$05	djnz $-$00
-4770	f1 	pop af	pop af
-4771	d9 	exx	exx
-4772	2c 	inc l	inc l
-4773	d9 	exx	exx
-4774	4c 	ld c,h	ld c,h
-4775	c9 	ret	ret
-4776	f1 	pop af	pop af
-4777	c5 	push bc	push bc
-4778	eb 	ex de,hl	ex de,hl
-4779	e5 	push hl	push hl
-477a	d9 	exx	exx
-477b	eb 	ex de,hl	ex de,hl
-477c	e5 	push hl	push hl
-477d	d9 	exx	exx
-477e	dd 21 00 00 	ld ix,$0000	ld ix,$0000
-4782	dd 39 	add ix,sp	add ix,sp
-4784	28 34 	jr z,$+$36	jr z,$+$00
-4786	c5 	push bc	push bc
-4787	d9 	exx	exx
-4788	d5 	push de	push de
-4789	d9 	exx	exx
-478a	d5 	push de	push de
-478b	cd b2 4e 	call $4eb2	call $0000
-478e	cd 90 4a 	call $4a90	call $0000
-4791	cd 06 32 	call $3206	call $0000
-4794	18 1d 	jr $+$1f	jr $+$00
-4796	c5 	push bc	push bc
-4797	d9 	exx	exx
-4798	cb 23 	sla e	sla e
-479a	cb 12 	rl d	rl d
-479c	d5 	push de	push de
-479d	d9 	exx	exx
-479e	cb 13 	rl e	rl e
-47a0	cb 12 	rl d	rl d
-47a2	d5 	push de	push de
-47a3	3e 0a 	ld a,$0a	ld a,$00
-47a5	f5 	push af	push af
-47a6	cd 8d 4f 	call $4f8d	call $0000
-47a9	cd 2c 45 	call $452c	call $0000
-47ac	f1 	pop af	pop af
-47ad	cd f1 19 	call $19f1	call $0000
-47b0	dc 2c 45 	call c,$452c	call c,$0000
-47b3	d1 	pop de	pop de
-47b4	d9 	exx	exx
-47b5	d1 	pop de	pop de
-47b6	d9 	exx	exx
-47b7	79 	ld a,c	ld a,c
-47b8	c1 	pop bc	pop bc
-47b9	4f 	ld c,a	ld c,a
-47ba	10 da 	djnz $-$24	djnz $-$00
-47bc	f1 	pop af	pop af
-47bd	f1 	pop af	pop af
-47be	f1 	pop af	pop af
-47bf	c9 	ret	ret
-47c0	f1 	pop af	pop af
-47c1	f1 	pop af	pop af
-47c2	f1 	pop af	pop af
-47c3	18 a1 	jr $-$5d	jr $-$00
-47c5	cb 7a 	bit 7,d	bit 7,d
-47c7	f5 	push af	push af
-47c8	cd dc 4e 	call $4edc	call $0000
-47cb	cd 9b 4f 	call $4f9b	call $0000
-47ce	0d 	dec c	dec c
-47cf	0c 	inc c	inc c
-47d0	28 ee 	jr z,$-$10	jr z,$-$00
-47d2	3e 9e 	ld a,$9e	ld a,$00
-47d4	b9 	cp c	cp c
-47d5	38 08 	jr c,$+$0a	jr c,$+$00
-47d7	3c 	inc a	inc a
-47d8	cd de 4d 	call $4dde	call $0000
-47db	08 	ex af,af'	ex af,af'
-47dc	f2 c0 47 	jp p,$47c0	jp p,$0000
-47df	cd dc 4e 	call $4edc	call $0000
-47e2	cd a7 4a 	call $4aa7	call $0000
-47e5	cd a4 4f 	call $4fa4	call $0000
-47e8	f1 	pop af	pop af
-47e9	cd 0d 47 	call $470d	call $0000
-47ec	c3 1c 4a 	jp $4a1c	jp $0000
-47ef	cd 2b 4f 	call $4f2b	call $0000
-47f2	18 03 	jr $+$05	jr $+$00
-47f4	cd 1e 4f 	call $4f1e	call $0000
-47f7	d0 	ret nc	ret nc
-47f8	18 38 	jr $+$3a	jr $+$00
-47fa	cd 2b 4f 	call $4f2b	call $0000
-47fd	18 03 	jr $+$05	jr $+$00
-47ff	cd 1e 4f 	call $4f1e	call $0000
-4802	c8 	ret z	ret z
-4803	d8 	ret c	ret c
-4804	18 2c 	jr $+$2e	jr $+$00
-4806	cd 2b 4f 	call $4f2b	call $0000
-4809	18 03 	jr $+$05	jr $+$00
-480b	cd 1e 4f 	call $4f1e	call $0000
-480e	d8 	ret c	ret c
-480f	18 21 	jr $+$23	jr $+$00
-4811	cd 2b 4f 	call $4f2b	call $0000
-4814	18 03 	jr $+$05	jr $+$00
-4816	cd 1e 4f 	call $4f1e	call $0000
-4819	28 17 	jr z,$+$19	jr z,$+$00
-481b	d0 	ret nc	ret nc
-481c	18 14 	jr $+$16	jr $+$00
-481e	cd 2b 4f 	call $4f2b	call $0000
-4821	18 03 	jr $+$05	jr $+$00
-4823	cd 1e 4f 	call $4f1e	call $0000
-4826	c8 	ret z	ret z
-4827	18 09 	jr $+$0b	jr $+$00
-4829	cd 2b 4f 	call $4f2b	call $0000
-482c	18 03 	jr $+$05	jr $+$00
-482e	cd 1e 4f 	call $4f1e	call $0000
-4831	c0 	ret nz	ret nz
-4832	21 ff ff 	ld hl,$ffff	ld hl,$0000
+4584	1f 	rra	rra
+4585	48 	ld c,b	ld c,b
+4586	2c 	inc l	inc l
+4587	48 	ld c,b	ld c,b
+4588	3e 48 	ld a,$48	ld a,$00
+458a	aa 	xor d	xor d
+458b	45 	ld b,l	ld b,l
+458c	f7 	rst $30	rst $00
+458d	45 	ld b,l	ld b,l
+458e	bc 	cp h	cp h
+458f	45 	ld b,l	ld b,l
+4590	e0 	ret po	ret po
+4591	45 	ld b,l	ld b,l
+4592	ce 45 	adc a,$45	adc a,$00
+4594	f3 	di	di
+4595	47 	ld b,a	ld b,a
+4596	00 	nop	nop
+4597	48 	ld c,b	ld c,b
+4598	e8 	ret pe	ret pe
+4599	47 	ld b,a	ld b,a
+459a	d1 	pop de	pop de
+459b	47 	ld b,a	ld b,a
+459c	0b 	dec bc	dec bc
+459d	48 	ld c,b	ld c,b
+459e	ef 	rst $28	rst $00
+459f	46 	ld b,(hl)	ld b,(hl)
+45a0	27 	daa	daa
+45a1	46 	ld b,(hl)	ld b,(hl)
+45a2	dc 47 11 	call c,$1147	call c,$0000
+45a5	46 	ld b,(hl)	ld b,(hl)
+45a6	a7 	and a	and a
+45a7	47 	ld b,a	ld b,a
+45a8	7f 	ld a,a	ld a,a
+45a9	46 	ld b,(hl)	ld b,(hl)
+45aa	cd d0 4d 	call $4dd0	call $0000
+45ad	7c 	ld a,h	ld a,h
+45ae	a2 	and d	and d
+45af	67 	ld h,a	ld h,a
+45b0	7d 	ld a,l	ld a,l
+45b1	a3 	and e	and e
+45b2	6f 	ld l,a	ld l,a
+45b3	d9 	exx	exx
+45b4	7c 	ld a,h	ld a,h
+45b5	a2 	and d	and d
+45b6	67 	ld h,a	ld h,a
+45b7	7d 	ld a,l	ld a,l
+45b8	a3 	and e	and e
+45b9	6f 	ld l,a	ld l,a
+45ba	d9 	exx	exx
+45bb	c9 	ret	ret
+45bc	cd d0 4d 	call $4dd0	call $0000
+45bf	7c 	ld a,h	ld a,h
+45c0	aa 	xor d	xor d
+45c1	67 	ld h,a	ld h,a
+45c2	7d 	ld a,l	ld a,l
+45c3	ab 	xor e	xor e
+45c4	6f 	ld l,a	ld l,a
+45c5	d9 	exx	exx
+45c6	7c 	ld a,h	ld a,h
+45c7	aa 	xor d	xor d
+45c8	67 	ld h,a	ld h,a
+45c9	7d 	ld a,l	ld a,l
+45ca	ab 	xor e	xor e
+45cb	6f 	ld l,a	ld l,a
+45cc	d9 	exx	exx
+45cd	c9 	ret	ret
+45ce	cd d0 4d 	call $4dd0	call $0000
+45d1	7c 	ld a,h	ld a,h
+45d2	b2 	or d	or d
+45d3	67 	ld h,a	ld h,a
+45d4	7d 	ld a,l	ld a,l
+45d5	b3 	or e	or e
+45d6	6f 	ld l,a	ld l,a
+45d7	d9 	exx	exx
+45d8	7c 	ld a,h	ld a,h
+45d9	b2 	or d	or d
+45da	67 	ld h,a	ld h,a
+45db	7d 	ld a,l	ld a,l
+45dc	b3 	or e	or e
+45dd	6f 	ld l,a	ld l,a
+45de	d9 	exx	exx
+45df	c9 	ret	ret
+45e0	cd d0 4d 	call $4dd0	call $0000
+45e3	7c 	ld a,h	ld a,h
+45e4	aa 	xor d	xor d
+45e5	cb 7c 	bit 7,h	bit 7,h
+45e7	cd d7 50 	call $50d7	call $0000
+45ea	3e df 	ld a,$df	ld a,$00
+45ec	cd 13 50 	call $5013	call $0000
+45ef	d9 	exx	exx
+45f0	0e 00 	ld c,$00	ld c,$00
+45f2	08 	ex af,af'	ex af,af'
+45f3	c8 	ret z	ret z
+45f4	c3 e8 4d 	jp $4de8	jp $0000
+45f7	cd d0 4d 	call $4dd0	call $0000
+45fa	cd e3 45 	call $45e3	call $0000
+45fd	b7 	or a	or a
+45fe	cd be 4e 	call $4ebe	call $0000
+4601	0e 00 	ld c,$00	ld c,$00
+4603	f0 	ret p	ret p
+4604	c3 e8 4d 	jp $4de8	jp $0000
+4607	cd 46 4f 	call $4f46	call $0000
+460a	e0 	ret po	ret po
+460b	cd 40 4f 	call $4f40	call $0000
+460e	cd 8b 4e 	call $4e8b	call $0000
+4611	7a 	ld a,d	ld a,d
+4612	ee 80 	xor $80	xor $00
+4614	57 	ld d,a	ld d,a
+4615	18 10 	jr $+$12	jr $+$00
+4617	7c 	ld a,h	ld a,h
+4618	ee 80 	xor $80	xor $00
+461a	67 	ld h,a	ld h,a
+461b	18 0a 	jr $+$0c	jr $+$00
+461d	cd 40 4f 	call $4f40	call $0000
+4620	e0 	ret po	ret po
+4621	cd 46 4f 	call $4f46	call $0000
+4624	cd 8b 4e 	call $4e8b	call $0000
+4627	05 	dec b	dec b
+4628	04 	inc b	inc b
+4629	c8 	ret z	ret z
+462a	0d 	dec c	dec c
+462b	0c 	inc c	inc c
+462c	ca be 4e 	jp z,$4ebe	jp z,$0000
+462f	d9 	exx	exx
+4630	01 00 00 	ld bc,$0000	ld bc,$0000
+4633	d9 	exx	exx
+4634	7c 	ld a,h	ld a,h
+4635	aa 	xor d	xor d
+4636	f5 	push af	push af
+4637	78 	ld a,b	ld a,b
+4638	b9 	cp c	cp c
+4639	dc be 4e 	call c,$4ebe	call c,$0000
+463c	78 	ld a,b	ld a,b
+463d	cb fc 	set 7,h	set 7,h
+463f	c4 c0 4d 	call nz,$4dc0	call nz,$0000
+4642	f1 	pop af	pop af
+4643	7a 	ld a,d	ld a,d
+4644	cb fa 	set 7,d	set 7,d
+4646	fa 53 46 	jp m,$4653	jp m,$0000
+4649	cd 40 4f 	call $4f40	call $0000
+464c	dc c6 4e 	call c,$4ec6	call c,$0000
+464f	cb fc 	set 7,h	set 7,h
+4651	18 0a 	jr $+$0c	jr $+$00
+4653	cd 46 4f 	call $4f46	call $0000
+4656	dc fc 4d 	call c,$4dfc	call c,$0000
+4659	cd 68 4e 	call $4e68	call $0000
+465c	2f 	cpl	cpl
+465d	d9 	exx	exx
+465e	eb 	ex de,hl	ex de,hl
+465f	21 00 80 	ld hl,$8000	ld hl,$0000
+4662	b7 	or a	or a
+4663	ed 42 	sbc hl,bc	sbc hl,bc
+4665	eb 	ex de,hl	ex de,hl
+4666	d9 	exx	exx
+4667	cc b8 4e 	call z,$4eb8	call z,$0000
+466a	dc aa 4e 	call c,$4eaa	call c,$0000
+466d	dc d2 4e 	call c,$4ed2	call c,$0000
+4670	cb bc 	res 7,h	res 7,h
+4672	0d 	dec c	dec c
+4673	0c 	inc c	inc c
+4674	ca 03 4f 	jp z,$4f03	jp z,$0000
+4677	b7 	or a	or a
+4678	f0 	ret p	ret p
+4679	cb fc 	set 7,h	set 7,h
+467b	c9 	ret	ret
+467c	cd 8b 4e 	call $4e8b	call $0000
+467f	05 	dec b	dec b
+4680	04 	inc b	inc b
+4681	3e 12 	ld a,$12	ld a,$00
+4683	ca 08 45 	jp z,$4508	jp z,$0000
+4686	0d 	dec c	dec c
+4687	0c 	inc c	inc c
+4688	c8 	ret z	ret z
+4689	7c 	ld a,h	ld a,h
+468a	aa 	xor d	xor d
+468b	08 	ex af,af'	ex af,af'
+468c	cb fa 	set 7,d	set 7,d
+468e	cb fc 	set 7,h	set 7,h
+4690	c5 	push bc	push bc
+4691	42 	ld b,d	ld b,d
+4692	4b 	ld c,e	ld c,e
+4693	11 00 00 	ld de,$0000	ld de,$0000
+4696	d9 	exx	exx
+4697	42 	ld b,d	ld b,d
+4698	4b 	ld c,e	ld c,e
+4699	11 00 00 	ld de,$0000	ld de,$0000
+469c	3e e0 	ld a,$e0	ld a,$00
+469e	cd 13 50 	call $5013	call $0000
+46a1	d9 	exx	exx
+46a2	cb 7a 	bit 7,d	bit 7,d
+46a4	d9 	exx	exx
+46a5	cc 2e 50 	call z,$502e	call z,$0000
+46a8	eb 	ex de,hl	ex de,hl
+46a9	d9 	exx	exx
+46aa	cb 38 	srl b	srl b
+46ac	cb 19 	rr c	rr c
+46ae	b7 	or a	or a
+46af	ed 42 	sbc hl,bc	sbc hl,bc
+46b1	3f 	ccf	ccf
+46b2	eb 	ex de,hl	ex de,hl
+46b3	cc b8 4e 	call z,$4eb8	call z,$0000
+46b6	dc aa 4e 	call c,$4eaa	call c,$0000
+46b9	c1 	pop bc	pop bc
+46ba	dc d2 4e 	call c,$4ed2	call c,$0000
+46bd	1f 	rra	rra
+46be	79 	ld a,c	ld a,c
+46bf	98 	sbc a,b	sbc a,b
+46c0	3f 	ccf	ccf
+46c1	c3 28 47 	jp $4728	jp $0000
+46c4	7c 	ld a,h	ld a,h
+46c5	aa 	xor d	xor d
+46c6	cd d7 50 	call $50d7	call $0000
+46c9	3e df 	ld a,$df	ld a,$00
+46cb	cd 41 50 	call $5041	call $0000
+46ce	d9 	exx	exx
+46cf	0e bf 	ld c,$bf	ld c,$00
+46d1	cd e3 4e 	call $4ee3	call $0000
+46d4	20 0d 	jr nz,$+$0f	jr nz,$+$00
+46d6	cb 7a 	bit 7,d	bit 7,d
+46d8	20 09 	jr nz,$+$0b	jr nz,$+$00
+46da	cd be 4e 	call $4ebe	call $0000
+46dd	4a 	ld c,d	ld c,d
+46de	08 	ex af,af'	ex af,af'
+46df	f0 	ret p	ret p
+46e0	c3 e8 4d 	jp $4de8	jp $0000
+46e3	0d 	dec c	dec c
+46e4	cd aa 50 	call $50aa	call $0000
+46e7	f2 e3 46 	jp p,$46e3	jp p,$0000
+46ea	08 	ex af,af'	ex af,af'
+46eb	f8 	ret m	ret m
+46ec	cb bc 	res 7,h	res 7,h
+46ee	c9 	ret	ret
+46ef	05 	dec b	dec b
+46f0	04 	inc b	inc b
+46f1	ca 03 4f 	jp z,$4f03	jp z,$0000
+46f4	0d 	dec c	dec c
+46f5	0c 	inc c	inc c
+46f6	c8 	ret z	ret z
+46f7	7c 	ld a,h	ld a,h
+46f8	aa 	xor d	xor d
+46f9	08 	ex af,af'	ex af,af'
+46fa	cb fa 	set 7,d	set 7,d
+46fc	cb fc 	set 7,h	set 7,h
+46fe	c5 	push bc	push bc
+46ff	44 	ld b,h	ld b,h
+4700	4d 	ld c,l	ld c,l
+4701	21 00 00 	ld hl,$0000	ld hl,$0000
+4704	d9 	exx	exx
+4705	44 	ld b,h	ld b,h
+4706	4d 	ld c,l	ld c,l
+4707	21 00 00 	ld hl,$0000	ld hl,$0000
+470a	3e e0 	ld a,$e0	ld a,$00
+470c	cd 41 50 	call $5041	call $0000
+470f	dc 55 50 	call c,$5055	call c,$0000
+4712	d9 	exx	exx
+4713	e5 	push hl	push hl
+4714	21 00 80 	ld hl,$8000	ld hl,$0000
+4717	b7 	or a	or a
+4718	ed 52 	sbc hl,de	sbc hl,de
+471a	e1 	pop hl	pop hl
+471b	cc b8 4e 	call z,$4eb8	call z,$0000
+471e	dc aa 4e 	call c,$4eaa	call c,$0000
+4721	c1 	pop bc	pop bc
+4722	dc d2 4e 	call c,$4ed2	call c,$0000
+4725	1f 	rra	rra
+4726	79 	ld a,c	ld a,c
+4727	88 	adc a,b	adc a,b
+4728	38 05 	jr c,$+$07	jr c,$+$00
+472a	f2 03 4f 	jp p,$4f03	jp p,$0000
+472d	18 03 	jr $+$05	jr $+$00
+472f	fa d4 4e 	jp m,$4ed4	jp m,$0000
+4732	c6 80 	add a,$80	add a,$00
+4734	4f 	ld c,a	ld c,a
+4735	ca 03 4f 	jp z,$4f03	jp z,$0000
+4738	08 	ex af,af'	ex af,af'
+4739	cb bc 	res 7,h	res 7,h
+473b	f0 	ret p	ret p
+473c	cb fc 	set 7,h	set 7,h
+473e	c9 	ret	ret
+473f	cd be 4e 	call $4ebe	call $0000
+4742	cb 7c 	bit 7,h	bit 7,h
+4744	f5 	push af	push af
+4745	c4 e8 4d 	call nz,$4de8	call nz,$0000
+4748	48 	ld c,b	ld c,b
+4749	06 20 	ld b,$20	ld b,$00
+474b	cd 5d 4f 	call $4f5d	call $0000
+474e	38 08 	jr c,$+$0a	jr c,$+$00
+4750	10 f9 	djnz $-$05	djnz $-$00
+4752	f1 	pop af	pop af
+4753	d9 	exx	exx
+4754	2c 	inc l	inc l
+4755	d9 	exx	exx
+4756	4c 	ld c,h	ld c,h
+4757	c9 	ret	ret
+4758	f1 	pop af	pop af
+4759	c5 	push bc	push bc
+475a	eb 	ex de,hl	ex de,hl
+475b	e5 	push hl	push hl
+475c	d9 	exx	exx
+475d	eb 	ex de,hl	ex de,hl
+475e	e5 	push hl	push hl
+475f	d9 	exx	exx
+4760	dd 21 00 00 	ld ix,$0000	ld ix,$0000
+4764	dd 39 	add ix,sp	add ix,sp
+4766	28 34 	jr z,$+$36	jr z,$+$00
+4768	c5 	push bc	push bc
+4769	d9 	exx	exx
+476a	d5 	push de	push de
+476b	d9 	exx	exx
+476c	d5 	push de	push de
+476d	cd 94 4e 	call $4e94	call $0000
+4770	cd 72 4a 	call $4a72	call $0000
+4773	cd e8 31 	call $31e8	call $0000
+4776	18 1d 	jr $+$1f	jr $+$00
+4778	c5 	push bc	push bc
+4779	d9 	exx	exx
+477a	cb 23 	sla e	sla e
+477c	cb 12 	rl d	rl d
+477e	d5 	push de	push de
+477f	d9 	exx	exx
+4780	cb 13 	rl e	rl e
+4782	cb 12 	rl d	rl d
+4784	d5 	push de	push de
+4785	3e 0a 	ld a,$0a	ld a,$00
+4787	f5 	push af	push af
+4788	cd 6f 4f 	call $4f6f	call $0000
+478b	cd 0e 45 	call $450e	call $0000
+478e	f1 	pop af	pop af
+478f	cd d3 19 	call $19d3	call $0000
+4792	dc 0e 45 	call c,$450e	call c,$0000
+4795	d1 	pop de	pop de
+4796	d9 	exx	exx
+4797	d1 	pop de	pop de
+4798	d9 	exx	exx
+4799	79 	ld a,c	ld a,c
+479a	c1 	pop bc	pop bc
+479b	4f 	ld c,a	ld c,a
+479c	10 da 	djnz $-$24	djnz $-$00
+479e	f1 	pop af	pop af
+479f	f1 	pop af	pop af
+47a0	f1 	pop af	pop af
+47a1	c9 	ret	ret
+47a2	f1 	pop af	pop af
+47a3	f1 	pop af	pop af
+47a4	f1 	pop af	pop af
+47a5	18 a1 	jr $-$5d	jr $-$00
+47a7	cb 7a 	bit 7,d	bit 7,d
+47a9	f5 	push af	push af
+47aa	cd be 4e 	call $4ebe	call $0000
+47ad	cd 7d 4f 	call $4f7d	call $0000
+47b0	0d 	dec c	dec c
+47b1	0c 	inc c	inc c
+47b2	28 ee 	jr z,$-$10	jr z,$-$00
+47b4	3e 9e 	ld a,$9e	ld a,$00
+47b6	b9 	cp c	cp c
+47b7	38 08 	jr c,$+$0a	jr c,$+$00
+47b9	3c 	inc a	inc a
+47ba	cd c0 4d 	call $4dc0	call $0000
+47bd	08 	ex af,af'	ex af,af'
+47be	f2 a2 47 	jp p,$47a2	jp p,$0000
+47c1	cd be 4e 	call $4ebe	call $0000
+47c4	cd 89 4a 	call $4a89	call $0000
+47c7	cd 86 4f 	call $4f86	call $0000
+47ca	f1 	pop af	pop af
+47cb	cd ef 46 	call $46ef	call $0000
+47ce	c3 fe 49 	jp $49fe	jp $0000
+47d1	cd 0d 4f 	call $4f0d	call $0000
+47d4	18 03 	jr $+$05	jr $+$00
+47d6	cd 00 4f 	call $4f00	call $0000
+47d9	d0 	ret nc	ret nc
+47da	18 38 	jr $+$3a	jr $+$00
+47dc	cd 0d 4f 	call $4f0d	call $0000
+47df	18 03 	jr $+$05	jr $+$00
+47e1	cd 00 4f 	call $4f00	call $0000
+47e4	c8 	ret z	ret z
+47e5	d8 	ret c	ret c
+47e6	18 2c 	jr $+$2e	jr $+$00
+47e8	cd 0d 4f 	call $4f0d	call $0000
+47eb	18 03 	jr $+$05	jr $+$00
+47ed	cd 00 4f 	call $4f00	call $0000
+47f0	d8 	ret c	ret c
+47f1	18 21 	jr $+$23	jr $+$00
+47f3	cd 0d 4f 	call $4f0d	call $0000
+47f6	18 03 	jr $+$05	jr $+$00
+47f8	cd 00 4f 	call $4f00	call $0000
+47fb	28 17 	jr z,$+$19	jr z,$+$00
+47fd	d0 	ret nc	ret nc
+47fe	18 14 	jr $+$16	jr $+$00
+4800	cd 0d 4f 	call $4f0d	call $0000
+4803	18 03 	jr $+$05	jr $+$00
+4805	cd 00 4f 	call $4f00	call $0000
+4808	c8 	ret z	ret z
+4809	18 09 	jr $+$0b	jr $+$00
+480b	cd 0d 4f 	call $4f0d	call $0000
+480e	18 03 	jr $+$05	jr $+$00
+4810	cd 00 4f 	call $4f00	call $0000
+4813	c0 	ret nz	ret nz
+4814	21 ff ff 	ld hl,$ffff	ld hl,$0000
+4817	d9 	exx	exx
+4818	21 ff ff 	ld hl,$ffff	ld hl,$0000
+481b	d9 	exx	exx
+481c	af 	xor a	xor a
+481d	4f 	ld c,a	ld c,a
+481e	c9 	ret	ret
+481f	cd 50 48 	call $4850	call $0000
+4822	28 07 	jr z,$+$09	jr z,$+$00
+4824	d9 	exx	exx
+4825	29 	add hl,hl	add hl,hl
+4826	d9 	exx	exx
+4827	ed 6a 	adc hl,hl	adc hl,hl
+4829	10 f9 	djnz $-$05	djnz $-$00
+482b	c9 	ret	ret
+482c	cd 50 48 	call $4850	call $0000
+482f	28 fa 	jr z,$-$04	jr z,$-$00
+4831	cb 2c 	sra h	sra h
+4833	cb 1d 	rr l	rr l
 4835	d9 	exx	exx
-4836	21 ff ff 	ld hl,$ffff	ld hl,$0000
-4839	d9 	exx	exx
-483a	af 	xor a	xor a
-483b	4f 	ld c,a	ld c,a
-483c	c9 	ret	ret
-483d	cd 6e 48 	call $486e	call $0000
-4840	28 07 	jr z,$+$09	jr z,$+$00
-4842	d9 	exx	exx
-4843	29 	add hl,hl	add hl,hl
-4844	d9 	exx	exx
-4845	ed 6a 	adc hl,hl	adc hl,hl
-4847	10 f9 	djnz $-$05	djnz $-$00
-4849	c9 	ret	ret
-484a	cd 6e 48 	call $486e	call $0000
-484d	28 fa 	jr z,$-$04	jr z,$-$00
-484f	cb 2c 	sra h	sra h
-4851	cb 1d 	rr l	rr l
-4853	d9 	exx	exx
-4854	cb 1c 	rr h	rr h
-4856	cb 1d 	rr l	rr l
+4836	cb 1c 	rr h	rr h
+4838	cb 1d 	rr l	rr l
+483a	d9 	exx	exx
+483b	10 f4 	djnz $-$0a	djnz $-$00
+483d	c9 	ret	ret
+483e	cd 50 48 	call $4850	call $0000
+4841	28 e8 	jr z,$-$16	jr z,$-$00
+4843	cb 3c 	srl h	srl h
+4845	cb 1d 	rr l	rr l
+4847	d9 	exx	exx
+4848	cb 1c 	rr h	rr h
+484a	cb 1d 	rr l	rr l
+484c	d9 	exx	exx
+484d	10 f4 	djnz $-$0a	djnz $-$00
+484f	c9 	ret	ret
+4850	cd d0 4d 	call $4dd0	call $0000
+4853	7a 	ld a,d	ld a,d
+4854	b3 	or e	or e
+4855	d9 	exx	exx
+4856	b2 	or d	or d
+4857	7b 	ld a,e	ld a,e
 4858	d9 	exx	exx
-4859	10 f4 	djnz $-$0a	djnz $-$00
-485b	c9 	ret	ret
-485c	cd 6e 48 	call $486e	call $0000
-485f	28 e8 	jr z,$-$16	jr z,$-$00
-4861	cb 3c 	srl h	srl h
-4863	cb 1d 	rr l	rr l
-4865	d9 	exx	exx
-4866	cb 1c 	rr h	rr h
-4868	cb 1d 	rr l	rr l
-486a	d9 	exx	exx
-486b	10 f4 	djnz $-$0a	djnz $-$00
-486d	c9 	ret	ret
-486e	cd ee 4d 	call $4dee	call $0000
-4871	7a 	ld a,d	ld a,d
-4872	b3 	or e	or e
-4873	d9 	exx	exx
-4874	b2 	or d	or d
-4875	7b 	ld a,e	ld a,e
-4876	d9 	exx	exx
-4877	06 20 	ld b,$20	ld b,$00
-4879	20 02 	jr nz,$+$04	jr nz,$+$00
-487b	47 	ld b,a	ld b,a
-487c	b7 	or a	or a
+4859	06 20 	ld b,$20	ld b,$00
+485b	20 02 	jr nz,$+$04	jr nz,$+$00
+485d	47 	ld b,a	ld b,a
+485e	b7 	or a	or a
+485f	c9 	ret	ret
+4860	cb 7c 	bit 7,h	bit 7,h
+4862	c8 	ret z	ret z
+4863	0d 	dec c	dec c
+4864	0c 	inc c	inc c
+4865	ca e8 4d 	jp z,$4de8	jp z,$0000
+4868	cb bc 	res 7,h	res 7,h
+486a	c9 	ret	ret
+486b	cd d9 4d 	call $4dd9	call $0000
+486e	7c 	ld a,h	ld a,h
+486f	2f 	cpl	cpl
+4870	67 	ld h,a	ld h,a
+4871	7d 	ld a,l	ld a,l
+4872	2f 	cpl	cpl
+4873	6f 	ld l,a	ld l,a
+4874	d9 	exx	exx
+4875	7c 	ld a,h	ld a,h
+4876	2f 	cpl	cpl
+4877	67 	ld h,a	ld h,a
+4878	7d 	ld a,l	ld a,l
+4879	2f 	cpl	cpl
+487a	6f 	ld l,a	ld l,a
+487b	d9 	exx	exx
+487c	af 	xor a	xor a
 487d	c9 	ret	ret
-487e	cb 7c 	bit 7,h	bit 7,h
-4880	c8 	ret z	ret z
-4881	0d 	dec c	dec c
-4882	0c 	inc c	inc c
-4883	ca 06 4e 	jp z,$4e06	jp z,$0000
-4886	cb bc 	res 7,h	res 7,h
-4888	c9 	ret	ret
-4889	cd f7 4d 	call $4df7	call $0000
-488c	7c 	ld a,h	ld a,h
-488d	2f 	cpl	cpl
-488e	67 	ld h,a	ld h,a
-488f	7d 	ld a,l	ld a,l
-4890	2f 	cpl	cpl
-4891	6f 	ld l,a	ld l,a
-4892	d9 	exx	exx
-4893	7c 	ld a,h	ld a,h
-4894	2f 	cpl	cpl
-4895	67 	ld h,a	ld h,a
-4896	7d 	ld a,l	ld a,l
-4897	2f 	cpl	cpl
-4898	6f 	ld l,a	ld l,a
-4899	d9 	exx	exx
-489a	af 	xor a	xor a
-489b	c9 	ret	ret
-489c	21 0f 49 	ld hl,$490f	ld hl,$0000
-489f	d9 	exx	exx
-48a0	21 a2 da 	ld hl,$daa2	ld hl,$0000
-48a3	d9 	exx	exx
-48a4	0e 81 	ld c,$81	ld c,$00
-48a6	af 	xor a	xor a
+487e	21 0f 49 	ld hl,$490f	ld hl,$0000
+4881	d9 	exx	exx
+4882	21 a2 da 	ld hl,$daa2	ld hl,$0000
+4885	d9 	exx	exx
+4886	0e 81 	ld c,$81	ld c,$00
+4888	af 	xor a	xor a
+4889	c9 	ret	ret
+488a	cd 9a 48 	call $489a	call $0000
+488d	cd ef 46 	call $46ef	call $0000
+4890	af 	xor a	xor a
+4891	c9 	ret	ret
+4892	cd 9a 48 	call $489a	call $0000
+4895	cd 7f 46 	call $467f	call $0000
+4898	af 	xor a	xor a
+4899	c9 	ret	ret
+489a	cd 94 4e 	call $4e94	call $0000
+489d	11 2e 65 	ld de,$652e	ld de,$0000
+48a0	d9 	exx	exx
+48a1	11 d3 e0 	ld de,$e0d3	ld de,$0000
+48a4	d9 	exx	exx
+48a5	06 85 	ld b,$85	ld b,$00
 48a7	c9 	ret	ret
-48a8	cd b8 48 	call $48b8	call $0000
-48ab	cd 0d 47 	call $470d	call $0000
-48ae	af 	xor a	xor a
-48af	c9 	ret	ret
-48b0	cd b8 48 	call $48b8	call $0000
-48b3	cd 9d 46 	call $469d	call $0000
-48b6	af 	xor a	xor a
-48b7	c9 	ret	ret
-48b8	cd b2 4e 	call $4eb2	call $0000
-48bb	11 2e 65 	ld de,$652e	ld de,$0000
-48be	d9 	exx	exx
-48bf	11 d3 e0 	ld de,$e0d3	ld de,$0000
-48c2	d9 	exx	exx
-48c3	06 85 	ld b,$85	ld b,$00
-48c5	c9 	ret	ret
-48c6	cd 01 4f 	call $4f01	call $0000
-48c9	b1 	or c	or c
-48ca	c8 	ret z	ret z
-48cb	cb 7c 	bit 7,h	bit 7,h
-48cd	c2 32 48 	jp nz,$4832	jp nz,$0000
-48d0	cd 21 4f 	call $4f21	call $0000
-48d3	c3 c8 4e 	jp $4ec8	jp $0000
-48d6	cd e3 50 	call $50e3	call $0000
-48d9	f5 	push af	push af
-48da	cd 34 4d 	call $4d34	call $0000
-48dd	f1 	pop af	pop af
-48de	fe 2d 	cp $2d	cp $00
-48e0	3e 00 	ld a,$00	ld a,$00
-48e2	c0 	ret nz	ret nz
-48e3	0d 	dec c	dec c
-48e4	0c 	inc c	inc c
-48e5	ca 06 4e 	jp z,$4e06	jp z,$0000
-48e8	7c 	ld a,h	ld a,h
-48e9	ee 80 	xor $80	xor $00
-48eb	67 	ld h,a	ld h,a
-48ec	af 	xor a	xor a
-48ed	c9 	ret	ret
-48ee	0d 	dec c	dec c
-48ef	0c 	inc c	inc c
-48f0	c8 	ret z	ret z
-48f1	3e 9f 	ld a,$9f	ld a,$00
-48f3	44 	ld b,h	ld b,h
-48f4	cd de 4d 	call $4dde	call $0000
-48f7	08 	ex af,af'	ex af,af'
-48f8	a0 	and b	and b
-48f9	fc c8 4e 	call m,$4ec8	call m,$0000
-48fc	78 	ld a,b	ld a,b
-48fd	b7 	or a	or a
-48fe	fc 06 4e 	call m,$4e06	call m,$0000
-4901	af 	xor a	xor a
-4902	4f 	ld c,a	ld c,a
-4903	c9 	ret	ret
-4904	cd b2 4e 	call $4eb2	call $0000
-4907	cb 7c 	bit 7,h	bit 7,h
-4909	3e 15 	ld a,$15	ld a,$00
-490b	c2 26 45 	jp nz,$4526	jp nz,$0000
-490e	0d 	dec c	dec c
-490f	0c 	inc c	inc c
-4910	c8 	ret z	ret z
-4911	cb fc 	set 7,h	set 7,h
-4913	cb 41 	bit 0,c	bit 0,c
-4915	cc e4 4e 	call z,$4ee4	call z,$0000
-4918	79 	ld a,c	ld a,c
-4919	d6 80 	sub $80	sub $00
-491b	cb 2f 	sra a	sra a
-491d	c6 80 	add a,$80	add a,$00
-491f	4f 	ld c,a	ld c,a
-4920	c5 	push bc	push bc
-4921	eb 	ex de,hl	ex de,hl
-4922	21 00 00 	ld hl,$0000	ld hl,$0000
-4925	44 	ld b,h	ld b,h
-4926	4d 	ld c,l	ld c,l
+48a8	cd e3 4e 	call $4ee3	call $0000
+48ab	b1 	or c	or c
+48ac	c8 	ret z	ret z
+48ad	cb 7c 	bit 7,h	bit 7,h
+48af	c2 14 48 	jp nz,$4814	jp nz,$0000
+48b2	cd 03 4f 	call $4f03	call $0000
+48b5	c3 aa 4e 	jp $4eaa	jp $0000
+48b8	cd c5 50 	call $50c5	call $0000
+48bb	f5 	push af	push af
+48bc	cd 16 4d 	call $4d16	call $0000
+48bf	f1 	pop af	pop af
+48c0	fe 2d 	cp $2d	cp $00
+48c2	3e 00 	ld a,$00	ld a,$00
+48c4	c0 	ret nz	ret nz
+48c5	0d 	dec c	dec c
+48c6	0c 	inc c	inc c
+48c7	ca e8 4d 	jp z,$4de8	jp z,$0000
+48ca	7c 	ld a,h	ld a,h
+48cb	ee 80 	xor $80	xor $00
+48cd	67 	ld h,a	ld h,a
+48ce	af 	xor a	xor a
+48cf	c9 	ret	ret
+48d0	0d 	dec c	dec c
+48d1	0c 	inc c	inc c
+48d2	c8 	ret z	ret z
+48d3	3e 9f 	ld a,$9f	ld a,$00
+48d5	44 	ld b,h	ld b,h
+48d6	cd c0 4d 	call $4dc0	call $0000
+48d9	08 	ex af,af'	ex af,af'
+48da	a0 	and b	and b
+48db	fc aa 4e 	call m,$4eaa	call m,$0000
+48de	78 	ld a,b	ld a,b
+48df	b7 	or a	or a
+48e0	fc e8 4d 	call m,$4de8	call m,$0000
+48e3	af 	xor a	xor a
+48e4	4f 	ld c,a	ld c,a
+48e5	c9 	ret	ret
+48e6	cd 94 4e 	call $4e94	call $0000
+48e9	cb 7c 	bit 7,h	bit 7,h
+48eb	3e 15 	ld a,$15	ld a,$00
+48ed	c2 08 45 	jp nz,$4508	jp nz,$0000
+48f0	0d 	dec c	dec c
+48f1	0c 	inc c	inc c
+48f2	c8 	ret z	ret z
+48f3	cb fc 	set 7,h	set 7,h
+48f5	cb 41 	bit 0,c	bit 0,c
+48f7	cc c6 4e 	call z,$4ec6	call z,$0000
+48fa	79 	ld a,c	ld a,c
+48fb	d6 80 	sub $80	sub $00
+48fd	cb 2f 	sra a	sra a
+48ff	c6 80 	add a,$80	add a,$00
+4901	4f 	ld c,a	ld c,a
+4902	c5 	push bc	push bc
+4903	eb 	ex de,hl	ex de,hl
+4904	21 00 00 	ld hl,$0000	ld hl,$0000
+4907	44 	ld b,h	ld b,h
+4908	4d 	ld c,l	ld c,l
+4909	d9 	exx	exx
+490a	eb 	ex de,hl	ex de,hl
+490b	21 00 00 	ld hl,$0000	ld hl,$0000
+490e	44 	ld b,h	ld b,h
+490f	4d 	ld c,l	ld c,l
+4910	3e e1 	ld a,$e1	ld a,$00
+4912	cd 74 50 	call $5074	call $0000
+4915	d9 	exx	exx
+4916	cb 78 	bit 7,b	bit 7,b
+4918	d9 	exx	exx
+4919	cc 74 50 	call z,$5074	call z,$0000
+491c	cd 93 50 	call $5093	call $0000
+491f	b7 	or a	or a
+4920	cd 2e 50 	call $502e	call $0000
+4923	cb 1b 	rr e	rr e
+4925	60 	ld h,b	ld h,b
+4926	69 	ld l,c	ld l,c
 4927	d9 	exx	exx
-4928	eb 	ex de,hl	ex de,hl
-4929	21 00 00 	ld hl,$0000	ld hl,$0000
-492c	44 	ld b,h	ld b,h
-492d	4d 	ld c,l	ld c,l
-492e	3e e1 	ld a,$e1	ld a,$00
-4930	cd 92 50 	call $5092	call $0000
-4933	d9 	exx	exx
-4934	cb 78 	bit 7,b	bit 7,b
-4936	d9 	exx	exx
-4937	cc 92 50 	call z,$5092	call z,$0000
-493a	cd b1 50 	call $50b1	call $0000
-493d	b7 	or a	or a
-493e	cd 4c 50 	call $504c	call $0000
-4941	cb 1b 	rr e	rr e
-4943	60 	ld h,b	ld h,b
-4944	69 	ld l,c	ld l,c
-4945	d9 	exx	exx
-4946	60 	ld h,b	ld h,b
-4947	69 	ld l,c	ld l,c
-4948	dc c8 4e 	call c,$4ec8	call c,$0000
-494b	c1 	pop bc	pop bc
-494c	dc f0 4e 	call c,$4ef0	call c,$0000
-494f	1f 	rra	rra
-4950	9f 	sbc a,a	sbc a,a
-4951	81 	add a,c	add a,c
-4952	4f 	ld c,a	ld c,a
-4953	cb bc 	res 7,h	res 7,h
-4955	af 	xor a	xor a
-4956	c9 	ret	ret
-4957	cd b2 4e 	call $4eb2	call $0000
-495a	cd 9b 4f 	call $4f9b	call $0000
-495d	cd 77 49 	call $4977	call $0000
-4960	cd a4 4f 	call $4fa4	call $0000
-4963	cd 9b 4f 	call $4f9b	call $0000
-4966	cd dc 4e 	call $4edc	call $0000
-4969	cd 82 49 	call $4982	call $0000
-496c	cd a4 4f 	call $4fa4	call $0000
-496f	cd 9d 46 	call $469d	call $0000
-4972	af 	xor a	xor a
-4973	c9 	ret	ret
-4974	cd b2 4e 	call $4eb2	call $0000
-4977	cd 27 4e 	call $4e27	call $0000
-497a	1c 	inc e	inc e
-497b	1c 	inc e	inc e
-497c	7b 	ld a,e	ld a,e
-497d	18 0e 	jr $+$10	jr $+$00
-497f	cd b2 4e 	call $4eb2	call $0000
-4982	e5 	push hl	push hl
-4983	cd 27 4e 	call $4e27	call $0000
-4986	f1 	pop af	pop af
-4987	07 	rlca	rlca
-4988	07 	rlca	rlca
-4989	07 	rlca	rlca
-498a	e6 04 	and $04	and $00
-498c	ab 	xor e	xor e
-498d	f5 	push af	push af
-498e	cb bc 	res 7,h	res 7,h
-4990	1f 	rra	rra
-4991	cd 0e 4a 	call $4a0e	call $0000
-4994	dc 35 46 	call c,$4635	call c,$0000
-4997	f1 	pop af	pop af
-4998	f5 	push af	push af
-4999	e6 03 	and $03	and $00
-499b	e2 cc 49 	jp po,$49cc	jp po,$0000
-499e	cd 9b 4f 	call $4f9b	call $0000
-49a1	cd 95 4f 	call $4f95	call $0000
-49a4	cd ce 4f 	call $4fce	call $0000
-49a7	b7 	or a	or a
-49a8	a8 	xor b	xor b
-49a9	11 36 6d 	ld de,$6d36	ld de,$0000
-49ac	26 de 	ld h,$de	ld h,$00
-49ae	05 	dec b	dec b
-49af	d0 	ret nc	ret nc
-49b0	73 	ld (hl),e	ld (hl),e
-49b1	c0 	ret nz	ret nz
-49b2	80 	add a,b	add a,b
-49b3	88 	adc a,b	adc a,b
-49b4	08 	ex af,af'	ex af,af'
-49b5	79 	ld a,c	ld a,c
-49b6	9d 	sbc a,l	sbc a,l
-49b7	aa 	xor d	xor d
-49b8	aa 	xor d	xor d
-49b9	aa 	xor d	xor d
-49ba	7d 	ld a,l	ld a,l
-49bb	00 	nop	nop
-49bc	00 	nop	nop
-49bd	00 	nop	nop
-49be	00 	nop	nop
-49bf	80 	add a,b	add a,b
-49c0	cd a4 4f 	call $4fa4	call $0000
-49c3	cd a4 4f 	call $4fa4	call $0000
-49c6	cd 0d 47 	call $470d	call $0000
-49c9	c3 ee 49 	jp $49ee	jp $0000
-49cc	cd 95 4f 	call $4f95	call $0000
-49cf	cd ce 4f 	call $4fce	call $0000
-49d2	71 	ld (hl),c	ld (hl),c
-49d3	d5 	push de	push de
-49d4	78 	ld a,b	ld a,b
-49d5	4c 	ld c,h	ld c,h
-49d6	70 	ld (hl),b	ld (hl),b
-49d7	af 	xor a	xor a
-49d8	94 	sub h	sub h
-49d9	03 	inc bc	inc bc
-49da	b6 	or (hl)	or (hl)
-49db	76 	halt	halt
-49dc	c8 	ret z	ret z
-49dd	9c 	sbc a,h	sbc a,h
-49de	aa 	xor d	xor d
-49df	2a 7b dd 	ld hl,($dd7b)	ld hl,($0000)
-49e2	ff 	rst $38	rst $00
-49e3	ff 	rst $38	rst $00
-49e4	ff 	rst $38	rst $00
-49e5	7e 	ld a,(hl)	ld a,(hl)
-49e6	00 	nop	nop
-49e7	00 	nop	nop
-49e8	00 	nop	nop
-49e9	00 	nop	nop
-49ea	80 	add a,b	add a,b
-49eb	cd a4 4f 	call $4fa4	call $0000
-49ee	f1 	pop af	pop af
-49ef	e6 04 	and $04	and $00
-49f1	c8 	ret z	ret z
-49f2	0d 	dec c	dec c
-49f3	0c 	inc c	inc c
-49f4	c8 	ret z	ret z
-49f5	cb fc 	set 7,h	set 7,h
-49f7	c9 	ret	ret
-49f8	21 00 00 	ld hl,$0000	ld hl,$0000
-49fb	d9 	exx	exx
-49fc	21 00 00 	ld hl,$0000	ld hl,$0000
-49ff	d9 	exx	exx
-4a00	0e 80 	ld c,$80	ld c,$00
-4a02	c9 	ret	ret
-4a03	11 00 00 	ld de,$0000	ld de,$0000
+4928	60 	ld h,b	ld h,b
+4929	69 	ld l,c	ld l,c
+492a	dc aa 4e 	call c,$4eaa	call c,$0000
+492d	c1 	pop bc	pop bc
+492e	dc d2 4e 	call c,$4ed2	call c,$0000
+4931	1f 	rra	rra
+4932	9f 	sbc a,a	sbc a,a
+4933	81 	add a,c	add a,c
+4934	4f 	ld c,a	ld c,a
+4935	cb bc 	res 7,h	res 7,h
+4937	af 	xor a	xor a
+4938	c9 	ret	ret
+4939	cd 94 4e 	call $4e94	call $0000
+493c	cd 7d 4f 	call $4f7d	call $0000
+493f	cd 59 49 	call $4959	call $0000
+4942	cd 86 4f 	call $4f86	call $0000
+4945	cd 7d 4f 	call $4f7d	call $0000
+4948	cd be 4e 	call $4ebe	call $0000
+494b	cd 64 49 	call $4964	call $0000
+494e	cd 86 4f 	call $4f86	call $0000
+4951	cd 7f 46 	call $467f	call $0000
+4954	af 	xor a	xor a
+4955	c9 	ret	ret
+4956	cd 94 4e 	call $4e94	call $0000
+4959	cd 09 4e 	call $4e09	call $0000
+495c	1c 	inc e	inc e
+495d	1c 	inc e	inc e
+495e	7b 	ld a,e	ld a,e
+495f	18 0e 	jr $+$10	jr $+$00
+4961	cd 94 4e 	call $4e94	call $0000
+4964	e5 	push hl	push hl
+4965	cd 09 4e 	call $4e09	call $0000
+4968	f1 	pop af	pop af
+4969	07 	rlca	rlca
+496a	07 	rlca	rlca
+496b	07 	rlca	rlca
+496c	e6 04 	and $04	and $00
+496e	ab 	xor e	xor e
+496f	f5 	push af	push af
+4970	cb bc 	res 7,h	res 7,h
+4972	1f 	rra	rra
+4973	cd f0 49 	call $49f0	call $0000
+4976	dc 17 46 	call c,$4617	call c,$0000
+4979	f1 	pop af	pop af
+497a	f5 	push af	push af
+497b	e6 03 	and $03	and $00
+497d	e2 ae 49 	jp po,$49ae	jp po,$0000
+4980	cd 7d 4f 	call $4f7d	call $0000
+4983	cd 77 4f 	call $4f77	call $0000
+4986	cd b0 4f 	call $4fb0	call $0000
+4989	b7 	or a	or a
+498a	a8 	xor b	xor b
+498b	11 36 6d 	ld de,$6d36	ld de,$0000
+498e	26 de 	ld h,$de	ld h,$00
+4990	05 	dec b	dec b
+4991	d0 	ret nc	ret nc
+4992	73 	ld (hl),e	ld (hl),e
+4993	c0 	ret nz	ret nz
+4994	80 	add a,b	add a,b
+4995	88 	adc a,b	adc a,b
+4996	08 	ex af,af'	ex af,af'
+4997	79 	ld a,c	ld a,c
+4998	9d 	sbc a,l	sbc a,l
+4999	aa 	xor d	xor d
+499a	aa 	xor d	xor d
+499b	aa 	xor d	xor d
+499c	7d 	ld a,l	ld a,l
+499d	00 	nop	nop
+499e	00 	nop	nop
+499f	00 	nop	nop
+49a0	00 	nop	nop
+49a1	80 	add a,b	add a,b
+49a2	cd 86 4f 	call $4f86	call $0000
+49a5	cd 86 4f 	call $4f86	call $0000
+49a8	cd ef 46 	call $46ef	call $0000
+49ab	c3 d0 49 	jp $49d0	jp $0000
+49ae	cd 77 4f 	call $4f77	call $0000
+49b1	cd b0 4f 	call $4fb0	call $0000
+49b4	71 	ld (hl),c	ld (hl),c
+49b5	d5 	push de	push de
+49b6	78 	ld a,b	ld a,b
+49b7	4c 	ld c,h	ld c,h
+49b8	70 	ld (hl),b	ld (hl),b
+49b9	af 	xor a	xor a
+49ba	94 	sub h	sub h
+49bb	03 	inc bc	inc bc
+49bc	b6 	or (hl)	or (hl)
+49bd	76 	halt	halt
+49be	c8 	ret z	ret z
+49bf	9c 	sbc a,h	sbc a,h
+49c0	aa 	xor d	xor d
+49c1	2a 7b dd 	ld hl,($dd7b)	ld hl,($0000)
+49c4	ff 	rst $38	rst $00
+49c5	ff 	rst $38	rst $00
+49c6	ff 	rst $38	rst $00
+49c7	7e 	ld a,(hl)	ld a,(hl)
+49c8	00 	nop	nop
+49c9	00 	nop	nop
+49ca	00 	nop	nop
+49cb	00 	nop	nop
+49cc	80 	add a,b	add a,b
+49cd	cd 86 4f 	call $4f86	call $0000
+49d0	f1 	pop af	pop af
+49d1	e6 04 	and $04	and $00
+49d3	c8 	ret z	ret z
+49d4	0d 	dec c	dec c
+49d5	0c 	inc c	inc c
+49d6	c8 	ret z	ret z
+49d7	cb fc 	set 7,h	set 7,h
+49d9	c9 	ret	ret
+49da	21 00 00 	ld hl,$0000	ld hl,$0000
+49dd	d9 	exx	exx
+49de	21 00 00 	ld hl,$0000	ld hl,$0000
+49e1	d9 	exx	exx
+49e2	0e 80 	ld c,$80	ld c,$00
+49e4	c9 	ret	ret
+49e5	11 00 00 	ld de,$0000	ld de,$0000
+49e8	d9 	exx	exx
+49e9	11 00 00 	ld de,$0000	ld de,$0000
+49ec	d9 	exx	exx
+49ed	06 80 	ld b,$80	ld b,$00
+49ef	c9 	ret	ret
+49f0	11 0f 49 	ld de,$490f	ld de,$0000
+49f3	d9 	exx	exx
+49f4	11 a2 da 	ld de,$daa2	ld de,$0000
+49f7	d9 	exx	exx
+49f8	06 7f 	ld b,$7f	ld b,$00
+49fa	c9 	ret	ret
+49fb	cd 94 4e 	call $4e94	call $0000
+49fe	cd 7b 4a 	call $4a7b	call $0000
+4a01	d9 	exx	exx
+4a02	1d 	dec e	dec e
+4a03	01 cf d1 	ld bc,$d1cf	ld bc,$0000
 4a06	d9 	exx	exx
-4a07	11 00 00 	ld de,$0000	ld de,$0000
-4a0a	d9 	exx	exx
-4a0b	06 80 	ld b,$80	ld b,$00
-4a0d	c9 	ret	ret
-4a0e	11 0f 49 	ld de,$490f	ld de,$0000
-4a11	d9 	exx	exx
-4a12	11 a2 da 	ld de,$daa2	ld de,$0000
-4a15	d9 	exx	exx
-4a16	06 7f 	ld b,$7f	ld b,$00
-4a18	c9 	ret	ret
-4a19	cd b2 4e 	call $4eb2	call $0000
-4a1c	cd 99 4a 	call $4a99	call $0000
-4a1f	d9 	exx	exx
-4a20	1d 	dec e	dec e
-4a21	01 cf d1 	ld bc,$d1cf	ld bc,$0000
-4a24	d9 	exx	exx
-4a25	e5 	push hl	push hl
-4a26	cd 37 4e 	call $4e37	call $0000
-4a29	f1 	pop af	pop af
-4a2a	cb 7b 	bit 7,e	bit 7,e
-4a2c	28 09 	jr z,$+$0b	jr z,$+$00
-4a2e	17 	rla	rla
-4a2f	da 21 4f 	jp c,$4f21	jp c,$0000
-4a32	3e 18 	ld a,$18	ld a,$00
-4a34	c3 26 45 	jp $4526	jp $0000
-4a37	e6 80 	and $80	and $00
-4a39	b3 	or e	or e
-4a3a	f5 	push af	push af
-4a3b	cb bc 	res 7,h	res 7,h
-4a3d	cd 9b 4f 	call $4f9b	call $0000
-4a40	cd ce 4f 	call $4fce	call $0000
-4a43	72 	ld (hl),d	ld (hl),d
-4a44	40 2e 94 	ld.sis l,$94	ld.sis l,$00
-4a47	73 	ld (hl),e	ld (hl),e
-4a48	65 	ld h,l	ld h,l
-4a49	6f 	ld l,a	ld l,a
-4a4a	4f 	ld c,a	ld c,a
-4a4b	2e 76 	ld l,$76	ld l,$00
-4a4d	37 	scf	scf
-4a4e	6d 	ld l,l	ld l,l
-4a4f	02 	ld (bc),a	ld (bc),a
-4a50	88 	adc a,b	adc a,b
-4a51	79 	ld a,c	ld a,c
-4a52	12 	ld (de),a	ld (de),a
-4a53	e5 	push hl	push hl
-4a54	a0 	and b	and b
-4a55	2a 7b 14 	ld hl,($147b)	ld hl,($0000)
-4a58	4f 	ld c,a	ld c,a
-4a59	aa 	xor d	xor d
-4a5a	aa 	xor d	xor d
-4a5b	7d 	ld a,l	ld a,l
-4a5c	56 	ld d,(hl)	ld d,(hl)
-4a5d	fd ff 	trap	trap
-4a5f	7f 	ld a,a	ld a,a
-4a60	7e 	ld a,(hl)	ld a,(hl)
-4a61	fe ff 	cp $ff	cp $00
-4a63	ff 	rst $38	rst $00
-4a64	ff 	rst $38	rst $00
-4a65	7f 	ld a,a	ld a,a
-4a66	00 	nop	nop
-4a67	00 	nop	nop
-4a68	00 	nop	nop
-4a69	00 	nop	nop
-4a6a	80 	add a,b	add a,b
-4a6b	cd a4 4f 	call $4fa4	call $0000
-4a6e	f1 	pop af	pop af
-4a6f	f5 	push af	push af
-4a70	f4 90 4a 	call p,$4a90	call p,$0000
-4a73	f1 	pop af	pop af
-4a74	f2 7b 4a 	jp p,$4a7b	jp p,$0000
-4a77	e6 7f 	and $7f	and $00
-4a79	ed 44 	neg	neg
-4a7b	c6 80 	add a,$80	add a,$00
-4a7d	81 	add a,c	add a,c
-4a7e	38 05 	jr c,$+$07	jr c,$+$00
-4a80	f2 21 4f 	jp p,$4f21	jp p,$0000
-4a83	18 03 	jr $+$05	jr $+$00
-4a85	fa f2 4e 	jp m,$4ef2	jp m,$0000
-4a88	c6 80 	add a,$80	add a,$00
-4a8a	ca 21 4f 	jp z,$4f21	jp z,$0000
-4a8d	4f 	ld c,a	ld c,a
-4a8e	af 	xor a	xor a
-4a8f	c9 	ret	ret
-4a90	cd 03 4a 	call $4a03	call $0000
-4a93	cd dc 4e 	call $4edc	call $0000
-4a96	c3 9d 46 	jp $469d	jp $0000
-4a99	11 72 31 	ld de,$3172	ld de,$0000
+4a07	e5 	push hl	push hl
+4a08	cd 19 4e 	call $4e19	call $0000
+4a0b	f1 	pop af	pop af
+4a0c	cb 7b 	bit 7,e	bit 7,e
+4a0e	28 09 	jr z,$+$0b	jr z,$+$00
+4a10	17 	rla	rla
+4a11	da 03 4f 	jp c,$4f03	jp c,$0000
+4a14	3e 18 	ld a,$18	ld a,$00
+4a16	c3 08 45 	jp $4508	jp $0000
+4a19	e6 80 	and $80	and $00
+4a1b	b3 	or e	or e
+4a1c	f5 	push af	push af
+4a1d	cb bc 	res 7,h	res 7,h
+4a1f	cd 7d 4f 	call $4f7d	call $0000
+4a22	cd b0 4f 	call $4fb0	call $0000
+4a25	72 	ld (hl),d	ld (hl),d
+4a26	40 2e 94 	ld.sis l,$94	ld.sis l,$00
+4a29	73 	ld (hl),e	ld (hl),e
+4a2a	65 	ld h,l	ld h,l
+4a2b	6f 	ld l,a	ld l,a
+4a2c	4f 	ld c,a	ld c,a
+4a2d	2e 76 	ld l,$76	ld l,$00
+4a2f	37 	scf	scf
+4a30	6d 	ld l,l	ld l,l
+4a31	02 	ld (bc),a	ld (bc),a
+4a32	88 	adc a,b	adc a,b
+4a33	79 	ld a,c	ld a,c
+4a34	12 	ld (de),a	ld (de),a
+4a35	e5 	push hl	push hl
+4a36	a0 	and b	and b
+4a37	2a 7b 14 	ld hl,($147b)	ld hl,($0000)
+4a3a	4f 	ld c,a	ld c,a
+4a3b	aa 	xor d	xor d
+4a3c	aa 	xor d	xor d
+4a3d	7d 	ld a,l	ld a,l
+4a3e	56 	ld d,(hl)	ld d,(hl)
+4a3f	fd ff 	trap	trap
+4a41	7f 	ld a,a	ld a,a
+4a42	7e 	ld a,(hl)	ld a,(hl)
+4a43	fe ff 	cp $ff	cp $00
+4a45	ff 	rst $38	rst $00
+4a46	ff 	rst $38	rst $00
+4a47	7f 	ld a,a	ld a,a
+4a48	00 	nop	nop
+4a49	00 	nop	nop
+4a4a	00 	nop	nop
+4a4b	00 	nop	nop
+4a4c	80 	add a,b	add a,b
+4a4d	cd 86 4f 	call $4f86	call $0000
+4a50	f1 	pop af	pop af
+4a51	f5 	push af	push af
+4a52	f4 72 4a 	call p,$4a72	call p,$0000
+4a55	f1 	pop af	pop af
+4a56	f2 5d 4a 	jp p,$4a5d	jp p,$0000
+4a59	e6 7f 	and $7f	and $00
+4a5b	ed 44 	neg	neg
+4a5d	c6 80 	add a,$80	add a,$00
+4a5f	81 	add a,c	add a,c
+4a60	38 05 	jr c,$+$07	jr c,$+$00
+4a62	f2 03 4f 	jp p,$4f03	jp p,$0000
+4a65	18 03 	jr $+$05	jr $+$00
+4a67	fa d4 4e 	jp m,$4ed4	jp m,$0000
+4a6a	c6 80 	add a,$80	add a,$00
+4a6c	ca 03 4f 	jp z,$4f03	jp z,$0000
+4a6f	4f 	ld c,a	ld c,a
+4a70	af 	xor a	xor a
+4a71	c9 	ret	ret
+4a72	cd e5 49 	call $49e5	call $0000
+4a75	cd be 4e 	call $4ebe	call $0000
+4a78	c3 7f 46 	jp $467f	jp $0000
+4a7b	11 72 31 	ld de,$3172	ld de,$0000
+4a7e	d9 	exx	exx
+4a7f	11 f8 17 	ld de,$17f8	ld de,$0000
+4a82	d9 	exx	exx
+4a83	06 7f 	ld b,$7f	ld b,$00
+4a85	c9 	ret	ret
+4a86	cd 94 4e 	call $4e94	call $0000
+4a89	3e 16 	ld a,$16	ld a,$00
+4a8b	cb 7c 	bit 7,h	bit 7,h
+4a8d	c2 08 45 	jp nz,$4508	jp nz,$0000
+4a90	0c 	inc c	inc c
+4a91	0d 	dec c	dec c
+4a92	ca 08 45 	jp z,$4508	jp z,$0000
+4a95	11 04 35 	ld de,$3504	ld de,$0000
+4a98	d9 	exx	exx
+4a99	11 33 f3 	ld de,$f333	ld de,$0000
 4a9c	d9 	exx	exx
-4a9d	11 f8 17 	ld de,$17f8	ld de,$0000
-4aa0	d9 	exx	exx
-4aa1	06 7f 	ld b,$7f	ld b,$00
-4aa3	c9 	ret	ret
-4aa4	cd b2 4e 	call $4eb2	call $0000
-4aa7	3e 16 	ld a,$16	ld a,$00
-4aa9	cb 7c 	bit 7,h	bit 7,h
-4aab	c2 26 45 	jp nz,$4526	jp nz,$0000
-4aae	0c 	inc c	inc c
-4aaf	0d 	dec c	dec c
-4ab0	ca 26 45 	jp z,$4526	jp z,$0000
-4ab3	11 04 35 	ld de,$3504	ld de,$0000
-4ab6	d9 	exx	exx
-4ab7	11 33 f3 	ld de,$f333	ld de,$0000
-4aba	d9 	exx	exx
-4abb	cd 33 4f 	call $4f33	call $0000
-4abe	79 	ld a,c	ld a,c
-4abf	0e 80 	ld c,$80	ld c,$00
-4ac1	38 02 	jr c,$+$04	jr c,$+$00
-4ac3	0d 	dec c	dec c
-4ac4	3c 	inc a	inc a
-4ac5	f5 	push af	push af
-4ac6	cd b0 4f 	call $4fb0	call $0000
-4ac9	cd 9b 4f 	call $4f9b	call $0000
-4acc	cd 95 4f 	call $4f95	call $0000
-4acf	cd ce 4f 	call $4fce	call $0000
-4ad2	48 	ld c,b	ld c,b
-4ad3	cc fb 74 	call z,$74fb	call z,$0000
-4ad6	7d 	ld a,l	ld a,l
-4ad7	af 	xor a	xor a
-4ad8	ae 	xor (hl)	xor (hl)
-4ad9	ff 	rst $38	rst $00
-4ada	11 7e 8c 	ld de,$8c7e	ld de,$0000
-4add	d9 	exx	exx
-4ade	cd 4c 7e 	call $7e4c	call $0000
-4ae1	e3 	ex (sp),hl	ex (sp),hl
-4ae2	a9 	xor c	xor c
-4ae3	aa 	xor d	xor d
-4ae4	2a 7f 00 	ld hl,($007f)	ld hl,($0000)
-4ae7	00 	nop	nop
-4ae8	00 	nop	nop
-4ae9	00 	nop	nop
-4aea	81 	add a,c	add a,c
-4aeb	cd a4 4f 	call $4fa4	call $0000
-4aee	cd a4 4f 	call $4fa4	call $0000
-4af1	cd 0d 47 	call $470d	call $0000
-4af4	f1 	pop af	pop af
-4af5	cd 9b 4f 	call $4f9b	call $0000
-4af8	08 	ex af,af'	ex af,af'
-4af9	cd 21 4f 	call $4f21	call $0000
-4afc	08 	ex af,af'	ex af,af'
-4afd	d6 80 	sub $80	sub $00
-4aff	28 1b 	jr z,$+$1d	jr z,$+$00
-4b01	30 02 	jr nc,$+$04	jr nc,$+$00
-4b03	2f 	cpl	cpl
-4b04	3c 	inc a	inc a
-4b05	67 	ld h,a	ld h,a
-4b06	0e 87 	ld c,$87	ld c,$00
-4b08	f5 	push af	push af
-4b09	cd 98 4e 	call $4e98	call $0000
-4b0c	cb bc 	res 7,h	res 7,h
-4b0e	cd 99 4a 	call $4a99	call $0000
-4b11	cd 0d 47 	call $470d	call $0000
-4b14	f1 	pop af	pop af
-4b15	30 05 	jr nc,$+$07	jr nc,$+$00
-4b17	fa 1c 4b 	jp m,$4b1c	jp m,$0000
-4b1a	cb fc 	set 7,h	set 7,h
-4b1c	cd a4 4f 	call $4fa4	call $0000
-4b1f	cd 45 46 	call $4645	call $0000
-4b22	af 	xor a	xor a
-4b23	c9 	ret	ret
-4b24	cd a4 4a 	call $4aa4	call $0000
-4b27	11 5b 5e 	ld de,$5e5b	ld de,$0000
-4b2a	d9 	exx	exx
-4b2b	11 a9 d8 	ld de,$d8a9	ld de,$0000
-4b2e	d9 	exx	exx
-4b2f	06 7e 	ld b,$7e	ld b,$00
-4b31	cd 0d 47 	call $470d	call $0000
-4b34	af 	xor a	xor a
-4b35	c9 	ret	ret
-4b36	cd b2 4e 	call $4eb2	call $0000
-4b39	cd 9b 4f 	call $4f9b	call $0000
-4b3c	cd 8d 4f 	call $4f8d	call $0000
-4b3f	cd 0d 47 	call $470d	call $0000
-4b42	cd 03 4a 	call $4a03	call $0000
-4b45	cd 35 46 	call $4635	call $0000
-4b48	cd 07 49 	call $4907	call $0000
-4b4b	cd a4 4f 	call $4fa4	call $0000
-4b4e	0c 	inc c	inc c
-4b4f	0d 	dec c	dec c
-4b50	3e 02 	ld a,$02	ld a,$00
-4b52	d5 	push de	push de
-4b53	28 70 	jr z,$+$72	jr z,$+$00
-4b55	d1 	pop de	pop de
-4b56	cd 93 4a 	call $4a93	call $0000
-4b59	18 03 	jr $+$05	jr $+$00
-4b5b	cd b2 4e 	call $4eb2	call $0000
-4b5e	e5 	push hl	push hl
-4b5f	cb bc 	res 7,h	res 7,h
-4b61	11 13 54 	ld de,$5413	ld de,$0000
-4b64	d9 	exx	exx
-4b65	11 d0 cc 	ld de,$ccd0	ld de,$0000
-4b68	d9 	exx	exx
-4b69	06 7e 	ld b,$7e	ld b,$00
-4b6b	cd 30 4f 	call $4f30	call $0000
-4b6e	06 00 	ld b,$00	ld b,$00
-4b70	38 1c 	jr c,$+$1e	jr c,$+$00
-4b72	11 82 1a 	ld de,$1a82	ld de,$0000
-4b75	d9 	exx	exx
-4b76	11 9a 79 	ld de,$799a	ld de,$0000
-4b79	d9 	exx	exx
-4b7a	06 81 	ld b,$81	ld b,$00
-4b7c	cd 30 4f 	call $4f30	call $0000
-4b7f	38 08 	jr c,$+$0a	jr c,$+$00
-4b81	cd 90 4a 	call $4a90	call $0000
-4b84	06 02 	ld b,$02	ld b,$00
-4b86	c3 8e 4b 	jp $4b8e	jp $0000
-4b89	cd b0 4f 	call $4fb0	call $0000
-4b8c	06 01 	ld b,$01	ld b,$00
-4b8e	c5 	push bc	push bc
-4b8f	cd 9b 4f 	call $4f9b	call $0000
-4b92	cd 95 4f 	call $4f95	call $0000
-4b95	cd ce 4f 	call $4fce	call $0000
-4b98	35 	dec (hl)	dec (hl)
-4b99	f3 	di	di
-4b9a	d8 	ret c	ret c
-4b9b	37 	scf	scf
-4b9c	7b 	ld a,e	ld a,e
-4b9d	91 	sub c	sub c
-4b9e	6b 	ld l,e	ld l,e
-4b9f	b9 	cp c	cp c
-4ba0	aa 	xor d	xor d
-4ba1	7c 	ld a,h	ld a,h
-4ba2	de 41 	sbc a,$41	sbc a,$00
-4ba4	97 	sub a	sub a
-4ba5	61 	ld h,c	ld h,c
-4ba6	7c 	ld a,h	ld a,h
-4ba7	7b 	ld a,e	ld a,e
-4ba8	9d 	sbc a,l	sbc a,l
-4ba9	37 	scf	scf
-4baa	92 	sub d	sub d
-4bab	7d 	ld a,l	ld a,l
-4bac	5a 	ld e,d	ld e,d
-4bad	2a cc 4c 	ld hl,($4ccc)	ld hl,($0000)
-4bb0	7d 	ld a,l	ld a,l
-4bb1	5c 	ld e,h	ld e,h
-4bb2	a9 	xor c	xor c
-4bb3	aa 	xor d	xor d
-4bb4	aa 	xor d	xor d
-4bb5	7e 	ld a,(hl)	ld a,(hl)
-4bb6	00 	nop	nop
-4bb7	00 	nop	nop
-4bb8	00 	nop	nop
-4bb9	00 	nop	nop
-4bba	80 	add a,b	add a,b
-4bbb	cd a4 4f 	call $4fa4	call $0000
-4bbe	cd a4 4f 	call $4fa4	call $0000
-4bc1	cd 0d 47 	call $470d	call $0000
-4bc4	f1 	pop af	pop af
-4bc5	cd 0e 4a 	call $4a0e	call $0000
-4bc8	1f 	rra	rra
-4bc9	f5 	push af	push af
-4bca	dc 45 46 	call c,$4645	call c,$0000
-4bcd	f1 	pop af	pop af
-4bce	04 	inc b	inc b
-4bcf	1f 	rra	rra
-4bd0	dc 35 46 	call c,$4635	call c,$0000
-4bd3	f1 	pop af	pop af
-4bd4	b7 	or a	or a
-4bd5	f0 	ret p	ret p
-4bd6	cb fc 	set 7,h	set 7,h
-4bd8	af 	xor a	xor a
-4bd9	c9 	ret	ret
-4bda	cd 36 4b 	call $4b36	call $0000
-4bdd	3e 02 	ld a,$02	ld a,$00
-4bdf	f5 	push af	push af
-4be0	18 e3 	jr $-$1b	jr $-$00
-4be2	cd b2 4e 	call $4eb2	call $0000
-4be5	06 00 	ld b,$00	ld b,$00
-4be7	cb 7c 	bit 7,h	bit 7,h
-4be9	28 06 	jr z,$+$08	jr z,$+$00
-4beb	cb bc 	res 7,h	res 7,h
-4bed	3e 2d 	ld a,$2d	ld a,$00
-4bef	12 	ld (de),a	ld (de),a
-4bf0	13 	inc de	inc de
-4bf1	af 	xor a	xor a
-4bf2	b9 	cp c	cp c
-4bf3	28 47 	jr z,$+$49	jr z,$+$00
-4bf5	d5 	push de	push de
-4bf6	78 	ld a,b	ld a,b
-4bf7	f5 	push af	push af
-4bf8	79 	ld a,c	ld a,c
-4bf9	fe a1 	cp $a1	cp $00
-4bfb	30 1a 	jr nc,$+$1c	jr nc,$+$00
-4bfd	fe 9b 	cp $9b	cp $00
-4bff	30 25 	jr nc,$+$27	jr nc,$+$00
-4c01	2f 	cpl	cpl
-4c02	fe e1 	cp $e1	cp $00
-4c04	38 02 	jr c,$+$04	jr c,$+$00
-4c06	3e f8 	ld a,$f8	ld a,$00
-4c08	c6 1c 	add a,$1c	add a,$00
-4c0a	cd f5 4f 	call $4ff5	call $0000
-4c0d	f5 	push af	push af
-4c0e	cd 0d 47 	call $470d	call $0000
-4c11	f1 	pop af	pop af
-4c12	47 	ld b,a	ld b,a
-4c13	f1 	pop af	pop af
-4c14	90 	sub b	sub b
-4c15	18 e0 	jr $-$1e	jr $-$00
-4c17	d6 20 	sub $20	sub $00
-4c19	cd f5 4f 	call $4ff5	call $0000
-4c1c	f5 	push af	push af
-4c1d	cd 9d 46 	call $469d	call $0000
-4c20	f1 	pop af	pop af
-4c21	47 	ld b,a	ld b,a
-4c22	f1 	pop af	pop af
-4c23	80 	add a,b	add a,b
-4c24	18 d1 	jr $-$2d	jr $-$00
-4c26	3e 09 	ld a,$09	ld a,$00
-4c28	cd f5 4f 	call $4ff5	call $0000
-4c2b	cd 30 4f 	call $4f30	call $0000
-4c2e	79 	ld a,c	ld a,c
-4c2f	c1 	pop bc	pop bc
-4c30	4f 	ld c,a	ld c,a
-4c31	cb fc 	set 7,h	set 7,h
-4c33	dc 52 4f 	call c,$4f52	call c,$0000
-4c36	d1 	pop de	pop de
-4c37	cb b9 	res 7,c	res 7,c
-4c39	3e 00 	ld a,$00	ld a,$00
-4c3b	17 	rla	rla
-4c3c	0c 	inc c	inc c
-4c3d	08 	ex af,af'	ex af,af'
-4c3e	78 	ld a,b	ld a,b
-4c3f	dd cb 02 4e 	bit 1,(ix+$02)	bit 1,(ix+$00)
-4c43	20 08 	jr nz,$+$0a	jr nz,$+$00
-4c45	af 	xor a	xor a
-4c46	dd be 01 	cp (ix+$01)	cp (ix+$00)
-4c49	28 0a 	jr z,$+$0c	jr z,$+$00
-4c4b	3e f6 	ld a,$f6	ld a,$00
-4c4d	dd 86 01 	add a,(ix+$01)	add a,(ix+$00)
-4c50	b7 	or a	or a
-4c51	fa 55 4c 	jp m,$4c55	jp m,$0000
-4c54	af 	xor a	xor a
-4c55	f5 	push af	push af
-4c56	08 	ex af,af'	ex af,af'
-4c57	cd 7b 4f 	call $4f7b	call $0000
-4c5a	8f 	adc a,a	adc a,a
-4c5b	fe 0a 	cp $0a	cp $00
-4c5d	38 05 	jr c,$+$07	jr c,$+$00
-4c5f	d6 0a 	sub $0a	sub $00
-4c61	d9 	exx	exx
-4c62	2c 	inc l	inc l
-4c63	d9 	exx	exx
-4c64	0d 	dec c	dec c
-4c65	20 f0 	jr nz,$-$0e	jr nz,$-$00
-4c67	4f 	ld c,a	ld c,a
-4c68	7c 	ld a,h	ld a,h
-4c69	e6 3f 	and $3f	and $00
-4c6b	67 	ld h,a	ld h,a
-4c6c	f1 	pop af	pop af
-4c6d	f2 7a 4c 	jp p,$4c7a	jp p,$0000
-4c70	3c 	inc a	inc a
-4c71	20 1c 	jr nz,$+$1e	jr nz,$+$00
-4c73	3e 04 	ld a,$04	ld a,$00
-4c75	b9 	cp c	cp c
-4c76	3e 00 	ld a,$00	ld a,$00
-4c78	18 15 	jr $+$17	jr $+$00
-4c7a	f5 	push af	push af
-4c7b	79 	ld a,c	ld a,c
-4c7c	ce 30 	adc a,$30	adc a,$00
-4c7e	fe 30 	cp $30	cp $00
-4c80	28 05 	jr z,$+$07	jr z,$+$00
-4c82	fe 3a 	cp $3a	cp $00
-4c84	3f 	ccf	ccf
-4c85	30 08 	jr nc,$+$0a	jr nc,$+$00
-4c87	e3 	ex (sp),hl	ex (sp),hl
-4c88	cb 75 	bit 6,l	bit 6,l
-4c8a	e3 	ex (sp),hl	ex (sp),hl
-4c8b	20 05 	jr nz,$+$07	jr nz,$+$00
-4c8d	3e 30 	ld a,$30	ld a,$00
-4c8f	3c 	inc a	inc a
-4c90	3d 	dec a	dec a
-4c91	f5 	push af	push af
-4c92	04 	inc b	inc b
-4c93	cd 01 4f 	call $4f01	call $0000
-4c96	0e 20 	ld c,$20	ld c,$00
-4c98	3e 00 	ld a,$00	ld a,$00
-4c9a	20 bb 	jr nz,$-$43	jr nz,$-$00
-4c9c	f1 	pop af	pop af
-4c9d	f5 	push af	push af
-4c9e	3e 00 	ld a,$00	ld a,$00
-4ca0	38 b5 	jr c,$-$49	jr c,$-$00
-4ca2	eb 	ex de,hl	ex de,hl
-4ca3	0e ff 	ld c,$ff	ld c,$00
-4ca5	16 01 	ld d,$01	ld d,$00
-4ca7	dd 5e 01 	ld e,(ix+$01)	ld e,(ix+$00)
-4caa	dd cb 02 46 	bit 0,(ix+$02)	bit 0,(ix+$00)
-4cae	20 32 	jr nz,$+$34	jr nz,$+$00
-4cb0	dd cb 02 4e 	bit 1,(ix+$02)	bit 1,(ix+$00)
-4cb4	28 11 	jr z,$+$13	jr z,$+$00
-4cb6	78 	ld a,b	ld a,b
-4cb7	b7 	or a	or a
-4cb8	28 04 	jr z,$+$06	jr z,$+$00
-4cba	fa be 4c 	jp m,$4cbe	jp m,$0000
-4cbd	50 	ld d,b	ld d,b
-4cbe	7a 	ld a,d	ld a,d
-4cbf	dd 86 01 	add a,(ix+$01)	add a,(ix+$00)
-4cc2	5f 	ld e,a	ld e,a
-4cc3	fe 0b 	cp $0b	cp $00
-4cc5	38 17 	jr c,$+$19	jr c,$+$00
-4cc7	78 	ld a,b	ld a,b
-4cc8	11 01 01 	ld de,$0101	ld de,$0000
-4ccb	b7 	or a	or a
-4ccc	fa e2 4c 	jp m,$4ce2	jp m,$0000
-4ccf	28 0d 	jr z,$+$0f	jr z,$+$00
-4cd1	dd 7e 01 	ld a,(ix+$01)	ld a,(ix+$00)
-4cd4	b7 	or a	or a
-4cd5	20 02 	jr nz,$+$04	jr nz,$+$00
-4cd7	3e 0a 	ld a,$0a	ld a,$00
-4cd9	b8 	cp b	cp b
-4cda	38 06 	jr c,$+$08	jr c,$+$00
-4cdc	50 	ld d,b	ld d,b
-4cdd	58 	ld e,b	ld e,b
-4cde	78 	ld a,b	ld a,b
-4cdf	c6 81 	add a,$81	add a,$00
-4ce1	4f 	ld c,a	ld c,a
-4ce2	cb fa 	set 7,d	set 7,d
-4ce4	1d 	dec e	dec e
-4ce5	7a 	ld a,d	ld a,d
-4ce6	b9 	cp c	cp c
-4ce7	30 0c 	jr nc,$+$0e	jr nc,$+$00
-4ce9	f1 	pop af	pop af
-4cea	28 03 	jr z,$+$05	jr z,$+$00
-4cec	f2 f7 4c 	jp p,$4cf7	jp p,$0000
-4cef	f5 	push af	push af
-4cf0	1c 	inc e	inc e
-4cf1	1d 	dec e	dec e
-4cf2	fa 06 4d 	jp m,$4d06	jp m,$0000
-4cf5	3e 30 	ld a,$30	ld a,$00
-4cf7	15 	dec d	dec d
-4cf8	e2 fe 4c 	jp po,$4cfe	jp po,$0000
-4cfb	36 2e 	ld (hl),$2e	ld (hl),$00
-4cfd	23 	inc hl	inc hl
-4cfe	77 	ld (hl),a	ld (hl),a
-4cff	23 	inc hl	inc hl
-4d00	1d 	dec e	dec e
-4d01	f2 e5 4c 	jp p,$4ce5	jp p,$0000
-4d04	18 e3 	jr $-$1b	jr $-$00
-4d06	f1 	pop af	pop af
-4d07	0c 	inc c	inc c
-4d08	4d 	ld c,l	ld c,l
-4d09	20 27 	jr nz,$+$29	jr nz,$+$00
-4d0b	36 45 	ld (hl),$45	ld (hl),$00
-4d0d	23 	inc hl	inc hl
-4d0e	78 	ld a,b	ld a,b
-4d0f	3d 	dec a	dec a
-4d10	f2 18 4d 	jp p,$4d18	jp p,$0000
-4d13	36 2d 	ld (hl),$2d	ld (hl),$00
-4d15	23 	inc hl	inc hl
-4d16	ed 44 	neg	neg
-4d18	36 30 	ld (hl),$30	ld (hl),$00
-4d1a	28 15 	jr z,$+$17	jr z,$+$00
-4d1c	fe 0a 	cp $0a	cp $00
-4d1e	47 	ld b,a	ld b,a
-4d1f	3e 3a 	ld a,$3a	ld a,$00
-4d21	38 03 	jr c,$+$05	jr c,$+$00
-4d23	23 	inc hl	inc hl
-4d24	36 30 	ld (hl),$30	ld (hl),$00
-4d26	34 	inc (hl)	inc (hl)
-4d27	be 	cp (hl)	cp (hl)
-4d28	20 05 	jr nz,$+$07	jr nz,$+$00
-4d2a	36 30 	ld (hl),$30	ld (hl),$00
-4d2c	2b 	dec hl	dec hl
-4d2d	34 	inc (hl)	inc (hl)
-4d2e	23 	inc hl	inc hl
-4d2f	10 f5 	djnz $-$09	djnz $-$00
-4d31	23 	inc hl	inc hl
-4d32	eb 	ex de,hl	ex de,hl
-4d33	c9 	ret	ret
-4d34	cd 21 4f 	call $4f21	call $0000
-4d37	0e 00 	ld c,$00	ld c,$00
-4d39	cd b9 4d 	call $4db9	call $0000
-4d3c	fe 2e 	cp $2e	cp $00
-4d3e	06 00 	ld b,$00	ld b,$00
-4d40	cc b7 4d 	call z,$4db7	call z,$0000
-4d43	fe 45 	cp $45	cp $00
-4d45	3e 00 	ld a,$00	ld a,$00
-4d47	cc 88 4d 	call z,$4d88	call z,$0000
-4d4a	cb 7c 	bit 7,h	bit 7,h
-4d4c	20 08 	jr nz,$+$0a	jr nz,$+$00
-4d4e	b7 	or a	or a
-4d4f	20 05 	jr nz,$+$07	jr nz,$+$00
-4d51	b8 	cp b	cp b
-4d52	20 02 	jr nz,$+$04	jr nz,$+$00
-4d54	b9 	cp c	cp c
-4d55	c8 	ret z	ret z
-4d56	90 	sub b	sub b
-4d57	81 	add a,c	add a,c
-4d58	0e 9f 	ld c,$9f	ld c,$00
-4d5a	cd 98 4e 	call $4e98	call $0000
-4d5d	cb bc 	res 7,h	res 7,h
-4d5f	b7 	or a	or a
-4d60	c8 	ret z	ret z
-4d61	fa 6c 4d 	jp m,$4d6c	jp m,$0000
-4d64	cd f5 4f 	call $4ff5	call $0000
-4d67	cd 0d 47 	call $470d	call $0000
-4d6a	af 	xor a	xor a
-4d6b	c9 	ret	ret
-4d6c	fe da 	cp $da	cp $00
-4d6e	38 0a 	jr c,$+$0c	jr c,$+$00
-4d70	ed 44 	neg	neg
-4d72	cd f5 4f 	call $4ff5	call $0000
-4d75	cd 9d 46 	call $469d	call $0000
-4d78	af 	xor a	xor a
-4d79	c9 	ret	ret
-4d7a	f5 	push af	push af
-4d7b	3e 26 	ld a,$26	ld a,$00
-4d7d	cd f5 4f 	call $4ff5	call $0000
-4d80	cd 9d 46 	call $469d	call $0000
-4d83	f1 	pop af	pop af
-4d84	c6 26 	add a,$26	add a,$00
-4d86	18 e4 	jr $-$1a	jr $-$00
-4d88	c5 	push bc	push bc
-4d89	47 	ld b,a	ld b,a
-4d8a	0e 02 	ld c,$02	ld c,$00
-4d8c	dd 23 	inc ix	inc ix
-4d8e	cd e3 50 	call $50e3	call $0000
-4d91	08 	ex af,af'	ex af,af'
-4d92	cd d9 50 	call $50d9	call $0000
-4d95	38 17 	jr c,$+$19	jr c,$+$00
-4d97	78 	ld a,b	ld a,b
-4d98	87 	add a,a	add a,a
-4d99	87 	add a,a	add a,a
-4d9a	80 	add a,b	add a,b
-4d9b	87 	add a,a	add a,a
-4d9c	47 	ld b,a	ld b,a
-4d9d	dd 7e 00 	ld a,(ix)	ld a,(ix)
+4a9d	cd 15 4f 	call $4f15	call $0000
+4aa0	79 	ld a,c	ld a,c
+4aa1	0e 80 	ld c,$80	ld c,$00
+4aa3	38 02 	jr c,$+$04	jr c,$+$00
+4aa5	0d 	dec c	dec c
+4aa6	3c 	inc a	inc a
+4aa7	f5 	push af	push af
+4aa8	cd 92 4f 	call $4f92	call $0000
+4aab	cd 7d 4f 	call $4f7d	call $0000
+4aae	cd 77 4f 	call $4f77	call $0000
+4ab1	cd b0 4f 	call $4fb0	call $0000
+4ab4	48 	ld c,b	ld c,b
+4ab5	cc fb 74 	call z,$74fb	call z,$0000
+4ab8	7d 	ld a,l	ld a,l
+4ab9	af 	xor a	xor a
+4aba	ae 	xor (hl)	xor (hl)
+4abb	ff 	rst $38	rst $00
+4abc	11 7e 8c 	ld de,$8c7e	ld de,$0000
+4abf	d9 	exx	exx
+4ac0	cd 4c 7e 	call $7e4c	call $0000
+4ac3	e3 	ex (sp),hl	ex (sp),hl
+4ac4	a9 	xor c	xor c
+4ac5	aa 	xor d	xor d
+4ac6	2a 7f 00 	ld hl,($007f)	ld hl,($0000)
+4ac9	00 	nop	nop
+4aca	00 	nop	nop
+4acb	00 	nop	nop
+4acc	81 	add a,c	add a,c
+4acd	cd 86 4f 	call $4f86	call $0000
+4ad0	cd 86 4f 	call $4f86	call $0000
+4ad3	cd ef 46 	call $46ef	call $0000
+4ad6	f1 	pop af	pop af
+4ad7	cd 7d 4f 	call $4f7d	call $0000
+4ada	08 	ex af,af'	ex af,af'
+4adb	cd 03 4f 	call $4f03	call $0000
+4ade	08 	ex af,af'	ex af,af'
+4adf	d6 80 	sub $80	sub $00
+4ae1	28 1b 	jr z,$+$1d	jr z,$+$00
+4ae3	30 02 	jr nc,$+$04	jr nc,$+$00
+4ae5	2f 	cpl	cpl
+4ae6	3c 	inc a	inc a
+4ae7	67 	ld h,a	ld h,a
+4ae8	0e 87 	ld c,$87	ld c,$00
+4aea	f5 	push af	push af
+4aeb	cd 7a 4e 	call $4e7a	call $0000
+4aee	cb bc 	res 7,h	res 7,h
+4af0	cd 7b 4a 	call $4a7b	call $0000
+4af3	cd ef 46 	call $46ef	call $0000
+4af6	f1 	pop af	pop af
+4af7	30 05 	jr nc,$+$07	jr nc,$+$00
+4af9	fa fe 4a 	jp m,$4afe	jp m,$0000
+4afc	cb fc 	set 7,h	set 7,h
+4afe	cd 86 4f 	call $4f86	call $0000
+4b01	cd 27 46 	call $4627	call $0000
+4b04	af 	xor a	xor a
+4b05	c9 	ret	ret
+4b06	cd 86 4a 	call $4a86	call $0000
+4b09	11 5b 5e 	ld de,$5e5b	ld de,$0000
+4b0c	d9 	exx	exx
+4b0d	11 a9 d8 	ld de,$d8a9	ld de,$0000
+4b10	d9 	exx	exx
+4b11	06 7e 	ld b,$7e	ld b,$00
+4b13	cd ef 46 	call $46ef	call $0000
+4b16	af 	xor a	xor a
+4b17	c9 	ret	ret
+4b18	cd 94 4e 	call $4e94	call $0000
+4b1b	cd 7d 4f 	call $4f7d	call $0000
+4b1e	cd 6f 4f 	call $4f6f	call $0000
+4b21	cd ef 46 	call $46ef	call $0000
+4b24	cd e5 49 	call $49e5	call $0000
+4b27	cd 17 46 	call $4617	call $0000
+4b2a	cd e9 48 	call $48e9	call $0000
+4b2d	cd 86 4f 	call $4f86	call $0000
+4b30	0c 	inc c	inc c
+4b31	0d 	dec c	dec c
+4b32	3e 02 	ld a,$02	ld a,$00
+4b34	d5 	push de	push de
+4b35	28 70 	jr z,$+$72	jr z,$+$00
+4b37	d1 	pop de	pop de
+4b38	cd 75 4a 	call $4a75	call $0000
+4b3b	18 03 	jr $+$05	jr $+$00
+4b3d	cd 94 4e 	call $4e94	call $0000
+4b40	e5 	push hl	push hl
+4b41	cb bc 	res 7,h	res 7,h
+4b43	11 13 54 	ld de,$5413	ld de,$0000
+4b46	d9 	exx	exx
+4b47	11 d0 cc 	ld de,$ccd0	ld de,$0000
+4b4a	d9 	exx	exx
+4b4b	06 7e 	ld b,$7e	ld b,$00
+4b4d	cd 12 4f 	call $4f12	call $0000
+4b50	06 00 	ld b,$00	ld b,$00
+4b52	38 1c 	jr c,$+$1e	jr c,$+$00
+4b54	11 82 1a 	ld de,$1a82	ld de,$0000
+4b57	d9 	exx	exx
+4b58	11 9a 79 	ld de,$799a	ld de,$0000
+4b5b	d9 	exx	exx
+4b5c	06 81 	ld b,$81	ld b,$00
+4b5e	cd 12 4f 	call $4f12	call $0000
+4b61	38 08 	jr c,$+$0a	jr c,$+$00
+4b63	cd 72 4a 	call $4a72	call $0000
+4b66	06 02 	ld b,$02	ld b,$00
+4b68	c3 70 4b 	jp $4b70	jp $0000
+4b6b	cd 92 4f 	call $4f92	call $0000
+4b6e	06 01 	ld b,$01	ld b,$00
+4b70	c5 	push bc	push bc
+4b71	cd 7d 4f 	call $4f7d	call $0000
+4b74	cd 77 4f 	call $4f77	call $0000
+4b77	cd b0 4f 	call $4fb0	call $0000
+4b7a	35 	dec (hl)	dec (hl)
+4b7b	f3 	di	di
+4b7c	d8 	ret c	ret c
+4b7d	37 	scf	scf
+4b7e	7b 	ld a,e	ld a,e
+4b7f	91 	sub c	sub c
+4b80	6b 	ld l,e	ld l,e
+4b81	b9 	cp c	cp c
+4b82	aa 	xor d	xor d
+4b83	7c 	ld a,h	ld a,h
+4b84	de 41 	sbc a,$41	sbc a,$00
+4b86	97 	sub a	sub a
+4b87	61 	ld h,c	ld h,c
+4b88	7c 	ld a,h	ld a,h
+4b89	7b 	ld a,e	ld a,e
+4b8a	9d 	sbc a,l	sbc a,l
+4b8b	37 	scf	scf
+4b8c	92 	sub d	sub d
+4b8d	7d 	ld a,l	ld a,l
+4b8e	5a 	ld e,d	ld e,d
+4b8f	2a cc 4c 	ld hl,($4ccc)	ld hl,($0000)
+4b92	7d 	ld a,l	ld a,l
+4b93	5c 	ld e,h	ld e,h
+4b94	a9 	xor c	xor c
+4b95	aa 	xor d	xor d
+4b96	aa 	xor d	xor d
+4b97	7e 	ld a,(hl)	ld a,(hl)
+4b98	00 	nop	nop
+4b99	00 	nop	nop
+4b9a	00 	nop	nop
+4b9b	00 	nop	nop
+4b9c	80 	add a,b	add a,b
+4b9d	cd 86 4f 	call $4f86	call $0000
+4ba0	cd 86 4f 	call $4f86	call $0000
+4ba3	cd ef 46 	call $46ef	call $0000
+4ba6	f1 	pop af	pop af
+4ba7	cd f0 49 	call $49f0	call $0000
+4baa	1f 	rra	rra
+4bab	f5 	push af	push af
+4bac	dc 27 46 	call c,$4627	call c,$0000
+4baf	f1 	pop af	pop af
+4bb0	04 	inc b	inc b
+4bb1	1f 	rra	rra
+4bb2	dc 17 46 	call c,$4617	call c,$0000
+4bb5	f1 	pop af	pop af
+4bb6	b7 	or a	or a
+4bb7	f0 	ret p	ret p
+4bb8	cb fc 	set 7,h	set 7,h
+4bba	af 	xor a	xor a
+4bbb	c9 	ret	ret
+4bbc	cd 18 4b 	call $4b18	call $0000
+4bbf	3e 02 	ld a,$02	ld a,$00
+4bc1	f5 	push af	push af
+4bc2	18 e3 	jr $-$1b	jr $-$00
+4bc4	cd 94 4e 	call $4e94	call $0000
+4bc7	06 00 	ld b,$00	ld b,$00
+4bc9	cb 7c 	bit 7,h	bit 7,h
+4bcb	28 06 	jr z,$+$08	jr z,$+$00
+4bcd	cb bc 	res 7,h	res 7,h
+4bcf	3e 2d 	ld a,$2d	ld a,$00
+4bd1	12 	ld (de),a	ld (de),a
+4bd2	13 	inc de	inc de
+4bd3	af 	xor a	xor a
+4bd4	b9 	cp c	cp c
+4bd5	28 47 	jr z,$+$49	jr z,$+$00
+4bd7	d5 	push de	push de
+4bd8	78 	ld a,b	ld a,b
+4bd9	f5 	push af	push af
+4bda	79 	ld a,c	ld a,c
+4bdb	fe a1 	cp $a1	cp $00
+4bdd	30 1a 	jr nc,$+$1c	jr nc,$+$00
+4bdf	fe 9b 	cp $9b	cp $00
+4be1	30 25 	jr nc,$+$27	jr nc,$+$00
+4be3	2f 	cpl	cpl
+4be4	fe e1 	cp $e1	cp $00
+4be6	38 02 	jr c,$+$04	jr c,$+$00
+4be8	3e f8 	ld a,$f8	ld a,$00
+4bea	c6 1c 	add a,$1c	add a,$00
+4bec	cd d7 4f 	call $4fd7	call $0000
+4bef	f5 	push af	push af
+4bf0	cd ef 46 	call $46ef	call $0000
+4bf3	f1 	pop af	pop af
+4bf4	47 	ld b,a	ld b,a
+4bf5	f1 	pop af	pop af
+4bf6	90 	sub b	sub b
+4bf7	18 e0 	jr $-$1e	jr $-$00
+4bf9	d6 20 	sub $20	sub $00
+4bfb	cd d7 4f 	call $4fd7	call $0000
+4bfe	f5 	push af	push af
+4bff	cd 7f 46 	call $467f	call $0000
+4c02	f1 	pop af	pop af
+4c03	47 	ld b,a	ld b,a
+4c04	f1 	pop af	pop af
+4c05	80 	add a,b	add a,b
+4c06	18 d1 	jr $-$2d	jr $-$00
+4c08	3e 09 	ld a,$09	ld a,$00
+4c0a	cd d7 4f 	call $4fd7	call $0000
+4c0d	cd 12 4f 	call $4f12	call $0000
+4c10	79 	ld a,c	ld a,c
+4c11	c1 	pop bc	pop bc
+4c12	4f 	ld c,a	ld c,a
+4c13	cb fc 	set 7,h	set 7,h
+4c15	dc 34 4f 	call c,$4f34	call c,$0000
+4c18	d1 	pop de	pop de
+4c19	cb b9 	res 7,c	res 7,c
+4c1b	3e 00 	ld a,$00	ld a,$00
+4c1d	17 	rla	rla
+4c1e	0c 	inc c	inc c
+4c1f	08 	ex af,af'	ex af,af'
+4c20	78 	ld a,b	ld a,b
+4c21	dd cb 02 4e 	bit 1,(ix+$02)	bit 1,(ix+$00)
+4c25	20 08 	jr nz,$+$0a	jr nz,$+$00
+4c27	af 	xor a	xor a
+4c28	dd be 01 	cp (ix+$01)	cp (ix+$00)
+4c2b	28 0a 	jr z,$+$0c	jr z,$+$00
+4c2d	3e f6 	ld a,$f6	ld a,$00
+4c2f	dd 86 01 	add a,(ix+$01)	add a,(ix+$00)
+4c32	b7 	or a	or a
+4c33	fa 37 4c 	jp m,$4c37	jp m,$0000
+4c36	af 	xor a	xor a
+4c37	f5 	push af	push af
+4c38	08 	ex af,af'	ex af,af'
+4c39	cd 5d 4f 	call $4f5d	call $0000
+4c3c	8f 	adc a,a	adc a,a
+4c3d	fe 0a 	cp $0a	cp $00
+4c3f	38 05 	jr c,$+$07	jr c,$+$00
+4c41	d6 0a 	sub $0a	sub $00
+4c43	d9 	exx	exx
+4c44	2c 	inc l	inc l
+4c45	d9 	exx	exx
+4c46	0d 	dec c	dec c
+4c47	20 f0 	jr nz,$-$0e	jr nz,$-$00
+4c49	4f 	ld c,a	ld c,a
+4c4a	7c 	ld a,h	ld a,h
+4c4b	e6 3f 	and $3f	and $00
+4c4d	67 	ld h,a	ld h,a
+4c4e	f1 	pop af	pop af
+4c4f	f2 5c 4c 	jp p,$4c5c	jp p,$0000
+4c52	3c 	inc a	inc a
+4c53	20 1c 	jr nz,$+$1e	jr nz,$+$00
+4c55	3e 04 	ld a,$04	ld a,$00
+4c57	b9 	cp c	cp c
+4c58	3e 00 	ld a,$00	ld a,$00
+4c5a	18 15 	jr $+$17	jr $+$00
+4c5c	f5 	push af	push af
+4c5d	79 	ld a,c	ld a,c
+4c5e	ce 30 	adc a,$30	adc a,$00
+4c60	fe 30 	cp $30	cp $00
+4c62	28 05 	jr z,$+$07	jr z,$+$00
+4c64	fe 3a 	cp $3a	cp $00
+4c66	3f 	ccf	ccf
+4c67	30 08 	jr nc,$+$0a	jr nc,$+$00
+4c69	e3 	ex (sp),hl	ex (sp),hl
+4c6a	cb 75 	bit 6,l	bit 6,l
+4c6c	e3 	ex (sp),hl	ex (sp),hl
+4c6d	20 05 	jr nz,$+$07	jr nz,$+$00
+4c6f	3e 30 	ld a,$30	ld a,$00
+4c71	3c 	inc a	inc a
+4c72	3d 	dec a	dec a
+4c73	f5 	push af	push af
+4c74	04 	inc b	inc b
+4c75	cd e3 4e 	call $4ee3	call $0000
+4c78	0e 20 	ld c,$20	ld c,$00
+4c7a	3e 00 	ld a,$00	ld a,$00
+4c7c	20 bb 	jr nz,$-$43	jr nz,$-$00
+4c7e	f1 	pop af	pop af
+4c7f	f5 	push af	push af
+4c80	3e 00 	ld a,$00	ld a,$00
+4c82	38 b5 	jr c,$-$49	jr c,$-$00
+4c84	eb 	ex de,hl	ex de,hl
+4c85	0e ff 	ld c,$ff	ld c,$00
+4c87	16 01 	ld d,$01	ld d,$00
+4c89	dd 5e 01 	ld e,(ix+$01)	ld e,(ix+$00)
+4c8c	dd cb 02 46 	bit 0,(ix+$02)	bit 0,(ix+$00)
+4c90	20 32 	jr nz,$+$34	jr nz,$+$00
+4c92	dd cb 02 4e 	bit 1,(ix+$02)	bit 1,(ix+$00)
+4c96	28 11 	jr z,$+$13	jr z,$+$00
+4c98	78 	ld a,b	ld a,b
+4c99	b7 	or a	or a
+4c9a	28 04 	jr z,$+$06	jr z,$+$00
+4c9c	fa a0 4c 	jp m,$4ca0	jp m,$0000
+4c9f	50 	ld d,b	ld d,b
+4ca0	7a 	ld a,d	ld a,d
+4ca1	dd 86 01 	add a,(ix+$01)	add a,(ix+$00)
+4ca4	5f 	ld e,a	ld e,a
+4ca5	fe 0b 	cp $0b	cp $00
+4ca7	38 17 	jr c,$+$19	jr c,$+$00
+4ca9	78 	ld a,b	ld a,b
+4caa	11 01 01 	ld de,$0101	ld de,$0000
+4cad	b7 	or a	or a
+4cae	fa c4 4c 	jp m,$4cc4	jp m,$0000
+4cb1	28 0d 	jr z,$+$0f	jr z,$+$00
+4cb3	dd 7e 01 	ld a,(ix+$01)	ld a,(ix+$00)
+4cb6	b7 	or a	or a
+4cb7	20 02 	jr nz,$+$04	jr nz,$+$00
+4cb9	3e 0a 	ld a,$0a	ld a,$00
+4cbb	b8 	cp b	cp b
+4cbc	38 06 	jr c,$+$08	jr c,$+$00
+4cbe	50 	ld d,b	ld d,b
+4cbf	58 	ld e,b	ld e,b
+4cc0	78 	ld a,b	ld a,b
+4cc1	c6 81 	add a,$81	add a,$00
+4cc3	4f 	ld c,a	ld c,a
+4cc4	cb fa 	set 7,d	set 7,d
+4cc6	1d 	dec e	dec e
+4cc7	7a 	ld a,d	ld a,d
+4cc8	b9 	cp c	cp c
+4cc9	30 0c 	jr nc,$+$0e	jr nc,$+$00
+4ccb	f1 	pop af	pop af
+4ccc	28 03 	jr z,$+$05	jr z,$+$00
+4cce	f2 d9 4c 	jp p,$4cd9	jp p,$0000
+4cd1	f5 	push af	push af
+4cd2	1c 	inc e	inc e
+4cd3	1d 	dec e	dec e
+4cd4	fa e8 4c 	jp m,$4ce8	jp m,$0000
+4cd7	3e 30 	ld a,$30	ld a,$00
+4cd9	15 	dec d	dec d
+4cda	e2 e0 4c 	jp po,$4ce0	jp po,$0000
+4cdd	36 2e 	ld (hl),$2e	ld (hl),$00
+4cdf	23 	inc hl	inc hl
+4ce0	77 	ld (hl),a	ld (hl),a
+4ce1	23 	inc hl	inc hl
+4ce2	1d 	dec e	dec e
+4ce3	f2 c7 4c 	jp p,$4cc7	jp p,$0000
+4ce6	18 e3 	jr $-$1b	jr $-$00
+4ce8	f1 	pop af	pop af
+4ce9	0c 	inc c	inc c
+4cea	4d 	ld c,l	ld c,l
+4ceb	20 27 	jr nz,$+$29	jr nz,$+$00
+4ced	36 45 	ld (hl),$45	ld (hl),$00
+4cef	23 	inc hl	inc hl
+4cf0	78 	ld a,b	ld a,b
+4cf1	3d 	dec a	dec a
+4cf2	f2 fa 4c 	jp p,$4cfa	jp p,$0000
+4cf5	36 2d 	ld (hl),$2d	ld (hl),$00
+4cf7	23 	inc hl	inc hl
+4cf8	ed 44 	neg	neg
+4cfa	36 30 	ld (hl),$30	ld (hl),$00
+4cfc	28 15 	jr z,$+$17	jr z,$+$00
+4cfe	fe 0a 	cp $0a	cp $00
+4d00	47 	ld b,a	ld b,a
+4d01	3e 3a 	ld a,$3a	ld a,$00
+4d03	38 03 	jr c,$+$05	jr c,$+$00
+4d05	23 	inc hl	inc hl
+4d06	36 30 	ld (hl),$30	ld (hl),$00
+4d08	34 	inc (hl)	inc (hl)
+4d09	be 	cp (hl)	cp (hl)
+4d0a	20 05 	jr nz,$+$07	jr nz,$+$00
+4d0c	36 30 	ld (hl),$30	ld (hl),$00
+4d0e	2b 	dec hl	dec hl
+4d0f	34 	inc (hl)	inc (hl)
+4d10	23 	inc hl	inc hl
+4d11	10 f5 	djnz $-$09	djnz $-$00
+4d13	23 	inc hl	inc hl
+4d14	eb 	ex de,hl	ex de,hl
+4d15	c9 	ret	ret
+4d16	cd 03 4f 	call $4f03	call $0000
+4d19	0e 00 	ld c,$00	ld c,$00
+4d1b	cd 9b 4d 	call $4d9b	call $0000
+4d1e	fe 2e 	cp $2e	cp $00
+4d20	06 00 	ld b,$00	ld b,$00
+4d22	cc 99 4d 	call z,$4d99	call z,$0000
+4d25	fe 45 	cp $45	cp $00
+4d27	3e 00 	ld a,$00	ld a,$00
+4d29	cc 6a 4d 	call z,$4d6a	call z,$0000
+4d2c	cb 7c 	bit 7,h	bit 7,h
+4d2e	20 08 	jr nz,$+$0a	jr nz,$+$00
+4d30	b7 	or a	or a
+4d31	20 05 	jr nz,$+$07	jr nz,$+$00
+4d33	b8 	cp b	cp b
+4d34	20 02 	jr nz,$+$04	jr nz,$+$00
+4d36	b9 	cp c	cp c
+4d37	c8 	ret z	ret z
+4d38	90 	sub b	sub b
+4d39	81 	add a,c	add a,c
+4d3a	0e 9f 	ld c,$9f	ld c,$00
+4d3c	cd 7a 4e 	call $4e7a	call $0000
+4d3f	cb bc 	res 7,h	res 7,h
+4d41	b7 	or a	or a
+4d42	c8 	ret z	ret z
+4d43	fa 4e 4d 	jp m,$4d4e	jp m,$0000
+4d46	cd d7 4f 	call $4fd7	call $0000
+4d49	cd ef 46 	call $46ef	call $0000
+4d4c	af 	xor a	xor a
+4d4d	c9 	ret	ret
+4d4e	fe da 	cp $da	cp $00
+4d50	38 0a 	jr c,$+$0c	jr c,$+$00
+4d52	ed 44 	neg	neg
+4d54	cd d7 4f 	call $4fd7	call $0000
+4d57	cd 7f 46 	call $467f	call $0000
+4d5a	af 	xor a	xor a
+4d5b	c9 	ret	ret
+4d5c	f5 	push af	push af
+4d5d	3e 26 	ld a,$26	ld a,$00
+4d5f	cd d7 4f 	call $4fd7	call $0000
+4d62	cd 7f 46 	call $467f	call $0000
+4d65	f1 	pop af	pop af
+4d66	c6 26 	add a,$26	add a,$00
+4d68	18 e4 	jr $-$1a	jr $-$00
+4d6a	c5 	push bc	push bc
+4d6b	47 	ld b,a	ld b,a
+4d6c	0e 02 	ld c,$02	ld c,$00
+4d6e	dd 23 	inc ix	inc ix
+4d70	cd c5 50 	call $50c5	call $0000
+4d73	08 	ex af,af'	ex af,af'
+4d74	cd bb 50 	call $50bb	call $0000
+4d77	38 17 	jr c,$+$19	jr c,$+$00
+4d79	78 	ld a,b	ld a,b
+4d7a	87 	add a,a	add a,a
+4d7b	87 	add a,a	add a,a
+4d7c	80 	add a,b	add a,b
+4d7d	87 	add a,a	add a,a
+4d7e	47 	ld b,a	ld b,a
+4d7f	dd 7e 00 	ld a,(ix)	ld a,(ix)
+4d82	dd 23 	inc ix	inc ix
+4d84	e6 0f 	and $0f	and $00
+4d86	80 	add a,b	add a,b
+4d87	47 	ld b,a	ld b,a
+4d88	0d 	dec c	dec c
+4d89	f2 74 4d 	jp p,$4d74	jp p,$0000
+4d8c	06 64 	ld b,$64	ld b,$00
+4d8e	18 e4 	jr $-$1a	jr $-$00
+4d90	08 	ex af,af'	ex af,af'
+4d91	fe 2d 	cp $2d	cp $00
+4d93	78 	ld a,b	ld a,b
+4d94	c1 	pop bc	pop bc
+4d95	c0 	ret nz	ret nz
+4d96	ed 44 	neg	neg
+4d98	c9 	ret	ret
+4d99	dd 23 	inc ix	inc ix
+4d9b	cd bb 50 	call $50bb	call $0000
+4d9e	d8 	ret c	ret c
+4d9f	04 	inc b	inc b
 4da0	dd 23 	inc ix	inc ix
-4da2	e6 0f 	and $0f	and $00
-4da4	80 	add a,b	add a,b
-4da5	47 	ld b,a	ld b,a
-4da6	0d 	dec c	dec c
-4da7	f2 92 4d 	jp p,$4d92	jp p,$0000
-4daa	06 64 	ld b,$64	ld b,$00
-4dac	18 e4 	jr $-$1a	jr $-$00
-4dae	08 	ex af,af'	ex af,af'
-4daf	fe 2d 	cp $2d	cp $00
-4db1	78 	ld a,b	ld a,b
-4db2	c1 	pop bc	pop bc
-4db3	c0 	ret nz	ret nz
-4db4	ed 44 	neg	neg
-4db6	c9 	ret	ret
-4db7	dd 23 	inc ix	inc ix
-4db9	cd d9 50 	call $50d9	call $0000
-4dbc	d8 	ret c	ret c
-4dbd	04 	inc b	inc b
-4dbe	dd 23 	inc ix	inc ix
-4dc0	cd 6c 4f 	call $4f6c	call $0000
-4dc3	38 13 	jr c,$+$15	jr c,$+$00
-4dc5	0d 	dec c	dec c
-4dc6	0c 	inc c	inc c
-4dc7	20 0f 	jr nz,$+$11	jr nz,$+$00
-4dc9	e6 0f 	and $0f	and $00
-4dcb	d9 	exx	exx
-4dcc	06 00 	ld b,$00	ld b,$00
-4dce	4f 	ld c,a	ld c,a
-4dcf	09 	add hl,bc	add hl,bc
-4dd0	d9 	exx	exx
-4dd1	30 e6 	jr nc,$-$18	jr nc,$-$00
-4dd3	23 	inc hl	inc hl
-4dd4	7c 	ld a,h	ld a,h
-4dd5	b5 	or l	or l
-4dd6	20 e1 	jr nz,$-$1d	jr nz,$-$00
-4dd8	0c 	inc c	inc c
-4dd9	cd df 4e 	call $4edf	call $0000
-4ddc	18 db 	jr $-$23	jr $-$00
-4dde	08 	ex af,af'	ex af,af'
-4ddf	af 	xor a	xor a
-4de0	08 	ex af,af'	ex af,af'
-4de1	cb fc 	set 7,h	set 7,h
-4de3	cd e4 4e 	call $4ee4	call $0000
-4de6	b9 	cp c	cp c
+4da2	cd 4e 4f 	call $4f4e	call $0000
+4da5	38 13 	jr c,$+$15	jr c,$+$00
+4da7	0d 	dec c	dec c
+4da8	0c 	inc c	inc c
+4da9	20 0f 	jr nz,$+$11	jr nz,$+$00
+4dab	e6 0f 	and $0f	and $00
+4dad	d9 	exx	exx
+4dae	06 00 	ld b,$00	ld b,$00
+4db0	4f 	ld c,a	ld c,a
+4db1	09 	add hl,bc	add hl,bc
+4db2	d9 	exx	exx
+4db3	30 e6 	jr nc,$-$18	jr nc,$-$00
+4db5	23 	inc hl	inc hl
+4db6	7c 	ld a,h	ld a,h
+4db7	b5 	or l	or l
+4db8	20 e1 	jr nz,$-$1d	jr nz,$-$00
+4dba	0c 	inc c	inc c
+4dbb	cd c1 4e 	call $4ec1	call $0000
+4dbe	18 db 	jr $-$23	jr $-$00
+4dc0	08 	ex af,af'	ex af,af'
+4dc1	af 	xor a	xor a
+4dc2	08 	ex af,af'	ex af,af'
+4dc3	cb fc 	set 7,h	set 7,h
+4dc5	cd c6 4e 	call $4ec6	call $0000
+4dc8	b9 	cp c	cp c
+4dc9	c8 	ret z	ret z
+4dca	d2 c5 4d 	jp nc,$4dc5	jp nc,$0000
+4dcd	c3 d4 4e 	jp $4ed4	jp $0000
+4dd0	cd be 4e 	call $4ebe	call $0000
+4dd3	cd d9 4d 	call $4dd9	call $0000
+4dd6	cd be 4e 	call $4ebe	call $0000
+4dd9	0d 	dec c	dec c
+4dda	0c 	inc c	inc c
+4ddb	c8 	ret z	ret z
+4ddc	cb 7c 	bit 7,h	bit 7,h
+4dde	f5 	push af	push af
+4ddf	3e 9f 	ld a,$9f	ld a,$00
+4de1	cd c0 4d 	call $4dc0	call $0000
+4de4	f1 	pop af	pop af
+4de5	0e 00 	ld c,$00	ld c,$00
 4de7	c8 	ret z	ret z
-4de8	d2 e3 4d 	jp nc,$4de3	jp nc,$0000
-4deb	c3 f2 4e 	jp $4ef2	jp $0000
-4dee	cd dc 4e 	call $4edc	call $0000
-4df1	cd f7 4d 	call $4df7	call $0000
-4df4	cd dc 4e 	call $4edc	call $0000
-4df7	0d 	dec c	dec c
-4df8	0c 	inc c	inc c
-4df9	c8 	ret z	ret z
-4dfa	cb 7c 	bit 7,h	bit 7,h
-4dfc	f5 	push af	push af
-4dfd	3e 9f 	ld a,$9f	ld a,$00
-4dff	cd de 4d 	call $4dde	call $0000
-4e02	f1 	pop af	pop af
-4e03	0e 00 	ld c,$00	ld c,$00
-4e05	c8 	ret z	ret z
-4e06	b7 	or a	or a
-4e07	d9 	exx	exx
-4e08	d5 	push de	push de
-4e09	eb 	ex de,hl	ex de,hl
-4e0a	21 00 00 	ld hl,$0000	ld hl,$0000
-4e0d	ed 52 	sbc hl,de	sbc hl,de
-4e0f	d1 	pop de	pop de
-4e10	d9 	exx	exx
-4e11	d5 	push de	push de
-4e12	eb 	ex de,hl	ex de,hl
-4e13	21 00 00 	ld hl,$0000	ld hl,$0000
-4e16	ed 52 	sbc hl,de	sbc hl,de
-4e18	d1 	pop de	pop de
-4e19	c9 	ret	ret
-4e1a	d9 	exx	exx
-4e1b	2f 	cpl	cpl
-4e1c	e5 	push hl	push hl
-4e1d	b7 	or a	or a
-4e1e	ed 62 	sbc hl,hl	sbc hl,hl
-4e20	ed 42 	sbc hl,bc	sbc hl,bc
-4e22	44 	ld b,h	ld b,h
-4e23	4d 	ld c,l	ld c,l
-4e24	e1 	pop hl	pop hl
-4e25	18 e1 	jr $-$1d	jr $-$00
-4e27	3e 96 	ld a,$96	ld a,$00
-4e29	b9 	cp c	cp c
-4e2a	3e 17 	ld a,$17	ld a,$00
-4e2c	da 26 45 	jp c,$4526	jp c,$0000
-4e2f	cd 0e 4a 	call $4a0e	call $0000
-4e32	d9 	exx	exx
-4e33	01 69 21 	ld bc,$2169	ld bc,$0000
-4e36	d9 	exx	exx
-4e37	cb fa 	set 7,d	set 7,d
-4e39	cb fc 	set 7,h	set 7,h
-4e3b	79 	ld a,c	ld a,c
-4e3c	0e 00 	ld c,$00	ld c,$00
-4e3e	dd 21 00 00 	ld ix,$0000	ld ix,$0000
-4e42	dd e5 	push ix	push ix
-4e44	b8 	cp b	cp b
-4e45	38 3a 	jr c,$+$3c	jr c,$+$00
-4e47	d9 	exx	exx
-4e48	e3 	ex (sp),hl	ex (sp),hl
-4e49	ed 42 	sbc hl,bc	sbc hl,bc
+4de8	b7 	or a	or a
+4de9	d9 	exx	exx
+4dea	d5 	push de	push de
+4deb	eb 	ex de,hl	ex de,hl
+4dec	21 00 00 	ld hl,$0000	ld hl,$0000
+4def	ed 52 	sbc hl,de	sbc hl,de
+4df1	d1 	pop de	pop de
+4df2	d9 	exx	exx
+4df3	d5 	push de	push de
+4df4	eb 	ex de,hl	ex de,hl
+4df5	21 00 00 	ld hl,$0000	ld hl,$0000
+4df8	ed 52 	sbc hl,de	sbc hl,de
+4dfa	d1 	pop de	pop de
+4dfb	c9 	ret	ret
+4dfc	d9 	exx	exx
+4dfd	2f 	cpl	cpl
+4dfe	e5 	push hl	push hl
+4dff	b7 	or a	or a
+4e00	ed 62 	sbc hl,hl	sbc hl,hl
+4e02	ed 42 	sbc hl,bc	sbc hl,bc
+4e04	44 	ld b,h	ld b,h
+4e05	4d 	ld c,l	ld c,l
+4e06	e1 	pop hl	pop hl
+4e07	18 e1 	jr $-$1d	jr $-$00
+4e09	3e 96 	ld a,$96	ld a,$00
+4e0b	b9 	cp c	cp c
+4e0c	3e 17 	ld a,$17	ld a,$00
+4e0e	da 08 45 	jp c,$4508	jp c,$0000
+4e11	cd f0 49 	call $49f0	call $0000
+4e14	d9 	exx	exx
+4e15	01 69 21 	ld bc,$2169	ld bc,$0000
+4e18	d9 	exx	exx
+4e19	cb fa 	set 7,d	set 7,d
+4e1b	cb fc 	set 7,h	set 7,h
+4e1d	79 	ld a,c	ld a,c
+4e1e	0e 00 	ld c,$00	ld c,$00
+4e20	dd 21 00 00 	ld ix,$0000	ld ix,$0000
+4e24	dd e5 	push ix	push ix
+4e26	b8 	cp b	cp b
+4e27	38 3a 	jr c,$+$3c	jr c,$+$00
+4e29	d9 	exx	exx
+4e2a	e3 	ex (sp),hl	ex (sp),hl
+4e2b	ed 42 	sbc hl,bc	sbc hl,bc
+4e2d	e3 	ex (sp),hl	ex (sp),hl
+4e2e	ed 52 	sbc hl,de	sbc hl,de
+4e30	d9 	exx	exx
+4e31	ed 52 	sbc hl,de	sbc hl,de
+4e33	30 09 	jr nc,$+$0b	jr nc,$+$00
+4e35	d9 	exx	exx
+4e36	e3 	ex (sp),hl	ex (sp),hl
+4e37	09 	add hl,bc	add hl,bc
+4e38	e3 	ex (sp),hl	ex (sp),hl
+4e39	ed 5a 	adc hl,de	adc hl,de
+4e3b	d9 	exx	exx
+4e3c	ed 5a 	adc hl,de	adc hl,de
+4e3e	3f 	ccf	ccf
+4e3f	cb 11 	rl c	rl c
+4e41	30 02 	jr nc,$+$04	jr nc,$+$00
+4e43	cb f9 	set 7,c	set 7,c
+4e45	3d 	dec a	dec a
+4e46	b8 	cp b	cp b
+4e47	38 19 	jr c,$+$1b	jr c,$+$00
+4e49	e3 	ex (sp),hl	ex (sp),hl
+4e4a	29 	add hl,hl	add hl,hl
 4e4b	e3 	ex (sp),hl	ex (sp),hl
-4e4c	ed 52 	sbc hl,de	sbc hl,de
-4e4e	d9 	exx	exx
-4e4f	ed 52 	sbc hl,de	sbc hl,de
-4e51	30 09 	jr nc,$+$0b	jr nc,$+$00
-4e53	d9 	exx	exx
-4e54	e3 	ex (sp),hl	ex (sp),hl
-4e55	09 	add hl,bc	add hl,bc
+4e4c	d9 	exx	exx
+4e4d	ed 6a 	adc hl,hl	adc hl,hl
+4e4f	d9 	exx	exx
+4e50	ed 6a 	adc hl,hl	adc hl,hl
+4e52	30 d5 	jr nc,$-$29	jr nc,$-$00
+4e54	b7 	or a	or a
+4e55	d9 	exx	exx
 4e56	e3 	ex (sp),hl	ex (sp),hl
-4e57	ed 5a 	adc hl,de	adc hl,de
-4e59	d9 	exx	exx
-4e5a	ed 5a 	adc hl,de	adc hl,de
-4e5c	3f 	ccf	ccf
-4e5d	cb 11 	rl c	rl c
-4e5f	30 02 	jr nc,$+$04	jr nc,$+$00
-4e61	cb f9 	set 7,c	set 7,c
-4e63	3d 	dec a	dec a
-4e64	b8 	cp b	cp b
-4e65	38 19 	jr c,$+$1b	jr c,$+$00
-4e67	e3 	ex (sp),hl	ex (sp),hl
-4e68	29 	add hl,hl	add hl,hl
-4e69	e3 	ex (sp),hl	ex (sp),hl
-4e6a	d9 	exx	exx
-4e6b	ed 6a 	adc hl,hl	adc hl,hl
-4e6d	d9 	exx	exx
-4e6e	ed 6a 	adc hl,hl	adc hl,hl
-4e70	30 d5 	jr nc,$-$29	jr nc,$-$00
-4e72	b7 	or a	or a
-4e73	d9 	exx	exx
-4e74	e3 	ex (sp),hl	ex (sp),hl
-4e75	ed 42 	sbc hl,bc	sbc hl,bc
-4e77	e3 	ex (sp),hl	ex (sp),hl
-4e78	ed 52 	sbc hl,de	sbc hl,de
-4e7a	d9 	exx	exx
-4e7b	ed 52 	sbc hl,de	sbc hl,de
-4e7d	b7 	or a	or a
-4e7e	18 dc 	jr $-$22	jr $-$00
-4e80	3c 	inc a	inc a
-4e81	59 	ld e,c	ld e,c
-4e82	4f 	ld c,a	ld c,a
-4e83	d9 	exx	exx
-4e84	c1 	pop bc	pop bc
-4e85	d9 	exx	exx
-4e86	cb 7c 	bit 7,h	bit 7,h
-4e88	c0 	ret nz	ret nz
-4e89	d9 	exx	exx
-4e8a	cb 21 	sla c	sla c
-4e8c	cb 10 	rl b	rl b
-4e8e	ed 6a 	adc hl,hl	adc hl,hl
-4e90	d9 	exx	exx
-4e91	ed 6a 	adc hl,hl	adc hl,hl
-4e93	0d 	dec c	dec c
-4e94	c2 86 4e 	jp nz,$4e86	jp nz,$0000
-4e97	c9 	ret	ret
-4e98	cb 7c 	bit 7,h	bit 7,h
-4e9a	c0 	ret nz	ret nz
-4e9b	d9 	exx	exx
-4e9c	29 	add hl,hl	add hl,hl
-4e9d	d9 	exx	exx
-4e9e	ed 6a 	adc hl,hl	adc hl,hl
-4ea0	0d 	dec c	dec c
-4ea1	c2 98 4e 	jp nz,$4e98	jp nz,$0000
-4ea4	c9 	ret	ret
-4ea5	08 	ex af,af'	ex af,af'
-4ea6	c6 2e 	add a,$2e	add a,$00
-4ea8	08 	ex af,af'	ex af,af'
-4ea9	cd dc 4e 	call $4edc	call $0000
-4eac	cd b2 4e 	call $4eb2	call $0000
-4eaf	cd dc 4e 	call $4edc	call $0000
-4eb2	0d 	dec c	dec c
-4eb3	0c 	inc c	inc c
-4eb4	c0 	ret nz	ret nz
-4eb5	cd 01 4f 	call $4f01	call $0000
-4eb8	c8 	ret z	ret z
-4eb9	7c 	ld a,h	ld a,h
-4eba	b7 	or a	or a
-4ebb	fc 06 4e 	call m,$4e06	call m,$0000
-4ebe	0e 9f 	ld c,$9f	ld c,$00
-4ec0	cd 98 4e 	call $4e98	call $0000
-4ec3	b7 	or a	or a
-4ec4	f8 	ret m	ret m
-4ec5	cb bc 	res 7,h	res 7,h
-4ec7	c9 	ret	ret
-4ec8	d9 	exx	exx
-4ec9	01 01 00 	ld bc,$0001	ld bc,$0000
-4ecc	09 	add hl,bc	add hl,bc
-4ecd	d9 	exx	exx
-4ece	d0 	ret nc	ret nc
-4ecf	c5 	push bc	push bc
-4ed0	01 01 00 	ld bc,$0001	ld bc,$0000
-4ed3	09 	add hl,bc	add hl,bc
-4ed4	c1 	pop bc	pop bc
-4ed5	c9 	ret	ret
-4ed6	b7 	or a	or a
-4ed7	d9 	exx	exx
-4ed8	cb c5 	set 0,l	set 0,l
-4eda	d9 	exx	exx
-4edb	c9 	ret	ret
-4edc	79 	ld a,c	ld a,c
-4edd	48 	ld c,b	ld c,b
-4ede	47 	ld b,a	ld b,a
-4edf	eb 	ex de,hl	ex de,hl
-4ee0	d9 	exx	exx
-4ee1	eb 	ex de,hl	ex de,hl
-4ee2	d9 	exx	exx
-4ee3	c9 	ret	ret
-4ee4	cd 82 4f 	call $4f82	call $0000
-4ee7	d9 	exx	exx
-4ee8	cb 18 	rr b	rr b
-4eea	cb 19 	rr c	rr c
-4eec	08 	ex af,af'	ex af,af'
-4eed	b0 	or b	or b
-4eee	08 	ex af,af'	ex af,af'
-4eef	d9 	exx	exx
-4ef0	0c 	inc c	inc c
-4ef1	c0 	ret nz	ret nz
-4ef2	3e 14 	ld a,$14	ld a,$00
-4ef4	c3 26 45 	jp $4526	jp $0000
-4ef7	cd 01 4f 	call $4f01	call $0000
-4efa	c8 	ret z	ret z
-4efb	7c 	ld a,h	ld a,h
-4efc	e6 80 	and $80	and $00
-4efe	f6 40 	or $40	or $00
-4f00	c9 	ret	ret
-4f01	7c 	ld a,h	ld a,h
-4f02	b5 	or l	or l
-4f03	d9 	exx	exx
-4f04	b4 	or h	or h
-4f05	b5 	or l	or l
-4f06	d9 	exx	exx
-4f07	c9 	ret	ret
-4f08	78 	ld a,b	ld a,b
-4f09	b1 	or c	or c
-4f0a	20 0a 	jr nz,$+$0c	jr nz,$+$00
-4f0c	cd 1e 4f 	call $4f1e	call $0000
-4f0f	3e 00 	ld a,$00	ld a,$00
-4f11	c8 	ret z	ret z
-4f12	3e 80 	ld a,$80	ld a,$00
-4f14	1f 	rra	rra
-4f15	c9 	ret	ret
-4f16	cd a9 4e 	call $4ea9	call $0000
-4f19	cd 2b 4f 	call $4f2b	call $0000
-4f1c	18 f1 	jr $-$0d	jr $-$00
-4f1e	cd 4a 4f 	call $4f4a	call $0000
-4f21	3e 00 	ld a,$00	ld a,$00
-4f23	d9 	exx	exx
-4f24	67 	ld h,a	ld h,a
-4f25	6f 	ld l,a	ld l,a
-4f26	d9 	exx	exx
-4f27	67 	ld h,a	ld h,a
-4f28	6f 	ld l,a	ld l,a
-4f29	4f 	ld c,a	ld c,a
-4f2a	c9 	ret	ret
-4f2b	cd 3d 4f 	call $4f3d	call $0000
-4f2e	18 f1 	jr $-$0d	jr $-$00
-4f30	79 	ld a,c	ld a,c
-4f31	b8 	cp b	cp b
-4f32	c0 	ret nz	ret nz
-4f33	ed 52 	sbc hl,de	sbc hl,de
-4f35	19 	add hl,de	add hl,de
-4f36	c0 	ret nz	ret nz
-4f37	d9 	exx	exx
-4f38	ed 52 	sbc hl,de	sbc hl,de
-4f3a	19 	add hl,de	add hl,de
-4f3b	d9 	exx	exx
-4f3c	c9 	ret	ret
-4f3d	7c 	ld a,h	ld a,h
-4f3e	aa 	xor d	xor d
-4f3f	7c 	ld a,h	ld a,h
-4f40	17 	rla	rla
-4f41	f8 	ret m	ret m
-4f42	30 ec 	jr nc,$-$12	jr nc,$-$00
-4f44	cd 30 4f 	call $4f30	call $0000
-4f47	c8 	ret z	ret z
-4f48	3f 	ccf	ccf
-4f49	c9 	ret	ret
-4f4a	7c 	ld a,h	ld a,h
-4f4b	aa 	xor d	xor d
-4f4c	f2 33 4f 	jp p,$4f33	jp p,$0000
-4f4f	7c 	ld a,h	ld a,h
-4f50	17 	rla	rla
-4f51	c9 	ret	ret
-4f52	05 	dec b	dec b
-4f53	0c 	inc c	inc c
-4f54	cd 8e 4f 	call $4f8e	call $0000
-4f57	cd 81 4f 	call $4f81	call $0000
-4f5a	cd 81 4f 	call $4f81	call $0000
-4f5d	08 	ex af,af'	ex af,af'
-4f5e	d9 	exx	exx
-4f5f	19 	add hl,de	add hl,de
-4f60	d9 	exx	exx
-4f61	ed 5a 	adc hl,de	adc hl,de
-4f63	c9 	ret	ret
-4f64	d9 	exx	exx
-4f65	b7 	or a	or a
-4f66	ed 52 	sbc hl,de	sbc hl,de
+4e57	ed 42 	sbc hl,bc	sbc hl,bc
+4e59	e3 	ex (sp),hl	ex (sp),hl
+4e5a	ed 52 	sbc hl,de	sbc hl,de
+4e5c	d9 	exx	exx
+4e5d	ed 52 	sbc hl,de	sbc hl,de
+4e5f	b7 	or a	or a
+4e60	18 dc 	jr $-$22	jr $-$00
+4e62	3c 	inc a	inc a
+4e63	59 	ld e,c	ld e,c
+4e64	4f 	ld c,a	ld c,a
+4e65	d9 	exx	exx
+4e66	c1 	pop bc	pop bc
+4e67	d9 	exx	exx
+4e68	cb 7c 	bit 7,h	bit 7,h
+4e6a	c0 	ret nz	ret nz
+4e6b	d9 	exx	exx
+4e6c	cb 21 	sla c	sla c
+4e6e	cb 10 	rl b	rl b
+4e70	ed 6a 	adc hl,hl	adc hl,hl
+4e72	d9 	exx	exx
+4e73	ed 6a 	adc hl,hl	adc hl,hl
+4e75	0d 	dec c	dec c
+4e76	c2 68 4e 	jp nz,$4e68	jp nz,$0000
+4e79	c9 	ret	ret
+4e7a	cb 7c 	bit 7,h	bit 7,h
+4e7c	c0 	ret nz	ret nz
+4e7d	d9 	exx	exx
+4e7e	29 	add hl,hl	add hl,hl
+4e7f	d9 	exx	exx
+4e80	ed 6a 	adc hl,hl	adc hl,hl
+4e82	0d 	dec c	dec c
+4e83	c2 7a 4e 	jp nz,$4e7a	jp nz,$0000
+4e86	c9 	ret	ret
+4e87	08 	ex af,af'	ex af,af'
+4e88	c6 2e 	add a,$2e	add a,$00
+4e8a	08 	ex af,af'	ex af,af'
+4e8b	cd be 4e 	call $4ebe	call $0000
+4e8e	cd 94 4e 	call $4e94	call $0000
+4e91	cd be 4e 	call $4ebe	call $0000
+4e94	0d 	dec c	dec c
+4e95	0c 	inc c	inc c
+4e96	c0 	ret nz	ret nz
+4e97	cd e3 4e 	call $4ee3	call $0000
+4e9a	c8 	ret z	ret z
+4e9b	7c 	ld a,h	ld a,h
+4e9c	b7 	or a	or a
+4e9d	fc e8 4d 	call m,$4de8	call m,$0000
+4ea0	0e 9f 	ld c,$9f	ld c,$00
+4ea2	cd 7a 4e 	call $4e7a	call $0000
+4ea5	b7 	or a	or a
+4ea6	f8 	ret m	ret m
+4ea7	cb bc 	res 7,h	res 7,h
+4ea9	c9 	ret	ret
+4eaa	d9 	exx	exx
+4eab	01 01 00 	ld bc,$0001	ld bc,$0000
+4eae	09 	add hl,bc	add hl,bc
+4eaf	d9 	exx	exx
+4eb0	d0 	ret nc	ret nc
+4eb1	c5 	push bc	push bc
+4eb2	01 01 00 	ld bc,$0001	ld bc,$0000
+4eb5	09 	add hl,bc	add hl,bc
+4eb6	c1 	pop bc	pop bc
+4eb7	c9 	ret	ret
+4eb8	b7 	or a	or a
+4eb9	d9 	exx	exx
+4eba	cb c5 	set 0,l	set 0,l
+4ebc	d9 	exx	exx
+4ebd	c9 	ret	ret
+4ebe	79 	ld a,c	ld a,c
+4ebf	48 	ld c,b	ld c,b
+4ec0	47 	ld b,a	ld b,a
+4ec1	eb 	ex de,hl	ex de,hl
+4ec2	d9 	exx	exx
+4ec3	eb 	ex de,hl	ex de,hl
+4ec4	d9 	exx	exx
+4ec5	c9 	ret	ret
+4ec6	cd 64 4f 	call $4f64	call $0000
+4ec9	d9 	exx	exx
+4eca	cb 18 	rr b	rr b
+4ecc	cb 19 	rr c	rr c
+4ece	08 	ex af,af'	ex af,af'
+4ecf	b0 	or b	or b
+4ed0	08 	ex af,af'	ex af,af'
+4ed1	d9 	exx	exx
+4ed2	0c 	inc c	inc c
+4ed3	c0 	ret nz	ret nz
+4ed4	3e 14 	ld a,$14	ld a,$00
+4ed6	c3 08 45 	jp $4508	jp $0000
+4ed9	cd e3 4e 	call $4ee3	call $0000
+4edc	c8 	ret z	ret z
+4edd	7c 	ld a,h	ld a,h
+4ede	e6 80 	and $80	and $00
+4ee0	f6 40 	or $40	or $00
+4ee2	c9 	ret	ret
+4ee3	7c 	ld a,h	ld a,h
+4ee4	b5 	or l	or l
+4ee5	d9 	exx	exx
+4ee6	b4 	or h	or h
+4ee7	b5 	or l	or l
+4ee8	d9 	exx	exx
+4ee9	c9 	ret	ret
+4eea	78 	ld a,b	ld a,b
+4eeb	b1 	or c	or c
+4eec	20 0a 	jr nz,$+$0c	jr nz,$+$00
+4eee	cd 00 4f 	call $4f00	call $0000
+4ef1	3e 00 	ld a,$00	ld a,$00
+4ef3	c8 	ret z	ret z
+4ef4	3e 80 	ld a,$80	ld a,$00
+4ef6	1f 	rra	rra
+4ef7	c9 	ret	ret
+4ef8	cd 8b 4e 	call $4e8b	call $0000
+4efb	cd 0d 4f 	call $4f0d	call $0000
+4efe	18 f1 	jr $-$0d	jr $-$00
+4f00	cd 2c 4f 	call $4f2c	call $0000
+4f03	3e 00 	ld a,$00	ld a,$00
+4f05	d9 	exx	exx
+4f06	67 	ld h,a	ld h,a
+4f07	6f 	ld l,a	ld l,a
+4f08	d9 	exx	exx
+4f09	67 	ld h,a	ld h,a
+4f0a	6f 	ld l,a	ld l,a
+4f0b	4f 	ld c,a	ld c,a
+4f0c	c9 	ret	ret
+4f0d	cd 1f 4f 	call $4f1f	call $0000
+4f10	18 f1 	jr $-$0d	jr $-$00
+4f12	79 	ld a,c	ld a,c
+4f13	b8 	cp b	cp b
+4f14	c0 	ret nz	ret nz
+4f15	ed 52 	sbc hl,de	sbc hl,de
+4f17	19 	add hl,de	add hl,de
+4f18	c0 	ret nz	ret nz
+4f19	d9 	exx	exx
+4f1a	ed 52 	sbc hl,de	sbc hl,de
+4f1c	19 	add hl,de	add hl,de
+4f1d	d9 	exx	exx
+4f1e	c9 	ret	ret
+4f1f	7c 	ld a,h	ld a,h
+4f20	aa 	xor d	xor d
+4f21	7c 	ld a,h	ld a,h
+4f22	17 	rla	rla
+4f23	f8 	ret m	ret m
+4f24	30 ec 	jr nc,$-$12	jr nc,$-$00
+4f26	cd 12 4f 	call $4f12	call $0000
+4f29	c8 	ret z	ret z
+4f2a	3f 	ccf	ccf
+4f2b	c9 	ret	ret
+4f2c	7c 	ld a,h	ld a,h
+4f2d	aa 	xor d	xor d
+4f2e	f2 15 4f 	jp p,$4f15	jp p,$0000
+4f31	7c 	ld a,h	ld a,h
+4f32	17 	rla	rla
+4f33	c9 	ret	ret
+4f34	05 	dec b	dec b
+4f35	0c 	inc c	inc c
+4f36	cd 70 4f 	call $4f70	call $0000
+4f39	cd 63 4f 	call $4f63	call $0000
+4f3c	cd 63 4f 	call $4f63	call $0000
+4f3f	08 	ex af,af'	ex af,af'
+4f40	d9 	exx	exx
+4f41	19 	add hl,de	add hl,de
+4f42	d9 	exx	exx
+4f43	ed 5a 	adc hl,de	adc hl,de
+4f45	c9 	ret	ret
+4f46	d9 	exx	exx
+4f47	b7 	or a	or a
+4f48	ed 52 	sbc hl,de	sbc hl,de
+4f4a	d9 	exx	exx
+4f4b	ed 52 	sbc hl,de	sbc hl,de
+4f4d	c9 	ret	ret
+4f4e	cd 70 4f 	call $4f70	call $0000
+4f51	cd 5d 4f 	call $4f5d	call $0000
+4f54	d8 	ret c	ret c
+4f55	cd 5d 4f 	call $4f5d	call $0000
+4f58	d8 	ret c	ret c
+4f59	cd 40 4f 	call $4f40	call $0000
+4f5c	d8 	ret c	ret c
+4f5d	d9 	exx	exx
+4f5e	29 	add hl,hl	add hl,hl
+4f5f	d9 	exx	exx
+4f60	ed 6a 	adc hl,hl	adc hl,hl
+4f62	c9 	ret	ret
+4f63	0c 	inc c	inc c
+4f64	cb 3c 	srl h	srl h
+4f66	cb 1d 	rr l	rr l
 4f68	d9 	exx	exx
-4f69	ed 52 	sbc hl,de	sbc hl,de
-4f6b	c9 	ret	ret
-4f6c	cd 8e 4f 	call $4f8e	call $0000
-4f6f	cd 7b 4f 	call $4f7b	call $0000
-4f72	d8 	ret c	ret c
-4f73	cd 7b 4f 	call $4f7b	call $0000
-4f76	d8 	ret c	ret c
-4f77	cd 5e 4f 	call $4f5e	call $0000
-4f7a	d8 	ret c	ret c
-4f7b	d9 	exx	exx
-4f7c	29 	add hl,hl	add hl,hl
-4f7d	d9 	exx	exx
-4f7e	ed 6a 	adc hl,hl	adc hl,hl
-4f80	c9 	ret	ret
-4f81	0c 	inc c	inc c
-4f82	cb 3c 	srl h	srl h
-4f84	cb 1d 	rr l	rr l
-4f86	d9 	exx	exx
-4f87	cb 1c 	rr h	rr h
-4f89	cb 1d 	rr l	rr l
-4f8b	d9 	exx	exx
-4f8c	c9 	ret	ret
-4f8d	41 	ld b,c	ld b,c
-4f8e	54 	ld d,h	ld d,h
-4f8f	5d 	ld e,l	ld e,l
-4f90	d9 	exx	exx
-4f91	54 	ld d,h	ld d,h
-4f92	5d 	ld e,l	ld e,l
-4f93	d9 	exx	exx
-4f94	c9 	ret	ret
-4f95	cd 8d 4f 	call $4f8d	call $0000
-4f98	cd 0d 47 	call $470d	call $0000
-4f9b	dd e1 	pop ix	pop ix
-4f9d	c5 	push bc	push bc
-4f9e	e5 	push hl	push hl
-4f9f	d9 	exx	exx
-4fa0	e5 	push hl	push hl
-4fa1	d9 	exx	exx
-4fa2	dd e9 	jp (ix)	jp (ix)
-4fa4	dd e1 	pop ix	pop ix
-4fa6	d9 	exx	exx
-4fa7	d1 	pop de	pop de
-4fa8	d9 	exx	exx
-4fa9	d1 	pop de	pop de
-4faa	79 	ld a,c	ld a,c
-4fab	c1 	pop bc	pop bc
-4fac	41 	ld b,c	ld b,c
-4fad	4f 	ld c,a	ld c,a
-4fae	dd e9 	jp (ix)	jp (ix)
-4fb0	cd 9b 4f 	call $4f9b	call $0000
-4fb3	cd 03 4a 	call $4a03	call $0000
-4fb6	cd 45 46 	call $4645	call $0000
-4fb9	cd a4 4f 	call $4fa4	call $0000
-4fbc	cd 9b 4f 	call $4f9b	call $0000
-4fbf	cd dc 4e 	call $4edc	call $0000
-4fc2	cd 03 4a 	call $4a03	call $0000
-4fc5	cd 2f 46 	call $462f	call $0000
-4fc8	cd a4 4f 	call $4fa4	call $0000
-4fcb	c3 9d 46 	jp $469d	jp $0000
-4fce	dd 21 02 00 	ld ix,$0002	ld ix,$0000
-4fd2	dd 39 	add ix,sp	add ix,sp
-4fd4	dd e3 	ex (sp),ix	ex (sp),ix
-4fd6	cd f1 19 	call $19f1	call $0000
-4fd9	cd 0d 47 	call $470d	call $0000
-4fdc	11 05 00 	ld de,$0005	ld de,$0000
-4fdf	dd 19 	add ix,de	add ix,de
-4fe1	cd f1 19 	call $19f1	call $0000
-4fe4	dd e3 	ex (sp),ix	ex (sp),ix
-4fe6	04 	inc b	inc b
-4fe7	05 	dec b	dec b
-4fe8	fa 45 46 	jp m,$4645	jp m,$0000
-4feb	cd 45 46 	call $4645	call $0000
-4fee	cd f1 19 	call $19f1	call $0000
-4ff1	dd e3 	ex (sp),ix	ex (sp),ix
-4ff3	18 e4 	jr $-$1a	jr $-$00
-4ff5	3c 	inc a	inc a
-4ff6	08 	ex af,af'	ex af,af'
-4ff7	e5 	push hl	push hl
-4ff8	d9 	exx	exx
-4ff9	e5 	push hl	push hl
-4ffa	d9 	exx	exx
-4ffb	cd 03 4a 	call $4a03	call $0000
-4ffe	cd dc 4e 	call $4edc	call $0000
-5001	af 	xor a	xor a
-5002	08 	ex af,af'	ex af,af'
-5003	3d 	dec a	dec a
-5004	28 20 	jr z,$+$22	jr z,$+$00
-5006	f2 0d 50 	jp p,$500d	jp p,$0000
-5009	b9 	cp c	cp c
-500a	38 1a 	jr c,$+$1c	jr c,$+$00
-500c	3c 	inc a	inc a
-500d	08 	ex af,af'	ex af,af'
-500e	3c 	inc a	inc a
-500f	cb fc 	set 7,h	set 7,h
-5011	cd 54 4f 	call $4f54	call $0000
-5014	30 05 	jr nc,$+$07	jr nc,$+$00
-5016	08 	ex af,af'	ex af,af'
-5017	cd 81 4f 	call $4f81	call $0000
-501a	08 	ex af,af'	ex af,af'
-501b	08 	ex af,af'	ex af,af'
-501c	dc c8 4e 	call c,$4ec8	call c,$0000
-501f	0c 	inc c	inc c
-5020	fa 02 50 	jp m,$5002	jp m,$0000
-5023	c3 f2 4e 	jp $4ef2	jp $0000
-5026	cd dc 4e 	call $4edc	call $0000
-5029	cb ba 	res 7,d	res 7,d
+4f69	cb 1c 	rr h	rr h
+4f6b	cb 1d 	rr l	rr l
+4f6d	d9 	exx	exx
+4f6e	c9 	ret	ret
+4f6f	41 	ld b,c	ld b,c
+4f70	54 	ld d,h	ld d,h
+4f71	5d 	ld e,l	ld e,l
+4f72	d9 	exx	exx
+4f73	54 	ld d,h	ld d,h
+4f74	5d 	ld e,l	ld e,l
+4f75	d9 	exx	exx
+4f76	c9 	ret	ret
+4f77	cd 6f 4f 	call $4f6f	call $0000
+4f7a	cd ef 46 	call $46ef	call $0000
+4f7d	dd e1 	pop ix	pop ix
+4f7f	c5 	push bc	push bc
+4f80	e5 	push hl	push hl
+4f81	d9 	exx	exx
+4f82	e5 	push hl	push hl
+4f83	d9 	exx	exx
+4f84	dd e9 	jp (ix)	jp (ix)
+4f86	dd e1 	pop ix	pop ix
+4f88	d9 	exx	exx
+4f89	d1 	pop de	pop de
+4f8a	d9 	exx	exx
+4f8b	d1 	pop de	pop de
+4f8c	79 	ld a,c	ld a,c
+4f8d	c1 	pop bc	pop bc
+4f8e	41 	ld b,c	ld b,c
+4f8f	4f 	ld c,a	ld c,a
+4f90	dd e9 	jp (ix)	jp (ix)
+4f92	cd 7d 4f 	call $4f7d	call $0000
+4f95	cd e5 49 	call $49e5	call $0000
+4f98	cd 27 46 	call $4627	call $0000
+4f9b	cd 86 4f 	call $4f86	call $0000
+4f9e	cd 7d 4f 	call $4f7d	call $0000
+4fa1	cd be 4e 	call $4ebe	call $0000
+4fa4	cd e5 49 	call $49e5	call $0000
+4fa7	cd 11 46 	call $4611	call $0000
+4faa	cd 86 4f 	call $4f86	call $0000
+4fad	c3 7f 46 	jp $467f	jp $0000
+4fb0	dd 21 02 00 	ld ix,$0002	ld ix,$0000
+4fb4	dd 39 	add ix,sp	add ix,sp
+4fb6	dd e3 	ex (sp),ix	ex (sp),ix
+4fb8	cd d3 19 	call $19d3	call $0000
+4fbb	cd ef 46 	call $46ef	call $0000
+4fbe	11 05 00 	ld de,$0005	ld de,$0000
+4fc1	dd 19 	add ix,de	add ix,de
+4fc3	cd d3 19 	call $19d3	call $0000
+4fc6	dd e3 	ex (sp),ix	ex (sp),ix
+4fc8	04 	inc b	inc b
+4fc9	05 	dec b	dec b
+4fca	fa 27 46 	jp m,$4627	jp m,$0000
+4fcd	cd 27 46 	call $4627	call $0000
+4fd0	cd d3 19 	call $19d3	call $0000
+4fd3	dd e3 	ex (sp),ix	ex (sp),ix
+4fd5	18 e4 	jr $-$1a	jr $-$00
+4fd7	3c 	inc a	inc a
+4fd8	08 	ex af,af'	ex af,af'
+4fd9	e5 	push hl	push hl
+4fda	d9 	exx	exx
+4fdb	e5 	push hl	push hl
+4fdc	d9 	exx	exx
+4fdd	cd e5 49 	call $49e5	call $0000
+4fe0	cd be 4e 	call $4ebe	call $0000
+4fe3	af 	xor a	xor a
+4fe4	08 	ex af,af'	ex af,af'
+4fe5	3d 	dec a	dec a
+4fe6	28 20 	jr z,$+$22	jr z,$+$00
+4fe8	f2 ef 4f 	jp p,$4fef	jp p,$0000
+4feb	b9 	cp c	cp c
+4fec	38 1a 	jr c,$+$1c	jr c,$+$00
+4fee	3c 	inc a	inc a
+4fef	08 	ex af,af'	ex af,af'
+4ff0	3c 	inc a	inc a
+4ff1	cb fc 	set 7,h	set 7,h
+4ff3	cd 36 4f 	call $4f36	call $0000
+4ff6	30 05 	jr nc,$+$07	jr nc,$+$00
+4ff8	08 	ex af,af'	ex af,af'
+4ff9	cd 63 4f 	call $4f63	call $0000
+4ffc	08 	ex af,af'	ex af,af'
+4ffd	08 	ex af,af'	ex af,af'
+4ffe	dc aa 4e 	call c,$4eaa	call c,$0000
+5001	0c 	inc c	inc c
+5002	fa e4 4f 	jp m,$4fe4	jp m,$0000
+5005	c3 d4 4e 	jp $4ed4	jp $0000
+5008	cd be 4e 	call $4ebe	call $0000
+500b	cb ba 	res 7,d	res 7,d
+500d	d9 	exx	exx
+500e	e1 	pop hl	pop hl
+500f	d9 	exx	exx
+5010	e1 	pop hl	pop hl
+5011	08 	ex af,af'	ex af,af'
+5012	c9 	ret	ret
+5013	b7 	or a	or a
+5014	ed 42 	sbc hl,bc	sbc hl,bc
+5016	d9 	exx	exx
+5017	ed 42 	sbc hl,bc	sbc hl,bc
+5019	d9 	exx	exx
+501a	30 05 	jr nc,$+$07	jr nc,$+$00
+501c	09 	add hl,bc	add hl,bc
+501d	d9 	exx	exx
+501e	ed 4a 	adc hl,bc	adc hl,bc
+5020	d9 	exx	exx
+5021	3f 	ccf	ccf
+5022	cb 13 	rl e	rl e
+5024	cb 12 	rl d	rl d
+5026	d9 	exx	exx
+5027	cb 13 	rl e	rl e
+5029	cb 12 	rl d	rl d
 502b	d9 	exx	exx
-502c	e1 	pop hl	pop hl
-502d	d9 	exx	exx
-502e	e1 	pop hl	pop hl
-502f	08 	ex af,af'	ex af,af'
-5030	c9 	ret	ret
-5031	b7 	or a	or a
-5032	ed 42 	sbc hl,bc	sbc hl,bc
-5034	d9 	exx	exx
-5035	ed 42 	sbc hl,bc	sbc hl,bc
-5037	d9 	exx	exx
-5038	30 05 	jr nc,$+$07	jr nc,$+$00
-503a	09 	add hl,bc	add hl,bc
-503b	d9 	exx	exx
-503c	ed 4a 	adc hl,bc	adc hl,bc
-503e	d9 	exx	exx
-503f	3f 	ccf	ccf
-5040	cb 13 	rl e	rl e
-5042	cb 12 	rl d	rl d
-5044	d9 	exx	exx
-5045	cb 13 	rl e	rl e
-5047	cb 12 	rl d	rl d
-5049	d9 	exx	exx
-504a	3c 	inc a	inc a
-504b	f0 	ret p	ret p
-504c	ed 6a 	adc hl,hl	adc hl,hl
-504e	d9 	exx	exx
-504f	ed 6a 	adc hl,hl	adc hl,hl
-5051	d9 	exx	exx
-5052	30 de 	jr nc,$-$20	jr nc,$-$00
-5054	b7 	or a	or a
-5055	ed 42 	sbc hl,bc	sbc hl,bc
-5057	d9 	exx	exx
-5058	ed 42 	sbc hl,bc	sbc hl,bc
+502c	3c 	inc a	inc a
+502d	f0 	ret p	ret p
+502e	ed 6a 	adc hl,hl	adc hl,hl
+5030	d9 	exx	exx
+5031	ed 6a 	adc hl,hl	adc hl,hl
+5033	d9 	exx	exx
+5034	30 de 	jr nc,$-$20	jr nc,$-$00
+5036	b7 	or a	or a
+5037	ed 42 	sbc hl,bc	sbc hl,bc
+5039	d9 	exx	exx
+503a	ed 42 	sbc hl,bc	sbc hl,bc
+503c	d9 	exx	exx
+503d	37 	scf	scf
+503e	c3 22 50 	jp $5022	jp $0000
+5041	b7 	or a	or a
+5042	d9 	exx	exx
+5043	cb 1a 	rr d	rr d
+5045	cb 1b 	rr e	rr e
+5047	d9 	exx	exx
+5048	cb 1a 	rr d	rr d
+504a	cb 1b 	rr e	rr e
+504c	30 05 	jr nc,$+$07	jr nc,$+$00
+504e	09 	add hl,bc	add hl,bc
+504f	d9 	exx	exx
+5050	ed 4a 	adc hl,bc	adc hl,bc
+5052	d9 	exx	exx
+5053	3c 	inc a	inc a
+5054	f0 	ret p	ret p
+5055	d9 	exx	exx
+5056	cb 1c 	rr h	rr h
+5058	cb 1d 	rr l	rr l
 505a	d9 	exx	exx
-505b	37 	scf	scf
-505c	c3 40 50 	jp $5040	jp $0000
-505f	b7 	or a	or a
-5060	d9 	exx	exx
-5061	cb 1a 	rr d	rr d
-5063	cb 1b 	rr e	rr e
-5065	d9 	exx	exx
-5066	cb 1a 	rr d	rr d
-5068	cb 1b 	rr e	rr e
-506a	30 05 	jr nc,$+$07	jr nc,$+$00
+505b	cb 1c 	rr h	rr h
+505d	cb 1d 	rr l	rr l
+505f	c3 42 50 	jp $5042	jp $0000
+5062	ed 42 	sbc hl,bc	sbc hl,bc
+5064	d9 	exx	exx
+5065	ed 42 	sbc hl,bc	sbc hl,bc
+5067	d9 	exx	exx
+5068	0c 	inc c	inc c
+5069	30 07 	jr nc,$+$09	jr nc,$+$00
+506b	0d 	dec c	dec c
 506c	09 	add hl,bc	add hl,bc
 506d	d9 	exx	exx
 506e	ed 4a 	adc hl,bc	adc hl,bc
 5070	d9 	exx	exx
-5071	3c 	inc a	inc a
-5072	f0 	ret p	ret p
-5073	d9 	exx	exx
-5074	cb 1c 	rr h	rr h
-5076	cb 1d 	rr l	rr l
-5078	d9 	exx	exx
-5079	cb 1c 	rr h	rr h
-507b	cb 1d 	rr l	rr l
-507d	c3 60 50 	jp $5060	jp $0000
-5080	ed 42 	sbc hl,bc	sbc hl,bc
-5082	d9 	exx	exx
-5083	ed 42 	sbc hl,bc	sbc hl,bc
-5085	d9 	exx	exx
-5086	0c 	inc c	inc c
-5087	30 07 	jr nc,$+$09	jr nc,$+$00
-5089	0d 	dec c	dec c
-508a	09 	add hl,bc	add hl,bc
+5071	0d 	dec c	dec c
+5072	3c 	inc a	inc a
+5073	f0 	ret p	ret p
+5074	cb 21 	sla c	sla c
+5076	cb 10 	rl b	rl b
+5078	0c 	inc c	inc c
+5079	d9 	exx	exx
+507a	cb 11 	rl c	rl c
+507c	cb 10 	rl b	rl b
+507e	cd aa 50 	call $50aa	call $0000
+5081	cd aa 50 	call $50aa	call $0000
+5084	d9 	exx	exx
+5085	d2 62 50 	jp nc,$5062	jp nc,$0000
+5088	b7 	or a	or a
+5089	ed 42 	sbc hl,bc	sbc hl,bc
 508b	d9 	exx	exx
-508c	ed 4a 	adc hl,bc	adc hl,bc
+508c	ed 42 	sbc hl,bc	sbc hl,bc
 508e	d9 	exx	exx
-508f	0d 	dec c	dec c
-5090	3c 	inc a	inc a
-5091	f0 	ret p	ret p
-5092	cb 21 	sla c	sla c
-5094	cb 10 	rl b	rl b
-5096	0c 	inc c	inc c
+508f	0c 	inc c	inc c
+5090	c3 72 50 	jp $5072	jp $0000
+5093	29 	add hl,hl	add hl,hl
+5094	d9 	exx	exx
+5095	ed 6a 	adc hl,hl	adc hl,hl
 5097	d9 	exx	exx
-5098	cb 11 	rl c	rl c
-509a	cb 10 	rl b	rl b
-509c	cd c8 50 	call $50c8	call $0000
-509f	cd c8 50 	call $50c8	call $0000
-50a2	d9 	exx	exx
-50a3	d2 80 50 	jp nc,$5080	jp nc,$0000
-50a6	b7 	or a	or a
-50a7	ed 42 	sbc hl,bc	sbc hl,bc
-50a9	d9 	exx	exx
-50aa	ed 42 	sbc hl,bc	sbc hl,bc
-50ac	d9 	exx	exx
-50ad	0c 	inc c	inc c
-50ae	c3 90 50 	jp $5090	jp $0000
-50b1	29 	add hl,hl	add hl,hl
-50b2	d9 	exx	exx
-50b3	ed 6a 	adc hl,hl	adc hl,hl
-50b5	d9 	exx	exx
-50b6	38 ee 	jr c,$-$10	jr c,$-$00
-50b8	3c 	inc a	inc a
-50b9	0c 	inc c	inc c
-50ba	ed 42 	sbc hl,bc	sbc hl,bc
-50bc	d9 	exx	exx
-50bd	ed 42 	sbc hl,bc	sbc hl,bc
-50bf	d9 	exx	exx
-50c0	d0 	ret nc	ret nc
-50c1	09 	add hl,bc	add hl,bc
-50c2	d9 	exx	exx
-50c3	ed 4a 	adc hl,bc	adc hl,bc
-50c5	d9 	exx	exx
-50c6	0d 	dec c	dec c
-50c7	c9 	ret	ret
-50c8	d9 	exx	exx
-50c9	cb 23 	sla e	sla e
-50cb	cb 12 	rl d	rl d
-50cd	d9 	exx	exx
-50ce	cb 13 	rl e	rl e
-50d0	cb 12 	rl d	rl d
-50d2	d9 	exx	exx
-50d3	ed 6a 	adc hl,hl	adc hl,hl
-50d5	d9 	exx	exx
-50d6	ed 6a 	adc hl,hl	adc hl,hl
-50d8	c9 	ret	ret
-50d9	dd 7e 00 	ld a,(ix)	ld a,(ix)
-50dc	fe 3a 	cp $3a	cp $00
-50de	3f 	ccf	ccf
-50df	d8 	ret c	ret c
-50e0	fe 30 	cp $30	cp $00
-50e2	c9 	ret	ret
-50e3	dd 7e 00 	ld a,(ix)	ld a,(ix)
-50e6	dd 23 	inc ix	inc ix
-50e8	fe 20 	cp $20	cp $00
-50ea	28 f7 	jr z,$-$07	jr z,$-$00
-50ec	fe 2b 	cp $2b	cp $00
-50ee	c8 	ret z	ret z
-50ef	fe 2d 	cp $2d	cp $00
-50f1	c8 	ret z	ret z
-50f2	dd 2b 	dec ix	dec ix
-50f4	c9 	ret	ret
-50f5	08 	ex af,af'	ex af,af'
-50f6	cb 7c 	bit 7,h	bit 7,h
-50f8	c4 06 4e 	call nz,$4e06	call nz,$0000
-50fb	cd dc 4e 	call $4edc	call $0000
-50fe	cb 7c 	bit 7,h	bit 7,h
-5100	c4 06 4e 	call nz,$4e06	call nz,$0000
-5103	44 	ld b,h	ld b,h
-5104	4d 	ld c,l	ld c,l
-5105	21 00 00 	ld hl,$0000	ld hl,$0000
-5108	d9 	exx	exx
-5109	44 	ld b,h	ld b,h
-510a	4d 	ld c,l	ld c,l
-510b	21 00 00 	ld hl,$0000	ld hl,$0000
-510e	c9 	ret	ret
+5098	38 ee 	jr c,$-$10	jr c,$-$00
+509a	3c 	inc a	inc a
+509b	0c 	inc c	inc c
+509c	ed 42 	sbc hl,bc	sbc hl,bc
+509e	d9 	exx	exx
+509f	ed 42 	sbc hl,bc	sbc hl,bc
+50a1	d9 	exx	exx
+50a2	d0 	ret nc	ret nc
+50a3	09 	add hl,bc	add hl,bc
+50a4	d9 	exx	exx
+50a5	ed 4a 	adc hl,bc	adc hl,bc
+50a7	d9 	exx	exx
+50a8	0d 	dec c	dec c
+50a9	c9 	ret	ret
+50aa	d9 	exx	exx
+50ab	cb 23 	sla e	sla e
+50ad	cb 12 	rl d	rl d
+50af	d9 	exx	exx
+50b0	cb 13 	rl e	rl e
+50b2	cb 12 	rl d	rl d
+50b4	d9 	exx	exx
+50b5	ed 6a 	adc hl,hl	adc hl,hl
+50b7	d9 	exx	exx
+50b8	ed 6a 	adc hl,hl	adc hl,hl
+50ba	c9 	ret	ret
+50bb	dd 7e 00 	ld a,(ix)	ld a,(ix)
+50be	fe 3a 	cp $3a	cp $00
+50c0	3f 	ccf	ccf
+50c1	d8 	ret c	ret c
+50c2	fe 30 	cp $30	cp $00
+50c4	c9 	ret	ret
+50c5	dd 7e 00 	ld a,(ix)	ld a,(ix)
+50c8	dd 23 	inc ix	inc ix
+50ca	fe 20 	cp $20	cp $00
+50cc	28 f7 	jr z,$-$07	jr z,$-$00
+50ce	fe 2b 	cp $2b	cp $00
+50d0	c8 	ret z	ret z
+50d1	fe 2d 	cp $2d	cp $00
+50d3	c8 	ret z	ret z
+50d4	dd 2b 	dec ix	dec ix
+50d6	c9 	ret	ret
+50d7	08 	ex af,af'	ex af,af'
+50d8	cb 7c 	bit 7,h	bit 7,h
+50da	c4 e8 4d 	call nz,$4de8	call nz,$0000
+50dd	cd be 4e 	call $4ebe	call $0000
+50e0	cb 7c 	bit 7,h	bit 7,h
+50e2	c4 e8 4d 	call nz,$4de8	call nz,$0000
+50e5	44 	ld b,h	ld b,h
+50e6	4d 	ld c,l	ld c,l
+50e7	21 00 00 	ld hl,$0000	ld hl,$0000
+50ea	d9 	exx	exx
+50eb	44 	ld b,h	ld b,h
+50ec	4d 	ld c,l	ld c,l
+50ed	21 00 00 	ld hl,$0000	ld hl,$0000
+50f0	c9 	ret	ret
+50f1	ff 	rst $38	rst $00
+50f2	ff 	rst $38	rst $00
+50f3	ff 	rst $38	rst $00
+50f4	ff 	rst $38	rst $00
+50f5	ff 	rst $38	rst $00
+50f6	ff 	rst $38	rst $00
+50f7	ff 	rst $38	rst $00
+50f8	ff 	rst $38	rst $00
+50f9	ff 	rst $38	rst $00
+50fa	ff 	rst $38	rst $00
+50fb	ff 	rst $38	rst $00
+50fc	ff 	rst $38	rst $00
+50fd	ff 	rst $38	rst $00
+50fe	ff 	rst $38	rst $00
+50ff	ff 	rst $38	rst $00
+5100	ff 	rst $38	rst $00
+5101	ff 	rst $38	rst $00
+5102	ff 	rst $38	rst $00
+5103	ff 	rst $38	rst $00
+5104	ff 	rst $38	rst $00
+5105	ff 	rst $38	rst $00
+5106	ff 	rst $38	rst $00
+5107	ff 	rst $38	rst $00
+5108	ff 	rst $38	rst $00
+5109	ff 	rst $38	rst $00
+510a	ff 	rst $38	rst $00
+510b	ff 	rst $38	rst $00
+510c	ff 	rst $38	rst $00
+510d	ff 	rst $38	rst $00
+510e	ff 	rst $38	rst $00
 510f	ff 	rst $38	rst $00
 5110	ff 	rst $38	rst $00
 5111	ff 	rst $38	rst $00
@@ -12241,34 +12257,4 @@
 5115	ff 	rst $38	rst $00
 5116	ff 	rst $38	rst $00
 5117	ff 	rst $38	rst $00
-5118	ff 	rst $38	rst $00
-5119	ff 	rst $38	rst $00
-511a	ff 	rst $38	rst $00
-511b	ff 	rst $38	rst $00
-511c	ff 	rst $38	rst $00
-511d	ff 	rst $38	rst $00
-511e	ff 	rst $38	rst $00
-511f	ff 	rst $38	rst $00
-5120	ff 	rst $38	rst $00
-5121	ff 	rst $38	rst $00
-5122	ff 	rst $38	rst $00
-5123	ff 	rst $38	rst $00
-5124	ff 	rst $38	rst $00
-5125	ff 	rst $38	rst $00
-5126	ff 	rst $38	rst $00
-5127	ff 	rst $38	rst $00
-5128	ff 	rst $38	rst $00
-5129	ff 	rst $38	rst $00
-512a	ff 	rst $38	rst $00
-512b	ff 	rst $38	rst $00
-512c	ff 	rst $38	rst $00
-512d	ff 	rst $38	rst $00
-512e	ff 	rst $38	rst $00
-512f	ff 	rst $38	rst $00
-5130	ff 	rst $38	rst $00
-5131	ff 	rst $38	rst $00
-5132	ff 	rst $38	rst $00
-5133	ff 	rst $38	rst $00
-5134	ff 	rst $38	rst $00
-5135	ff 	rst $38	rst $00
-5136
+5118
