@@ -158,7 +158,7 @@ TTAB:           EQU	8AH
 ; TTHEN:          EQU	8CH	
 ; TLINO:          EQU	8DH	
 ; TTO:            EQU	0B8H	
-; TBY:           EQU	0C0H	
+TCMD:           EQU	0C0H	
 ; TWHILE:         EQU	0C7H	
 ; TWHEN:          EQU	0C9H	
 ; TOF:            EQU	0CAH	
@@ -267,8 +267,7 @@ CMDTAB:         DW	LEFTSL
                 DW	EXITex	
 ;
 CMDTAB_END:     EQU	$	
-; TLAST:          EQU	TCMD-128+(CMDTAB_END-CMDTAB)/2	
-TLAST:          EQU	CMDTAB_END-CMDTAB/2+TCMD-128
+TLAST:          EQU	TCMD-128+[CMDTAB_END-CMDTAB]/2	
 ;
 RUN:            CALL	TERMQ	
                 JR	Z,RUN0	
