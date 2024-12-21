@@ -365,10 +365,10 @@ GETEXT:			PUSH		IY
 			MOSCALL		mos_getfil 	; HLU: Pointer to FIL structure
 			PUSH.LIL	HL
 			POP.LIL		IY		; IYU: Pointer to FIL structure
-			LD.LIL		L, (IY + FIL.obj.objsize + 0)
-			LD.LIL		H, (IY + FIL.obj.objsize + 1)
-			LD.LIL		E, (IY + FIL.obj.objsize + 2)
-			LD.LIL		D, (IY + FIL.obj.objsize + 3)			
+			LD.LIL		L, (IY + FFOBJID.objsize + 0)
+			LD.LIL		H, (IY + FFOBJID.objsize + 1)
+			LD.LIL		E, (IY + FFOBJID.objsize + 2)
+			LD.LIL		D, (IY + FFOBJID.objsize + 3)
 			POP		IY 
 			RET	
 
