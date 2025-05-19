@@ -10,23 +10,22 @@
 			INCLUDE	"macros.inc"
 
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 
-;			SEGMENT CODE
+			SEGMENT CODE
 				
-;			XDEF	ASC_TO_NUMBER
-;			XDEF	SWITCH_A
-;			XDEF	NULLTOCR
-;			XDEF	CRTONULL
-;			XDEF	CSTR_FNAME
-;			XDEF	CSTR_LINE
-;			XDEF	CSTR_FINDCH
-;			XDEF	CSTR_ENDSWITH
-;			XDEF	CSTR_CAT
+			XDEF	ASC_TO_NUMBER
+			XDEF	SWITCH_A
+			XDEF	NULLTOCR
+			XDEF	CRTONULL
+			XDEF	CSTR_FNAME
+			XDEF	CSTR_LINE
+			XDEF	CSTR_FINDCH
+			XDEF	CSTR_ENDSWITH
+			XDEF	CSTR_CAT
 				
-;			XREF	OSWRCH
-;			XREF	KEYWDS
-;			XREF	KEYWDL
+			XREF	OSWRCH
+			XREF	KEYWDS
+			XREF	KEYWDL
 
 ; Read a number and convert to binary
 ; If prefixed with &, will read as hex, otherwise decimal
@@ -151,14 +150,14 @@ CRTONULL2:		LD	(HL), C
 ;
 CSTR_FNAME:		LD	A, (HL)			; Get source
 			CP	32			; Is it space
-			JR	Z, @F	
+			JR	Z, $F	
 			CP	CR			; Or is it CR
-			JR	Z, @F
+			JR	Z, $F
 			LD	(DE), A			; No, so store
 			INC	HL			; Increment
 			INC	DE			
 			JR	CSTR_FNAME		; And loop
-@@:			XOR	A			; Zero terminate the target string
+$$:			XOR	A			; Zero terminate the target string
 			LD	(DE), A
 			INC	DE			; And point to next free address
 			RET
@@ -169,12 +168,12 @@ CSTR_FNAME:		LD	A, (HL)			; Get source
 ;
 CSTR_LINE:		LD	A, (HL)			; Get source
 			CP	CR			; Is it CR
-			JR	Z, @F
+			JR	Z, $F
 			LD	(DE), A			; No, so store
 			INC	HL			; Increment
 			INC	DE			
 			JR	CSTR_LINE		; And loop
-@@:			XOR	A			; Zero terminate the target string
+$$:			XOR	A			; Zero terminate the target string
 			LD	(DE), A
 			INC	DE			; And point to next free address
 			RET
@@ -227,6 +226,4 @@ CSTR_CAT_1:		LD	A, (DE)			; Copy the second string onto the end of the first str
 			RET	Z			; And return
 			INC	HL
 			INC	DE
-			JR	CSTR_CAT_1		; Loop until finished						    
-			
-;			include "agon_misc.inc"
+			JR	CSTR_CAT_1		; Loop until finished						

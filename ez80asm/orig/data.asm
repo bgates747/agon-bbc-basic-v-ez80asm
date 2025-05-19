@@ -1,22 +1,21 @@
 ;
-;Automatically created from original source on 2024-12-15 15:29:12
+;Automatically created from original source on 2025-05-19 12:44:29
 ;
                 .ASSUME ADL = 0	
-;	.ORG 0x0000
-;                DEFINE LORAM, SPACE = ROM	
-;                SEGMENT LORAM	
+                DEFINE LORAM, SPACE = ROM	
+                SEGMENT LORAM	
 ;
-;                XDEF	FLAGS	
-;                XDEF	OSWRCHPT	
-;                XDEF	OSWRCHCH	
-;                XDEF	OSWRCHFH	
-;                XDEF	KEYDOWN	
-;                XDEF	KEYASCII	
-;                XDEF	KEYCOUNT	
-;                XDEF	SCRAP	
-;                XDEF	BUFFER	
-;                XDEF	LISTON	
-;                XDEF	PAGE_	
+                XDEF	FLAGS	
+                XDEF	OSWRCHPT	
+                XDEF	OSWRCHCH	
+                XDEF	OSWRCHFH	
+                XDEF	KEYDOWN	
+                XDEF	KEYASCII	
+                XDEF	KEYCOUNT	
+                XDEF	SCRAP	
+                XDEF	BUFFER	
+                XDEF	LISTON	
+                XDEF	PAGE_	
 ;
 FLAGS:          DS	1	
 OSWRCHPT:       DS	2	
@@ -33,34 +32,34 @@ SCRAP:          DS	31
 ;FOR USE WITH VERSION 5.0 OF BBC BASIC
 ;(C) COPYRIGHT R.T.RUSSELL 1981-2024
 ;
-;                XDEF	ACCS	
-;                XDEF	BUFFER	
-;                XDEF	ONERSP	
-;                XDEF	LIBASE	
-;                XDEF	PAGE_	
-;                XDEF	LOMEM	
-;                XDEF	FREE	
-;                XDEF	HIMEM	
-;                XDEF	RANDOM	
-;                XDEF	COUNT	
-;                XDEF	WIDTH	
-;                XDEF	ERL	
-;                XDEF	ERR	
-;                XDEF	ERRTRP	
-;                XDEF	ERRTXT	
-;                XDEF	TRACEN	
-;                XDEF	AUTONO	
-;                XDEF	INCREM	
-;                XDEF	LISTON	
-;                XDEF	DATPTR	
-;                XDEF	FNPTR	
-;                XDEF	PROPTR	
-;                XDEF	STAVAR	
-;                XDEF	OC	
-;                XDEF	PC	
-;                XDEF	DYNVAR	
-;                XDEF	CURLIN	
-;                XDEF	USER	
+                XDEF	ACCS	
+                XDEF	BUFFER	
+                XDEF	ONERSP	
+                XDEF	LIBASE	
+                XDEF	PAGE_	
+                XDEF	LOMEM	
+                XDEF	FREE	
+                XDEF	HIMEM	
+                XDEF	RANDOM	
+                XDEF	COUNT	
+                XDEF	WIDTH	
+                XDEF	ERL	
+                XDEF	ERR	
+                XDEF	ERRTRP	
+                XDEF	ERRTXT	
+                XDEF	TRACEN	
+                XDEF	AUTONO	
+                XDEF	INCREM	
+                XDEF	LISTON	
+                XDEF	DATPTR	
+                XDEF	FNPTR	
+                XDEF	PROPTR	
+                XDEF	STAVAR	
+                XDEF	OC	
+                XDEF	PC	
+                XDEF	DYNVAR	
+                XDEF	CURLIN	
+                XDEF	USER	
 ;
 ;n.b. ACCS, BUFFER & STAVAR must be on page boundaries.
 ;
@@ -94,5 +93,4 @@ ERR:            DS	1		;ERROR NUMBER
 LISTON:         DS	1		;LISTO & OPT FLAG	
 INCREM:         DS	1		;AUTO INCREMENT	
 ;
-USER:           ; END	
-;    include "data.inc"
+USER:           END	

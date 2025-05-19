@@ -1,8 +1,3 @@
-; TEMPORARY LABELS FOR PIECEMEAL ASSEMBLY
-STAVAR: EQU 0
-ACCS: EQU 0
-; END TEMPORARY LABELS FOR PIECEMEAL ASSEMBLY
-
 ;
 ; Title:	BBC Basic for AGON - Equs
 ; Author:	Dean Belfield
@@ -12,8 +7,8 @@ ACCS: EQU 0
 ; Modinfo:
 ; 05/12/2024:	Removed Stack_Top
 
-;			XREF		STAVAR
-;			XREF		ACCS
+			XREF		STAVAR
+			XREF		ACCS
 			
 RAM_Top:		EQU		0FF00h
 	

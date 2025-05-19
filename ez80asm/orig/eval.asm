@@ -1,16 +1,17 @@
 ;
-;Automatically created from original source on 2024-12-15 15:29:12
+;Automatically created from original source on 2025-05-19 12:44:29
 ;
                 .ASSUME ADL = 0	
-;	.ORG 0x0000
-;                SEGMENT CODE	
+                SEGMENT CODE	
 ;
-;                XDEF	COUNT0	
-;                XDEF	COUNT1	
+                XDEF	COUNT0	
+                XDEF	COUNT1	
+                XDEF	ZERO	
+                XDEF	TRUE	
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;EVALUATE EXPRESSION MODULE - "EVAL"
-;(C) COPYRIGHT R.T.RUSSELL 1981-2024
+;(C) COPYRIGHT R.T.RUSSELL 1981-2025
 ;
 ;THE NAME BBC BASIC IS USED WITH THE PERMISSION
 ;OF THE BRITISH BROADCASTING CORPORATION AND IS
@@ -19,6 +20,9 @@
 ;VERSION 2.3, 07-05-1984
 ;VERSION 3.0, 08-03-1987
 ;VERSION 5.0, 31-05-2024
+;VERSION 5.1, 28-12-2024
+;VERSION 5.2, 11-01-2025
+;VERSION 5.3, 16-03-2025 (Shifts moved to new codes)
 ;
 ;BINARY FLOATING POINT REPRESENTATION:
 ; 32 BIT SIGN-MAGNITUDE NORMALIZED MANTISSA
@@ -33,91 +37,91 @@
 ;NORMAL REGISTER ALLOCATION: MANTISSA - HLH'L'
 ;                            EXPONENT - C
 ;
-;                XDEF	EXPR	
-;                XDEF	EXPRN	
-;                XDEF	EXPRI	
-;                XDEF	EXPRS	
-;                XDEF	ITEMI	
-;                XDEF	CONS	
-;                XDEF	LOADS	
-;                XDEF	VAL0	
-;                XDEF	SFIX	
-;                XDEF	STR	
-;                XDEF	HEXSTR	
-;                XDEF	LOAD4	
-;                XDEF	LOADN	
-;                XDEF	DLOAD5	
-;                XDEF	TEST	
-;                XDEF	ZERO	
-;                XDEF	COMMA	
-;                XDEF	BRAKET	
-;                XDEF	DECODE	
-;                XDEF	PUSHS	
-;                XDEF	POPS	
-;                XDEF	SEARCH	
-;                XDEF	SCP	
-;                XDEF	LETARR	
+                XDEF	EXPR	
+                XDEF	EXPRN	
+                XDEF	EXPRI	
+                XDEF	EXPRS	
+                XDEF	ITEMI	
+                XDEF	CONS	
+                XDEF	LOADS	
+                XDEF	VAL0	
+                XDEF	SFIX	
+                XDEF	STR	
+                XDEF	HEXSTR	
+                XDEF	LOAD4	
+                XDEF	LOADN	
+                XDEF	DLOAD5	
+                XDEF	TEST	
+                XDEF	ZERO	
+                XDEF	COMMA	
+                XDEF	BRAKET	
+                XDEF	DECODE	
+                XDEF	PUSHS	
+                XDEF	POPS	
+                XDEF	SEARCH	
+                XDEF	SCP	
+                XDEF	LETARR	
 ;
-;                XREF	MUL16	
-;                XREF	ERROR_	
-;                XREF	SYNTAX	
-;                XREF	CHANEL	
-;                XREF	CHNL	
-;                XREF	STOREN	
-;                XREF	STORE4	
-;                XREF	STORE5	
-;                XREF	STACCS	
-;                XREF	CHECK	
-;                XREF	USR	
-;                XREF	VAR_	
-;                XREF	FN	
-;                XREF	XEQ	
-;                XREF	NXT	
-;                XREF	X14OR5	
-;                XREF	MODIFY	
-;                XREF	MODIFS	
-;                XREF	TERMQ	
+                XREF	MUL16	
+                XREF	ERROR_	
+                XREF	SYNTAX	
+                XREF	CHANEL	
+                XREF	CHNL	
+                XREF	STOREN	
+                XREF	STORE4	
+                XREF	STORE5	
+                XREF	STACCS	
+                XREF	CHECK	
+                XREF	USR	
+                XREF	VAR_	
+                XREF	FN	
+                XREF	XEQ	
+                XREF	NXT	
+                XREF	X14OR5	
+                XREF	MODIFY	
+                XREF	MODIFS	
+                XREF	TERMQ	
 ;
-;                XREF	GETVAR	
-;                XREF	LEXAN2	
-;                XREF	RANGE	
-;                XREF	GETTOP	
+                XREF	GETVAR	
+                XREF	LEXAN2	
+                XREF	RANGE	
+                XREF	GETTOP	
 ;
-;                XREF	STAVAR	
-;                XREF	PAGE_	
-;                XREF	LOMEM	
-;                XREF	HIMEM	
-;                XREF	RANDOM	
-;                XREF	COUNT	
-;                XREF	LISTON	
-;                XREF	PC	
-;                XREF	ERL	
-;                XREF	ERR	
-;                XREF	ACCS	
-;                XREF	ERRTXT	
-;                XREF	KEYWDS	
-;                XREF	KEYWDL	
-;                XREF	FREE	
-;                XREF	BUFFER	
+                XREF	STAVAR	
+                XREF	PAGE_	
+                XREF	LOMEM	
+                XREF	HIMEM	
+                XREF	RANDOM	
+                XREF	COUNT	
+                XREF	LISTON	
+                XREF	PC	
+                XREF	ERL	
+                XREF	ERR	
+                XREF	ACCS	
+                XREF	ERRTXT	
+                XREF	KEYWDS	
+                XREF	KEYWDL	
+                XREF	FREE	
+                XREF	BUFFER	
 ;
-;                XREF	OSRDCH	
-;                XREF	OSOPEN	
-;                XREF	OSBGET	
-;                XREF	OSSTAT	
-;                XREF	GETCSR	
-;                XREF	GETIME	
-;                XREF	GETIMS	
-;                XREF	GETEXT	
-;                XREF	GETPTR	
-;                XREF	OSKEY	
+                XREF	OSRDCH	
+                XREF	OSOPEN	
+                XREF	OSBGET	
+                XREF	OSSTAT	
+                XREF	GETCSR	
+                XREF	GETIME	
+                XREF	GETIMS	
+                XREF	GETEXT	
+                XREF	GETPTR	
+                XREF	OSKEY	
 ;
-;                XREF	POINT	
-;                XREF	ADVAL	
-;                XREF	TINTFN	
-;                XREF	MODEFN	
-;                XREF	WIDFN	
+                XREF	POINT	
+                XREF	ADVAL	
+                XREF	TINTFN	
+                XREF	MODEFN	
+                XREF	WIDFN	
 ;
-;                XREF	FPP	
+                XREF	FPP	
 ;
 FUNTOK:         EQU	8DH		;1st FUNCTION TOKEN	
 TMOD:           EQU	83H	
@@ -193,8 +197,7 @@ FUNTBL:         DW	DECODE		;Line number
                 DW	SUM		;SUM	
 ;
 FUNTBL_END:     EQU	$	
-; TCMD:           EQU	FUNTOK+(FUNTBL_END-FUNTBL)/2	
-TCMD:           EQU	FUNTBL_END-FUNTBL/2+FUNTOK
+TCMD:           EQU	FUNTOK+(FUNTBL_END-FUNTBL)/2	
 ;
 CR:             EQU	0DH	
 LF:             EQU	0AH	
@@ -283,7 +286,7 @@ SHIFT:          CP	'='
                 INC	IY	
                 INC	B	
 SHIFT1:         LD	A,B	
-                SUB	18	
+                SUB	16	
                 JR	EXPR2D	
 ;
 EXPR2S:         EX	AF,AF'	
@@ -649,7 +652,7 @@ CONS2:          LD	A,(IY)
                 RET	
 ;
 ARRAY:          LD	A,14		;'Bad use of array'	
-                JP	ERROR_	
+                JR	ERROR0	
 ;
 ; ARRLEN - Get start address and number of elements of an array
 ;   Inputs: HL addresses array descriptor
@@ -733,20 +736,21 @@ LOADS:          LD	DE,ACCS
                 EXX	
                 OR	A	
                 LD	C,A	
-                LD	A,80H		;STRING MARKER	
+REPDUN:         LD	A,80H		;STRING MARKER	
                 RET	Z	
                 LD	B,0	
                 LDIR	
                 RET	
 ;
-LOADS2:         LD	A,(HL)	
+LOADS2:         PUSH	IX	
+                POP	HL	
+LOADS3:         LD	A,(HL)	
                 LD	(DE),A	
                 INC	HL	
                 CP	CR	
-REPDUN:         LD	A,80H		;STRING MARKER	
-                RET	Z	
+                JR	Z,REPDUN	
                 INC	E	
-                JR	NZ,LOADS2	
+                JR	NZ,LOADS3	
                 RET			;RETURN NULL STRING	
 ;
 ; Version 5 extensions:
@@ -1535,9 +1539,8 @@ GET5:           LD	D,0
 GET6:           PUSH	BC	
                 CALL	OSBGET	
                 POP	BC	
-                JR	C,GET9		;EOF	
                 BIT	1,B	
-                JR	Z,GET8	
+                JR	Z,GET10	
                 CP	C	
                 JR	Z,GET9		;NUL (or supplied term)	
                 BIT	7,B	
@@ -1548,9 +1551,11 @@ GET6:           PUSH	BC
                 JR	Z,GET9		;LF	
 GET7:           CP	CR	
                 JR	Z,GET9		;CR	
-GET8:           LD	(HL),A	
+GET8:           OR	A	
+GET10:          LD	(HL),A	
                 INC	L	
                 DEC	D	
+                JR	C,GET9		;EOF	
                 JR	NZ,GET6	
 GET9:           EX	DE,HL	
                 LD	A,80H	
@@ -2592,5 +2597,4 @@ MOD161:         CCF
                 ADC	HL,HL	
                 JR	MOD160	
 ;
-;                END	
-;    include "eval.inc"
+                END	

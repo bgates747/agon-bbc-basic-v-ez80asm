@@ -1,13 +1,12 @@
 ;
-;Automatically created from original source on 2024-12-15 15:29:12
+;Automatically created from original source on 2025-05-19 12:44:29
 ;
                 .ASSUME ADL = 0	
-;	.ORG 0x0000
-;                SEGMENT CODE	
+                SEGMENT CODE	
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;STATEMENT EXECUTION MODULE - "EXEC"
-;(C) COPYRIGHT R.T.RUSSELL 1981-2024
+;(C) COPYRIGHT R.T.RUSSELL 1981-2025
 ;
 ;THE NAME BBC BASIC IS USED WITH THE PERMISSION
 ;OF THE BRITISH BROADCASTING CORPORATION AND IS
@@ -16,132 +15,135 @@
 ;VERSION 2.1, 22-01-1984
 ;VERSION 3.1, 11-06-1987
 ;VERSION 5.0, 12-07-2024
+;VERSION 5.1, 28-12-2024
+;VERSION 5.2, 11-01-2025
+;VERSION 5.3, 31-01-2025
 ;
-;                XDEF	XEQ	
-;                XDEF	RUN0	
-;                XDEF	CHAIN0	
-;                XDEF	CHECK	
-;                XDEF	MUL16	
-;                XDEF	X14OR5	
-;                XDEF	TERMQ	
-;                XDEF	STOREN	
-;                XDEF	STORE4	
-;                XDEF	STORE5	
-;                XDEF	STACCS	
-;                XDEF	SPACES	
-;                XDEF	FN	
-;                XDEF	USR	
-;                XDEF	ESCAPE	
-;                XDEF	SYNTAX	
-;                XDEF	CHANEL	
-;                XDEF	CHNL	
-;                XDEF	VAR_	
-;                XDEF	TABIT	
-;                XDEF	MODIFY	
-;                XDEF	MODIFS	
+                XDEF	XEQ	
+                XDEF	RUN0	
+                XDEF	CHAIN0	
+                XDEF	CHECK	
+                XDEF	MUL16	
+                XDEF	X14OR5	
+                XDEF	TERMQ	
+                XDEF	STOREN	
+                XDEF	STORE4	
+                XDEF	STORE5	
+                XDEF	STACCS	
+                XDEF	SPACES	
+                XDEF	FN	
+                XDEF	USR	
+                XDEF	ESCAPE	
+                XDEF	SYNTAX	
+                XDEF	CHANEL	
+                XDEF	CHNL	
+                XDEF	VAR_	
+                XDEF	TABIT	
+                XDEF	MODIFY	
+                XDEF	MODIFS	
 ;
-;                XREF	ASSEM	
-;                XREF	ERROR_	
-;                XREF	REPORT	
-;                XREF	WARM	
-;                XREF	CLOOP	
-;                XREF	SAYLN	
-;                XREF	LOAD0	
-;                XREF	CRLF	
-;                XREF	PBCDL	
-;                XREF	TELL	
-;                XREF	FINDL	
-;                XREF	SETLIN	
-;                XREF	CLEAR	
-;                XREF	GETVAR	
-;                XREF	PUTVAR	
-;                XREF	GETDEF	
-;                XREF	LOCATE	
-;                XREF	CREATE	
-;                XREF	OUTCHR	
-;                XREF	EXTERR	
-;                XREF	BYE	
-;                XREF	NXT	
-;                XREF	NLIST	
-;                XREF	CSRON	
-;                XREF	CSROFF	
+                XREF	ASSEM	
+                XREF	ERROR_	
+                XREF	REPORT	
+                XREF	WARM	
+                XREF	CLOOP	
+                XREF	SAYLN	
+                XREF	LOAD0	
+                XREF	CRLF	
+                XREF	PBCDL	
+                XREF	TELL	
+                XREF	FINDL	
+                XREF	SETLIN	
+                XREF	CLEAR	
+                XREF	GETVAR	
+                XREF	PUTVAR	
+                XREF	GETDEF	
+                XREF	LOCATE	
+                XREF	CREATE	
+                XREF	OUTCHR	
+                XREF	EXTERR	
+                XREF	BYE	
+                XREF	NXT	
+                XREF	NLIST	
+                XREF	CSRON	
+                XREF	CSROFF	
 ;
-;                XREF	OSWRCH	
-;                XREF	OSLINE	
-;                XREF	OSSHUT	
-;                XREF	OSBPUT	
-;                XREF	OSBGET	
-;                XREF	CLRSCN	
-;                XREF	PUTCSR	
-;                XREF	PUTIME	
-;                XREF	PUTIMS	
-;                XREF	PUTPTR	
-;                XREF	OSCALL	
-;                XREF	OSCLI	
-;                XREF	TRAP	
+                XREF	OSWRCH	
+                XREF	OSLINE	
+                XREF	OSSHUT	
+                XREF	OSBPUT	
+                XREF	OSBGET	
+                XREF	CLRSCN	
+                XREF	PUTCSR	
+                XREF	PUTIME	
+                XREF	PUTIMS	
+                XREF	PUTPTR	
+                XREF	OSCALL	
+                XREF	OSCLI	
+                XREF	TRAP	
 ;
-;                XREF	SOUND	
-;                XREF	CLG	
-;                XREF	DRAW	
-;                XREF	ENVEL	
-;                XREF	GCOL	
-;                XREF	MODE	
-;                XREF	MOVE	
-;                XREF	PLOT	
-;                XREF	COLOUR	
-;                XREF	CIRCLE	
-;                XREF	ELLIPS	
-;                XREF	FILL	
-;                XREF	MOUSE	
-;                XREF	ORIGIN	
-;                XREF	RECTAN	
-;                XREF	LINE	
-;                XREF	WAIT	
-;                XREF	TINT	
-;                XREF	SYS	
+                XREF	SOUND	
+                XREF	CLG	
+                XREF	DRAW	
+                XREF	ENVEL	
+                XREF	GCOL	
+                XREF	MODE	
+                XREF	MOVE	
+                XREF	PLOT	
+                XREF	COLOUR	
+                XREF	CIRCLE	
+                XREF	ELLIPS	
+                XREF	FILL	
+                XREF	MOUSE	
+                XREF	ORIGIN	
+                XREF	RECTAN	
+                XREF	LINE	
+                XREF	WAIT	
+                XREF	TINT	
+                XREF	SYS	
 ;
-;                XREF	STR	
-;                XREF	HEXSTR	
-;                XREF	EXPR	
-;                XREF	EXPRN	
-;                XREF	EXPRI	
-;                XREF	EXPRS	
-;                XREF	ITEMI	
-;                XREF	CONS	
-;                XREF	LOADS	
-;                XREF	VAL0	
-;                XREF	SFIX	
-;                XREF	TEST	
-;                XREF	LOAD4	
-;                XREF	LOADN	
-;                XREF	DLOAD5	
-;                XREF	FPP	
-;                XREF	COMMA	
-;                XREF	BRAKET	
-;                XREF	PUSHS	
-;                XREF	POPS	
-;                XREF	ZERO	
-;                XREF	SCP	
-;                XREF	LETARR	
+                XREF	STR	
+                XREF	HEXSTR	
+                XREF	EXPR	
+                XREF	EXPRN	
+                XREF	EXPRI	
+                XREF	EXPRS	
+                XREF	ITEMI	
+                XREF	CONS	
+                XREF	LOADS	
+                XREF	VAL0	
+                XREF	SFIX	
+                XREF	TEST	
+                XREF	LOAD4	
+                XREF	LOADN	
+                XREF	DLOAD5	
+                XREF	FPP	
+                XREF	COMMA	
+                XREF	BRAKET	
+                XREF	PUSHS	
+                XREF	POPS	
+                XREF	ZERO	
+                XREF	SCP	
+                XREF	LETARR	
 ;
-;                XREF	ACCS	
-;                XREF	PAGE_	
-;                XREF	LOMEM	
-;                XREF	HIMEM	
-;                XREF	FREE	
-;                XREF	BUFFER	
-;                XREF	ERRTRP	
-;                XREF	ONERSP	
-;                XREF	CURLIN	
-;                XREF	COUNT	
-;                XREF	WIDTH	
-;                XREF	STAVAR	
-;                XREF	DATPTR	
-;                XREF	RANDOM	
-;                XREF	TRACEN	
-;                XREF	LISTON	
-;                XREF	PC	
-;                XREF	OC	
+                XREF	ACCS	
+                XREF	PAGE_	
+                XREF	LOMEM	
+                XREF	HIMEM	
+                XREF	FREE	
+                XREF	BUFFER	
+                XREF	ERRTRP	
+                XREF	ONERSP	
+                XREF	CURLIN	
+                XREF	COUNT	
+                XREF	WIDTH	
+                XREF	STAVAR	
+                XREF	DATPTR	
+                XREF	RANDOM	
+                XREF	TRACEN	
+                XREF	LISTON	
+                XREF	PC	
+                XREF	OC	
 ;
 LF:             EQU	0AH	
 CR:             EQU	0DH	
@@ -265,8 +267,7 @@ CMDTAB:         DW	LEFTSL
                 DW	EXIT	
 ;
 CMDTAB_END:     EQU	$	
-; TLAST:          EQU	TCMD-128+(CMDTAB_END-CMDTAB)/2	
-TLAST:          EQU	CMDTAB_END-CMDTAB/2+TCMD-128
+TLAST:          EQU	TCMD-128+(CMDTAB_END-CMDTAB)/2	
 ;
 RUN:            CALL	TERMQ	
                 JR	Z,RUN0	
@@ -330,7 +331,7 @@ ENDIM:          PUSH	IY
                 LD	BC,(PAGE_)	
                 SBC	HL,BC		;IMMEDIATE MODE ?	
                 JP	C,CLOOP	
-;END:            LD	E,0	
+END:            LD	E,0	
                 CALL	OSSHUT		;CLOSE ALL FILES	
                 JP	WARM		;"Ready"	
 ;
@@ -457,7 +458,6 @@ LET:            CALL	ASSIGN
                 JR	C,SYNTAX	;"Syntax error"	
                 JP	P,LETARR	;Numeric array	
                 JP	PE,LETARR	;String array	
-                LD	A,D		;Type	
                 PUSH	DE	
                 PUSH	HL	
                 CALL	EXPRS	
@@ -1829,32 +1829,30 @@ CLR:            CALL	CLEAR
                 LD	HL,(PAGE_)	
                 JR	RESTR1	
 ;
-;RESTORE ERROR
+;RESTORE DATA / ERROR / LOCAL
 ;
-RESERR:         INC	IY	
-                LD	A,2	
+RESDEL:         INC	IY		;Skip DATA / ERROR / LOCAL	
+                LD	A,C		;Save error code	
+                EX	AF,AF'	
+                LD	A,B		;1=DATA, 2=ERROR, 0=LOCAL	
                 CALL	RESLOC	
                 JR	NZ,XEQGO5	
-                LD	A,53		;ON ERROR not LOCAL	
-ERROR5:         JP	ERROR_	
-;
-;RESTORE DATA
-;
-RESDAT:         INC	IY	
-                LD	A,1	
-                CALL	RESLOC	
-                JR	NZ,XEQGO5	
-                LD	A,54		;'DATA not LOCAL'	
+                EX	AF,AF'		;Get error code	
                 DB	21H	
 NOLINE:         LD	A,41		;'No such line'	
-                JR	ERROR5	
+ERROR5:         JP	ERROR_	
 ;
-;RESTORE [line]
+;RESTORE [line | +n | DATA | ERROR | LOCAL]
 ;
 RESTOR:         CP	TERROR	
-                JR	Z,RESERR	
+                LD	BC,200H + 53	;'ON ERROR not LOCAL'	
+                JR	Z,RESDEL	
                 CP	TDATA	
-                JR	Z,RESDAT	
+                LD	BC,100H + 54	;'DATA not LOCAL'	
+                JR	Z,RESDEL	
+                CP	TLOCAL	
+                LD	BC,12		;'Not in a FN or PROC'	
+                JR	Z,RESDEL	
                 CP	'+'	
                 JR	Z,RESREL	
                 LD	HL,(PAGE_)	
@@ -2027,25 +2025,25 @@ BPUT:           CALL	CHANEL		;CHANNEL NUMBER
                 EXX	
                 LD	A,L	
                 POP	DE	
-                CALL	OSBPUT	
+BPUT1:          CALL	OSBPUT	
 BPUTX:          JR	XEQGO1	
 ;
 BPUTS:          LD	A,E	
                 POP	DE	
                 LD	D,A	
                 LD	HL,ACCS	
+                OR	A	
+                JR	Z,BPUTS0	
 BPUTS1:         LD	A,(HL)	
                 INC	HL	
                 CALL	OSBPUT	
                 DEC	D	
                 JR	NZ,BPUTS1	
-                CALL	NXT	
+BPUTS0:         CALL	NXT	
                 CP	';'	
-                INC	IY	
-                JR	Z,BPUTX	
                 LD	A,LF	
-                CALL	OSBPUT	
-                DEC	IY	
+                JR	NZ,BPUT1	
+                INC	IY	
                 JR	BPUTX	
 ;
 ;CALL address[,var[,var...]]
@@ -2369,7 +2367,7 @@ MODIFY:         LD	A,E
                 CALL	FPP	
                 POP	IX	
                 POP	DE	
-                JP	C,ERROR_	
+                JR	C,ERRORC	
 STORE0:         LD	A,D		;Type	
 STOREN:         CP	5	
                 JR	Z,STORE5	
@@ -2406,14 +2404,17 @@ MODIFS:         LD	A,L		;Operator
                 CP	'+'	
                 LD	A,H		;Type	
                 JR	NZ,STACCS	
-                PUSH	IY	
                 PUSH	IX	
-                POP	IY	
+                EX	(SP),IY	
                 CALL	PUSHS	
                 PUSH	IY	
                 POP	IX	
                 CALL	LOADS	
                 POP	BC	
+                LD	A,E	
+                ADD	C	
+                LD	A,19		;String too long	
+ERRORC:         JR	C,ERROR6	
                 LD	A,B		;Type	
                 INC	C	
                 DEC	C	
@@ -2486,7 +2487,7 @@ CHECK:          PUSH	HL
                 POP	HL	
                 RET	C	
                 XOR	A	
-                JP	ERROR_		;"No room"	
+ERROR6:         JP	ERROR_		;"No room"	
 ;
 STORS3:         LD	C,E	
                 PUSH	IX	
@@ -3294,5 +3295,4 @@ FREES2:         POP	DE
                 POP	AF	
                 RET	
 ;
-;                END	
-;    include "exec.inc"
+                END	

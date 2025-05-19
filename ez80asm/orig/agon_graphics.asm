@@ -2,40 +2,38 @@
 ; Title:	BBC Basic for AGON - Graphics stuff
 ; Author:	Dean Belfield
 ; Created:	04/12/2024
-; Last Updated:	11/12/2024
+; Last Updated:	17/12/2024
 ;
 ; Modinfo:
 ; 11/12/2024:	Modified POINT_ to work with OSWORD
+; 17/12/2024:	Modified GETSCHR
 			
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 				
 			INCLUDE	"equs.inc"
 			INCLUDE "macros.inc"
 			INCLUDE "mos_api.inc"	; In MOS/src
 		
-;			SEGMENT CODE
+			SEGMENT CODE
 				
-;			XDEF	MODE_
-;			XDEF	COLOUR_
-;			XDEF	POINT_
-;			XDEF	GETSCHR
-;			XDEF	GETSCHR_1
+			XDEF	MODE_
+			XDEF	COLOUR_
+			XDEF	POINT_
+			XDEF	GETSCHR
 			
-;			XREF	ACCS
-;			XREF	OSWRCH
-;			XREF	ASC_TO_NUMBER
-;			XREF	EXTERR
-;			XREF	EXPRI
-;			XREF	COMMA
-;			XREF	XEQ
-;			XREF	NXT
-;			XREF	BRAKET
-;			XREF	CRTONULL
-;			XREF	NULLTOCR
-;			XREF	CRLF
-;			XREF	EXPR_W2
-;			XREF	INKEY1
+			XREF	ACCS
+			XREF	OSWRCH
+			XREF	ASC_TO_NUMBER
+			XREF	EXTERR
+			XREF	EXPRI
+			XREF	COMMA
+			XREF	XEQ
+			XREF	NXT
+			XREF	BRAKET
+			XREF	CRTONULL
+			XREF	NULLTOCR
+			XREF	CRLF
+			XREF	EXPR_W2
 			
 ; MODE n: Set video mode
 ;
@@ -47,30 +45,11 @@ MODE_:			PUSH	IX			; Get the system vars in IX
 			VDU	16H			; Mode change
 			VDU	L
 			MOSCALL	mos_sysvars		
-@@:			BIT.LIL	4, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result			
+$$:			BIT.LIL	4, (IX+sysvar_vpd_pflags)
+			JR	Z, $B			; Wait for the result			
 			POP	IX
 			JP	XEQ
 			
-; GET(x,y): Get the ASCII code of a character on screen
-;
-GETSCHR:		INC	IY
-			CALL    EXPRI      		; Get X coordinate
-			EXX
-			PUSH	HL			; Stack X
-			CALL	COMMA		
-			CALL	EXPRI			; Get Y coordinate
-			EXX 
-			CALL	BRAKET			; Closing bracket	
-			POP	DE			; Pop X back into DE
-			CALL	GETSCHR_1
-;			JP	INKEY1
-	        	LD	DE,ACCS	
-	                LD	(DE),A	
-	                LD	A,80H	
-        	        RET	NC	
-	                INC	E	
-                	RET	
 ;
 ; Fetch a character from the screen
 ; - DE: X coordinate
@@ -79,7 +58,7 @@ GETSCHR:		INC	IY
 ; - A: The character or FFh if no match
 ; - F: C if match, otherwise NC
 ;
-GETSCHR_1:		PUSH	IX			; Get the system vars in IX
+GETSCHR:		PUSH	IX			; Get the system vars in IX
 			MOSCALL	mos_sysvars		; Reset the semaphore
 			RES.LIL	1, (IX+sysvar_vpd_pflags)
 			VDU	23
@@ -89,14 +68,14 @@ GETSCHR_1:		PUSH	IX			; Get the system vars in IX
 			VDU	D 
 			VDU	L 
 			VDU	H 
-@@:			BIT.LIL	1, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
+$$:			BIT.LIL	1, (IX+sysvar_vpd_pflags)
+			JR	Z, $B			; Wait for the result
 			LD.LIL	A, (IX+sysvar_scrchar)	; Fetch the result in A
 			OR	A			; Check for 00h
 			SCF				; C = character map
-			JR	NZ, @F			; We have a character, so skip next bit
+			JR	NZ, $F			; We have a character, so skip next bit
 			XOR	A			; Clear carry
-@@:			POP	IX			
+$$:			POP	IX			
 			RET 
 
 ; POINT(x,y): Get the pixel colour of a point on screen
@@ -116,12 +95,12 @@ POINT_:			PUSH	IX			; Get the system vars in IX
 			VDU	D
 			VDU	L
 			VDU	H
-@@:			BIT.LIL	2, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
+$$:			BIT.LIL	2, (IX+sysvar_vpd_pflags)
+			JR	Z, $B			; Wait for the result
 ;
 ; Return the data as a 1 byte index
 ;
-			LD.LIL	A, (IX+sysvar_scrpixelIndex)
+			LD.LIL	A, (IX+(sysvar_scrpixelIndex))
 			POP	IX	
 			RET
 
@@ -174,6 +153,4 @@ COLOUR_2:		CALL	COMMA
 			VDU	(VDU_BUFFER+1)		; R
 			VDU	(VDU_BUFFER+2)		; G
 			VDU	(VDU_BUFFER+3)		; B
-			JP	XEQ    
-			
-;			include "agon_graphics.inc"
+			JP	XEQ

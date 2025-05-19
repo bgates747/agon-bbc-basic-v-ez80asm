@@ -4289,6 +4289,9 @@ FIN:            ; END
 ;VERSION 2.3, 07-05-1984
 ;VERSION 3.0, 08-03-1987
 ;VERSION 5.0, 31-05-2024
+;VERSION 5.1, 28-12-2024
+;VERSION 5.2, 11-01-2025
+;VERSION 5.3, 16-03-2025 (Shifts moved to new codes)
 ;
 ;BINARY FLOATING POINT REPRESENTATION:
 ; 32 BIT SIGN-MAGNITUDE NORMALIZED MANTISSA
@@ -4552,7 +4555,7 @@ SHIFT:          CP	'='
                 INC	IY	
                 INC	B	
 SHIFT1:         LD	A,B	
-                SUB	18	
+                SUB	16	
                 JR	EXPR2D	
 ;
 EXPR2S:         EX	AF,AF'	
@@ -4918,7 +4921,7 @@ CONS2:          LD	A,(IY)
                 RET	
 ;
 ARRAYev:          LD	A,14		;'Bad use of array'	
-                JP	ERROR_	
+                JR	ERROR0ev	
 ;
 ; ARRLEN - Get start address and number of elements of an array
 ;   Inputs: HL addresses array descriptor
@@ -5008,14 +5011,17 @@ LOADS:          LD	DE,ACCS
                 LDIR	
                 RET	
 ;
-LOADS2:         LD	A,(HL)	
+LOADS2:         PUSH	IX	
+                POP	HL	
+LOADS3:         LD	A,(HL)	
                 LD	(DE),A	
                 INC	HL	
                 CP	CR	
+                JR	Z,REPDUN	
 REPDUN:         LD	A,80H		;STRING MARKER	
                 RET	Z	
                 INC	E	
-                JR	NZ,LOADS2	
+                JR	NZ,LOADS3	
                 RET			;RETURN NULL STRING	
 ;
 ; Version 5 extensions:
@@ -5804,8 +5810,8 @@ GET5:           LD	D,0
 GET6:           PUSH	BC	
                 CALL	OSBGET	
                 POP	BC	
-                JR	C,GET9		;EOF	
                 BIT	1,B	
+                JR	Z,GET10	
                 JR	Z,GET8	
                 CP	C	
                 JR	Z,GET9		;NUL (or supplied term)	
@@ -5817,9 +5823,11 @@ GET6:           PUSH	BC
                 JR	Z,GET9		;LF	
 GET7:           CP	CR	
                 JR	Z,GET9		;CR	
-GET8:           LD	(HL),A	
+GET8:           OR	A	
+GET10:          LD	(HL),A	
                 INC	L	
                 DEC	D	
+                JR	C,GET9		;EOF	
                 JR	NZ,GET6	
 GET9:           EX	DE,HL	
                 LD	A,80H	
@@ -6883,6 +6891,9 @@ MOD161:         CCF
 ;VERSION 2.1, 22-01-1984
 ;VERSION 3.1, 11-06-1987
 ;VERSION 5.0, 12-07-2024
+;VERSION 5.1, 28-12-2024
+;VERSION 5.2, 11-01-2025
+;VERSION 5.3, 31-01-2025
 ;
 ;                XDEF	XEQ	
 ;                XDEF	RUN0	
@@ -7325,7 +7336,6 @@ LET:            CALL	ASSIGN
                 JR	C,SYNTAX	;"Syntax error"	
                 JP	P,LETARR	;Numeric array	
                 JP	PE,LETARR	;String array	
-                LD	A,D		;Type	
                 PUSH	DE	
                 PUSH	HL	
                 CALL	EXPRS	
@@ -8697,32 +8707,30 @@ CLR:            CALL	CLEAR
                 LD	HL,(PAGE_)	
                 JR	RESTR1	
 ;
-;RESTORE ERROR
+;RESTORE DATA / ERROR / LOCAL
 ;
-RESERR:         INC	IY	
-                LD	A,2	
+RESDEL:         INC	IY		;Skip DATA / ERROR / LOCAL	
+                LD	A,C		;Save error code	
+                EX	AF,AF'	
+                LD	A,B		;1=DATA, 2=ERROR, 0=LOCAL	
                 CALL	RESLOC	
                 JR	NZ,XEQGO5	
-                LD	A,53		;ON ERROR not LOCAL	
-ERROR5:         JP	ERROR_	
-;
-;RESTORE DATA
-;
-RESDAT:         INC	IY	
-                LD	A,1	
-                CALL	RESLOC	
-                JR	NZ,XEQGO5	
-                LD	A,54		;'DATA not LOCAL'	
+                EX	AF,AF'		;Get error code	
                 DB	21H	
 NOLINE:         LD	A,41		;'No such line'	
-                JR	ERROR5	
+ERROR5:         JP	ERROR_	
 ;
-;RESTORE [line]
+;RESTORE [line | +n | DATA | ERROR | LOCAL]
 ;
 RESTOR:         CP	TERROR	
-                JR	Z,RESERR	
+                LD	BC,200H + 53	;'ON ERROR not LOCAL'	
+                JR	Z,RESDEL	
                 CP	TDATA	
-                JR	Z,RESDAT	
+                LD	BC,100H + 54	;'DATA not LOCAL'	
+                JR	Z,RESDEL	
+                CP	TLOCAL	
+                LD	BC,12		;'Not in a FN or PROC'	
+                JR	Z,RESDEL	
                 CP	'+'	
                 JR	Z,RESREL	
                 LD	HL,(PAGE_)	
@@ -8895,25 +8903,26 @@ BPUT:           CALL	CHANEL		;CHANNEL NUMBER
                 EXX	
                 LD	A,L	
                 POP	DE	
-                CALL	OSBPUT	
+BPUT1:          CALL	OSBPUT	
 BPUTX:          JR	XEQGO1ex	
+;
 ;
 BPUTS:          LD	A,E	
                 POP	DE	
                 LD	D,A	
                 LD	HL,ACCS	
+                OR	A	
+                JR	Z,BPUTS0	
 BPUTS1:         LD	A,(HL)	
                 INC	HL	
                 CALL	OSBPUT	
                 DEC	D	
                 JR	NZ,BPUTS1	
-                CALL	NXT	
+BPUTS0:         CALL	NXT	
                 CP	';'	
-                INC	IY	
-                JR	Z,BPUTX	
                 LD	A,LF	
-                CALL	OSBPUT	
-                DEC	IY	
+                JR	NZ,BPUT1	
+                INC	IY	
                 JR	BPUTX	
 ;
 ;CALL address[,var[,var...]]
@@ -9274,14 +9283,17 @@ MODIFS:         LD	A,L		;Operator
                 CP	'+'	
                 LD	A,H		;Type	
                 JR	NZ,STACCS	
-                PUSH	IY	
                 PUSH	IX	
-                POP	IY	
+                EX	(SP),IY	
                 CALL	PUSHS	
                 PUSH	IY	
                 POP	IX	
                 CALL	LOADS	
                 POP	BC	
+                LD	A,E	
+                ADD	A,C	
+                LD	A,19		;String too long	
+ERRORC:         JR	C,ERROR6	
                 LD	A,B		;Type	
                 INC	C	
                 DEC	C	
@@ -9354,7 +9366,7 @@ CHECK:          PUSH	HL
                 POP	HL	
                 RET	C	
                 XOR	A	
-                JP	ERROR_		;"No room"	
+ERROR6:         JP	ERROR_		;"No room"	
 ;
 STORS3:         LD	C,E	
                 PUSH	IX	
@@ -10185,7 +10197,7 @@ FREES2:         POP	DE
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;COMMANDS AND COMMON MODULE - "MAIN"
-;(C) COPYRIGHT R.T.RUSSELL 1981-2024
+;(C) COPYRIGHT R.T.RUSSELL 1981-2025
 ;
 ;THE NAME BBC BASIC IS USED WITH THE PERMISSION
 ;OF THE BRITISH BROADCASTING CORPORATION AND IS
@@ -10361,7 +10373,7 @@ PURGE:          LD	(HL),A		;CLEAR SCRATCHPAD
 VERMSG:         DB	"BBC BASIC (Z80) Version 5.00  "	
                 DB	CR	
                 DB	LF	
-NOTICE:         DB	"(C) Copyright R.T.Russell 2024"	
+NOTICE:         DB	"(C) Copyright R.T.Russell 2025"	
                 DB	CR	
                 DB	LF	
                 DB	0	
@@ -12291,14 +12303,14 @@ LEXAN7:         CP	'*'
                 JR	Z,LEXAN9	
                 OR	A	
                 CALL	P,LEX		;TOKENISE IF POSS.	
+                CP	TDATA	
+                JR	Z,LEXAN9	
                 CP	TOKLO	
                 JR	C,LEXAN8	
                 CP	TOKHI+1	
                 JR	NC,LEXAN8	
                 ADD	A,OFFSET	;LEFT VERSION	
 LEXAN8:         CP	TREM	
-                JR	Z,LEXAN9	
-                CP	TDATA	
                 JR	NZ,LEXANA	
 LEXAN9:         SET	6,C		;QUIT TOKENISING	
 LEXANA:         CP	TFN	
@@ -12431,6 +12443,7 @@ NXT1:           INC	IY
 ;VERSION 0.0, 26-10-1986
 ;VERSION 0.1, 14-12-1988 (BUG FIX)
 ;VERSION 5.0, 16-06-2024 (SHIFTS ADDED)
+;VERSION 5.1, 16-03-2025 (Shifts moved to new codes)
 ;
 ;BINARY FLOATING POINT REPRESENTATION:
 ;   32 BIT SIGN-MAGNITUDE NORMALIZED MANTISSA
@@ -12557,10 +12570,13 @@ FTABLE:         DW	ABS		;16 ABS
                 DW	FTEST		;40 TEST	
                 DW	FCOMP		;41 COMPARE	
 ;
-                DW	ISHL		;42 <<	
-                DW	ISHX		;43 <<<	
-                DW	ISAR		;44 >>	
-                DW	ISHR		;45 >>>	
+                DW	BAD		;42 Reserved for Z88	
+                DW	BAD		;43 Reserved for Z88	
+;
+                DW	ISHL		;44 <<	
+                DW	ISHX		;45 <<<	
+                DW	ISAR		;46 >>	
+                DW	ISHR		;47 >>>	
 ;
 RTABLE:         DW	FAND		;& (FLOATING-POINT)	
                 DW	FBDIV		;DIV	
@@ -13019,16 +13035,16 @@ TRUE:           LD	HL,-1
 ;
 ISHX:           	
 ISHL:           CALL	SHIFTS	
-                JR	Z,SHRET	
+                RET	Z	
 ISHL1:          EXX	
                 ADD	HL,HL	
                 EXX	
                 ADC	HL,HL	
                 DJNZ	ISHL1	
-SHRET:          RET	
+                RET	
 ;
 ISAR:           CALL	SHIFTS	
-                JR	Z,SHRET	
+                RET	Z	
 ISAR1:          SRA	H	
                 RR	L	
                 EXX	
@@ -13039,7 +13055,7 @@ ISAR1:          SRA	H
                 RET	
 ;
 ISHR:           CALL	SHIFTS	
-                JR	Z,SHRET	
+                RET	Z	
 ISHR1:          SRL	H	
                 RR	L	
                 EXX	
@@ -13057,10 +13073,10 @@ SHIFTS:         CALL	FIX2
                 LD	A,E	
                 EXX	
                 LD	B,32	
-                JR	NZ,SHMAX	
+                RET	NZ	
                 LD	B,A	
                 OR	A	
-SHMAX:          RET	
+                RET	
 ;
 ;FUNCTIONS:
 ;

@@ -8,14 +8,13 @@
 ; Modinfo:
 ; 14/12/2024:	Fix for *BYE command
 
-;			SEGMENT __VECTORS
+			SEGMENT __VECTORS
 			
-;			XREF	START
-;			XREF	ACCS
-;			XREF	TELL
+			XREF	START
+			XREF	ACCS
+			XREF	TELL
 		
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 				
 			INCLUDE	"equs.inc"
 			
@@ -122,11 +121,11 @@ _main:			LD	HL, ACCS		; Clear the ACCS
 ;							
 _autoload:		LD.LIL	HL, (IX+3)		; HLU: Address of filename
 			LD	DE, ACCS		;  DE: Destination address
-@@:			LD.LIL	A, (HL)			; Fetch the filename byte
+$$:			LD.LIL	A, (HL)			; Fetch the filename byte
 			LD	(DE), A			; 
 			INC.LIL	HL			; Increase the source pointer
 			INC	E			; We only need to increase E as ACCS is on a page boundary
-			JR	NZ, @B			; Loop until we hit a 0 byte
+			JR	NZ, $B			; Loop until we hit a 0 byte
 			DEC	E
 			LD	A, CR
 			LD	(DE), A			; Replace the 0 byte with a CR for BBC BASIC
@@ -186,7 +185,7 @@ _parse_params_1:	PUSH		BC			; Stack ARGC
 ; -  C: Length of token (in characters)
 ;
 _get_token:		LD		C, 0			; Initialise length
-@@:			LD.LIL		A, (HL)			; Get the character from the parameter string
+$$:			LD.LIL		A, (HL)			; Get the character from the parameter string
 			OR		A			; Exit if 0 (end of parameter string in MOS)
 			RET 		Z
 			CP		13			; Exit if CR (end of parameter string in BBC BASIC)
@@ -195,7 +194,7 @@ _get_token:		LD		C, 0			; Initialise length
 			RET		Z
 			INC.LIL		HL			; Advance to next character
 			INC 		C			; Increment length
-			JR		@B
+			JR		$B
 	
 ; Skip spaces in the parameter string
 ; Parameters:
@@ -243,4 +242,3 @@ _set_aix24:		PUSH.LIL	IX			; Stick IX onto SPL
 ; Storage for the argv array pointers
 ;
 argv_ptrs:		BLKP	argv_ptrs_max, 0		; Storage for the argv array pointers
-;    include "agon_init.inc"

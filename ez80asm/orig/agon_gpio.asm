@@ -10,13 +10,12 @@
 			INCLUDE	"equs.inc"
 
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 
-;			SEGMENT CODE
+			SEGMENT CODE
 				
-;			XDEF	GPIOB_SETMODE
+			XDEF	GPIOB_SETMODE
 				
-;			XREF	SWITCH_A
+			XREF	SWITCH_A
 
 ;  A: Mode
 ;  B: Pins
@@ -108,6 +107,4 @@ GPIOB_M9:		SET_GPIO PB_DR,   B
 			SET_GPIO PB_DDR,  B
 			SET_GPIO PB_ALT1, B
 			SET_GPIO PB_ALT2, B
-			RET	    
-			
-;			include "agon_gpio.inc"
+			RET	

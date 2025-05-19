@@ -20,6 +20,9 @@
 ;VERSION 2.3, 07-05-1984
 ;VERSION 3.0, 08-03-1987
 ;VERSION 5.0, 31-05-2024
+;VERSION 5.1, 28-12-2024
+;VERSION 5.2, 11-01-2025
+;VERSION 5.3, 16-03-2025 (Shifts moved to new codes)
 ;
 ;BINARY FLOATING POINT REPRESENTATION:
 ; 32 BIT SIGN-MAGNITUDE NORMALIZED MANTISSA
@@ -283,7 +286,7 @@ SHIFT:          CP	'='
                 INC	IY	
                 INC	B	
 SHIFT1:         LD	A,B	
-                SUB	18	
+                SUB	16	
                 JR	EXPR2D	
 ;
 EXPR2S:         EX	AF,AF'	
@@ -649,7 +652,7 @@ CONS2:          LD	A,(IY)
                 RET	
 ;
 ARRAYev:          LD	A,14		;'Bad use of array'	
-                JP	ERROR_	
+                JR	ERROR0ev	
 ;
 ; ARRLEN - Get start address and number of elements of an array
 ;   Inputs: HL addresses array descriptor
@@ -739,14 +742,17 @@ LOADS:          LD	DE,ACCS
                 LDIR	
                 RET	
 ;
-LOADS2:         LD	A,(HL)	
+LOADS2:         PUSH	IX	
+                POP	HL	
+LOADS3:         LD	A,(HL)	
                 LD	(DE),A	
                 INC	HL	
                 CP	CR	
+                JR	Z,REPDUN	
 REPDUN:         LD	A,80H		;STRING MARKER	
                 RET	Z	
                 INC	E	
-                JR	NZ,LOADS2	
+                JR	NZ,LOADS3	
                 RET			;RETURN NULL STRING	
 ;
 ; Version 5 extensions:
@@ -1535,8 +1541,8 @@ GET5:           LD	D,0
 GET6:           PUSH	BC	
                 CALL	OSBGET	
                 POP	BC	
-                JR	C,GET9		;EOF	
                 BIT	1,B	
+                JR	Z,GET10	
                 JR	Z,GET8	
                 CP	C	
                 JR	Z,GET9		;NUL (or supplied term)	
@@ -1548,9 +1554,11 @@ GET6:           PUSH	BC
                 JR	Z,GET9		;LF	
 GET7:           CP	CR	
                 JR	Z,GET9		;CR	
-GET8:           LD	(HL),A	
+GET8:           OR	A	
+GET10:          LD	(HL),A	
                 INC	L	
                 DEC	D	
+                JR	C,GET9		;EOF	
                 JR	NZ,GET6	
 GET9:           EX	DE,HL	
                 LD	A,80H	

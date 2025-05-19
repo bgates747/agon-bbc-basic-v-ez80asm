@@ -1,5 +1,5 @@
 ;
-;Automatically created from original source on 2024-12-20 19:08:22
+;Automatically created from original source on 2025-05-19 12:44:29
 ;
                 .ASSUME ADL = 0	
                 SEGMENT CODE	
@@ -15,7 +15,7 @@
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;COMMANDS AND COMMON MODULE - "MAIN"
-;(C) COPYRIGHT R.T.RUSSELL 1981-2024
+;(C) COPYRIGHT R.T.RUSSELL 1981-2025
 ;
 ;THE NAME BBC BASIC IS USED WITH THE PERMISSION
 ;OF THE BRITISH BROADCASTING CORPORATION AND IS
@@ -25,6 +25,7 @@
 ;VERSION 3.0, 01-03-1987
 ;VERSION 5.0, 31-05-2024
 ;VERSION 5.1, 10-08-2024
+;VERSION 5.2, 16-02-2025
 ;
                 XREF	XEQ	
                 XREF	RUN0	
@@ -191,7 +192,7 @@ PURGE:          LD	(HL),A		;CLEAR SCRATCHPAD
 VERMSG:         DB	'BBC BASIC (Z80) Version 5.00  '	
                 DB	CR	
                 DB	LF	
-NOTICE:         DB	'(C) Copyright R.T.Russell 2024'	
+NOTICE:         DB	'(C) Copyright R.T.Russell 2025'	
                 DB	CR	
                 DB	LF	
                 DB	0	
@@ -2120,14 +2121,14 @@ LEXAN7:         CP	'*'
                 JR	Z,LEXAN9	
                 OR	A	
                 CALL	P,LEX		;TOKENISE IF POSS.	
+                CP	TDATA	
+                JR	Z,LEXAN9	
                 CP	TOKLO	
                 JR	C,LEXAN8	
                 CP	TOKHI+1	
                 JR	NC,LEXAN8	
                 ADD	A,OFFSET	;LEFT VERSION	
 LEXAN8:         CP	TREM	
-                JR	Z,LEXAN9	
-                CP	TDATA	
                 JR	NZ,LEXANA	
 LEXAN9:         SET	6,C		;QUIT TOKENISING	
 LEXANA:         CP	TFN	

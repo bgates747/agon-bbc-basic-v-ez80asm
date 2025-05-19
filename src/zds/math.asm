@@ -1,5 +1,5 @@
 ;
-;Automatically created from original source on 2024-12-20 19:08:22
+;Automatically created from original source on 2025-05-19 12:44:29
 ;
                 .ASSUME ADL = 0	
                 SEGMENT CODE	
@@ -9,6 +9,7 @@
 ;VERSION 0.0, 26-10-1986
 ;VERSION 0.1, 14-12-1988 (BUG FIX)
 ;VERSION 5.0, 16-06-2024 (SHIFTS ADDED)
+;VERSION 5.1, 16-03-2025 (Shifts moved to new codes)
 ;
 ;BINARY FLOATING POINT REPRESENTATION:
 ;   32 BIT SIGN-MAGNITUDE NORMALIZED MANTISSA
@@ -133,10 +134,13 @@ FTABLE:         DW	ABS		;16 ABS
                 DW	FTEST		;40 TEST	
                 DW	FCOMP		;41 COMPARE	
 ;
-                DW	ISHL		;42 <<	
-                DW	ISHX		;43 <<<	
-                DW	ISAR		;44 >>	
-                DW	ISHR		;45 >>>	
+                DW	BAD		;42 Reserved for Z88	
+                DW	BAD		;43 Reserved for Z88	
+;
+                DW	ISHL		;44 <<	
+                DW	ISHX		;45 <<<	
+                DW	ISAR		;46 >>	
+                DW	ISHR		;47 >>>	
 ;
 RTABLE:         DW	FAND		;& (FLOATING-POINT)	
                 DW	FBDIV		;DIV	
@@ -595,16 +599,16 @@ TRUE:           LD	HL,-1
 ;
 ISHX:           	
 ISHL:           CALL	SHIFTS	
-                JR	Z,SHRET	
+                RET	Z	
 ISHL1:          EXX	
                 ADD	HL,HL	
                 EXX	
                 ADC	HL,HL	
                 DJNZ	ISHL1	
-SHRET:          RET	
+                RET	
 ;
 ISAR:           CALL	SHIFTS	
-                JR	Z,SHRET	
+                RET	Z	
 ISAR1:          SRA	H	
                 RR	L	
                 EXX	
@@ -615,7 +619,7 @@ ISAR1:          SRA	H
                 RET	
 ;
 ISHR:           CALL	SHIFTS	
-                JR	Z,SHRET	
+                RET	Z	
 ISHR1:          SRL	H	
                 RR	L	
                 EXX	
@@ -633,10 +637,10 @@ SHIFTS:         CALL	FIX2
                 LD	A,E	
                 EXX	
                 LD	B,32	
-                JR	NZ,SHMAX	
+                RET	NZ	
                 LD	B,A	
                 OR	A	
-SHMAX:          RET	
+                RET	
 ;
 ;FUNCTIONS:
 ;

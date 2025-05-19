@@ -7,22 +7,21 @@
 ; Modinfo:
 
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 				
 			INCLUDE	"macros.inc"
 			INCLUDE	"equs.inc"
 			INCLUDE "mos_api.inc"	; In MOS/src
 
-;			SEGMENT CODE
+			SEGMENT CODE
 				
-;			XDEF	VBLANK_INIT
-;			XDEF	VBLANK_STOP
-;			XDEF	VBLANK_HANDLER	
+			XDEF	VBLANK_INIT
+			XDEF	VBLANK_STOP
+			XDEF	VBLANK_HANDLER	
 
-;			XREF	ESCSET	
-;			XREF	KEYDOWN		; In ram.asm
-;			XREF	KEYASCII 	; In ram.asm
-;			XREF	KEYCOUNT	; In ram.asm
+			XREF	ESCSET	
+			XREF	KEYDOWN		; In ram.asm
+			XREF	KEYASCII 	; In ram.asm
+			XREF	KEYCOUNT	; In ram.asm
 
 ; Hook into the MOS VBLANK interrupt
 ;
@@ -121,4 +120,5 @@ VBLANK_HANDLER_MB:	LD		A, 0				; This is self-modified by VBLANK_INIT
 ;
 VBLANK_HANDLER_JP:	JP		0				; This is self-modified by VBLANK_INIT
 
-;				    include "agon_interrupt.inc"
+			.ASSUME	ADL = 0
+				

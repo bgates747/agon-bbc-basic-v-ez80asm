@@ -16,6 +16,9 @@
 ;VERSION 2.1, 22-01-1984
 ;VERSION 3.1, 11-06-1987
 ;VERSION 5.0, 12-07-2024
+;VERSION 5.1, 28-12-2024
+;VERSION 5.2, 11-01-2025
+;VERSION 5.3, 31-01-2025
 ;
 ;                XDEF	XEQ	
 ;                XDEF	RUN0	
@@ -458,7 +461,6 @@ LET:            CALL	ASSIGN
                 JR	C,SYNTAX	;"Syntax error"	
                 JP	P,LETARR	;Numeric array	
                 JP	PE,LETARR	;String array	
-                LD	A,D		;Type	
                 PUSH	DE	
                 PUSH	HL	
                 CALL	EXPRS	
@@ -1830,32 +1832,30 @@ CLR:            CALL	CLEAR
                 LD	HL,(PAGE_)	
                 JR	RESTR1	
 ;
-;RESTORE ERROR
+;RESTORE DATA / ERROR / LOCAL
 ;
-RESERR:         INC	IY	
-                LD	A,2	
+RESDEL:         INC	IY		;Skip DATA / ERROR / LOCAL	
+                LD	A,C		;Save error code	
+                EX	AF,AF'	
+                LD	A,B		;1=DATA, 2=ERROR, 0=LOCAL	
                 CALL	RESLOC	
                 JR	NZ,XEQGO5	
-                LD	A,53		;ON ERROR not LOCAL	
-ERROR5:         JP	ERROR_	
-;
-;RESTORE DATA
-;
-RESDAT:         INC	IY	
-                LD	A,1	
-                CALL	RESLOC	
-                JR	NZ,XEQGO5	
-                LD	A,54		;'DATA not LOCAL'	
+                EX	AF,AF'		;Get error code	
                 DB	21H	
 NOLINE:         LD	A,41		;'No such line'	
-                JR	ERROR5	
+ERROR5:         JP	ERROR_	
 ;
-;RESTORE [line]
+;RESTORE [line | +n | DATA | ERROR | LOCAL]
 ;
 RESTOR:         CP	TERROR	
-                JR	Z,RESERR	
+                LD	BC,200H + 53	;'ON ERROR not LOCAL'	
+                JR	Z,RESDEL	
                 CP	TDATA	
-                JR	Z,RESDAT	
+                LD	BC,100H + 54	;'DATA not LOCAL'	
+                JR	Z,RESDEL	
+                CP	TLOCAL	
+                LD	BC,12		;'Not in a FN or PROC'	
+                JR	Z,RESDEL	
                 CP	'+'	
                 JR	Z,RESREL	
                 LD	HL,(PAGE_)	
@@ -2028,25 +2028,26 @@ BPUT:           CALL	CHANEL		;CHANNEL NUMBER
                 EXX	
                 LD	A,L	
                 POP	DE	
-                CALL	OSBPUT	
+BPUT1:          CALL	OSBPUT	
 BPUTX:          JR	XEQGO1ex	
+;
 ;
 BPUTS:          LD	A,E	
                 POP	DE	
                 LD	D,A	
                 LD	HL,ACCS	
+                OR	A	
+                JR	Z,BPUTS0	
 BPUTS1:         LD	A,(HL)	
                 INC	HL	
                 CALL	OSBPUT	
                 DEC	D	
                 JR	NZ,BPUTS1	
-                CALL	NXT	
+BPUTS0:         CALL	NXT	
                 CP	';'	
-                INC	IY	
-                JR	Z,BPUTX	
                 LD	A,LF	
-                CALL	OSBPUT	
-                DEC	IY	
+                JR	NZ,BPUT1	
+                INC	IY	
                 JR	BPUTX	
 ;
 ;CALL address[,var[,var...]]
@@ -2407,14 +2408,17 @@ MODIFS:         LD	A,L		;Operator
                 CP	'+'	
                 LD	A,H		;Type	
                 JR	NZ,STACCS	
-                PUSH	IY	
                 PUSH	IX	
-                POP	IY	
+                EX	(SP),IY	
                 CALL	PUSHS	
                 PUSH	IY	
                 POP	IX	
                 CALL	LOADS	
                 POP	BC	
+                LD	A,E	
+                ADD	A,C	
+                LD	A,19		;String too long	
+ERRORC:         JR	C,ERROR6	
                 LD	A,B		;Type	
                 INC	C	
                 DEC	C	
@@ -2487,7 +2491,7 @@ CHECK:          PUSH	HL
                 POP	HL	
                 RET	C	
                 XOR	A	
-                JP	ERROR_		;"No room"	
+ERROR6:         JP	ERROR_		;"No room"	
 ;
 STORS3:         LD	C,E	
                 PUSH	IX	

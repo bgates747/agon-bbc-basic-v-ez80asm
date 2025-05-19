@@ -1,9 +1,8 @@
 ;
-;Automatically created from original source on 2024-12-15 15:29:12
+;Automatically created from original source on 2025-05-19 12:44:29
 ;
                 .ASSUME ADL = 0	
-;	.ORG 0x0000
-;                SEGMENT CODE	
+                SEGMENT CODE	
 ;
 ;BBC BASIC INTERPRETER - Z80 VERSION
 ;Z80 CPU ASSEMBLER MODULE - "ASMB"
@@ -15,23 +14,23 @@
 ;
 ;VERSION 5.0, 14-05-2024
 ;
-;                XDEF	ASSEM	
+                XDEF	ASSEM	
 ;
-;                XREF	TABIT	
-;                XREF	CRLF	
-;                XREF	OUT	
-;                XREF	VAR_	
-;                XREF	ZERO	
-;                XREF	STOREN	
-;                XREF	ERROR_	
-;                XREF	EXPRI	
-;                XREF	EXPRS	
+                XREF	TABIT	
+                XREF	CRLF	
+                XREF	OUT	
+                XREF	VAR_	
+                XREF	ZERO	
+                XREF	STOREN	
+                XREF	ERROR_	
+                XREF	EXPRI	
+                XREF	EXPRS	
 ;
-;                XREF	LISTON	
-;                XREF	COUNT	
-;                XREF	ACCS	
-;                XREF	OC	
-;                XREF	PC	
+                XREF	LISTON	
+                XREF	COUNT	
+                XREF	ACCS	
+                XREF	OC	
+                XREF	PC	
 ;
 CR:             EQU	0DH	
 TAND:           EQU	80H	
@@ -640,49 +639,49 @@ TERM0:          CP	':'		;ASSEMBLER SEPARATOR
                 CP	CR	
                 RET	
 ;
-OPCODS:         DB	"NO"	
+OPCODS:         DB	'NO'	
                 DB	'P'+80H	
                 DB	0	
-                DB	"RLC"	
+                DB	'RLC'	
                 DB	'A'+80H	
                 DB	7	
-                DB	"EX"	
+                DB	'EX'	
                 DB	0	
-                DB	"AF"	
+                DB	'AF'	
                 DB	0	
-                DB	"AF"	
-                DB	27H+80H ; APOSTROPHE	
+                DB	'AF'	
+                DB	'''+80H	
                 DB	8	
-                DB	"RRC"	
+                DB	'RRC'	
                 DB	'A'+80H	
                 DB	0FH	
-                DB	"RL"	
+                DB	'RL'	
                 DB	'A'+80H	
                 DB	17H	
-                DB	"RR"	
+                DB	'RR'	
                 DB	'A'+80H	
                 DB	1FH	
-                DB	"DA"	
+                DB	'DA'	
                 DB	'A'+80H	
                 DB	27H	
-                DB	"CP"	
+                DB	'CP'	
                 DB	'L'+80H	
                 DB	2FH	
-                DB	"SC"	
+                DB	'SC'	
                 DB	'F'+80H	
                 DB	37H	
-                DB	"CC"	
+                DB	'CC'	
                 DB	'F'+80H	
                 DB	3FH	
-                DB	"HAL"	
+                DB	'HAL'	
                 DB	'T'+80H	
                 DB	76H	
-                DB	"EX"	
+                DB	'EX'	
                 DB	'X'+80H	
                 DB	0D9H	
-                DB	"EX"	
+                DB	'EX'	
                 DB	0	
-                DB	"DE"	
+                DB	'DE'	
                 DB	0	
                 DB	'H'	
                 DB	'L'+80H	
@@ -694,96 +693,96 @@ OPCODS:         DB	"NO"
                 DB	'I'+80H	
                 DB	0FBH	
 ;
-                DB	"NE"	
+                DB	'NE'	
                 DB	'G'+80H	
                 DB	44H	
-                DB	"IM"	
+                DB	'IM'	
                 DB	0	
                 DB	'0'+80H	
                 DB	46H	
-                DB	"RET"	
+                DB	'RET'	
                 DB	'N'+80H	
                 DB	45H	
-                DB	"RET"	
+                DB	'RET'	
                 DB	'I'+80H	
                 DB	4DH	
-                DB	"IM"	
+                DB	'IM'	
                 DB	0	
                 DB	'1'+80H	
                 DB	56H	
-                DB	"IM"	
+                DB	'IM'	
                 DB	0	
                 DB	'2'+80H	
                 DB	5EH	
-                DB	"RR"	
+                DB	'RR'	
                 DB	'D'+80H	
                 DB	67H	
-                DB	"RL"	
+                DB	'RL'	
                 DB	'D'+80H	
                 DB	6FH	
-                DB	"LD"	
+                DB	'LD'	
                 DB	'I'+80H	
                 DB	0A0H	
-                DB	"CP"	
+                DB	'CP'	
                 DB	'I'+80H	
                 DB	0A1H	
-                DB	"IN"	
+                DB	'IN'	
                 DB	'I'+80H	
                 DB	0A2H	
-                DB	"OUT"	
+                DB	'OUT'	
                 DB	'I'+80H	
                 DB	0A3H	
-                DB	"LD"	
+                DB	'LD'	
                 DB	'D'+80H	
                 DB	0A8H	
-                DB	"CP"	
+                DB	'CP'	
                 DB	'D'+80H	
                 DB	0A9H	
-                DB	"IN"	
+                DB	'IN'	
                 DB	'D'+80H	
                 DB	0AAH	
-                DB	"OUT"	
+                DB	'OUT'	
                 DB	'D'+80H	
                 DB	0ABH	
-                DB	"LDI"	
+                DB	'LDI'	
                 DB	'R'+80H	
                 DB	0B0H	
-                DB	"CPI"	
+                DB	'CPI'	
                 DB	'R'+80H	
                 DB	0B1H	
-                DB	"INI"	
+                DB	'INI'	
                 DB	'R'+80H	
                 DB	0B2H	
-                DB	"OTI"	
+                DB	'OTI'	
                 DB	'R'+80H	
                 DB	0B3H	
-                DB	"LDD"	
+                DB	'LDD'	
                 DB	'R'+80H	
                 DB	0B8H	
-                DB	"CPD"	
+                DB	'CPD'	
                 DB	'R'+80H	
                 DB	0B9H	
-                DB	"IND"	
+                DB	'IND'	
                 DB	'R'+80H	
                 DB	0BAH	
-                DB	"OTD"	
+                DB	'OTD'	
                 DB	'R'+80H	
                 DB	0BBH	
 ;
-                DB	"BI"	
+                DB	'BI'	
                 DB	'T'+80H	
                 DB	40H	
-                DB	"RE"	
+                DB	'RE'	
                 DB	'S'+80H	
                 DB	80H	
-                DB	"SE"	
+                DB	'SE'	
                 DB	'T'+80H	
                 DB	0C0H	
 ;
-                DB	"RL"	
+                DB	'RL'	
                 DB	'C'+80H	
                 DB	0	
-                DB	"RR"	
+                DB	'RR'	
                 DB	'C'+80H	
                 DB	8	
                 DB	'R'	
@@ -792,35 +791,35 @@ OPCODS:         DB	"NO"
                 DB	'R'	
                 DB	'R'+80H	
                 DB	18H	
-                DB	"SL"	
+                DB	'SL'	
                 DB	'A'+80H	
                 DB	20H	
-                DB	"SR"	
+                DB	'SR'	
                 DB	'A'+80H	
                 DB	28H	
-                DB	"SR"	
+                DB	'SR'	
                 DB	'L'+80H	
                 DB	38H	
 ;
-                DB	"PO"	
+                DB	'PO'	
                 DB	'P'+80H	
                 DB	0C1H	
-                DB	"PUS"	
+                DB	'PUS'	
                 DB	'H'+80H	
                 DB	0C5H	
-                DB	"EX"	
+                DB	'EX'	
                 DB	0	
-                DB	"(S"	
+                DB	'(S'	
                 DB	'P'+80H	
                 DB	0E3H	
 ;
-                DB	"SU"	
+                DB	'SU'	
                 DB	'B'+80H	
                 DB	90H	
-                DB	"AN"	
+                DB	'AN'	
                 DB	'D'+80H	
                 DB	0A0H	
-                DB	"XO"	
+                DB	'XO'	
                 DB	'R'+80H	
                 DB	0A8H	
                 DB	'O'	
@@ -834,34 +833,34 @@ OPCODS:         DB	"NO"
                 DB	TOR	
                 DB	0B0H	
 ;
-                DB	"AD"	
+                DB	'AD'	
                 DB	'D'+80H	
                 DB	80H	
-                DB	"AD"	
+                DB	'AD'	
                 DB	'C'+80H	
                 DB	88H	
-                DB	"SB"	
+                DB	'SB'	
                 DB	'C'+80H	
                 DB	98H	
 ;
-                DB	"IN"	
+                DB	'IN'	
                 DB	'C'+80H	
                 DB	4	
-                DB	"DE"	
+                DB	'DE'	
                 DB	'C'+80H	
                 DB	5	
 ;
                 DB	'I'	
                 DB	'N'+80H	
                 DB	40H	
-                DB	"OU"	
+                DB	'OU'	
                 DB	'T'+80H	
                 DB	41H	
 ;
                 DB	'J'	
                 DB	'R'+80H	
                 DB	20H	
-                DB	"DJN"	
+                DB	'DJN'	
                 DB	'Z'+80H	
                 DB	10H	
 ;
@@ -869,15 +868,15 @@ OPCODS:         DB	"NO"
                 DB	'P'+80H	
                 DB	0C2H	
 ;
-                DB	"CAL"	
+                DB	'CAL'	
                 DB	'L'+80H	
                 DB	0C4H	
 ;
-                DB	"RS"	
+                DB	'RS'	
                 DB	'T'+80H	
                 DB	0C7H	
 ;
-                DB	"RE"	
+                DB	'RE'	
                 DB	'T'+80H	
                 DB	0C0H	
 ;
@@ -893,7 +892,7 @@ OPCODS:         DB	"NO"
                 DB	'B'+80H	
                 DB	0	
 ;
-                DB	"OP"	
+                DB	'OP'	
                 DB	'T'+80H	
                 DB	0	
 ;
@@ -915,15 +914,15 @@ OPRNDS:         DB	'B'+80H
                 DB	4	
                 DB	'L'+80H	
                 DB	5	
-                DB	"(H"	
+                DB	'(H'	
                 DB	'L'+80H	
                 DB	6	
                 DB	'A'+80H	
                 DB	7	
-                DB	"(I"	
+                DB	'(I'	
                 DB	'X'+80H	
                 DB	86H	
-                DB	"(I"	
+                DB	'(I'	
                 DB	'Y'+80H	
                 DB	0C6H	
 ;
@@ -990,26 +989,25 @@ LDOPS:          DB	'I'
                 DB	0	
                 DB	'R'+80H	
                 DB	5FH	
-                DB	"(BC"	
+                DB	'(BC'	
                 DB	0	
                 DB	'A'+80H	
                 DB	2	
-                DB	"(DE"	
+                DB	'(DE'	
                 DB	0	
                 DB	'A'+80H	
                 DB	12H	
                 DB	'A'	
                 DB	0	
-                DB	"(B"	
+                DB	'(B'	
                 DB	'C'+80H	
                 DB	0AH	
                 DB	'A'	
                 DB	0	
-                DB	"(D"	
+                DB	'(D'	
                 DB	'E'+80H	
                 DB	1AH	
 ;
                 DB	0	
 ;
-FIN:            ; END	
-;    include "asmb.inc"
+FIN:            END	

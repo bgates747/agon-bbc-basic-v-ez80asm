@@ -1,1 +1,0 @@
-SWITCH_A: EQU 0

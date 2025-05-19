@@ -8,19 +8,18 @@
 ; 11/12/2024:	Modified SOUND_ to work with OSWORD
 			
 			.ASSUME	ADL = 0
-;	.ORG 0x0000
 				
 			INCLUDE	"equs.inc"
 			INCLUDE "macros.inc"
 			INCLUDE "mos_api.inc"	; In MOS/src
 		
-;			SEGMENT CODE
+			SEGMENT CODE
 			
-;			XDEF	SOUND_
+			XDEF	SOUND_
 			
-;			XREF	OSWRCH
-;			XREF	VDU_BUFFER
-;			XREF	LTRAP
+			XREF	OSWRCH
+			XREF	VDU_BUFFER
+			XREF	LTRAP
 
 ; SOUND channel,volume,pitch,duration
 ; Parameters:
@@ -88,8 +87,8 @@ SOUND0:			RES.LIL	3, (IX+sysvar_vpd_pflags)
 ;
 ; Wait for acknowledgement
 ;
-@@:			BIT.LIL	3, (IX+sysvar_vpd_pflags)
-			JR	Z, @B			; Wait for the result
+$$:			BIT.LIL	3, (IX+sysvar_vpd_pflags)
+			JR	Z, $B			; Wait for the result
 			CALL	LTRAP			; Check for ESC
 			LD.LIL	A, (IX+sysvar_audioSuccess)
 			AND	A			; Check if VDP has queued the note
@@ -154,4 +153,3 @@ SOUND_FREQ_LOOKUP:	DW	 117,  118,  120,  122,  123,  131,  133,  135
 			DW	4371, 4435, 4499, 4565, 4631, 4699, 4767, 4836	
 
 
-;    include "agon_sound.inc"

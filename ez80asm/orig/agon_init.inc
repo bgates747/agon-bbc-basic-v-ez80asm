@@ -1,2 +1,0 @@
-TELL: EQU 0
-START: EQU 0
